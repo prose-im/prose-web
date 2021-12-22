@@ -34,7 +34,7 @@ export default function Home() {
             <div className="content">
               <div className="pill pill-gradient-blue earth">
                 <div className="earth-inner">
-                  <Image layout="fill" src="/planet.png" width={98} height={98} quality={100} priority alt="earth" />
+                  <Image layout="fill" src="/planet.png" quality={100} priority alt="earth" />
                 </div>
               </div>
             </div>
