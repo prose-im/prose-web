@@ -1,0 +1,22 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Sora", -apple-system, sans-serif;
+}
+
+body {
+  color: var(--prose-navy);
+  margin: 0 auto;
+  max-width: 1200px;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+.pad-x {
+  padding: 0 min(calc(24px + 1.8vw), 40px);
+}
+
+.justify-center {
+  justify-content: center;
+}

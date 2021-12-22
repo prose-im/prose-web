@@ -1,0 +1,19 @@
+.btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 32px;
+  border: 2px solid var(--prose-navy);
+  border-radius: 32px;
+
+  &-outlined {
+    background-color: var(--prose-light-grey);
+    border: 2px solid var(--prose-light-grey);
+  }
+
+  &-filled {
+    background-color: var(--prose-navy);
+    color: var(--prose-white);
+  }
+}

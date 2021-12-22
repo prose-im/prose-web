@@ -1,0 +1,10 @@
+@import "./base/reset";
+@import "./base/variables";
+@import "./base/mixins";
+@import "./base/globals";
+@import "./base/typography";
+
+@import "./components/navlink.scss";
+@import "./components/navbar.scss";
+
+@import "./pages/home.scss";
