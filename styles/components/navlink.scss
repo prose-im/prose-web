@@ -16,4 +16,9 @@
     background-color: var(--prose-navy);
     color: var(--prose-white);
   }
+
+  &-secondary {
+    background-color: var(--prose-white);
+    color: var(--prose-navy);
+  }
 }

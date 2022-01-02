@@ -1,11 +1,12 @@
 import Link from "next/link";
 import classNames from "classnames";
 
-export default function NavLink({ href, filled, outlined, children }) {
+export default function NavLink({ href, filled, secondary, outlined, children }) {
   var linkClass = classNames({
-    'btn': filled || outlined,
+    'btn': filled || outlined || secondary,
     'btn-filled': filled,
-    'btn-outlined': outlined
+    'btn-outlined': outlined,
+    'btn-secondary': secondary
   });
 
   return (

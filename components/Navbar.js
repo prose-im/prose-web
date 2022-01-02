@@ -3,8 +3,8 @@ import NavLink from "./NavLink";
 
 export default function Navbar() {
   return (
-    <header className="header pad-x">
-      <nav className="nav">
+    <header className="header">
+      <nav className="nav pad-x">
         <NavLink href="/">
           <Logo />
         </NavLink>
@@ -17,10 +17,10 @@ export default function Navbar() {
         </ul>
         <ul>
           <li className="nav-cta">
-            <NavLink href="/docs" outlined>
+            <NavLink href="/login" outlined>
               Login
             </NavLink>
-            <NavLink href="/docs" filled>
+            <NavLink href="/downloads" filled>
               Download
             </NavLink>
           </li>
