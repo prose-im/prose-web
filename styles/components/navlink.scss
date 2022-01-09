@@ -1,3 +1,9 @@
+.nav-link {
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
 .btn {
   display: flex;
   flex-direction: row;

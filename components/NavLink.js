@@ -3,6 +3,7 @@ import classNames from "classnames";
 
 export default function NavLink({ href, filled, secondary, outlined, children }) {
   var linkClass = classNames({
+    'nav-link': true,
     'btn': filled || outlined || secondary,
     'btn-filled': filled,
     'btn-outlined': outlined,

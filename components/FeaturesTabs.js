@@ -1,7 +1,7 @@
 import Image from "next/image";
 import classNames from "classnames";
 import { useState } from "react";
-import media from "../public/main__product__video.png";
+import media from "../public/images/main__product__video.png";
 
 const features = [
   {
@@ -64,6 +64,12 @@ export default function FeaturesTabs() {
             <p className="features-tabs-description text-center">{description}</p>
             <div className="features-tabs-media">
               <Image layout="responsive" src={media} quality={100} placeholder="blur" alt="" />
+              <div className="cloud">
+                <Image layout="fill" src="/images/Cloud-Two.png" quality={100} alt="cloud" />
+              </div>
+              <div className="bubble">
+                <Image layout="fill" src="/images/bubble.png" quality={100} alt="bubble" />
+              </div>
             </div>
           </div>
         ))}

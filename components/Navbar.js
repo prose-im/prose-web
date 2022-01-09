@@ -20,7 +20,7 @@ export default function Navbar() {
             <NavLink href="/login" outlined>
               Login
             </NavLink>
-            <NavLink href="/downloads" filled>
+            <NavLink href="/download" filled>
               Download
             </NavLink>
           </li>

@@ -20,8 +20,8 @@ body {
 }
 
 .pad-y {
-  padding-top: calc(64px + 2.5vw);
-  padding-bottom: calc(64px + 2.5vw);
+  padding-top: calc(80px + 2.5vw);
+  padding-bottom: calc(80px + 2.5vw);
 }
 
 .justify-center {
@@ -38,7 +38,7 @@ body {
 
 .highlight-one {
   position: relative;
-  white-space:nowrap;
+  white-space: nowrap;
 
   &::before {
     content: "";
@@ -49,7 +49,7 @@ body {
     top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: url("/highlight-one.svg");
+    background: url("/images/highlight-one.svg");
     background-repeat: no-repeat;
     background-size: contain;
   }
@@ -57,7 +57,7 @@ body {
 
 .highlight-two {
   position: relative;
-  white-space:nowrap;
+  white-space: nowrap;
 
   &::before {
     content: "";
@@ -68,7 +68,7 @@ body {
     top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: url("/highlight-two.svg");
+    background: url("/images/highlight-two.svg");
     background-repeat: no-repeat;
     background-size: contain;
   }
@@ -76,7 +76,7 @@ body {
 
 .highlight-three {
   position: relative;
-  white-space:nowrap;
+  white-space: nowrap;
 
   &::before {
     content: "";
@@ -87,7 +87,7 @@ body {
     top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: url("/highlight-three.svg");
+    background: url("/images/highlight-three.svg");
     background-repeat: no-repeat;
     background-size: contain;
   }
@@ -96,22 +96,26 @@ body {
 .flagged {
   position: relative;
 
+  * {
+    z-index: 2;
+    position: relative;
+  }
+
   &::before {
     content: "";
     position: absolute;
     width: 156px;
-    z-index: -1;
     height: 254px;
-    top: 50%;
+    top: 80%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: url("/flag.png");
+    background: url("/images/flag.png");
     background-repeat: no-repeat;
     background-size: contain;
 
     @include tablet() {
       width: 125px;
-      top: 90%;
+      top: 150%;
     }
   }
 }
