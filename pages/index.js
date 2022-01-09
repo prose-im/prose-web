@@ -129,6 +129,7 @@ export default function Home() {
                 src="/macbook-pro.png"
                 height={253}
                 width={442}
+                priority
                 quality={100}
                 alt="macbook pro"
               />
@@ -139,7 +140,15 @@ export default function Home() {
           </div>
           <div className="features-grid-item privacy">
             <div className="shield">
-              <Image layout="responsive" src="/shield.png" height={224} width={200} quality={100} alt="shield" />
+              <Image
+                layout="responsive"
+                src="/shield.png"
+                priority
+                height={224}
+                width={200}
+                quality={100}
+                alt="shield"
+              />
             </div>
             <h3 className="title-sm">
               Privacy, built-in. <br />
@@ -151,14 +160,30 @@ export default function Home() {
               Open Source. <br /> <span className="darker-text">Community driven and non-profit.</span>
             </h3>
             <div className="folder">
-              <Image layout="responsive" src="/folder.png" height={312} width={256} quality={100} alt="folder" />
+              <Image
+                layout="responsive"
+                src="/folder.png"
+                priority
+                height={312}
+                width={256}
+                quality={100}
+                alt="folder"
+              />
             </div>
           </div>
           <div className="features-grid-item decent">
             <h3 className="title-sm">Decentralized</h3>
             <p className="title-xs">Your data is safe</p>
             <div className="globe">
-              <Image layout="responsive" src="/globe.png" height={418} width={318} quality={100} alt="globe" />
+              <Image
+                layout="responsive"
+                src="/globe.png"
+                priority
+                height={418}
+                width={318}
+                quality={100}
+                alt="globe"
+              />
             </div>
           </div>
         </div>
@@ -168,8 +193,8 @@ export default function Home() {
         <h2 className="title-md text-center flagged">Batteries included</h2>
         <IconFeatures />
         <div className="btn-wrapper">
-          <NavLink href="/download" filled>
-            Download
+          <NavLink href="/features" filled>
+            Discover all features
           </NavLink>
         </div>
       </section>

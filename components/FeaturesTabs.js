@@ -49,12 +49,14 @@ export default function FeaturesTabs() {
 
   return (
     <div className="features-tabs">
-      <div className="features-tabs-toggles">
-        {features.map(({ title }, idx) => (
-          <Tab key={idx} active={currentTab === idx} onClick={() => setCurrentTab(idx)}>
-            {title}
-          </Tab>
-        ))}
+      <div className="full-width">
+        <div className="features-tabs-toggles">
+          {features.map(({ title }, idx) => (
+            <Tab key={idx} active={currentTab === idx} onClick={() => setCurrentTab(idx)}>
+              {title}
+            </Tab>
+          ))}
+        </div>
       </div>
       <div className="features-tabs-content-wrapper">
         {features.map(({ media, description }, idx) => (

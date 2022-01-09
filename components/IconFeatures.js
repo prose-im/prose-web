@@ -23,7 +23,7 @@ function IconFeature({ icon, title, description }) {
 
 export default function IconFeatures() {
   return (
-    <div className="icon-features">
+    <div className="icon-features-grid">
       {features.map(({ icon, title, description }, idx) => (
         <IconFeature key={idx} icon={icon} title={title} description={description} />
       ))}

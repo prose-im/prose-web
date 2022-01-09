@@ -6,21 +6,21 @@ export default function BellIcon() {
         stroke="currentColor"
         strokeWidth="2"
         strokeLinecap="round"
-        strokeLineJoin="round"
+        strokeLinejoin="round"
       />
       <path
         d="M16.5 5.43681V4.06348"
         stroke="currentColor"
         strokeWidth="2"
         strokeLinecap="round"
-        strokeLineJoin="round"
+        strokeLinejoin="round"
       />
       <path
         d="M20.6066 24.6233C20.6066 26.9033 18.7666 28.73 16.5 28.73C14.2333 28.73 12.3933 26.89 12.3933 24.6233H20.6066Z"
         stroke="currentColor"
         strokeWidth="2"
         strokeLinecap="round"
-        strokeLineJoin="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

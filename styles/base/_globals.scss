@@ -9,6 +9,7 @@ body {
   color: var(--prose-navy);
   line-height: 1.5;
   font-size: 16px;
+  overflow-x: hidden;
 }
 
 .pad-x {
@@ -37,6 +38,7 @@ body {
 
 .highlight-one {
   position: relative;
+  white-space:nowrap;
 
   &::before {
     content: "";
@@ -55,6 +57,7 @@ body {
 
 .highlight-two {
   position: relative;
+  white-space:nowrap;
 
   &::before {
     content: "";
@@ -73,6 +76,7 @@ body {
 
 .highlight-three {
   position: relative;
+  white-space:nowrap;
 
   &::before {
     content: "";
@@ -104,5 +108,19 @@ body {
     background: url("/flag.png");
     background-repeat: no-repeat;
     background-size: contain;
+
+    @include tablet() {
+      width: 125px;
+      top: 90%;
+    }
   }
+}
+
+.full-width {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
 }

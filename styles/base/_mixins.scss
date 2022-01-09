@@ -1,9 +1,9 @@
 @use "sass:map";
 
 $breakpoints: (
-  'phone': 600px,
-  'tablet': 900px,
-  'desktop': 1120px
+  'phone': 640px,
+  'tablet': 1024px,
+  'desktop': 1200px
 );
 
 @mixin desktop() {

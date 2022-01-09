@@ -13,7 +13,7 @@ export default function CallToAction() {
           </NavLink>
         </div>
         <div className="app-icon">
-          <Image layout="responsive" width={599} height={599} src="/app-icon.png" quality={100} alt="app icon" />
+          <Image layout="responsive" width={599} height={599} priority src="/app-icon.png" quality={100} alt="app icon" />
         </div>
       </div>
     </section>
