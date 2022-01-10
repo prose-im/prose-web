@@ -43,6 +43,12 @@
       filter: blur(20px);
       opacity: 0.4;
     }
+
+    .clock {
+      span {
+        overflow: visible !important;
+      }
+    }
   }
 
   .bell {

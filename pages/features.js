@@ -65,8 +65,8 @@ export default function Features() {
           <Image
             layout="responsive"
             src="/images/sticky-notes.png"
-            width={227}
-            height={254}
+            width={241}
+            height={255}
             quality={100}
             priority
             alt="sticky-notes"
@@ -101,8 +101,8 @@ export default function Features() {
           <Image
             layout="responsive"
             src="/images/bell.png"
-            width={486}
-            height={840}
+            width={480}
+            height={757}
             quality={100}
             priority
             alt="bell"
