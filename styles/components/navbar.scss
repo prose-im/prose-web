@@ -6,6 +6,14 @@
   top: 0;
   background: var(--prose-white);
   z-index: 99;
+  border-bottom: 1px solid transparent;
+  transition: all 0.15s ease-in-out;
+
+  &.bordered {
+    border-bottom: 1px solid var(--prose-light-grey);
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.8);
+  }
 }
 
 .nav {
@@ -47,10 +55,12 @@
 .nav-menu-toggle {
   outline: none;
   border: none;
-  background-color: var(--prose-light-grey);
+  background-color: transparent;
+  border: 1px solid var(--prose-light-grey);
   border-radius: 50px;
   display: none;
   place-items: center;
+  color: inherit;
 
   height: 52px;
   width: 52px;

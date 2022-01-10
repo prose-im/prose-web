@@ -16,13 +16,14 @@
     }
 
     .logo svg {
-      width: fit-content;
+      width: auto;
       height: 40px;
     }
 
     .footer-col {
       display: flex;
       flex-direction: column;
+      justify-items: flex-start;
       gap: 16px;
 
       &:nth-child(1) {

@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function CallToAction() {
   return (
-    <section id="cta" className="pad-y">
+    <section id="cta" className="pad-y pad-x">
       <div className="cta-content">
         <div className="cta-text">
           <h3 className="title-md">Start messaging your team today.</h3>

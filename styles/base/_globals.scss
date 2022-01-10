@@ -12,11 +12,19 @@ body {
   overflow-x: hidden;
 }
 
-.pad-x {
+.container {
   margin: 0 auto;
   max-width: 1200px;
-  padding-left: min(calc(24px + 1.8vw), 40px);
-  padding-right: min(calc(24px + 1.8vw), 40px);
+}
+
+.pad-x {
+  padding-left: min(calc(24px + 1.8vw), 48px);
+  padding-right: min(calc(24px + 1.8vw), 48px);
+
+  @include phone() {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
 }
 
 .pad-y {
@@ -36,6 +44,18 @@ body {
   color: var(--prose-navy);
 }
 
+.dark-grey {
+  color: var(--prose-dark-grey);
+}
+
+.grey {
+  color: var(--prose-grey);
+}
+
+.light-grey {
+  color: var(--prose-light-grey);
+}
+
 .highlight-one {
   position: relative;
   white-space: nowrap;
@@ -45,8 +65,8 @@ body {
     position: absolute;
     width: 120%;
     z-index: -1;
-    height: 250%;
-    top: 60%;
+    height: 200%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
     background: url("/images/highlight-one.svg");
@@ -93,6 +113,16 @@ body {
   }
 }
 
+.title-sm .highlight-two::before {
+  top: 80%;
+  width: 140%;
+}
+
+.title-sm .highlight-three::before {
+  top: 80%;
+  width: 180%;
+}
+
 .flagged {
   position: relative;
 
@@ -115,7 +145,8 @@ body {
 
     @include tablet() {
       width: 125px;
-      top: 150%;
+      height: 160px;
+      top: 20px;
     }
   }
 }
@@ -124,7 +155,15 @@ body {
   width: 100vw;
   position: relative;
   left: 50%;
-  right: 50%;
   margin-left: -50vw;
-  margin-right: -50vw;
+}
+
+.separator {
+  height: 2px;
+  width: 100%;
+  background-color: var(--prose-light-grey);
+}
+
+.no-break {
+  white-space: nowrap;
 }

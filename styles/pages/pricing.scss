@@ -1,0 +1,16 @@
+#pricing-s1 {
+    .p-xl {
+      color: var(--prose-dark-grey);
+      padding-top: 2vw;
+      max-width: 835px;
+      margin: 0 auto;
+    }
+  
+    .btn-wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      margin-top: 32px;
+    }
+  }

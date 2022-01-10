@@ -1,6 +1,5 @@
 #home-s1 {
   .p-xl {
-    color: var(--prose-dark-grey);
     padding-top: calc(32px + 2vw);
     max-width: 835px;
     margin: 0 auto;
@@ -12,7 +11,6 @@
     z-index: 4;
     right: 18%;
     width: calc(30px + 6vw);
-    aspect-ratio: 1.2;
   }
 
   .cloud-two {
@@ -21,11 +19,9 @@
     z-index: 4;
     left: -5%;
     width: calc(50px + 6vw);
-    aspect-ratio: 1.2;
   }
 
   .grid {
-    // padding-top: calc(64px + 3vw);
     display: grid;
     gap: min(2vw, 24px);
     grid-template-columns: repeat(14, 1fr);
@@ -134,7 +130,7 @@
     border-radius: 50%;
     position: relative;
     height: 80%;
-    aspect-ratio: 1 / 1;
+    width: 80%;
     background: linear-gradient(180deg, var(--prose-white) 0%, var(--prose-grey) 100%);
     display: grid;
     place-items: center;
@@ -163,7 +159,6 @@
     display: grid;
     padding: 17%;
     place-items: center;
-    aspect-ratio: 1/1;
 
     &-inner {
       position: relative;
@@ -193,7 +188,6 @@
   .arrow-up {
     display: grid;
     place-items: center;
-    aspect-ratio: 1/1;
 
     svg {
       height: 60%;
@@ -236,7 +230,7 @@
     &-description {
       max-width: 850px;
       margin: 0 auto;
-      padding: 0 0 16px 0;
+      padding: 0 0 16px;
       z-index: 0;
     }
 
@@ -256,7 +250,6 @@
         top: 25%;
         right: -5%;
         width: calc(80px + 6vw);
-        aspect-ratio: 1.2;
       }
 
       .bubble {
@@ -264,7 +257,6 @@
         top: 25%;
         left: -2%;
         width: calc(30px + 6vw);
-        aspect-ratio: 1;
         z-index: -1;
       }
     }
@@ -312,7 +304,7 @@
     }
 
     @include phone() {
-      grid-template-rows: repeat(4, 375px);
+      grid-template-rows: repeat(4, 350px);
     }
 
     &-item {
@@ -353,8 +345,8 @@
         }
 
         @include phone() {
-          bottom: 50%;
-          width: min(400px, 100%);
+          top: -8%;
+          width: min(400px, 90%);
         }
       }
     }
@@ -385,7 +377,6 @@
 
         @include tablet() {
           top: -20px;
-          height: 30%;
         }
 
         span {
@@ -475,7 +466,7 @@
         z-index: 0;
 
         @include phone() {
-          width: 300px;
+          width: 280px;
         }
       }
     }

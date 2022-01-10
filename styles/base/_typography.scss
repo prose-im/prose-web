@@ -12,10 +12,16 @@
   font-weight: 600;
   line-height: 1.25;
   margin-bottom: 64px;
+
+  &.contained {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .title-sm {
-  @include fluid-type(320px, 1200px, 24px, 36px);
+  @include fluid-type(320px, 1200px, 22px, 36px);
   font-weight: 600;
   line-height: 1.25;
 }

@@ -65,10 +65,10 @@ export default function FeaturesTabs() {
             <div className="features-tabs-media">
               <Image layout="responsive" src={media} quality={100} placeholder="blur" alt="" />
               <div className="cloud">
-                <Image layout="fill" src="/images/Cloud-Two.png" quality={100} alt="cloud" />
+                <Image layout="responsive" src="/images/Cloud-Two.png" width={176} height={158} quality={100} alt="cloud" />
               </div>
               <div className="bubble">
-                <Image layout="fill" src="/images/bubble.png" quality={100} alt="bubble" />
+                <Image layout="responsive" src="/images/bubble.png" width={175} height={173} quality={100} alt="bubble" />
               </div>
             </div>
           </div>

@@ -3,7 +3,7 @@ import NavLink from "./NavLink";
 
 export default function Footer() {
   return (
-    <footer id="footer" className="pad-x">
+    <footer id="footer" className="container pad-x">
       <div className="footer-content">
         <div className="footer-col">
           <Logo />

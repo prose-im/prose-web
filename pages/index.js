@@ -4,6 +4,7 @@ import Image from "next/image";
 import NavLink from "../components/NavLink";
 import FeaturesTab from "../components/FeaturesTabs";
 import IconFeature from "../components/IconFeature";
+import CallToAction from "../components/CallToAction";
 
 const features = [
   { icon: "Bell", title: "Privacy First", description: "Every team member’s identity can be securely verified." },
@@ -35,13 +36,29 @@ export default function Home() {
       </Head>
 
       <section id="home-s1">
-        <div className="pad-x pad-y">
+        <div className="container pad-x pad-y">
           <div className="grid">
             <div className="cloud-one">
-              <Image layout="fill" src="/images/Cloud-One.png" quality={100} priority alt="cloud" />
+              <Image
+                layout="responsive"
+                src="/images/Cloud-One.png"
+                width={166}
+                height={137}
+                quality={100}
+                priority
+                alt="cloud"
+              />
             </div>
             <div className="cloud-two">
-              <Image layout="fill" src="/images/Cloud-Two.png" quality={100} priority alt="cloud" />
+              <Image
+                layout="responsive"
+                src="/images/Cloud-Two.png"
+                width={176}
+                height={158}
+                quality={100}
+                priority
+                alt="cloud"
+              />
             </div>
             <div className="grid-item" id="hero-decent">
               <div className="content">
@@ -66,7 +83,7 @@ export default function Home() {
               <div className="content">
                 <div className="pill pill-gradient-blue earth">
                   <div className="earth-inner">
-                    <Image layout="fill" src="/images/planet.png" quality={100} priority alt="earth" />
+                    <Image layout="responsive" src="/images/planet.png" width={98} height={98} quality={100} priority alt="earth" />
                   </div>
                 </div>
               </div>
@@ -141,7 +158,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <p className="p-xl text-center">
+          <p className="p-xl text-center dark-grey">
             It is time to provide businesses with a first-class decentralized and open alternative to Slack and
             Microsoft Teams.
           </p>
@@ -149,17 +166,17 @@ export default function Home() {
       </section>
 
       <section id="home-s2">
-        <div className="pad-x pad-y">
-          <h2 className="title-md text-center">
-            The <span className="highlight-one">experience</span> you’ve <br /> been waiting for.
+        <div className="container pad-x pad-y">
+          <h2 className="title-md text-center contained">
+            The <span className="highlight-one">experience</span> you’ve been waiting for.
           </h2>
           <FeaturesTab />
         </div>
       </section>
 
       <section id="home-s3">
-        <div className="pad-x pad-y">
-          <h2 className="title-md text-center">
+        <div className="container pad-x pad-y">
+          <h2 className="title-md text-center contained">
             It’s time to change the <span className="highlight-three">status quo</span>
           </h2>
           <div className="features-grid">
@@ -232,7 +249,7 @@ export default function Home() {
       </section>
 
       <section id="home-s4">
-        <div className="pad-x pad-y">
+        <div className="container pad-x pad-y">
           <div className="flagged">
             <h2 className="title-md text-center">Batteries included</h2>
           </div>
@@ -248,6 +265,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <CallToAction />
     </>
   );
 }

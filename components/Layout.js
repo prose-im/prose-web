@@ -1,5 +1,4 @@
 import Navbar from "./Navbar";
-import CallToAction from "../components/CallToAction";
 import Footer from "../components/Footer";
 
 export default function Layout({ children }) {
@@ -7,7 +6,6 @@ export default function Layout({ children }) {
     <>
       <Navbar />
       <main>{children}</main>
-      <CallToAction />
       <Footer />
     </>
   );

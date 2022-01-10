@@ -1,10 +1,11 @@
 #cta {
-  padding-left: min(calc(24px + 1.8vw), 40px);
-  padding-right: min(calc(24px + 1.8vw), 40px);
 
   .cta-content {
     position: relative;
-    background: var(--prose-navy);
+    background-color: var(--prose-navy);
+    background-image: url("/images/bg-cta.png");
+    background-size: cover;
+    background-position: center center;
     color: var(--prose-white);
     border-radius: 32px;
     padding: 64px;
@@ -12,6 +13,10 @@
     overflow: hidden;
     max-width: 1380px;
     margin: 0 auto;
+
+    @include phone() {
+      padding: 40px;
+    }
 
     .cta-text {
       display: flex;
