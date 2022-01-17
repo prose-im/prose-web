@@ -32,13 +32,13 @@ export default function FAQ() {
         </details>
       ))}
       <div className="ellipse-top-left">
-        <Image layout="fill" src={ellipseTopLeft} />
+        <Image layout="fill" src={ellipseTopLeft} alt="" />
       </div>
       <div className="ellipse-bottom-right">
-        <Image layout="fill" src={ellipseBottomRight} />
+        <Image layout="fill" src={ellipseBottomRight} alt="" />
       </div>
       <div className="monitor">
-        <Image layout="responsive" src={monitor} />
+        <Image layout="responsive" src={monitor} alt="monitor" />
       </div>
     </div>
   );

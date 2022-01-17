@@ -12,4 +12,6 @@ const Step = forwardRef(({ number, title, description, cover, active }, ref) => 
   </div>
 ));
 
+Step.displayName = Step;
+
 export default Step;

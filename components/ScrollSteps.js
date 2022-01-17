@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useEffect, useState, createRef } from "react";
 import useOnScreen from "../hooks/useOnScreen";
 import classNames from "classnames";
 import Step from "./Step";
@@ -28,8 +28,21 @@ const steps = [
 ];
 
 export default function ScrollSteps() {
-  const refs = steps.map((_) => useRef(null));
-  const onScreen = refs.map((ref) => useOnScreen({ ref, options: { rootMargin: "0% 0% -60% 0%", threshold: 0 } }));
+  const [refs, setRefs] = useState([]);
+
+  const onScreen = [
+    useOnScreen({ ref: refs[0], options: { rootMargin: "0% 0% -60% 0%", threshold: 0 } }),
+    useOnScreen({ ref: refs[1], options: { rootMargin: "0% 0% -60% 0%", threshold: 0 } }),
+    useOnScreen({ ref: refs[2], options: { rootMargin: "0% 0% -60% 0%", threshold: 0 } }),
+  ];
+
+  useEffect(() => {
+    setRefs((refs) =>
+      Array(steps.length)
+        .fill()
+        .map((_, i) => refs[i] || createRef())
+    );
+  }, []);
 
   return (
     <div className="process-list">
