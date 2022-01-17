@@ -7,21 +7,24 @@
   letter-spacing: 0em;
 }
 
-.title-md {
+
+.title-lg{ 
   @include fluid-type(320px, 1200px, 32px, 48px);
   font-weight: 600;
   line-height: 1.25;
   margin-bottom: 64px;
+  z-index: 1;
+  position: relative;
+}
 
-  &.contained {
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-  }
+.title-md {
+  @include fluid-type(320px, 1200px, 22px, 36px);
+  font-weight: 600;
+  line-height: 1.25;
 }
 
 .title-sm {
-  @include fluid-type(320px, 1200px, 22px, 36px);
+  @include fluid-type(320px, 1200px, 20px, 24px);
   font-weight: 600;
   line-height: 1.25;
 }
@@ -41,4 +44,8 @@
     font-size: 18px;
     line-height: 26px;
   }
+}
+
+.bold {
+  font-weight: 600;
 }

@@ -38,7 +38,7 @@ const features = [
 
 function Tab({ active, onClick, children }) {
   return (
-    <button onClick={onClick} className={classNames("feature-tab text-center", { active: active })}>
+    <button onClick={onClick} className={classNames("feature-tab text-center", { active })}>
       {children}
     </button>
   );

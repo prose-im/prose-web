@@ -20,7 +20,7 @@
     position: absolute;
     left: 0;
     z-index: -1;
-    top: calc(50px + 4vw);
+    top: 100px;
     width: calc(60px + 5vw);
   }
 
@@ -28,8 +28,13 @@
     position: absolute;
     left: 12vw;
     z-index: -1;
-    bottom: 10vw;
+    bottom: 150px;
     width: calc(40px + 5vw);
+
+    @include tablet() {
+      filter: blur(20px);
+      opacity: 0.4;
+    }
   }
 
   .clock {
@@ -44,10 +49,8 @@
       opacity: 0.4;
     }
 
-    .clock {
-      span {
-        overflow: visible !important;
-      }
+    span {
+      overflow: visible !important;
     }
   }
 
@@ -125,7 +128,7 @@
       position: relative;
       color: var(--prose-white) !important;
 
-      .title-md {
+      .title-lg {
         margin-bottom: 0;
       }
 
@@ -167,7 +170,7 @@
 }
 
 #features-s3 {
-  .title-md {
+  .title-lg {
     margin-bottom: 24px;
   }
 
@@ -185,11 +188,10 @@
     justify-content: space-between;
 
     &-content {
-      padding: 96px 0;
+      padding: 96px 0 12vh;
       flex: 0 0 25%;
       display: grid;
       grid-auto-rows: 1;
-      gap: 172px;
 
       @include tablet() {
         flex-basis: 100%;
@@ -208,11 +210,21 @@
         top: 25vh;
         height: 50vh;
         width: 100%;
-        background-color: var(--prose-dark-grey);
-        background-image: url("/images/bg-cta.png");
-        background-position: center center;
-        background-size: cover;
         border-radius: 24px;
+      }
+
+      .steps-visuals {
+        display: none;
+        position: absolute;
+        background-color: var(--prose-dark-grey);
+        height: 100%;
+        width: 100%;
+        place-items: center;
+        border-radius: 24px;
+
+        &.active {
+          display: grid;
+        }
       }
     }
   }
@@ -221,6 +233,28 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
+    opacity: 0.5;
+    padding: 20vh 0;
+
+    @include tablet() {
+      padding: 64px 0;
+    }
+
+    &:first-child {
+      padding-top: 96px;
+    }
+
+    &:last-child {
+      padding-bottom: 0vh;
+    }
+
+    &.active {
+      opacity: 1;
+    }
+
+    @include tablet() {
+      opacity: 1 !important;
+    }
 
     &-number {
       font-size: 36px;
@@ -229,9 +263,14 @@
 
     &-cover {
       display: none;
+      height: 500px;
+      width: 100%;
+      background-color: var(--prose-dark-grey);
+      border-radius: 24px;
 
       @include tablet() {
         display: block;
+        opacity: 1 !important;
       }
     }
   }

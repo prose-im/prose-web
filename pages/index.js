@@ -167,7 +167,7 @@ export default function Home() {
 
       <section id="home-s2">
         <div className="container pad-x pad-y">
-          <h2 className="title-md text-center contained">
+          <h2 className="title-lg text-center contained">
             The <span className="highlight-one">experience</span> you’ve been waiting for.
           </h2>
           <FeaturesTab />
@@ -176,7 +176,7 @@ export default function Home() {
 
       <section id="home-s3">
         <div className="container pad-x pad-y">
-          <h2 className="title-md text-center contained">
+          <h2 className="title-lg text-center contained">
             It’s time to change the <span className="highlight-three">status quo</span>
           </h2>
           <div className="features-grid">
@@ -192,7 +192,7 @@ export default function Home() {
                   alt="macbook pro"
                 />
               </div>
-              <h3 className="title-sm text-center">
+              <h3 className="title-md text-center">
                 A completely <span className="navy">native app</span> gives you the performance you expect.
               </h3>
             </div>
@@ -208,13 +208,13 @@ export default function Home() {
                   alt="shield"
                 />
               </div>
-              <h3 className="title-sm">
+              <h3 className="title-md">
                 Privacy, built-in. <br />
                 <span className="darker-text">All messages are end-to-end encrypted.</span>
               </h3>
             </div>
             <div className="features-grid-item oss">
-              <h3 className="title-sm">
+              <h3 className="title-md">
                 Open Source. <br /> <span className="darker-text">Community driven and non-profit.</span>
               </h3>
               <div className="folder">
@@ -230,7 +230,7 @@ export default function Home() {
               </div>
             </div>
             <div className="features-grid-item decent">
-              <h3 className="title-sm">Decentralized</h3>
+              <h3 className="title-md">Decentralized</h3>
               <p className="title-xs">Your data is safe</p>
               <div className="globe">
                 <Image
@@ -251,7 +251,7 @@ export default function Home() {
       <section id="home-s4">
         <div className="container pad-x pad-y">
           <div className="flagged">
-            <h2 className="title-md text-center">Batteries included</h2>
+            <h2 className="title-lg text-center">Batteries included</h2>
           </div>
           <div className="icon-features-grid">
             {features.map(({ icon, title, description }, idx) => (

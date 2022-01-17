@@ -6,7 +6,7 @@ export default function CallToAction() {
     <section id="cta" className="pad-y pad-x">
       <div className="cta-content">
         <div className="cta-text">
-          <h3 className="title-md">Start messaging your team today.</h3>
+          <h3 className="title-lg">Start messaging your team today.</h3>
           <p className="p-xl">No credit card required.</p>
           <NavLink href="/download" secondary>
             Download

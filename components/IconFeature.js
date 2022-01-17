@@ -1,6 +1,7 @@
 import Icon from "./Icon";
 
-export default function IconFeature({ icon, title, description }) {
+export default function IconFeature({ icon, title, description}) {
+
   return (
     <div className="icon-feature">
       <div className="icon-feature-icon">

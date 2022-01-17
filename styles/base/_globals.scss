@@ -15,6 +15,12 @@ body {
 .container {
   margin: 0 auto;
   max-width: 1200px;
+
+  & .contained {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .pad-x {
@@ -59,12 +65,12 @@ body {
 .highlight-one {
   position: relative;
   white-space: nowrap;
+  z-index: -1;
 
   &::before {
     content: "";
     position: absolute;
     width: 120%;
-    z-index: -1;
     height: 200%;
     top: 45%;
     left: 50%;
@@ -78,12 +84,12 @@ body {
 .highlight-two {
   position: relative;
   white-space: nowrap;
+  z-index: -1;
 
   &::before {
     content: "";
     position: absolute;
     width: 120%;
-    z-index: -1;
     height: 250%;
     top: 60%;
     left: 50%;
@@ -97,12 +103,12 @@ body {
 .highlight-three {
   position: relative;
   white-space: nowrap;
+  z-index: -1;
 
   &::before {
     content: "";
     position: absolute;
     width: 120%;
-    z-index: -1;
     height: 250%;
     top: 60%;
     left: 50%;
@@ -113,12 +119,12 @@ body {
   }
 }
 
-.title-sm .highlight-two::before {
+.title-md .highlight-two::before {
   top: 80%;
   width: 140%;
 }
 
-.title-sm .highlight-three::before {
+.title-md .highlight-three::before {
   top: 80%;
   width: 180%;
 }
@@ -162,6 +168,10 @@ body {
   height: 2px;
   width: 100%;
   background-color: var(--prose-light-grey);
+
+  &.dark {
+    background-color: var(--prose-grey);
+  }
 }
 
 .no-break {

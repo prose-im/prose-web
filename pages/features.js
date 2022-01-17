@@ -3,31 +3,8 @@ import Image from "next/image";
 
 import NavLink from "../components/NavLink";
 import CallToAction from "../components/CallToAction";
-import Step from "../components/Step";
+import FeaturesScroll from "../components/ScrollSteps";
 
-const steps = [
-  {
-    number: "01.",
-    title: "Create your Prose cloud account",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ornare eget porttitor at sit ullamcorper nibh. Blandit tortor a fringilla nunc, nullam varius. Amet turpis auctor ipsum non.",
-    cover: "/images/bg-cta.png",
-  },
-  {
-    number: "02.",
-    title: "Setup your domain name",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ornare eget porttitor at sit ullamcorper nibh. Blandit tortor a fringilla nunc, nullam varius. Amet turpis auctor ipsum non.",
-    cover: "/images/bg-cta.png",
-  },
-  {
-    number: "03.",
-    title: "Create user accounts & start using Prose",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ornare eget porttitor at sit ullamcorper nibh. Blandit tortor a fringilla nunc, nullam varius. Amet turpis auctor ipsum non.",
-    cover: "/images/bg-cta.png",
-  },
-];
 
 export default function Features() {
   return (
@@ -113,7 +90,7 @@ export default function Features() {
       <section id="features-s2">
         <div className="container pad-x pad-y">
           <div className="flagged">
-            <h2 className="title-md text-center contained">See what you can do in one app</h2>
+            <h2 className="title-lg text-center contained">See what you can do in one app</h2>
           </div>
           <div className="promos">
             <div className="promo-feature">
@@ -130,7 +107,7 @@ export default function Features() {
               </div>
               <div className="promo-feature-content-wrapper">
                 <div className="promo-feature-content">
-                  <h3 className="title-sm">
+                  <h3 className="title-md">
                     Organize <span className="highlight-three">team</span> calls in a snap
                   </h3>
                   <p className="dark-grey">
@@ -155,7 +132,7 @@ export default function Features() {
               </div>
               <div className="promo-feature-content-wrapper">
                 <div className="promo-feature-content">
-                  <h3 className="title-sm">
+                  <h3 className="title-md">
                     Designed for <span className="highlight-two">remote</span> teams
                   </h3>
                   <p className="dark-grey">
@@ -179,7 +156,7 @@ export default function Features() {
               </div>
               <div className="promo-feature-content-wrapper">
                 <div className="promo-feature-content">
-                  <h3 className="title-md">
+                  <h3 className="title-lg">
                     <span className="highlight-one">Organize</span> your team members
                   </h3>
                   <p className="light-grey">
@@ -197,21 +174,12 @@ export default function Features() {
       <section id="features-s3">
         <div className="container pad-x pad-y">
           <div className="half-width">
-            <h2 className="title-md">Create your @company.com Prose chat in 5 minutes</h2>
+            <h2 className="title-lg">Create your @company.com Prose chat in 5 minutes</h2>
             <p className="p-xl dark-grey">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et placerat vulputate augue odio diam.
             </p>
           </div>
-          <div className="process-list">
-            <div className="process-list-content">
-              {steps.map(({ number, title, description, cover }, idx) => (
-                <Step key={idx} number={number} title={title} description={description} cover={cover} />
-              ))}
-            </div>
-            <div className="process-list-visual">
-              <div className="step-tracker"></div>
-            </div>
-          </div>
+          <FeaturesScroll/>
         </div>
       </section>
       <CallToAction />
