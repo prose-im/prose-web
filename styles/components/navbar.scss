@@ -14,6 +14,10 @@
     backdrop-filter: blur(10px);
     background: rgba(255, 255, 255, 0.8);
   }
+
+  // @include tablet() {
+  //   margin-top: 0;
+  // }
 }
 
 .nav {
@@ -61,6 +65,7 @@
   display: none;
   place-items: center;
   color: inherit;
+  cursor: pointer;
 
   height: 52px;
   width: 52px;

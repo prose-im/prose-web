@@ -177,3 +177,10 @@ body {
 .no-break {
   white-space: nowrap;
 }
+
+.btn-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}

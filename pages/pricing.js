@@ -7,6 +7,12 @@ import IconFeature from "../components/IconFeature";
 import FAQ from "../components/FAQ";
 import ProTabs from "../components/ProTabs";
 
+import PieChart from "../public/images/pie-chart.png"
+import Piggy from "../public/images/piggy.png"
+import Coin from "../public/images/coin.png"
+import Pencil from "../public/images/pencil.png"
+import Cup from "../public/images/cup.png"
+
 const features = [
   { icon: "Bell", title: "Trust model" },
   {
@@ -97,55 +103,50 @@ export default function Pricing() {
           <div className="chart">
             <Image
               layout="responsive"
-              src="/images/pie-chart.png"
-              width={248}
-              height={438}
+              src={PieChart}
               quality={100}
               priority
+              placeholder="blur"
               alt="pie-chart"
             />
           </div>
           <div className="piggy">
             <Image
               layout="responsive"
-              src="/images/piggy.png"
-              width={328}
-              height={320}
+              src={Piggy}
               quality={100}
               priority
+              placeholder="blur"
               alt="piggy"
             />
           </div>
           <div className="coin">
             <Image
               layout="responsive"
-              src="/images/coin.png"
-              width={292}
-              height={648}
+              src={Coin}
               quality={100}
               priority
+              placeholder="blur"
               alt="coin"
             />
           </div>
           <div className="pencil">
             <Image
               layout="responsive"
-              src="/images/pencil.png"
-              width={221}
-              height={387}
+              src={Pencil}
               quality={100}
               priority
+              placeholder="blur"
               alt="pencil"
             />
           </div>
           <div className="cup">
             <Image
               layout="responsive"
-              src="/images/cup.png"
-              width={233}
-              height={468}
+              src={Cup}
               quality={100}
               priority
+              placeholder="blur"
               alt="cup"
             />
           </div>

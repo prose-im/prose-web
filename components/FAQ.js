@@ -38,7 +38,7 @@ export default function FAQ() {
         <Image layout="fill" src={ellipseBottomRight} alt="" />
       </div>
       <div className="monitor">
-        <Image layout="responsive" src={monitor} alt="monitor" />
+        <Image layout="responsive" src={monitor} alt="monitor" placeholder="blur" />
       </div>
     </div>
   );

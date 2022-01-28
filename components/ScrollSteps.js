@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState, createRef } from "react";
+import { useEffect, useState, createRef } from "react";
 import useOnScreen from "../hooks/useOnScreen";
 import classNames from "classnames";
 import Step from "./Step";
