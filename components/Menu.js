@@ -47,13 +47,7 @@ export default function Menu() {
               <li className="menu-links">
                 <NavLink href="/">Home</NavLink>
                 <NavLink href="/features">Features</NavLink>
-                <NavLink href="/pricing">Pricing</NavLink>
-                <NavLink href="/docs">Docs</NavLink>
-                <div className="btn-wrapper">
-                  <NavLink href="/login" outlined>
-                    Login
-                  </NavLink>
-                </div>
+                <NavLink href="https://help.prose.org/">Docs</NavLink>
                 <div className="btn-wrapper">
                   <NavLink href="/download" filled>
                     Download

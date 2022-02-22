@@ -13,22 +13,13 @@ export default function Footer() {
         <div className="footer-col">
           <p className="footer-title">Product</p>
           <NavLink href="/features">Features</NavLink>
-          <NavLink href="/pricing">Pricing</NavLink>
           <NavLink href="/download">Download</NavLink>
-          <NavLink href="/changelog">Changelog</NavLink>
-        </div>
-
-        <div className="footer-col">
-          <p className="footer-title">Company</p>
-          <NavLink href="/brand-assets">Brand Assets</NavLink>
-          <NavLink href="/privacy-policy">Privacy Policy</NavLink>
-          <NavLink href="/terms-and-conditions">Terms & Conditions</NavLink>
         </div>
 
         <div className="footer-col">
           <p className="footer-title">Support</p>
-          <NavLink href="/brand-assets">Help Center</NavLink>
-          <NavLink href="/privacy-policy">Contact</NavLink>
+          <NavLink href="https://help.prose.org/">Help Center</NavLink>
+          <NavLink href="mailto:contact@prose.org">Contact</NavLink>
         </div>
       </div>
       <div className="footer-bottom">
