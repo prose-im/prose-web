@@ -21,6 +21,11 @@ export default function Footer() {
           <NavLink href="https://help.prose.org/">Help Center</NavLink>
           <NavLink href="mailto:contact@prose.org">Contact</NavLink>
         </div>
+
+        <div className="footer-col">
+          <p className="footer-title">Service</p>
+          <NavLink href="https://status.prose.org/">System Status</NavLink>
+        </div>
       </div>
       <div className="footer-bottom">
         <p className="footer-copyright">© {new Date().getFullYear()} Prose</p>
