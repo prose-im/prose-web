@@ -28,15 +28,11 @@ export default function Navbar() {
         <ul>
           <li className="nav-links">
             <NavLink href="/features">Features</NavLink>
-            <NavLink href="/pricing">Pricing</NavLink>
-            <NavLink href="/docs">Docs</NavLink>
+            <NavLink href="https://help.prose.org/">Docs</NavLink>
           </li>
         </ul>
         <ul>
           <li className="nav-cta">
-            <NavLink href="/login" outlined>
-              Login
-            </NavLink>
             <NavLink href="/download" filled>
               Download
             </NavLink>

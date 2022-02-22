@@ -163,7 +163,7 @@ export default function Features() {
                     Get access to your data through any additional software or try integrating it into our system, while
                     we show you resource usage statistics.
                   </p>
-                  <NavLink href="/docs" chevron>Discover the docs</NavLink>
+                  <NavLink href="https://help.prose.org/" chevron>Discover the docs</NavLink>
                 </div>
               </div>
             </div>
