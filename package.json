@@ -1,21 +1,24 @@
 {
   "name": "prose-web",
+  "description": "Prose website",
+  "version": "1.0.0",
+  "homepage": "https://github.com/prose-im/prose-web",
+  "license": "UNLICENSED",
   "private": true,
+  "engineStrict": true,
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prose-im/prose-web.git"
+  },
+  "author": {
+    "name": "Prose Foundation",
+    "email": "dev@prose.org",
+    "url": "https://prose.org/"
+  },
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "classnames": "^2.3.1",
-    "next": "12.0.7",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "sass": "^1.45.1"
-  },
-  "devDependencies": {
-    "eslint": "8.5.0",
-    "eslint-config-next": "12.0.7"
+    "build": "./tools/build.sh"
   }
 }
