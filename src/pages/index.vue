@@ -1,5 +1,5 @@
-<template>
-  <Placeholder />
+<template lang="pug">
+  prose-placeholder
 </template>
 
 <script>
