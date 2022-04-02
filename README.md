@@ -1,6 +1,6 @@
 # prose-web
 
-[![Build and Deploy](https://github.com/prose-im/prose-web/workflows/Build%20and%20Deploy/badge.svg?branch=production)](https://github.com/prose-im/prose-web/actions?query=workflow%3A%22Build+and+Deploy%22)
+[![Test and Lint](https://github.com/prose-im/prose-web/workflows/Test%20and%20Lint/badge.svg?branch=master)](https://github.com/prose-im/prose-web/actions?query=workflow%3A%22Test+and+Lint%22) [![Build and Deploy](https://github.com/prose-im/prose-web/workflows/Build%20and%20Deploy/badge.svg?branch=production)](https://github.com/prose-im/prose-web/actions?query=workflow%3A%22Build+and+Deploy%22)
 
 Prose website.
 
