@@ -5,15 +5,18 @@ export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'prose-web',
+
     htmlAttrs: {
       lang: 'en',
     },
+
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
+
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
@@ -47,8 +50,17 @@ export default {
   modules: [],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    extractCSS: true,
 
+    splitChunks: {
+      layouts: false,
+      pages: true,
+      commons: true
+    }
+  },
+
+  // Generate options: https://nuxtjs.org/docs/configuration-glossary/configuration-generate
   generate: {
     dir: 'build',
   },
