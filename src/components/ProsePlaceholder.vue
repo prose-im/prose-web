@@ -1,3 +1,9 @@
+<!--
+ * This file is part of prose-web
+ *
+ * Copyright 2022, Prose Foundation
+ -->
+
 <template lang="pug">
   div(
     class="relative flex items-top justify-center min-h-screen bg-gray-100 sm:items-center sm:pt-0"

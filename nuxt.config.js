@@ -53,7 +53,7 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: ["~/src/assets/stylesheets/generic/all"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
@@ -83,6 +83,13 @@ export default {
 
   // Generate options: https://nuxtjs.org/docs/configuration-glossary/configuration-generate
   generate: {
-    dir: "build"
+    dir: "build",
+    fallback: "404.html"
+  },
+
+  // CLI settings: https://nuxtjs.org/docs/configuration-glossary/configuration-cli
+  cli: {
+    badgeMessages: ["© The Prose Foundation"],
+    bannerColor: "blueBright"
   }
 };
