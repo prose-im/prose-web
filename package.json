@@ -1,21 +1,46 @@
 {
   "name": "prose-web",
+  "description": "Prose website",
+  "version": "1.0.0",
+  "homepage": "https://github.com/prose-im/prose-web",
+  "license": "UNLICENSED",
   "private": true,
+  "engineStrict": true,
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prose-im/prose-web.git"
+  },
+  "author": {
+    "name": "Prose Foundation",
+    "email": "dev@prose.org",
+    "url": "https://prose.org/"
+  },
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "nuxt",
+    "build": "nuxt generate",
+    "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
+    "lint:prettier": "prettier --check .",
+    "lint": "npm run lint:js && npm run lint:prettier"
   },
   "dependencies": {
-    "classnames": "^2.3.1",
-    "next": "12.0.7",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "sass": "^1.45.1"
+    "core-js": "3.19.3",
+    "nuxt": "2.15.8",
+    "vue": "2.6.14",
+    "vue-server-renderer": "2.6.14",
+    "vue-template-compiler": "2.6.14",
+    "webpack": "4.46.0"
   },
   "devDependencies": {
-    "eslint": "8.5.0",
-    "eslint-config-next": "12.0.7"
+    "@babel/eslint-parser": "7.16.3",
+    "@nuxtjs/eslint-config": "8.0.0",
+    "@nuxtjs/eslint-module": "3.0.2",
+    "eslint": "8.4.1",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-nuxt": "3.1.0",
+    "eslint-plugin-vue": "8.2.0",
+    "prettier": "2.5.1"
   }
 }
