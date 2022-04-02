@@ -5,6 +5,12 @@ export default {
   // Global name: https://nuxtjs.org/docs/configuration-glossary/configuration-global-name
   globalName: "prose",
 
+  // Server-Side Rendering: https://nuxtjs.org/docs/configuration-glossary/configuration-ssr
+  ssr: true,
+
+  // Telemetry: https://nuxtjs.org/docs/configuration-glossary/configuration-telemetry
+  telemetry: false,
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: "prose-web",
@@ -81,25 +87,28 @@ export default {
     ]
   },
 
+  // Source directory: https://nuxtjs.org/docs/configuration-glossary/configuration-srcdir
+  srcDir: "src/",
+
   // Directories: https://nuxtjs.org/docs/configuration-glossary/configuration-dir/
   dir: {
-    assets: "src/assets",
-    app: "src/app",
-    layouts: "src/layouts",
-    middleware: "src/middleware",
-    store: "src/store",
-    pages: "src/pages",
-    static: "public"
+    assets: "assets",
+    app: "app",
+    layouts: "layouts",
+    middleware: "middleware",
+    store: "store",
+    pages: "pages",
+    static: "static"
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ["~/src/assets/stylesheets/generic/all"],
+  css: ["assets/stylesheets/generic/all"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
-  components: ["~/src/components"],
+  components: ["components"],
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
@@ -110,9 +119,26 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [],
 
+  // Router: https://nuxtjs.org/docs/configuration-glossary/configuration-router
+  router: {
+    base: "/",
+    mode: "history"
+  },
+
+  // Loading: https://nuxtjs.org/docs/configuration-glossary/configuration-loading
+  loading: {
+    color: "blue",
+    failedColor: "red",
+    height: "5px",
+    throttle: 500,
+    duration: 3000,
+    continuous: true
+  },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     extractCSS: true,
+    publicPath: "/public/",
 
     splitChunks: {
       layouts: false,
