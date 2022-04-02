@@ -56,8 +56,8 @@ export default {
     splitChunks: {
       layouts: false,
       pages: true,
-      commons: true
-    }
+      commons: true,
+    },
   },
 
   // Generate options: https://nuxtjs.org/docs/configuration-glossary/configuration-generate
