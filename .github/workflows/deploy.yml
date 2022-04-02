@@ -31,7 +31,7 @@ jobs:
           key: ${{ runner.os }}-node
 
       - name: Install dependencies
-        run: npm install
+        run: npm install --no-audit
 
       - name: Check code
         run: npm run lint
