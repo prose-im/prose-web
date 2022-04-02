@@ -80,6 +80,6 @@
 
 <script>
 export default {
-  name: 'ProsePlaceholder',
-}
+  name: "ProsePlaceholder"
+};
 </script>

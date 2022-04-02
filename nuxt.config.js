@@ -1,34 +1,55 @@
 export default {
   // Target: https://go.nuxtjs.dev/config-target
-  target: 'static',
+  target: "static",
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'prose-web',
+    title: "prose-web",
 
     htmlAttrs: {
-      lang: 'en',
+      lang: "en"
     },
 
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' },
+      {
+        charset: "utf-8"
+      },
+
+      {
+        name: "viewport",
+        content: "width=device-width, initial-scale=1"
+      },
+
+      {
+        hid: "description",
+        name: "description",
+        content: ""
+      },
+
+      {
+        name: "format-detection",
+        content: "telephone=no"
+      }
     ],
 
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [
+      {
+        rel: "icon",
+        type: "image/x-icon",
+        href: "/favicon.ico"
+      }
+    ]
   },
 
   // Directories: https://nuxtjs.org/docs/configuration-glossary/configuration-dir/
   dir: {
-    assets: 'src/assets',
-    app: 'src/app',
-    layouts: 'src/layouts',
-    middleware: 'src/middleware',
-    store: 'src/store',
-    pages: 'src/pages',
-    static: 'public',
+    assets: "src/assets",
+    app: "src/app",
+    layouts: "src/layouts",
+    middleware: "src/middleware",
+    store: "src/store",
+    pages: "src/pages",
+    static: "public"
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -38,12 +59,12 @@ export default {
   plugins: [],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
-  components: ['~/src/components'],
+  components: ["~/src/components"],
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/eslint
-    '@nuxtjs/eslint-module',
+    "@nuxtjs/eslint-module"
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -56,12 +77,12 @@ export default {
     splitChunks: {
       layouts: false,
       pages: true,
-      commons: true,
-    },
+      commons: true
+    }
   },
 
   // Generate options: https://nuxtjs.org/docs/configuration-glossary/configuration-generate
   generate: {
-    dir: 'build',
-  },
-}
+    dir: "build"
+  }
+};
