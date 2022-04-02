@@ -6,7 +6,7 @@ Prose website.
 
 ## Build Setup
 
-Built with [Nuxt](https://nuxtjs.org/).
+Built with [Nuxt](https://nuxtjs.org/). See the commands below for reference on how to build the website, or develop.
 
 ```bash
 # install dependencies
