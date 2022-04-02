@@ -1,7 +1,0 @@
-{
-  "name": "prose-web",
-
-  "dependencies": {
-    "reset.css": "https://github.com/shannonmoeller/reset-css.git#d8bfbea7095dd54700fdb7ff05953b27862c5363"
-  }
-}

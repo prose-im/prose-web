@@ -18,8 +18,8 @@ pushd "$BASE_DIR" > /dev/null
     cur_env="$1"
   fi
 
-  $(npm bin -g)/gulp --"$cur_env"
-  rc=$?
+  # TODO
+  #rc=$?
 popd > /dev/null
 
 exit $rc
