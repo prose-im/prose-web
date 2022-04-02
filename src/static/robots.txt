@@ -1,2 +1,3 @@
 User-Agent: *
 Allow: /
+Sitemap: https://prose.org/sitemap.xml
