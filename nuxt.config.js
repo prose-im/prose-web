@@ -1,14 +1,70 @@
+/*
+ * This file is part of prose-web
+ *
+ * Copyright 2022, Prose Foundation
+ */
+
+/**************************************************************************
+ * IMPORTS
+ * ************************************************************************* */
+
+// NODE
+import fs from "fs";
+import path from "path";
+
+// NPM
+import merge from "lodash.merge";
+
+// CONFIGURATION
+import * as configCommon from "./config/common";
+import * as configProduction from "./config/production";
+import * as configDevelopment from "./config/development";
+
+// PACKAGE
+import * as projectPackage from "./package.json";
+
+/**************************************************************************
+ * CONFIGURATION
+ * ************************************************************************* */
+
+const CONFIG = (function () {
+  const _config = {};
+
+  // Load common configuration
+  merge(_config, configCommon);
+
+  // Load configuration for environment
+  if (process.env.NODE_ENV === "production") {
+    merge(_config, configProduction);
+  } else {
+    merge(_config, configDevelopment);
+
+    if (fs.existsSync(path.join(__dirname, "/config/local.json")) === true) {
+      merge(_config, require("./config/local.json"));
+    }
+  }
+
+  return _config;
+})();
+
+/**************************************************************************
+ * EXPORTS
+ * ************************************************************************* */
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: "static",
 
-  // Global name: https://nuxtjs.org/docs/configuration-glossary/configuration-global-name
+  // Global name: \
+  //   https://nuxtjs.org/docs/configuration-glossary/configuration-global-name
   globalName: "prose",
 
-  // Server-Side Rendering: https://nuxtjs.org/docs/configuration-glossary/configuration-ssr
+  // Server-Side Rendering: \
+  //   https://nuxtjs.org/docs/configuration-glossary/configuration-ssr
   ssr: true,
 
-  // Telemetry: https://nuxtjs.org/docs/configuration-glossary/configuration-telemetry
+  // Telemetry: \
+  //   https://nuxtjs.org/docs/configuration-glossary/configuration-telemetry
   telemetry: false,
 
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -87,10 +143,12 @@ export default {
     ]
   },
 
-  // Source directory: https://nuxtjs.org/docs/configuration-glossary/configuration-srcdir
+  // Source directory: \
+  //   https://nuxtjs.org/docs/configuration-glossary/configuration-srcdir
   srcDir: "src/",
 
-  // Directories: https://nuxtjs.org/docs/configuration-glossary/configuration-dir/
+  // Directories: \
+  //   https://nuxtjs.org/docs/configuration-glossary/configuration-dir/
   dir: {
     assets: "assets",
     app: "app",
@@ -110,7 +168,8 @@ export default {
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: ["components"],
 
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
+  // Modules for dev and build (recommended): \
+  //   https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     "@nuxtjs/eslint-module"
@@ -125,7 +184,8 @@ export default {
     mode: "history"
   },
 
-  // Loading: https://nuxtjs.org/docs/configuration-glossary/configuration-loading
+  // Loading: \
+  //   https://nuxtjs.org/docs/configuration-glossary/configuration-loading
   loading: {
     color: "blue",
     failedColor: "red",
@@ -147,15 +207,20 @@ export default {
     }
   },
 
-  // Generate options: https://nuxtjs.org/docs/configuration-glossary/configuration-generate
+  // Generate options: \
+  //   https://nuxtjs.org/docs/configuration-glossary/configuration-generate
   generate: {
     dir: "build",
     fallback: "404.html"
   },
 
-  // CLI settings: https://nuxtjs.org/docs/configuration-glossary/configuration-cli
+  // CLI settings: \
+  //   https://nuxtjs.org/docs/configuration-glossary/configuration-cli
   cli: {
-    badgeMessages: ["© The Prose Foundation"],
+    badgeMessages: [
+      `${projectPackage.author.name} © ${new Date().getFullYear()}`
+    ],
+
     bannerColor: "blueBright"
   },
 
@@ -163,11 +228,11 @@ export default {
   robots: {
     UserAgent: "*",
     Allow: "/",
-    Sitemap: "https://prose.org/sitemap.xml"
+    Sitemap: `${CONFIG.url.prose_web}/sitemap.xml`
   },
 
   // (Module) Sitemap: https://sitemap.nuxtjs.org/usage/sitemap
   sitemap: {
-    hostname: "https://prose.org"
+    hostname: CONFIG.url.prose_web
   }
 };
