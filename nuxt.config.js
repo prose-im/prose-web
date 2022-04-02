@@ -2,6 +2,9 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: "static",
 
+  // Global name: https://nuxtjs.org/docs/configuration-glossary/configuration-global-name
+  globalName: "prose",
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: "prose-web",
@@ -18,25 +21,62 @@ export default {
       {
         name: "viewport",
         content: "width=device-width, initial-scale=1"
-      },
-
-      {
-        hid: "description",
-        name: "description",
-        content: ""
-      },
-
-      {
-        name: "format-detection",
-        content: "telephone=no"
       }
     ],
 
     link: [
       {
-        rel: "icon",
+        rel: "shortcut icon",
         type: "image/x-icon",
-        href: "/favicon.ico"
+        href: "/favicons/favicon.ico"
+      },
+
+      {
+        rel: "icon",
+        type: "image/png",
+        href: "/favicons/favicon.png"
+      },
+
+      {
+        rel: "icon",
+        type: "image/png",
+        sizes: "512x512",
+        href: "/favicons/favicon-512x512.png"
+      },
+
+      {
+        rel: "icon",
+        type: "image/png",
+        sizes: "256x256",
+        href: "/favicons/favicon-256x256.png"
+      },
+
+      {
+        rel: "icon",
+        type: "image/png",
+        sizes: "192x192",
+        href: "/favicons/favicon-192x192.png"
+      },
+
+      {
+        rel: "icon",
+        type: "image/png",
+        sizes: "144x144",
+        href: "/favicons/favicon-144x144.png"
+      },
+
+      {
+        rel: "icon",
+        type: "image/png",
+        sizes: "128x128",
+        href: "/favicons/favicon-128x128.png"
+      },
+
+      {
+        rel: "icon",
+        type: "image/png",
+        sizes: "32x32",
+        href: "/favicons/favicon-32x32.png"
       }
     ]
   },
