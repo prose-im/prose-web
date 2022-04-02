@@ -117,7 +117,7 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ["@nuxtjs/sitemap"],
+  modules: ["@nuxtjs/robots", "@nuxtjs/sitemap"],
 
   // Router: https://nuxtjs.org/docs/configuration-glossary/configuration-router
   router: {
@@ -157,6 +157,13 @@ export default {
   cli: {
     badgeMessages: ["© The Prose Foundation"],
     bannerColor: "blueBright"
+  },
+
+  // (Module) Robots: https://github.com/nuxt-community/robots-module
+  robots: {
+    UserAgent: "*",
+    Allow: "/",
+    Sitemap: "https://prose.org/sitemap.xml"
   },
 
   // (Module) Sitemap: https://sitemap.nuxtjs.org/usage/sitemap
