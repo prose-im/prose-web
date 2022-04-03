@@ -19,7 +19,6 @@
 <script>
 export default {
   name: "DownloadsPage",
-  layout: "site",
 
   head() {
     return {

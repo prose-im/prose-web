@@ -19,7 +19,6 @@
 <script>
 export default {
   name: "TermsPage",
-  layout: "site",
 
   head() {
     return {

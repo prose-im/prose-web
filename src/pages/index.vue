@@ -20,7 +20,6 @@
 <script>
 export default {
   name: "IndexPage",
-  layout: "site",
 
   head() {
     return {

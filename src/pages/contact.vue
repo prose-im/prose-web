@@ -19,7 +19,6 @@
 <script>
 export default {
   name: "ContactPage",
-  layout: "site",
 
   head() {
     return {

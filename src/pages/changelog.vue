@@ -19,7 +19,6 @@
 <script>
 export default {
   name: "ChangelogPage",
-  layout: "site",
 
   head() {
     return {

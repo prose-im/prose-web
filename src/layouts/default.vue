@@ -25,6 +25,6 @@
 
 <script>
 export default {
-  name: "SiteLayout"
+  name: "DefaultLayout"
 };
 </script>
