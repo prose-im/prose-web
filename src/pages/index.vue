@@ -10,7 +10,6 @@
 
 <template lang="pug">
   .p-index
-    prose-placeholder
 </template>
 
 <!-- **********************************************************************

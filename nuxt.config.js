@@ -165,7 +165,7 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ["assets/stylesheets/generic/all"],
+  css: ["assets/stylesheets/all"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
@@ -176,8 +176,9 @@ export default {
   // Modules for dev and build (recommended): \
   //   https://go.nuxtjs.dev/config-modules
   buildModules: [
-    // https://go.nuxtjs.dev/eslint
-    "@nuxtjs/eslint-module"
+    "@nuxtjs/eslint-module",
+    "@nuxtjs/style-resources",
+    "@nuxtjs/svg"
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -241,5 +242,11 @@ export default {
   // (Module) Sitemap: https://sitemap.nuxtjs.org/usage/sitemap
   sitemap: {
     hostname: CONFIG.url.prose_web
+  },
+
+  // (Module) Style Resources: \
+  //   https://github.com/nuxt-community/style-resources-module
+  styleResources: {
+    scss: ["assets/stylesheets/variables/*", "assets/stylesheets/tools/*"]
   }
 };

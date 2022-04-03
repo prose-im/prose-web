@@ -29,4 +29,10 @@ export default {
 
 <style lang="scss">
 $c: ".c-page-wrapper";
+
+.c-page-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 </style>

@@ -1,0 +1,41 @@
+/*
+ * This file is part of prose-web
+ *
+ * Copyright 2022, Prose Foundation
+ */
+
+/* *************************************************************************
+ * ELEMENTS > FONTS
+ * **************************************************************************/
+
+@font-face {
+  font-weight: lighter;
+  font-style: normal;
+  font-family: "Prose Helvetica Neue";
+  src: url("/fonts/helvetica_neue/helvetica_neue_light.woff2") format("woff2"),
+    url("/fonts/helvetica_neue/helvetica_neue_light.woff") format("woff");
+}
+
+@font-face {
+  font-weight: normal;
+  font-style: normal;
+  font-family: "Prose Helvetica Neue";
+  src: url("/fonts/helvetica_neue/helvetica_neue_regular.woff2") format("woff2"),
+    url("/fonts/helvetica_neue/helvetica_neue_regular.woff") format("woff");
+}
+
+@font-face {
+  font-weight: bold;
+  font-style: normal;
+  font-family: "Prose Helvetica Neue";
+  src: url("/fonts/helvetica_neue/helvetica_neue_medium.woff2") format("woff2"),
+    url("/fonts/helvetica_neue/helvetica_neue_medium.woff") format("woff");
+}
+
+@font-face {
+  font-weight: 800;
+  font-style: normal;
+  font-family: "Prose Helvetica Neue";
+  src: url("/fonts/helvetica_neue/helvetica_neue_bold.woff2") format("woff2"),
+    url("/fonts/helvetica_neue/helvetica_neue_bold.woff") format("woff");
+}

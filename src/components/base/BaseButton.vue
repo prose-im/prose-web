@@ -1,0 +1,107 @@
+<!--
+ * This file is part of prose-web
+ *
+ * Copyright 2022, Prose Foundation
+ -->
+
+<!-- **********************************************************************
+     TEMPLATE
+     ********************************************************************** -->
+
+<template lang="pug">
+.c-base-button
+  .c-base-button__label.u-medium
+    slot
+
+  .c-base-button__icon(
+    v-if="rightIconHtml"
+    v-html="rightIconHtml"
+  )
+</template>
+
+<!-- **********************************************************************
+     SCRIPT
+     ********************************************************************** -->
+
+<script>
+// PROJECT: IMAGES
+import ImageIconArrow from "~/assets/images/components/base/BaseButton/icon-arrow.svg?raw";
+
+export default {
+  name: "BaseButton",
+
+  props: {
+    rightIcon: {
+      type: String,
+      default: null,
+
+      validator(x) {
+        return ["arrow"].includes(x);
+      }
+    }
+  },
+
+  computed: {
+    rightIconHtml() {
+      switch (this.rightIcon) {
+        case "arrow": {
+          return ImageIconArrow;
+        }
+
+        default: {
+          return null;
+        }
+      }
+    }
+  }
+};
+</script>
+
+<!-- **********************************************************************
+     STYLE
+     ********************************************************************** -->
+
+<style lang="scss">
+$c: ".c-base-button";
+
+.c-base-button {
+  background-color: $color-base-blue-dark;
+  font-size: 13.5px;
+  line-height: 38px;
+  padding: 0 20px 2px;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 20px;
+  box-shadow: 0 2px 1px 0 rgba($color-base-blue-dark, 0.12),
+    inset 0 1px 0 0 rgba($color-white, 0.22);
+  transition: all 100ms linear;
+  transition-property: transform, box-shadow, background-color;
+
+  &:hover {
+    background-color: lighten($color-base-blue-dark, 5%);
+  }
+
+  &:active {
+    transform: translateY(1px);
+    box-shadow: 0 1px 1px 0 rgba($color-base-blue-dark, 0.3);
+  }
+
+  #{$c}__label {
+    color: $color-white;
+    flex: 1;
+  }
+
+  #{$c}__icon {
+    margin-bottom: -2px;
+    margin-left: 9px;
+    margin-right: -3px;
+    flex: 0 1 auto;
+
+    svg {
+      height: 9px;
+    }
+  }
+}
+</style>

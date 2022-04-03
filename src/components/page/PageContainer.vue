@@ -9,8 +9,8 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  .c-page-entice
-    page-wrapper
+  .c-page-container
+    slot
 </template>
 
 <!-- **********************************************************************
@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  name: "PageEntice"
+  name: "PageContainer"
 };
 </script>
 
@@ -28,5 +28,5 @@ export default {
      ********************************************************************** -->
 
 <style lang="scss">
-$c: ".c-page-entice";
+$c: ".c-page-container";
 </style>

@@ -10,6 +10,10 @@
 
 <template lang="pug">
   .c-page-footer
+    page-wrapper
+      .c-page-footer__main
+
+      .c-page-footer__copyright
 </template>
 
 <!-- **********************************************************************
@@ -28,4 +32,9 @@ export default {
 
 <style lang="scss">
 $c: ".c-page-footer";
+
+.c-page-footer {
+  border-top: 1px solid $color-border-secondary;
+  padding: 48px 0 24px;
+}
 </style>

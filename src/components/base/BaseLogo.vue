@@ -9,8 +9,9 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  .c-page-entice
-    page-wrapper
+  image-logo-large-normal(
+    class="c-base-logo"
+  )
 </template>
 
 <!-- **********************************************************************
@@ -18,8 +19,13 @@
      ********************************************************************** -->
 
 <script>
+// PROJECT: IMAGES
+import ImageLogoLargeNormal from "~/assets/images/components/base/BaseLogo/logo-large-normal.svg?inline";
+
 export default {
-  name: "PageEntice"
+  name: "BaseLogo",
+
+  components: { ImageLogoLargeNormal }
 };
 </script>
 
@@ -28,5 +34,10 @@ export default {
      ********************************************************************** -->
 
 <style lang="scss">
-$c: ".c-page-entice";
+$c: ".c-base-logo";
+
+.c-base-logo {
+  height: 48px;
+  width: auto;
+}
 </style>

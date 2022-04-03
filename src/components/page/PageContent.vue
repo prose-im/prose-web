@@ -10,7 +10,8 @@
 
 <template lang="pug">
   .c-page-content
-    slot
+    page-wrapper
+      slot
 </template>
 
 <!-- **********************************************************************
@@ -29,4 +30,10 @@ export default {
 
 <style lang="scss">
 $c: ".c-page-content";
+
+.c-page-content {
+  background-color: $color-background-primary;
+  padding-top: 64px;
+  padding-bottom: 120px;
+}
 </style>

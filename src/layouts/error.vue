@@ -9,7 +9,7 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  page-wrapper
+  page-container
     page-header
 
     page-error(
