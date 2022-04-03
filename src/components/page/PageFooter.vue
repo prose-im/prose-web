@@ -9,7 +9,7 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  .p-terms
+  .c-page-footer
 </template>
 
 <!-- **********************************************************************
@@ -18,7 +18,7 @@
 
 <script>
 export default {
-  name: "TermsPage"
+  name: "PageFooter"
 };
 </script>
 
@@ -27,5 +27,5 @@ export default {
      ********************************************************************** -->
 
 <style lang="scss">
-$c: ".p-terms";
+$c: ".c-page-footer";
 </style>

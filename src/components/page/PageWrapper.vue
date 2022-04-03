@@ -9,7 +9,8 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  .p-terms
+  .c-page-wrapper
+    slot
 </template>
 
 <!-- **********************************************************************
@@ -18,7 +19,7 @@
 
 <script>
 export default {
-  name: "TermsPage"
+  name: "PageWrapper"
 };
 </script>
 
@@ -27,5 +28,5 @@ export default {
      ********************************************************************** -->
 
 <style lang="scss">
-$c: ".p-terms";
+$c: ".c-page-wrapper";
 </style>
