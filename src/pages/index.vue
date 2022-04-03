@@ -20,7 +20,13 @@
 <script>
 export default {
   name: "IndexPage",
-  layout: "site"
+  layout: "site",
+
+  head() {
+    return {
+      title: "Prose – All of your workplace communication lives here"
+    };
+  }
 };
 </script>
 

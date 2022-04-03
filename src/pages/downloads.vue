@@ -19,7 +19,13 @@
 <script>
 export default {
   name: "DownloadsPage",
-  layout: "site"
+  layout: "site",
+
+  head() {
+    return {
+      title: "Download Prose apps"
+    };
+  }
 };
 </script>
 

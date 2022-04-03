@@ -19,7 +19,13 @@
 <script>
 export default {
   name: "ContactPage",
-  layout: "site"
+  layout: "site",
+
+  head() {
+    return {
+      title: "Contact the Prose team"
+    };
+  }
 };
 </script>
 
