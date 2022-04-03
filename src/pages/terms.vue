@@ -18,7 +18,8 @@
 
 <script>
 export default {
-  name: "TermsPage"
+  name: "TermsPage",
+  layout: "site"
 };
 </script>
 
