@@ -9,7 +9,14 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  .p-terms
+  page-wrapper
+    page-header
+
+    page-content
+      nuxt
+
+    page-entice
+    page-footer
 </template>
 
 <!-- **********************************************************************
@@ -18,14 +25,6 @@
 
 <script>
 export default {
-  name: "TermsPage"
+  name: "SiteLayout"
 };
 </script>
-
-<!-- **********************************************************************
-     STYLE
-     ********************************************************************** -->
-
-<style lang="scss">
-$c: ".p-terms";
-</style>

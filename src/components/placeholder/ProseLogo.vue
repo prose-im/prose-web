@@ -10,7 +10,7 @@
 
 <template lang="pug">
   svg(
-    class="prose-logo"
+    class="c-prose-logo"
     height="99"
     viewBox="0 0 297 99"
     width="297"
@@ -69,8 +69,10 @@
      STYLE
      ********************************************************************** -->
 
-<style>
-.prose-logo {
+<style lang="scss">
+$c: ".c-prose-logo";
+
+#{$c} {
   height: 54px;
 }
 </style>
