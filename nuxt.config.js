@@ -181,7 +181,8 @@ export default {
   // Router: https://nuxtjs.org/docs/configuration-glossary/configuration-router
   router: {
     base: "/",
-    mode: "history"
+    mode: "history",
+    trailingSlash: true
   },
 
   // Loading: \
