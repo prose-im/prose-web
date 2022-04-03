@@ -21,6 +21,7 @@
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt generate",
+    "clean": "rm -rf ./build",
     "test": "npm run lint",
     "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
     "lint:prettier": "prettier --check .",

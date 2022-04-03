@@ -23,4 +23,7 @@ $ npm test
 
 # run lints
 $ npm run lint
+
+# clean all static assets previously built
+$ npm run clean
 ```
