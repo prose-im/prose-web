@@ -9,8 +9,14 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  .p-index
-    prose-placeholder
+  page-wrapper
+    page-header
+
+    page-content
+      nuxt
+
+    page-entice
+    page-footer
 </template>
 
 <!-- **********************************************************************
@@ -19,18 +25,6 @@
 
 <script>
 export default {
-  name: "IndexPage",
-
-  head: {
-    title: "Prose – All of your workplace communication lives here"
-  }
+  name: "DefaultLayout"
 };
 </script>
-
-<!-- **********************************************************************
-     STYLE
-     ********************************************************************** -->
-
-<style lang="scss">
-$c: ".p-index";
-</style>

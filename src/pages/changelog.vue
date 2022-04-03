@@ -19,12 +19,9 @@
 <script>
 export default {
   name: "ChangelogPage",
-  layout: "site",
 
-  head() {
-    return {
-      title: "Prose version history"
-    };
+  head: {
+    title: "Prose version history"
   }
 };
 </script>

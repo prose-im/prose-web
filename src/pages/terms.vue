@@ -19,12 +19,9 @@
 <script>
 export default {
   name: "TermsPage",
-  layout: "site",
 
-  head() {
-    return {
-      title: "Prose Terms of Use and Privacy Policy"
-    };
+  head: {
+    title: "Prose Terms of Use and Privacy Policy"
   }
 };
 </script>

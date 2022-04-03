@@ -19,12 +19,9 @@
 <script>
 export default {
   name: "ContactPage",
-  layout: "site",
 
-  head() {
-    return {
-      title: "Contact the Prose team"
-    };
+  head: {
+    title: "Contact the Prose team"
   }
 };
 </script>

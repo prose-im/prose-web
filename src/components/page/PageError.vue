@@ -9,8 +9,21 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  .p-index
-    prose-placeholder
+  .c-page-error
+    h1(
+      v-if="error.statusCode === 404"
+    )
+      | Page Not Found
+
+    h1(
+      v-else
+    )
+      | Error {{ error.statusCode }}
+
+    nuxt-link(
+      to="/"
+    )
+      | Go to the home page
 </template>
 
 <!-- **********************************************************************
@@ -19,10 +32,13 @@
 
 <script>
 export default {
-  name: "IndexPage",
+  name: "PageError",
 
-  head: {
-    title: "Prose – All of your workplace communication lives here"
+  props: {
+    error: {
+      type: Object,
+      required: true
+    }
   }
 };
 </script>
@@ -32,5 +48,5 @@ export default {
      ********************************************************************** -->
 
 <style lang="scss">
-$c: ".p-index";
+$c: ".c-page-error";
 </style>

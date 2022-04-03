@@ -12,10 +12,10 @@
   page-wrapper
     page-header
 
-    page-content
-      nuxt
+    page-error(
+      :error="error"
+    )
 
-    page-entice
     page-footer
 </template>
 
@@ -25,6 +25,19 @@
 
 <script>
 export default {
-  name: "SiteLayout"
+  name: "ErrorLayout",
+
+  props: {
+    error: {
+      type: Object,
+      required: true
+    }
+  },
+
+  head() {
+    return {
+      title: `Error ${this.error.statusCode}`
+    };
+  }
 };
 </script>
