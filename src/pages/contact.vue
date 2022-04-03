@@ -18,7 +18,8 @@
 
 <script>
 export default {
-  name: "ContactPage"
+  name: "ContactPage",
+  layout: "site"
 };
 </script>
 

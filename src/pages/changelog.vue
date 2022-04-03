@@ -18,7 +18,8 @@
 
 <script>
 export default {
-  name: "ChangelogPage"
+  name: "ChangelogPage",
+  layout: "site"
 };
 </script>
 
