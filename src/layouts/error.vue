@@ -9,8 +9,14 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  .p-index
-    prose-placeholder
+  page-wrapper
+    page-header
+
+    page-error(
+      :error="error"
+    )
+
+    page-footer
 </template>
 
 <!-- **********************************************************************
@@ -19,18 +25,19 @@
 
 <script>
 export default {
-  name: "IndexPage",
+  name: "ErrorLayout",
 
-  head: {
-    title: "Prose – All of your workplace communication lives here"
+  props: {
+    error: {
+      type: Object,
+      required: true
+    }
+  },
+
+  head() {
+    return {
+      title: `Error ${this.error.statusCode}`
+    };
   }
 };
 </script>
-
-<!-- **********************************************************************
-     STYLE
-     ********************************************************************** -->
-
-<style lang="scss">
-$c: ".p-index";
-</style>

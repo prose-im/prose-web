@@ -20,10 +20,8 @@
 export default {
   name: "ContactPage",
 
-  head() {
-    return {
-      title: "Contact the Prose team"
-    };
+  head: {
+    title: "Contact the Prose team"
   }
 };
 </script>

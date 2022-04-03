@@ -20,10 +20,8 @@
 export default {
   name: "DownloadsPage",
 
-  head() {
-    return {
-      title: "Download Prose apps"
-    };
+  head: {
+    title: "Download Prose apps"
   }
 };
 </script>

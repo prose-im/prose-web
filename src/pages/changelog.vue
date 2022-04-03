@@ -20,10 +20,8 @@
 export default {
   name: "ChangelogPage",
 
-  head() {
-    return {
-      title: "Prose version history"
-    };
+  head: {
+    title: "Prose version history"
   }
 };
 </script>

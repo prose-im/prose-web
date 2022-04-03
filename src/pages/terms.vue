@@ -20,10 +20,8 @@
 export default {
   name: "TermsPage",
 
-  head() {
-    return {
-      title: "Prose Terms of Use and Privacy Policy"
-    };
+  head: {
+    title: "Prose Terms of Use and Privacy Policy"
   }
 };
 </script>
