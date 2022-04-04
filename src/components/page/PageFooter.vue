@@ -144,6 +144,13 @@ import ImageCopyrightBadgesClimateNeutral from "~/assets/images/components/page/
 import ImageCopyrightOwnershipQuote from "~/assets/images/components/page/PageFooter/copyright-ownership-quote.svg?inline";
 import ImageCopyrightCraftedFlag from "~/assets/images/components/page/PageFooter/copyright-crafted-flag.svg?inline";
 
+// CONSTANTS
+const STATUS_COLORS = {
+  healthy: "00ab7e",
+  sick: "de8500",
+  dead: "de0707"
+};
+
 export default {
   name: "PageFooter",
 
@@ -263,8 +270,13 @@ export default {
             {
               label: "System Status",
               target: `${this.$config.url.prose_status}/`,
-              indicatorIcon: `${this.$config.url.prose_status}/includes/badge/`,
-              emphasis: true
+              emphasis: true,
+
+              indicatorIcon:
+                `${this.$config.url.prose_status}/includes/badge/` +
+                `?healthy=${STATUS_COLORS.healthy}&` +
+                `sick=${STATUS_COLORS.sick}&` +
+                `dead=${STATUS_COLORS.dead}`
             }
           ]
         }
