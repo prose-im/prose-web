@@ -1,9 +1,16 @@
 {
   "url": {
+    "prose_files": "https://files.prose.org",
+    "prose_help": "https://help.prose.org",
+    "prose_status": "https://status.prose.org",
     "twitter_prose": "https://twitter.com/prose_im",
     "github_prose": "https://github.com/prose-im",
     "youtube_prose": "https://www.youtube.com/channel/UCADWeuQGLnrY2L-wflqrevQ",
     "climateneutral_web": "https://www.climateneutral.org/"
+  },
+
+  "email": {
+    "prose_careers": "careers@prose.org"
   },
 
   "tokens": {

@@ -42,7 +42,7 @@
           )
             li.c-page-footer__social-button(
               v-for="socialItem in socialItems"
-              :key="socialItem.platform"
+              :key="'social_' + socialItem.platform"
             )
               a.c-page-footer__social-link(
                 :href="socialItem.target"
@@ -56,13 +56,44 @@
                 | {{ socialItem.label }}
 
         .c-page-footer__right.c-page-footer__right--full
-          .c-page-footer__navigation
-            .c-page-footer__segment
-              h6.c-page-footer__segment-title
+          .c-page-footer__segments(
+            v-if="segments.length > 0"
+          )
+            .c-page-footer__segment(
+              v-for="segment in segments"
+              :key="'segment_' + segment.id"
+            )
+              h6.c-page-footer__segment-title.u-title.u-bold
+                | {{ segment.title }}
 
               ul.c-page-footer__segment-items
-                li.c-page-footer__segment-item
-                  a.c-page-footer__segment-link
+                li(
+                  v-for="segmentItem, index in segment.items"
+                  :key="'segment_' + segment.id + '_' + index"
+                  :class=`[
+                    "c-page-footer__segment-item",
+                    {
+                      "u-medium": segmentItem.emphasis
+                    }
+                  ]`
+                )
+                  nuxt-link(
+                    v-if="segmentItem.target.startsWith('/')"
+                    :to="segmentItem.target"
+                    class="c-page-footer__segment-link"
+                  )
+                    | {{ segmentItem.label }}
+
+                  a.c-page-footer__segment-link(
+                    v-else
+                    :href="segmentItem.target"
+                  )
+                    span.c-page-footer__segment-indicator(
+                      v-if="segmentItem.indicatorIcon"
+                      :style="'background-image: url(' + segmentItem.indicatorIcon + ');'"
+                    )
+
+                    | {{ segmentItem.label }}
 
       .c-page-footer__copyright
         .c-page-footer__left
@@ -159,6 +190,84 @@ export default {
           image: ImageCopyrightBadgesClimateNeutral,
           target: this.$config.url.climateneutral_web
         }
+      ],
+
+      segments: [
+        {
+          id: "product",
+          title: "Product",
+
+          items: [
+            {
+              label: "Open-Source",
+              target: this.$config.url.github_prose
+            },
+
+            {
+              label: "Downloads",
+              target: "/downloads/"
+            },
+
+            {
+              label: "Changelog",
+              target: "/changelog/"
+            },
+
+            {
+              label: "Read our Blog",
+              target: "/blog/"
+            }
+          ]
+        },
+
+        {
+          id: "company",
+          title: "Company",
+
+          items: [
+            {
+              label: "Terms & Privacy",
+              target: "/terms/"
+            },
+
+            {
+              label: "Brand Assets",
+
+              target:
+                `${this.$config.url.prose_files}/` +
+                `public/documents/brand-assets.zip`
+            },
+
+            {
+              label: "Work with Us",
+              target: `mailto:${this.$config.email.prose_careers}`
+            }
+          ]
+        },
+
+        {
+          id: "support",
+          title: "Support",
+
+          items: [
+            {
+              label: "Help Center",
+              target: `${this.$config.url.prose_help}/`
+            },
+
+            {
+              label: "Contact Us",
+              target: "/contact/"
+            },
+
+            {
+              label: "System Status",
+              target: `${this.$config.url.prose_status}/`,
+              indicatorIcon: `${this.$config.url.prose_status}/includes/badge/`,
+              emphasis: true
+            }
+          ]
+        }
       ]
     };
   }
@@ -174,6 +283,8 @@ $c: ".c-page-footer";
 
 // VARIABLES
 $alignments-margin-sides: 12px;
+
+$segment-link-padding-left: 10px;
 
 .c-page-footer {
   border-top: 1px solid $color-border-secondary;
@@ -197,6 +308,7 @@ $alignments-margin-sides: 12px;
 
       a {
         color: rgba($color-black, 0.55);
+        text-decoration: underline;
       }
     }
 
@@ -241,12 +353,64 @@ $alignments-margin-sides: 12px;
       }
     }
 
-    #{$c}__navigation {
-      // TODO
+    #{$c}__segments {
+      padding-top: 9px;
+      display: flex;
+      justify-content: flex-end;
     }
 
     #{$c}__segment {
-      // TODO
+      color: $color-black;
+      width: 165px;
+      margin-right: 24px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      #{$c}__segment-title {
+        font-size: 15px;
+        text-transform: uppercase;
+        letter-spacing: -0.05px;
+      }
+
+      #{$c}__segment-items {
+        margin-top: 15px;
+
+        #{$c}__segment-item {
+          margin-left: (-1 * $segment-link-padding-left);
+          display: block;
+        }
+
+        #{$c}__segment-link {
+          background-color: transparent;
+          color: inherit;
+          font-size: 13px;
+          line-height: 18px;
+          padding: 2px 6px 4px $segment-link-padding-left;
+          display: flex;
+          align-items: center;
+          border-radius: 2px;
+          transition: background-color 100ms linear;
+
+          &:hover {
+            background-color: rgba($color-base-black-mid, 0.06);
+          }
+
+          &:active {
+            background-color: rgba($color-base-black-mid, 0.08);
+          }
+        }
+
+        #{$c}__segment-indicator {
+          background-color: lighten($color-base-grey-mid, 14%);
+          width: 9px;
+          height: 9px;
+          margin-right: 5px;
+          margin-bottom: -1px;
+          border-radius: 100%;
+        }
+      }
     }
   }
 
@@ -291,7 +455,7 @@ $alignments-margin-sides: 12px;
       color: $color-base-grey-mid;
 
       #{$c}__separator {
-        margin: 0 8px;
+        margin: 0 6px;
         opacity: 0.4;
       }
 

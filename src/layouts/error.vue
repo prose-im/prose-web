@@ -9,14 +9,23 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  page-container
-    page-header
-
-    page-error(
-      :error="error"
+  //- Notice: as the 'error' layout behaves as a page as per Nuxt rules, we \
+  //-   therefore treat it as a page here (inheriting the 'default' layout).
+  .p-error
+    h1(
+      v-if="error.statusCode === 404"
     )
+      | Page Not Found
 
-    page-footer
+    h1(
+      v-else
+    )
+      | Error {{ error.statusCode }}
+
+    nuxt-link(
+      to="/"
+    )
+      | Go to the home page
 </template>
 
 <!-- **********************************************************************
@@ -41,3 +50,11 @@ export default {
   }
 };
 </script>
+
+<!-- **********************************************************************
+     STYLE
+     ********************************************************************** -->
+
+<style lang="scss">
+$c: ".p-error";
+</style>

@@ -5,9 +5,13 @@
  */
 
 /* *************************************************************************
- * ELEMENTS > ALL
+ * ELEMENTS > INLINE
  * **************************************************************************/
 
-@import "_elements.fonts";
-@import "_elements.page";
-@import "_elements.inline";
+a {
+  outline: 0;
+  color: $color-base-blue-link;
+  text-decoration: none;
+  transition: color linear 100ms;
+  cursor: pointer;
+}
