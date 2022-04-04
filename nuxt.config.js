@@ -215,6 +215,18 @@ export default {
     }
   },
 
+  // Public runtime configuration: \
+  //   https://nuxtjs.org/docs/configuration-glossary/\
+  //     configuration-runtime-config
+  publicRuntimeConfig: {
+    // Important: remap config as to strip any private token from there, as \
+    //   eg. in the future there might be some private built-time token shared \
+    //   in this configuration file, which we DO NOT want to leak on the Web.
+    url: CONFIG.url,
+    tokens: CONFIG.tokens.public,
+    author: projectPackage.author
+  },
+
   // Generate options: \
   //   https://nuxtjs.org/docs/configuration-glossary/configuration-generate
   generate: {

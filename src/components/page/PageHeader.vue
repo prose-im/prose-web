@@ -26,7 +26,9 @@
               to="/"
             )
               base-logo(
-                class="c-page-header__logo"
+                class="c-page-header__logo",
+                tint="normal"
+                size="large"
               )
 
           .c-page-header__right
@@ -174,6 +176,10 @@ $c: ".c-page-header";
         margin-right: 0;
       }
 
+      #{$c}__menu-icon #{$c}__menu-arrow {
+        transition: opacity 100ms linear;
+      }
+
       #{$c}__menu-icon {
         line-height: 0;
         margin-right: 5px;
@@ -196,6 +202,26 @@ $c: ".c-page-header";
         cursor: pointer;
         display: flex;
         align-items: center;
+
+        &:hover {
+          #{$c}__menu-icon {
+            opacity: 0.9;
+          }
+
+          #{$c}__menu-arrow {
+            opacity: 0.45;
+          }
+        }
+
+        &:active {
+          #{$c}__menu-icon {
+            opacity: 1;
+          }
+
+          #{$c}__menu-arrow {
+            opacity: 0.55;
+          }
+        }
       }
     }
   }

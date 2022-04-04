@@ -1,1 +1,13 @@
-{}
+{
+  "url": {
+    "twitter_prose": "https://twitter.com/prose_im",
+    "github_prose": "https://github.com/prose-im",
+    "youtube_prose": "https://www.youtube.com/channel/UCADWeuQGLnrY2L-wflqrevQ",
+    "climateneutral_web": "https://www.climateneutral.org/"
+  },
+
+  "tokens": {
+    "public": {},
+    "private": {}
+  }
+}
