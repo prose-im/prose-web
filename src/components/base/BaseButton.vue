@@ -67,13 +67,13 @@ $c: ".c-base-button";
 .c-base-button {
   background-color: $color-base-blue-dark;
   font-size: 13.5px;
-  line-height: 38px;
-  padding: 0 20px 2px;
+  line-height: 36px;
+  padding: 0 22px 2px;
   user-select: none;
   display: flex;
   align-items: center;
   cursor: pointer;
-  border-radius: 20px;
+  border-radius: 24px;
   box-shadow: 0 2px 1px 0 rgba($color-base-blue-dark, 0.12),
     inset 0 1px 0 0 rgba($color-white, 0.22);
   transition: all 100ms linear;
@@ -84,6 +84,7 @@ $c: ".c-base-button";
   }
 
   &:active {
+    background-color: lighten($color-base-blue-dark, 2%);
     transform: translateY(1px);
     box-shadow: 0 1px 1px 0 rgba($color-base-blue-dark, 0.3);
   }
