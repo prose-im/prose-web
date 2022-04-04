@@ -59,41 +59,13 @@
           .c-page-footer__segments(
             v-if="segments.length > 0"
           )
-            .c-page-footer__segment(
+            page-footer-segment(
               v-for="segment in segments"
               :key="'segment_' + segment.id"
+              :id="segment.id"
+              :title="segment.title"
+              :items="segment.items"
             )
-              h6.c-page-footer__segment-title.u-title.u-bold
-                | {{ segment.title }}
-
-              ul.c-page-footer__segment-items
-                li(
-                  v-for="segmentItem, index in segment.items"
-                  :key="'segment_' + segment.id + '_' + index"
-                  :class=`[
-                    "c-page-footer__segment-item",
-                    {
-                      "u-medium": segmentItem.emphasis
-                    }
-                  ]`
-                )
-                  nuxt-link(
-                    v-if="segmentItem.target.startsWith('/')"
-                    :to="segmentItem.target"
-                    class="c-page-footer__segment-link"
-                  )
-                    | {{ segmentItem.label }}
-
-                  a.c-page-footer__segment-link(
-                    v-else
-                    :href="segmentItem.target"
-                  )
-                    span.c-page-footer__segment-indicator(
-                      v-if="segmentItem.indicatorIcon"
-                      :style="'background-image: url(' + segmentItem.indicatorIcon + ');'"
-                    )
-
-                    | {{ segmentItem.label }}
 
       .c-page-footer__copyright
         .c-page-footer__left
@@ -134,6 +106,9 @@
      ********************************************************************** -->
 
 <script>
+// PROJECT: COMPONENTS
+import PageFooterSegment from "./PageFooterSegment";
+
 // PROJECT: IMAGES
 import ImageSocialIconTwitter from "~/assets/images/components/page/PageFooter/social-icon-twitter.svg?raw";
 import ImageSocialIconYouTube from "~/assets/images/components/page/PageFooter/social-icon-youtube.svg?raw";
@@ -154,7 +129,11 @@ const STATUS_COLORS = {
 export default {
   name: "PageFooter",
 
-  components: { ImageCopyrightOwnershipQuote, ImageCopyrightCraftedFlag },
+  components: {
+    PageFooterSegment,
+    ImageCopyrightOwnershipQuote,
+    ImageCopyrightCraftedFlag
+  },
 
   data() {
     return {
@@ -296,8 +275,6 @@ $c: ".c-page-footer";
 // VARIABLES
 $alignments-margin-sides: 12px;
 
-$segment-link-padding-left: 10px;
-
 .c-page-footer {
   border-top: 1px solid $color-border-secondary;
   padding: 40px 0 24px;
@@ -369,60 +346,6 @@ $segment-link-padding-left: 10px;
       padding-top: 9px;
       display: flex;
       justify-content: flex-end;
-    }
-
-    #{$c}__segment {
-      color: $color-black;
-      width: 165px;
-      margin-right: 24px;
-
-      &:last-child {
-        margin-right: 0;
-      }
-
-      #{$c}__segment-title {
-        font-size: 15px;
-        text-transform: uppercase;
-        letter-spacing: -0.05px;
-      }
-
-      #{$c}__segment-items {
-        margin-top: 15px;
-
-        #{$c}__segment-item {
-          margin-left: (-1 * $segment-link-padding-left);
-          display: block;
-        }
-
-        #{$c}__segment-link {
-          background-color: transparent;
-          color: inherit;
-          font-size: 13px;
-          line-height: 18px;
-          padding: 2px 6px 4px $segment-link-padding-left;
-          display: flex;
-          align-items: center;
-          border-radius: 2px;
-          transition: background-color 100ms linear;
-
-          &:hover {
-            background-color: rgba($color-base-black-mid, 0.06);
-          }
-
-          &:active {
-            background-color: rgba($color-base-black-mid, 0.08);
-          }
-        }
-
-        #{$c}__segment-indicator {
-          background-color: lighten($color-base-grey-mid, 14%);
-          width: 9px;
-          height: 9px;
-          margin-right: 5px;
-          margin-bottom: -1px;
-          border-radius: 100%;
-        }
-      }
     }
   }
 
