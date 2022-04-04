@@ -302,7 +302,7 @@ $alignments-margin-sides: 12px;
     }
 
     #{$c}__social {
-      font-size: 12px;
+      font-size: 12.5px;
       margin-top: 24px;
       align-items: center;
       display: flex;
@@ -391,6 +391,7 @@ $alignments-margin-sides: 12px;
 
       #{$c}__separator {
         margin: 0 6px;
+        user-select: none;
         opacity: 0.4;
       }
 
@@ -404,14 +405,13 @@ $alignments-margin-sides: 12px;
 
     #{$c}__crafted {
       color: #003399;
-      display: flex;
-      align-items: center;
 
       #{$c}__flag {
+        vertical-align: middle;
         width: auto;
         height: 20px;
         margin-right: 5px;
-        margin-bottom: -1px;
+        margin-top: -2px;
       }
     }
   }

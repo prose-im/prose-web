@@ -109,7 +109,7 @@ $segment-link-padding-left: 10px;
     #{$c}__link {
       background-color: transparent;
       color: inherit;
-      font-size: 13px;
+      font-size: 13.5px;
       line-height: 18px;
       padding: 2px 6px 4px $segment-link-padding-left;
       display: flex;

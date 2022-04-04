@@ -15,7 +15,7 @@ html {
   font-size: 13.5px;
   font-family: "Prose Helvetica Neue", "Helvetica Neue", Helvetica, Arial,
     sans-serif;
-  line-break: 16px;
+  line-height: 16px;
 
   @include font-smoothing(antialiased);
 }
