@@ -24,7 +24,9 @@
         name="description"
       )
 
-    .c-page-main-title__action
+    .c-page-main-title__action(
+      v-if="$slots.action"
+    )
       slot(
         name="action"
       )
