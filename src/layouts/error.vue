@@ -12,20 +12,51 @@
   //- Notice: as the 'error' layout behaves as a page as per Nuxt rules, we \
   //-   therefore treat it as a page here (inheriting the 'default' layout).
   .p-error
-    h1(
-      v-if="error.statusCode === 404"
-    )
-      | Page Not Found
+    page-main-title
+      template(
+        slot="title"
+      )
+        template(
+          v-if="error.statusCode === 404"
+        )
+          | Page Not Found
 
-    h1(
-      v-else
-    )
-      | Error {{ error.statusCode }}
+        template(
+          v-else
+        )
+          | An Error Occurred
 
-    nuxt-link(
-      to="/"
-    )
-      | Go to the home page
+      template(
+        slot="description"
+      )
+        template(
+          v-if="error.statusCode === 404"
+        )
+          p.u-medium
+            | This page could not be found.
+
+          p
+            | Please go back to the homepage and start from there.
+
+        template(
+          v-else
+        )
+          p
+            | An unexpected error occurred. Can you try again?
+
+          p.u-medium
+            | Error code: {{ error.statusCode }}
+
+      nuxt-link(
+        to="/"
+        class="p-error__action-link"
+        slot="action"
+      )
+        base-button(
+          size="large"
+          emphasis
+        )
+          | Go to the home page
 </template>
 
 <!-- **********************************************************************
@@ -33,8 +64,13 @@
      ********************************************************************** -->
 
 <script>
+// PROJECT: COMPONENTS
+import PageMainTitle from "~/components/page/PageMainTitle";
+
 export default {
   name: "ErrorLayout",
+
+  components: { PageMainTitle },
 
   props: {
     error: {
