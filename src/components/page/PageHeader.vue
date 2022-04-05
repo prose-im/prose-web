@@ -137,6 +137,7 @@ $c: ".c-page-header";
     top: 0;
     left: 0;
     right: 0;
+    z-index: 100;
   }
 
   #{$c}__inner {
@@ -234,8 +235,9 @@ $c: ".c-page-header";
 
   &--floating {
     #{$c}__sticky {
-      background-color: $color-background-primary;
+      background-color: rgba($color-background-primary, 0.9);
       border-bottom-color: $color-border-secondary;
+      backdrop-filter: blur(8px) saturate(160%) contrast(45%) brightness(140%);
     }
   }
 }
