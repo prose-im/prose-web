@@ -65,6 +65,7 @@
               :id="segment.id"
               :title="segment.title"
               :items="segment.items"
+              class="c-page-footer__segment"
             )
 
       .c-page-footer__copyright
@@ -346,6 +347,11 @@ $alignments-margin-sides: 12px;
       padding-top: 9px;
       display: flex;
       justify-content: flex-end;
+
+      #{$c}__segment {
+        width: 165px;
+        margin-right: 24px;
+      }
     }
   }
 

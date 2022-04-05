@@ -85,8 +85,6 @@ $segment-link-padding-left: 10px;
 
 .c-page-footer-segment {
   color: $color-black;
-  width: 165px;
-  margin-right: 24px;
 
   &:last-child {
     margin-right: 0;
