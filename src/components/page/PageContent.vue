@@ -34,6 +34,6 @@ $c: ".c-page-content";
 .c-page-content {
   background-color: $color-background-primary;
   padding-top: 64px;
-  padding-bottom: 120px;
+  padding-bottom: 98px;
 }
 </style>
