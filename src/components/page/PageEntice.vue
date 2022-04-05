@@ -45,6 +45,9 @@
 
         .c-page-entice__illustration
           .c-page-entice__logo
+            image-illustration-logo-icon(
+              class="c-page-entice__logo-icon"
+            )
 </template>
 
 <!-- **********************************************************************
@@ -54,11 +57,12 @@
 <script>
 // PROJECT: IMAGES
 import ImageContentActionsDownloadIcon from "~/assets/images/components/page/PageEntice/content-actions-download-icon.svg?inline";
+import ImageIllustrationLogoIcon from "~/assets/images/components/page/PageEntice/illustration-logo-icon.svg?inline";
 
 export default {
   name: "PageEntice",
 
-  components: { ImageContentActionsDownloadIcon }
+  components: { ImageContentActionsDownloadIcon, ImageIllustrationLogoIcon }
 };
 </script>
 
@@ -153,6 +157,7 @@ $logo-size: 420px;
 
         #{$c}__action-icon {
           vertical-align: middle;
+          width: auto;
           height: 14px;
           margin-top: -2px;
           margin-right: 5px;
@@ -175,9 +180,15 @@ $logo-size: 420px;
     position: relative;
 
     #{$c}__logo {
+      background-image: url("~/assets/images/components/page/PageEntice/illustration-logo-background.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
       background-color: $color-background-secondary;
       width: $logo-size;
       height: $logo-size;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       position: absolute;
       top: -40px;
       right: 10px;
@@ -185,6 +196,13 @@ $logo-size: 420px;
       box-shadow: 0 2px 6px 0 rgba($color-black, 0.25),
         0 4px 9px 0 rgba($color-black, 0.09);
       transform: rotate(-25deg);
+
+      #{$c}__logo-icon {
+        width: 76%;
+        height: auto;
+        margin-right: -7%;
+        margin-bottom: -14%;
+      }
     }
   }
 }
