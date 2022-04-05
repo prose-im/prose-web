@@ -417,7 +417,7 @@ $alignments-margin-sides: 12px;
         width: auto;
         height: 20px;
         margin-right: 5px;
-        margin-top: -2px;
+        margin-top: -3px;
       }
     }
   }
