@@ -190,7 +190,7 @@ $logo-size: 420px;
       align-items: center;
       justify-content: center;
       position: absolute;
-      top: -40px;
+      top: -38px;
       right: 10px;
       border-radius: 80px;
       box-shadow: 0 2px 6px 0 rgba($color-black, 0.25),
@@ -198,10 +198,10 @@ $logo-size: 420px;
       transform: rotate(-25deg);
 
       #{$c}__logo-icon {
-        width: 76%;
+        width: 72%;
         height: auto;
-        margin-right: -7%;
-        margin-bottom: -14%;
+        margin-right: -2%;
+        margin-bottom: -5%;
       }
     }
   }
