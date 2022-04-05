@@ -69,9 +69,10 @@ import PageMainTitle from "~/components/page/PageMainTitle";
 
 export default {
   name: "ErrorLayout",
-  layout: "simple",
 
   components: { PageMainTitle },
+
+  layout: "simple",
 
   props: {
     error: {
