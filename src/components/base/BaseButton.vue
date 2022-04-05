@@ -10,13 +10,14 @@
 
 <template lang="pug">
 .c-base-button
-  .c-base-button__label.u-medium
-    slot
+  .c-base-button__inner
+    .c-base-button__label.u-medium
+      slot
 
-  .c-base-button__icon(
-    v-if="rightIconHtml"
-    v-html="rightIconHtml"
-  )
+    .c-base-button__icon(
+      v-if="rightIconHtml"
+      v-html="rightIconHtml"
+    )
 </template>
 
 <!-- **********************************************************************
@@ -65,43 +66,51 @@ export default {
 $c: ".c-base-button";
 
 .c-base-button {
-  background-color: $color-base-blue-dark;
-  font-size: 13.5px;
-  line-height: 36px;
-  padding: 0 22px 2px;
-  user-select: none;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  border-radius: 24px;
-  box-shadow: 0 2px 1px 0 rgba($color-base-blue-dark, 0.12),
-    inset 0 1px 0 0 rgba($color-white, 0.22);
-  transition: all 100ms linear;
-  transition-property: transform, box-shadow, background-color;
+  display: inline-block;
 
   &:hover {
-    background-color: lighten($color-base-blue-dark, 5%);
+    #{$c}__inner {
+      background-color: lighten($color-base-blue-dark, 5%);
+    }
   }
 
   &:active {
-    background-color: lighten($color-base-blue-dark, 2%);
-    transform: translateY(1px);
-    box-shadow: 0 1px 1px 0 rgba($color-base-blue-dark, 0.3);
+    #{$c}__inner {
+      background-color: lighten($color-base-blue-dark, 2%);
+      transform: translateY(1px);
+      box-shadow: 0 1px 1px 0 rgba($color-base-blue-dark, 0.3);
+    }
   }
 
-  #{$c}__label {
-    color: $color-white;
-    flex: 1;
-  }
+  #{$c}__inner {
+    background-color: $color-base-blue-dark;
+    font-size: 13.5px;
+    line-height: 36px;
+    padding: 0 22px 2px;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 24px;
+    box-shadow: 0 2px 1px 0 rgba($color-base-blue-dark, 0.12),
+      inset 0 1px 0 0 rgba($color-white, 0.22);
+    transition: all 100ms linear;
+    transition-property: transform, box-shadow, background-color;
 
-  #{$c}__icon {
-    margin-bottom: -2px;
-    margin-left: 9px;
-    margin-right: -3px;
-    flex: 0 1 auto;
+    #{$c}__label {
+      color: $color-white;
+      flex: 1;
+    }
 
-    svg {
-      height: 9px;
+    #{$c}__icon {
+      margin-bottom: -2px;
+      margin-left: 9px;
+      margin-right: -3px;
+      flex: 0 1 auto;
+
+      svg {
+        height: 9px;
+      }
     }
   }
 }
