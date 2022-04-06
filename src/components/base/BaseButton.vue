@@ -14,7 +14,7 @@ div(
     "c-base-button",
     "c-base-button--" + size,
     {
-      "c-base-button--emphasis": emphasis
+      "c-base-button--darker": darker
     }
   ]`
 )
@@ -23,8 +23,8 @@ div(
       :class=`[
         "c-base-button__label",
         {
-          "u-medium": !emphasis,
-          "u-bold": emphasis
+          "u-medium": !bolder,
+          "u-bold": bolder
         }
       ]`
     )
@@ -57,7 +57,12 @@ export default {
       }
     },
 
-    emphasis: {
+    bolder: {
+      type: Boolean,
+      default: false
+    },
+
+    darker: {
       type: Boolean,
       default: false
     },
@@ -104,7 +109,7 @@ $size-large-padding-sides: 28px;
 
   &:hover {
     #{$c}__inner {
-      background-color: lighten($color-button-dark-normal, 5%);
+      background-color: lighten($color-button-dark-normal, 6%);
     }
   }
 
@@ -167,22 +172,22 @@ $size-large-padding-sides: 28px;
 
   // --> BOOLEANS <--
 
-  &--emphasis {
+  &--darker {
     #{$c}__inner {
-      background-color: $color-button-dark-emphasis;
-      box-shadow: 0 2px 1px 0 rgba($color-button-dark-emphasis, 0.12);
+      background-color: $color-button-dark-darker;
+      box-shadow: 0 2px 1px 0 rgba($color-button-dark-darker, 0.12);
     }
 
     &:hover {
       #{$c}__inner {
-        background-color: lighten($color-button-dark-emphasis, 4%);
+        background-color: lighten($color-button-dark-darker, 4%);
       }
     }
 
     &:active {
       #{$c}__inner {
-        background-color: lighten($color-button-dark-emphasis, 2%);
-        box-shadow: 0 1px 1px 0 rgba($color-button-dark-emphasis, 0.3);
+        background-color: lighten($color-button-dark-darker, 2%);
+        box-shadow: 0 1px 1px 0 rgba($color-button-dark-darker, 0.3);
       }
     }
   }

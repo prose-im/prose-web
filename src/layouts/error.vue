@@ -53,7 +53,7 @@
       )
         base-button(
           size="large"
-          emphasis
+          bolder
         )
           | Go to the home page
 </template>

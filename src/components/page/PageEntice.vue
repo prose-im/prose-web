@@ -29,7 +29,8 @@
                 class="c-page-entice__action"
                 size="large"
                 right-icon="arrow"
-                emphasis
+                bolder
+                darker
               )
                 | Start with Prose
 

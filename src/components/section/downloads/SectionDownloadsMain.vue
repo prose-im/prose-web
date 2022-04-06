@@ -29,7 +29,7 @@
     base-button(
       slot="action"
       size="large"
-      emphasis
+      bolder
     )
       | Download the Prose App for macOS
 
