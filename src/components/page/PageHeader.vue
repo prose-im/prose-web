@@ -51,13 +51,19 @@
                 span.c-page-header__menu-link(
                   v-else-if="item.dropdown"
                 )
+                  base-dropdown(
+                    :items="item.dropdown"
+                    arrow-class="c-page-header__menu-dropdown-arrow"
+                    class="c-page-header__menu-dropdown"
+                  )
+
                   span.c-page-header__menu-icon(
                     v-html="item.icon"
                   )
 
                   | {{ item.label }}
 
-                  image-menu-dropdown-arrow(
+                  image-menu-dropdown-link-arrow(
                     class="c-page-header__menu-arrow"
                   )
 
@@ -78,14 +84,19 @@
 
 <script>
 // PROJECT: IMAGES
-import ImageMenuDropdownArrow from "~/assets/images/components/page/PageHeader/menu-dropdown-arrow.svg?inline";
 import ImageMenuItemDownload from "~/assets/images/components/page/PageHeader/menu-item-download.svg?raw";
 import ImageMenuItemHelp from "~/assets/images/components/page/PageHeader/menu-item-help.svg?raw";
+
+import ImageMenuDropdownLinkArrow from "~/assets/images/components/page/PageHeader/menu-dropdown-link-arrow.svg?inline";
+
+import ImageMenuDropdownHelpIconHelp from "~/assets/images/components/page/PageHeader/menu-dropdown-help-icon-help.svg?raw";
+import ImageMenuDropdownHelpIconDocs from "~/assets/images/components/page/PageHeader/menu-dropdown-help-icon-docs.svg?raw";
+import ImageMenuDropdownHelpIconContact from "~/assets/images/components/page/PageHeader/menu-dropdown-help-icon-contact.svg?raw";
 
 export default {
   name: "PageHeader",
 
-  components: { ImageMenuDropdownArrow },
+  components: { ImageMenuDropdownLinkArrow },
 
   props: {
     embedded: {
@@ -108,7 +119,32 @@ export default {
           id: "help",
           icon: ImageMenuItemHelp,
           label: "Get Help",
-          dropdown: []
+
+          dropdown: [
+            {
+              id: "help",
+              title: "Help Center",
+              label: "Get help with using Prose as a user",
+              target: `${this.$config.url.prose_help}/`,
+              icon: ImageMenuDropdownHelpIconHelp
+            },
+
+            {
+              id: "docs",
+              title: "Server Docs",
+              label: "Resources for Prose server administrators",
+              target: `${this.$config.url.prose_docs}/`,
+              icon: ImageMenuDropdownHelpIconDocs
+            },
+
+            {
+              id: "contact",
+              title: "Contact Support",
+              label: "Question or feature request? Ask us!",
+              target: "/contact/",
+              icon: ImageMenuDropdownHelpIconContact
+            }
+          ]
         }
       ];
     }
@@ -122,6 +158,11 @@ export default {
 
 <style lang="scss">
 $c: ".c-page-header";
+
+// VARIABLES
+$menu-icon-size: 16px;
+
+$menu-dropdown-offset-left: 60px;
 
 .c-page-header {
   #{$c}__sticky,
@@ -188,7 +229,7 @@ $c: ".c-page-header";
 
         svg {
           fill: #2c245e;
-          height: 16px;
+          width: $menu-icon-size;
         }
       }
 
@@ -203,6 +244,7 @@ $c: ".c-page-header";
         cursor: pointer;
         display: flex;
         align-items: center;
+        position: relative;
 
         &:hover {
           #{$c}__menu-icon {
@@ -221,6 +263,17 @@ $c: ".c-page-header";
 
           #{$c}__menu-arrow {
             opacity: 0.55;
+          }
+        }
+
+        #{$c}__menu-dropdown {
+          min-width: 360px;
+          position: absolute;
+          left: (-1 * $menu-dropdown-offset-left);
+          top: calc(100% + 20px);
+
+          #{$c}__menu-dropdown-arrow {
+            left: ($menu-dropdown-offset-left + ($menu-icon-size / 2));
           }
         }
       }
