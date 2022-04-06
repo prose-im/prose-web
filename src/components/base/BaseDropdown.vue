@@ -9,43 +9,44 @@
      ********************************************************************** -->
 
 <template lang="pug">
-.c-base-dropdown
-  span(
-    :class=`[
-      "c-base-dropdown__arrow",
-      {
-        [arrowClass]: arrowClass
-      }
-    ]`
-  )
-
-  .c-base-dropdown__inner
-    template(
-      v-for="item in items"
+span.c-base-dropdown
+  span.c-base-dropdown__box
+    span(
+      :class=`[
+        "c-base-dropdown__arrow",
+        {
+          [arrowClass]: arrowClass
+        }
+      ]`
     )
-      nuxt-link(
-        v-if="item.target.startsWith('/')"
-        :to="item.target"
-        class="c-base-dropdown__item"
-      )
-        base-dropdown-item(
-          :key="'dropdown_internal_' + item.id"
-          :title="item.title"
-          :label="item.label"
-          :icon="item.icon"
-        )
 
-      a(
-        v-else
-        :href="item.target"
-        class="c-base-dropdown__item"
+    span.c-base-dropdown__inner
+      template(
+        v-for="item in items"
       )
-        base-dropdown-item(
-          :key="'dropdown_external_' + item.id"
-          :title="item.title"
-          :label="item.label"
-          :icon="item.icon"
+        nuxt-link(
+          v-if="item.target.startsWith('/')"
+          :to="item.target"
+          class="c-base-dropdown__item"
         )
+          base-dropdown-item(
+            :key="'dropdown_internal_' + item.id"
+            :title="item.title"
+            :label="item.label"
+            :icon="item.icon"
+          )
+
+        a(
+          v-else
+          :href="item.target"
+          class="c-base-dropdown__item"
+        )
+          base-dropdown-item(
+            :key="'dropdown_external_' + item.id"
+            :title="item.title"
+            :label="item.label"
+            :icon="item.icon"
+          )
 </template>
 
 <!-- **********************************************************************
@@ -84,10 +85,15 @@ $c: ".c-base-dropdown";
 $arrow-size: 8px;
 
 .c-base-dropdown {
-  background: $color-white;
-  border-radius: 6px;
-  box-shadow: 0 10px 40px 0 rgba(#19162c, 0.18);
-  position: relative;
+  padding-top: ($arrow-size + 12px);
+
+  #{$c}__box {
+    background: $color-white;
+    border-radius: 6px;
+    box-shadow: 0 10px 40px 0 rgba(#19162c, 0.18);
+    display: block;
+    position: relative;
+  }
 
   #{$c}__arrow {
     width: 0;
@@ -103,6 +109,7 @@ $arrow-size: 8px;
 
   #{$c}__inner {
     padding: 18px 14px 18px 28px;
+    display: block;
   }
 
   #{$c}__item {

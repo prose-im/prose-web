@@ -225,6 +225,7 @@ $menu-dropdown-offset-left: 60px;
       #{$c}__menu-icon {
         line-height: 0;
         margin-right: 5px;
+        margin-bottom: -0.5px;
         opacity: 0.8;
 
         svg {
@@ -254,6 +255,12 @@ $menu-dropdown-offset-left: 60px;
           #{$c}__menu-arrow {
             opacity: 0.45;
           }
+
+          #{$c}__menu-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+          }
         }
 
         &:active {
@@ -270,10 +277,15 @@ $menu-dropdown-offset-left: 60px;
           min-width: 360px;
           position: absolute;
           left: (-1 * $menu-dropdown-offset-left);
-          top: calc(100% + 20px);
+          top: 100%;
+          opacity: 0;
+          visibility: hidden;
+          transform: translateY(-3px);
+          transition: all 150ms linear;
+          transition-property: opacity, transform;
 
           #{$c}__menu-dropdown-arrow {
-            left: ($menu-dropdown-offset-left + ($menu-icon-size / 2));
+            left: ($menu-dropdown-offset-left + calc($menu-icon-size / 2));
           }
         }
       }
