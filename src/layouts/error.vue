@@ -63,13 +63,8 @@
      ********************************************************************** -->
 
 <script>
-// PROJECT: COMPONENTS
-import PageMainTitle from "~/components/page/PageMainTitle";
-
 export default {
   name: "ErrorLayout",
-
-  components: { PageMainTitle },
 
   layout: "simple",
 

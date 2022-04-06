@@ -107,9 +107,6 @@
      ********************************************************************** -->
 
 <script>
-// PROJECT: COMPONENTS
-import PageFooterSegment from "./PageFooterSegment";
-
 // PROJECT: IMAGES
 import ImageSocialIconTwitter from "~/assets/images/components/page/PageFooter/social-icon-twitter.svg?raw";
 import ImageSocialIconYouTube from "~/assets/images/components/page/PageFooter/social-icon-youtube.svg?raw";
@@ -131,7 +128,6 @@ export default {
   name: "PageFooter",
 
   components: {
-    PageFooterSegment,
     ImageCopyrightOwnershipQuote,
     ImageCopyrightCraftedFlag
   },

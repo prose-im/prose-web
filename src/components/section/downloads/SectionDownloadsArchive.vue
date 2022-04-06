@@ -9,18 +9,7 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  .p-downloads
-    section-downloads-main(
-      class="p-downloads__main"
-    )
-
-    section-downloads-platforms(
-      class="p-downloads__platforms"
-    )
-
-    section-downloads-archive(
-      class="p-downloads__archive"
-    )
+  .c-section-downloads-archives
 </template>
 
 <!-- **********************************************************************
@@ -29,11 +18,7 @@
 
 <script>
 export default {
-  name: "DownloadsPage",
-
-  head: {
-    title: "Download Prose apps"
-  }
+  name: "SectionDownloadsArchives"
 };
 </script>
 
@@ -42,13 +27,9 @@ export default {
      ********************************************************************** -->
 
 <style lang="scss">
-$c: ".p-downloads";
+$c: ".c-section-downloads-archives";
 
-#{$c}__platforms {
-  margin-top: 90px;
-}
-
-#{$c}__archive {
-  margin-top: 60px;
+.c-section-downloads-archives {
+  // TODO
 }
 </style>
