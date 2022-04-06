@@ -10,26 +10,36 @@
 
 <template lang="pug">
   .c-page-main-title
-    base-title(
-      class="c-page-main-title__title"
+    page-wrapper(
+      class="c-page-main-title__wrapper"
     )
-      slot(
-        name="title"
+      base-title(
+        class="c-page-main-title__title"
       )
+        slot(
+          name="title"
+        )
 
-    base-description(
-      class="c-page-main-title__description"
-    )
-      slot(
-        name="description"
+      base-description(
+        class="c-page-main-title__description"
       )
+        slot(
+          name="description"
+        )
 
-    .c-page-main-title__action(
-      v-if="$slots.action"
-    )
-      slot(
-        name="action"
+      .c-page-main-title__action(
+        v-if="$slots.action"
       )
+        slot(
+          name="action"
+        )
+
+      .c-page-main-title__rasters(
+        v-if="$slots.rasters"
+      )
+        slot(
+          name="rasters"
+        )
 </template>
 
 <!-- **********************************************************************
@@ -52,12 +62,25 @@ $c: ".c-page-main-title";
 .c-page-main-title {
   text-align: center;
 
+  #{$c}__wrapper {
+    position: relative;
+  }
+
   #{$c}__description {
-    margin-top: 24px;
+    margin-top: 22px;
   }
 
   #{$c}__action {
     margin-top: 40px;
+  }
+
+  #{$c}__rasters {
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
 }
 </style>

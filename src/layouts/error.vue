@@ -49,7 +49,6 @@
 
       nuxt-link(
         to="/"
-        class="p-error__action-link"
         slot="action"
       )
         base-button(

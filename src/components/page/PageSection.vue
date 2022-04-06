@@ -9,8 +9,14 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  .c-page-content
-    slot
+  div(
+    :class=`[
+      "c-page-section",
+      "c-page-section--" + level
+    ]`
+  )
+    page-wrapper
+      slot
 </template>
 
 <!-- **********************************************************************
@@ -19,7 +25,18 @@
 
 <script>
 export default {
-  name: "PageContent"
+  name: "PageSection",
+
+  props: {
+    level: {
+      type: String,
+      default: "primary",
+
+      validator(x) {
+        return ["primary", "secondary"].includes(x);
+      }
+    }
+  }
 };
 </script>
 
@@ -28,11 +45,23 @@ export default {
      ********************************************************************** -->
 
 <style lang="scss">
-$c: ".c-page-content";
+$c: ".c-page-section";
 
-.c-page-content {
-  background-color: $color-background-primary;
-  padding-top: 62px;
-  padding-bottom: 98px;
+.c-page-section {
+  border-color: transparent;
+  border-width: 1px 0;
+  border-style: solid;
+  padding: 40px 0;
+
+  // --> LEVELS <--
+
+  &--primary {
+    background-color: $color-background-primary;
+  }
+
+  &--secondary {
+    background-color: $color-background-secondary;
+    border-color: $color-border-secondary;
+  }
 }
 </style>
