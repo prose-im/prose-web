@@ -243,6 +243,11 @@ export default {
             },
 
             {
+              label: "Server Docs",
+              target: `${this.$config.url.prose_docs}/`
+            },
+
+            {
               label: "Contact Us",
               target: "/contact/"
             },
