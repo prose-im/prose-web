@@ -28,12 +28,21 @@
       )
         | {{ platformName }}
 
-      base-button(
-        :right-icon="actionRightIcon"
-        tint="light"
-        class="c-app-download__action"
+      a(
+        :href="target"
+        :class=`[
+          "c-app-download__action",
+          {
+            "c-app-download__action--locked": !target
+          }
+        ]`
       )
-        | {{ actionLabel }}
+        base-button(
+          :right-icon="actionRightIcon"
+          tint="light"
+          class="c-app-download__action-button"
+        )
+          | {{ actionLabel }}
 </template>
 
 <!-- **********************************************************************
@@ -97,7 +106,7 @@ export default {
 
     target: {
       type: String,
-      required: true
+      default: null
     },
 
     action: {
@@ -174,6 +183,7 @@ $platforms: (
 .c-app-download {
   background: $color-white;
   border: 2px solid rgba($color-base-blue-dark, 0.1);
+  text-align: center;
   padding: 22px 18px 12px;
   display: flex;
   align-items: center;
@@ -181,7 +191,6 @@ $platforms: (
   border-radius: 12px;
 
   #{$c}__icon {
-    text-align: center;
     display: block;
 
     #{$c}__icon-image {
@@ -197,7 +206,6 @@ $platforms: (
   #{$c}__name {
     color: $color-black;
     font-size: 15px;
-    text-align: center;
     margin-top: 10px;
 
     &:first-child {
@@ -207,9 +215,19 @@ $platforms: (
 
   #{$c}__action {
     margin-top: 30px;
+    display: block;
 
     &:first-child {
       margin-top: 0;
+    }
+
+    &--locked {
+      cursor: not-allowed;
+
+      #{$c}__action-button {
+        pointer-events: none;
+        opacity: 0.6;
+      }
     }
   }
 

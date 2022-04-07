@@ -58,26 +58,26 @@ export default {
             {
               platform: "web",
               action: "load",
-              target: "#web",
+              target: null,
               spaced: true
             },
 
             {
               platform: "macos",
               action: "download",
-              target: "#macos"
+              target: null
             },
 
             {
               platform: "windows",
               action: "download",
-              target: "#windows"
+              target: null
             },
 
             {
               platform: "linux",
               action: "download",
-              target: "#linux"
+              target: null
             }
           ]
         },
@@ -89,13 +89,13 @@ export default {
             {
               platform: "ios",
               action: "get",
-              target: "#ios"
+              target: null
             },
 
             {
               platform: "android",
               action: "get",
-              target: "#android"
+              target: null
             }
           ]
         }
