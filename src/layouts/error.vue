@@ -52,6 +52,7 @@
         slot="action"
       )
         base-button(
+          right-icon="arrow-right"
           size="large"
           bolder
         )

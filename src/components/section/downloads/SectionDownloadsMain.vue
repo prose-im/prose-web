@@ -38,11 +38,13 @@
       slot="rasters"
     )
       base-raster(
+        :scale="0.75"
         name="magnifier"
         class="c-section-downloads-main__raster c-section-downloads-main__raster--magnifier"
       )
 
       base-raster(
+        :scale="0.65"
         name="bell"
         class="c-section-downloads-main__raster c-section-downloads-main__raster--bell"
       )
@@ -73,15 +75,11 @@ $c: ".c-section-downloads-main";
       &--magnifier {
         left: -48px;
         top: 28px;
-        transform: scale(0.75);
-        transform-origin: 0 0;
       }
 
       &--bell {
         right: -20px;
         top: -24px;
-        transform: scale(0.65);
-        transform-origin: 100% 0;
       }
     }
   }

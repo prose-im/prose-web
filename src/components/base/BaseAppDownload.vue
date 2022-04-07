@@ -182,7 +182,7 @@ $platforms: (
 
 .c-app-download {
   background: $color-white;
-  border: 2px solid rgba($color-base-blue-dark, 0.1);
+  border: 1.5px solid rgba($color-base-blue-dark, 0.1);
   text-align: center;
   padding: 22px 18px 12px;
   display: flex;

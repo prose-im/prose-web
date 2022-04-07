@@ -35,6 +35,7 @@
                 | Start with Prose
 
               nuxt-link(
+                v-if="hasActionDownload"
                 class="c-page-entice__action c-page-entice__action--link u-medium"
                 to="/downloads/"
               )
@@ -63,7 +64,14 @@ import ImageIllustrationLogoIcon from "~/assets/images/components/page/PageEntic
 export default {
   name: "PageEntice",
 
-  components: { ImageContentActionsDownloadIcon, ImageIllustrationLogoIcon }
+  components: { ImageContentActionsDownloadIcon, ImageIllustrationLogoIcon },
+
+  computed: {
+    hasActionDownload() {
+      // Hide download link on downloads page
+      return this.$route.name !== "downloads";
+    }
+  }
 };
 </script>
 
