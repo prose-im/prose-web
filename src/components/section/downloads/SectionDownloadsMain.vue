@@ -29,6 +29,7 @@
     base-button(
       slot="action"
       size="large"
+      right-icon="arrow-down"
       bolder
     )
       | Download the Prose App for macOS

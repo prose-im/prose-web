@@ -51,7 +51,7 @@ $c: ".c-page-section";
   border-color: transparent;
   border-width: 1px 0;
   border-style: solid;
-  padding: 40px 0;
+  padding: 46px 0;
 
   // --> LEVELS <--
 

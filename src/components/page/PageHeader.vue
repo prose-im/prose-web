@@ -69,7 +69,7 @@
 
             base-button(
               class="c-page-header__action"
-              right-icon="arrow"
+              right-icon="arrow-right"
             )
               | Start with Prose
 
@@ -105,9 +105,9 @@ export default {
     }
   },
 
-  computed: {
-    menuItems() {
-      return [
+  data() {
+    return {
+      menuItems: [
         {
           id: "downloads",
           icon: ImageMenuItemDownload,
@@ -146,8 +146,8 @@ export default {
             }
           ]
         }
-      ];
-    }
+      ]
+    };
   }
 };
 </script>

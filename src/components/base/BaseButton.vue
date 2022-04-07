@@ -13,8 +13,10 @@ div(
   :class=`[
     "c-base-button",
     "c-base-button--" + size,
+    "c-base-button--" + tint,
     {
-      "c-base-button--darker": darker
+      "c-base-button--darker": darker,
+      ["c-base-button--" + rightIcon]: rightIcon
     }
   ]`
 )
@@ -42,12 +44,22 @@ div(
 
 <script>
 // PROJECT: IMAGES
-import ImageIconArrow from "~/assets/images/components/base/BaseButton/icon-arrow.svg?raw";
+import ImageIconArrowRight from "~/assets/images/components/base/BaseButton/icon-arrow-right.svg?raw";
+import ImageIconArrowDown from "~/assets/images/components/base/BaseButton/icon-arrow-down.svg?raw";
 
 export default {
   name: "BaseButton",
 
   props: {
+    tint: {
+      type: String,
+      default: "dark",
+
+      validator(x) {
+        return ["light", "dark"].includes(x);
+      }
+    },
+
     size: {
       type: String,
       default: "normal",
@@ -72,7 +84,7 @@ export default {
       default: null,
 
       validator(x) {
-        return ["arrow"].includes(x);
+        return ["arrow-right", "arrow-down"].includes(x);
       }
     }
   },
@@ -80,8 +92,12 @@ export default {
   computed: {
     rightIconHtml() {
       switch (this.rightIcon) {
-        case "arrow": {
-          return ImageIconArrow;
+        case "arrow-right": {
+          return ImageIconArrowRight;
+        }
+
+        case "arrow-down": {
+          return ImageIconArrowDown;
         }
 
         default: {
@@ -107,22 +123,13 @@ $size-large-padding-sides: 28px;
 .c-base-button {
   display: inline-block;
 
-  &:hover {
-    #{$c}__inner {
-      background-color: lighten($color-button-dark-normal, 6%);
-    }
-  }
-
   &:active {
     #{$c}__inner {
-      background-color: lighten($color-button-dark-normal, 2%);
       transform: translateY(1px);
-      box-shadow: 0 1px 1px 0 rgba($color-button-dark-normal, 0.3);
     }
   }
 
   #{$c}__inner {
-    background-color: $color-button-dark-normal;
     font-size: 13.5px;
     padding-bottom: 2px;
     user-select: none;
@@ -130,24 +137,78 @@ $size-large-padding-sides: 28px;
     align-items: center;
     cursor: pointer;
     border-radius: 24px;
-    box-shadow: 0 2px 1px 0 rgba($color-button-dark-normal, 0.12),
-      inset 0 1px 0 0 rgba($color-white, 0.22);
     transition: all 100ms linear;
     transition-property: transform, box-shadow, background-color;
 
     #{$c}__label {
-      color: $color-white;
       flex: 1;
     }
 
     #{$c}__icon {
-      margin-bottom: -2px;
       margin-left: 9px;
-      margin-right: -3px;
+      margin-right: -2px;
       flex: 0 1 auto;
 
       svg {
-        height: 9px;
+        width: auto;
+        height: 12px;
+      }
+    }
+  }
+
+  // --> TINTS <--
+
+  &--dark {
+    #{$c}__inner {
+      background-color: $color-button-dark-normal;
+      box-shadow: 0 2px 1px 0 rgba($color-button-dark-normal, 0.12),
+        inset 0 1px 0 0 rgba($color-white, 0.22);
+
+      #{$c}__label {
+        color: $color-white;
+      }
+
+      #{$c}__icon {
+        fill: $color-white;
+      }
+    }
+
+    &:hover {
+      #{$c}__inner {
+        background-color: lighten($color-button-dark-normal, 6%);
+      }
+    }
+
+    &:active {
+      #{$c}__inner {
+        background-color: lighten($color-button-dark-normal, 2%);
+        box-shadow: 0 1px 1px 0 rgba($color-button-dark-normal, 0.3);
+      }
+    }
+  }
+
+  &--light {
+    #{$c}__inner {
+      background-color: $color-button-light-normal;
+
+      #{$c}__label {
+        color: $color-base-blue-dark;
+      }
+
+      #{$c}__icon {
+        fill: $color-base-blue-dark;
+      }
+    }
+
+    &:hover {
+      #{$c}__inner {
+        background-color: darken($color-button-light-normal, 100%);
+      }
+    }
+
+    &:active {
+      #{$c}__inner {
+        background-color: darken($color-button-light-normal, 50%);
       }
     }
   }
@@ -170,24 +231,44 @@ $size-large-padding-sides: 28px;
     }
   }
 
+  // --> RIGHT ICONS <--
+
+  &--arrow-right {
+    #{$c}__inner {
+      #{$c}__icon {
+        margin-bottom: -4px;
+      }
+    }
+  }
+
+  &--arrow-down {
+    #{$c}__inner {
+      #{$c}__icon {
+        margin-bottom: -3px;
+      }
+    }
+  }
+
   // --> BOOLEANS <--
 
   &--darker {
-    #{$c}__inner {
-      background-color: $color-button-dark-darker;
-      box-shadow: 0 2px 1px 0 rgba($color-button-dark-darker, 0.12);
-    }
-
-    &:hover {
+    &#{$c}--dark {
       #{$c}__inner {
-        background-color: lighten($color-button-dark-darker, 4%);
+        background-color: $color-button-dark-darker;
+        box-shadow: 0 2px 1px 0 rgba($color-button-dark-darker, 0.12);
       }
-    }
 
-    &:active {
-      #{$c}__inner {
-        background-color: lighten($color-button-dark-darker, 2%);
-        box-shadow: 0 1px 1px 0 rgba($color-button-dark-darker, 0.3);
+      &:hover {
+        #{$c}__inner {
+          background-color: lighten($color-button-dark-darker, 4%);
+        }
+      }
+
+      &:active {
+        #{$c}__inner {
+          background-color: lighten($color-button-dark-darker, 2%);
+          box-shadow: 0 1px 1px 0 rgba($color-button-dark-darker, 0.3);
+        }
       }
     }
   }

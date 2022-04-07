@@ -52,9 +52,9 @@ export default {
     }
   },
 
-  computed: {
-    logoImagesHtml() {
-      return {
+  data() {
+    return {
+      logoImagesHtml: {
         normal: {
           small: ImageLogoNormalSmall,
           large: ImageLogoNormalLarge
@@ -69,8 +69,8 @@ export default {
           small: ImageLogoWhiteOnDarkSmall,
           large: ImageLogoWhiteOnDarkLarge
         }
-      };
-    }
+      }
+    };
   }
 };
 </script>

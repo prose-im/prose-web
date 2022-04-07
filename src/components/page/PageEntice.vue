@@ -28,7 +28,7 @@
               base-button(
                 class="c-page-entice__action"
                 size="large"
-                right-icon="arrow"
+                right-icon="arrow-right"
                 bolder
                 darker
               )
