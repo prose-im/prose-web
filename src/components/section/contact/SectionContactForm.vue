@@ -11,16 +11,28 @@
 <template lang="pug">
   .c-section-contact-form
     page-wrapper
-      iframe(
+      .c-section-contact-form__frame-wrap(
         v-if="formUrl"
-        :src="formUrl"
-        title="Contact Form"
-        referrerpolicy="origin"
-        frameborder="0"
-        sandbox="allow-forms allow-popups allow-scripts"
-        ref="frame"
-        class="c-section-contact-form__frame"
       )
+        .c-section-contact-form__loader(
+          v-if="frameLoading"
+        )
+          base-spinner(
+            size="18px"
+            border-width="3px"
+            class="c-section-contact-form__spinner"
+          )
+
+        iframe(
+          @load="onFrameLoad"
+          :src="formUrl"
+          title="Contact Form"
+          referrerpolicy="origin"
+          frameborder="0"
+          sandbox="allow-forms allow-popups allow-scripts"
+          ref="frame"
+          class="c-section-contact-form__frame"
+        )
 
       p.c-section-contact-form__empty.u-bold(
         v-else
@@ -36,6 +48,14 @@
 export default {
   name: "SectionContactForm",
 
+  data() {
+    return {
+      // --> STATES <--
+
+      frameLoading: true
+    };
+  },
+
   computed: {
     formUrl() {
       if (this.$config.tokens.crisp_website_id) {
@@ -46,6 +66,19 @@ export default {
       }
 
       return null;
+    }
+  },
+
+  methods: {
+    // --> EVENT LISTENERS <--
+
+    /**
+     * Triggers when frame loads
+     * @public
+     * @return {undefined}
+     */
+    onFrameLoad() {
+      this.frameLoading = false;
     }
   }
 };
@@ -59,9 +92,29 @@ export default {
 $c: ".c-section-contact-form";
 
 .c-section-contact-form {
-  #{$c}__frame {
-    width: 100%;
-    min-height: 680px;
+  #{$c}__frame-wrap {
+    position: relative;
+
+    &,
+    #{$c}__frame {
+      min-height: 680px;
+    }
+
+    #{$c}__loader {
+      background-color: rgba($color-white, 0.7);
+      display: flex;
+      justify-content: center;
+      padding-top: 28px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+    }
+
+    #{$c}__frame {
+      width: 100%;
+    }
   }
 
   #{$c}__empty {
