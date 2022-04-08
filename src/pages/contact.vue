@@ -19,6 +19,7 @@
 <script>
 export default {
   name: "ContactPage",
+  layout: "simple",
 
   head: {
     title: "Contact the Prose team"
