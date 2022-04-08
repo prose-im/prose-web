@@ -2,11 +2,5 @@
   "url": {
     "prose_web": "https://prose.org",
     "prose_docs": "https://docs.prose.org"
-  },
-
-  "tokens": {
-    "public": {
-      "crisp_website_id": "84a1e461-9755-47fb-bdc9-bf368a5d79db"
-    }
   }
 }

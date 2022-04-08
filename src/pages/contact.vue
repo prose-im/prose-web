@@ -10,6 +10,13 @@
 
 <template lang="pug">
   .p-contact
+    section-contact-main(
+      class="p-contact__main"
+    )
+
+    section-contact-form(
+      class="p-contact__form"
+    )
 </template>
 
 <!-- **********************************************************************
@@ -33,4 +40,10 @@ export default {
 
 <style lang="scss">
 $c: ".p-contact";
+
+.p-contact {
+  #{$c}__form {
+    margin-top: 44px;
+  }
+}
 </style>

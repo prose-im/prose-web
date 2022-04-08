@@ -6,7 +6,8 @@
     "twitter_prose": "https://twitter.com/prose_im",
     "github_prose": "https://github.com/prose-im",
     "youtube_prose": "https://www.youtube.com/channel/UCADWeuQGLnrY2L-wflqrevQ",
-    "climateneutral_web": "https://www.climateneutral.org/"
+    "climateneutral_web": "https://www.climateneutral.org",
+    "crisp_plugins": "https://plugins.crisp.chat"
   },
 
   "email": {
@@ -14,7 +15,10 @@
   },
 
   "tokens": {
-    "public": {},
+    "public": {
+      "crisp_website_id": "84a1e461-9755-47fb-bdc9-bf368a5d79db"
+    },
+
     "private": {}
   }
 }

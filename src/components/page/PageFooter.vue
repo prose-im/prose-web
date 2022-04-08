@@ -171,7 +171,7 @@ export default {
         {
           id: "climate_neutral",
           image: ImageCopyrightBadgesClimateNeutral,
-          target: this.$config.url.climateneutral_web
+          target: `${this.$config.url.climateneutral_web}/`
         }
       ],
 

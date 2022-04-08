@@ -63,8 +63,8 @@ $c: ".c-base-title";
   // --> LEVELS <--
 
   &--small {
-    font-size: 30px;
-    line-height: 36px;
+    font-size: 24px;
+    line-height: 30px;
     letter-spacing: -0.1px;
   }
 
