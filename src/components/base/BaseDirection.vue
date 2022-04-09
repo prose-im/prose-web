@@ -10,8 +10,14 @@
 
 <template lang="pug">
 .c-base-direction
-  .c-base-direction__raster(
+  div(
     v-if="raster"
+    :class=`[
+      "c-base-direction__raster",
+      {
+        ["c-base-direction__raster--flip-" + rasterFlip]: rasterFlip
+      }
+    ]`
   )
     base-raster(
       :name="raster"
@@ -112,6 +118,15 @@ export default {
     rasterScale: {
       type: Number,
       default: 0.35
+    },
+
+    rasterFlip: {
+      type: String,
+      default: null,
+
+      validator(x) {
+        return ["horizontal", "vertical"].includes(x);
+      }
     }
   }
 };
@@ -135,10 +150,17 @@ $c: ".c-base-direction";
 
   #{$c}__raster {
     margin-right: 22px;
-    transform: scaleX(-1);
 
     #{$c}__raster-image {
       margin-bottom: -4px;
+    }
+
+    &--flip-horizontal {
+      transform: scaleX(-1);
+    }
+
+    &--flip-vertical {
+      transform: scaleY(-1);
     }
   }
 

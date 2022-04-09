@@ -9,7 +9,9 @@
      ********************************************************************** -->
 
 <template lang="pug">
-span.c-base-space &nbsp;
+span.c-base-space(
+  v-html="spacesHtml"
+)
 </template>
 
 <!-- **********************************************************************
@@ -18,7 +20,20 @@ span.c-base-space &nbsp;
 
 <script>
 export default {
-  name: "BaseSpace"
+  name: "BaseSpace",
+
+  props: {
+    repeat: {
+      type: Number,
+      default: 1
+    }
+  },
+
+  computed: {
+    spacesHtml() {
+      return Array(this.repeat).fill("&nbsp;").join("");
+    }
+  }
 };
 </script>
 

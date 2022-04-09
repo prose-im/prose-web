@@ -10,6 +10,13 @@
 
 <template lang="pug">
   .p-terms
+    section-terms-main(
+      class="p-terms__main"
+    )
+
+    section-terms-text(
+      class="p-terms__text"
+    )
 </template>
 
 <!-- **********************************************************************
@@ -33,4 +40,12 @@ export default {
 
 <style lang="scss">
 $c: ".p-terms";
+
+.p-terms {
+  padding-bottom: 74px;
+
+  #{$c}__text {
+    margin-top: 34px;
+  }
+}
 </style>

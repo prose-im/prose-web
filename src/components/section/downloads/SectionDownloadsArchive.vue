@@ -18,6 +18,7 @@
           action-label="Go to the Versions archive"
           action-target="/changelog/"
           raster="clock"
+          raster-flip="horizontal"
         )
 </template>
 
