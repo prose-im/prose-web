@@ -25,15 +25,18 @@
                 | Create your server in a few clicks. Invite your team in no more.
 
             .c-page-entice__actions
-              //- TODO: bind action
-              base-button(
+              a(
+                :href="actionTargets.start"
                 class="c-page-entice__action"
-                size="large"
-                right-icon="arrow-right"
-                bolder
-                darker
               )
-                | Start with Prose
+                base-button(
+                  class="c-page-entice__action-button"
+                  size="large"
+                  right-icon="arrow-right"
+                  bolder
+                  darker
+                )
+                  | Start with Prose
 
               nuxt-link(
                 v-if="hasActionDownload"
@@ -66,6 +69,16 @@ export default {
   name: "PageEntice",
 
   components: { ImageContentActionsDownloadIcon, ImageIllustrationLogoIcon },
+
+  data() {
+    return {
+      // --> DATA <--
+
+      actionTargets: {
+        start: `${this.$config.url.prose_docs}/guides/`
+      }
+    };
+  },
 
   computed: {
     hasActionDownload() {

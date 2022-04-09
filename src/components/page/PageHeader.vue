@@ -67,12 +67,15 @@
                     class="c-page-header__menu-arrow"
                   )
 
-            //- TODO: bind action
-            base-button(
+            a(
+              :href="actionTarget"
               class="c-page-header__action"
-              right-icon="arrow-right"
             )
-              | Start with Prose
+              base-button(
+                class="c-page-header__action-button"
+                right-icon="arrow-right"
+              )
+                | Start with Prose
 
     .c-page-header__ghost(
       v-if="!embedded"
@@ -108,6 +111,8 @@ export default {
 
   data() {
     return {
+      // --> DATA <--
+
       menuItems: [
         {
           id: "downloads",
@@ -147,7 +152,9 @@ export default {
             }
           ]
         }
-      ]
+      ],
+
+      actionTarget: `${this.$config.url.prose_docs}/guides/`
     };
   }
 };
