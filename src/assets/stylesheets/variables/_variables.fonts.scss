@@ -5,8 +5,17 @@
  */
 
 /* *************************************************************************
- * VARIABLES > ALL
+ * VARIABLES > FONTS
  * **************************************************************************/
 
-@import "_variables.colors";
-@import "_variables.fonts";
+// Families
+
+$font-family-default: "Prose Helvetica Neue";
+$font-family-title: "Prose Sora";
+
+// Weights
+
+$font-weight-bolder: 800;
+$font-weight-medium: 600;
+$font-weight-regular: 400;
+$font-weight-light: 200;

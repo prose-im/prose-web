@@ -11,33 +11,33 @@
 // Helvetica Neue
 
 @font-face {
-  font-weight: lighter;
+  font-weight: $font-weight-light;
   font-style: normal;
-  font-family: "Prose Helvetica Neue";
+  font-family: $font-family-default;
   src: url("~/assets/fonts/helvetica_neue/helvetica_neue_light.woff2")
     format("woff2");
 }
 
 @font-face {
-  font-weight: normal;
+  font-weight: $font-weight-regular;
   font-style: normal;
-  font-family: "Prose Helvetica Neue";
+  font-family: $font-family-default;
   src: url("~/assets/fonts/helvetica_neue/helvetica_neue_regular.woff2")
     format("woff2");
 }
 
 @font-face {
-  font-weight: bold;
+  font-weight: $font-weight-medium;
   font-style: normal;
-  font-family: "Prose Helvetica Neue";
+  font-family: $font-family-default;
   src: url("~/assets/fonts/helvetica_neue/helvetica_neue_medium.woff2")
     format("woff2");
 }
 
 @font-face {
-  font-weight: 800;
+  font-weight: $font-weight-bolder;
   font-style: normal;
-  font-family: "Prose Helvetica Neue";
+  font-family: $font-family-default;
   src: url("~/assets/fonts/helvetica_neue/helvetica_neue_bold.woff2")
     format("woff2");
 }
@@ -45,29 +45,29 @@
 // Sora
 
 @font-face {
-  font-weight: lighter;
+  font-weight: $font-weight-light;
   font-style: normal;
-  font-family: "Prose Sora";
+  font-family: $font-family-title;
   src: url("~/assets/fonts/sora/sora_light.woff2") format("woff2");
 }
 
 @font-face {
-  font-weight: normal;
+  font-weight: $font-weight-regular;
   font-style: normal;
-  font-family: "Prose Sora";
+  font-family: $font-family-title;
   src: url("~/assets/fonts/sora/sora_regular.woff2") format("woff2");
 }
 
 @font-face {
-  font-weight: bold;
+  font-weight: $font-weight-medium;
   font-style: normal;
-  font-family: "Prose Sora";
+  font-family: $font-family-title;
   src: url("~/assets/fonts/sora/sora_medium.woff2") format("woff2");
 }
 
 @font-face {
-  font-weight: 800;
+  font-weight: $font-weight-bolder;
   font-style: normal;
-  font-family: "Prose Sora";
+  font-family: $font-family-title;
   src: url("~/assets/fonts/sora/sora_bold.woff2") format("woff2");
 }

@@ -13,7 +13,7 @@ html {
   color: $color-black;
 
   font-size: 13.5px;
-  font-family: "Prose Helvetica Neue", "Helvetica Neue", Helvetica, Arial,
+  font-family: $font-family-default, "Helvetica Neue", Helvetica, Arial,
     sans-serif;
   line-height: 16px;
 

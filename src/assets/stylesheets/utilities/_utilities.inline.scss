@@ -9,23 +9,23 @@
  * **************************************************************************/
 
 .u-bold {
-  font-weight: 800 !important;
+  font-weight: $font-weight-bolder !important;
 }
 
 .u-medium {
-  font-weight: bold !important;
+  font-weight: $font-weight-medium !important;
 }
 
 .u-regular {
-  font-weight: normal !important;
+  font-weight: $font-weight-regular !important;
 }
 
 .u-light {
-  font-weight: lighter !important;
+  font-weight: $font-weight-light !important;
 }
 
 .u-title {
-  font-family: "Prose Sora", Sora, Arial, sans-serif;
+  font-family: $font-family-title, Sora, Arial, sans-serif;
 }
 
 .u-italic {
