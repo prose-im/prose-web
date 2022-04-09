@@ -224,6 +224,7 @@ export default {
     //   in this configuration file, which we DO NOT want to leak on the Web.
     url: CONFIG.url,
     email: CONFIG.email,
+    features: CONFIG.features,
     tokens: CONFIG.tokens.public,
     author: projectPackage.author
   },

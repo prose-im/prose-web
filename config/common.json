@@ -1,6 +1,7 @@
 {
   "url": {
     "prose_files": "https://files.prose.org",
+    "prose_docs": "https://docs.prose.org",
     "prose_help": "https://help.prose.org",
     "prose_status": "https://status.prose.org",
     "twitter_prose": "https://twitter.com/prose_im",

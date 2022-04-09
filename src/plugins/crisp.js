@@ -9,8 +9,9 @@ export default function ({ $config }) {
   //   here and there in the website code.
   window.$crisp = [];
 
-  // Insert Crisp? (website identifier is defined)
-  if ($config.tokens.crisp_website_id) {
+  // Insert Crisp? (website identifier is defined, and chatbox feature is \
+  //   enabled)
+  if ($config.tokens.crisp_website_id && $config.features.chatbox === true) {
     window.CRISP_WEBSITE_ID = $config.tokens.crisp_website_id;
 
     (function () {

@@ -1,6 +1,9 @@
 {
   "url": {
-    "prose_web": "https://prose.org",
-    "prose_docs": "https://docs.prose.org"
+    "prose_web": "https://prose.org"
+  },
+
+  "features": {
+    "chatbox": true
   }
 }

@@ -1,6 +1,9 @@
 {
   "url": {
-    "prose_web": "http://prose.org.local",
-    "prose_docs": "http://docs.prose.org.local"
+    "prose_web": "http://prose.org.local"
+  },
+
+  "features": {
+    "chatbox": false
   }
 }
