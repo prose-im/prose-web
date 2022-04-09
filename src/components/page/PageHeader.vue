@@ -226,10 +226,6 @@ $menu-dropdown-offset-left: 60px;
         margin-right: 0;
       }
 
-      #{$c}__menu-icon #{$c}__menu-arrow {
-        transition: opacity 100ms linear;
-      }
-
       #{$c}__menu-icon {
         line-height: 0;
         margin-right: 5px;
@@ -246,6 +242,7 @@ $menu-dropdown-offset-left: 60px;
         margin-left: 6px;
         margin-bottom: -1px;
         opacity: 0.35;
+        transition: opacity 100ms linear;
       }
 
       #{$c}__menu-link {
