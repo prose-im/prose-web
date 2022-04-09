@@ -67,6 +67,7 @@
                     class="c-page-header__menu-arrow"
                   )
 
+            //- TODO: bind action
             base-button(
               class="c-page-header__action"
               right-icon="arrow-right"

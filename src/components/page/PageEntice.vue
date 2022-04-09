@@ -25,6 +25,7 @@
                 | Create your server in a few clicks. Invite your team in no more.
 
             .c-page-entice__actions
+              //- TODO: bind action
               base-button(
                 class="c-page-entice__action"
                 size="large"
