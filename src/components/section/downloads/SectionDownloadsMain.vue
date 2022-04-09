@@ -26,6 +26,7 @@
       p.u-medium
         | Install it and start messaging your team in seconds.
 
+    //- TODO: auto-detect platform, or fallback to Web
     base-button(
       slot="action"
       size="large"
