@@ -182,11 +182,6 @@ export default {
 
           items: [
             {
-              label: "Open-Source",
-              target: this.$config.url.github_prose
-            },
-
-            {
               label: "Downloads",
               target: "/downloads/"
             },
@@ -197,8 +192,8 @@ export default {
             },
 
             {
-              label: "Read our Blog",
-              target: "/blog/"
+              label: "Open-Source",
+              target: this.$config.url.github_prose
             }
           ]
         },
