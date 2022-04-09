@@ -225,7 +225,6 @@ $menu-dropdown-offset-left: 60px;
       #{$c}__menu-icon {
         line-height: 0;
         margin-right: 5px;
-        margin-bottom: -0.5px;
         opacity: 0.8;
 
         svg {
@@ -302,7 +301,7 @@ $menu-dropdown-offset-left: 60px;
     #{$c}__sticky {
       background-color: rgba($color-background-primary, 0.9);
       border-bottom-color: $color-border-secondary;
-      backdrop-filter: blur(8px) saturate(160%) contrast(45%) brightness(140%);
+      backdrop-filter: blur(6px) saturate(160%) contrast(45%) brightness(140%);
     }
   }
 }
