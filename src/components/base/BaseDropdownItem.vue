@@ -124,6 +124,7 @@ $hover-transition-duration: 150ms;
       letter-spacing: 0.1px;
 
       #{$c}__arrow {
+        fill: $color-base-blue-dark;
         vertical-align: middle;
         margin-top: -1.5px;
         margin-left: 8px;
