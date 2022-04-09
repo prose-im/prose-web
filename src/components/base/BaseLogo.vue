@@ -54,6 +54,8 @@ export default {
 
   data() {
     return {
+      // --> DATA <--
+
       logoImagesHtml: {
         normal: {
           small: ImageLogoNormalSmall,
