@@ -52,30 +52,106 @@ export default {
 
       sections: [
         {
-          title: "Purpose",
+          title: "Terms",
 
           paragraphs: [
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Fermentum iaculis eu non diam phasellus vestibulum lorem sed risus. Ac turpis egestas integer eget aliquet nibh praesent tristique. Dui accumsan sit amet nulla facilisi morbi tempus. Interdum posuere lorem ipsum dolor. Vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt. Diam maecenas ultricies mi eget. Pretium fusce id velit ut tortor pretium viverra. Leo vel fringilla est ullamcorper eget nulla facilisi. Egestas sed tempus urna et pharetra pharetra massa massa. Mi quis hendrerit dolor magna eget. Eu mi bibendum neque egestas congue quisque egestas. Amet massa vitae tortor condimentum lacinia quis vel. Vitae aliquet nec ullamcorper sit. Pellentesque adipiscing commodo elit at imperdiet dui accumsan sit. Lectus proin nibh nisl condimentum id venenatis a condimentum. Ultricies leo integer malesuada nunc vel. Pharetra vel turpis nunc eget. Ac ut consequat semper viverra nam libero justo laoreet sit.",
-
-            "Tincidunt praesent semper feugiat nibh sed pulvinar proin gravida. Nunc mattis enim ut tellus elementum sagittis vitae. Facilisis magna etiam tempor orci eu lobortis elementum nibh. Aenean vel elit scelerisque mauris pellentesque. Vestibulum lectus mauris ultrices eros in cursus turpis. Pulvinar elementum integer enim neque volutpat. Mauris rhoncus aenean vel elit scelerisque mauris pellentesque. Neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt. Enim blandit volutpat maecenas volutpat blandit aliquam etiam erat velit. Volutpat blandit aliquam etiam erat. Sit amet facilisis magna etiam tempor orci eu. Morbi leo urna molestie at elementum eu facilisis."
+            `By accessing the website at ${this.$config.url.prose_web}, you are agreeing to be bound by these terms of service, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws. If you do not agree with any of these terms, you are prohibited from using or accessing this site. The materials contained in this website are protected by applicable copyright and trademark law.`
           ]
         },
 
         {
-          title: "Acceptance of Terms - Changes of Terms",
+          title: "Use License",
 
           paragraphs: [
-            "Amet venenatis urna cursus eget nunc. Interdum velit euismod in pellentesque. Luctus venenatis lectus magna fringilla. Purus non enim praesent elementum facilisis leo vel fringilla est. Nulla aliquet enim tortor at auctor urna. Facilisis leo vel fringilla est ullamcorper eget nulla facilisi etiam. Mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare. Posuere ac ut consequat semper viverra nam libero. A erat nam at lectus urna duis. Malesuada fames ac turpis egestas integer eget aliquet nibh praesent. Tempor orci dapibus ultrices in iaculis nunc sed augue lacus. Risus feugiat in ante metus dictum at tempor commodo.",
+            "Permission is granted to temporarily download one copy of the materials (information or software) on Prose's website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:",
 
-            "Suspendisse ultrices gravida dictum fusce. Nulla at volutpat diam ut venenatis tellus in. Tellus orci ac auctor augue mauris. Quis hendrerit dolor magna eget est lorem ipsum. Nibh tellus molestie nunc non blandit massa enim. Nec feugiat nisl pretium fusce id velit. Aliquam sem fringilla ut morbi tincidunt augue interdum. Auctor elit sed vulputate mi sit amet mauris commodo. Nulla aliquet porttitor lacus luctus accumsan tortor. Etiam non quam lacus suspendisse faucibus. Fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate sapien nec."
+            "— Modify or copy the materials;",
+            "— Use the materials for any commercial purpose, or for any public display (commercial or non-commercial);",
+            "— Attempt to decompile or reverse engineer any software contained on Prose's website;",
+            "— Remove any copyright or other proprietary notations from the materials;",
+            "— Transfer the materials to another person or 'mirror' the materials on any other server.",
+
+            "This license shall automatically terminate if you violate any of these restrictions and may be terminated by Prose at any time. Upon terminating your viewing of these materials or upon the termination of this license, you must destroy any downloaded materials in your possession whether in electronic or printed format."
           ]
         },
 
         {
-          title: "Provisions of and Access to Features",
+          title: "Disclaimer",
 
           paragraphs: [
-            "Sit amet purus gravida quis blandit turpis cursus. Aenean sed adipiscing diam donec adipiscing tristique risus nec feugiat. Viverra accumsan in nisl nisi scelerisque eu. Id ornare arcu odio ut sem. Diam sit amet nisl suscipit adipiscing bibendum est. Iaculis urna id volutpat lacus laoreet non curabitur gravida. Sed pulvinar proin gravida hendrerit lectus. Ornare aenean euismod elementum nisi quis eleifend quam adipiscing. Id velit ut tortor pretium viverra suspendisse potenti nullam ac."
+            "The materials on Prose's website are provided on an 'as is' basis. Prose makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.",
+
+            "Further, Prose does not warrant or make any representations concerning the accuracy, likely results, or reliability of the use of the materials on its website or otherwise relating to such materials or on any sites linked to this site."
+          ]
+        },
+
+        {
+          title: "Limitations",
+
+          paragraphs: [
+            "In no event shall Prose or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on Prose's website, even if Prose or a Prose authorized representative has been notified orally or in writing of the possibility of such damage. Because some jurisdictions do not allow limitations on implied warranties, or limitations of liability for consequential or incidental damages, these limitations may not apply to you."
+          ]
+        },
+
+        {
+          title: "Accuracy of Materials",
+
+          paragraphs: [
+            "The materials appearing on Prose's website could include technical, typographical, or photographic errors. Prose does not warrant that any of the materials on its website are accurate, complete or current. Prose may make changes to the materials contained on its website at any time without notice. However Prose does not make any commitment to update the materials."
+          ]
+        },
+
+        {
+          title: "Links",
+
+          paragraphs: [
+            "Prose has not reviewed all of the sites linked to its website and is not responsible for the contents of any such linked site. The inclusion of any link does not imply endorsement by Prose of the site. Use of any such linked website is at the user's own risk."
+          ]
+        },
+
+        {
+          title: "Modifications",
+
+          paragraphs: [
+            "Prose may revise these terms of service for its website at any time without notice. By using this website you are agreeing to be bound by the then current version of these terms of service."
+          ]
+        },
+
+        {
+          title: "Governing Law",
+
+          paragraphs: [
+            "These terms and conditions are governed by and construed in accordance with the laws of France and you irrevocably submit to the exclusive jurisdiction of the courts in that State or location."
+          ]
+        },
+
+        {
+          title: "Privacy Policy",
+
+          paragraphs: [
+            "Prose Cloud user data is safely stored in Europe, and may be replicated across different countries within the EU. We do not transfer user data outside of the EU. In the event you are hosting a Prose Pod server, then this privacy policy does not apply as we are not bound to it: you are responsible for the data that your Prose server hosts, and any data leak due to server misconfiguration and security vulnerabilities.",
+
+            "Here's what we do to protect data privacy:",
+
+            "— Before or at the time of collecting personal information, we will identify the purposes for which information is being collected;",
+            "— We will collect and use of personal information solely with the objective of fulfilling those purposes specified by us and for other compatible purposes, unless we obtain the consent of the individual concerned or as required by law;",
+            "— We will only retain personal information as long as necessary for the fulfillment of those purposes;",
+            "— We will collect personal information by lawful and fair means and, where appropriate, with the knowledge or consent of the individual concerned;",
+            "— Personal data should be relevant to the purposes for which it is to be used, and, to the extent necessary for those purposes, should be accurate, complete, and up-to-date;",
+            "— We will protect personal information by reasonable security safeguards against loss or theft, as well as unauthorized access, disclosure, copying, use or modification;",
+            "— We will make readily available to customers information about our policies and practices relating to the management of personal information."
+          ]
+        },
+
+        {
+          title: "Data Protection",
+
+          paragraphs: [
+            "The term 'personal data' refers to such information which, directly or indirectly, may refer to individuals. Examples of such data are name, image, contact details, behaviour or IP address. Personal data processing refers to any action that we or a third party that we have engaged take with the personal data, such as collection, registration and storage.",
+
+            "Personal data may only be processed for specified and explicitly stated purposes and may not be subsequently processed for any purpose that goes beyond these purposes. At Prose, we process personal data for the purpose of providing the Features. Personal data may also be used for marketing and follow up as well as for our sales and product development with the aim of improving our products and services.",
+
+            "Prose safeguards personal data with a high level of security and has to this end taken appropriate technical and security measures to protect personal data from unauthorised access, amendment, dissemination or destruction."
           ]
         }
       ]
