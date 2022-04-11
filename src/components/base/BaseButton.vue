@@ -46,6 +46,7 @@ div(
 // PROJECT: IMAGES
 import ImageIconArrowRight from "~/assets/images/components/base/BaseButton/icon-arrow-right.svg?raw";
 import ImageIconArrowDown from "~/assets/images/components/base/BaseButton/icon-arrow-down.svg?raw";
+import ImageIconChevronDown from "~/assets/images/components/base/BaseButton/icon-chevron-down.svg?raw";
 
 export default {
   name: "BaseButton",
@@ -84,7 +85,7 @@ export default {
       default: null,
 
       validator(x) {
-        return ["arrow-right", "arrow-down"].includes(x);
+        return ["arrow-right", "arrow-down", "chevron-down"].includes(x);
       }
     }
   },
@@ -98,6 +99,10 @@ export default {
 
         case "arrow-down": {
           return ImageIconArrowDown;
+        }
+
+        case "chevron-down": {
+          return ImageIconChevronDown;
         }
 
         default: {
@@ -233,7 +238,8 @@ $size-large-padding-sides: 28px;
 
   // --> RIGHT ICONS <--
 
-  &--arrow-right {
+  &--arrow-right,
+  &--chevron-down {
     #{$c}__inner {
       #{$c}__icon {
         margin-bottom: -4px;
