@@ -47,8 +47,11 @@
         h6.c-section-changelog-main__navigate-label.u-title.u-medium
           | The Time Machine:
 
-        .c-section-changelog-main__navigate-years
-          //- TODO: base-navigate
+        base-navigate(
+          class="c-section-changelog-main__navigate-years"
+          :choices="navigateYears"
+          :value="navigateActive"
+        )
 </template>
 
 <!-- **********************************************************************
@@ -57,7 +60,44 @@
 
 <script>
 export default {
-  name: "SectionChangelogMain"
+  name: "SectionChangelogMain",
+
+  data() {
+    return {
+      // --> STATE <--
+
+      navigateActive: "2022",
+
+      // --> DATA <--
+
+      navigateYears: [
+        {
+          name: "2022",
+          target: "./2022/"
+        },
+
+        {
+          name: "2021",
+          target: "./2021/"
+        },
+
+        {
+          name: "2020",
+          target: "./2020/"
+        },
+
+        {
+          name: "2019",
+          target: "./2019/"
+        },
+
+        {
+          name: "2018",
+          target: "./2018/"
+        }
+      ]
+    };
+  }
 };
 </script>
 
@@ -80,16 +120,18 @@ $c: ".c-section-changelog-main";
   }
 
   #{$c}__navigate {
-    margin-top: 22px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
 
     #{$c}__navigate-label {
       color: $color-base-black-mid;
-      font-size: 15.5px;
+      font-size: 15px;
       line-height: 20px;
     }
 
     #{$c}__navigate-years {
-      margin-left: 10px;
+      margin-left: 14px;
     }
   }
 }
