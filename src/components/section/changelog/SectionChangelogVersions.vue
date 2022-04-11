@@ -52,7 +52,8 @@
             | {{ formatDate(version.date) }}
 
           a.c-section-changelog-versions__version-target.u-bold(
-            href="#"
+            v-if="versionsFullChangesUrls[version.version]"
+            :href="versionsFullChangesUrls[version.version]"
             target="_blank"
           )
             | Full changes on GitHub
@@ -202,6 +203,18 @@ export default {
       });
 
       return _versionDropdowns;
+    },
+
+    versionsFullChangesUrls() {
+      const _versionFullChanges = {};
+
+      this.versions.forEach(version => {
+        const _version = version.version;
+
+        _versionFullChanges[_version] = this.fullChangesUrl(_version);
+      });
+
+      return _versionFullChanges;
     }
   },
 
@@ -253,6 +266,19 @@ export default {
       return (
         `${this.$config.url.prose_files}/apps/releases/` +
         `${version}/prose-v${version}-${platform}.${_extension}`
+      );
+    },
+
+    /**
+     * Generates full changes URL for version
+     * @public
+     * @param  {string} version
+     * @return {string} Full changes URL
+     */
+    fullChangesUrl(version) {
+      return (
+        `${this.$config.url.github_prose}/prose-core-client/` +
+        `releases/tag/v${version}`
       );
     }
   }
@@ -318,7 +344,7 @@ $version-dropdown-offset-left: 8px;
     }
 
     #{$c}__version-downloads {
-      margin-top: 25px;
+      margin-top: 24px;
       position: relative;
 
       &:hover {
