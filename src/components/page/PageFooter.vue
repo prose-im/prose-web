@@ -273,8 +273,10 @@ $c: ".c-page-footer";
 $alignments-margin-sides: 12px;
 
 .c-page-footer {
+  background-color: $color-background-secondary;
   border-top: 1px solid $color-border-secondary;
   padding: 40px 0 24px;
+  position: relative;
 
   #{$c}__main,
   #{$c}__copyright {

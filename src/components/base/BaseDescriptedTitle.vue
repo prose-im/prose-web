@@ -9,8 +9,20 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  .c-page-container
-    slot
+  .c-base-descripted-title
+    base-title(
+      class="c-base-descripted-title__title"
+    )
+      slot(
+        name="title"
+      )
+
+    base-description(
+      class="c-base-descripted-title__description"
+    )
+      slot(
+        name="description"
+      )
 </template>
 
 <!-- **********************************************************************
@@ -19,7 +31,7 @@
 
 <script>
 export default {
-  name: "PageContainer"
+  name: "BaseDescriptedTitle"
 };
 </script>
 
@@ -28,9 +40,11 @@ export default {
      ********************************************************************** -->
 
 <style lang="scss">
-$c: ".c-page-container";
+$c: ".c-base-descripted-title";
 
-.c-page-container {
-  position: relative;
+.c-base-descripted-title {
+  #{$c}__description {
+    margin-top: 22px;
+  }
 }
 </style>

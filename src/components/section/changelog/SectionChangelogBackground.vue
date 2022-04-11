@@ -9,8 +9,11 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  .c-page-container
-    slot
+  page-split-view(
+    class="c-section-changelog-background"
+    sidebar-background
+    sidebar-border
+  )
 </template>
 
 <!-- **********************************************************************
@@ -19,7 +22,7 @@
 
 <script>
 export default {
-  name: "PageContainer"
+  name: "SectionChangelogBackground"
 };
 </script>
 
@@ -28,9 +31,13 @@ export default {
      ********************************************************************** -->
 
 <style lang="scss">
-$c: ".c-page-container";
+$c: ".c-section-changelog-background";
 
-.c-page-container {
-  position: relative;
+.c-section-changelog-background {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }
 </style>

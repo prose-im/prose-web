@@ -9,21 +9,25 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  .c-page-main-title
+  div(
+    :class=`[
+      "c-page-main-title",
+      "c-page-main-title--" + align
+    ]`
+  )
     page-wrapper(
       class="c-page-main-title__wrapper"
     )
-      base-title(
+      base-descripted-title(
         class="c-page-main-title__title"
       )
         slot(
+          slot="title"
           name="title"
         )
 
-      base-description(
-        class="c-page-main-title__description"
-      )
         slot(
+          slot="description"
           name="description"
         )
 
@@ -48,7 +52,18 @@
 
 <script>
 export default {
-  name: "PageMainTitle"
+  name: "PageMainTitle",
+
+  props: {
+    align: {
+      type: String,
+      default: "center",
+
+      validator(x) {
+        return ["center", "left", "right"].includes(x);
+      }
+    }
+  }
 };
 </script>
 
@@ -60,14 +75,8 @@ export default {
 $c: ".c-page-main-title";
 
 .c-page-main-title {
-  text-align: center;
-
   #{$c}__wrapper {
     position: relative;
-  }
-
-  #{$c}__description {
-    margin-top: 22px;
   }
 
   #{$c}__action {
@@ -81,6 +90,20 @@ $c: ".c-page-main-title";
     left: 0;
     right: 0;
     bottom: 0;
+  }
+
+  // ALIGNS
+
+  &--center {
+    text-align: center;
+  }
+
+  &--left {
+    text-align: left;
+  }
+
+  &--right {
+    text-align: right;
   }
 }
 </style>
