@@ -11,6 +11,7 @@
 <template lang="pug">
 span.c-base-dropdown-item
   span.c-base-dropdown-item__icon(
+    v-if="icon"
     v-html="icon"
   )
 
@@ -22,7 +23,9 @@ span.c-base-dropdown-item
         class="c-base-dropdown-item__arrow"
       )
 
-    span.c-base-dropdown-item__label
+    span.c-base-dropdown-item__label(
+      v-if="label"
+    )
       | {{ label }}
 </template>
 
@@ -47,12 +50,12 @@ export default {
 
     label: {
       type: String,
-      required: true
+      default: null
     },
 
     icon: {
       type: String,
-      required: true
+      default: null
     }
   }
 };
