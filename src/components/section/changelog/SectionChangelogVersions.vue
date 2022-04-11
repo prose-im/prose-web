@@ -19,19 +19,22 @@
         slot="sidebar"
         class="c-section-changelog-versions__version-sidebar"
       )
-        .c-section-changelog-versions__version-tag
-          | Version
+        .c-section-changelog-versions__version-sidebar-wrapped
+          .c-section-changelog-versions__version-tag
+            span.c-section-changelog-versions__version-label
+              | Version
 
-          | {{ version.version }}
+            span.c-section-changelog-versions__version-number.u-title.u-bold
+              | {{ version.version }}
 
-        .c-section-changelog-versions__version-downloads
-          base-button(
-            right-icon="chevron-down"
-            tint="light"
-            class="c-section-changelog-versions__version-button"
-            bolder
-          )
-            | Downloads
+          .c-section-changelog-versions__version-downloads
+            base-button(
+              right-icon="chevron-down"
+              tint="light"
+              class="c-section-changelog-versions__version-button"
+              bolder
+            )
+              | Downloads
 
       div(
         slot="content"
@@ -190,40 +193,69 @@ $c: ".c-section-changelog-versions";
 .c-section-changelog-versions {
   #{$c}__version {
     border-top: 1px solid $color-border-secondary;
-    padding-top: 24px;
-    padding-bottom: 34px;
+    padding-top: 28px;
+    padding-bottom: 44px;
+
+    &:last-child {
+      padding-bottom: 22px;
+    }
 
     #{$c}__version-sidebar {
-      // TODO
+      padding-right: 46px; //- TODO: commonize w/ main section
+      display: flex;
+      justify-content: flex-end;
+
+      #{$c}__version-sidebar-wrapped {
+        text-align: left;
+      }
     }
 
     #{$c}__version-content {
-      // TODO
+      max-width: 850px; //- TODO: remove this when layout is improved
+      padding-left: 72px; //- TODO: commonize w/ main section
     }
 
     #{$c}__version-tag {
-      // TODO
+      #{$c}__version-label,
+      #{$c}__version-number {
+        display: block;
+      }
+
+      #{$c}__version-label {
+        color: $color-base-grey-mid;
+        font-size: 15px;
+        line-height: 16px;
+        text-transform: lowercase;
+        letter-spacing: 0;
+      }
+
+      #{$c}__version-number {
+        color: $color-base-blue-mid;
+        font-size: 38px;
+        line-height: 36px;
+        letter-spacing: -0.3px;
+        margin-top: 4px;
+      }
     }
 
     #{$c}__version-downloads {
-      // TODO
-
-      #{$c}__version-button {
-      }
+      margin-top: 25px;
     }
 
     #{$c}__version-metas {
       display: flex;
       align-items: center;
+      margin-top: 20px;
 
       #{$c}__version-date {
         color: $color-base-black-mid;
-        font-size: 18px;
+        font-size: 16px;
         flex: 1;
       }
 
       #{$c}__version-target {
         color: $color-base-blue-link;
+        font-size: 13.5px;
         flex: 0 0 auto;
         display: flex;
         align-items: center;
@@ -235,25 +267,38 @@ $c: ".c-section-changelog-versions";
         #{$c}__version-target-icon {
           fill: $color-base-blue-link;
           width: auto;
-          height: 13px;
+          height: 12px;
           margin-left: 5px;
+          margin-bottom: -1px;
           flex: 0 0 auto;
         }
       }
     }
 
     #{$c}__changelog {
-      // TODO
+      margin-top: 32px;
 
       #{$c}__changelog-group {
-        // TODO
+        color: $color-base-black-mid;
+        font-size: 19px;
       }
 
       #{$c}__changelog-changes {
-        // TODO
+        list-style-type: none;
+        margin-top: 18px;
+        padding-left: 7px;
 
         #{$c}__changelog-change {
-          // TODO
+          color: $color-black;
+          font-size: 15px;
+          line-height: 24px;
+          letter-spacing: -0.14px;
+
+          &::before {
+            content: "—";
+            color: $color-base-grey-mid;
+            margin-right: 7px;
+          }
         }
       }
     }

@@ -71,7 +71,7 @@ $c: ".c-section-changelog-main";
 .c-section-changelog-main {
   #{$c}__sidebar {
     text-align: right;
-    padding-right: 48px;
+    padding-right: 46px;
   }
 
   #{$c}__content {
@@ -80,7 +80,7 @@ $c: ".c-section-changelog-main";
   }
 
   #{$c}__navigate {
-    margin-top: 18px;
+    margin-top: 22px;
 
     #{$c}__navigate-label {
       color: $color-base-black-mid;
