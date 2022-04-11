@@ -28,6 +28,13 @@
               | {{ version.version }}
 
           .c-section-changelog-versions__version-downloads
+            base-dropdown(
+              v-if="versionsDownloadsDropdown[version.version]"
+              :items="versionsDownloadsDropdown[version.version]"
+              arrow-class="c-section-changelog-versions__version-dropdown-arrow"
+              class="c-section-changelog-versions__version-dropdown"
+            )
+
             base-button(
               right-icon="chevron-down"
               tint="light"
@@ -85,6 +92,23 @@ const FORMAT_DATE_OPTIONS = {
   day: "numeric"
 };
 
+const VERSIONED_PLATFORMS = [
+  {
+    id: "macos",
+    name: "macOS"
+  },
+
+  {
+    id: "windows",
+    name: "Windows"
+  },
+
+  {
+    id: "linux",
+    name: "Linux"
+  }
+];
+
 export default {
   name: "SectionChangelogVersions",
 
@@ -92,6 +116,8 @@ export default {
 
   data() {
     return {
+      // --> DATA <--
+
       groupNames: {
         features: "New Features",
         changes: "Changes",
@@ -159,6 +185,26 @@ export default {
     };
   },
 
+  computed: {
+    versionsDownloadsDropdown() {
+      const _versionDropdowns = {};
+
+      this.versions.forEach(version => {
+        const _version = version.version;
+
+        _versionDropdowns[_version] = VERSIONED_PLATFORMS.map(platform => {
+          return {
+            id: platform.id,
+            title: `${platform.name} v${_version}`,
+            target: this.downloadUrl(platform.id, _version)
+          };
+        });
+      });
+
+      return _versionDropdowns;
+    }
+  },
+
   methods: {
     // --> HELPERS <--
 
@@ -178,6 +224,36 @@ export default {
 
       // Parsed date is invalid, mirror raw date string
       return dateString;
+    },
+
+    /**
+     * Generates download URL for platform and version
+     * @public
+     * @param  {string} platform
+     * @param  {string} version
+     * @return {string} Download URL
+     */
+    downloadUrl(platform, version) {
+      // Acquire file extension (based on platform)
+      let _extension;
+
+      switch (platform) {
+        case "macos": {
+          _extension = "dmg";
+
+          break;
+        }
+
+        default: {
+          _extension = "zip";
+        }
+      }
+
+      // Generate download URL
+      return (
+        `${this.$config.url.prose_files}/apps/releases/` +
+        `${version}/prose-v${version}-${platform}.${_extension}`
+      );
     }
   }
 };
@@ -189,6 +265,9 @@ export default {
 
 <style lang="scss">
 $c: ".c-section-changelog-versions";
+
+// VARIABLES
+$version-dropdown-offset-left: 8px;
 
 .c-section-changelog-versions {
   #{$c}__version {
@@ -240,6 +319,28 @@ $c: ".c-section-changelog-versions";
 
     #{$c}__version-downloads {
       margin-top: 25px;
+      position: relative;
+
+      &:hover {
+        #{$c}__version-dropdown {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+
+      #{$c}__version-dropdown {
+        min-width: calc(100% + 70px);
+        position: absolute;
+        top: 100%;
+        left: (-1 * $version-dropdown-offset-left);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 75ms linear;
+
+        #{$c}__version-dropdown-arrow {
+          left: (42px + $version-dropdown-offset-left);
+        }
+      }
     }
 
     #{$c}__version-metas {
