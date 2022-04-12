@@ -102,7 +102,7 @@ $navigate-border-radius: 2px;
       }
 
       &:active {
-        background-color: darken($color-background-secondary, 3%);
+        background-color: darken($color-background-secondary, 4%);
       }
     }
 
