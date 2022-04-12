@@ -11,6 +11,7 @@
 <template lang="pug">
   .p-changelog-year
     section-changelog-main(
+      :active-year="year"
       class="p-changelog-year__main"
     )
 

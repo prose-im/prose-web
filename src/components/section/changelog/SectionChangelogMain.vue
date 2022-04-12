@@ -50,7 +50,7 @@
         base-navigate(
           class="c-section-changelog-main__navigate-years"
           :choices="navigateYears"
-          :value="navigateActive"
+          :value="activeYear"
         )
 </template>
 
@@ -62,12 +62,15 @@
 export default {
   name: "SectionChangelogMain",
 
+  props: {
+    activeYear: {
+      type: String,
+      default: null
+    }
+  },
+
   data() {
     return {
-      // --> STATE <--
-
-      navigateActive: "2022",
-
       // --> DATA <--
 
       navigateYears: [
