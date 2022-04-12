@@ -9,13 +9,17 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  .p-contact
-    section-contact-main(
-      class="p-contact__main"
+  .p-downloads-index
+    section-downloads-main(
+      class="p-downloads-index__main"
     )
 
-    section-contact-form(
-      class="p-contact__form"
+    section-downloads-platforms(
+      class="p-downloads-index__platforms"
+    )
+
+    section-downloads-archive(
+      class="p-downloads-index__archive"
     )
 </template>
 
@@ -25,11 +29,10 @@
 
 <script>
 export default {
-  name: "ContactPage",
-  layout: "simple",
+  name: "DownloadsIndexPage",
 
   head: {
-    title: "Contact the Prose team"
+    title: "Download Prose apps"
   }
 };
 </script>
@@ -39,11 +42,13 @@ export default {
      ********************************************************************** -->
 
 <style lang="scss">
-$c: ".p-contact";
+$c: ".p-downloads-index";
 
-.p-contact {
-  #{$c}__form {
-    margin-top: 44px;
-  }
+#{$c}__platforms {
+  margin-top: 90px;
+}
+
+#{$c}__archive {
+  margin-top: 64px;
 }
 </style>

@@ -73,27 +73,27 @@ export default {
       navigateYears: [
         {
           name: "2022",
-          target: "./2022/"
+          target: "/changelog/2022/"
         },
 
         {
           name: "2021",
-          target: "./2021/"
+          target: "/changelog/2021/"
         },
 
         {
           name: "2020",
-          target: "./2020/"
+          target: "/changelog/2020/"
         },
 
         {
           name: "2019",
-          target: "./2019/"
+          target: "/changelog/2019/"
         },
 
         {
           name: "2018",
-          target: "./2018/"
+          target: "/changelog/2018/"
         }
       ]
     };

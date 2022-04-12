@@ -9,13 +9,13 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  .p-terms
+  .p-terms-index
     section-terms-main(
-      class="p-terms__main"
+      class="p-terms-index__main"
     )
 
     section-terms-text(
-      class="p-terms__text"
+      class="p-terms-index__text"
     )
 </template>
 
@@ -25,7 +25,7 @@
 
 <script>
 export default {
-  name: "TermsPage",
+  name: "TermsIndexPage",
   layout: "simple",
 
   head: {
@@ -39,9 +39,9 @@ export default {
      ********************************************************************** -->
 
 <style lang="scss">
-$c: ".p-terms";
+$c: ".p-terms-index";
 
-.p-terms {
+.p-terms-index {
   padding-bottom: 74px;
 
   #{$c}__text {

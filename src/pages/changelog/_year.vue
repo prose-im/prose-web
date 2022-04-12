@@ -9,17 +9,17 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  .p-changelog
+  .p-changelog-year
     section-changelog-main(
-      class="p-changelog__main"
+      class="p-changelog-year__main"
     )
 
     section-changelog-versions(
-      class="p-changelog__versions"
+      class="p-changelog-year__versions"
     )
 
     section-changelog-background(
-      class="p-changelog__background"
+      class="p-changelog-year__background"
     )
 </template>
 
@@ -28,12 +28,31 @@
      ********************************************************************** -->
 
 <script>
+// INSTANCES
+const YEAR_REGEX = /^([12][0-9]{3})$/;
+
 export default {
-  name: "ChangelogPage",
+  name: "ChangelogYearPage",
   layout: "simple",
 
-  head: {
-    title: "Prose version history"
+  validate({ params }) {
+    // Year is set, but not valid?
+    if (params.year && YEAR_REGEX.test(params.year) === false) {
+      return false;
+    }
+
+    // Page parameters are valid
+    return true;
+  },
+
+  asyncData({ params }) {
+    return { year: params.year };
+  },
+
+  head() {
+    return {
+      title: `Prose version history (${this.year || "Latest"})`
+    };
   }
 };
 </script>
@@ -43,9 +62,9 @@ export default {
      ********************************************************************** -->
 
 <style lang="scss">
-$c: ".p-changelog";
+$c: ".p-changelog-year";
 
-.p-changelog {
+.p-changelog-year {
   #{$c}__main,
   #{$c}__versions {
     z-index: 1;
