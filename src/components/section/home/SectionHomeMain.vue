@@ -216,6 +216,7 @@ $app-alerts-size: 54px;
     }
 
     #{$c}__point-icon {
+      fill: $color-base-green-mid;
       margin-right: 8px;
       flex: 0 0 auto;
     }
@@ -230,7 +231,7 @@ $app-alerts-size: 54px;
     }
 
     #{$c}__point-title {
-      // TODO
+      color: $color-base-green-mid;
     }
 
     #{$c}__point-label {
