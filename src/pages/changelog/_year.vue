@@ -12,14 +12,19 @@
   .p-changelog-year
     section-changelog-main(
       :active-year="year"
+      :sidebar-width="sidebarWidth"
       class="p-changelog-year__main"
+      content-class="p-changelog-year__main-content"
     )
 
     section-changelog-versions(
+      :sidebar-width="sidebarWidth"
       class="p-changelog-year__versions"
+      content-class="p-changelog-year__versions-content"
     )
 
     section-changelog-background(
+      :sidebar-width="sidebarWidth"
       class="p-changelog-year__background"
     )
 </template>
@@ -50,6 +55,12 @@ export default {
     return { year: params.year };
   },
 
+  data() {
+    return {
+      sidebarWidth: "185px"
+    };
+  },
+
   head() {
     return {
       title: `Prose version history (${this.year || "Latest"})`
@@ -65,6 +76,9 @@ export default {
 <style lang="scss">
 $c: ".p-changelog-year";
 
+// VARIABLES
+$content-padding-left: 70px;
+
 .p-changelog-year {
   #{$c}__main,
   #{$c}__versions {
@@ -72,8 +86,18 @@ $c: ".p-changelog-year";
     position: relative;
   }
 
+  #{$c}__main {
+    #{$c}__main-content {
+      padding-left: $content-padding-left;
+    }
+  }
+
   #{$c}__versions {
     margin-top: 36px;
+
+    #{$c}__versions-content {
+      padding-left: $content-padding-left;
+    }
   }
 
   #{$c}__background {

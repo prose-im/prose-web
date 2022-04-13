@@ -18,15 +18,25 @@
       }
     ]`
   )
-    .c-page-split-view__sidebar
-      slot(
-        name="sidebar"
+    page-wrapper(
+      :class=`[
+        "c-page-split-view__wrapper",
+        {
+          [wrapperClass]: wrapperClass
+        }
+      ]`
+    )
+      .c-page-split-view__sidebar(
+        :style="sidebarStyle"
       )
+        slot(
+          name="sidebar"
+        )
 
-    .c-page-split-view__content
-      slot(
-        name="content"
-      )
+      .c-page-split-view__content
+        slot(
+          name="content"
+        )
 </template>
 
 <!-- **********************************************************************
@@ -46,6 +56,24 @@ export default {
     sidebarBorder: {
       type: Boolean,
       default: false
+    },
+
+    sidebarWidth: {
+      type: String,
+      default: "200px"
+    },
+
+    wrapperClass: {
+      type: String,
+      default: null
+    }
+  },
+
+  computed: {
+    sidebarStyle() {
+      return {
+        width: this.sidebarWidth
+      };
     }
   }
 };
@@ -58,14 +86,18 @@ export default {
 <style lang="scss">
 $c: ".c-page-split-view";
 
+// VARIABLES
+$sidebar-background-infinite-width: 100000px;
+
 .c-page-split-view {
-  display: flex;
+  #{$c}__wrapper {
+    display: flex;
+  }
 
   #{$c}__sidebar {
     border-right: 1px solid transparent;
-    width: 25%;
-    min-width: 220px;
     flex: 0 0 auto;
+    position: relative;
   }
 
   #{$c}__content {
@@ -76,7 +108,19 @@ $c: ".c-page-split-view";
 
   &--sidebar-background {
     #{$c}__sidebar {
-      background-color: $color-background-secondary;
+      &,
+      &::before {
+        background-color: $color-background-secondary;
+      }
+
+      &::before {
+        content: "";
+        width: $sidebar-background-infinite-width;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 100%;
+      }
     }
   }
 

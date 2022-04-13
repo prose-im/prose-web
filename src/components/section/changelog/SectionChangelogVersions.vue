@@ -13,6 +13,7 @@
     page-split-view(
       v-for="version in versions"
       :key="'version_' + version.version"
+      :sidebar-width="sidebarWidth"
       class="c-section-changelog-versions__version"
     )
       div(
@@ -45,7 +46,12 @@
 
       div(
         slot="content"
-        class="c-section-changelog-versions__version-content"
+        :class=`[
+          "c-section-changelog-versions__version-content",
+          {
+            [contentClass]: contentClass
+          }
+        ]`
       )
         .c-section-changelog-versions__version-metas
           h4.c-section-changelog-versions__version-date.u-title.u-medium
@@ -114,6 +120,18 @@ export default {
   name: "SectionChangelogVersions",
 
   components: { ImageVersionTargetIcon },
+
+  props: {
+    sidebarWidth: {
+      type: String,
+      required: true
+    },
+
+    contentClass: {
+      type: String,
+      default: null
+    }
+  },
 
   data() {
     return {
@@ -306,18 +324,13 @@ $version-dropdown-offset-left: 8px;
     }
 
     #{$c}__version-sidebar {
-      padding-right: 46px; //- TODO: commonize w/ main section
+      padding-right: 12px;
       display: flex;
-      justify-content: flex-end;
+      justify-content: flex-start;
 
       #{$c}__version-sidebar-wrapped {
         text-align: left;
       }
-    }
-
-    #{$c}__version-content {
-      max-width: 850px; //- TODO: remove this when layout is improved
-      padding-left: 72px; //- TODO: commonize w/ main section
     }
 
     #{$c}__version-tag {

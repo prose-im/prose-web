@@ -10,6 +10,7 @@
 
 <template lang="pug">
   page-split-view(
+    :sidebar-width="sidebarWidth"
     class="c-section-changelog-main"
   )
     div(
@@ -24,7 +25,12 @@
 
     div(
       slot="content"
-      class="c-section-changelog-main__content"
+      :class=`[
+        "c-section-changelog-main__content",
+        {
+          [contentClass]: contentClass
+        }
+      ]`
     )
       base-descripted-title(
         class="c-section-changelog-main__title"
@@ -63,7 +69,17 @@ export default {
   name: "SectionChangelogMain",
 
   props: {
+    sidebarWidth: {
+      type: String,
+      required: true
+    },
+
     activeYear: {
+      type: String,
+      default: null
+    },
+
+    contentClass: {
       type: String,
       default: null
     }
@@ -113,13 +129,12 @@ $c: ".c-section-changelog-main";
 
 .c-section-changelog-main {
   #{$c}__sidebar {
-    text-align: right;
-    padding-right: 46px;
+    text-align: left;
+    padding-right: 18px;
   }
 
   #{$c}__content {
     text-align: left;
-    padding-left: 72px;
   }
 
   #{$c}__navigate {
