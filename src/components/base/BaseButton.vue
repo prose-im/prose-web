@@ -66,7 +66,7 @@ export default {
       default: "normal",
 
       validator(x) {
-        return ["normal", "large"].includes(x);
+        return ["normal", "large", "huge"].includes(x);
       }
     },
 
@@ -124,6 +124,7 @@ $c: ".c-base-button";
 // VARIABLES
 $size-normal-padding-sides: 22px;
 $size-large-padding-sides: 28px;
+$size-huge-padding-sides: 38px;
 
 .c-base-button {
   display: inline-block;
@@ -233,6 +234,19 @@ $size-large-padding-sides: 28px;
       line-height: 44px;
       padding-left: $size-large-padding-sides;
       padding-right: $size-large-padding-sides;
+    }
+  }
+
+  &--huge {
+    #{$c}__inner {
+      font-size: 14.5px;
+      line-height: 44px;
+      padding-left: $size-huge-padding-sides;
+      padding-right: $size-huge-padding-sides;
+
+      #{$c}__icon {
+        margin-left: 18px;
+      }
     }
   }
 

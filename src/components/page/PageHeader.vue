@@ -14,7 +14,7 @@
       "c-page-header",
       {
         "c-page-header--embedded": embedded,
-        "c-page-header--floating": !embedded
+        "c-page-header--floating": (floating || forceFloating)
       }
     ]`
   )
@@ -97,6 +97,9 @@ import ImageMenuDropdownHelpIconHelp from "~/assets/images/components/page/PageH
 import ImageMenuDropdownHelpIconDocs from "~/assets/images/components/page/PageHeader/menu-dropdown-help-icon-docs.svg?raw";
 import ImageMenuDropdownHelpIconContact from "~/assets/images/components/page/PageHeader/menu-dropdown-help-icon-contact.svg?raw";
 
+// CONSTANTS
+const SCROLLED_THRESHOLD_VERTICAL = 25;
+
 export default {
   name: "PageHeader",
 
@@ -111,6 +114,10 @@ export default {
 
   data() {
     return {
+      // --> STATE <--
+
+      forceFloating: false,
+
       // --> DATA <--
 
       menuItems: [
@@ -156,6 +163,42 @@ export default {
 
       actionTarget: `${this.$config.url.prose_docs}/guides/`
     };
+  },
+
+  computed: {
+    floating() {
+      return !this.embedded;
+    }
+  },
+
+  beforeMount() {
+    // Only bind scroll listener if not floating (and thus should check when \
+    //   to force floating mode based on scroll.
+    if (!this.floating) {
+      window.addEventListener("scroll", this.onWindowScroll);
+    }
+  },
+
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.onWindowScroll);
+  },
+
+  methods: {
+    // --> EVENT LISTENERS <--
+
+    /**
+     * Triggers when window scrolls
+     * @public
+     * @return {undefined}
+     */
+    onWindowScroll() {
+      const _forceFloating = window.scrollY >= SCROLLED_THRESHOLD_VERTICAL;
+
+      // Update reactive marker? (only if changed)
+      if (_forceFloating !== this.forceFloating) {
+        this.forceFloating = _forceFloating;
+      }
+    }
   }
 };
 </script>
@@ -176,7 +219,7 @@ $menu-dropdown-offset-left: 60px;
   #{$c}__sticky,
   #{$c}__ghost {
     border-bottom: 1px solid transparent;
-    height: 72px;
+    height: $page-header-height;
   }
 
   #{$c}__sticky {
@@ -187,6 +230,8 @@ $menu-dropdown-offset-left: 60px;
     left: 0;
     right: 0;
     z-index: 100;
+    transition: all 100ms linear;
+    transition-property: background-color, border-color;
   }
 
   #{$c}__inner {
@@ -232,7 +277,7 @@ $menu-dropdown-offset-left: 60px;
         opacity: 0.8;
 
         svg {
-          fill: #2c245e;
+          fill: $color-base-blue-dark;
           width: $menu-icon-size;
         }
       }

@@ -9,15 +9,9 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  div(
-    :class=`[
-      "c-page-content",
-      {
-        "c-page-content--showcase": showcase
-      }
-    ]`
-  )
-    slot
+  .c-section-home-showcase
+    page-wrapper
+      //- TODO
 </template>
 
 <!-- **********************************************************************
@@ -26,14 +20,7 @@
 
 <script>
 export default {
-  name: "PageContent",
-
-  props: {
-    showcase: {
-      type: Boolean,
-      default: false
-    }
-  }
+  name: "SectionHomeShowcase"
 };
 </script>
 
@@ -42,17 +29,9 @@ export default {
      ********************************************************************** -->
 
 <style lang="scss">
-$c: ".c-page-content";
+$c: ".c-section-home-showcase";
 
-.c-page-content {
-  background-color: $color-background-primary;
-  padding-top: 62px;
-  padding-bottom: 120px;
-
-  // --> BOOLEANS <--
-
-  &--showcase {
-    padding-top: 0;
-  }
+.c-section-home-showcase {
+  // TODO
 }
 </style>

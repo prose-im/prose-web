@@ -10,6 +10,29 @@
 
 <template lang="pug">
   .p-index
+    section-home-main(
+      class="p-index__main"
+    )
+
+    section-home-showcase(
+      class="p-index__showcase"
+    )
+
+    section-home-bulletpoints(
+      class="p-index__bulletpoints"
+    )
+
+    section-home-features(
+      class="p-index__features"
+    )
+
+    section-home-cost(
+      class="p-index__cost"
+    )
+
+    section-home-data(
+      class="p-index__data"
+    )
 </template>
 
 <!-- **********************************************************************
@@ -19,6 +42,7 @@
 <script>
 export default {
   name: "IndexPage",
+  layout: "landing",
 
   head: {
     title: "Prose – All of your workplace communication lives here"
@@ -32,4 +56,30 @@ export default {
 
 <style lang="scss">
 $c: ".p-index";
+
+.p-index {
+  #{$c}__main {
+    // TODO
+  }
+
+  #{$c}__showcase {
+    // TODO
+  }
+
+  #{$c}__bulletpoints {
+    // TODO
+  }
+
+  #{$c}__features {
+    // TODO
+  }
+
+  #{$c}__cost {
+    // TODO
+  }
+
+  #{$c}__data {
+    // TODO
+  }
+}
 </style>
