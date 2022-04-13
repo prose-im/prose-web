@@ -71,12 +71,3 @@
   font-family: $font-family-title;
   src: url("~/assets/fonts/sora/sora_bold.woff2") format("woff2");
 }
-
-// Zapfino
-
-@font-face {
-  font-weight: $font-weight-regular;
-  font-style: normal;
-  font-family: $font-family-cursive;
-  src: url("~/assets/fonts/zapfino/zapfino_regular.woff2") format("woff2");
-}

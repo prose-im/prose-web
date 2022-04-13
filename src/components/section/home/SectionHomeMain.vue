@@ -26,7 +26,7 @@
             span.c-section-home-main__title-primary.u-title.u-bold
               | Your business secrets
 
-            span.c-section-home-main__title-secondary.u-cursive
+            span.c-section-home-main__title-secondary
               | Are safer there.
 
           .c-section-home-main__pitch
