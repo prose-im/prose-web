@@ -15,6 +15,10 @@
     )
       .c-section-home-main__aside
         .c-section-home-main__app
+          .c-section-home-main__app-icon
+            .c-section-home-main__app-alerts.u-medium
+              | 4
+
           .c-section-home-main__app-image
 
         .c-section-home-main__text
@@ -22,7 +26,7 @@
             span.c-section-home-main__title-primary.u-title.u-bold
               | Your business secrets
 
-            span.c-section-home-main__title-secondary
+            span.c-section-home-main__title-secondary.u-cursive
               | Are safer there.
 
           .c-section-home-main__pitch
@@ -78,6 +82,10 @@ export default {
 <style lang="scss">
 $c: ".c-section-home-main";
 
+// VARIABLES
+$app-icon-size: 130px;
+$app-alerts-size: 54px;
+
 .c-section-home-main {
   position: relative;
 
@@ -103,6 +111,35 @@ $c: ".c-section-home-main";
       &,
       #{$c}__app-image {
         height: 520px;
+      }
+
+      #{$c}__app-icon {
+        background-color: $color-background-secondary;
+        width: $app-icon-size;
+        height: $app-icon-size;
+        position: absolute;
+        right: 80px;
+        bottom: -36px;
+        z-index: 1;
+        border-radius: 26px;
+        box-shadow: 0 2px 6px 0 rgba($color-black, 0.04),
+          0 4px 9px 0 rgba($color-black, 0.12);
+
+        #{$c}__app-alerts {
+          background-color: rgba(#e12424, 0.9);
+          color: $color-white;
+          font-size: 28px;
+          line-height: ($app-alerts-size - 2px);
+          letter-spacing: -0.23px;
+          text-align: center;
+          width: $app-alerts-size;
+          height: $app-alerts-size;
+          position: absolute;
+          top: -10px;
+          right: -10px;
+          border-radius: 100%;
+          box-shadow: 0 0 4px 0 rgba($color-black, 0.6);
+        }
       }
 
       #{$c}__app-image {
@@ -141,7 +178,7 @@ $c: ".c-section-home-main";
 
     #{$c}__title-secondary {
       color: rgba($color-base-blue-dark, 0.8);
-      font-size: 44px;
+      font-size: 100px;
       line-height: 64px;
       letter-spacing: -0.27px;
     }
@@ -192,7 +229,7 @@ $c: ".c-section-home-main";
 
   #{$c}__actions {
     text-align: center;
-    margin-top: 100px;
+    margin-top: 110px;
   }
 
   #{$c}__background {
