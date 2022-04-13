@@ -392,6 +392,7 @@ $alignments-margin-sides: 12px;
 
     #{$c}__ownership {
       color: $color-base-grey-mid;
+      user-select: none;
 
       #{$c}__separator {
         margin: 0 6px;

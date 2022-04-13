@@ -167,6 +167,7 @@ $app-alerts-size: 54px;
   }
 
   #{$c}__punchline {
+    user-select: none;
     margin-top: -6px;
 
     #{$c}__title-primary,
