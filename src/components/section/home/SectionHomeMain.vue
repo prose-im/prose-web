@@ -26,8 +26,9 @@
             span.c-section-home-main__title-primary.u-title.u-bold
               | Your business secrets
 
-            span.c-section-home-main__title-secondary
-              | Are safer there.
+            image-title-secondary-cursive(
+              class="c-section-home-main__title-secondary"
+            )
 
           .c-section-home-main__pitch
             p.c-section-home-main__pitch-line
@@ -70,8 +71,13 @@
      ********************************************************************** -->
 
 <script>
+// PROJECT: IMAGES
+import ImageTitleSecondaryCursive from "~/assets/images/components/section/home/SectionHomeMain/title-secondary-cursive.svg?inline";
+
 export default {
-  name: "SectionHomeMain"
+  name: "SectionHomeMain",
+
+  components: { ImageTitleSecondaryCursive }
 };
 </script>
 
@@ -177,15 +183,16 @@ $app-alerts-size: 54px;
     }
 
     #{$c}__title-secondary {
-      color: rgba($color-base-blue-dark, 0.8);
-      font-size: 100px;
-      line-height: 64px;
-      letter-spacing: -0.27px;
+      fill: $color-base-blue-dark;
+      fill-opacity: 0.8;
+      width: auto;
+      height: 118px;
+      margin-top: -18px;
     }
   }
 
   #{$c}__pitch {
-    margin-top: 80px;
+    margin-top: 36px;
 
     #{$c}__pitch-line {
       color: $color-black;
@@ -197,12 +204,16 @@ $app-alerts-size: 54px;
   }
 
   #{$c}__points {
-    margin-top: 44px;
+    margin-top: 48px;
   }
 
   #{$c}__point {
-    margin-bottom: 24px;
+    margin-bottom: 26px;
     display: flex;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
 
     #{$c}__point-icon {
       margin-right: 8px;
