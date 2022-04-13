@@ -64,7 +64,7 @@ $c: ".c-page-split-view";
   #{$c}__sidebar {
     border-right: 1px solid transparent;
     width: 25%;
-    min-width: 320px;
+    min-width: 220px;
     flex: 0 0 auto;
   }
 
