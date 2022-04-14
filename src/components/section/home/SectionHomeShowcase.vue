@@ -13,7 +13,16 @@
     page-wrapper(
       class="c-section-home-showcase__inner"
     )
-      //- TODO
+      base-title(
+        level="small"
+        tint="light"
+        class="c-section-home-showcase__title"
+      )
+        | A single app, where all your
+
+        br
+
+        | workspace magic happens.
 
     .c-section-home-showcase__background
       span.c-section-home-showcase__separator
@@ -40,9 +49,18 @@ export default {
 $c: ".c-section-home-showcase";
 
 .c-section-home-showcase {
-  padding-top: 80px;
-  padding-bottom: 70px;
+  padding-top: 60px;
+  padding-bottom: 54px;
   position: relative;
+
+  #{$c}__inner {
+    position: relative;
+    z-index: 3;
+  }
+
+  #{$c}__title {
+    text-align: center;
+  }
 
   #{$c}__background {
     &,

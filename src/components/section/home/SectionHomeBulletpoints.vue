@@ -23,6 +23,49 @@
         | special versus others.
 
       .c-section-home-bulletpoints__grid
+        .c-section-home-bulletpoints__line
+          //- TODO: make each box a component w/ slots?
+
+          .c-section-home-bulletpoints__box.c-section-home-bulletpoints__box--native-app
+            .c-section-home-bulletpoints__box-illustration
+              base-raster(
+                name="laptop"
+                class="c-section-home-bulletpoints__box-raster"
+              )
+
+            .c-section-home-bulletpoints__box-text
+              //- TODO
+
+          .c-section-home-bulletpoints__box.c-section-home-bulletpoints__box--security
+            .c-section-home-bulletpoints__box-illustration
+              base-raster(
+                name="shield"
+                class="c-section-home-bulletpoints__box-raster"
+              )
+
+            .c-section-home-bulletpoints__box-text
+              //- TODO
+
+        .c-section-home-bulletpoints__line
+          .c-section-home-bulletpoints__box.c-section-home-bulletpoints__box--open-source
+            .c-section-home-bulletpoints__box-illustration
+              base-raster(
+                name="folder"
+                class="c-section-home-bulletpoints__box-raster"
+              )
+
+            .c-section-home-bulletpoints__box-text
+              //- TODO
+
+          .c-section-home-bulletpoints__box.c-section-home-bulletpoints__box--decentralized
+            .c-section-home-bulletpoints__box-illustration
+              base-raster(
+                name="globe"
+                class="c-section-home-bulletpoints__box-raster"
+              )
+
+            .c-section-home-bulletpoints__box-text
+              //- TODO
 
       .c-section-home-bulletpoints__actions
         //- TODO: target for this button?
@@ -52,6 +95,9 @@ export default {
 <style lang="scss">
 $c: ".c-section-home-bulletpoints";
 
+// VARIABLES
+$grid-spacing: 28px;
+
 .c-section-home-bulletpoints {
   padding-top: 65px;
   padding-bottom: 70px;
@@ -61,12 +107,131 @@ $c: ".c-section-home-bulletpoints";
   }
 
   #{$c}__grid {
-    // TODO
+    margin-top: 85px;
+    padding: 0 36px;
+
+    #{$c}__line {
+      margin-bottom: $grid-spacing;
+      display: flex;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  #{$c}__box {
+    height: 420px;
+    margin-right: $grid-spacing;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-radius: 26px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    #{$c}__box-text {
+      padding: 40px;
+      padding-top: 0;
+    }
+
+    &--native-app {
+      background-color: $color-base-grey-light;
+      flex: 0.6;
+
+      #{$c}__box-raster {
+        margin-top: -32px;
+      }
+
+      #{$c}__box-illustration {
+        text-align: center;
+        flex: 0.65;
+      }
+
+      #{$c}__box-text {
+        flex: 0.35;
+      }
+    }
+
+    &--security {
+      background-color: $color-base-blue-light;
+      flex: 0.4;
+
+      #{$c}__box-illustration,
+      #{$c}__box-text {
+        flex: 0.5;
+      }
+
+      #{$c}__box-raster {
+        margin-top: -34px;
+        // TODO: clip the shadow to a mask image
+        box-shadow: 0 34px 56px 0 rgba(#1a92ba, 0.68);
+      }
+
+      #{$c}__box-illustration {
+        text-align: left;
+        padding-left: 28px;
+      }
+
+      #{$c}__box-text {
+        // TODO
+      }
+    }
+
+    &--open-source {
+      background-color: $color-base-pink-light;
+      flex: 1;
+
+      #{$c}__box-illustration,
+      #{$c}__box-text {
+        flex: 0.5;
+      }
+
+      #{$c}__box-raster {
+        margin-top: -20px;
+        // TODO: clip the shadow to a mask image
+        box-shadow: 0 34px 56px 0 rgba(#9d4256, 0.2);
+      }
+
+      #{$c}__box-illustration {
+        text-align: right;
+        padding-right: 32px;
+      }
+
+      #{$c}__box-text {
+        // TODO
+      }
+    }
+
+    &--decentralized {
+      background-color: $color-base-blue-dark;
+      flex: 1;
+      align-items: center;
+      justify-content: center;
+
+      #{$c}__box-raster {
+        margin-bottom: -36px;
+      }
+
+      #{$c}__box-illustration {
+        text-align: center;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
+
+      #{$c}__box-text {
+        padding: 0 12px;
+      }
+    }
   }
 
   #{$c}__actions {
     text-align: center;
-    margin-top: 60px;
+    margin-top: 65px;
   }
 }
 </style>
