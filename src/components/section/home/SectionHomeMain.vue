@@ -180,7 +180,7 @@ $app-alerts-size: 54px;
         top: 0;
         bottom: 0;
         right: 0;
-        border-radius: 9px;
+        border-radius: 8px;
         box-shadow: 0 16px 80px 0 rgba($color-black, 0.12),
           0 0 3px 0 rgba($color-black, 0.36);
       }
