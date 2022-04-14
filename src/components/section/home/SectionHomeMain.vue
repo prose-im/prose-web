@@ -38,18 +38,14 @@
               | All of your workplace communication lives here.
 
           ul.c-section-home-main__points
-            //- TODO: make this a component + fill text content
-            li.c-section-home-main__point(
-              v-for="_ in [1, 2, 3]"
+            base-benefit(
+              v-for="benefit, index in benefits"
+              :key="'benefit_' + index"
+              :icon="benefit.icon"
+              :title="benefit.title"
+              :label="benefit.label"
+              class="c-section-home-main__point"
             )
-              span.c-section-home-main__point-icon
-
-              span.c-section-home-main__point-text
-                span.c-section-home-main__point-title.u-medium
-                  | End-to-End Encrypted
-
-                span.c-section-home-main__point-label
-                  | Confidently discuss private business with military-grade encryption.
 
       .c-section-home-main__actions
         base-button(
@@ -77,7 +73,36 @@ import ImageTitleSecondaryCursive from "~/assets/images/components/section/home/
 export default {
   name: "SectionHomeMain",
 
-  components: { ImageTitleSecondaryCursive }
+  components: { ImageTitleSecondaryCursive },
+
+  data() {
+    return {
+      // --> DATA <--
+
+      benefits: [
+        {
+          icon: "lock",
+          title: "End-to-End Encrypted",
+          label:
+            "Confidently discuss private business with military-grade encryption."
+        },
+
+        {
+          icon: "cloud",
+          title: "Self-Hosted or Cloud",
+          label:
+            "Host Prose on your premises, or use our cloud service. You choose."
+        },
+
+        {
+          icon: "arrow",
+          title: "Messages, Calls and Files",
+          label:
+            "A native lightweight app for all your communication. Mobile & Desktop."
+        }
+      ]
+    };
+  }
 };
 </script>
 
@@ -197,7 +222,7 @@ $app-alerts-size: 54px;
 
     #{$c}__pitch-line {
       color: $color-black;
-      font-size: 18px;
+      font-size: 18.5px;
       line-height: 30px;
       letter-spacing: -0.14px;
       text-align: justify;
@@ -205,44 +230,21 @@ $app-alerts-size: 54px;
   }
 
   #{$c}__points {
-    margin-top: 48px;
+    margin-top: 46px;
   }
 
   #{$c}__point {
-    margin-bottom: 26px;
+    margin-bottom: 23px;
     display: flex;
 
     &:last-child {
       margin-bottom: 0;
     }
-
-    #{$c}__point-icon {
-      fill: $color-base-green-mid;
-      margin-right: 8px;
-      flex: 0 0 auto;
-    }
-
-    #{$c}__point-text {
-      flex: 1;
-    }
-
-    #{$c}__point-title,
-    #{$c}__point-label {
-      display: block;
-    }
-
-    #{$c}__point-title {
-      color: $color-base-green-mid;
-    }
-
-    #{$c}__point-label {
-      margin-top: 8px;
-    }
   }
 
   #{$c}__actions {
     text-align: center;
-    margin-top: 110px;
+    margin-top: 120px;
   }
 
   #{$c}__background {
