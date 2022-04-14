@@ -47,6 +47,11 @@
               class="c-section-home-main__point"
             )
 
+        .c-section-home-main__background
+          .c-section-home-main__nebula
+            span.c-section-home-main__bubble
+            span.c-section-home-main__bubble
+
       .c-section-home-main__actions
         base-button(
           right-icon="arrow-down"
@@ -55,11 +60,6 @@
           class="c-section-home-main__action"
         )
           | Find out how Prose works
-
-    .c-section-home-main__background
-      .c-section-home-main__nebula
-        span.c-section-home-main__bubble
-        span.c-section-home-main__bubble
 </template>
 
 <!-- **********************************************************************
@@ -123,8 +123,6 @@ $app-alerts-size: 54px;
   #{$c}__inner {
     padding-top: ($page-header-height + 85px);
     padding-bottom: 40px;
-    position: relative;
-    z-index: 1;
   }
 
   #{$c}__aside {
@@ -134,10 +132,13 @@ $app-alerts-size: 54px;
     #{$c}__text {
       width: 50%;
       flex: 1;
+      position: relative;
+      z-index: 1;
     }
 
     #{$c}__app {
-      position: relative;
+      // TODO: fix blend mode which is too strong (should be bg white alpha=50%)
+      mix-blend-mode: multiply;
 
       &,
       #{$c}__app-screenshot {
@@ -250,6 +251,8 @@ $app-alerts-size: 54px;
   #{$c}__actions {
     text-align: center;
     margin-top: 120px;
+    position: relative;
+    z-index: 1;
   }
 
   #{$c}__background {
