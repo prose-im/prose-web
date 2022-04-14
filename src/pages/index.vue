@@ -56,30 +56,4 @@ export default {
 
 <style lang="scss">
 $c: ".p-index";
-
-.p-index {
-  #{$c}__main {
-    // TODO
-  }
-
-  #{$c}__showcase {
-    // TODO
-  }
-
-  #{$c}__bulletpoints {
-    // TODO
-  }
-
-  #{$c}__features {
-    // TODO
-  }
-
-  #{$c}__cost {
-    // TODO
-  }
-
-  #{$c}__data {
-    // TODO
-  }
-}
 </style>

@@ -15,7 +15,12 @@
     )
       .c-section-home-main__aside
         .c-section-home-main__app
-          .c-section-home-main__app-icon
+          base-app-icon(
+            :background-blend="0.4"
+            size="130px"
+            radius="26px"
+            class="c-section-home-main__app-icon"
+          )
             .c-section-home-main__app-alerts.u-medium
               | 4
 
@@ -114,7 +119,6 @@ export default {
 $c: ".c-section-home-main";
 
 // VARIABLES
-$app-icon-size: 130px;
 $app-alerts-size: 54px;
 
 .c-section-home-main {
@@ -147,13 +151,10 @@ $app-alerts-size: 54px;
 
       #{$c}__app-icon {
         background-color: $color-white;
-        width: $app-icon-size;
-        height: $app-icon-size;
         position: absolute;
         right: 80px;
         bottom: -32px;
         z-index: 1;
-        border-radius: 26px;
         box-shadow: 0 2px 6px 0 rgba($color-black, 0.04),
           0 4px 9px 0 rgba($color-black, 0.12);
 
@@ -164,11 +165,12 @@ $app-alerts-size: 54px;
           line-height: ($app-alerts-size - 2px);
           letter-spacing: -0.23px;
           text-align: center;
+          user-select: none;
           width: $app-alerts-size;
           height: $app-alerts-size;
           position: absolute;
-          top: -10px;
-          right: -10px;
+          top: -8px;
+          right: -8px;
           border-radius: 100%;
           box-shadow: 0 0 4px 0 rgba($color-black, 0.6);
         }

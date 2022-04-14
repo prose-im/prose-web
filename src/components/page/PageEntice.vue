@@ -50,10 +50,12 @@
                 | Download Prose Apps
 
         .c-page-entice__illustration
-          .c-page-entice__logo
-            image-illustration-logo-icon(
-              class="c-page-entice__logo-icon"
-            )
+          base-app-icon(
+            size="420px"
+            radius="80px"
+            background-color="secondary"
+            class="c-page-entice__logo"
+          )
 </template>
 
 <!-- **********************************************************************
@@ -63,12 +65,11 @@
 <script>
 // PROJECT: IMAGES
 import ImageContentActionsDownloadIcon from "~/assets/images/components/page/PageEntice/content-actions-download-icon.svg?inline";
-import ImageIllustrationLogoIcon from "~/assets/images/components/page/PageEntice/illustration-logo-icon.svg?inline";
 
 export default {
   name: "PageEntice",
 
-  components: { ImageContentActionsDownloadIcon, ImageIllustrationLogoIcon },
+  components: { ImageContentActionsDownloadIcon },
 
   data() {
     return {
@@ -95,9 +96,6 @@ export default {
 
 <style lang="scss">
 $c: ".c-page-entice";
-
-// VARIABLES
-$logo-size: 420px;
 
 .c-page-entice {
   background-color: $color-background-primary;
@@ -203,29 +201,12 @@ $logo-size: 420px;
     position: relative;
 
     #{$c}__logo {
-      background-image: url("~/assets/images/components/page/PageEntice/illustration-logo-background.jpg");
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-color: $color-background-secondary;
-      width: $logo-size;
-      height: $logo-size;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       position: absolute;
       top: -38px;
       right: 10px;
-      border-radius: 80px;
       box-shadow: 0 2px 6px 0 rgba($color-black, 0.25),
         0 4px 9px 0 rgba($color-black, 0.09);
       transform: rotate(-25deg);
-
-      #{$c}__logo-icon {
-        width: 72%;
-        height: auto;
-        margin-right: -2%;
-        margin-bottom: -5%;
-      }
     }
   }
 }
