@@ -19,7 +19,7 @@
             .c-section-home-main__app-alerts.u-medium
               | 4
 
-          .c-section-home-main__app-image
+          .c-section-home-main__app-screenshot
 
         .c-section-home-main__text
           h1.c-section-home-main__punchline
@@ -140,17 +140,17 @@ $app-alerts-size: 54px;
       position: relative;
 
       &,
-      #{$c}__app-image {
+      #{$c}__app-screenshot {
         height: 520px;
       }
 
       #{$c}__app-icon {
-        background-color: $color-background-secondary;
+        background-color: $color-white;
         width: $app-icon-size;
         height: $app-icon-size;
         position: absolute;
         right: 80px;
-        bottom: -36px;
+        bottom: -32px;
         z-index: 1;
         border-radius: 26px;
         box-shadow: 0 2px 6px 0 rgba($color-black, 0.04),
@@ -173,13 +173,18 @@ $app-alerts-size: 54px;
         }
       }
 
-      #{$c}__app-image {
-        background-color: $color-background-secondary;
-        width: 920px;
+      #{$c}__app-screenshot {
+        background-color: rgba($color-white, 0.5);
+        background-image: url("~/assets/images/components/section/home/SectionHomeMain/app-screenshot.webp");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 868px;
         position: absolute;
         top: 0;
         bottom: 0;
         right: 0;
+        overflow: hidden;
         border-radius: 8px;
         box-shadow: 0 16px 80px 0 rgba($color-black, 0.12),
           0 0 3px 0 rgba($color-black, 0.36);
