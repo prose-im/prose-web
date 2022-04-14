@@ -98,7 +98,7 @@ import ImageMenuDropdownHelpIconDocs from "~/assets/images/components/page/PageH
 import ImageMenuDropdownHelpIconContact from "~/assets/images/components/page/PageHeader/menu-dropdown-help-icon-contact.svg?raw";
 
 // CONSTANTS
-const SCROLLED_THRESHOLD_VERTICAL = 25;
+const SCROLLED_THRESHOLD_VERTICAL = 30;
 
 export default {
   name: "PageHeader",
@@ -173,9 +173,21 @@ export default {
 
   beforeMount() {
     // Only bind scroll listener if not floating (and thus should check when \
-    //   to force floating mode based on scroll.
+    //   to force floating mode based on scroll)
     if (!this.floating) {
+      // Bind scroll listener
       window.addEventListener("scroll", this.onWindowScroll);
+    }
+  },
+
+  mounted() {
+    // Only process first scroll event if not floating (and thus should check \
+    //   when to force floating mode based on scroll)
+    if (!this.floating) {
+      // Process first scroll event (eg. the page is reloaded on a scrolled \
+      //   page, therefore we need to emulate a scroll event to compute first \
+      //   state)
+      this.onWindowScroll();
     }
   },
 
@@ -230,7 +242,7 @@ $menu-dropdown-offset-left: 60px;
     left: 0;
     right: 0;
     z-index: 100;
-    transition: all 100ms linear;
+    transition: all 250ms linear;
     transition-property: background-color, border-color;
   }
 
