@@ -13,6 +13,7 @@ h1(
   :class=`[
     "c-base-title",
     "c-base-title--" + level,
+    "c-base-title--" + tint,
     "u-title",
     "u-" + weight
   ]`
@@ -45,6 +46,15 @@ export default {
       validator(x) {
         return ["regular", "medium", "bold"].includes(x);
       }
+    },
+
+    tint: {
+      type: String,
+      default: "dark",
+
+      validator(x) {
+        return ["light", "dark"].includes(x);
+      }
     }
   }
 };
@@ -58,8 +68,6 @@ export default {
 $c: ".c-base-title";
 
 .c-base-title {
-  color: $color-base-blue-dark;
-
   // --> LEVELS <--
 
   &--small {
@@ -78,6 +86,16 @@ $c: ".c-base-title";
     font-size: 42px;
     line-height: 48px;
     letter-spacing: -0.2px;
+  }
+
+  // --> TINTS <--
+
+  &--dark {
+    color: $color-base-blue-dark;
+  }
+
+  &--light {
+    color: $color-white;
   }
 }
 </style>
