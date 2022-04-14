@@ -32,6 +32,7 @@ export default {
 $c: ".c-section-home-data";
 
 .c-section-home-data {
-  // TODO
+  padding-top: 110px;
+  padding-bottom: 100px;
 }
 </style>

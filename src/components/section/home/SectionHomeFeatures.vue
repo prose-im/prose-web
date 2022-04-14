@@ -32,6 +32,8 @@ export default {
 $c: ".c-section-home-features";
 
 .c-section-home-features {
-  // TODO
+  background-color: $color-background-secondary;
+  padding-top: 90px;
+  padding-bottom: 60px;
 }
 </style>

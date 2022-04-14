@@ -56,4 +56,12 @@ export default {
 
 <style lang="scss">
 $c: ".p-index";
+
+.p-index {
+  #{$c}__bulletpoints,
+  #{$c}__features,
+  #{$c}__cost {
+    border-bottom: 1px solid $color-border-secondary;
+  }
+}
 </style>

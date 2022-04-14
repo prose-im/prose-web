@@ -58,6 +58,7 @@
             span.c-section-home-main__bubble
 
       .c-section-home-main__actions
+        //- TODO: scroll down to next section when clicking
         base-button(
           right-icon="arrow-down"
           tint="light"

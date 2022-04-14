@@ -32,6 +32,7 @@ export default {
 $c: ".c-section-home-cost";
 
 .c-section-home-cost {
-  // TODO
+  padding-top: 110px;
+  padding-bottom: 140px;
 }
 </style>

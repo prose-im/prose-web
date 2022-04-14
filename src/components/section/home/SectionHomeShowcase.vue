@@ -10,8 +10,16 @@
 
 <template lang="pug">
   .c-section-home-showcase
-    page-wrapper
+    page-wrapper(
+      class="c-section-home-showcase__inner"
+    )
       //- TODO
+
+    .c-section-home-showcase__background
+      span.c-section-home-showcase__separator
+      span.c-section-home-showcase__color
+      span.c-section-home-showcase__blur
+      span.c-section-home-showcase__image
 </template>
 
 <!-- **********************************************************************
@@ -32,6 +40,45 @@ export default {
 $c: ".c-section-home-showcase";
 
 .c-section-home-showcase {
-  // TODO
+  padding-top: 80px;
+  padding-bottom: 70px;
+  position: relative;
+
+  #{$c}__background {
+    &,
+    #{$c}__separator,
+    #{$c}__color,
+    #{$c}__blur,
+    #{$c}__image {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    #{$c}__separator {
+      border-top: 1px solid rgba($color-base-blue-dark, 0.18);
+    }
+
+    #{$c}__color {
+      background: rgba(#9600ff, 0.2);
+      z-index: 2;
+    }
+
+    #{$c}__blur {
+      background: rgba($color-black, 0.5);
+      backdrop-filter: blur(50px);
+      z-index: 1;
+    }
+
+    #{$c}__image {
+      background-image: url("~/assets/images/components/section/home/SectionHomeShowcase/background-image.webp");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      z-index: 0;
+    }
+  }
 }
 </style>
