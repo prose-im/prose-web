@@ -253,7 +253,7 @@ $app-alerts-size: 54px;
 
   #{$c}__actions {
     text-align: center;
-    margin-top: 120px;
+    margin-top: 114px;
     position: relative;
     z-index: 1;
   }
