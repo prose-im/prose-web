@@ -52,7 +52,7 @@ $c: ".c-section-home-features";
 
 .c-section-home-features {
   background-color: $color-background-secondary;
-  padding-top: 65px;
+  padding-top: 62px;
   padding-bottom: 50px;
 
   #{$c}__title {

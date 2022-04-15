@@ -22,7 +22,20 @@
 
         br
 
-        | workspace magic happens.
+        | workspace
+
+        base-space
+
+        base-surround(
+          :variant="2"
+          :blend="0.5"
+          tint="white"
+        )
+          | magic
+
+        base-space
+
+        | happens.
 
     .c-section-home-showcase__background
       span.c-section-home-showcase__separator

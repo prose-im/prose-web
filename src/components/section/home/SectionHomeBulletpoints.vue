@@ -19,8 +19,15 @@
 
         br
 
-        //- TODO: circle effect
-        | special versus others.
+        base-surround(
+          :variant="1"
+          tint="pink"
+        )
+          | special
+
+        base-space
+
+        | versus others.
 
       .c-section-home-bulletpoints__grid
         .c-section-home-bulletpoints__line
@@ -139,7 +146,7 @@ $c: ".c-section-home-bulletpoints";
 $grid-spacing: 28px;
 
 .c-section-home-bulletpoints {
-  padding-top: 65px;
+  padding-top: 62px;
   padding-bottom: 70px;
 
   #{$c}__title {
@@ -147,7 +154,7 @@ $grid-spacing: 28px;
   }
 
   #{$c}__grid {
-    margin-top: 85px;
+    margin-top: 82px;
     padding: 0 36px;
 
     #{$c}__line {
@@ -211,7 +218,7 @@ $grid-spacing: 28px;
       }
 
       #{$c}__box-subtitle {
-        color: #a19db6; // TODO: derive it from color
+        color: lighten($color-base-blue-mid, 9%);
         margin-top: 5px;
       }
     }
@@ -248,7 +255,7 @@ $grid-spacing: 28px;
       }
 
       #{$c}__box-subtitle {
-        color: #27a4cd; // TODO: derive it from color
+        color: #27a4cd;
       }
     }
 
@@ -284,7 +291,7 @@ $grid-spacing: 28px;
       }
 
       #{$c}__box-subtitle {
-        color: #e85677; // TODO: derive it from color
+        color: #e85677;
       }
     }
 

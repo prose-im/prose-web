@@ -51,7 +51,7 @@ $c: ".c-section-contact-main";
   }
 
   #{$c}__direction {
-    margin-top: 25px;
+    margin-top: 22px;
     display: flex;
     justify-content: center;
   }

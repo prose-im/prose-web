@@ -72,7 +72,7 @@ $c: ".c-base-title";
 
   &--small {
     font-size: 24px;
-    line-height: 30px;
+    line-height: 38px;
     letter-spacing: -0.1px;
   }
 

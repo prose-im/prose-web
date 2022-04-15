@@ -91,7 +91,7 @@ $c: ".c-section-terms-main";
     color: $color-base-grey-dark;
     line-height: 22px;
     font-style: italic;
-    margin-top: 5px;
+    margin-top: 1px;
   }
 
   #{$c}__disclaimer-wrap {
