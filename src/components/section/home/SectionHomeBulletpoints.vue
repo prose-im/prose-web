@@ -179,6 +179,15 @@ $grid-spacing: 28px;
       margin-right: 0;
     }
 
+    #{$c}__box-illustration,
+    #{$c}__box-text {
+      position: relative;
+    }
+
+    #{$c}__box-illustration {
+      z-index: 0;
+    }
+
     #{$c}__box-text {
       font-size: 28px;
       letter-spacing: -0.2px;
@@ -187,6 +196,7 @@ $grid-spacing: 28px;
       padding-top: 0;
       display: flex;
       align-items: flex-end;
+      z-index: 1;
     }
 
     #{$c}__box-subtitle {
@@ -243,7 +253,6 @@ $grid-spacing: 28px;
       #{$c}__box-illustration {
         text-align: left;
         margin-left: 28px;
-        position: relative;
       }
 
       #{$c}__box-text {
@@ -277,7 +286,6 @@ $grid-spacing: 28px;
       }
 
       #{$c}__box-illustration {
-        position: relative;
         text-align: right;
         margin-right: 32px;
       }
@@ -316,7 +324,6 @@ $grid-spacing: 28px;
       #{$c}__box-text {
         text-align: center;
         padding: 0 12px;
-        position: relative;
       }
 
       #{$c}__box-title {
