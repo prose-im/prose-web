@@ -13,6 +13,7 @@
     page-wrapper
       base-title(
         level="small"
+        align="center"
         class="c-section-home-bulletpoints__title"
       )
         | Here are the things that make Prose
@@ -141,10 +142,6 @@ $c: ".c-section-home-bulletpoints";
 .c-section-home-bulletpoints {
   padding-top: 62px;
   padding-bottom: 70px;
-
-  #{$c}__title {
-    text-align: center;
-  }
 
   #{$c}__grid {
     margin-top: 82px;

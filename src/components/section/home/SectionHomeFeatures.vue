@@ -13,6 +13,7 @@
     page-wrapper
       base-title(
         level="small"
+        align="center"
         class="c-section-home-features__title"
       )
         | Every little thing, that makes your
@@ -54,10 +55,6 @@ $c: ".c-section-home-features";
   background-color: $color-background-secondary;
   padding-top: 62px;
   padding-bottom: 50px;
-
-  #{$c}__title {
-    text-align: center;
-  }
 
   #{$c}__actions {
     text-align: center;

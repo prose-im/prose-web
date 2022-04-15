@@ -19,6 +19,7 @@
       class="c-page-main-title__wrapper"
     )
       base-descripted-title(
+        :align="align"
         class="c-page-main-title__title"
       )
         slot(
@@ -60,7 +61,7 @@ export default {
       default: "center",
 
       validator(x) {
-        return ["center", "left", "right"].includes(x);
+        return ["left", "center", "right"].includes(x);
       }
     }
   }

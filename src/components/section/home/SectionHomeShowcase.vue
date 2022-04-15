@@ -16,6 +16,7 @@
       base-title(
         level="small"
         tint="light"
+        align="center"
         class="c-section-home-showcase__title"
       )
         | A single app, where all your
@@ -69,10 +70,6 @@ $c: ".c-section-home-showcase";
   #{$c}__inner {
     position: relative;
     z-index: 3;
-  }
-
-  #{$c}__title {
-    text-align: center;
   }
 
   #{$c}__background {

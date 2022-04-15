@@ -13,6 +13,7 @@
     page-wrapper
       base-title(
         level="small"
+        align="center"
         class="c-section-terms-main__title"
       )
         | Terms of Use

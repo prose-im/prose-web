@@ -11,6 +11,7 @@
 <template lang="pug">
   .c-base-descripted-title
     base-title(
+      :align="align"
       class="c-base-descripted-title__title"
     )
       slot(
@@ -18,6 +19,7 @@
       )
 
     base-description(
+      :align="align"
       class="c-base-descripted-title__description"
     )
       slot(
@@ -31,7 +33,18 @@
 
 <script>
 export default {
-  name: "BaseDescriptedTitle"
+  name: "BaseDescriptedTitle",
+
+  props: {
+    align: {
+      type: String,
+      default: "left",
+
+      validator(x) {
+        return ["left", "center", "right"].includes(x);
+      }
+    }
+  }
 };
 </script>
 

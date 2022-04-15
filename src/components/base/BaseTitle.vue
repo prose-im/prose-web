@@ -14,6 +14,7 @@ h1(
     "c-base-title",
     "c-base-title--" + level,
     "c-base-title--" + tint,
+    "c-base-title--" + align,
     "u-title",
     "u-" + weight
   ]`
@@ -54,6 +55,15 @@ export default {
 
       validator(x) {
         return ["light", "dark"].includes(x);
+      }
+    },
+
+    align: {
+      type: String,
+      default: "left",
+
+      validator(x) {
+        return ["left", "center", "right"].includes(x);
       }
     }
   }
@@ -96,6 +106,20 @@ $c: ".c-base-title";
 
   &--light {
     color: $color-white;
+  }
+
+  // --> ALIGNS <--
+
+  &--left {
+    text-align: left;
+  }
+
+  &--center {
+    text-align: center;
+  }
+
+  &--right {
+    text-align: right;
   }
 }
 </style>

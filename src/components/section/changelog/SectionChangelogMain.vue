@@ -33,6 +33,7 @@
       ]`
     )
       base-descripted-title(
+        align="left"
         class="c-section-changelog-main__title"
       )
         template(

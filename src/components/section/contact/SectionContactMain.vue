@@ -13,6 +13,7 @@
     page-wrapper
       base-title(
         level="small"
+        align="center"
         class="c-section-contact-main__title"
       )
         | Contact Us
@@ -46,10 +47,6 @@ export default {
 $c: ".c-section-contact-main";
 
 .c-section-contact-main {
-  #{$c}__title {
-    text-align: center;
-  }
-
   #{$c}__direction {
     margin-top: 22px;
     display: flex;
