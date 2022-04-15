@@ -29,90 +29,86 @@
 
         | versus others.
 
-      .c-section-home-bulletpoints__grid
-        .c-section-home-bulletpoints__line
-          //- TODO: make each box a component w/ slots?
+      base-bulletpoint-grid(
+        class="c-section-home-bulletpoints__grid"
+      )
+        template(
+          slot="line-1"
+        )
+          base-bulletpoint(
+            raster="laptop"
+            class="c-section-home-bulletpoints__box c-section-home-bulletpoints__box--native-app"
+            illustration-class="c-section-home-bulletpoints__box-illustration"
+            raster-class="c-section-home-bulletpoints__box-raster"
+            text-class="c-section-home-bulletpoints__box-text"
+          )
+            h1.c-section-home-bulletpoints__box-title.u-title.u-bold
+              | Gorgeously-native app.
 
-          .c-section-home-bulletpoints__box.c-section-home-bulletpoints__box--native-app
-            .c-section-home-bulletpoints__box-illustration
-              base-raster(
-                name="laptop"
-                class="c-section-home-bulletpoints__box-raster"
-              )
+            h2.c-section-home-bulletpoints__box-subtitle.u-title.u-bold
+              | Easy on the battery. And your eyes.
 
-            .c-section-home-bulletpoints__box-text
-              .c-section-home-bulletpoints__box-text-inner
-                h1.c-section-home-bulletpoints__box-title.u-title.u-bold
-                  | Gorgeously-native app.
+          base-bulletpoint(
+            raster="shield"
+            class="c-section-home-bulletpoints__box c-section-home-bulletpoints__box--security"
+            illustration-class="c-section-home-bulletpoints__box-illustration"
+            raster-class="c-section-home-bulletpoints__box-raster"
+            text-class="c-section-home-bulletpoints__box-text"
+          )
+            h1.c-section-home-bulletpoints__box-title.u-title.u-bold
+              | Paranoid secrecy.
 
-                h2.c-section-home-bulletpoints__box-subtitle.u-title.u-bold
-                  | Easy on the battery. And your eyes.
+            h2.c-section-home-bulletpoints__box-subtitle.u-title.u-bold
+              | All messages
 
-          .c-section-home-bulletpoints__box.c-section-home-bulletpoints__box--security
-            .c-section-home-bulletpoints__box-illustration
-              base-raster(
-                name="shield"
-                class="c-section-home-bulletpoints__box-raster"
-              )
+              br
 
-            .c-section-home-bulletpoints__box-text
-              .c-section-home-bulletpoints__box-text-inner
-                h1.c-section-home-bulletpoints__box-title.u-title.u-bold
-                  | Paranoid secrecy.
+              | are end-to-end
 
-                h2.c-section-home-bulletpoints__box-subtitle.u-title.u-bold
-                  | All messages
+              br
 
-                  br
+              | encrypted.
 
-                  | are end-to-end
+        template(
+          slot="line-2"
+        )
+          base-bulletpoint(
+            raster="folder"
+            class="c-section-home-bulletpoints__box c-section-home-bulletpoints__box--open-source"
+            illustration-class="c-section-home-bulletpoints__box-illustration"
+            raster-class="c-section-home-bulletpoints__box-raster"
+            text-class="c-section-home-bulletpoints__box-text"
+          )
+            h1.c-section-home-bulletpoints__box-title.u-title.u-bold
+              | Open-source
 
-                  br
+              br
 
-                  | encrypted.
+              | at its heart.
 
-        .c-section-home-bulletpoints__line
-          .c-section-home-bulletpoints__box.c-section-home-bulletpoints__box--open-source
-            .c-section-home-bulletpoints__box-illustration
-              base-raster(
-                name="folder"
-                class="c-section-home-bulletpoints__box-raster"
-              )
+            h2.c-section-home-bulletpoints__box-subtitle.u-title.u-bold
+              | Prose is built in public.
 
-            .c-section-home-bulletpoints__box-text
-              .c-section-home-bulletpoints__box-text-inner
-                h1.c-section-home-bulletpoints__box-title.u-title.u-bold
-                  | Open-source
+              br
 
-                  br
+              | Its code is fully auditable.
 
-                  | at its heart.
+          base-bulletpoint(
+            raster="globe"
+            class="c-section-home-bulletpoints__box c-section-home-bulletpoints__box--decentralized"
+            illustration-class="c-section-home-bulletpoints__box-illustration"
+            raster-class="c-section-home-bulletpoints__box-raster"
+            text-class="c-section-home-bulletpoints__box-text"
+          )
+            h1.c-section-home-bulletpoints__box-title.u-title.u-bold
+              | Decentralized.
 
-                h2.c-section-home-bulletpoints__box-subtitle.u-title.u-bold
-                  | Prose is built in public.
+            h2.c-section-home-bulletpoints__box-subtitle.u-title.u-medium
+              | Powered by the
 
-                  br
+              br
 
-                  | Its code is fully auditable.
-
-          .c-section-home-bulletpoints__box.c-section-home-bulletpoints__box--decentralized
-            .c-section-home-bulletpoints__box-illustration
-              base-raster(
-                name="globe"
-                class="c-section-home-bulletpoints__box-raster"
-              )
-
-            .c-section-home-bulletpoints__box-text
-              .c-section-home-bulletpoints__box-text-inner
-                h1.c-section-home-bulletpoints__box-title.u-title.u-bold
-                  | Decentralized.
-
-                h2.c-section-home-bulletpoints__box-subtitle.u-title.u-medium
-                  | Powered by the
-
-                  br
-
-                  | XMPP protocol.
+              | XMPP protocol.
 
       .c-section-home-bulletpoints__actions
         //- TODO: target for this button?
@@ -142,9 +138,6 @@ export default {
 <style lang="scss">
 $c: ".c-section-home-bulletpoints";
 
-// VARIABLES
-$grid-spacing: 28px;
-
 .c-section-home-bulletpoints {
   padding-top: 62px;
   padding-bottom: 70px;
@@ -156,49 +149,9 @@ $grid-spacing: 28px;
   #{$c}__grid {
     margin-top: 82px;
     padding: 0 36px;
-
-    #{$c}__line {
-      margin-bottom: $grid-spacing;
-      display: flex;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
   }
 
   #{$c}__box {
-    height: 420px;
-    margin-right: $grid-spacing;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    border-radius: 26px;
-
-    &:last-child {
-      margin-right: 0;
-    }
-
-    #{$c}__box-illustration,
-    #{$c}__box-text {
-      position: relative;
-    }
-
-    #{$c}__box-illustration {
-      z-index: 0;
-    }
-
-    #{$c}__box-text {
-      font-size: 28px;
-      letter-spacing: -0.2px;
-      line-height: 37px;
-      padding: 34px;
-      padding-top: 0;
-      display: flex;
-      align-items: flex-end;
-      z-index: 1;
-    }
-
     #{$c}__box-subtitle {
       margin-top: 9px;
     }
@@ -279,7 +232,7 @@ $grid-spacing: 28px;
 
       #{$c}__box-raster {
         position: absolute;
-        top: -20px;
+        top: -14px;
         right: 0;
         // TODO: clip the shadow to a mask image
         box-shadow: 0 34px 56px 0 rgba(#9d4256, 0.2);
