@@ -35,11 +35,14 @@
       template(
         slot="actions"
       )
-        //- TODO: link
-        base-button(
-          right-icon="arrow-right"
+        a.c-section-home-cost__action(
+          :href="actionTarget"
         )
-          | Read our docs on how to setup a Server
+          base-button(
+            right-icon="arrow-right"
+            class="c-section-home-cost__action-button"
+          )
+            | Read our docs on how to setup a Server
 
       template(
         slot="illustration"
@@ -54,7 +57,15 @@
 
 <script>
 export default {
-  name: "SectionHomeCost"
+  name: "SectionHomeCost",
+
+  data() {
+    return {
+      // --> DATA <--
+
+      actionTarget: `${this.$config.url.prose_docs}/guides/`
+    };
+  }
 };
 </script>
 

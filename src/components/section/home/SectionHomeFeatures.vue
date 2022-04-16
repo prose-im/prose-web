@@ -48,14 +48,16 @@
           )
 
       .c-section-home-features__actions
-        //- TODO: target for this button?
-        base-button(
-          right-icon="arrow-right"
-          size="large"
-          class="c-section-home-features__action"
-          bolder
+        a.c-section-home-features__action(
+          :href="actionTarget"
         )
-          | Start with Prose today
+          base-button(
+            right-icon="arrow-right"
+            size="large"
+            class="c-section-home-features__action-button"
+            bolder
+          )
+            | Start with Prose today
 </template>
 
 <!-- **********************************************************************
@@ -75,6 +77,8 @@ export default {
 
   data() {
     return {
+      // --> DATA <--
+
       featureGroups: [
         [
           {
@@ -121,7 +125,9 @@ export default {
               "Organize one-to-one or large team-wide video calls, with screen-sharing."
           }
         ]
-      ]
+      ],
+
+      actionTarget: `${this.$config.url.prose_docs}/guides/`
     };
   },
 

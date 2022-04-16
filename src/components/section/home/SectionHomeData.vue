@@ -37,11 +37,14 @@
       template(
         slot="actions"
       )
-        //- TODO: link
-        base-button(
-          right-icon="arrow-right"
+        a.c-section-home-data__action(
+          :href="actionTarget"
         )
-          | Read how Prose secures your Data
+          base-button(
+            right-icon="arrow-right"
+            class="c-section-home-data__action-button"
+          )
+            | Read how Prose secures your Data
 
       template(
         slot="illustration"
@@ -56,7 +59,16 @@
 
 <script>
 export default {
-  name: "SectionHomeData"
+  name: "SectionHomeData",
+
+  data() {
+    return {
+      // --> DATA <--
+
+      // TODO: bind proper page
+      actionTarget: `${this.$config.url.prose_docs}/guides/`
+    };
+  }
 };
 </script>
 

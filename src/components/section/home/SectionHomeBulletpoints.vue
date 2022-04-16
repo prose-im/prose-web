@@ -113,14 +113,16 @@
               | XMPP protocol.
 
       .c-section-home-bulletpoints__actions
-        //- TODO: target for this button?
-        base-button(
-          right-icon="arrow-right"
-          tint="light"
-          size="large"
-          class="c-section-home-bulletpoints__action"
+        a.c-section-home-bulletpoints__action(
+          :href="actionTarget"
         )
-          | Read more about what makes Prose different
+          base-button(
+            right-icon="arrow-right"
+            tint="light"
+            size="large"
+            class="c-section-home-bulletpoints__action-button"
+          )
+            | Read more about what makes Prose different
 </template>
 
 <!-- **********************************************************************
@@ -136,6 +138,15 @@ export default {
       type: String,
       default: "0px"
     }
+  },
+
+  data() {
+    return {
+      // --> DATA <--
+
+      // TODO: bind proper page
+      actionTarget: `${this.$config.url.prose_docs}/guides/`
+    };
   },
 
   computed: {
