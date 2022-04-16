@@ -10,8 +10,44 @@
 
 <template lang="pug">
   .c-section-home-data
-    page-wrapper
-      //- TODO
+    page-details(
+      align="right"
+    )
+      template(
+        slot="title"
+      )
+        | Your chat data. On your own domain.
+
+        br
+
+        | All encrypted. You own it.
+
+      template(
+        slot="description"
+      )
+        p
+          | Nowadays, all modern messaging services store all their user messages in a huge database, in the clear.
+
+        p
+          | Not only is the data centralized in a single geographic location, but those services are also more prone to wide-scale outages, should something go wrong with the servers.
+
+        p.u-medium
+          | With Prose, you host the server, on your terms.
+
+      template(
+        slot="actions"
+      )
+        //- TODO: link
+        base-button(
+          right-icon="arrow-right"
+        )
+          | Read how Prose secures your Data
+
+      template(
+        slot="illustration"
+      )
+        //- TODO
+        | TODO Image
 </template>
 
 <!-- **********************************************************************
@@ -32,7 +68,7 @@ export default {
 $c: ".c-section-home-data";
 
 .c-section-home-data {
-  padding-top: 110px;
-  padding-bottom: 100px;
+  padding-top: 75px;
+  padding-bottom: 45px;
 }
 </style>
