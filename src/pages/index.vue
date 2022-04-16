@@ -19,10 +19,12 @@
     )
 
     section-home-bulletpoints(
+      :grid-padding-sides="gridPaddingSides"
       class="p-index__bulletpoints"
     )
 
     section-home-features(
+      :grid-padding-sides="gridPaddingSides"
       class="p-index__features"
     )
 
@@ -43,6 +45,14 @@
 export default {
   name: "IndexPage",
   layout: "landing",
+
+  data() {
+    return {
+      // --> DATA <--
+
+      gridPaddingSides: "36px"
+    };
+  },
 
   head: {
     title: "Prose – All of your workplace communication lives here"

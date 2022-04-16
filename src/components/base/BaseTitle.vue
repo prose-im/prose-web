@@ -135,7 +135,7 @@ $c: ".c-base-title";
   &--stroke {
     paint-order: stroke;
 
-    @include text-stroke(1.5px rgba($color-background-secondary, 0.7));
+    @include text-stroke(2px rgba($color-background-secondary, 0.75));
   }
 }
 </style>

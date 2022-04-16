@@ -31,6 +31,7 @@
         | versus others.
 
       base-bulletpoint-grid(
+        :style="gridStyle"
         class="c-section-home-bulletpoints__grid"
       )
         template(
@@ -128,7 +129,23 @@
 
 <script>
 export default {
-  name: "SectionHomeBulletpoints"
+  name: "SectionHomeBulletpoints",
+
+  props: {
+    gridPaddingSides: {
+      type: String,
+      default: "0px"
+    }
+  },
+
+  computed: {
+    gridStyle() {
+      return {
+        paddingLeft: this.gridPaddingSides,
+        paddingRight: this.gridPaddingSides
+      };
+    }
+  }
 };
 </script>
 
@@ -145,7 +162,6 @@ $c: ".c-section-home-bulletpoints";
 
   #{$c}__grid {
     margin-top: 82px;
-    padding: 0 36px;
   }
 
   #{$c}__box {
