@@ -10,6 +10,7 @@
 
 <template lang="pug">
 div(
+  @click="onClick"
   :class=`[
     "c-base-button",
     "c-base-button--" + size,
@@ -109,6 +110,21 @@ export default {
           return null;
         }
       }
+    }
+  },
+
+  methods: {
+    // --> EVENT LISTENERS <--
+
+    /**
+     * Triggers button is clicked
+     * @public
+     * @param  {object} event
+     * @return {undefined}
+     */
+    onClick(event) {
+      // Re-emit click event
+      this.$emit("click", event);
     }
   }
 };
