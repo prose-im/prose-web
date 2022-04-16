@@ -39,7 +39,7 @@ export default {
       default: "normal",
 
       validator(x) {
-        return ["small", "normal", "large"].includes(x);
+        return ["mini", "small", "normal", "large"].includes(x);
       }
     },
 
@@ -87,6 +87,12 @@ $c: ".c-base-title";
 
 .c-base-title {
   // --> LEVELS <--
+
+  &--mini {
+    font-size: 22px;
+    line-height: 32px;
+    letter-spacing: -0.1px;
+  }
 
   &--small {
     font-size: 24px;
