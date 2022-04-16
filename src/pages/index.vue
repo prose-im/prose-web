@@ -11,10 +11,12 @@
 <template lang="pug">
   .p-index
     section-home-main(
+      @action="onMainAction"
       class="p-index__main"
     )
 
     section-home-showcase(
+      ref="showcase"
       class="p-index__showcase"
     )
 
@@ -56,6 +58,52 @@ export default {
 
   head: {
     title: "Prose – All of your workplace communication lives here"
+  },
+
+  methods: {
+    // --> HELPERS <--
+
+    /**
+     * Scrolls to target
+     * @public
+     * @param  {object} ref
+     * @return {undefined}
+     */
+    scrollToTarget(ref) {
+      // Acquire header height
+      const _headerElement = document.querySelector(".js-page-header");
+
+      // Compute vertical offset
+      const _verticalOffset =
+        -1 * (_headerElement ? _headerElement.offsetHeight : 0);
+
+      // Compute target vertical position
+      const _verticalPosition =
+        ref.$el.getBoundingClientRect().top +
+        window.pageYOffset +
+        _verticalOffset;
+
+      // Scroll to vertical position
+      window.scrollTo({ top: _verticalPosition, behavior: "smooth" });
+    },
+
+    // --> EVENT LISTENERS <--
+
+    /**
+     * Triggers when main action is clicked
+     * @public
+     * @param  {string} type
+     * @return {undefined}
+     */
+    onMainAction(type) {
+      switch (type) {
+        case "next": {
+          this.scrollToTarget(this.$refs.showcase);
+
+          break;
+        }
+      }
+    }
   }
 };
 </script>

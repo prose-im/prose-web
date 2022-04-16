@@ -58,8 +58,8 @@
             span.c-section-home-main__bubble
 
       .c-section-home-main__actions
-        //- TODO: scroll down to next section when clicking
         base-button(
+          @click="onNextClick"
           right-icon="arrow-down"
           tint="light"
           size="huge"
@@ -108,6 +108,19 @@ export default {
         }
       ]
     };
+  },
+
+  methods: {
+    // --> EVENT LISTENERS <--
+
+    /**
+     * Triggers when next button is clicked
+     * @public
+     * @return {undefined}
+     */
+    onNextClick() {
+      this.$emit("action", "next");
+    }
   }
 };
 </script>

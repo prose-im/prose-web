@@ -18,7 +18,7 @@
       }
     ]`
   )
-    .c-page-header__sticky
+    .c-page-header__sticky.js-page-header
       page-wrapper
         .c-page-header__inner
           .c-page-header__left
