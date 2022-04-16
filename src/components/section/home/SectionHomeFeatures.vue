@@ -15,6 +15,7 @@
         level="small"
         align="center"
         class="c-section-home-features__title"
+        stroke
       )
         | Every little thing, that makes your
 

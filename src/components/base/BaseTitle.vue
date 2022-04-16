@@ -16,7 +16,10 @@ h1(
     "c-base-title--" + tint,
     "c-base-title--" + align,
     "u-title",
-    "u-" + weight
+    "u-" + weight,
+    {
+      "c-base-title--stroke": stroke
+    }
   ]`
 )
   slot
@@ -65,6 +68,11 @@ export default {
       validator(x) {
         return ["left", "center", "right"].includes(x);
       }
+    },
+
+    stroke: {
+      type: Boolean,
+      default: false
     }
   }
 };
@@ -120,6 +128,14 @@ $c: ".c-base-title";
 
   &--right {
     text-align: right;
+  }
+
+  // --> BOOLEANS <--
+
+  &--stroke {
+    paint-order: stroke;
+
+    @include text-stroke(1.5px rgba($color-background-secondary, 0.7));
   }
 }
 </style>

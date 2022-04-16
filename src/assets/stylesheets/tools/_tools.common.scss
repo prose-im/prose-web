@@ -17,3 +17,8 @@
     -moz-osx-font-smoothing: auto;
   }
 }
+
+@mixin text-stroke($rules) {
+  -webkit-text-stroke: $rules;
+  text-stroke: $rules;
+}
