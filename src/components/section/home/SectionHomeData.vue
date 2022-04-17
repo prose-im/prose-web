@@ -53,16 +53,19 @@
         .c-section-home-data__illustration
           .c-section-home-data__illustration-orbit
             .c-section-home-data__illustration-satellites
-              base-raster(
+              div(
                 v-for="satellite in illustrationSatellites"
                 :key="'satellite_' + satellite.name"
-                :name="satellite.name"
-                :scale="satellite.scale"
                 :class=`[
                   "c-section-home-data__illustration-satellite",
                   "c-section-home-data__illustration-satellite--" + satellite.name
                 ]`
               )
+                base-raster(
+                  :name="satellite.name"
+                  :scale="satellite.scale"
+                  class="c-section-home-data__illustration-satellite-raster"
+                )
 
             .c-section-home-data__illustration-center
               base-raster(
@@ -131,6 +134,7 @@ $c: ".c-section-home-data";
 // VARIABLE
 $center-size: 160px;
 $orbit-size: 380px;
+$satellite-shade-offset: 32px;
 
 .c-section-home-data {
   padding-top: 75px;
@@ -164,6 +168,28 @@ $orbit-size: 380px;
     #{$c}__illustration-satellites {
       #{$c}__illustration-satellite {
         position: absolute;
+
+        &::before {
+          content: "";
+
+          background-image: radial-gradient(
+            circle at 50% 50%,
+            $color-white 0%,
+            rgba($color-white, 0.5) 50%
+          );
+
+          position: absolute;
+          top: (-1 * $satellite-shade-offset);
+          bottom: (-1 * $satellite-shade-offset);
+          left: (-1 * $satellite-shade-offset);
+          right: (-1 * $satellite-shade-offset);
+          z-index: 0;
+        }
+
+        #{$c}__illustration-satellite-raster {
+          position: relative;
+          z-index: 1;
+        }
 
         &--magnifier {
           left: 3%;
