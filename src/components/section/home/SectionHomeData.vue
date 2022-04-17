@@ -143,11 +143,10 @@ $orbit-size: 380px;
     position: relative;
 
     #{$c}__illustration-center {
-      // TODO: color from variable
       background-image: linear-gradient(
         180deg,
-        #6edbff 0%,
-        rgba(#6edbff, 0) 100%
+        $color-base-blue-light 0%,
+        rgba($color-base-blue-light, 0) 100%
       );
 
       width: $center-size;
@@ -207,8 +206,7 @@ $orbit-size: 380px;
       right: 0;
 
       #{$c}__illustration-label {
-        // TODO: color from variable
-        background-color: #176988;
+        background-color: darken($color-base-blue-light, 45%);
         font-size: 12.5px;
         color: $color-white;
         letter-spacing: -0.1px;
