@@ -42,6 +42,7 @@
         )
           base-button(
             right-icon="arrow-right"
+            size="large"
             class="c-section-home-data__action-button"
           )
             | Read how Prose secures your Data

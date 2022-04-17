@@ -106,7 +106,7 @@ $illustration-margin-side: 90px;
   }
 
   #{$c}__actions {
-    margin-top: 40px;
+    margin-top: 42px;
   }
 
   #{$c}__illustration {

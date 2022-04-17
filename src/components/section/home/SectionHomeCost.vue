@@ -40,6 +40,7 @@
         )
           base-button(
             right-icon="arrow-right"
+            size="large"
             class="c-section-home-cost__action-button"
           )
             | Read our docs on how to setup a Server
