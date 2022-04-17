@@ -252,6 +252,7 @@ $menu-dropdown-offset-left: 60px;
   }
 
   #{$c}__left {
+    display: flex;
     flex: 1;
   }
 
