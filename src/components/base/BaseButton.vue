@@ -17,6 +17,7 @@ div(
     "c-base-button--" + tint,
     {
       "c-base-button--darker": darker,
+      "c-base-button--reverse": reverse,
       ["c-base-button--" + rightIcon]: rightIcon
     }
   ]`
@@ -77,6 +78,11 @@ export default {
     },
 
     darker: {
+      type: Boolean,
+      default: false
+    },
+
+    reverse: {
       type: Boolean,
       default: false
     },
@@ -304,6 +310,49 @@ $size-huge-padding-sides: 38px;
         #{$c}__inner {
           background-color: lighten($color-button-dark-darker, 2%);
           box-shadow: 0 1px 1px 0 rgba($color-button-dark-darker, 0.3);
+        }
+      }
+    }
+  }
+
+  &--reverse {
+    &#{$c}--dark {
+      #{$c}__inner {
+        background-color: $color-button-dark-reverse;
+        border: 1.5px solid $color-base-blue-dark;
+
+        #{$c}__label {
+          color: $color-base-blue-dark;
+        }
+
+        #{$c}__icon {
+          fill: $color-base-blue-dark;
+        }
+      }
+    }
+
+    &#{$c}--light {
+      #{$c}__inner {
+        background-color: $color-button-light-reverse;
+
+        #{$c}__label {
+          color: $color-white;
+        }
+
+        #{$c}__icon {
+          fill: $color-white;
+        }
+      }
+
+      &:hover {
+        #{$c}__inner {
+          background-color: rgba($color-black, 0.14);
+        }
+      }
+
+      &:active {
+        #{$c}__inner {
+          background-color: rgba($color-black, 0.15);
         }
       }
     }
