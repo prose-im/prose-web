@@ -93,13 +93,13 @@ $c: ".c-base-navigator";
   #{$c}__item {
     &:hover {
       #{$c}__button {
-        background-color: rgba($color-white, 0.075);
+        background-color: rgba($color-white, 0.07);
       }
     }
 
     &:active {
       #{$c}__button {
-        background-color: rgba($color-white, 0.1);
+        background-color: rgba($color-white, 0.09);
       }
     }
 
