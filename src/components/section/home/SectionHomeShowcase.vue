@@ -38,6 +38,14 @@
 
         | happens.
 
+      .c-section-home-showcase__navigator-wrap
+        base-navigator(
+          @toggle="onToggleNavigator"
+          :items="navigatorItems"
+          :active="activeView"
+          class="c-section-home-showcase__navigator"
+        )
+
     .c-section-home-showcase__background
       span.c-section-home-showcase__separator
       span.c-section-home-showcase__color
@@ -50,8 +58,71 @@
      ********************************************************************** -->
 
 <script>
+// PROJECT: IMAGES
+import ImageNavigatorIconMessaging from "~/assets/images/components/section/home/SectionHomeShowcase/navigator-icon-messaging.svg?raw";
+import ImageNavigatorIconCalls from "~/assets/images/components/section/home/SectionHomeShowcase/navigator-icon-calls.svg?raw";
+import ImageNavigatorIconFiles from "~/assets/images/components/section/home/SectionHomeShowcase/navigator-icon-files.svg?raw";
+import ImageNavigatorIconEncryption from "~/assets/images/components/section/home/SectionHomeShowcase/navigator-icon-encryption.svg?raw";
+import ImageNavigatorIconPods from "~/assets/images/components/section/home/SectionHomeShowcase/navigator-icon-pods.svg?raw";
+
 export default {
-  name: "SectionHomeShowcase"
+  name: "SectionHomeShowcase",
+
+  data() {
+    return {
+      // --> STATE <--
+
+      activeView: "messaging",
+
+      // --> DATA <--
+
+      navigatorItems: [
+        {
+          id: "messaging",
+          label: "Messaging",
+          iconHtml: ImageNavigatorIconMessaging
+        },
+
+        {
+          id: "calls",
+          label: "Calls",
+          iconHtml: ImageNavigatorIconCalls
+        },
+
+        {
+          id: "files",
+          label: "Files",
+          iconHtml: ImageNavigatorIconFiles
+        },
+
+        {
+          id: "encryption",
+          label: "Encryption",
+          iconHtml: ImageNavigatorIconEncryption
+        },
+
+        {
+          id: "pods",
+          label: "Prose Pods",
+          iconHtml: ImageNavigatorIconPods
+        }
+      ]
+    };
+  },
+
+  methods: {
+    // --> EVENT LISTENERS <--
+
+    /**
+     * Triggers when navigator is toggled
+     * @public
+     * @param  {string} itemId
+     * @return {undefined}
+     */
+    onToggleNavigator(itemId) {
+      this.activeView = itemId;
+    }
+  }
 };
 </script>
 
@@ -70,6 +141,12 @@ $c: ".c-section-home-showcase";
   #{$c}__inner {
     position: relative;
     z-index: 3;
+  }
+
+  #{$c}__navigator-wrap {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
   }
 
   #{$c}__background {

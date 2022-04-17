@@ -268,6 +268,7 @@ $menu-dropdown-offset-left: 60px;
 
   #{$c}__menu {
     font-size: 13.5px;
+    user-select: none;
     display: flex;
 
     &,
