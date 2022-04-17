@@ -46,6 +46,45 @@
           class="c-section-home-showcase__navigator"
         )
 
+      .c-section-home-showcase__direction-wrap
+        .c-section-home-showcase__direction
+          .c-section-home-showcase__direction-text
+            //- TODO: from computed prop
+            p.c-section-home-showcase__direction-line.u-medium
+              | Message other team members in private conversations, or groups.
+
+            p.c-section-home-showcase__direction-line
+              | Powered by the
+
+              base-space
+
+              image-direction-logo-xmpp(
+                class="c-section-home-showcase__direction-logo"
+              )
+
+              base-space
+
+              a.c-section-home-showcase__direction-link.u-medium(
+                :href="directionLinkTarget"
+                target="_blank"
+              )
+                | XMPP protocol
+
+              base-space
+
+              | standard.
+
+          .c-section-home-showcase__direction-action
+            //- TODO: button action
+            base-button(
+              right-icon="arrow-right"
+              tint="light"
+              class="c-section-home-showcase__direction-button"
+              reverse
+            )
+              //- TODO: from computed prop
+              | Read more on Messaging
+
     .c-section-home-showcase__background
       span.c-section-home-showcase__separator
       span.c-section-home-showcase__color
@@ -65,8 +104,12 @@ import ImageNavigatorIconFiles from "~/assets/images/components/section/home/Sec
 import ImageNavigatorIconEncryption from "~/assets/images/components/section/home/SectionHomeShowcase/navigator-icon-encryption.svg?raw";
 import ImageNavigatorIconPods from "~/assets/images/components/section/home/SectionHomeShowcase/navigator-icon-pods.svg?raw";
 
+import ImageDirectionLogoXmpp from "~/assets/images/components/section/home/SectionHomeShowcase/direction-logo-xmpp.svg?inline";
+
 export default {
   name: "SectionHomeShowcase",
+
+  components: { ImageDirectionLogoXmpp },
 
   data() {
     return {
@@ -106,7 +149,9 @@ export default {
           label: "Prose Pods",
           iconHtml: ImageNavigatorIconPods
         }
-      ]
+      ],
+
+      directionLinkTarget: `${this.$config.url.xmpp_web}/`
     };
   },
 
@@ -143,10 +188,57 @@ $c: ".c-section-home-showcase";
     z-index: 3;
   }
 
-  #{$c}__navigator-wrap {
+  #{$c}__navigator-wrap,
+  #{$c}__direction-wrap {
     margin-top: 60px;
     display: flex;
     justify-content: center;
+  }
+
+  #{$c}__direction {
+    align-items: center;
+    display: flex;
+
+    #{$c}__direction-text {
+      color: $color-white;
+      text-align: right;
+      font-size: 14px;
+      line-height: 18px;
+      letter-spacing: -0.11px;
+    }
+
+    #{$c}__direction-action {
+      margin-left: 46px;
+    }
+
+    #{$c}__direction-line {
+      margin-bottom: 5px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    #{$c}__direction-link {
+      color: $color-white;
+      text-decoration: underline;
+      text-decoration-color: rgba($color-white, 0.15);
+      text-decoration-thickness: 1.5px;
+      transition: text-decoration 100ms linear;
+
+      &:hover {
+        text-decoration-color: rgba($color-white, 0.4);
+      }
+    }
+
+    #{$c}__direction-logo {
+      fill: rgba($color-white, 0.5);
+      vertical-align: middle;
+      width: auto;
+      height: 13px;
+      margin-top: -2px;
+      margin-right: -1px;
+    }
   }
 
   #{$c}__background {
