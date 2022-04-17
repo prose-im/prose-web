@@ -109,6 +109,10 @@ $illustration-margin-side: 90px;
     margin-top: 40px;
   }
 
+  #{$c}__illustration {
+    text-align: center;
+  }
+
   // --> ALIGNS <--
 
   &--left {
