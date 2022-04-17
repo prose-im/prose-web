@@ -16,7 +16,7 @@
       .c-section-home-main__aside
         .c-section-home-main__app
           base-app-icon(
-            :background-blend="0.4"
+            :background-blend="0.35"
             size="130px"
             radius="26px"
             class="c-section-home-main__app-icon"
