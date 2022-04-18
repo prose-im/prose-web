@@ -100,8 +100,6 @@
                 )
                   | Valerian Saliou
 
-                | .
-
               span.c-page-footer__author(
                 slot="default"
               )
