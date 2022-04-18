@@ -83,7 +83,23 @@
 
         .c-page-footer__middle
           .c-page-footer__ownership
-            span.c-page-footer__author
+            span.c-page-footer__author.u-has-tooltip
+              base-tooltip(
+                align="left"
+                direction="top"
+              )
+                | Prose is a non-profit funded by
+
+                base-space
+
+                a.u-medium(
+                  :href="ownershipFunderUrl"
+                  target="_blank"
+                )
+                  | Valerian Saliou
+
+                | .
+
               | {{ $config.author.name }} © {{ currentYear }}
 
             span.c-page-footer__separator
@@ -248,7 +264,9 @@ export default {
             }
           ]
         }
-      ]
+      ],
+
+      ownershipFunderUrl: `${this.$config.url.valeriansaliou_web}/`
     };
   }
 };
@@ -268,6 +286,7 @@ $alignments-margin-sides: 12px;
   background-color: $color-background-secondary;
   border-top: 1px solid $color-border-secondary;
   padding: 40px 0 24px;
+  overflow: hidden;
   position: relative;
 
   #{$c}__main,
