@@ -158,7 +158,6 @@ $app-screenshot-appear-before-duration: 150ms;
     }
 
     #{$c}__app {
-      // TODO: fix blend mode which is too strong (should be bg white alpha=50%)
       mix-blend-mode: multiply;
 
       &,
