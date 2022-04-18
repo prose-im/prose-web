@@ -109,7 +109,6 @@
 <script>
 // PROJECT: IMAGES
 import ImageSocialIconTwitter from "~/assets/images/components/page/PageFooter/social-icon-twitter.svg?raw";
-import ImageSocialIconYouTube from "~/assets/images/components/page/PageFooter/social-icon-youtube.svg?raw";
 import ImageSocialIconGithub from "~/assets/images/components/page/PageFooter/social-icon-github.svg?raw";
 
 import ImageCopyrightBadgesOpenSource from "~/assets/images/components/page/PageFooter/copyright-badges-open_source.svg?raw";
@@ -144,13 +143,6 @@ export default {
           label: "Twitter",
           icon: ImageSocialIconTwitter,
           target: this.$config.url.twitter_prose
-        },
-
-        {
-          platform: "youtube",
-          label: "YouTube",
-          icon: ImageSocialIconYouTube,
-          target: this.$config.url.youtube_prose
         },
 
         {
