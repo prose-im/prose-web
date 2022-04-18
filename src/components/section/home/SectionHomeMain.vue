@@ -134,6 +134,9 @@ $c: ".c-section-home-main";
 
 // VARIABLES
 $app-alerts-size: 54px;
+$app-icon-bounce-duration: 750ms;
+$app-icon-bounce-iterations: 1;
+$app-screenshot-appear-before-duration: 150ms;
 
 .c-section-home-main {
   position: relative;
@@ -171,6 +174,11 @@ $app-alerts-size: 54px;
         z-index: 1;
         box-shadow: 0 2px 6px 0 rgba($color-black, 0.04),
           0 4px 9px 0 rgba($color-black, 0.12);
+        animation-name: bounce;
+        animation-duration: $app-icon-bounce-duration;
+        animation-iteration-count: $app-icon-bounce-iterations;
+        animation-timing-function: ease;
+        animation-fill-mode: forwards;
 
         #{$c}__app-alerts {
           background-color: rgba(#e12424, 0.9);
@@ -187,6 +195,14 @@ $app-alerts-size: 54px;
           right: -8px;
           border-radius: 100%;
           box-shadow: 0 0 4px 0 rgba($color-black, 0.6);
+          animation-name: fadeIn;
+          animation-duration: 50ms;
+          animation-fill-mode: both;
+
+          animation-delay: (
+            ($app-icon-bounce-iterations * $app-icon-bounce-duration) -
+              $app-screenshot-appear-before-duration
+          );
         }
       }
 
@@ -205,6 +221,14 @@ $app-alerts-size: 54px;
         border-radius: 8px;
         box-shadow: 0 16px 80px 0 rgba($color-black, 0.12),
           0 0 3px 0 rgba($color-black, 0.36);
+        animation-name: zoomIn;
+        animation-duration: 400ms;
+        animation-fill-mode: both;
+
+        animation-delay: (
+          ($app-icon-bounce-iterations * $app-icon-bounce-duration) -
+            $app-screenshot-appear-before-duration
+        );
       }
     }
 
@@ -332,4 +356,42 @@ $app-alerts-size: 54px;
     backdrop-filter: blur(2em);
   }
 } */
+
+// --> KEYFRAMES <--
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+
+  65% {
+    transform: translateY(-15%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale3d(0.8, 0.8, 0.8);
+  }
+
+  50%,
+  100% {
+    opacity: 1;
+  }
+}
 </style>
