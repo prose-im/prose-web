@@ -85,6 +85,19 @@
               //- TODO: from computed prop
               | Read more on Messaging
 
+      .c-section-home-showcase__application
+        .c-section-home-showcase__application-window
+          .c-section-home-showcase__application-window-contents
+
+          image-application-window(
+            class="c-section-home-showcase__application-window-structure"
+          )
+
+        .c-section-home-showcase__application-focus-label-wrap
+          .c-section-home-showcase__application-focus-label.u-bold
+            //- TODO: based on what is currently focused
+            | Typing indicator
+
     .c-section-home-showcase__background
       span.c-section-home-showcase__separator
       span.c-section-home-showcase__color
@@ -105,11 +118,12 @@ import ImageNavigatorIconEncryption from "~/assets/images/components/section/hom
 import ImageNavigatorIconPods from "~/assets/images/components/section/home/SectionHomeShowcase/navigator-icon-pods.svg?raw";
 
 import ImageDirectionLogoXmpp from "~/assets/images/components/section/home/SectionHomeShowcase/direction-logo-xmpp.svg?inline";
+import ImageApplicationWindow from "~/assets/images/components/section/home/SectionHomeShowcase/application-window.svg?inline";
 
 export default {
   name: "SectionHomeShowcase",
 
-  components: { ImageDirectionLogoXmpp },
+  components: { ImageDirectionLogoXmpp, ImageApplicationWindow },
 
   data() {
     return {
@@ -202,7 +216,7 @@ $c: ".c-section-home-showcase";
     #{$c}__direction-text {
       color: $color-white;
       text-align: right;
-      font-size: 14px;
+      font-size: 14.5px;
       line-height: 18px;
       letter-spacing: -0.11px;
     }
@@ -238,6 +252,59 @@ $c: ".c-section-home-showcase";
       height: 13px;
       margin-top: -2px;
       margin-right: -1px;
+    }
+  }
+
+  #{$c}__application {
+    margin-top: 54px;
+    padding-bottom: 18px;
+
+    #{$c}__application-window {
+      line-height: 0;
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+      border-radius: 10px;
+      box-shadow: 0 36px 100px 0 rgba($color-black, 0.4),
+        0 0 3px 0 rgba($color-black, 0.55);
+
+      #{$c}__application-window-contents {
+        background-image: url("~/assets/images/components/section/home/SectionHomeShowcase/application-contents.webp");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: absolute;
+        top: 1.9%;
+        bottom: 1.15%;
+        left: 0.85%;
+        right: 0;
+      }
+
+      #{$c}__application-window-structure {
+        width: 100%;
+        height: auto;
+        margin: -1px 0;
+      }
+    }
+
+    #{$c}__application-focus-label-wrap {
+      padding-top: 22px;
+      display: flex;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+
+      #{$c}__application-focus-label {
+        background-color: $color-white;
+        color: $color-base-blue-dark;
+        font-size: 13.5px;
+        letter-spacing: -0.1px;
+        line-height: 25px;
+        text-align: center;
+        user-select: none;
+        padding: 2px 16px 4px;
+        border-radius: 32px;
+      }
     }
   }
 
