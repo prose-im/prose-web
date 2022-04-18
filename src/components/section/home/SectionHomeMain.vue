@@ -311,7 +311,7 @@ $app-screenshot-appear-before-duration: 150ms;
 
     &::before {
       content: "";
-      background: rgba($color-white, 0.55);
+      background: rgba($color-white, 0.6);
       backdrop-filter: blur(50px);
       z-index: 1;
     }
