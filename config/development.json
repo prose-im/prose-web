@@ -3,5 +3,7 @@
     "prose_web": "http://prose.org.local"
   },
 
-  "tokens": {}
+  "features": {
+    "chatbox": false
+  }
 }

@@ -165,10 +165,10 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ["assets/stylesheets/generic/all"],
+  css: ["assets/stylesheets/all"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [{ src: "plugins/crisp.js", mode: "client" }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: [{ path: "components", pathPrefix: false }],
@@ -176,8 +176,9 @@ export default {
   // Modules for dev and build (recommended): \
   //   https://go.nuxtjs.dev/config-modules
   buildModules: [
-    // https://go.nuxtjs.dev/eslint
-    "@nuxtjs/eslint-module"
+    "@nuxtjs/eslint-module",
+    "@nuxtjs/style-resources",
+    "@nuxtjs/svg"
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -214,6 +215,20 @@ export default {
     }
   },
 
+  // Public runtime configuration: \
+  //   https://nuxtjs.org/docs/configuration-glossary/\
+  //     configuration-runtime-config
+  publicRuntimeConfig: {
+    // Important: remap config as to strip any private token from there, as \
+    //   eg. in the future there might be some private built-time token shared \
+    //   in this configuration file, which we DO NOT want to leak on the Web.
+    url: CONFIG.url,
+    email: CONFIG.email,
+    features: CONFIG.features,
+    tokens: CONFIG.tokens.public,
+    author: projectPackage.author
+  },
+
   // Generate options: \
   //   https://nuxtjs.org/docs/configuration-glossary/configuration-generate
   generate: {
@@ -241,5 +256,11 @@ export default {
   // (Module) Sitemap: https://sitemap.nuxtjs.org/usage/sitemap
   sitemap: {
     hostname: CONFIG.url.prose_web
+  },
+
+  // (Module) Style Resources: \
+  //   https://github.com/nuxt-community/style-resources-module
+  styleResources: {
+    scss: ["assets/stylesheets/variables/*", "assets/stylesheets/tools/*"]
   }
 };

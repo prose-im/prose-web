@@ -1,1 +1,27 @@
-{}
+{
+  "url": {
+    "prose_files": "https://files.prose.org",
+    "prose_docs": "https://docs.prose.org",
+    "prose_help": "https://help.prose.org",
+    "prose_status": "https://status.prose.org",
+    "twitter_prose": "https://twitter.com/prose_im",
+    "github_prose": "https://github.com/prose-im",
+    "youtube_prose": "https://www.youtube.com/channel/UCADWeuQGLnrY2L-wflqrevQ",
+    "climateneutral_web": "https://www.climateneutral.org",
+    "xmpp_web": "https://xmpp.org",
+    "crisp_client": "https://client.crisp.chat",
+    "crisp_plugins": "https://plugins.crisp.chat"
+  },
+
+  "email": {
+    "prose_careers": "careers@prose.org"
+  },
+
+  "tokens": {
+    "public": {
+      "crisp_website_id": "84a1e461-9755-47fb-bdc9-bf368a5d79db"
+    },
+
+    "private": {}
+  }
+}

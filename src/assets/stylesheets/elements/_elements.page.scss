@@ -1,0 +1,21 @@
+/*
+ * This file is part of prose-web
+ *
+ * Copyright 2022, Prose Foundation
+ */
+
+/* *************************************************************************
+ * ELEMENTS > PAGE
+ * **************************************************************************/
+
+html {
+  background: $color-background-secondary;
+  color: $color-black;
+
+  font-size: 13.5px;
+  font-family: $font-family-default, "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+  line-height: 16px;
+
+  @include font-smoothing(antialiased);
+}

@@ -9,14 +9,54 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  page-wrapper
-    page-header
+  //- Notice: as the 'error' layout behaves as a page as per Nuxt rules, we \
+  //-   therefore treat it as a page here (inheriting the 'default' layout).
+  .p-error
+    page-main-title
+      template(
+        slot="title"
+      )
+        template(
+          v-if="error.statusCode === 404"
+        )
+          | Page Not Found
 
-    page-error(
-      :error="error"
-    )
+        template(
+          v-else
+        )
+          | An Error Occurred
 
-    page-footer
+      template(
+        slot="description"
+      )
+        template(
+          v-if="error.statusCode === 404"
+        )
+          p.u-medium
+            | This page could not be found.
+
+          p
+            | Please go back to the homepage and start from there.
+
+        template(
+          v-else
+        )
+          p
+            | An unexpected error occurred. Can you try again?
+
+          p.u-medium
+            | Error code: {{ error.statusCode }}
+
+      nuxt-link(
+        to="/"
+        slot="action"
+      )
+        base-button(
+          right-icon="arrow-right"
+          size="large"
+          bolder
+        )
+          | Go to the home page
 </template>
 
 <!-- **********************************************************************
@@ -26,6 +66,8 @@
 <script>
 export default {
   name: "ErrorLayout",
+
+  layout: "simple",
 
   props: {
     error: {
@@ -41,3 +83,11 @@ export default {
   }
 };
 </script>
+
+<!-- **********************************************************************
+     STYLE
+     ********************************************************************** -->
+
+<style lang="scss">
+$c: ".p-error";
+</style>

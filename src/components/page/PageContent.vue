@@ -9,7 +9,14 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  .c-page-content
+  div(
+    :class=`[
+      "c-page-content",
+      {
+        "c-page-content--showcase": showcase
+      }
+    ]`
+  )
     slot
 </template>
 
@@ -19,7 +26,14 @@
 
 <script>
 export default {
-  name: "PageContent"
+  name: "PageContent",
+
+  props: {
+    showcase: {
+      type: Boolean,
+      default: false
+    }
+  }
 };
 </script>
 
@@ -29,4 +43,16 @@ export default {
 
 <style lang="scss">
 $c: ".c-page-content";
+
+.c-page-content {
+  background-color: $color-background-primary;
+  padding-top: 62px;
+  padding-bottom: 120px;
+
+  // --> BOOLEANS <--
+
+  &--showcase {
+    padding-top: 0;
+  }
+}
 </style>
