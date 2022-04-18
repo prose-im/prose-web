@@ -42,50 +42,88 @@
         base-navigator(
           @toggle="onToggleNavigator"
           :items="navigatorItems"
-          :active="activeView"
+          :active="activeView.id"
           class="c-section-home-showcase__navigator"
         )
 
       .c-section-home-showcase__direction-wrap
         .c-section-home-showcase__direction
           .c-section-home-showcase__direction-text
-            //- TODO: from computed prop
-            p.c-section-home-showcase__direction-line.u-medium
-              | Message other team members in private conversations, or groups.
+            template(
+              v-if="activeView.id === 'messaging'"
+            )
+              p.c-section-home-showcase__direction-line.u-medium
+                | Message other team members in private conversations, or groups.
 
-            p.c-section-home-showcase__direction-line
-              | Powered by the
+              p.c-section-home-showcase__direction-line
+                | Powered by the
 
-              base-space
+                base-space
 
-              image-direction-logo-xmpp(
-                class="c-section-home-showcase__direction-logo"
-              )
+                image-direction-logo-xmpp(
+                  class="c-section-home-showcase__direction-logo"
+                )
 
-              base-space
+                base-space
 
-              a.c-section-home-showcase__direction-link.u-medium(
-                :href="directionLinkTarget"
-                target="_blank"
-              )
-                | XMPP protocol
+                a.c-section-home-showcase__direction-link.u-medium(
+                  :href="directionLinkTarget"
+                  target="_blank"
+                )
+                  | XMPP protocol
 
-              base-space
+                base-space
 
-              | standard.
+                | standard.
+
+            template(
+              v-else-if="activeView.id === 'calls'"
+            )
+              p.c-section-home-showcase__direction-line.u-medium
+                | Call your team members, one-to-one or large groups.
+
+              p.c-section-home-showcase__direction-line
+                | Audio, video and screen sharing. All encrypted.
+
+            template(
+              v-else-if="activeView.id === 'files'"
+            )
+              p.c-section-home-showcase__direction-line.u-medium
+                | Share images and large files in private conversations and groups.
+
+              p.c-section-home-showcase__direction-line
+                | Files are stored on your Prose server, and stored securely in your history.
+
+            template(
+              v-else-if="activeView.id === 'encryption'"
+            )
+              p.c-section-home-showcase__direction-line.u-medium
+                | Everything is encrypted. Unbreakable end-to-end encryption between your team members.
+
+              p.c-section-home-showcase__direction-line
+                | End-to-end encryption means that even the server administrator cannot read messages.
+
+            template(
+              v-else-if="activeView.id === 'pods'"
+            )
+              p.c-section-home-showcase__direction-line.u-medium
+                | Host a Prose server anywhere. Invite an unlimited number of team members.
+
+              p.c-section-home-showcase__direction-line
+                | You run the server and you own the data. We make it painless for you.
 
           .c-section-home-showcase__direction-action
-            //- TODO: button action
+            //- TODO: click event to start animation
             base-button(
               right-icon="arrow-right"
               tint="light"
               class="c-section-home-showcase__direction-button"
               reverse
             )
-              //- TODO: from computed prop
-              | Read more on Messaging
+              | {{ directionActionLabel }}
 
       .c-section-home-showcase__application
+        //- TODO: screenshot based on active section
         .c-section-home-showcase__application-window
           .c-section-home-showcase__application-window-contents
 
@@ -94,9 +132,10 @@
           )
 
         .c-section-home-showcase__application-focus-label-wrap
-          .c-section-home-showcase__application-focus-label.u-bold
-            //- TODO: from computed prop
-            | Message your team with Prose
+          .c-section-home-showcase__application-focus-label.u-bold(
+            v-if="applicationFocusLabel"
+          )
+            | {{ applicationFocusLabel }}
 
     .c-section-home-showcase__background
       span.c-section-home-showcase__separator
@@ -129,7 +168,10 @@ export default {
     return {
       // --> STATE <--
 
-      activeView: "messaging",
+      activeView: {
+        id: "messaging",
+        index: 0
+      },
 
       // --> DATA <--
 
@@ -169,6 +211,43 @@ export default {
     };
   },
 
+  computed: {
+    directionActionLabel() {
+      const _label =
+        (this.navigatorItems[this.activeView.index] || {}).label || "(?)";
+
+      return `See more on ${_label}`;
+    },
+
+    applicationFocusLabel() {
+      switch (this.activeView.id) {
+        case "messaging": {
+          return "Message your team with Prose";
+        }
+
+        case "calls": {
+          return "Call anyone in your team";
+        }
+
+        case "files": {
+          return "Share large files with your team";
+        }
+
+        case "encryption": {
+          return "End-to-end encrypted by default";
+        }
+
+        case "pods": {
+          return "Setup your Prose Pod server in minutes";
+        }
+
+        default: {
+          return null;
+        }
+      }
+    }
+  },
+
   methods: {
     // --> EVENT LISTENERS <--
 
@@ -176,10 +255,12 @@ export default {
      * Triggers when navigator is toggled
      * @public
      * @param  {string} itemId
+     * @param  {number} index
      * @return {undefined}
      */
-    onToggleNavigator(itemId) {
-      this.activeView = itemId;
+    onToggleNavigator(itemId, index) {
+      this.activeView.id = itemId;
+      this.activeView.index = index;
     }
   }
 };
@@ -218,7 +299,6 @@ $c: ".c-section-home-showcase";
       text-align: right;
       font-size: 14.5px;
       line-height: 18px;
-      letter-spacing: -0.11px;
     }
 
     #{$c}__direction-action {

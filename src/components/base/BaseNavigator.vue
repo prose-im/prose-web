@@ -21,7 +21,7 @@ ul.c-base-navigator
     ]`
   )
     a.c-base-navigator__button(
-      @click="onItemClick(item)"
+      @click="onItemClick(item, index)"
     )
       span.c-base-navigator__button-icon(
         v-if="item.iconHtml"
@@ -59,10 +59,11 @@ export default {
      * Triggers when item is clicked
      * @public
      * @param  {object} item
+     * @param  {number} index
      * @return {undefined}
      */
-    onItemClick(item) {
-      this.$emit("toggle", item.id);
+    onItemClick(item, index) {
+      this.$emit("toggle", item.id, index);
     }
   }
 };
