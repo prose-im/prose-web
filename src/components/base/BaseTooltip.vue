@@ -137,13 +137,14 @@ $tooltip-translate-offset-vertical: 2px;
 
 .c-base-tooltip {
   display: inline-block;
-  cursor: default;
+  cursor: context-menu;
   position: relative;
 
   #{$c}__overlay {
     font-weight: initial;
     line-height: 19px;
     user-select: none;
+    cursor: default;
     width: $tooltip-area-width;
     opacity: 0;
     display: block;
