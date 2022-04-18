@@ -223,8 +223,7 @@ $c: ".c-section-home-bulletpoints";
         position: absolute;
         top: -34px;
         left: 0;
-        // TODO: clip the shadow to a mask image
-        box-shadow: 0 34px 56px 0 rgba(#1a92ba, 0.68);
+        filter: drop-shadow(0 34px 30px rgba(#1a92ba, 0.6));
       }
 
       #{$c}__box-illustration {
@@ -258,8 +257,7 @@ $c: ".c-section-home-bulletpoints";
         position: absolute;
         top: -14px;
         right: 0;
-        // TODO: clip the shadow to a mask image
-        box-shadow: 0 34px 56px 0 rgba(#9d4256, 0.2);
+        filter: drop-shadow(0 34px 40px rgba(#9d4256, 0.4));
       }
 
       #{$c}__box-illustration {

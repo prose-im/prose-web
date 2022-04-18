@@ -33,9 +33,15 @@
 
           .c-page-header__right
             ul.c-page-header__menu
-              li.c-page-header__menu-item(
+              li(
                 v-for="item in menuItems"
                 :key="item.id"
+                :class=`[
+                  "c-page-header__menu-item",
+                  {
+                    "c-page-header__menu-item--active": (currentPageName === item.id)
+                  }
+                ]`
               )
                 nuxt-link(
                   v-if="item.target"
@@ -89,6 +95,7 @@
 <script>
 // PROJECT: IMAGES
 import ImageMenuItemDownload from "~/assets/images/components/page/PageHeader/menu-item-download.svg?raw";
+import ImageMenuItemChangelog from "~/assets/images/components/page/PageHeader/menu-item-changelog.svg?raw";
 import ImageMenuItemHelp from "~/assets/images/components/page/PageHeader/menu-item-help.svg?raw";
 
 import ImageMenuDropdownLinkArrow from "~/assets/images/components/page/PageHeader/menu-dropdown-link-arrow.svg?inline";
@@ -126,6 +133,13 @@ export default {
           icon: ImageMenuItemDownload,
           label: "Downloads",
           target: "/downloads/"
+        },
+
+        {
+          id: "changelog",
+          icon: ImageMenuItemChangelog,
+          label: "Changes",
+          target: "/changelog/"
         },
 
         {
@@ -168,6 +182,11 @@ export default {
   computed: {
     floating() {
       return !this.embedded;
+    },
+
+    currentPageName() {
+      // Pick up the parent-most page (segments are separated w/ '-')
+      return (this.$route.name || "").split("-")[0] || null;
     }
   },
 
@@ -279,7 +298,7 @@ $menu-dropdown-offset-left: 60px;
     }
 
     #{$c}__menu-item {
-      margin-right: 24px;
+      margin-right: 25px;
 
       &:last-child {
         margin-right: 0;
@@ -350,6 +369,14 @@ $menu-dropdown-offset-left: 60px;
           #{$c}__menu-dropdown-arrow {
             left: ($menu-dropdown-offset-left + calc($menu-icon-size / 2));
           }
+        }
+      }
+
+      &--active {
+        #{$c}__menu-link {
+          text-decoration: underline;
+          text-decoration-color: rgba($color-base-blue-dark, 0.2);
+          text-decoration-thickness: 2px;
         }
       }
     }

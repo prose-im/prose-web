@@ -85,6 +85,10 @@ export default {
 <style lang="scss">
 $c: ".c-base-title";
 
+// VARIABLES
+$stroke-size: 2px;
+$stroke-color: $color-background-secondary;
+
 .c-base-title {
   // --> LEVELS <--
 
@@ -139,9 +143,24 @@ $c: ".c-base-title";
   // --> BOOLEANS <--
 
   &--stroke {
-    paint-order: stroke;
-
-    @include text-stroke(2px rgba($color-background-secondary, 0.75));
+    // Notice: this is a hack to visually emulate a 'text-stroke', as Chrome \
+    //   does not yet support 'paint-order', which leads 'text-stroke' to \
+    //   display with a broken style. All other browsers render this fine \
+    //   except Chrome (as of version 102).
+    //
+    // Equivalent of:
+    //   - paint-order: stroke;
+    //   - @include text-stroke($stroke-size rgba($stroke-color, 0.75));
+    text-shadow: 0 0 $stroke-size $stroke-color, 0 0 $stroke-size $stroke-color,
+      0 0 $stroke-size $stroke-color, 0 0 $stroke-size $stroke-color,
+      0 0 $stroke-size $stroke-color, 0 0 $stroke-size $stroke-color,
+      0 0 $stroke-size $stroke-color, 0 0 $stroke-size $stroke-color,
+      0 0 $stroke-size $stroke-color, 0 0 $stroke-size $stroke-color,
+      0 0 $stroke-size $stroke-color, 0 0 $stroke-size $stroke-color,
+      0 0 $stroke-size $stroke-color, 0 0 $stroke-size $stroke-color,
+      0 0 $stroke-size $stroke-color, 0 0 $stroke-size $stroke-color,
+      0 0 $stroke-size $stroke-color, 0 0 $stroke-size $stroke-color,
+      0 0 $stroke-size $stroke-color, 0 0 $stroke-size $stroke-color;
   }
 }
 </style>
