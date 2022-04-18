@@ -169,7 +169,7 @@ $tooltip-translate-offset-vertical: 2px;
 
     &,
     a {
-      color: $color-base-black-mid;
+      color: $color-black;
     }
 
     a {
