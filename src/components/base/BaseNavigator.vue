@@ -92,6 +92,12 @@ $c: ".c-base-navigator";
   }
 
   #{$c}__item {
+    margin-right: 3px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
     &:hover {
       #{$c}__button {
         background-color: rgba($color-white, 0.07);
@@ -116,7 +122,7 @@ $c: ".c-base-navigator";
   }
 
   #{$c}__button {
-    padding: 11px 21px 12px;
+    padding: 11px 19px 12px;
     display: flex;
     align-items: center;
     transition: background-color 75ms linear;
