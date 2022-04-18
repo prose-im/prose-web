@@ -83,10 +83,12 @@
 
         .c-page-footer__middle
           .c-page-footer__ownership
-            span.c-page-footer__author.u-has-tooltip
-              base-tooltip(
-                align="left"
-                direction="top"
+            base-tooltip(
+              align="left"
+              direction="top"
+            )
+              template(
+                slot="tooltip"
               )
                 | Prose is a non-profit funded by
 
@@ -100,7 +102,10 @@
 
                 | .
 
-              | {{ $config.author.name }} © {{ currentYear }}
+              span.c-page-footer__author(
+                slot="default"
+              )
+                | {{ $config.author.name }} © {{ currentYear }}
 
             span.c-page-footer__separator
               | –

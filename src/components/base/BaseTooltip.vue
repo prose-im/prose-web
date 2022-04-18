@@ -9,14 +9,27 @@
      ********************************************************************** -->
 
 <template lang="pug">
-span(
+div(
+  @mouseover="onMouseOver"
+  @mouseleave="onMouseLeave"
   :class=`[
     "c-base-tooltip",
     "c-base-tooltip--" + direction,
-    "c-base-tooltip--" + align
+    "c-base-tooltip--" + align,
+    {
+      "c-base-tooltip--visible": isVisible
+    }
   ]`
 )
-  span.c-base-tooltip__value
+  .c-base-tooltip__overlay
+    .c-base-tooltip__value
+      slot(
+        name="tooltip"
+      )
+
+  .c-base-tooltip__wrapped(
+    @click="onClick"
+  )
     slot
 </template>
 
@@ -25,6 +38,12 @@ span(
      ********************************************************************** -->
 
 <script>
+// CONSTANTS
+const MOUSE_LEAVE_APPLY_DELAY = 500; // 1/2 second
+
+// INTERNALS
+let __mouseLeaveApplyTimeout = null;
+
 export default {
   name: "BaseTooltip",
 
@@ -46,6 +65,59 @@ export default {
         return ["top"].includes(x);
       }
     }
+  },
+
+  data() {
+    return {
+      // --> DATA <--
+
+      isVisible: false
+    };
+  },
+
+  methods: {
+    // --> EVENT LISTENERS <--
+
+    /**
+     * Triggers when tooltip is clicked
+     * @public
+     * @return {undefined}
+     */
+    onClick() {
+      // Toggle visibility
+      this.isVisible = !this.isVisible;
+    },
+
+    /**
+     * Triggers when mouse is over
+     * @public
+     * @return {undefined}
+     */
+    onMouseOver() {
+      // Any leave timeout set? Cancel it first?
+      if (__mouseLeaveApplyTimeout !== null) {
+        clearTimeout(__mouseLeaveApplyTimeout);
+
+        __mouseLeaveApplyTimeout = null;
+      }
+
+      this.isVisible = true;
+    },
+
+    /**
+     * Triggers when mouse leaves
+     * @public
+     * @return {undefined}
+     */
+    onMouseLeave() {
+      if (__mouseLeaveApplyTimeout === null) {
+        __mouseLeaveApplyTimeout = setTimeout(() => {
+          __mouseLeaveApplyTimeout = null;
+
+          this.isVisible = false;
+        }, MOUSE_LEAVE_APPLY_DELAY);
+      }
+    }
   }
 };
 </script>
@@ -64,23 +136,29 @@ $tooltip-spacing-left-right: -2px;
 $tooltip-translate-offset-vertical: 2px;
 
 .c-base-tooltip {
-  font-weight: initial;
-  line-height: 19px;
-  pointer-events: none;
-  user-select: none;
-  width: $tooltip-area-width;
-  opacity: 0;
-  display: block;
-  visibility: hidden;
-  position: absolute;
-  z-index: 1000;
-  transition: all 150ms linear;
-  transition-property: opacity, transform;
+  display: inline-block;
+  cursor: default;
+  position: relative;
+
+  #{$c}__overlay {
+    font-weight: initial;
+    line-height: 19px;
+    user-select: none;
+    width: $tooltip-area-width;
+    opacity: 0;
+    display: block;
+    visibility: hidden;
+    position: absolute;
+    z-index: 1000;
+    transition: all 150ms linear;
+    transition-property: opacity, transform;
+  }
 
   #{$c}__value {
     background-color: rgba($color-white, 0.9);
     backdrop-filter: blur(4px);
     font-size: 12px;
+    user-select: none;
     text-align: center;
     letter-spacing: 0.25px;
     padding: 6px 12px;
@@ -98,30 +176,39 @@ $tooltip-translate-offset-vertical: 2px;
     }
   }
 
+  #{$c}__wrapped {
+    display: inline-block;
+  }
+
   // --> DIRECTIONS <--
 
   &--top {
-    bottom: calc(100% + $tooltip-spacing-top-bottom);
-    transform: translateY(-1 * $tooltip-translate-offset-vertical);
+    #{$c}__overlay {
+      padding-bottom: $tooltip-spacing-top-bottom;
+      bottom: 100%;
+      transform: translateY(-1 * $tooltip-translate-offset-vertical);
+    }
   }
 
   // --> ALIGNS <--
 
   &--left {
-    left: $tooltip-spacing-left-right;
-    text-align: left;
+    #{$c}__overlay {
+      left: $tooltip-spacing-left-right;
+      text-align: left;
+    }
   }
-}
 
-// --> PARENTS <--
+  // --> BOOLEANS <--
 
-.u-has-tooltip {
-  &:hover {
-    #{$c} {
+  &--visible {
+    #{$c}__overlay {
       visibility: visible;
       opacity: 1;
+    }
 
-      &--top {
+    &#{$c}--top {
+      #{$c}__overlay {
         transform: translateY(0);
       }
     }
