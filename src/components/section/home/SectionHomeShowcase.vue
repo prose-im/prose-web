@@ -448,7 +448,7 @@ $c: ".c-section-home-showcase";
     }
 
     #{$c}__blur {
-      background: rgba($color-black, 0.55);
+      background: rgba($color-black, 0.6);
       backdrop-filter: blur(50px) saturate(120%);
       z-index: 1;
     }
