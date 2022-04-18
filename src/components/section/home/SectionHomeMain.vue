@@ -158,7 +158,6 @@ $app-screenshot-appear-before-duration: 150ms;
     }
 
     #{$c}__app {
-      // TODO: fix blend mode which is too strong (should be bg white alpha=50%)
       mix-blend-mode: multiply;
 
       &,
@@ -311,7 +310,7 @@ $app-screenshot-appear-before-duration: 150ms;
 
     &::before {
       content: "";
-      background: rgba($color-white, 0.55);
+      background: rgba($color-white, 0.6);
       backdrop-filter: blur(50px);
       z-index: 1;
     }
@@ -348,14 +347,29 @@ $app-screenshot-appear-before-duration: 150ms;
   }
 }
 
-// TODO: only enable background effect if blur is supported
-/* @supports ((-webkit-backdrop-filter: blur(2em)) or (backdrop-filter: blur(2em))) {
-  .backdrop-blur {
-    background-color: rgba(255, 255, 255, .5);
-    -webkit-backdrop-filter: blur(2em);
-    backdrop-filter: blur(2em);
+// --> SUPPORTS <--
+
+@supports not (backdrop-filter: blur(1px)) {
+  .c-section-home-main {
+    #{$c}__background {
+      // Notice: disable background if no support for 'backdrop-filter', \
+      //   otherwise its quite ugly.
+      display: none;
+    }
   }
-} */
+}
+
+@supports (-moz-appearance: none) {
+  .c-section-home-main {
+    #{$c}__background {
+      // Hack: disable 'backdrop-filter' on background if Firefox, as Firefox \
+      //   currently does not support this property, even if it announces that \
+      //   it '@supports' it (is that a bug?). This is as of Firefox 99, and \
+      //   might get fixed in future versions.
+      display: none;
+    }
+  }
+}
 
 // --> KEYFRAMES <--
 

@@ -443,12 +443,12 @@ $c: ".c-section-home-showcase";
     }
 
     #{$c}__color {
-      background: rgba(#9600ff, 0.2);
+      background: rgba(#9600ff, 0.275);
       z-index: 2;
     }
 
     #{$c}__blur {
-      background: rgba($color-black, 0.5);
+      background: rgba($color-black, 0.6);
       backdrop-filter: blur(50px) saturate(120%);
       z-index: 1;
     }
