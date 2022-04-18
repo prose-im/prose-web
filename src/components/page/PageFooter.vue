@@ -90,7 +90,7 @@
               template(
                 slot="tooltip"
               )
-                | Prose is a non-profit funded by
+                | Prose is a non-profit fully funded by
 
                 base-space
 
