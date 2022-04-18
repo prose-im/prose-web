@@ -78,7 +78,7 @@ $c: ".c-base-navigator";
 .c-base-navigator {
   background: rgba($color-white, 0.1);
   user-select: none;
-  padding: 7px 8px;
+  padding: 6px 7px;
 
   &,
   #{$c}__button {
@@ -115,7 +115,7 @@ $c: ".c-base-navigator";
   }
 
   #{$c}__button {
-    padding: 11px 21px;
+    padding: 11px 21px 12px;
     display: flex;
     align-items: center;
     transition: background-color 75ms linear;
