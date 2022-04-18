@@ -115,9 +115,20 @@ $illustration-coin-offset-bottom: 52px;
       text-shadow: 0 0 8px rgba($color-white, 0.75);
       position: absolute;
       left: 15px;
-      right: 0;
       top: 41px;
       z-index: 1;
+
+      &::after {
+        content: "";
+        background-color: $color-white;
+        width: 4px;
+        height: 18px;
+        margin-bottom: -4px;
+        margin-left: 2px;
+        display: inline-block;
+        box-shadow: 0 0 10px rgba($color-white, 0.5);
+        animation: cursorBlink 2s step-end 0s infinite;
+      }
     }
 
     #{$c}__illustration-terminal {
@@ -133,6 +144,14 @@ $illustration-coin-offset-bottom: 52px;
       position: relative;
       z-index: 0;
     }
+  }
+}
+
+// --> KEYFRAMES <--
+
+@keyframes cursorBlink {
+  66% {
+    opacity: 0;
   }
 }
 </style>
