@@ -89,14 +89,14 @@
         .c-section-home-showcase__application-window
           .c-section-home-showcase__application-window-contents
 
-          image-application-window(
-            class="c-section-home-showcase__application-window-structure"
+          image-application-layout(
+            class="c-section-home-showcase__application-window-layout"
           )
 
         .c-section-home-showcase__application-focus-label-wrap
           .c-section-home-showcase__application-focus-label.u-bold
-            //- TODO: based on what is currently focused
-            | Typing indicator
+            //- TODO: from computed prop
+            | Message your team with Prose
 
     .c-section-home-showcase__background
       span.c-section-home-showcase__separator
@@ -118,12 +118,12 @@ import ImageNavigatorIconEncryption from "~/assets/images/components/section/hom
 import ImageNavigatorIconPods from "~/assets/images/components/section/home/SectionHomeShowcase/navigator-icon-pods.svg?raw";
 
 import ImageDirectionLogoXmpp from "~/assets/images/components/section/home/SectionHomeShowcase/direction-logo-xmpp.svg?inline";
-import ImageApplicationWindow from "~/assets/images/components/section/home/SectionHomeShowcase/application-window.svg?inline";
+import ImageApplicationLayout from "~/assets/images/components/section/home/SectionHomeShowcase/application-layout.svg?inline";
 
 export default {
   name: "SectionHomeShowcase",
 
-  components: { ImageDirectionLogoXmpp, ImageApplicationWindow },
+  components: { ImageDirectionLogoXmpp, ImageApplicationLayout },
 
   data() {
     return {
@@ -268,11 +268,15 @@ $c: ".c-section-home-showcase";
       box-shadow: 0 36px 100px 0 rgba($color-black, 0.4),
         0 0 3px 0 rgba($color-black, 0.55);
 
-      #{$c}__application-window-contents {
-        background-image: url("~/assets/images/components/section/home/SectionHomeShowcase/application-contents.webp");
+      #{$c}__application-window-contents,
+      #{$c}__application-window-layout {
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
+      }
+
+      #{$c}__application-window-contents {
+        background-image: url("~/assets/images/components/section/home/SectionHomeShowcase/application-contents.webp");
         position: absolute;
         top: 1.9%;
         bottom: 1.15%;
@@ -280,10 +284,11 @@ $c: ".c-section-home-showcase";
         right: 0;
       }
 
-      #{$c}__application-window-structure {
+      #{$c}__application-window-layout {
+        background-color: $color-white;
+        background-image: url("~/assets/images/components/section/home/SectionHomeShowcase/application-window.webp");
         width: 100%;
         height: auto;
-        margin: -1px 0;
       }
     }
 
