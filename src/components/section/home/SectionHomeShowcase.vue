@@ -83,7 +83,12 @@
                 | Call your team members, one-to-one or large groups.
 
               p.c-section-home-showcase__direction-line
-                | Audio, video and screen sharing. All encrypted.
+                | Audio, video and screen sharing.
+
+                base-space
+
+                span.u-medium
+                  | All encrypted.
 
             template(
               v-else-if="activeView.id === 'files'"
@@ -92,7 +97,12 @@
                 | Share images and large files in private conversations and groups.
 
               p.c-section-home-showcase__direction-line
-                | Files are stored on your Prose server, and stored securely in your history.
+                | Files are stored on your Prose server, and
+
+                base-space
+
+                span.u-medium
+                  | kept securely in your history.
 
             template(
               v-else-if="activeView.id === 'encryption'"
@@ -101,7 +111,14 @@
                 | Everything is encrypted. Unbreakable end-to-end encryption between your team members.
 
               p.c-section-home-showcase__direction-line
-                | End-to-end encryption means that even the server administrator cannot read messages.
+                | End-to-end encryption means that even the server administrator
+
+                base-space
+
+                span.u-medium
+                  | cannot read messages
+
+                | .
 
             template(
               v-else-if="activeView.id === 'pods'"
@@ -110,7 +127,14 @@
                 | Host a Prose server anywhere. Invite an unlimited number of team members.
 
               p.c-section-home-showcase__direction-line
-                | You run the server and you own the data. We make it painless for you.
+                | You run the server and you own the data.
+
+                base-space
+
+                span.u-medium
+                  | We make it painless for you
+
+                | .
 
           .c-section-home-showcase__direction-action
             //- TODO: click event to start animation
@@ -303,6 +327,14 @@ $c: ".c-section-home-showcase";
 
     #{$c}__direction-action {
       margin-left: 46px;
+
+      // TODO: disabled for now
+      cursor: not-allowed;
+
+      #{$c}__direction-button {
+        pointer-events: none;
+        opacity: 0.8;
+      }
     }
 
     #{$c}__direction-line {
