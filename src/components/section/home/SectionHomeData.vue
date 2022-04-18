@@ -134,6 +134,7 @@ $c: ".c-section-home-data";
 // VARIABLE
 $center-size: 160px;
 $orbit-size: 380px;
+$satellites-animation-duration: 120s;
 $satellite-shade-offset: 32px;
 
 .c-section-home-data {
@@ -166,7 +167,16 @@ $satellite-shade-offset: 32px;
     }
 
     #{$c}__illustration-satellites {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      animation: gravityRotate $satellites-animation-duration linear 0s infinite;
+
       #{$c}__illustration-satellite {
+        animation: counterGravityRotate $satellites-animation-duration linear 0s
+          infinite;
         position: absolute;
 
         &::before {
@@ -251,6 +261,28 @@ $satellite-shade-offset: 32px;
       position: relative;
       border-radius: 100%;
     }
+  }
+}
+
+// --> KEYFRAMES <--
+
+@keyframes gravityRotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes counterGravityRotate {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
   }
 }
 </style>
