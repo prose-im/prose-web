@@ -332,7 +332,7 @@ $c: ".c-section-home-showcase";
 
     #{$c}__blur {
       background: rgba($color-black, 0.5);
-      backdrop-filter: blur(50px);
+      backdrop-filter: blur(50px) saturate(120%);
       z-index: 1;
     }
 
