@@ -258,6 +258,12 @@ $c: ".c-section-home-bulletpoints";
         top: -14px;
         right: 0;
         filter: drop-shadow(0 34px 40px rgba(#9d4256, 0.4));
+
+        // Notice: this fixes a weird rendering issue of the 'drop-shadow' \
+        //   filter in Safari, where adding bottom empty spacing prevents \
+        //   Safari from cutting the overflowing shadow that is generated.
+        background-position: top;
+        padding-bottom: 20px;
       }
 
       #{$c}__box-illustration {
