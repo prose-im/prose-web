@@ -324,6 +324,7 @@ $menu-dropdown-offset-left: 60px;
       }
 
       #{$c}__menu-link {
+        padding: 5px 0;
         cursor: pointer;
         display: flex;
         align-items: center;
