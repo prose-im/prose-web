@@ -217,7 +217,7 @@ $tooltip-translate-offset-vertical: 2px;
   &--center {
     #{$c}__overlay {
       left: 50%;
-      margin-left: (-1 * ($tooltip-area-width / 2));
+      margin-left: (-1 * calc($tooltip-area-width / 2));
       text-align: center;
     }
   }
