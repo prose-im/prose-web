@@ -67,7 +67,7 @@
 const PLATFORM_NAMES = {
   macOS: "Mac",
   Windows: "Win",
-  Linux: "Linux"
+  Linux: "X11"
 };
 
 export default {
