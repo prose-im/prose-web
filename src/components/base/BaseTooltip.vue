@@ -41,9 +41,6 @@ div(
 // CONSTANTS
 const MOUSE_LEAVE_APPLY_DELAY = 500; // 1/2 second
 
-// INTERNALS
-let __mouseLeaveApplyTimeout = null;
-
 export default {
   name: "BaseTooltip",
 
@@ -69,6 +66,10 @@ export default {
 
   data() {
     return {
+      // --> STATE <--
+
+      mouseLeaveApplyTimeout: null,
+
       // --> DATA <--
 
       isVisible: false
@@ -95,10 +96,10 @@ export default {
      */
     onMouseOver() {
       // Any leave timeout set? Cancel it first?
-      if (__mouseLeaveApplyTimeout !== null) {
-        clearTimeout(__mouseLeaveApplyTimeout);
+      if (this.mouseLeaveApplyTimeout !== null) {
+        clearTimeout(this.mouseLeaveApplyTimeout);
 
-        __mouseLeaveApplyTimeout = null;
+        this.mouseLeaveApplyTimeout = null;
       }
 
       this.isVisible = true;
@@ -110,9 +111,9 @@ export default {
      * @return {undefined}
      */
     onMouseLeave() {
-      if (__mouseLeaveApplyTimeout === null) {
-        __mouseLeaveApplyTimeout = setTimeout(() => {
-          __mouseLeaveApplyTimeout = null;
+      if (this.mouseLeaveApplyTimeout === null) {
+        this.mouseLeaveApplyTimeout = setTimeout(() => {
+          this.mouseLeaveApplyTimeout = null;
 
           this.isVisible = false;
         }, MOUSE_LEAVE_APPLY_DELAY);
