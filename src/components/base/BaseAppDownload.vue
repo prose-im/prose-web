@@ -29,12 +29,12 @@
         | {{ platformName }}
 
       base-tooltip(
+        :bypassed="!!target"
         align="center"
         direction="top"
         class="c-app-download__action-wrap"
       )
         template(
-          v-if="!target"
           slot="tooltip"
         )
           | Coming soon!
