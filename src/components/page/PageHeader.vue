@@ -15,24 +15,24 @@
       {
         "c-page-header--embedded": embedded,
         "c-page-header--floating": (floating || forceFloating),
-        "c-page-header--announcement": announcement
+        "c-page-header--announcement": hasAnnouncement
       }
     ]`
   )
     .c-page-header__sticky.js-page-header
       .c-page-header__announcement(
-        v-if="announcement"
+        v-if="hasAnnouncement"
       )
         page-wrapper(
           class="c-page-header__announcement-wrap"
         )
           span.c-page-header__announcement-title.u-ellipsis.u-medium
-            | {{ announcement.title }}
+            | {{ (announcement.title || "Announcement") }}
 
           span.c-page-header__announcement-separator
 
           span.c-page-header__announcement-description.u-ellipsis
-            | {{ announcement.description }}
+            | {{ (announcement.description || "(?)") }}
 
       .c-page-header__bar
         page-wrapper
@@ -205,6 +205,10 @@ export default {
   computed: {
     floating() {
       return !this.embedded;
+    },
+
+    hasAnnouncement() {
+      return this.$config.modifiers.announcement === true;
     },
 
     currentPageName() {
