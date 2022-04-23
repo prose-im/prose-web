@@ -28,21 +28,33 @@
       )
         | {{ platformName }}
 
-      a(
-        :href="target"
-        :class=`[
-          "c-app-download__action",
-          {
-            "c-app-download__action--locked": !target
-          }
-        ]`
+      base-tooltip(
+        align="center"
+        direction="top"
+        class="c-app-download__action-wrap"
       )
-        base-button(
-          :right-icon="actionRightIcon"
-          tint="light"
-          class="c-app-download__action-button"
+        template(
+          v-if="!target"
+          slot="tooltip"
         )
-          | {{ actionLabel }}
+          | Coming soon!
+
+        a(
+          :href="target"
+          :class=`[
+            "c-app-download__action",
+            {
+              "c-app-download__action--locked": !target
+            }
+          ]`
+          slot="default"
+        )
+          base-button(
+            :right-icon="actionRightIcon"
+            tint="light"
+            class="c-app-download__action-button"
+          )
+            | {{ actionLabel }}
 </template>
 
 <!-- **********************************************************************
@@ -185,6 +197,7 @@ $platforms: (
   border: 1.5px solid rgba($color-base-blue-dark, 0.1);
   text-align: center;
   padding: 22px 18px 12px;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -213,13 +226,16 @@ $platforms: (
     }
   }
 
-  #{$c}__action {
+  #{$c}__action-wrap {
     margin-top: 30px;
-    display: block;
 
     &:first-child {
       margin-top: 0;
     }
+  }
+
+  #{$c}__action {
+    display: block;
 
     &--locked {
       cursor: not-allowed;
