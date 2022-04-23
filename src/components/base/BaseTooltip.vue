@@ -50,7 +50,7 @@ export default {
       default: "center",
 
       validator(x) {
-        return ["left"].includes(x);
+        return ["left", "center"].includes(x);
       }
     },
 
@@ -198,6 +198,14 @@ $tooltip-translate-offset-vertical: 2px;
     #{$c}__overlay {
       left: $tooltip-spacing-left-right;
       text-align: left;
+    }
+  }
+
+  &--center {
+    #{$c}__overlay {
+      left: 50%;
+      margin-left: (-1 * ($tooltip-area-width / 2));
+      text-align: center;
     }
   }
 
