@@ -26,14 +26,14 @@
       p.u-medium
         | Install it and start messaging your team in seconds.
 
-    //- TODO: auto-detect platform, or fallback to Web
     base-button(
       slot="action"
       size="large"
       right-icon="arrow-down"
+      class="c-section-downloads-main__action"
       bolder
     )
-      | Download the Prose App for macOS
+      | Download the Prose App
 
     .c-section-downloads-main__rasters(
       slot="rasters"
@@ -69,6 +69,11 @@ export default {
 $c: ".c-section-downloads-main";
 
 .c-section-downloads-main {
+  #{$c}__action {
+    pointer-events: none;
+    opacity: 0.35;
+  }
+
   #{$c}__rasters {
     #{$c}__raster {
       position: absolute;
