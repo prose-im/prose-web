@@ -17,6 +17,10 @@
     "prose_careers": "careers@prose.org"
   },
 
+  "modifiers": {
+    "announcement": true
+  },
+
   "tokens": {
     "public": {
       "crisp_website_id": "84a1e461-9755-47fb-bdc9-bf368a5d79db"

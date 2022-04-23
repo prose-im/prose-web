@@ -225,6 +225,7 @@ export default {
     url: CONFIG.url,
     email: CONFIG.email,
     features: CONFIG.features,
+    modifiers: CONFIG.modifiers,
     tokens: CONFIG.tokens.public,
     author: projectPackage.author
   },

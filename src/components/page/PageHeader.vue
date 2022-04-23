@@ -14,74 +14,90 @@
       "c-page-header",
       {
         "c-page-header--embedded": embedded,
-        "c-page-header--floating": (floating || forceFloating)
+        "c-page-header--floating": (floating || forceFloating),
+        "c-page-header--announcement": hasAnnouncement
       }
     ]`
   )
     .c-page-header__sticky.js-page-header
-      page-wrapper
-        .c-page-header__inner
-          .c-page-header__left
-            nuxt-link(
-              to="/"
-            )
-              base-logo(
-                class="c-page-header__logo",
-                tint="normal"
-                size="large"
-              )
+      .c-page-header__announcement(
+        v-if="hasAnnouncement"
+      )
+        page-wrapper(
+          class="c-page-header__announcement-wrap"
+        )
+          span.c-page-header__announcement-title.u-ellipsis.u-medium
+            | {{ (announcement.title || "Announcement") }}
 
-          .c-page-header__right
-            ul.c-page-header__menu
-              li(
-                v-for="item in menuItems"
-                :key="item.id"
-                :class=`[
-                  "c-page-header__menu-item",
-                  {
-                    "c-page-header__menu-item--active": (currentPageName === item.id)
-                  }
-                ]`
+          span.c-page-header__announcement-separator
+
+          span.c-page-header__announcement-description.u-ellipsis
+            | {{ (announcement.description || "(?)") }}
+
+      .c-page-header__bar
+        page-wrapper
+          .c-page-header__inner
+            .c-page-header__left
+              nuxt-link(
+                to="/"
               )
-                nuxt-link(
-                  v-if="item.target"
-                  class="c-page-header__menu-link"
-                  :to="item.target"
+                base-logo(
+                  class="c-page-header__logo",
+                  tint="normal"
+                  size="large"
                 )
-                  span.c-page-header__menu-icon(
-                    v-html="item.icon"
-                  )
 
-                  | {{ item.label }}
-
-                span.c-page-header__menu-link(
-                  v-else-if="item.dropdown"
+            .c-page-header__right
+              ul.c-page-header__menu
+                li(
+                  v-for="item in menuItems"
+                  :key="item.id"
+                  :class=`[
+                    "c-page-header__menu-item",
+                    {
+                      "c-page-header__menu-item--active": (currentPageName === item.id)
+                    }
+                  ]`
                 )
-                  base-dropdown(
-                    :items="item.dropdown"
-                    arrow-class="c-page-header__menu-dropdown-arrow"
-                    class="c-page-header__menu-dropdown"
+                  nuxt-link(
+                    v-if="item.target"
+                    class="c-page-header__menu-link"
+                    :to="item.target"
                   )
+                    span.c-page-header__menu-icon(
+                      v-html="item.icon"
+                    )
 
-                  span.c-page-header__menu-icon(
-                    v-html="item.icon"
+                    | {{ item.label }}
+
+                  span.c-page-header__menu-link(
+                    v-else-if="item.dropdown"
                   )
+                    base-dropdown(
+                      :items="item.dropdown"
+                      arrow-class="c-page-header__menu-dropdown-arrow"
+                      class="c-page-header__menu-dropdown"
+                    )
 
-                  | {{ item.label }}
+                    span.c-page-header__menu-icon(
+                      v-html="item.icon"
+                    )
 
-                  image-menu-dropdown-link-arrow(
-                    class="c-page-header__menu-arrow"
-                  )
+                    | {{ item.label }}
 
-            a(
-              :href="actionTarget"
-              class="c-page-header__action"
-            )
-              base-button(
-                class="c-page-header__action-button"
-                right-icon="arrow-right"
+                    image-menu-dropdown-link-arrow(
+                      class="c-page-header__menu-arrow"
+                    )
+
+              a(
+                :href="actionTarget"
+                class="c-page-header__action"
               )
-                | Start with Prose
+                base-button(
+                  class="c-page-header__action-button"
+                  right-icon="arrow-right"
+                )
+                  | Start with Prose
 
     .c-page-header__ghost(
       v-if="!embedded"
@@ -126,6 +142,13 @@ export default {
       forceFloating: false,
 
       // --> DATA <--
+
+      announcement: {
+        title: "Heads up: Prose is still a Work in Progress",
+
+        description:
+          "We expect the macOS app to be released by the end of 2022."
+      },
 
       menuItems: [
         {
@@ -182,6 +205,10 @@ export default {
   computed: {
     floating() {
       return !this.embedded;
+    },
+
+    hasAnnouncement() {
+      return this.$config.modifiers.announcement === true;
     },
 
     currentPageName() {
@@ -253,16 +280,67 @@ $menu-dropdown-offset-left: 60px;
     height: $page-header-height;
   }
 
-  #{$c}__sticky {
+  #{$c}__sticky,
+  #{$c}__bar {
+    transition: all 250ms linear;
+    transition-property: background-color, border-color;
+  }
+
+  #{$c}__announcement,
+  #{$c}__bar {
     display: flex;
     align-items: center;
+  }
+
+  #{$c}__sticky {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 100;
-    transition: all 250ms linear;
-    transition-property: background-color, border-color;
+  }
+
+  #{$c}__announcement {
+    background-color: #2062da;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.05px;
+    height: $page-header-announcement-height;
+    position: relative;
+
+    &::before {
+      content: "";
+      background-color: rgba($color-black, 0.1);
+      height: 1px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    #{$c}__announcement-wrap {
+      margin-top: -3px;
+      display: flex;
+      justify-content: center;
+    }
+
+    #{$c}__announcement-title {
+      color: $color-white;
+    }
+
+    #{$c}__announcement-description {
+      color: rgba($color-white, 0.75);
+    }
+
+    #{$c}__announcement-separator {
+      background-color: rgba($color-white, 0.175);
+      width: 1px;
+      margin: 2px 16px 0;
+    }
+  }
+
+  #{$c}__bar {
+    height: $page-header-height;
   }
 
   #{$c}__inner {
@@ -391,9 +469,19 @@ $menu-dropdown-offset-left: 60px;
 
   &--floating {
     #{$c}__sticky {
-      background-color: rgba($color-background-primary, 0.9);
       border-bottom-color: $color-border-secondary;
+    }
+
+    #{$c}__bar {
+      background-color: rgba($color-background-primary, 0.9);
       backdrop-filter: blur(6px) saturate(160%) contrast(45%) brightness(140%);
+    }
+  }
+
+  &--announcement {
+    #{$c}__sticky,
+    #{$c}__ghost {
+      height: ($page-header-height + $page-header-announcement-height);
     }
   }
 }

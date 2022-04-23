@@ -9,7 +9,14 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  .c-section-home-main
+  div(
+    :class=`[
+      "c-section-home-main",
+      {
+        "c-section-home-main--announcement": hasAnnouncement
+      }
+    ]`
+  )
     page-wrapper(
       class="c-section-home-main__inner"
     )
@@ -110,6 +117,12 @@ export default {
     };
   },
 
+  computed: {
+    hasAnnouncement() {
+      return this.$config.modifiers.announcement === true;
+    }
+  },
+
   methods: {
     // --> EVENT LISTENERS <--
 
@@ -133,6 +146,8 @@ export default {
 $c: ".c-section-home-main";
 
 // VARIABLES
+$inner-padding-top-base: 85px;
+
 $app-alerts-size: 54px;
 $app-icon-bounce-duration: 750ms;
 $app-icon-bounce-iterations: 1;
@@ -142,7 +157,7 @@ $app-screenshot-appear-before-duration: 150ms;
   position: relative;
 
   #{$c}__inner {
-    padding-top: ($page-header-height + 85px);
+    padding-top: ($page-header-height + $inner-padding-top-base);
     padding-bottom: 40px;
   }
 
@@ -343,6 +358,17 @@ $app-screenshot-appear-before-duration: 150ms;
           transform: translate(-22%, 28%);
         }
       }
+    }
+  }
+
+  // --> BOOLEANS <--
+
+  &--announcement {
+    #{$c}__inner {
+      padding-top: (
+        $page-header-height + $page-header-announcement-height +
+          $inner-padding-top-base
+      );
     }
   }
 }
