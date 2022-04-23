@@ -21,7 +21,9 @@ div(
     }
   ]`
 )
-  .c-base-tooltip__overlay
+  .c-base-tooltip__overlay(
+    v-if="!bypassed"
+  )
     .c-base-tooltip__value
       slot(
         name="tooltip"
@@ -61,6 +63,11 @@ export default {
       validator(x) {
         return ["top"].includes(x);
       }
+    },
+
+    bypassed: {
+      type: Boolean,
+      default: false
     }
   },
 
@@ -85,8 +92,10 @@ export default {
      * @return {undefined}
      */
     onClick() {
-      // Toggle visibility
-      this.isVisible = !this.isVisible;
+      if (!this.bypassed) {
+        // Toggle visibility
+        this.isVisible = !this.isVisible;
+      }
     },
 
     /**
@@ -95,14 +104,16 @@ export default {
      * @return {undefined}
      */
     onMouseOver() {
-      // Any leave timeout set? Cancel it first?
-      if (this.mouseLeaveApplyTimeout !== null) {
-        clearTimeout(this.mouseLeaveApplyTimeout);
+      if (!this.bypassed) {
+        // Any leave timeout set? Cancel it first?
+        if (this.mouseLeaveApplyTimeout !== null) {
+          clearTimeout(this.mouseLeaveApplyTimeout);
 
-        this.mouseLeaveApplyTimeout = null;
+          this.mouseLeaveApplyTimeout = null;
+        }
+
+        this.isVisible = true;
       }
-
-      this.isVisible = true;
     },
 
     /**
@@ -111,12 +122,14 @@ export default {
      * @return {undefined}
      */
     onMouseLeave() {
-      if (this.mouseLeaveApplyTimeout === null) {
-        this.mouseLeaveApplyTimeout = setTimeout(() => {
-          this.mouseLeaveApplyTimeout = null;
+      if (!this.bypassed) {
+        if (this.mouseLeaveApplyTimeout === null) {
+          this.mouseLeaveApplyTimeout = setTimeout(() => {
+            this.mouseLeaveApplyTimeout = null;
 
-          this.isVisible = false;
-        }, MOUSE_LEAVE_APPLY_DELAY);
+            this.isVisible = false;
+          }, MOUSE_LEAVE_APPLY_DELAY);
+        }
       }
     }
   }
