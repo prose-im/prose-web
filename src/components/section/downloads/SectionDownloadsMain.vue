@@ -35,6 +35,13 @@
     )
       | Download the Prose App
 
+      template(
+        v-if="platformName"
+      )
+        base-space
+
+        | for {{ platformName }}
+
     .c-section-downloads-main__rasters(
       slot="rasters"
     )
@@ -56,8 +63,44 @@
      ********************************************************************** -->
 
 <script>
+// CONSTANTS
+const PLATFORM_NAMES = {
+  macOS: "Mac",
+  Windows: "Win",
+  Linux: "Linux"
+};
+
 export default {
-  name: "SectionDownloadsMain"
+  name: "SectionDownloadsMain",
+
+  data() {
+    return {
+      // --> DATA <--
+
+      navigatorAppVersion: null
+    };
+  },
+
+  computed: {
+    platformName() {
+      // Find the best matching platform name (if found)
+      if (this.navigatorAppVersion) {
+        for (const _platformName in PLATFORM_NAMES) {
+          if (
+            this.navigatorAppVersion.includes(PLATFORM_NAMES[_platformName])
+          ) {
+            return _platformName;
+          }
+        }
+      }
+
+      return null;
+    }
+  },
+
+  mounted() {
+    this.navigatorAppVersion = window.navigator.appVersion || null;
+  }
 };
 </script>
 
