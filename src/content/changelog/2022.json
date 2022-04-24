@@ -5,7 +5,10 @@
       "date": "2022-04-24",
 
       "changelog": {
-        "features": [["Interface", "Static implementation of the Prose UI"]]
+        "features": [
+          ["Interface", "Static implementation of the Prose UI"],
+          ["Messaging", "Work in Progress"]
+        ]
       }
     }
   ]
