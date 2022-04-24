@@ -195,7 +195,7 @@ export default {
   // Loading: \
   //   https://nuxtjs.org/docs/configuration-glossary/configuration-loading
   loading: {
-    color: "#ff88a3",
+    color: CONFIG.modifiers.announcement ? "#0f2a5b" : "#ff88a3",
     failedColor: "#db0031",
     height: "3px",
     throttle: 250,
