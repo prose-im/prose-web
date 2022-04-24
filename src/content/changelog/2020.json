@@ -1,0 +1,22 @@
+{
+  "versions": [
+    {
+      "version": "228",
+      "date": "2020-03-10",
+
+      "changelog": {
+        "features": [
+          ["Messaging", "Ability to remove messages from history"],
+          ["Preferences", "Microphone sound level tester"]
+        ],
+
+        "changes": [["Interface", "Color adjustments in Dark Mode"]],
+
+        "fixes": [
+          ["Protocol", "Fixed issues reconnecting over WebSocket"],
+          ["Notifications", "Fixed some missed Desktop notifications"]
+        ]
+      }
+    }
+  ]
+}

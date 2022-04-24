@@ -11,6 +11,7 @@
 <template lang="pug">
   .p-changelog-year
     section-changelog-main(
+      :years="years"
       :active-year="year"
       :sidebar-width="sidebarWidth"
       class="p-changelog-year__main"
@@ -18,6 +19,7 @@
     )
 
     section-changelog-versions(
+      :versions="changes.versions"
       :sidebar-width="sidebarWidth"
       class="p-changelog-year__versions"
       content-class="p-changelog-year__versions-content"
@@ -34,6 +36,10 @@
      ********************************************************************** -->
 
 <script>
+// CONSTANTS
+// TODO: make it dynamic
+const YEARS = ["2022", "2021", "2020"];
+
 // INSTANCES
 const YEAR_REGEX = /^([12][0-9]{3})$/;
 
@@ -51,13 +57,28 @@ export default {
     return true;
   },
 
-  asyncData({ params }) {
-    return { year: params.year };
+  async asyncData({ $content, params, error }) {
+    // Important: fallback on non-existing year '0000' if no first year is \
+    //   available, that way 404 errors are generated properly for the root \
+    //   changelog page.
+    const _year = params.year || YEARS[0] || "0000";
+
+    const _changes = await $content("changelog", _year)
+      .fetch()
+      .catch(() => {
+        error({ statusCode: 404, message: "Year not found" });
+      });
+
+    return { year: _year, changes: _changes };
   },
 
   data() {
     return {
-      sidebarWidth: "185px"
+      // --> DATA <--
+
+      sidebarWidth: "185px",
+
+      years: YEARS
     };
   },
 
