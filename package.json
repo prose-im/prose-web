@@ -28,6 +28,7 @@
     "lint": "npm run lint:js && npm run lint:prettier"
   },
   "dependencies": {
+    "@nuxt/content": "1.15.1",
     "core-js": "3.19.3",
     "nuxt": "2.15.8",
     "vue": "2.6.14",

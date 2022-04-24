@@ -127,6 +127,14 @@ export default {
       required: true
     },
 
+    versions: {
+      type: Array,
+
+      default() {
+        return [];
+      }
+    },
+
     contentClass: {
       type: String,
       default: null
@@ -141,66 +149,7 @@ export default {
         features: "New Features",
         changes: "Changes",
         fixes: "Bug Fixes"
-      },
-
-      versions: [
-        {
-          version: "231.1",
-          date: "2022-03-27",
-
-          changelog: {
-            features: [
-              ["Messaging", "Ability to remove messages from history"],
-              ["Preferences", "Microphone sound level tester"]
-            ],
-
-            changes: [["Interface", "Color adjustments in Dark Mode"]],
-
-            fixes: [
-              ["Protocol", "Fixed issues reconnecting over WebSocket"],
-              ["Notifications", "Fixed some missed Desktop notifications"]
-            ]
-          }
-        },
-
-        {
-          version: "231",
-          date: "2022-03-10",
-
-          changelog: {
-            features: [
-              ["Messaging", "Ability to remove messages from history"],
-              ["Preferences", "Microphone sound level tester"]
-            ],
-
-            changes: [["Interface", "Color adjustments in Dark Mode"]],
-
-            fixes: [
-              ["Protocol", "Fixed issues reconnecting over WebSocket"],
-              ["Notifications", "Fixed some missed Desktop notifications"]
-            ]
-          }
-        },
-
-        {
-          version: "230",
-          date: "2022-02-03",
-
-          changelog: {
-            features: [
-              ["Messaging", "Ability to remove messages from history"],
-              ["Preferences", "Microphone sound level tester"]
-            ],
-
-            changes: [["Interface", "Color adjustments in Dark Mode"]],
-
-            fixes: [
-              ["Protocol", "Fixed issues reconnecting over WebSocket"],
-              ["Notifications", "Fixed some missed Desktop notifications"]
-            ]
-          }
-        }
-      ]
+      }
     };
   },
 

@@ -182,7 +182,7 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ["@nuxtjs/robots", "@nuxtjs/sitemap"],
+  modules: ["@nuxt/content", "@nuxtjs/robots", "@nuxtjs/sitemap"],
 
   // Router: https://nuxtjs.org/docs/configuration-glossary/configuration-router
   router: {

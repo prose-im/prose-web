@@ -50,7 +50,9 @@
           p.u-medium
             | This history is a ledger of all downloadable Prose versions, since day one.
 
-      .c-section-changelog-main__navigate
+      .c-section-changelog-main__navigate(
+        v-if="navigateYears.length > 0"
+      )
         h6.c-section-changelog-main__navigate-label.u-title.u-medium
           | The Time Machine:
 
@@ -80,43 +82,29 @@ export default {
       default: null
     },
 
+    years: {
+      type: Array,
+
+      default() {
+        return [];
+      }
+    },
+
     contentClass: {
       type: String,
       default: null
     }
   },
 
-  data() {
-    return {
-      // --> DATA <--
-
-      navigateYears: [
-        {
-          name: "2022",
-          target: "/changelog/2022/"
-        },
-
-        {
-          name: "2021",
-          target: "/changelog/2021/"
-        },
-
-        {
-          name: "2020",
-          target: "/changelog/2020/"
-        },
-
-        {
-          name: "2019",
-          target: "/changelog/2019/"
-        },
-
-        {
-          name: "2018",
-          target: "/changelog/2018/"
-        }
-      ]
-    };
+  computed: {
+    navigateYears() {
+      return this.years.map(year => {
+        return {
+          name: year,
+          target: `/changelog/${year}/`
+        };
+      });
+    }
   }
 };
 </script>
