@@ -195,12 +195,12 @@ export default {
   // Loading: \
   //   https://nuxtjs.org/docs/configuration-glossary/configuration-loading
   loading: {
-    color: "blue",
-    failedColor: "red",
-    height: "5px",
-    throttle: 500,
+    color: "#ff88a3",
+    failedColor: "#db0031",
+    height: "3px",
+    throttle: 250,
     duration: 3000,
-    continuous: true
+    continuous: false
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
