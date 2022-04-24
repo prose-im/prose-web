@@ -41,7 +41,14 @@
         template(
           v-else
         )
-          p
+          p(
+            v-if="error.message"
+          )
+            | {{ error.message }}.
+
+          p(
+            v-else
+          )
             | An unexpected error occurred. Can you try again?
 
           p.u-medium
@@ -78,7 +85,10 @@ export default {
 
   head() {
     return {
-      title: `Error ${this.error.statusCode}`
+      title:
+        this.error.statusCode === 404
+          ? "Page not found"
+          : `${this.error.statusCode} Error`
     };
   }
 };

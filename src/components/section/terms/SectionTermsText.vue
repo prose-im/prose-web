@@ -129,7 +129,7 @@ export default {
           title: "Privacy Policy",
 
           paragraphs: [
-            "Prose Cloud user data is safely stored in Europe, and may be replicated across different countries within the EU. We do not transfer user data outside of the EU. In the event you are hosting a Prose Pod server, then this privacy policy does not apply as we are not bound to it: you are responsible for the data that your Prose server hosts, and any data leak due to server misconfiguration and security vulnerabilities.",
+            "Prose Cloud user data is safely stored in Europe, and may be replicated across different countries within the EU. We do not transfer user data outside of the EU. In the event you are hosting a Prose Pod server, then this privacy policy does not apply as we are not bound to it: you are responsible for the data that your Prose server hosts, as well as any data leak due to server misconfiguration, security vulnerabilities or failure to keep your Prose Pod up-to-date.",
 
             "Here's what we do to protect data privacy:",
 
