@@ -28,9 +28,10 @@
             span.c-section-changelog-versions__version-number.u-title.u-bold
               | {{ version.version }}
 
-          .c-section-changelog-versions__version-downloads
+          .c-section-changelog-versions__version-downloads(
+            v-if="versionsDownloadsDropdown[version.version].length > 0"
+          )
             base-dropdown(
-              v-if="versionsDownloadsDropdown[version.version]"
               :items="versionsDownloadsDropdown[version.version]"
               arrow-class="c-section-changelog-versions__version-dropdown-arrow"
               class="c-section-changelog-versions__version-dropdown"
@@ -99,22 +100,11 @@ const FORMAT_DATE_OPTIONS = {
   day: "numeric"
 };
 
-const VERSIONED_PLATFORMS = [
-  {
-    id: "macos",
-    name: "macOS"
-  },
-
-  {
-    id: "windows",
-    name: "Windows"
-  },
-
-  {
-    id: "linux",
-    name: "Linux"
-  }
-];
+const VERSIONED_PLATFORMS = {
+  macos: "macOS",
+  windows: "Windows",
+  linux: "Linux"
+};
 
 export default {
   name: "SectionChangelogVersions",
@@ -160,13 +150,19 @@ export default {
       this.versions.forEach(version => {
         const _version = version.version;
 
-        _versionDropdowns[_version] = VERSIONED_PLATFORMS.map(platform => {
-          return {
-            id: platform.id,
-            title: `${platform.name} v${_version}`,
-            target: this.downloadUrl(platform.id, _version)
-          };
-        });
+        _versionDropdowns[_version] = (version.platforms || []).map(
+          platform => {
+            return {
+              id: platform,
+
+              title: `${
+                VERSIONED_PLATFORMS[platform] || platform
+              } v${_version}`,
+
+              target: this.downloadUrl(platform, _version)
+            };
+          }
+        );
       });
 
       return _versionDropdowns;
