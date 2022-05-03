@@ -80,6 +80,12 @@ $c: ".c-page-main-title";
     position: relative;
   }
 
+  #{$c}__title,
+  #{$c}__action {
+    position: relative;
+    z-index: 1;
+  }
+
   #{$c}__action {
     margin-top: 40px;
   }
