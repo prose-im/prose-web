@@ -113,6 +113,9 @@ export default {
 $c: ".c-section-downloads-platforms";
 
 .c-section-downloads-platforms {
+  overflow-x: auto;
+  overflow-y: hidden;
+
   #{$c}__nest {
     margin-bottom: 54px;
 
@@ -132,9 +135,13 @@ $c: ".c-section-downloads-platforms";
     justify-content: flex-start;
     margin-top: 22px;
 
+    &::after,
+    #{$c}__app {
+      flex: 0 0 auto;
+    }
+
     #{$c}__app {
       margin-right: 15px;
-      flex: 0 0 auto;
 
       &--spaced {
         margin-right: 50px;
@@ -143,6 +150,11 @@ $c: ".c-section-downloads-platforms";
       &:last-child {
         margin-right: 0;
       }
+    }
+
+    &::after {
+      content: "";
+      width: $page-wrapper-lilliput-padding-sides;
     }
   }
 }
