@@ -118,7 +118,8 @@
               class="c-page-footer__flag"
             )
 
-            | Crafted in the European Union
+            span.c-page-footer__made-in
+              | Crafted in the European Union
 </template>
 
 <!-- **********************************************************************
@@ -363,6 +364,10 @@ $alignments-margin-sides: 12px;
       #{$c}__segment {
         width: 165px;
         margin-right: 24px;
+
+        &:last-child {
+          margin-right: 0;
+        }
       }
     }
   }
@@ -457,6 +462,104 @@ $alignments-margin-sides: 12px;
 
   #{$c}__right {
     margin-left: $alignments-margin-sides;
+  }
+}
+
+// --> MEDIA-QUERIES <--
+
+@media (max-width: $screen-medium-width-breakpoint) {
+  .c-page-footer {
+    #{$c}__main {
+      #{$c}__segments {
+        #{$c}__segment {
+          width: 140px;
+          margin-right: 14px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-small-width-breakpoint) {
+  .c-page-footer {
+    #{$c}__main {
+      flex-direction: column;
+
+      #{$c}__logo,
+      #{$c}__motto {
+        text-align: center;
+      }
+
+      #{$c}__social,
+      #{$c}__segments {
+        justify-content: center;
+      }
+
+      #{$c}__motto {
+        margin-top: 16px;
+      }
+
+      #{$c}__social {
+        margin-top: 20px;
+      }
+
+      #{$c}__segments {
+        padding-top: 50px;
+
+        #{$c}__segment {
+          margin-right: 18px;
+        }
+      }
+
+      #{$c}__left,
+      #{$c}__middle,
+      #{$c}__right {
+        flex: 1;
+      }
+
+      #{$c}__right {
+        margin-left: 0;
+      }
+    }
+
+    #{$c}__copyright {
+      #{$c}__ownership {
+        #{$c}__separator,
+        #{$c}__quote {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-tiny-width-breakpoint) {
+  .c-page-footer {
+    #{$c}__copyright {
+      #{$c}__badges {
+        #{$c}__badge {
+          &:nth-child(n + 2) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-lilliput-width-breakpoint) {
+  .c-page-footer {
+    #{$c}__copyright {
+      #{$c}__crafted {
+        #{$c}__flag {
+          margin-right: 0;
+        }
+
+        #{$c}__made-in {
+          display: none;
+        }
+      }
+    }
   }
 }
 </style>

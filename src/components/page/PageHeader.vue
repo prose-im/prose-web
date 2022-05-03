@@ -47,7 +47,7 @@
                   size="large"
                 )
 
-            .c-page-header__right
+            .c-page-header__middle
               ul.c-page-header__menu
                 li(
                   v-for="item in menuItems"
@@ -89,6 +89,7 @@
                       class="c-page-header__menu-arrow"
                     )
 
+            .c-page-header__right
               a(
                 :href="actionTarget"
                 class="c-page-header__action"
@@ -348,16 +349,24 @@ $menu-dropdown-offset-left: 60px;
     align-items: center;
   }
 
+  #{$c}__middle,
+  #{$c}__right {
+    flex: 0 1 auto;
+    display: flex;
+    align-items: center;
+  }
+
   #{$c}__left {
     display: flex;
     flex: 1;
   }
 
-  #{$c}__right {
+  #{$c}__middle {
     padding-left: 8px;
-    flex: 0 1 auto;
-    display: flex;
-    align-items: center;
+  }
+
+  #{$c}__right {
+    padding-left: 50px;
   }
 
   #{$c}__logo {
@@ -461,10 +470,6 @@ $menu-dropdown-offset-left: 60px;
     }
   }
 
-  #{$c}__action {
-    margin-left: 50px;
-  }
-
   // --> BOOLEANS <--
 
   &--floating {
@@ -482,6 +487,47 @@ $menu-dropdown-offset-left: 60px;
     #{$c}__sticky,
     #{$c}__ghost {
       height: ($page-header-height + $page-header-announcement-height);
+    }
+  }
+}
+
+// --> MEDIA-QUERIES <--
+
+@media (max-width: $screen-small-width-breakpoint) {
+  .c-page-header {
+    #{$c}__left {
+      flex: 0 0 auto;
+    }
+
+    #{$c}__middle {
+      padding: 0 10px;
+      flex: 1;
+      justify-content: center;
+    }
+
+    #{$c}__right {
+      padding-left: 0;
+      flex: 0 0 auto;
+    }
+  }
+}
+
+@media (max-width: $screen-tiny-width-breakpoint) {
+  .c-page-header {
+    #{$c}__middle {
+      padding-right: 0;
+    }
+
+    #{$c}__right {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: $screen-lilliput-width-breakpoint) {
+  .c-page-header {
+    #{$c}__middle {
+      justify-content: flex-end;
     }
   }
 }
