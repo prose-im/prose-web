@@ -61,4 +61,20 @@ $c: ".c-base-feature-grid";
     }
   }
 }
+
+// --> MEDIA-QUERIES <--
+
+@media (max-width: $screen-lilliput-width-breakpoint) {
+  .c-base-feature-grid {
+    #{$c}__line {
+      margin-bottom: 0;
+      display: block;
+
+      & > * {
+        margin-bottom: 34px;
+        margin-right: 0;
+      }
+    }
+  }
+}
 </style>

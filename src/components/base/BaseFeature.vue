@@ -135,4 +135,16 @@ $icon-size: 52px;
     margin-top: 14px;
   }
 }
+
+// --> MEDIA-QUERIES <--
+
+@media (max-width: $screen-lilliput-width-breakpoint) {
+  .c-base-feature {
+    text-align: center;
+
+    #{$c}__icon-wrap {
+      justify-content: center;
+    }
+  }
+}
 </style>
