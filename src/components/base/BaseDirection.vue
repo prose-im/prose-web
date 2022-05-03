@@ -10,47 +10,48 @@
 
 <template lang="pug">
 .c-base-direction
-  div(
-    v-if="raster"
-    :class=`[
-      "c-base-direction__raster",
-      {
-        ["c-base-direction__raster--flip-" + rasterFlip]: rasterFlip
-      }
-    ]`
-  )
-    base-raster(
-      :name="raster"
-      :scale="rasterScale"
-      class="c-base-direction__raster-image"
-    )
-
-  .c-base-direction__text
-    h4.c-base-direction__title.u-title.u-medium(
-      v-if="title"
-    )
-      | {{ title }}
-
-    p(
-      v-if="label"
+  .c-base-direction__content
+    div(
+      v-if="raster"
       :class=`[
-        "c-base-direction__label",
+        "c-base-direction__raster",
         {
-          "u-medium": labelBolder
+          ["c-base-direction__raster--flip-" + rasterFlip]: rasterFlip
         }
       ]`
     )
-      | {{ label }}
+      base-raster(
+        :name="raster"
+        :scale="rasterScale"
+        class="c-base-direction__raster-image"
+      )
 
-    p(
-      :class=`[
-        "c-base-direction__description",
-        {
-          "u-medium": descriptionBolder
-        }
-      ]`
-    )
-      | {{ description }}
+    .c-base-direction__text
+      h4.c-base-direction__title.u-title.u-medium(
+        v-if="title"
+      )
+        | {{ title }}
+
+      p(
+        v-if="label"
+        :class=`[
+          "c-base-direction__label",
+          {
+            "u-medium": labelBolder
+          }
+        ]`
+      )
+        | {{ label }}
+
+      p(
+        :class=`[
+          "c-base-direction__description",
+          {
+            "u-medium": descriptionBolder
+          }
+        ]`
+      )
+        | {{ description }}
 
   nuxt-link(
     v-if="actionLabel && actionTarget"
@@ -143,6 +144,12 @@ $c: ".c-base-direction";
   display: flex;
   align-items: center;
 
+  #{$c}__content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+
   #{$c}__raster,
   #{$c}__action {
     flex: 0 0 auto;
@@ -186,6 +193,19 @@ $c: ".c-base-direction";
 
   #{$c}__action {
     margin-left: 38px;
+  }
+}
+
+// --> MEDIA-QUERIES <--
+
+@media (max-width: $screen-tiny-width-breakpoint) {
+  .c-base-direction {
+    flex-direction: column;
+
+    #{$c}__action {
+      margin-left: 0;
+      margin-top: 26px;
+    }
   }
 }
 </style>
