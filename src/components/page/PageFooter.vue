@@ -517,6 +517,10 @@ $alignments-margin-sides: 12px;
         flex: 1;
       }
 
+      #{$c}__left {
+        margin-right: 0;
+      }
+
       #{$c}__right {
         margin-left: 0;
       }
