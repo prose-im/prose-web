@@ -515,6 +515,13 @@ $menu-dropdown-offset-left: 60px;
 
 @media (max-width: $screen-tiny-width-breakpoint) {
   .c-page-header {
+    #{$c}__announcement {
+      #{$c}__announcement-description,
+      #{$c}__announcement-separator {
+        display: none;
+      }
+    }
+
     #{$c}__logo {
       height: 30px;
     }
