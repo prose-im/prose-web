@@ -504,7 +504,7 @@ $alignments-margin-sides: 12px;
       }
 
       #{$c}__segments {
-        padding-top: 50px;
+        padding-top: 54px;
 
         #{$c}__segment {
           margin-right: 18px;

@@ -371,6 +371,7 @@ $menu-dropdown-offset-left: 60px;
 
   #{$c}__logo {
     height: 32px;
+    margin-top: -2px;
   }
 
   #{$c}__menu {
@@ -514,6 +515,10 @@ $menu-dropdown-offset-left: 60px;
 
 @media (max-width: $screen-tiny-width-breakpoint) {
   .c-page-header {
+    #{$c}__logo {
+      height: 30px;
+    }
+
     #{$c}__middle {
       padding-right: 0;
     }
@@ -526,6 +531,22 @@ $menu-dropdown-offset-left: 60px;
 
 @media (max-width: $screen-lilliput-width-breakpoint) {
   .c-page-header {
+    #{$c}__logo {
+      height: 28px;
+    }
+
+    #{$c}__menu {
+      #{$c}__menu-item {
+        &:nth-child(2) {
+          margin-right: 0;
+        }
+
+        &:nth-child(n + 3) {
+          display: none;
+        }
+      }
+    }
+
     #{$c}__middle {
       justify-content: flex-end;
     }
