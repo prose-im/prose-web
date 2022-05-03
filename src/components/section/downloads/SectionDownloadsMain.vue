@@ -133,4 +133,14 @@ $c: ".c-section-downloads-main";
     }
   }
 }
+
+// --> MEDIA-QUERIES <--
+
+@media (max-width: 740px) {
+  .c-section-downloads-main {
+    #{$c}__rasters {
+      display: none;
+    }
+  }
+}
 </style>
