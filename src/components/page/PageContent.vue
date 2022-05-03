@@ -48,6 +48,7 @@ $c: ".c-page-content";
   background-color: $color-background-primary;
   padding-top: 62px;
   padding-bottom: 120px;
+  overflow: hidden;
 
   // --> BOOLEANS <--
 
