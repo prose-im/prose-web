@@ -55,4 +55,27 @@ $c: ".c-page-content";
     padding-top: 0;
   }
 }
+
+// --> MEDIA-QUERIES <--
+
+@media (max-width: $screen-small-width-breakpoint) {
+  .c-page-content {
+    padding-top: 50px;
+    padding-bottom: 100px;
+  }
+}
+
+@media (max-width: $screen-tiny-width-breakpoint) {
+  .c-page-content {
+    padding-top: 44px;
+    padding-bottom: 80px;
+  }
+}
+
+@media (max-width: $screen-lilliput-width-breakpoint) {
+  .c-page-content {
+    padding-top: 38px;
+    padding-bottom: 64px;
+  }
+}
 </style>
