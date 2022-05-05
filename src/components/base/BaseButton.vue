@@ -158,7 +158,6 @@ $size-huge-padding-sides: 38px;
   }
 
   #{$c}__inner {
-    font-size: 13.5px;
     padding-bottom: 2px;
     user-select: none;
     display: flex;
@@ -243,9 +242,27 @@ $size-huge-padding-sides: 38px;
 
   // --> SIZES <--
 
+  &--normal,
+  &--large,
+  &--huge {
+    #{$c}__inner {
+      line-height: 18px;
+    }
+  }
+
+  &--large,
+  &--huge {
+    #{$c}__inner {
+      padding-top: 13px;
+      padding-bottom: 15px;
+    }
+  }
+
   &--normal {
     #{$c}__inner {
-      line-height: 36px;
+      font-size: 13.5px;
+      padding-top: 9px;
+      padding-bottom: 11px;
       padding-left: $size-normal-padding-sides;
       padding-right: $size-normal-padding-sides;
     }
@@ -253,7 +270,6 @@ $size-huge-padding-sides: 38px;
 
   &--large {
     #{$c}__inner {
-      line-height: 44px;
       padding-left: $size-large-padding-sides;
       padding-right: $size-large-padding-sides;
     }
@@ -262,7 +278,6 @@ $size-huge-padding-sides: 38px;
   &--huge {
     #{$c}__inner {
       font-size: 14.5px;
-      line-height: 44px;
       padding-left: $size-huge-padding-sides;
       padding-right: $size-huge-padding-sides;
 
