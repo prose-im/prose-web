@@ -118,8 +118,11 @@
               class="c-page-footer__flag"
             )
 
-            span.c-page-footer__made-in
+            span.c-page-footer__made-in.c-page-footer__made-in--long
               | Crafted in the European Union
+
+            span.c-page-footer__made-in.c-page-footer__made-in--short
+              | Made in Europe
 </template>
 
 <!-- **********************************************************************
@@ -437,6 +440,12 @@ $alignments-margin-sides: 12px;
         margin-right: 5px;
         margin-top: -2.5px;
       }
+
+      #{$c}__made-in {
+        &--short {
+          display: none;
+        }
+      }
     }
   }
 
@@ -555,13 +564,23 @@ $alignments-margin-sides: 12px;
   .c-page-footer {
     #{$c}__copyright {
       #{$c}__crafted {
-        #{$c}__flag {
-          margin-right: 0;
-        }
-
         #{$c}__made-in {
-          display: none;
+          &--long {
+            display: none;
+          }
+
+          &--short {
+            display: inline-block;
+          }
         }
+      }
+
+      #{$c}__left {
+        display: none;
+      }
+
+      #{$c}__middle {
+        text-align: left;
       }
     }
   }

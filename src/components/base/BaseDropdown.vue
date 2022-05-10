@@ -121,4 +121,15 @@ $arrow-size: 8px;
     }
   }
 }
+
+// --> MEDIA-QUERIES <--
+
+@media (max-width: $screen-tiny-width-breakpoint) {
+  .c-base-dropdown {
+    #{$c}__inner {
+      padding-left: 22px;
+      padding-right: 18px;
+    }
+  }
+}
 </style>
