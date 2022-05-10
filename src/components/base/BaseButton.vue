@@ -158,6 +158,7 @@ $size-huge-padding-sides: 38px;
   }
 
   #{$c}__inner {
+    text-align: center;
     padding-bottom: 2px;
     user-select: none;
     display: flex;

@@ -111,6 +111,7 @@ $illustration-margin-side: 90px;
 
   #{$c}__illustration {
     text-align: center;
+    position: relative;
   }
 
   // --> ALIGNS <--
