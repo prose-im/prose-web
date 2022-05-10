@@ -441,6 +441,10 @@ $actions-margin-top-base: 65px;
         }
       }
     }
+
+    #{$c}__actions {
+      margin-top: ($actions-margin-top-base - 7px);
+    }
   }
 }
 

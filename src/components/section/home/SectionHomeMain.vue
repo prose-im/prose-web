@@ -516,6 +516,13 @@ $app-screenshot-appear-before-duration: 150ms;
       }
     }
 
+    #{$c}__pitch {
+      #{$c}__pitch-line {
+        font-size: 16px;
+        line-height: 25px;
+      }
+    }
+
     #{$c}__points {
       margin-top: 54px;
       padding: 0 20px;

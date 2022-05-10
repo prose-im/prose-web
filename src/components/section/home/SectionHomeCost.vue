@@ -157,7 +157,7 @@ $illustration-terminal-screen-max-width: (
 @media (max-width: $illustration-terminal-screen-max-width) {
   .c-section-home-cost {
     #{$c}__illustration {
-      margin-top: -16px;
+      margin: -16px 0;
       transform: translateX(-50%) scale(0.9);
       left: 50%;
     }
@@ -167,7 +167,7 @@ $illustration-terminal-screen-max-width: (
 @media (max-width: ($illustration-terminal-screen-max-width - 25px)) {
   .c-section-home-cost {
     #{$c}__illustration {
-      margin-top: -32px;
+      margin: -32px 0;
       transform: translateX(-50%) scale(0.8);
     }
   }
@@ -176,7 +176,7 @@ $illustration-terminal-screen-max-width: (
 @media (max-width: ($illustration-terminal-screen-max-width - 50px)) {
   .c-section-home-cost {
     #{$c}__illustration {
-      margin-top: -52px;
+      margin: -52px 0;
       transform: translateX(-50%) scale(0.7);
     }
   }
