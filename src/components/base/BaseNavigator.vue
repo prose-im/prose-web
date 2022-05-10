@@ -76,14 +76,20 @@ export default {
 <style lang="scss">
 $c: ".c-base-navigator";
 
+// VARIABLES
+$navigator-padding-top-bottom: 6px;
+$navigator-item-margin-bottom: 4px;
+
 .c-base-navigator {
-  background: rgba($color-white, 0.1);
+  background-color: rgba($color-white, 0.1);
+  text-align: center;
   user-select: none;
-  padding: 6px 7px;
+  padding: $navigator-padding-top-bottom 7px
+    ($navigator-padding-top-bottom - $navigator-item-margin-bottom);
 
   &,
   #{$c}__button {
-    border-radius: 32px;
+    border-radius: 24px;
   }
 
   #{$c}__item,
@@ -93,6 +99,7 @@ $c: ".c-base-navigator";
 
   #{$c}__item {
     margin-right: 3px;
+    margin-bottom: $navigator-item-margin-bottom;
 
     &:last-child {
       margin-right: 0;
