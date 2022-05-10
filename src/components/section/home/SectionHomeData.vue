@@ -133,7 +133,8 @@ $c: ".c-section-home-data";
 
 // VARIABLE
 $center-size: 160px;
-$orbit-size: 380px;
+$orbit-size-default: 380px;
+$orbit-size-small: 320px;
 $satellites-animation-duration: 120s;
 $satellite-shade-offset: 32px;
 
@@ -256,10 +257,23 @@ $satellite-shade-offset: 32px;
 
     #{$c}__illustration-orbit {
       border: 2px dashed rgba($color-base-grey-mid, 0.2);
-      width: $orbit-size;
-      height: $orbit-size;
+      width: $orbit-size-default;
+      height: $orbit-size-default;
       position: relative;
       border-radius: 100%;
+    }
+  }
+}
+
+// --> MEDIA-QUERIES <--
+
+@media (max-width: ($orbit-size-default + 70px)) {
+  .c-section-home-data {
+    #{$c}__illustration {
+      #{$c}__illustration-orbit {
+        width: $orbit-size-small;
+        height: $orbit-size-small;
+      }
     }
   }
 }
