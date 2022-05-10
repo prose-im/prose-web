@@ -12,7 +12,7 @@
   .c-section-contact-main
     page-wrapper
       base-title(
-        level="small"
+        level="mini"
         align="center"
         class="c-section-contact-main__title"
       )

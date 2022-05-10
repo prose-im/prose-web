@@ -12,7 +12,7 @@
   .c-section-terms-main
     page-wrapper
       base-title(
-        level="small"
+        level="mini"
         align="center"
         class="c-section-terms-main__title"
       )
@@ -92,7 +92,7 @@ $c: ".c-section-terms-main";
     color: $color-base-grey-dark;
     line-height: 22px;
     font-style: italic;
-    margin-top: 1px;
+    margin-top: 3px;
   }
 
   #{$c}__disclaimer-wrap {
