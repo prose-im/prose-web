@@ -63,4 +63,20 @@ $grid-spacing: 28px;
     }
   }
 }
+
+// --> MEDIA-QUERIES <--
+
+@media (max-width: $screen-small-width-breakpoint) {
+  .c-base-bulletpoint-grid {
+    #{$c}__line {
+      margin-bottom: 0;
+      display: block;
+
+      & > * {
+        margin-right: 0;
+        margin-bottom: $grid-spacing;
+      }
+    }
+  }
+}
 </style>
