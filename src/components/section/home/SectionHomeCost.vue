@@ -157,6 +157,7 @@ $illustration-terminal-screen-max-width: (
 @media (max-width: $illustration-terminal-screen-max-width) {
   .c-section-home-cost {
     #{$c}__illustration {
+      margin-top: -16px;
       transform: translateX(-50%) scale(0.9);
       left: 50%;
     }
@@ -166,6 +167,7 @@ $illustration-terminal-screen-max-width: (
 @media (max-width: ($illustration-terminal-screen-max-width - 25px)) {
   .c-section-home-cost {
     #{$c}__illustration {
+      margin-top: -32px;
       transform: translateX(-50%) scale(0.8);
     }
   }
@@ -174,6 +176,7 @@ $illustration-terminal-screen-max-width: (
 @media (max-width: ($illustration-terminal-screen-max-width - 50px)) {
   .c-section-home-cost {
     #{$c}__illustration {
+      margin-top: -52px;
       transform: translateX(-50%) scale(0.7);
     }
   }

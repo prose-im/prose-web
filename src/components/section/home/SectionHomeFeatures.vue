@@ -157,6 +157,11 @@ $c: ".c-section-home-features";
   #{$c}__title {
     position: relative;
 
+    // Notice: this trick helps ensure that the spacing below the title does \
+    //   not get too large on mobile devices, as more than 2 lines will be \
+    //   occupied by the title. This is in part due to the flag raster beneath.
+    max-height: 88px;
+
     #{$c}__title-background {
       line-height: 0;
       display: flex;
