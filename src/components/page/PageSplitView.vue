@@ -26,8 +26,14 @@
         }
       ]`
     )
-      .c-page-split-view__sidebar(
+      div(
         :style="sidebarStyle"
+        :class=`[
+          "c-page-split-view__sidebar",
+          {
+            [sidebarClass]: sidebarClass
+          }
+        ]`
       )
         slot(
           name="sidebar"
@@ -64,6 +70,11 @@ export default {
     },
 
     wrapperClass: {
+      type: String,
+      default: null
+    },
+
+    sidebarClass: {
       type: String,
       default: null
     }

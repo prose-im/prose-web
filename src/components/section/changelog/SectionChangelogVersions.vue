@@ -14,6 +14,7 @@
       v-for="version in versions"
       :key="'version_' + version.version"
       :sidebar-width="sidebarWidth"
+      :sidebar-class="sidebarClass"
       class="c-section-changelog-versions__version"
     )
       div(
@@ -123,6 +124,11 @@ export default {
       default() {
         return [];
       }
+    },
+
+    sidebarClass: {
+      type: String,
+      default: null
     },
 
     contentClass: {
@@ -341,6 +347,7 @@ $version-dropdown-offset-left: 8px;
       #{$c}__version-target {
         color: $color-base-blue-link;
         font-size: 13.5px;
+        margin-left: 14px;
         flex: 0 0 auto;
         display: flex;
         align-items: center;
@@ -384,6 +391,24 @@ $version-dropdown-offset-left: 8px;
             color: $color-base-grey-mid;
             margin-right: 7px;
           }
+        }
+      }
+    }
+  }
+}
+
+// --> MEDIA-QUERIES <--
+
+@media (max-width: $screen-lilliput-width-breakpoint) {
+  .c-section-changelog-versions {
+    #{$c}__version {
+      #{$c}__version-downloads {
+        display: none;
+      }
+
+      #{$c}__version-metas {
+        #{$c}__version-target {
+          display: none;
         }
       }
     }
