@@ -88,6 +88,11 @@ $c: ".c-section-home-cost";
 
 // VARIABLES
 $illustration-coin-offset-bottom: 52px;
+$illustration-terminal-width: 475px;
+
+$illustration-terminal-screen-max-width: (
+  $illustration-terminal-width + (2 * $page-wrapper-lilliput-padding-sides)
+);
 
 .c-section-home-cost {
   padding-top: 75px;
@@ -137,12 +142,39 @@ $illustration-coin-offset-bottom: 52px;
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
-      width: 475px;
+      width: $illustration-terminal-width;
       height: 319px;
       border-radius: 7px;
       box-shadow: 0 24px 32px 0 rgba(#1e1b34, 0.12);
       position: relative;
       z-index: 0;
+    }
+  }
+}
+
+// --> MEDIA-QUERIES <--
+
+@media (max-width: $illustration-terminal-screen-max-width) {
+  .c-section-home-cost {
+    #{$c}__illustration {
+      transform: translateX(-50%) scale(0.9);
+      left: 50%;
+    }
+  }
+}
+
+@media (max-width: ($illustration-terminal-screen-max-width - 25px)) {
+  .c-section-home-cost {
+    #{$c}__illustration {
+      transform: translateX(-50%) scale(0.8);
+    }
+  }
+}
+
+@media (max-width: ($illustration-terminal-screen-max-width - 50px)) {
+  .c-section-home-cost {
+    #{$c}__illustration {
+      transform: translateX(-50%) scale(0.7);
     }
   }
 }
