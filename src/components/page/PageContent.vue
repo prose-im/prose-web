@@ -61,8 +61,10 @@ $c: ".c-page-content";
 
 @media (max-width: $screen-tiny-width-breakpoint) {
   .c-page-content {
-    padding-top: 52px;
-    padding-bottom: 90px;
+    &:not(#{$c}--showcase) {
+      padding-top: 52px;
+      padding-bottom: 90px;
+    }
   }
 }
 </style>
