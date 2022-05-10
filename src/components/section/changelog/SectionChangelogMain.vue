@@ -11,6 +11,7 @@
 <template lang="pug">
   page-split-view(
     :sidebar-width="sidebarWidth"
+    :sidebar-class="sidebarClass"
     class="c-section-changelog-main"
   )
     div(
@@ -90,6 +91,11 @@ export default {
       }
     },
 
+    sidebarClass: {
+      type: String,
+      default: null
+    },
+
     contentClass: {
       type: String,
       default: null
@@ -139,6 +145,18 @@ $c: ".c-section-changelog-main";
 
     #{$c}__navigate-years {
       margin-left: 14px;
+    }
+  }
+}
+
+// --> MEDIA-QUERIES <--
+
+@media (max-width: $screen-lilliput-width-breakpoint) {
+  .c-section-changelog-main {
+    #{$c}__sidebar {
+      #{$c}__sidebar-raster {
+        display: none;
+      }
     }
   }
 }

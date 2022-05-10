@@ -217,4 +217,19 @@ $c: ".c-section-terms-text";
     }
   }
 }
+
+// --> MEDIA-QUERIES <--
+
+@media (max-width: $screen-lilliput-width-breakpoint) {
+  .c-section-terms-text {
+    #{$c}__sections {
+      #{$c}__section {
+        &::after {
+          margin-left: 46px;
+          margin-right: 46px;
+        }
+      }
+    }
+  }
+}
 </style>

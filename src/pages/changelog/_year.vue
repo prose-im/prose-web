@@ -15,6 +15,7 @@
       :active-year="year"
       :sidebar-width="sidebarWidth"
       class="p-changelog-year__main"
+      sidebar-class="p-changelog-year__main-sidebar"
       content-class="p-changelog-year__main-content"
     )
 
@@ -22,12 +23,14 @@
       :versions="changes.versions"
       :sidebar-width="sidebarWidth"
       class="p-changelog-year__versions"
+      sidebar-class="p-changelog-year__versions-sidebar"
       content-class="p-changelog-year__versions-content"
     )
 
     section-changelog-background(
       :sidebar-width="sidebarWidth"
       class="p-changelog-year__background"
+      sidebar-class="p-changelog-year__background-sidebar"
     )
 </template>
 
@@ -107,7 +110,11 @@ export default {
 $c: ".p-changelog-year";
 
 // VARIABLES
-$content-padding-left: 70px;
+$content-padding-left-default: 70px;
+$content-padding-left-medium: 52px;
+$content-padding-left-small: 42px;
+$content-padding-left-tiny: 28px;
+$content-padding-left-lilliput: 22px;
 
 .p-changelog-year {
   #{$c}__main,
@@ -116,22 +123,67 @@ $content-padding-left: 70px;
     position: relative;
   }
 
-  #{$c}__main {
-    #{$c}__main-content {
-      padding-left: $content-padding-left;
-    }
+  #{$c}__main #{$c}__main-content,
+  #{$c}__versions #{$c}__versions-content {
+    padding-left: $content-padding-left-default;
   }
 
   #{$c}__versions {
     margin-top: 36px;
-
-    #{$c}__versions-content {
-      padding-left: $content-padding-left;
-    }
   }
 
   #{$c}__background {
     pointer-events: none;
+  }
+}
+
+// --> MEDIA-QUERIES <--
+
+@media (max-width: $screen-medium-width-breakpoint) {
+  .p-changelog-year {
+    #{$c}__main #{$c}__main-content,
+    #{$c}__versions #{$c}__versions-content {
+      padding-left: $content-padding-left-medium;
+    }
+  }
+}
+
+@media (max-width: $screen-small-width-breakpoint) {
+  .p-changelog-year {
+    #{$c}__main #{$c}__main-content,
+    #{$c}__versions #{$c}__versions-content {
+      padding-left: $content-padding-left-small;
+    }
+  }
+}
+
+@media (max-width: $screen-tiny-width-breakpoint) {
+  .p-changelog-year {
+    #{$c}__main #{$c}__main-content,
+    #{$c}__versions #{$c}__versions-content {
+      padding-left: $content-padding-left-tiny;
+    }
+
+    #{$c}__main #{$c}__main-sidebar,
+    #{$c}__versions #{$c}__versions-sidebar,
+    #{$c}__background #{$c}__background-sidebar {
+      max-width: 150px;
+    }
+  }
+}
+
+@media (max-width: $screen-lilliput-width-breakpoint) {
+  .p-changelog-year {
+    #{$c}__main #{$c}__main-content,
+    #{$c}__versions #{$c}__versions-content {
+      padding-left: $content-padding-left-lilliput;
+    }
+
+    #{$c}__main #{$c}__main-sidebar,
+    #{$c}__versions #{$c}__versions-sidebar,
+    #{$c}__background #{$c}__background-sidebar {
+      max-width: 92px;
+    }
   }
 }
 </style>
