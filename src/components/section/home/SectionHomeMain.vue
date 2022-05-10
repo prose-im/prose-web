@@ -458,7 +458,7 @@ $app-screenshot-appear-before-duration: 150ms;
       text-align: center;
 
       #{$c}__title-primary {
-        margin-top: -10px;
+        margin-top: -20px;
         padding-left: 20px;
         padding-right: 20px;
       }
@@ -502,8 +502,17 @@ $app-screenshot-appear-before-duration: 150ms;
   .c-section-home-main {
     #{$c}__punchline {
       #{$c}__title-primary {
+        font-size: 40px;
+        line-height: 44px;
+        letter-spacing: -0.3px;
+        margin-top: -40px;
         padding-left: 0;
         padding-right: 0;
+      }
+
+      #{$c}__title-secondary {
+        height: 94px;
+        margin-top: -14px;
       }
     }
 
