@@ -496,6 +496,16 @@ $menu-dropdown-offset-left: 60px;
 
 @media (max-width: $screen-small-width-breakpoint) {
   .c-page-header {
+    #{$c}__menu {
+      #{$c}__menu-item {
+        #{$c}__menu-link {
+          #{$c}__menu-dropdown {
+            min-width: 328px;
+          }
+        }
+      }
+    }
+
     #{$c}__left {
       flex: 0 0 auto;
     }
@@ -519,6 +529,16 @@ $menu-dropdown-offset-left: 60px;
       #{$c}__announcement-description,
       #{$c}__announcement-separator {
         display: none;
+      }
+    }
+
+    #{$c}__menu {
+      #{$c}__menu-item {
+        #{$c}__menu-link {
+          #{$c}__menu-dropdown {
+            min-width: 214px;
+          }
+        }
       }
     }
 
