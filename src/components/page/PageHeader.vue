@@ -199,7 +199,7 @@ export default {
         }
       ],
 
-      actionTarget: `${this.$config.url.prose_docs}/guides/`
+      actionTarget: `${this.$config.url.prose_docs}/guides/start/`
     };
   },
 

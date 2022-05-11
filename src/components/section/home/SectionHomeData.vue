@@ -117,8 +117,7 @@ export default {
         }
       ],
 
-      // TODO: bind proper page
-      actionTarget: `${this.$config.url.prose_docs}/guides/`
+      actionTarget: `${this.$config.url.prose_docs}/guides/others/security/`
     };
   }
 };

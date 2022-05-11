@@ -137,7 +137,6 @@
                 | .
 
           .c-section-home-showcase__direction-action
-            //- TODO: click event to start animation
             base-button(
               right-icon="arrow-right"
               tint="light"
@@ -147,7 +146,6 @@
               | {{ directionActionLabel }}
 
       .c-section-home-showcase__application
-        //- TODO: screenshot based on active section
         .c-section-home-showcase__application-window
           .c-section-home-showcase__application-window-contents
 
@@ -328,8 +326,6 @@ $c: ".c-section-home-showcase";
 
     #{$c}__direction-action {
       margin-left: 46px;
-
-      // TODO: disabled for now
       cursor: not-allowed;
 
       #{$c}__direction-button {

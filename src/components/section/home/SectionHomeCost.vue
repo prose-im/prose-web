@@ -73,7 +73,7 @@ export default {
     return {
       // --> DATA <--
 
-      actionTarget: `${this.$config.url.prose_docs}/guides/`
+      actionTarget: `${this.$config.url.prose_docs}/guides/server/`
     };
   }
 };
