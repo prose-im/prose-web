@@ -249,7 +249,7 @@ export default {
             },
 
             {
-              label: "Server Docs",
+              label: "Technical Docs",
               target: `${this.$config.url.prose_docs}/`
             },
 

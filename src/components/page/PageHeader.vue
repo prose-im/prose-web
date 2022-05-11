@@ -182,7 +182,7 @@ export default {
 
             {
               id: "docs",
-              title: "Server Docs",
+              title: "Technical Docs",
               label: "Resources for Prose server administrators",
               target: `${this.$config.url.prose_docs}/`,
               icon: ImageMenuDropdownHelpIconDocs
