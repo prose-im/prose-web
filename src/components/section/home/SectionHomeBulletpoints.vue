@@ -144,8 +144,7 @@ export default {
     return {
       // --> DATA <--
 
-      // TODO: bind proper page
-      actionTarget: `${this.$config.url.prose_docs}/guides/`
+      actionTarget: `${this.$config.url.prose_docs}/guides/others/comparisons/`
     };
   },
 

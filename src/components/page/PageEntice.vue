@@ -76,7 +76,7 @@ export default {
       // --> DATA <--
 
       actionTargets: {
-        start: `${this.$config.url.prose_docs}/guides/`
+        start: `${this.$config.url.prose_docs}/guides/start/`
       }
     };
   },
