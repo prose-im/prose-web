@@ -13,10 +13,6 @@
     "crisp_plugins": "https://plugins.crisp.chat"
   },
 
-  "email": {
-    "prose_careers": "careers@prose.org"
-  },
-
   "modifiers": {
     "announcement": true
   },

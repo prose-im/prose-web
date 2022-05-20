@@ -233,7 +233,7 @@ export default {
 
             {
               label: "Work with Us",
-              target: `mailto:${this.$config.email.prose_careers}`
+              target: "/contact/"
             }
           ]
         },
