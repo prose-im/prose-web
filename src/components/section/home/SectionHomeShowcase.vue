@@ -146,12 +146,13 @@
               | {{ directionActionLabel }}
 
       .c-section-home-showcase__application
-        .c-section-home-showcase__application-window
-          .c-section-home-showcase__application-window-contents
+        .c-section-home-showcase__application-group
+          .c-section-home-showcase__application-window
+            .c-section-home-showcase__application-window-contents
 
-          image-application-layout(
-            class="c-section-home-showcase__application-window-layout"
-          )
+            image-application-layout(
+              class="c-section-home-showcase__application-window-layout"
+            )
 
         .c-section-home-showcase__application-focus-label-wrap
           .c-section-home-showcase__application-focus-label.u-bold(
@@ -368,11 +369,15 @@ $c: ".c-section-home-showcase";
     margin-top: 54px;
     padding-bottom: 18px;
 
+    #{$c}__application-group {
+      position: relative;
+      z-index: 1;
+    }
+
     #{$c}__application-window {
       line-height: 0;
       overflow: hidden;
       position: relative;
-      z-index: 1;
       border-radius: 10px;
       box-shadow: 0 36px 100px 0 rgba($color-black, 0.4),
         0 0 3px 0 rgba($color-black, 0.55);
