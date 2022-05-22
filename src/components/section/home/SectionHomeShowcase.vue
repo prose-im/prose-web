@@ -146,12 +146,28 @@
               | {{ directionActionLabel }}
 
       .c-section-home-showcase__application
-        .c-section-home-showcase__application-window
-          .c-section-home-showcase__application-window-contents
-
-          image-application-layout(
-            class="c-section-home-showcase__application-window-layout"
+        .c-section-home-showcase__application-group
+          .c-section-home-showcase__application-popover-wrap(
+            v-if="applicationPopoverHtml"
           )
+            div(
+              :class=`[
+                "c-section-home-showcase__application-popover",
+                "c-section-home-showcase__application-popover--" + activeView.id
+              ]`
+            )
+              .c-section-home-showcase__application-popover-contents
+
+              .c-section-home-showcase__application-popover-layout(
+                v-html="applicationPopoverHtml"
+              )
+
+          .c-section-home-showcase__application-window
+            .c-section-home-showcase__application-window-contents
+
+            image-application-layout(
+              class="c-section-home-showcase__application-window-layout"
+            )
 
         .c-section-home-showcase__application-focus-label-wrap
           .c-section-home-showcase__application-focus-label.u-bold(
@@ -178,13 +194,18 @@ import ImageNavigatorIconFiles from "~/assets/images/components/section/home/Sec
 import ImageNavigatorIconEncryption from "~/assets/images/components/section/home/SectionHomeShowcase/navigator-icon-encryption.svg?raw";
 import ImageNavigatorIconPods from "~/assets/images/components/section/home/SectionHomeShowcase/navigator-icon-pods.svg?raw";
 
+import ImagePopoverCallsLayout from "~/assets/images/components/section/home/SectionHomeShowcase/popover-calls-layout.svg?raw";
+
 import ImageDirectionLogoXmpp from "~/assets/images/components/section/home/SectionHomeShowcase/direction-logo-xmpp.svg?inline";
 import ImageApplicationLayout from "~/assets/images/components/section/home/SectionHomeShowcase/application-layout.svg?inline";
 
 export default {
   name: "SectionHomeShowcase",
 
-  components: { ImageDirectionLogoXmpp, ImageApplicationLayout },
+  components: {
+    ImageDirectionLogoXmpp,
+    ImageApplicationLayout
+  },
 
   data() {
     return {
@@ -201,31 +222,36 @@ export default {
         {
           id: "messaging",
           label: "Messaging",
-          iconHtml: ImageNavigatorIconMessaging
+          iconHtml: ImageNavigatorIconMessaging,
+          popoverHtml: null
         },
 
         {
           id: "calls",
           label: "Calls",
-          iconHtml: ImageNavigatorIconCalls
+          iconHtml: ImageNavigatorIconCalls,
+          popoverHtml: ImagePopoverCallsLayout
         },
 
         {
           id: "files",
           label: "Files",
-          iconHtml: ImageNavigatorIconFiles
+          iconHtml: ImageNavigatorIconFiles,
+          popoverHtml: null
         },
 
         {
           id: "encryption",
           label: "Encryption",
-          iconHtml: ImageNavigatorIconEncryption
+          iconHtml: ImageNavigatorIconEncryption,
+          popoverHtml: null
         },
 
         {
           id: "pods",
           label: "Prose Pods",
-          iconHtml: ImageNavigatorIconPods
+          iconHtml: ImageNavigatorIconPods,
+          popoverHtml: null
         }
       ],
 
@@ -239,6 +265,12 @@ export default {
         (this.navigatorItems[this.activeView.index] || {}).label || "(?)";
 
       return `See more on ${_label}`;
+    },
+
+    applicationPopoverHtml() {
+      return (
+        (this.navigatorItems[this.activeView.index] || {}).popoverHtml || null
+      );
     },
 
     applicationFocusLabel() {
@@ -368,21 +400,32 @@ $c: ".c-section-home-showcase";
     margin-top: 54px;
     padding-bottom: 18px;
 
-    #{$c}__application-window {
-      line-height: 0;
-      overflow: hidden;
+    #{$c}__application-group {
       position: relative;
       z-index: 1;
+    }
+
+    #{$c}__application-window #{$c}__application-window-contents,
+    #{$c}__application-window #{$c}__application-window-layout,
+    #{$c}__application-popover #{$c}__application-popover-contents,
+    #{$c}__application-popover #{$c}__application-popover-layout {
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    #{$c}__application-window,
+    #{$c}__application-popover {
+      line-height: 0;
+      overflow: hidden;
       border-radius: 10px;
+    }
+
+    #{$c}__application-window {
+      position: relative;
+      z-index: 1;
       box-shadow: 0 36px 100px 0 rgba($color-black, 0.4),
         0 0 3px 0 rgba($color-black, 0.55);
-
-      #{$c}__application-window-contents,
-      #{$c}__application-window-layout {
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-      }
 
       #{$c}__application-window-contents {
         background-image: url("~/assets/images/components/section/home/SectionHomeShowcase/application-contents.webp");
@@ -398,6 +441,55 @@ $c: ".c-section-home-showcase";
         background-image: url("~/assets/images/components/section/home/SectionHomeShowcase/application-window.webp");
         width: 100%;
         height: auto;
+      }
+    }
+
+    #{$c}__application-popover-wrap {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 2;
+    }
+
+    #{$c}__application-popover {
+      animation-name: fadeInUp;
+      animation-duration: 250ms;
+      animation-fill-mode: both;
+
+      #{$c}__application-popover-contents {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
+
+      #{$c}__application-popover-layout {
+        background-color: #ececec;
+
+        svg {
+          width: 100%;
+          height: auto;
+        }
+      }
+
+      &--calls {
+        max-width: 520px;
+        width: 45%;
+        margin-top: 13%;
+        margin-left: 12.5%;
+        box-shadow: 0 8px 40px 0 rgba($color-black, 0.25),
+          0 0 3px 0 rgba($color-black, 0.55);
+
+        #{$c}__application-popover-contents {
+          background-image: url("~/assets/images/components/section/home/SectionHomeShowcase/popover-calls-contents.webp");
+        }
+
+        #{$c}__application-popover-layout {
+          background-color: #343434;
+        }
       }
     }
 
@@ -465,7 +557,8 @@ $c: ".c-section-home-showcase";
 @media (max-width: $screen-medium-width-breakpoint) {
   .c-section-home-showcase {
     #{$c}__application {
-      #{$c}__application-window {
+      #{$c}__application-window,
+      #{$c}__application-popover {
         border-radius: 8px;
       }
     }
@@ -481,7 +574,8 @@ $c: ".c-section-home-showcase";
     }
 
     #{$c}__application {
-      #{$c}__application-window {
+      #{$c}__application-window,
+      #{$c}__application-popover {
         border-radius: 6px;
       }
     }
@@ -504,7 +598,8 @@ $c: ".c-section-home-showcase";
     }
 
     #{$c}__application {
-      #{$c}__application-window {
+      #{$c}__application-window,
+      #{$c}__application-popover {
         border-radius: 4px;
       }
     }
@@ -514,10 +609,25 @@ $c: ".c-section-home-showcase";
 @media (max-width: $screen-lilliput-width-breakpoint) {
   .c-section-home-showcase {
     #{$c}__application {
-      #{$c}__application-window {
+      #{$c}__application-window,
+      #{$c}__application-popover {
         border-radius: 3px;
       }
     }
+  }
+}
+
+// --> KEYFRAMES <--
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  50%,
+  100% {
+    opacity: 1;
   }
 }
 </style>
