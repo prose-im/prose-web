@@ -419,10 +419,16 @@ $c: ".c-section-home-showcase";
     }
 
     #{$c}__application-window,
-    #{$c}__application-popover {
-      line-height: 0;
+    #{$c}__application-popover,
+    #{$c}__application-popover #{$c}__application-popover-layout,
+    #{$c}__application-popover #{$c}__application-popover-contents {
       overflow: hidden;
       border-radius: 10px;
+    }
+
+    #{$c}__application-window,
+    #{$c}__application-popover {
+      line-height: 0;
     }
 
     #{$c}__application-window {
@@ -542,8 +548,22 @@ $c: ".c-section-home-showcase";
         position: absolute;
         right: 0.25%;
         bottom: 25%;
+        overflow: visible;
         box-shadow: 0 8px 40px 0 rgba($color-black, 0.25),
           0 0 3px 0 rgba($color-black, 0.55);
+
+        &::after {
+          content: "";
+          background-image: url("~/assets/images/components/section/home/SectionHomeShowcase/popover-encryption-arrow.svg?data");
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+          width: 5%;
+          height: 3.25%;
+          position: absolute;
+          right: 2.3%;
+          top: calc(100% - 1px);
+        }
 
         #{$c}__application-popover-contents {
           background-image: url("~/assets/images/components/section/home/SectionHomeShowcase/popover-encryption-contents.webp");
@@ -616,7 +636,9 @@ $c: ".c-section-home-showcase";
   .c-section-home-showcase {
     #{$c}__application {
       #{$c}__application-window,
-      #{$c}__application-popover {
+      #{$c}__application-popover,
+      #{$c}__application-popover #{$c}__application-popover-layout,
+      #{$c}__application-popover #{$c}__application-popover-contents {
         border-radius: 8px;
       }
 
@@ -641,7 +663,9 @@ $c: ".c-section-home-showcase";
 
     #{$c}__application {
       #{$c}__application-window,
-      #{$c}__application-popover {
+      #{$c}__application-popover,
+      #{$c}__application-popover #{$c}__application-popover-layout,
+      #{$c}__application-popover #{$c}__application-popover-contents {
         border-radius: 6px;
       }
 
@@ -673,7 +697,9 @@ $c: ".c-section-home-showcase";
 
     #{$c}__application {
       #{$c}__application-window,
-      #{$c}__application-popover {
+      #{$c}__application-popover,
+      #{$c}__application-popover #{$c}__application-popover-layout,
+      #{$c}__application-popover #{$c}__application-popover-contents {
         border-radius: 4px;
       }
 
@@ -692,7 +718,9 @@ $c: ".c-section-home-showcase";
   .c-section-home-showcase {
     #{$c}__application {
       #{$c}__application-window,
-      #{$c}__application-popover {
+      #{$c}__application-popover,
+      #{$c}__application-popover #{$c}__application-popover-layout,
+      #{$c}__application-popover #{$c}__application-popover-contents {
         border-radius: 3px;
       }
     }
