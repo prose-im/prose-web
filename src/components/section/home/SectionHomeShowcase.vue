@@ -147,18 +147,20 @@
 
       .c-section-home-showcase__application
         .c-section-home-showcase__application-group
-          div(
+          .c-section-home-showcase__application-popover-wrap(
             v-if="applicationPopoverHtml"
-            :class=`[
-              "c-section-home-showcase__application-popover",
-              "c-section-home-showcase__application-popover--" + activeView.id
-            ]`
           )
-            .c-section-home-showcase__application-popover-contents
-
-            .c-section-home-showcase__application-popover-layout(
-              v-html="applicationPopoverHtml"
+            div(
+              :class=`[
+                "c-section-home-showcase__application-popover",
+                "c-section-home-showcase__application-popover--" + activeView.id
+              ]`
             )
+              .c-section-home-showcase__application-popover-contents
+
+              .c-section-home-showcase__application-popover-layout(
+                v-html="applicationPopoverHtml"
+              )
 
           .c-section-home-showcase__application-window
             .c-section-home-showcase__application-window-contents
@@ -416,12 +418,12 @@ $c: ".c-section-home-showcase";
     #{$c}__application-popover {
       line-height: 0;
       overflow: hidden;
+      border-radius: 10px;
     }
 
     #{$c}__application-window {
       position: relative;
       z-index: 1;
-      border-radius: 10px;
       box-shadow: 0 36px 100px 0 rgba($color-black, 0.4),
         0 0 3px 0 rgba($color-black, 0.55);
 
@@ -442,9 +444,16 @@ $c: ".c-section-home-showcase";
       }
     }
 
-    #{$c}__application-popover {
+    #{$c}__application-popover-wrap {
       position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
       z-index: 2;
+    }
+
+    #{$c}__application-popover {
       animation-name: fadeInUp;
       animation-duration: 250ms;
       animation-fill-mode: both;
@@ -459,14 +468,18 @@ $c: ".c-section-home-showcase";
 
       #{$c}__application-popover-layout {
         background-color: #ececec;
-        width: 100%;
-        height: auto;
+
+        svg {
+          width: 100%;
+          height: auto;
+        }
       }
 
       &--calls {
-        top: 150px;
-        left: 145px;
-        border-radius: 10px;
+        max-width: 520px;
+        width: 45%;
+        margin-top: 13%;
+        margin-left: 12.5%;
         box-shadow: 0 8px 40px 0 rgba($color-black, 0.25),
           0 0 3px 0 rgba($color-black, 0.55);
 
@@ -544,7 +557,8 @@ $c: ".c-section-home-showcase";
 @media (max-width: $screen-medium-width-breakpoint) {
   .c-section-home-showcase {
     #{$c}__application {
-      #{$c}__application-window {
+      #{$c}__application-window,
+      #{$c}__application-popover {
         border-radius: 8px;
       }
     }
@@ -560,7 +574,8 @@ $c: ".c-section-home-showcase";
     }
 
     #{$c}__application {
-      #{$c}__application-window {
+      #{$c}__application-window,
+      #{$c}__application-popover {
         border-radius: 6px;
       }
     }
@@ -583,7 +598,8 @@ $c: ".c-section-home-showcase";
     }
 
     #{$c}__application {
-      #{$c}__application-window {
+      #{$c}__application-window,
+      #{$c}__application-popover {
         border-radius: 4px;
       }
     }
@@ -593,7 +609,8 @@ $c: ".c-section-home-showcase";
 @media (max-width: $screen-lilliput-width-breakpoint) {
   .c-section-home-showcase {
     #{$c}__application {
-      #{$c}__application-window {
+      #{$c}__application-window,
+      #{$c}__application-popover {
         border-radius: 3px;
       }
     }
