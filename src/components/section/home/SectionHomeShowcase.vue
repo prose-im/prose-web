@@ -197,6 +197,7 @@ import ImageNavigatorIconPods from "~/assets/images/components/section/home/Sect
 
 import ImagePopoverCallsLayout from "~/assets/images/components/section/home/SectionHomeShowcase/popover-calls-layout.svg?raw";
 import ImagePopoverFilesLayout from "~/assets/images/components/section/home/SectionHomeShowcase/popover-files-layout.svg?raw";
+import ImagePopoverEncryptionLayout from "~/assets/images/components/section/home/SectionHomeShowcase/popover-encryption-layout.svg?raw";
 
 import ImageDirectionLogoXmpp from "~/assets/images/components/section/home/SectionHomeShowcase/direction-logo-xmpp.svg?inline";
 import ImageApplicationLayout from "~/assets/images/components/section/home/SectionHomeShowcase/application-layout.svg?inline";
@@ -246,7 +247,7 @@ export default {
           id: "encryption",
           label: "Encryption",
           iconHtml: ImageNavigatorIconEncryption,
-          popoverHtml: null
+          popoverHtml: ImagePopoverEncryptionLayout
         },
 
         {
@@ -485,6 +486,16 @@ $c: ".c-section-home-showcase";
         }
       }
 
+      &--files,
+      &--encryption {
+        background-color: rgba(#f6f6f6, 0.65);
+        backdrop-filter: blur(30px);
+
+        #{$c}__application-popover-layout {
+          background-color: transparent;
+        }
+      }
+
       &--calls {
         max-width: 520px;
         width: 45%;
@@ -503,8 +514,6 @@ $c: ".c-section-home-showcase";
       }
 
       &--files {
-        background-color: rgba(#f6f6f6, 0.65);
-        backdrop-filter: blur(30px);
         margin-top: 3.5%;
         margin-left: 10%;
         margin-right: 10%;
@@ -525,9 +534,19 @@ $c: ".c-section-home-showcase";
             right: 0.75%;
           }
         }
+      }
 
-        #{$c}__application-popover-layout {
-          background-color: transparent;
+      &--encryption {
+        max-width: 480px;
+        width: 42%;
+        position: absolute;
+        right: 0.25%;
+        bottom: 25%;
+        box-shadow: 0 8px 40px 0 rgba($color-black, 0.25),
+          0 0 3px 0 rgba($color-black, 0.55);
+
+        #{$c}__application-popover-contents {
+          background-image: url("~/assets/images/components/section/home/SectionHomeShowcase/popover-encryption-contents.webp");
         }
       }
     }
