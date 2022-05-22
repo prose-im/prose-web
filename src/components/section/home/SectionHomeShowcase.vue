@@ -198,6 +198,7 @@ import ImageNavigatorIconPods from "~/assets/images/components/section/home/Sect
 import ImagePopoverCallsLayout from "~/assets/images/components/section/home/SectionHomeShowcase/popover-calls-layout.svg?raw";
 import ImagePopoverFilesLayout from "~/assets/images/components/section/home/SectionHomeShowcase/popover-files-layout.svg?raw";
 import ImagePopoverEncryptionLayout from "~/assets/images/components/section/home/SectionHomeShowcase/popover-encryption-layout.svg?raw";
+import ImagePopoverPodsLayout from "~/assets/images/components/section/home/SectionHomeShowcase/popover-pods-layout.svg?raw";
 
 import ImageDirectionLogoXmpp from "~/assets/images/components/section/home/SectionHomeShowcase/direction-logo-xmpp.svg?inline";
 import ImageApplicationLayout from "~/assets/images/components/section/home/SectionHomeShowcase/application-layout.svg?inline";
@@ -254,7 +255,7 @@ export default {
           id: "pods",
           label: "Prose Pods",
           iconHtml: ImageNavigatorIconPods,
-          popoverHtml: null
+          popoverHtml: ImagePopoverPodsLayout
         }
       ],
 
@@ -295,7 +296,7 @@ export default {
         }
 
         case "pods": {
-          return "Setup your Prose Pod server in minutes";
+          return "Connect to multiple Prose Pods (XMPP servers)";
         }
 
         default: {
@@ -502,13 +503,23 @@ $c: ".c-section-home-showcase";
         }
       }
 
+      &--files,
+      &--pods {
+        box-shadow: 0 36px 100px 0 rgba($color-black, 0.4),
+          0 0 3px 0 rgba($color-black, 0.55);
+      }
+
+      &--calls,
+      &--encryption {
+        box-shadow: 0 8px 40px 0 rgba($color-black, 0.25),
+          0 0 3px 0 rgba($color-black, 0.55);
+      }
+
       &--calls {
         max-width: 520px;
         width: 45%;
         margin-top: 13%;
         margin-left: 12.5%;
-        box-shadow: 0 8px 40px 0 rgba($color-black, 0.25),
-          0 0 3px 0 rgba($color-black, 0.55);
 
         #{$c}__application-popover-contents {
           background-image: url("~/assets/images/components/section/home/SectionHomeShowcase/popover-calls-contents.webp");
@@ -523,8 +534,6 @@ $c: ".c-section-home-showcase";
         margin-top: 3.5%;
         margin-left: 10%;
         margin-right: 10%;
-        box-shadow: 0 36px 100px 0 rgba($color-black, 0.4),
-          0 0 3px 0 rgba($color-black, 0.55);
 
         #{$c}__application-popover-contents {
           background-image: url("~/assets/images/components/section/home/SectionHomeShowcase/popover-files-contents.webp");
@@ -549,8 +558,6 @@ $c: ".c-section-home-showcase";
         right: 0.25%;
         bottom: 25%;
         overflow: visible;
-        box-shadow: 0 8px 40px 0 rgba($color-black, 0.25),
-          0 0 3px 0 rgba($color-black, 0.55);
 
         &::after {
           content: "";
@@ -567,6 +574,18 @@ $c: ".c-section-home-showcase";
 
         #{$c}__application-popover-contents {
           background-image: url("~/assets/images/components/section/home/SectionHomeShowcase/popover-encryption-contents.webp");
+        }
+      }
+
+      &--pods {
+        max-width: 580px;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 1.15%;
+
+        #{$c}__application-popover-contents {
+          background-image: url("~/assets/images/components/section/home/SectionHomeShowcase/popover-pods-contents.webp");
         }
       }
     }
