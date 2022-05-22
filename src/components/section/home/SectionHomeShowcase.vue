@@ -148,7 +148,8 @@
       .c-section-home-showcase__application
         .c-section-home-showcase__application-group
           .c-section-home-showcase__application-popover-wrap(
-            v-if="applicationPopoverHtml"
+            v-if="applicationPopoverHtml",
+            :key="'popover_' + activeView.id"
           )
             div(
               :class=`[
@@ -195,6 +196,7 @@ import ImageNavigatorIconEncryption from "~/assets/images/components/section/hom
 import ImageNavigatorIconPods from "~/assets/images/components/section/home/SectionHomeShowcase/navigator-icon-pods.svg?raw";
 
 import ImagePopoverCallsLayout from "~/assets/images/components/section/home/SectionHomeShowcase/popover-calls-layout.svg?raw";
+import ImagePopoverFilesLayout from "~/assets/images/components/section/home/SectionHomeShowcase/popover-files-layout.svg?raw";
 
 import ImageDirectionLogoXmpp from "~/assets/images/components/section/home/SectionHomeShowcase/direction-logo-xmpp.svg?inline";
 import ImageApplicationLayout from "~/assets/images/components/section/home/SectionHomeShowcase/application-layout.svg?inline";
@@ -237,7 +239,7 @@ export default {
           id: "files",
           label: "Files",
           iconHtml: ImageNavigatorIconFiles,
-          popoverHtml: null
+          popoverHtml: ImagePopoverFilesLayout
         },
 
         {
@@ -405,10 +407,11 @@ $c: ".c-section-home-showcase";
       z-index: 1;
     }
 
-    #{$c}__application-window #{$c}__application-window-contents,
     #{$c}__application-window #{$c}__application-window-layout,
+    #{$c}__application-window #{$c}__application-window-contents,
+    #{$c}__application-popover #{$c}__application-popover-layout,
     #{$c}__application-popover #{$c}__application-popover-contents,
-    #{$c}__application-popover #{$c}__application-popover-layout {
+    #{$c}__application-popover #{$c}__application-popover-contents::after {
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
@@ -459,11 +462,18 @@ $c: ".c-section-home-showcase";
       animation-fill-mode: both;
 
       #{$c}__application-popover-contents {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
+        &,
+        &::after {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+        }
+
+        &::after {
+          border-radius: 6px;
+        }
       }
 
       #{$c}__application-popover-layout {
@@ -489,6 +499,35 @@ $c: ".c-section-home-showcase";
 
         #{$c}__application-popover-layout {
           background-color: #343434;
+        }
+      }
+
+      &--files {
+        background-color: rgba(#f6f6f6, 0.65);
+        backdrop-filter: blur(30px);
+        margin-top: 3.5%;
+        margin-left: 10%;
+        margin-right: 10%;
+        box-shadow: 0 36px 100px 0 rgba($color-black, 0.4),
+          0 0 3px 0 rgba($color-black, 0.55);
+
+        #{$c}__application-popover-contents {
+          background-image: url("~/assets/images/components/section/home/SectionHomeShowcase/popover-files-contents.webp");
+
+          &::after {
+            content: "";
+            background-color: #211751;
+            background-image: url("~/assets/images/components/section/home/SectionHomeShowcase/popover-files-image.webp");
+            background-size: cover;
+            top: 5.95%;
+            bottom: 1.1%;
+            left: 0.75%;
+            right: 0.75%;
+          }
+        }
+
+        #{$c}__application-popover-layout {
+          background-color: transparent;
         }
       }
     }
@@ -561,6 +600,14 @@ $c: ".c-section-home-showcase";
       #{$c}__application-popover {
         border-radius: 8px;
       }
+
+      #{$c}__application-popover {
+        #{$c}__application-popover-contents {
+          &::after {
+            border-radius: 5px;
+          }
+        }
+      }
     }
   }
 }
@@ -577,6 +624,14 @@ $c: ".c-section-home-showcase";
       #{$c}__application-window,
       #{$c}__application-popover {
         border-radius: 6px;
+      }
+
+      #{$c}__application-popover {
+        #{$c}__application-popover-contents {
+          &::after {
+            border-radius: 4px;
+          }
+        }
       }
     }
   }
@@ -601,6 +656,14 @@ $c: ".c-section-home-showcase";
       #{$c}__application-window,
       #{$c}__application-popover {
         border-radius: 4px;
+      }
+
+      #{$c}__application-popover {
+        #{$c}__application-popover-contents {
+          &::after {
+            border-radius: 3px;
+          }
+        }
       }
     }
   }
