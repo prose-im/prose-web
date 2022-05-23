@@ -640,6 +640,7 @@ $c: ".c-section-home-showcase";
     }
 
     #{$c}__image {
+      background-color: #3e9dd5;
       background-image: url("~/assets/images/components/section/home/SectionHomeShowcase/background-image.webp");
       background-size: cover;
       background-repeat: no-repeat;

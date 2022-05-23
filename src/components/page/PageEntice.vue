@@ -103,6 +103,7 @@ $c: ".c-page-entice";
   padding-bottom: 120px;
 
   #{$c}__box {
+    background-color: #5a4284;
     background-image: radial-gradient(
         circle at 45% 0%,
         rgba(#b3358b, 0.475) 0%,
