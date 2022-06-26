@@ -43,6 +43,9 @@ jobs:
       - name: Build website
         run: npm run build
 
+      - name: Archive build files
+        run: tar -zcvf ./build-${{ steps.current_revision.outputs.short }}.tar.gz build/
+
       - name: Deploy website
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_KEY_ID }}
@@ -55,5 +58,5 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: ${{ steps.current_revision.outputs.short }} Build
-          path: build/
+          path: ./build-${{ steps.current_revision.outputs.short }}.tar.gz
           retention-days: 7
