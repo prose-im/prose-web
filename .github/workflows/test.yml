@@ -22,7 +22,7 @@ jobs:
       - name: Verify versions
         run: node --version && npm --version && node -p process.versions.v8
 
-      - name: Cache build artifacts
+      - name: Cache build context
         id: cache-node
         uses: actions/cache@v2
         with:
