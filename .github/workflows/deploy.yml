@@ -30,6 +30,10 @@ jobs:
             node_modules
           key: ${{ runner.os }}-node
 
+      - name: Get current revision
+        id: current_revision
+        uses: pr-mpt/actions-commit-hash@v1
+
       - name: Install dependencies
         run: npm install --no-audit
 
@@ -46,3 +50,10 @@ jobs:
           AWS_EC2_METADATA_DISABLED: true
         run: |
           aws s3 sync --delete --endpoint-url ${{ secrets.S3_ENDPOINT }} build/ s3://${{ secrets.S3_BUCKET }}/${{ secrets.S3_SITE_DOMAIN }}/
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ steps.current_revision.outputs.short }} Build
+          path: build/
+          retention-days: 7
