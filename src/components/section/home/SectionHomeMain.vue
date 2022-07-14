@@ -573,18 +573,6 @@ $app-screenshot-appear-before-duration: 150ms;
   }
 }
 
-@supports (-moz-appearance: none) {
-  .c-section-home-main {
-    #{$c}__background {
-      // Hack: disable 'backdrop-filter' on background if Firefox, as Firefox \
-      //   currently does not support this property, even if it announces that \
-      //   it '@supports' it (is that a bug?). This is as of Firefox 99, and \
-      //   might get fixed in future versions.
-      display: none;
-    }
-  }
-}
-
 // --> KEYFRAMES <--
 
 @keyframes bounce {
