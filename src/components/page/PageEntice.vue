@@ -10,36 +10,55 @@
 
 <template lang="pug">
   .c-page-entice
-    page-wrapper
+    .c-page-entice__bg-illustration
+    page-wrapper(class="c-page-entice__wrapper")
+      base-title(level="large", tint="gradient", align="center")
+        | Up and running
+        br 
+        | in 2 minutes
+      .c-page-entice__options
+        .c-page-entice__option.c-page-entice__option-hosted
+          .c-page-entice__option-title
+            base-title(level="mini")
+              | We host it for you 
+            p We provide a one-click server hosted on our platform.
+          .c-page-entice__option-illustration
+        .c-page-entice__option.c-page-entice__option-free
+          .c-page-entice__option-title
+            base-title(level="mini")
+              | You host it for free
+            p Install a Prose server on your company’s premises for free.
+          .c-page-entice__option-illustration
+      
       .c-page-entice__box
         .c-page-entice__content
           .c-page-entice__content-inner
-            h1.c-page-entice__title.u-title.u-bold
-              | Get started with Prose for free
+            base-title(level="large", tint="light")
+              | Join the waitlist
 
             .c-page-entice__text
               p
-                | Join a growing decentralized messaging network of 100M+ users.
-
-              p.u-bold
-                | Create your server in a few clicks. Invite your team in no more.
+                | Available soon on all major devices.
 
             .c-page-entice__actions
-              a(
-                :href="actionTargets.start"
-                class="c-page-entice__action"
-              )
-                base-button(
-                  class="c-page-entice__action-button"
-                  size="large"
-                  right-icon="arrow-right"
-                  bolder
-                  darker
+              .c-page-entice__subscribe
+                input(type="email", class="c-page-entice__action-input")
+                a(
+                  :href="actionTargets.start"
+                  class="c-page-entice__action"
                 )
-                  | Start with Prose
+                  base-button(
+                    class="c-page-entice__action-button"
+                    size="large"
+                    right-icon="arrow-right"
+                    bolder
+                    darker
+                    tint="gradient"
+                  )
+                    | Submit
 
               nuxt-link(
-                v-if="hasActionDownload"
+                v-if="false"
                 class="c-page-entice__action c-page-entice__action--link u-medium"
                 to="/downloads/"
               )
@@ -48,14 +67,6 @@
                 )
 
                 | Download Prose Apps
-
-        .c-page-entice__illustration
-          base-app-icon(
-            size="420px"
-            radius="80px"
-            background-color="secondary"
-            class="c-page-entice__logo"
-          )
 </template>
 
 <!-- **********************************************************************
@@ -101,22 +112,85 @@ $c: ".c-page-entice";
   background-color: $color-background-primary;
   padding-top: 20px;
   padding-bottom: 120px;
+  position: relative;
+
+  #{$c}__wrapper {
+    z-index: 1;
+    position: relative;
+  }
+
+  #{$c}__bg-illustration {
+    background-image: url("@/assets/images/components/base/BaseWave/prose-wave-3.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    position: absolute;
+    opacity: 0.5;
+    bottom: 0; 
+    left: 0;
+    width: 100%;
+    height: 1800px;
+  }
+
+  #{$c}__options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin: 64px 0 40px;
+
+    #{$c}__option {
+      background: rgba(246, 247, 251, 0.9);
+      backdrop-filter: blur(16px);
+      border: 1px solid #81899b33;
+      overflow: hidden;
+      border-radius: 32px;
+
+      &-title {
+        padding: 48px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        p {
+          color: $color-base-blue-mid;
+        }
+      }
+
+      #{$c}__option-illustration {
+        height: 280px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: top left;
+      }
+
+      &-hosted {
+        #{$c}__option-illustration {
+          background-image: url("~/assets/images/components/page/PageEntice/hosted-by-prose.svg");
+        }
+      }
+
+      &-free {
+        #{$c}__option-illustration {
+          background-image: url("~/assets/images/components/page/PageEntice/free-hosting.svg");
+        }
+      }
+    }
+  }
 
   #{$c}__box {
-    background-color: #5a4284;
+    background-color: #181a1b;
     background-image: radial-gradient(
-        circle at 45% 0%,
-        rgba(#b3358b, 0.475) 0%,
-        rgba(#bf4598, 0.4) 35%,
-        rgba($color-white, 0) 100%
+        circle at 0% 0%,
+        rgba(#528feb, 0.475) 0%,
+        rgba(#528feb, 0.2) 35%,
+        rgba(#528feb, 0) 60%
       ),
-      linear-gradient(
-        -55deg,
-        rgba($color-white, 0) 0%,
-        rgba(#294f94, 0.75) 75%,
-        rgba(#051d46, 0.9) 100%
-      ),
-      linear-gradient(133deg, #3e4d80 0%, #415587 44%, #6edafd 100%);
+      radial-gradient(
+        circle at 100% 100%,
+        rgba(#9a6bbe, 0.475) 0%,
+        rgba(#9a6bbe, 0.2) 35%,
+        rgba(#9a6bbe, 0) 60%
+      );
 
     min-height: 320px;
     display: flex;
@@ -144,13 +218,13 @@ $c: ".c-page-entice";
   #{$c}__content {
     padding: 0 60px;
     flex: 1;
-    display: flex;
-    align-items: center;
 
     #{$c}__content-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       color: $color-white;
-      padding-top: 42px;
-      padding-bottom: 56px;
+      padding: 80px 0;
     }
 
     #{$c}__title {
@@ -160,19 +234,17 @@ $c: ".c-page-entice";
     }
 
     #{$c}__text {
-      font-size: 15.5px;
-      letter-spacing: -0.15px;
-      line-height: 26px;
-      text-align: justify;
+      font-size: 22px;
+      line-height: 22px;
       margin-top: 20px;
+      color: $color-base-blue-mid;
     }
 
     #{$c}__actions {
       margin-top: 44px;
+      min-width: 400px;
 
       #{$c}__action {
-        margin-right: 36px;
-
         &:last-child {
           margin-right: 0;
         }
@@ -193,21 +265,25 @@ $c: ".c-page-entice";
           }
         }
       }
-    }
-  }
 
-  #{$c}__illustration {
-    width: 35%;
-    flex: 0 0 auto;
-    position: relative;
+      #{$c}__subscribe {
+        display: flex;
+        padding: 4px 4px 4px 20px;
+        border: 1px solid #81899b;
+        border-radius: 32px;
+      }
 
-    #{$c}__logo {
-      position: absolute;
-      top: -38px;
-      right: 10px;
-      box-shadow: 0 2px 6px 0 rgba($color-black, 0.25),
-        0 4px 9px 0 rgba($color-black, 0.09);
-      transform: rotate(-25deg);
+      #{$c}__action-input {
+        background-color: transparent;
+        color: $color-white;
+        border: none;
+        flex-grow: 1;
+
+        &:focus,
+        &:active {
+          outline: none;
+        }
+      }
     }
   }
 }

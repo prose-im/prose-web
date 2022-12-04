@@ -13,10 +13,8 @@
     page-wrapper
       .c-page-footer__main
         .c-page-footer__left
-          base-logo(
-            class="c-page-footer__logo",
-            tint="black"
-            size="large"
+          base-new-logo(
+            class="c-page-footer__logo"
           )
 
           .c-page-footer__motto

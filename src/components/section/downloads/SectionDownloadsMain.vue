@@ -15,7 +15,7 @@
     template(
       slot="title"
     )
-      | Download Prose Apps
+      | Download Prose
 
     template(
       slot="description"
@@ -41,21 +41,6 @@
         base-space
 
         | for {{ platformName }}
-
-    .c-section-downloads-main__rasters(
-      slot="rasters"
-    )
-      base-raster(
-        :scale="0.75"
-        name="magnifier"
-        class="c-section-downloads-main__raster c-section-downloads-main__raster--magnifier"
-      )
-
-      base-raster(
-        :scale="0.65"
-        name="bell"
-        class="c-section-downloads-main__raster c-section-downloads-main__raster--bell"
-      )
 </template>
 
 <!-- **********************************************************************

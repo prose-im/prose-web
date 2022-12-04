@@ -8,21 +8,13 @@
  * ELEMENTS > FONTS
  * **************************************************************************/
 
-// Helvetica Neue
-
-@font-face {
-  font-weight: $font-weight-light;
-  font-style: normal;
-  font-family: $font-family-default;
-  src: url("~/assets/fonts/helvetica_neue/helvetica_neue_light.woff2")
-    format("woff2");
-}
+// Outfit
 
 @font-face {
   font-weight: $font-weight-regular;
   font-style: normal;
   font-family: $font-family-default;
-  src: url("~/assets/fonts/helvetica_neue/helvetica_neue_regular.woff2")
+  src: url("~/assets/fonts/outfit/outfit_regular.woff2")
     format("woff2");
 }
 
@@ -30,7 +22,7 @@
   font-weight: $font-weight-medium;
   font-style: normal;
   font-family: $font-family-default;
-  src: url("~/assets/fonts/helvetica_neue/helvetica_neue_medium.woff2")
+  src: url("~/assets/fonts/outfit/outfit_medium.woff2")
     format("woff2");
 }
 
@@ -38,39 +30,10 @@
   font-weight: $font-weight-bolder;
   font-style: normal;
   font-family: $font-family-default;
-  src: url("~/assets/fonts/helvetica_neue/helvetica_neue_bold.woff2")
+  src: url("~/assets/fonts/outfit/outfit_semibold.woff2")
     format("woff2");
 }
 
-// Sora
-
-@font-face {
-  font-weight: $font-weight-light;
-  font-style: normal;
-  font-family: $font-family-title;
-  src: url("~/assets/fonts/sora/sora_light.woff2") format("woff2");
-}
-
-@font-face {
-  font-weight: $font-weight-regular;
-  font-style: normal;
-  font-family: $font-family-title;
-  src: url("~/assets/fonts/sora/sora_regular.woff2") format("woff2");
-}
-
-@font-face {
-  font-weight: $font-weight-medium;
-  font-style: normal;
-  font-family: $font-family-title;
-  src: url("~/assets/fonts/sora/sora_medium.woff2") format("woff2");
-}
-
-@font-face {
-  font-weight: $font-weight-bolder;
-  font-style: normal;
-  font-family: $font-family-title;
-  src: url("~/assets/fonts/sora/sora_bold.woff2") format("woff2");
-}
 
 // Hack
 

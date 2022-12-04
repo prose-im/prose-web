@@ -46,7 +46,7 @@ $c: ".c-page-content";
 
 .c-page-content {
   background-color: $color-background-primary;
-  padding-top: 62px;
+  padding-top: 96px;
   padding-bottom: 120px;
   overflow: hidden;
 

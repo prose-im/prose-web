@@ -125,7 +125,7 @@ $c: ".c-base-benefit";
 
   #{$c}__label {
     color: darken($color-base-grey-dark, 15%);
-    font-size: 13.5px;
+    font-size: 14px;
     margin-top: 6px;
   }
 }

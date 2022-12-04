@@ -41,10 +41,8 @@
               nuxt-link(
                 to="/"
               )
-                base-logo(
-                  class="c-page-header__logo",
-                  tint="normal"
-                  size="large"
+                base-new-logo(
+                  class="c-page-header__logo"
                 )
 
             .c-page-header__middle
@@ -98,7 +96,7 @@
                   class="c-page-header__action-button"
                   right-icon="arrow-right"
                 )
-                  | Start with Prose
+                  | Join Waitlist
 
     .c-page-header__ghost(
       v-if="!embedded"
@@ -111,10 +109,6 @@
 
 <script>
 // PROJECT: IMAGES
-import ImageMenuItemDownload from "~/assets/images/components/page/PageHeader/menu-item-download.svg?raw";
-import ImageMenuItemChangelog from "~/assets/images/components/page/PageHeader/menu-item-changelog.svg?raw";
-import ImageMenuItemHelp from "~/assets/images/components/page/PageHeader/menu-item-help.svg?raw";
-
 import ImageMenuDropdownLinkArrow from "~/assets/images/components/page/PageHeader/menu-dropdown-link-arrow.svg?inline";
 
 import ImageMenuDropdownHelpIconHelp from "~/assets/images/components/page/PageHeader/menu-dropdown-help-icon-help.svg?raw";
@@ -154,21 +148,56 @@ export default {
       menuItems: [
         {
           id: "downloads",
-          icon: ImageMenuItemDownload,
           label: "Downloads",
           target: "/downloads/"
         },
 
         {
-          id: "changelog",
-          icon: ImageMenuItemChangelog,
-          label: "Changes",
-          target: "/changelog/"
+          id: "cases",
+          label: "Use Cases",
+
+          dropdown: [
+            {
+              id: "startup",
+              title: "Startup",
+              label: "Get your communication going",
+              target: "/use-cases/startup",
+              icon: ImageMenuDropdownHelpIconHelp
+            },
+
+            {
+              id: "smb",
+              title: "Small/Medium Business",
+              label: "See how prose can set you up for success",
+              target: "/use-cases/smbs",
+              icon: ImageMenuDropdownHelpIconDocs
+            }
+          ]
+        },
+
+        {
+          id: "company",
+          label: "Company",
+
+          dropdown: [
+            {
+              id: "about",
+              title: "About",
+              target: "/about/",
+              icon: ImageMenuDropdownHelpIconHelp
+            },
+
+            {
+              id: "blog",
+              title: "Blog",
+              target: "/blog/",
+              icon: ImageMenuDropdownHelpIconDocs
+            }
+          ]
         },
 
         {
           id: "help",
-          icon: ImageMenuItemHelp,
           label: "Get Help",
 
           dropdown: [
@@ -375,7 +404,7 @@ $menu-dropdown-offset-left: 60px;
   }
 
   #{$c}__menu {
-    font-size: 13.5px;
+    font-size: 14px;
     user-select: none;
     display: flex;
 

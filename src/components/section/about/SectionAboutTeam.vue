@@ -1,0 +1,226 @@
+<!--
+ * This file is part of prose-web
+ *
+ * Copyright 2022, Prose Foundation
+ -->
+
+<!-- **********************************************************************
+     TEMPLATE
+     ********************************************************************** -->
+
+<template lang="pug">
+
+    .c-section-about-team
+        .c-section-about-team__bg-illustration
+        page-wrapper(
+            class="c-section-about-team__inner"
+        )
+            base-title(
+                class="c-section-about-team__title"
+                tint="gradient"
+                level="large"
+                align="center"
+            )
+                | Meet the Team
+            
+            ul.c-section-about-team__members
+                li(
+                    v-for="(member, idx) in teamMembers"
+                    :key="idx"
+                    class="c-section-about-team__member"
+                )
+                    div(
+                        class="c-section-about-team__member-image"
+                        :style="{ 'background-image': 'url(' + member.imageUrl + ')' }"
+                    )
+                    .c-section-about-team__member-details
+                        h4.c-section-about-team__member-name.u-bold
+                            | {{ member.name }}
+                        p.c-section-about-team__member-position
+                            | {{ member.position }}
+                        ul.c-section-about-team__member-socials
+                            li(
+                                v-for="(socialItem, idx) in member.socials"
+                                :key="idx"
+                                class="c-section-about-team__member-socials"
+                            )
+                                a.c-section-about-team__member-social-link(
+                                    :href="socialItem.target"
+                                    target="_blank"
+                                )
+                                    span.c-section-about-team__member-social-icon(
+                                        v-if="socialItem.icon"
+                                        v-html="socialItem.icon"
+                                    )
+
+
+                
+        
+</template>
+
+<!-- **********************************************************************
+               SCRIPT
+               ********************************************************************** -->
+
+<script>
+import ImageSocialIconTwitter from "~/assets/images/components/page/PageFooter/social-icon-twitter.svg?raw";
+import ImageSocialIconGithub from "~/assets/images/components/page/PageFooter/social-icon-github.svg?raw";
+
+import ValerianPhoto from "~/assets/images/components/section/about/SectionAboutTeam/06.png?raw";
+import SaifPhoto from "~/assets/images/components/section/about/SectionAboutTeam/01.png?raw";
+import GuillaumePhoto from "~/assets/images/components/section/about/SectionAboutTeam/02.png?raw";
+import MarcPhoto from "~/assets/images/components/section/about/SectionAboutTeam/03.png?raw";
+
+export default {
+  name: "SectionAboutTeam",
+  data() {
+    return {
+      teamMembers: [
+        {
+          imageUrl: ValerianPhoto,
+          name: "Valerian Saliou",
+          position: "Founder",
+          socials: [
+            {
+              platform: "twitter",
+              icon: ImageSocialIconTwitter,
+              target: this.$config.url.twitter_prose
+            },
+
+            {
+              platform: "github",
+              icon: ImageSocialIconGithub,
+              target: this.$config.url.github_prose
+            }
+          ]
+        },
+        {
+          imageUrl: SaifPhoto,
+          name: "Saif Hafiani",
+          position: "Designer",
+          socials: [
+            {
+              platform: "twitter",
+              icon: ImageSocialIconTwitter,
+              target: this.$config.url.twitter_prose
+            },
+
+            {
+              platform: "github",
+              icon: ImageSocialIconGithub,
+              target: this.$config.url.github_prose
+            }
+          ]
+        },
+        {
+          imageUrl: GuillaumePhoto,
+          name: "Guillaume Robert",
+          position: "Software Engineer",
+          socials: [
+            {
+              platform: "twitter",
+              icon: ImageSocialIconTwitter,
+              target: this.$config.url.twitter_prose
+            },
+
+            {
+              platform: "github",
+              icon: ImageSocialIconGithub,
+              target: this.$config.url.github_prose
+            }
+          ]
+        },
+        {
+          imageUrl: MarcPhoto,
+          name: "Marc Bauer",
+          position: "Software Engineer",
+          socials: [
+            {
+              platform: "twitter",
+              icon: ImageSocialIconTwitter,
+              target: this.$config.url.twitter_prose
+            },
+
+            {
+              platform: "github",
+              icon: ImageSocialIconGithub,
+              target: this.$config.url.github_prose
+            }
+          ]
+        }
+      ]
+    };
+  }
+};
+</script>
+
+<!-- **********************************************************************
+               STYLE
+               ********************************************************************** -->
+
+<style lang="scss">
+$c: ".c-section-about-team";
+
+.c-section-about-team {
+  position: relative;
+  padding: 80px 0;
+  z-index: 1;
+
+  &__members {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    padding: 56px 0;
+  }
+
+  &__member {
+    border-radius: 32px;
+    padding: 48px 0px;
+    border: 1px solid #81899b33;
+    background: #f6f7fb57;
+    backdrop-filter: blur(16px);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    &-details {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      align-items: center;
+    }
+
+    &-image {
+      height: 128px;
+      width: 128px;
+      overflow: hidden;
+      border-radius: 100%;
+      margin-bottom: 24px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+
+    &-position {
+      color: $color-base-blue-mid;
+    }
+
+    &-socials {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 6px;
+    }
+
+    &-social-icon {
+      fill: $color-base-blue-mid;
+      flex: 0 0 auto;
+
+      svg {
+        height: 24px;
+        width: 24px;
+      }
+    }
+  }
+}
+</style>

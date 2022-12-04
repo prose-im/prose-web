@@ -346,7 +346,7 @@ $version-dropdown-offset-left: 8px;
 
       #{$c}__version-target {
         color: $color-base-blue-link;
-        font-size: 13.5px;
+        font-size: 14px;
         margin-left: 14px;
         flex: 0 0 auto;
         display: flex;

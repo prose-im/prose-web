@@ -45,7 +45,7 @@ export default {
 
     weight: {
       type: String,
-      default: "bold",
+      default: "medium",
 
       validator(x) {
         return ["regular", "medium", "bold"].includes(x);
@@ -57,7 +57,7 @@ export default {
       default: "dark",
 
       validator(x) {
-        return ["light", "dark"].includes(x);
+        return ["light", "dark", "gradient"].includes(x);
       }
     },
 
@@ -93,27 +93,27 @@ $stroke-color: $color-background-secondary;
   // --> LEVELS <--
 
   &--mini {
-    font-size: 22px;
-    line-height: 32px;
-    letter-spacing: -0.1px;
+    font-size: 26px;
+    line-height: 26px;
+    letter-spacing: -0.015em;
   }
 
   &--small {
-    font-size: 24px;
-    line-height: 38px;
-    letter-spacing: -0.1px;
+    font-size: 32px;
+    line-height: 32px;
+    letter-spacing: -0.03em;
   }
 
   &--normal {
-    font-size: 36px;
-    line-height: 42px;
-    letter-spacing: -0.15px;
+    font-size: 56px;
+    line-height: 56px;
+    letter-spacing: -0.03em;
   }
 
   &--large {
-    font-size: 42px;
-    line-height: 48px;
-    letter-spacing: -0.2px;
+    font-size: 80px;
+    line-height: 80px;
+    letter-spacing: -0.03em;
   }
 
   // --> TINTS <--
@@ -124,6 +124,13 @@ $stroke-color: $color-background-secondary;
 
   &--light {
     color: $color-white;
+  }
+
+  &--gradient {
+    background: -webkit-linear-gradient(96.08deg, #06005E 18.95%, #3458AD 86.78%, #518EEA 116.32%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding-bottom: 0.2em;
   }
 
   // --> ALIGNS <--

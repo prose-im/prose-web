@@ -91,13 +91,15 @@ $segment-link-padding-left: 10px;
   }
 
   #{$c}__title {
-    font-size: 15px;
-    text-transform: uppercase;
-    letter-spacing: -0.05px;
+    font-size: 20px;
+    letter-spacing: -0.015em;
   }
 
   #{$c}__items {
     margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
 
     #{$c}__item {
       margin-left: (-1 * $segment-link-padding-left);
@@ -107,7 +109,7 @@ $segment-link-padding-left: 10px;
     #{$c}__link {
       background-color: transparent;
       color: inherit;
-      font-size: 13.5px;
+      font-size: 14px;
       line-height: 18px;
       padding: 2px 6px 4px $segment-link-padding-left;
       display: flex;

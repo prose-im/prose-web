@@ -12,6 +12,8 @@
   .c-base-descripted-title
     base-title(
       :align="align"
+      level="large"
+      tint="gradient"
       class="c-base-descripted-title__title"
     )
       slot(
@@ -56,6 +58,11 @@ export default {
 $c: ".c-base-descripted-title";
 
 .c-base-descripted-title {
+  &__title {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
   #{$c}__description {
     margin-top: 22px;
   }

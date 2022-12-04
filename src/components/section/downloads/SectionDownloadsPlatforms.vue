@@ -10,15 +10,20 @@
 
 <template lang="pug">
   page-section(
-    level="secondary"
     class="c-section-downloads-platforms"
   )
     .c-section-downloads-platforms__nest(
       v-for="nest, nestType in platforms"
       :key="nestType"
-    )
-      h4.c-section-downloads-platforms__title.u-title.u-bold
+    )   
+      base-title(
+          class="c-section-downloads-platforms__title"
+          tint="dark"
+          level="small"
+      )
         | {{ nest.title }}
+
+      base-divider(class="c-section-downloads-platforms__divider")
 
       .c-section-downloads-platforms__apps(
         v-if="nest.apps.length > 0"
@@ -117,17 +122,15 @@ $c: ".c-section-downloads-platforms";
   overflow-y: hidden;
 
   #{$c}__nest {
-    margin-bottom: 54px;
+    margin-bottom: 80px;
 
     &:last-child {
       margin-bottom: 0;
     }
   }
 
-  #{$c}__title {
-    color: $color-black;
-    font-size: 17px;
-    text-transform: uppercase;
+  #{$c}__divider {
+    margin: 24px 0 48px;
   }
 
   #{$c}__apps {
