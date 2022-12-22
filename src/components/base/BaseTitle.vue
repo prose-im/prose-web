@@ -127,7 +127,12 @@ $stroke-color: $color-background-secondary;
   }
 
   &--gradient {
-    background: -webkit-linear-gradient(96.08deg, #06005E 18.95%, #3458AD 86.78%, #518EEA 116.32%);
+    background: -webkit-linear-gradient(
+      96.08deg,
+      #06005e 18.95%,
+      #3458ad 86.78%,
+      #518eea 116.32%
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     padding-bottom: 0.2em;
@@ -168,6 +173,32 @@ $stroke-color: $color-background-secondary;
       0 0 $stroke-size $stroke-color, 0 0 $stroke-size $stroke-color,
       0 0 $stroke-size $stroke-color, 0 0 $stroke-size $stroke-color,
       0 0 $stroke-size $stroke-color, 0 0 $stroke-size $stroke-color;
+  }
+
+  // --> MEDIA-QUERIES <--
+
+  @media (max-width: $screen-tiny-width-breakpoint) {
+    &--large {
+      font-size: 56px;
+      line-height: 56px;
+    }
+
+    &--normal {
+      font-size: 48px;
+      line-height: 48px;
+    }
+  }
+
+  @media (max-width: $screen-lilliput-width-breakpoint) {
+    &--large {
+      font-size: 40px;
+      line-height: 40px;
+    }
+
+    &--normal {
+      font-size: 32px;
+      line-height: 32px;
+    }
   }
 }
 </style>

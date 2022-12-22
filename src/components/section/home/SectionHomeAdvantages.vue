@@ -10,42 +10,40 @@
 
 <template lang="pug">
     .c-section-home-advantages
-        .c-section-home-advantages__bg-illustration
-        page-wrapper(
-                class="c-section-home-advantages__inner"
-            )
-                base-title(
-                    class="c-section-home-advantages__title"
-                    tint="gradient"
-                    align="center"
-                    level="large"
-                )
-                    | Safe.Fast.
-                    br
-                    | Transparent.
-                
-                template(
-                    v-for="(item, idx) in advantages"
-                )
-                    .c-section-home-advantages__stack(:key="idx")
-                        .c-section-home-advantages__col-1
-                            .c-section-home-advantages__illustration
-                              .c-section-home-advantages__illustration-inner(:style="{ 'background-image': 'url(' + item.image + ')'}")
-                        .c-section-home-advantages__col-2
-                            .c-section-home-advantages__content
-                                base-title(tint="gradient")
-                                    span.gradient {{ item.highlight }}
-                                    br
-                                    | {{ item.title }}
-                                a(
-                                    href="/use-cases/startup"
-                                    class="c-section-home-advantages__action"
-                                )
-                                    base-button(
-                                        class="c-section-home-advantages__action-button"
-                                        right-icon="arrow-right"
-                                    )
-                                        | Learn More
+        page-wrapper(class="c-section-home-advantages__inner")
+          base-title(
+              class="c-section-home-advantages__title"
+              tint="gradient"
+              align="center"
+              level="large"
+          )
+              | Safe.Fast.
+              br
+              | Transparent.
+          
+          template(
+              v-for="(item, idx) in advantages"
+          )
+              .c-section-home-advantages__stack(:key="idx")
+                  .c-section-home-advantages__col-1
+                      .c-section-home-advantages__illustration
+                        .c-section-home-advantages__illustration-inner(:style="{ 'background-image': 'url(' + item.image + ')'}")
+                  .c-section-home-advantages__col-2
+                      .c-section-home-advantages__content
+                          base-title(tint="gradient")
+                              span.gradient {{ item.highlight }}
+                              br
+                              | {{ item.title }}
+                          a(
+                              href="/use-cases/startup"
+                              class="c-section-home-advantages__action"
+                          )
+                              base-button(
+                                  class="c-section-home-advantages__action-button"
+                                  right-icon="arrow-right"
+                              )
+                                  | Learn More
+          .c-section-home-advantages__bg-illustration
     
 </template>
 
@@ -95,13 +93,17 @@ $c: ".c-section-home-advantages";
   padding-bottom: 200px;
   position: relative;
 
+  #{$c}__inner {
+    position: relative;
+  }
+
   #{$c}__title {
     margin-bottom: 40px;
   }
 
   #{$c}__bg-illustration {
     background-image: url("@/assets/images/components/base/BaseWave/prose-wave-0.svg");
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: bottom;
     position: absolute;
@@ -149,13 +151,13 @@ $c: ".c-section-home-advantages";
 
     &:nth-child(2) {
       #{$c}__illustration-inner {
-        top: 55%;  
+        top: 55%;
       }
     }
 
     &:nth-child(4) {
       #{$c}__illustration-inner {
-        left: -7%
+        left: -7%;
       }
     }
   }
@@ -166,7 +168,7 @@ $c: ".c-section-home-advantages";
     #{$c}__illustration {
       background: rgba(246, 247, 251, 0.9);
       border: 1px solid rgba(129, 137, 155, 0.2);
-      backdrop-filter: blur(16px);
+      backdrop-filter: blur(4px);
       border-radius: 36px;
       width: 100%;
       height: 500px;
@@ -179,7 +181,7 @@ $c: ".c-section-home-advantages";
         position: absolute;
         width: 100%;
         height: 100%;
-        top: 60%;        
+        top: 60%;
         transform: translateY(-50%) scale(1.2);
       }
     }
@@ -187,13 +189,66 @@ $c: ".c-section-home-advantages";
 
   #{$c}__col-2 {
     flex-basis: 50%;
+    display: flex;
+    width: 100%;
+    justify-content: center;
   }
 
   #{$c}__content {
-    flex-basis: 50%;
     display: flex;
     gap: 24px;
     flex-direction: column;
+    width: fit-content;
+  }
+
+  // --> MEDIA-QUERIES <--
+
+  @media (max-width: $screen-large-width-breakpoint) {
+    #{$c}__col-1 {
+      #{$c}__illustration {
+        height: 400px;
+        aspect-ratio: 1 / 1;
+        width: auto;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  @media (max-width: $screen-medium-width-breakpoint) {
+    #{$c}__stack {
+      flex-direction: column;
+      gap: 40px;
+
+      &:nth-child(even) {
+        flex-direction: column;
+      }
+    }
+
+    #{$c}__col-1 {
+      flex-basis: 100%;
+      width: 100%;
+      max-width: 600px;
+    }
+
+    #{$c}__bg-illustration {
+      display: none;
+    }
+  }
+
+  @media (max-width: $screen-tiny-width-breakpoint) {
+    padding-bottom: 100px;
+
+    #{$c}__stack {
+      padding: 0 0 80px 0;
+    }
+  }
+
+  @media (max-width: $screen-lilliput-width-breakpoint) {
+    #{$c}__col-1 #{$c}__illustration {
+      height: 400px;
+      aspect-ratio: auto;
+      width: 100%;
+    }
   }
 }
 </style>

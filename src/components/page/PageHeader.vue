@@ -152,28 +152,28 @@ export default {
           target: "/downloads/"
         },
 
-        {
-          id: "cases",
-          label: "Use Cases",
+        // {
+        //   id: "cases",
+        //   label: "Use Cases",
 
-          dropdown: [
-            {
-              id: "startup",
-              title: "Startup",
-              label: "Get your communication going",
-              target: "/use-cases/startup",
-              icon: ImageMenuDropdownHelpIconHelp
-            },
+        //   dropdown: [
+        //     {
+        //       id: "startup",
+        //       title: "Startup",
+        //       label: "Get your communication going",
+        //       target: "/use-cases/startup",
+        //       icon: ImageMenuDropdownHelpIconHelp
+        //     },
 
-            {
-              id: "smb",
-              title: "Small/Medium Business",
-              label: "See how prose can set you up for success",
-              target: "/use-cases/smbs",
-              icon: ImageMenuDropdownHelpIconDocs
-            }
-          ]
-        },
+        //     {
+        //       id: "smb",
+        //       title: "Small/Medium Business",
+        //       label: "See how prose can set you up for success",
+        //       target: "/use-cases/smbs",
+        //       icon: ImageMenuDropdownHelpIconDocs
+        //     }
+        //   ]
+        // },
 
         {
           id: "company",
@@ -187,12 +187,12 @@ export default {
               icon: ImageMenuDropdownHelpIconHelp
             },
 
-            {
-              id: "blog",
-              title: "Blog",
-              target: "/blog/",
-              icon: ImageMenuDropdownHelpIconDocs
-            }
+            // {
+            //   id: "blog",
+            //   title: "Blog",
+            //   target: "/blog/",
+            //   icon: ImageMenuDropdownHelpIconDocs
+            // }
           ]
         },
 

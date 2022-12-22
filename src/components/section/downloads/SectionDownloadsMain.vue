@@ -101,22 +101,6 @@ $c: ".c-section-downloads-main";
     pointer-events: none;
     opacity: 0.35;
   }
-
-  #{$c}__rasters {
-    #{$c}__raster {
-      position: absolute;
-
-      &--magnifier {
-        left: -48px;
-        top: 28px;
-      }
-
-      &--bell {
-        right: -20px;
-        top: -24px;
-      }
-    }
-  }
 }
 
 // --> MEDIA-QUERIES <--

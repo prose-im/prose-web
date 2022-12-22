@@ -10,7 +10,6 @@
 
 <template lang="pug">
   .c-section-home-main
-    .c-section-home-main__bg-illustration
     page-main-title(
       class="c-section-home-main__title"
     )
@@ -30,6 +29,9 @@
           .c-section-home-main__illustration-profile-top
           .c-section-home-main__illustration-user-right
           .c-section-home-main__illustration-message
+    page-wrapper(class="c-section-home-main__bg-wrapper")
+      .c-section-home-main__bg-illustration
+        
 </template>
 
 <!-- **********************************************************************
@@ -38,7 +40,7 @@
 
 <script>
 export default {
-  name: "SectionHomeMain",
+  name: "SectionHomeMain"
 };
 </script>
 
@@ -52,24 +54,32 @@ $c: ".c-section-home-main";
 .c-section-home-main {
   padding-bottom: 300px;
 
+  #{$c}__inner {
+    position: relative;
+  }
+
   #{$c}__illustration {
     position: relative;
 
-    >div {
+    > div {
       background-position: center;
       background-size: contain;
       background-repeat: no-repeat;
     }
   }
 
+  #{$c}__bg-wrapper {
+    position: relative;
+  }
+
   #{$c}__bg-illustration {
     background-image: url("@/assets/images/components/base/BaseWave/prose-wave-4.svg");
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
-    background-position: top;
+    background-position: bottom;
     position: absolute;
     opacity: 0.5;
-    top: 3%;
+    bottom: -2%;
     left: 0;
     width: 100%;
     height: 1040px;
@@ -88,7 +98,7 @@ $c: ".c-section-home-main";
 
   #{$c}__illustration-profile-right {
     background-image: url("~/assets/images/components/section/home/SectionHomeMain/profile-right.svg");
-    
+
     aspect-ratio: 253.87 / 329.57;
     width: 33%;
     filter: drop-shadow(0px 27.2555px 72.6814px rgba(161, 157, 182, 0.21));
@@ -159,5 +169,10 @@ $c: ".c-section-home-main";
     top: 50%;
   }
 
+  // --> MEDIA-QUERIES <--
+
+  @media (max-width: $screen-tiny-width-breakpoint) {
+    padding-bottom: 100px;
+  }
 }
 </style>

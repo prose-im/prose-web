@@ -121,7 +121,7 @@ $c: ".c-section-home-features";
   #{$c}__card {
     background: rgba(246, 247, 251, 0.9);
     border: 1px solid rgba(129, 137, 155, 0.2);
-    backdrop-filter: blur(16px);
+    backdrop-filter: blur(4px);
     border-radius: 32px;
     position: relative;
     display: flex;
@@ -146,6 +146,20 @@ $c: ".c-section-home-features";
     color: $color-base-blue-mid;
     line-height: 22px;
     margin-top: 12px;
+  }
+
+  @media (max-width: $screen-medium-width-breakpoint) {
+    #{$c}__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: $screen-tiny-width-breakpoint) {
+    padding-bottom: 0px;
+
+    #{$c}__grid {
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
 }
 </style>

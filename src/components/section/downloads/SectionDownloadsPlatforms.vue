@@ -118,7 +118,6 @@ export default {
 $c: ".c-section-downloads-platforms";
 
 .c-section-downloads-platforms {
-  overflow-x: auto;
   overflow-y: hidden;
 
   #{$c}__nest {
@@ -134,8 +133,9 @@ $c: ".c-section-downloads-platforms";
   }
 
   #{$c}__apps {
-    display: flex;
-    justify-content: flex-start;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 80px;
     margin-top: 22px;
 
     &::after,
@@ -158,6 +158,17 @@ $c: ".c-section-downloads-platforms";
     &::after {
       content: "";
       width: $page-wrapper-lilliput-padding-sides;
+    }
+  }
+
+  // --> MEDIA-QUERIES <--
+
+  @media (max-width: $screen-medium-width-breakpoint) {
+    #{$c}__apps {
+      display: flex;
+      justify-content: flex-start;
+      overflow-x: auto;
+      gap: 24px;
     }
   }
 }

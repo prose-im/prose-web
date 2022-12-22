@@ -222,5 +222,23 @@ $c: ".c-section-about-team";
       }
     }
   }
+
+  // --> MEDIA-QUERIES <--
+
+  @media (max-width: $screen-medium-width-breakpoint) {
+    .c-section-about-team {
+      &__members {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+
+  @media (max-width: $screen-tiny-width-breakpoint) {
+    .c-section-about-team {
+      &__members {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+  }
 }
 </style>

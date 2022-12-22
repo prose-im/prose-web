@@ -50,26 +50,30 @@ $c: ".c-section-downloads-archives";
 .c-section-downloads-archives {
   position: relative;
   overflow: visible;
-  
+
   #{$c}__inner {
     position: relative;
     z-index: 1;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     align-items: center;
-    gap: 32px;
+    gap: 128px;
   }
 
   #{$c}__col-1 {
-    flex-basis: 50%;
+    flex: 1 0 50%;
+    width: 100%;
+    height: 600px;
 
     #{$c}__illustration {
       background-image: url("@/assets/images/components/section/download/version-archive.svg");
       background-size: contain;
       background-repeat: no-repeat;
+      background-position: center;
       left: 0;
-      left: 0;
-      width: 600px;
-      height: 600px;
+      top: 0;
+      width: 100%;
+      height: 100%;
     }
   }
 
@@ -78,6 +82,25 @@ $c: ".c-section-downloads-archives";
     display: flex;
     gap: 24px;
     flex-direction: column;
+  }
+
+  @media (max-width: $screen-medium-width-breakpoint) {
+    #{$c}__col-1 {
+      flex-basis: 100%;
+      height: 500px;
+    }
+
+    #{$c}__inner {
+      grid-template-columns: repeat(1, 1fr);
+      gap: 24px;
+    }
+  }
+
+  @media (max-width: $screen-lilliput-width-breakpoint) {
+    #{$c}__col-1 {
+      height: 400px;
+      width: 100%;
+    }
   }
 }
 </style>

@@ -11,10 +11,10 @@
 <template lang="pug">
 
         .c-section-about-manifesto
-            .c-section-about-manifesto__bg-illustration
             page-wrapper(
                 class="c-section-about-manifesto__inner"
             )
+                .c-section-about-manifesto__bg-illustration
                 base-title(
                     class="c-section-about-manifesto__title"
                     tint="gradient"
@@ -67,7 +67,7 @@ $c: ".c-section-about-manifesto";
 
   #{$c}__bg-illustration {
     background-image: url("@/assets/images/components/base/BaseWave/prose-wave-1.svg");
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: bottom;
     position: absolute;
@@ -76,6 +76,7 @@ $c: ".c-section-about-manifesto";
     left: 0;
     width: 100%;
     height: 880px;
+    z-index: -1;
   }
 
   #{$c}__inner {
@@ -132,6 +133,18 @@ $c: ".c-section-about-manifesto";
     width: 100%;
     overflow: hidden;
     border-radius: 16px;
+  }
+
+  // --> MEDIA-QUERIES <--
+
+  @media (max-width: $screen-medium-width-breakpoint) {
+    #{$c}__cols__col-1 {
+      display: none;
+    }
+
+    #{$c}__cols__col-2 {
+      flex-basis: 100%;
+    }
   }
 }
 </style>

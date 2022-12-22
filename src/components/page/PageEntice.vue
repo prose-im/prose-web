@@ -10,8 +10,8 @@
 
 <template lang="pug">
   .c-page-entice
-    .c-page-entice__bg-illustration
     page-wrapper(class="c-page-entice__wrapper")
+      .c-page-entice__bg-illustration
       base-title(level="large", tint="gradient", align="center")
         | Up and running
         br 
@@ -33,7 +33,7 @@
       .c-page-entice__box
         .c-page-entice__content
           .c-page-entice__content-inner
-            base-title(level="large", tint="light")
+            base-title(level="normal", tint="light", align="center")
               | Join the waitlist
 
             .c-page-entice__text
@@ -111,22 +111,22 @@ $c: ".c-page-entice";
 .c-page-entice {
   background-color: $color-background-primary;
   padding-top: 20px;
-  padding-bottom: 120px;
   position: relative;
 
   #{$c}__wrapper {
+    padding-bottom: 120px;
     z-index: 1;
     position: relative;
   }
 
   #{$c}__bg-illustration {
     background-image: url("@/assets/images/components/base/BaseWave/prose-wave-3.svg");
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: bottom;
     position: absolute;
     opacity: 0.5;
-    bottom: 0; 
+    bottom: 0;
     left: 0;
     width: 100%;
     height: 1800px;
@@ -140,7 +140,7 @@ $c: ".c-page-entice";
 
     #{$c}__option {
       background: rgba(246, 247, 251, 0.9);
-      backdrop-filter: blur(16px);
+      backdrop-filter: blur(4px);
       border: 1px solid #81899b33;
       overflow: hidden;
       border-radius: 32px;
@@ -194,6 +194,7 @@ $c: ".c-page-entice";
 
     min-height: 320px;
     display: flex;
+    align-items: center;
     position: relative;
     overflow: hidden;
 
@@ -217,7 +218,8 @@ $c: ".c-page-entice";
 
   #{$c}__content {
     padding: 0 60px;
-    flex: 1;
+    width: 100%;
+    height: 100%;
 
     #{$c}__content-inner {
       display: flex;
@@ -296,10 +298,6 @@ $c: ".c-page-entice";
       #{$c}__title {
         font-size: 26px;
       }
-
-      #{$c}__text {
-        font-size: 14.5px;
-      }
     }
   }
 }
@@ -315,9 +313,18 @@ $c: ".c-page-entice";
       #{$c}__text {
         text-align: center;
       }
+
+      #{$c}__actions {
+        max-width: 100%;
+        min-width: 80%;
+      }
     }
 
     #{$c}__illustration {
+      display: none;
+    }
+
+    #{$c}__bg-illustration {
       display: none;
     }
   }
@@ -349,14 +356,37 @@ $c: ".c-page-entice";
       }
 
       #{$c}__actions {
-        #{$c}__action {
-          margin-right: 0;
+        width: 100%;
 
-          &:nth-child(n + 2) {
-            display: none;
+        #{$c}__action {
+
+          &-button {
+            width: 100%;
+          }
+        }
+
+        #{$c}__subscribe {
+          border: transparent;
+          flex-direction: column;
+          gap: 12px;
+        }
+
+        #{$c}__action-input {
+          padding: 4px 4px 4px 20px;
+          border: 1px solid #81899b;
+          border-radius: 32px;
+          height: 38px;
+
+          &:focus,
+          &:active {
+            outline: none;
           }
         }
       }
+    }
+
+    #{$c}__options {
+      grid-template-columns: repeat(1, 1fr);
     }
   }
 }
