@@ -140,9 +140,7 @@ export default {
 
       announcement: {
         title: "Heads up: Prose is still a Work in Progress",
-
-        description:
-          "We expect the macOS app to be released by the end of 2022."
+        description: "We expect the macOS app to be released mid-2023."
       },
 
       menuItems: [
@@ -185,7 +183,7 @@ export default {
               title: "About",
               target: "/about/",
               icon: ImageMenuDropdownHelpIconHelp
-            },
+            }
 
             // {
             //   id: "blog",
