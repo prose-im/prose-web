@@ -77,13 +77,13 @@ $c: ".c-section-about-manifesto";
     background-size: contain;
     background-repeat: no-repeat;
     background-position: bottom;
-    position: absolute;
-    opacity: 0.5;
-    bottom: 0;
-    left: 0;
+    pointer-events: none;
     width: 100%;
     height: 880px;
-    z-index: -1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    opacity: 0.5;
   }
 
   #{$c}__inner {

@@ -78,12 +78,13 @@ $c: ".c-section-home-main";
       background-size: contain;
       background-repeat: no-repeat;
       background-position: bottom;
-      position: absolute;
-      opacity: 0.5;
-      bottom: -2%;
-      left: 0;
+      pointer-events: none;
       width: 100%;
       height: 1040px;
+      position: absolute;
+      bottom: -2%;
+      left: 0;
+      opacity: 0.5;
     }
   }
 
