@@ -21,11 +21,11 @@
     )
       | Stories from Prose Foundation
 
-    .c-section-about-manifesto__cols
-      .c-section-about-manifesto__cols__column-1
-        .c-section-about-manifesto__cols__column-1-illustration
+    .c-section-about-manifesto__columns
+      .c-section-about-manifesto__column-1
+        .c-section-about-manifesto__column-1-illustration
 
-      .c-section-about-manifesto__cols__column-2
+      .c-section-about-manifesto__column-2
         base-title(
           tint="gradient"
           align="left"
@@ -91,19 +91,19 @@ $c: ".c-section-about-manifesto";
     z-index: 1;
   }
 
-  #{$c}__cols {
+  #{$c}__columns {
     display: flex;
     margin-top: 48px;
-  }
 
-  #{$c}__cols__column-1 {
-    flex-basis: 40%;
-    display: flex;
-    align-items: center;
-  }
+    #{$c}__column-1 {
+      flex-basis: 40%;
+      display: flex;
+      align-items: center;
+    }
 
-  #{$c}__cols__column-2 {
-    flex-basis: 60%;
+    #{$c}__column-2 {
+      flex-basis: 60%;
+    }
   }
 
   #{$c}__description {
@@ -116,7 +116,7 @@ $c: ".c-section-about-manifesto";
     margin: 24px 0;
   }
 
-  #{$c}__cols__column-1-illustration {
+  #{$c}__column-1-illustration {
     /* TODO: move this to local URL */
     background-image: url("https://images.unsplash.com/photo-1568992687947-868a62a9f521?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80");
 
@@ -143,16 +143,20 @@ $c: ".c-section-about-manifesto";
     overflow: hidden;
     border-radius: 16px;
   }
+}
 
-  // --> MEDIA-QUERIES <--
+// --> MEDIA-QUERIES <--
 
-  @media (max-width: $screen-medium-width-breakpoint) {
-    #{$c}__cols__column-1 {
-      display: none;
-    }
+@media (max-width: $screen-medium-width-breakpoint) {
+  .c-section-about-manifesto {
+    #{$c}__columns {
+      #{$c}__column-1 {
+        display: none;
+      }
 
-    #{$c}__cols__column-2 {
-      flex-basis: 100%;
+      #{$c}__column-2 {
+        flex-basis: 100%;
+      }
     }
   }
 }

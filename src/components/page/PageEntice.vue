@@ -171,7 +171,7 @@ $c: ".c-page-entice";
     margin: 64px 0 40px;
 
     #{$c}__option {
-      background: rgba(246, 247, 251, 0.9);
+      background: rgba(246, 247, 251, 0.9); /* TODO: commonize palette */
       backdrop-filter: blur(4px);
       border: 1px solid #81899b33;
       overflow: hidden;
@@ -211,6 +211,7 @@ $c: ".c-page-entice";
 
   #{$c}__box {
     background-color: #181a1b;
+
     background-image: radial-gradient(
         circle at 0% 0%,
         rgba(#528feb, 0.475) 0%,
@@ -222,7 +223,7 @@ $c: ".c-page-entice";
         rgba(#9a6bbe, 0.475) 0%,
         rgba(#9a6bbe, 0.2) 35%,
         rgba(#9a6bbe, 0) 60%
-      );
+      ); /* TODO: commonize palette */
 
     min-height: 320px;
     display: flex;

@@ -179,8 +179,8 @@ $c: ".c-section-home-advantages";
     flex-basis: 50%;
 
     #{$c}__illustration {
-      background: rgba(246, 247, 251, 0.9);
-      border: 1px solid rgba(129, 137, 155, 0.2);
+      background: rgba(246, 247, 251, 0.9); /* TODO: commonize palette */
+      border: 1px solid rgba(129, 137, 155, 0.2); /* TODO: commonize palette */
       backdrop-filter: blur(4px);
       border-radius: 36px;
       width: 100%;
@@ -213,10 +213,12 @@ $c: ".c-section-home-advantages";
     flex-direction: column;
     width: fit-content;
   }
+}
 
-  // --> MEDIA-QUERIES <--
+// --> MEDIA-QUERIES <--
 
-  @media (max-width: $screen-large-width-breakpoint) {
+@media (max-width: $screen-large-width-breakpoint) {
+  .c-section-home-advantages {
     #{$c}__column-1 {
       #{$c}__illustration {
         height: 400px;
@@ -226,8 +228,10 @@ $c: ".c-section-home-advantages";
       }
     }
   }
+}
 
-  @media (max-width: $screen-medium-width-breakpoint) {
+@media (max-width: $screen-medium-width-breakpoint) {
+  .c-section-home-advantages {
     #{$c}__stack {
       flex-direction: column;
       gap: 40px;
@@ -247,20 +251,26 @@ $c: ".c-section-home-advantages";
       display: none;
     }
   }
+}
 
-  @media (max-width: $screen-tiny-width-breakpoint) {
+@media (max-width: $screen-tiny-width-breakpoint) {
+  .c-section-home-advantages {
     padding-bottom: 100px;
 
     #{$c}__stack {
       padding: 0 0 80px 0;
     }
   }
+}
 
-  @media (max-width: $screen-lilliput-width-breakpoint) {
-    #{$c}__column-1 #{$c}__illustration {
-      height: 400px;
-      aspect-ratio: auto;
-      width: 100%;
+@media (max-width: $screen-lilliput-width-breakpoint) {
+  .c-section-home-advantages {
+    #{$c}__column-1 {
+      #{$c}__illustration {
+        height: 400px;
+        aspect-ratio: auto;
+        width: 100%;
+      }
     }
   }
 }

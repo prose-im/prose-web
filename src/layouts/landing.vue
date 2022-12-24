@@ -10,9 +10,13 @@
 
 <template lang="pug">
 page-container
-  page-header
+  page-header(
+    embedded
+  )
 
-  page-content
+  page-content(
+    showcase
+  )
     nuxt
 
   page-entice

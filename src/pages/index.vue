@@ -22,6 +22,7 @@
 <script>
 export default {
   name: "IndexPage",
+  layout: "landing",
 
   head: {
     title: "Prose – All of your workplace communication lives here"

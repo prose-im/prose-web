@@ -162,10 +162,12 @@ $c: ".c-section-downloads-platforms";
       width: $page-wrapper-lilliput-padding-sides;
     }
   }
+}
 
-  // --> MEDIA-QUERIES <--
+// --> MEDIA-QUERIES <--
 
-  @media (max-width: $screen-medium-width-breakpoint) {
+@media (max-width: $screen-medium-width-breakpoint) {
+  .c-section-downloads-platforms {
     #{$c}__apps {
       display: flex;
       justify-content: flex-start;

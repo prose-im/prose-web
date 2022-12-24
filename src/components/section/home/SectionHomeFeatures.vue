@@ -129,8 +129,8 @@ $c: ".c-section-home-features";
   }
 
   #{$c}__card {
-    background: rgba(246, 247, 251, 0.9);
-    border: 1px solid rgba(129, 137, 155, 0.2);
+    background: rgba(246, 247, 251, 0.9); /* TODO: commonize palette */
+    border: 1px solid rgba(129, 137, 155, 0.2); /* TODO: commonize palette */
     backdrop-filter: blur(4px);
     border-radius: 32px;
     position: relative;

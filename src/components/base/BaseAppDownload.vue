@@ -291,10 +291,12 @@ $platforms: (
       }
     }
   }
+}
 
-  // --> MEDIA-QUERIES <--
+// --> MEDIA-QUERIES <--
 
-  @media (max-width: $screen-medium-width-breakpoint) {
+@media (max-width: $screen-medium-width-breakpoint) {
+  .c-app-download {
     #{$c}__inner {
       flex-direction: column;
       align-items: flex-start;

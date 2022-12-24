@@ -174,10 +174,12 @@ $stroke-color: $color-background-secondary;
       0 0 $stroke-size $stroke-color, 0 0 $stroke-size $stroke-color,
       0 0 $stroke-size $stroke-color, 0 0 $stroke-size $stroke-color;
   }
+}
 
-  // --> MEDIA-QUERIES <--
+// --> MEDIA-QUERIES <--
 
-  @media (max-width: $screen-tiny-width-breakpoint) {
+@media (max-width: $screen-tiny-width-breakpoint) {
+  .c-base-title {
     &--large {
       font-size: 56px;
       line-height: 56px;
@@ -188,8 +190,10 @@ $stroke-color: $color-background-secondary;
       line-height: 48px;
     }
   }
+}
 
-  @media (max-width: $screen-lilliput-width-breakpoint) {
+@media (max-width: $screen-lilliput-width-breakpoint) {
+  .c-base-title {
     &--large {
       font-size: 40px;
       line-height: 40px;

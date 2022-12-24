@@ -185,8 +185,8 @@ $c: ".c-section-about-team";
   &__member {
     border-radius: 32px;
     padding: 48px 0px;
-    border: 1px solid #81899b33;
-    background: #f6f7fb57;
+    border: 1px solid #81899b33; /* TODO: commonize palette */
+    background: #f6f7fb57; /* TODO: commonize palette */
     backdrop-filter: blur(16px);
     display: flex;
     align-items: center;
@@ -232,22 +232,22 @@ $c: ".c-section-about-team";
       }
     }
   }
+}
 
-  // --> MEDIA-QUERIES <--
+// --> MEDIA-QUERIES <--
 
-  @media (max-width: $screen-medium-width-breakpoint) {
-    .c-section-about-team {
-      &__members {
-        grid-template-columns: repeat(2, 1fr);
-      }
+@media (max-width: $screen-medium-width-breakpoint) {
+  .c-section-about-team {
+    &__members {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
+}
 
-  @media (max-width: $screen-tiny-width-breakpoint) {
-    .c-section-about-team {
-      &__members {
-        grid-template-columns: repeat(1, 1fr);
-      }
+@media (max-width: $screen-tiny-width-breakpoint) {
+  .c-section-about-team {
+    &__members {
+      grid-template-columns: repeat(1, 1fr);
     }
   }
 }

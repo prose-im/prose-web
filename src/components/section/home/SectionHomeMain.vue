@@ -9,9 +9,16 @@
      ********************************************************************** -->
 
 <template lang="pug">
-.c-section-home-main
+div(
+  :class=`[
+    "c-section-home-main",
+    {
+      "c-section-home-main--announcement": hasAnnouncement
+    }
+  ]`
+)
   page-main-title(
-    class="c-section-home-main__title"
+    class="c-section-home-main__inner"
   )
     template(
       slot="title"
@@ -42,7 +49,13 @@
 
 <script>
 export default {
-  name: "SectionHomeMain"
+  name: "SectionHomeMain",
+
+  computed: {
+    hasAnnouncement() {
+      return this.$config.modifiers.announcement === true;
+    }
+  }
 };
 </script>
 
@@ -53,11 +66,14 @@ export default {
 <style lang="scss">
 $c: ".c-section-home-main";
 
+// VARIABLES
+$inner-padding-top-base: 74px;
+
 .c-section-home-main {
   padding-bottom: 300px;
 
   #{$c}__inner {
-    position: relative;
+    padding-top: ($page-header-height + $inner-padding-top-base);
   }
 
   #{$c}__illustration {
@@ -96,7 +112,9 @@ $c: ".c-section-home-main";
     overflow: hidden;
     border-radius: 12px;
     backdrop-filter: blur(16px);
-    filter: drop-shadow(0px 27.2555px 72.6814px rgba(161, 157, 182, 0.21));
+    filter: drop-shadow(
+      0px 27.2555px 72.6814px rgba(161, 157, 182, 0.21)
+    ); /* TODO: commonize palette */
   }
 
   #{$c}__illustration-profile-right {
@@ -104,7 +122,9 @@ $c: ".c-section-home-main";
 
     aspect-ratio: 253.87 / 329.57;
     width: 33%;
-    filter: drop-shadow(0px 27.2555px 72.6814px rgba(161, 157, 182, 0.21));
+    filter: drop-shadow(
+      0px 27.2555px 72.6814px rgba(161, 157, 182, 0.21)
+    ); /* TODO: commonize palette */
     position: absolute;
     right: -15%;
     bottom: -25%;
@@ -114,7 +134,9 @@ $c: ".c-section-home-main";
     background-image: url("~/assets/images/components/section/home/SectionHomeMain/bottom-rating.svg");
     aspect-ratio: 208.72 / 98;
     width: 30%;
-    filter: drop-shadow(0px 27.2555px 72.6814px rgba(161, 157, 182, 0.21));
+    filter: drop-shadow(
+      0px 27.2555px 72.6814px rgba(161, 157, 182, 0.21)
+    ); /* TODO: commonize palette */
     position: absolute;
     left: 20%;
     bottom: -15%;
@@ -125,7 +147,9 @@ $c: ".c-section-home-main";
     aspect-ratio: 270.51 / 62.79;
     width: 70%;
     transform: rotate(-12deg);
-    filter: drop-shadow(0px 27.2555px 72.6814px rgba(161, 157, 182, 0.21));
+    filter: drop-shadow(
+      0px 27.2555px 72.6814px rgba(161, 157, 182, 0.21)
+    ); /* TODO: commonize palette */
     position: absolute;
     left: -28%;
     bottom: -7%;
@@ -135,7 +159,9 @@ $c: ".c-section-home-main";
     background-image: url("~/assets/images/components/section/home/SectionHomeMain/profile-top.svg");
     aspect-ratio: 208.72 / 196;
     width: 30%;
-    filter: drop-shadow(0px 27.2555px 72.6814px rgba(161, 157, 182, 0.21));
+    filter: drop-shadow(
+      0px 27.2555px 72.6814px rgba(161, 157, 182, 0.21)
+    ); /* TODO: commonize palette */
     position: absolute;
     left: -8%;
     top: -15%;
@@ -145,7 +171,9 @@ $c: ".c-section-home-main";
     background-image: url("~/assets/images/components/section/home/SectionHomeMain/profile-top.svg");
     aspect-ratio: 208.72 / 196;
     width: 30%;
-    filter: drop-shadow(0px 27.2555px 72.6814px rgba(161, 157, 182, 0.21));
+    filter: drop-shadow(
+      0px 27.2555px 72.6814px rgba(161, 157, 182, 0.21)
+    ); /* TODO: commonize palette */
     position: absolute;
     left: -8%;
     top: -15%;
@@ -156,7 +184,9 @@ $c: ".c-section-home-main";
     aspect-ratio: 270.51 / 62.79;
     width: 70%;
     transform: rotate(17deg);
-    filter: drop-shadow(0px 27.2555px 72.6814px rgba(161, 157, 182, 0.21));
+    filter: drop-shadow(
+      0px 27.2555px 72.6814px rgba(161, 157, 182, 0.21)
+    ); /* TODO: commonize palette */
     position: absolute;
     right: -20%;
     top: -5%;
@@ -166,15 +196,30 @@ $c: ".c-section-home-main";
     background-image: url("~/assets/images/components/section/home/SectionHomeMain/message.svg");
     aspect-ratio: 325.07 / 146;
     width: 50%;
-    filter: drop-shadow(0px 27.2555px 72.6814px rgba(161, 157, 182, 0.21));
+    filter: drop-shadow(
+      0px 27.2555px 72.6814px rgba(161, 157, 182, 0.21)
+    ); /* TODO: commonize palette */
     position: absolute;
     left: -20%;
     top: 50%;
   }
 
-  // --> MEDIA-QUERIES <--
+  // --> BOOLEANS <--
 
-  @media (max-width: $screen-tiny-width-breakpoint) {
+  &--announcement {
+    #{$c}__inner {
+      padding-top: (
+        $page-header-height + $page-header-announcement-height +
+          $inner-padding-top-base
+      );
+    }
+  }
+}
+
+// --> MEDIA-QUERIES <--
+
+@media (max-width: $screen-tiny-width-breakpoint) {
+  .c-section-home-main {
     padding-bottom: 100px;
   }
 }
