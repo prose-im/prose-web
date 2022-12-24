@@ -56,7 +56,7 @@
               )
                 | Learn More
 
-    .c-section-home-advantages__bg-illustration
+    .c-section-home-advantages__background
 </template>
 
 <!-- **********************************************************************
@@ -113,7 +113,7 @@ $c: ".c-section-home-advantages";
     margin-bottom: 40px;
   }
 
-  #{$c}__bg-illustration {
+  #{$c}__background {
     background-image: url("@/assets/images/components/base/BaseWave/prose-wave-0.svg");
     background-size: contain;
     background-repeat: no-repeat;
@@ -242,7 +242,7 @@ $c: ".c-section-home-advantages";
       max-width: 600px;
     }
 
-    #{$c}__bg-illustration {
+    #{$c}__background {
       display: none;
     }
   }

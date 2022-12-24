@@ -31,9 +31,9 @@
         .c-section-home-main__illustration-message
 
   page-wrapper(
-    class="c-section-home-main__bg-wrapper"
+    class="c-section-home-main__background-wrapper"
   )
-    .c-section-home-main__bg-illustration
+    .c-section-home-main__background
 </template>
 
 <!-- **********************************************************************
@@ -70,21 +70,21 @@ $c: ".c-section-home-main";
     }
   }
 
-  #{$c}__bg-wrapper {
+  #{$c}__background-wrapper {
     position: relative;
-  }
 
-  #{$c}__bg-illustration {
-    background-image: url("@/assets/images/components/base/BaseWave/prose-wave-4.svg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: bottom;
-    position: absolute;
-    opacity: 0.5;
-    bottom: -2%;
-    left: 0;
-    width: 100%;
-    height: 1040px;
+    #{$c}__background {
+      background-image: url("@/assets/images/components/base/BaseWave/prose-wave-4.svg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: bottom;
+      position: absolute;
+      opacity: 0.5;
+      bottom: -2%;
+      left: 0;
+      width: 100%;
+      height: 1040px;
+    }
   }
 
   #{$c}__illustration-screen {

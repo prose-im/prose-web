@@ -10,8 +10,6 @@
 
 <template lang="pug">
 .c-section-about-team
-  .c-section-about-team__bg-illustration
-
   page-wrapper(
     class="c-section-about-team__inner"
   )

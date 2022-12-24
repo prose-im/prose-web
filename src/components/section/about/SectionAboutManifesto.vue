@@ -13,7 +13,7 @@
   page-wrapper(
     class="c-section-about-manifesto__inner"
   )
-    .c-section-about-manifesto__bg-illustration
+    .c-section-about-manifesto__background
 
     base-title(
       class="c-section-about-manifesto__title"
@@ -72,7 +72,7 @@ $c: ".c-section-about-manifesto";
   position: relative;
   padding: 80px 0;
 
-  #{$c}__bg-illustration {
+  #{$c}__background {
     background-image: url("@/assets/images/components/base/BaseWave/prose-wave-1.svg");
     background-size: contain;
     background-repeat: no-repeat;
