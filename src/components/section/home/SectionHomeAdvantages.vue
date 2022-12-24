@@ -57,8 +57,8 @@
                 | Learn More
 
     base-wave(
+      :variant="1"
       class="c-section-home-advantages__wave"
-      variant="1"
     )
 </template>
 

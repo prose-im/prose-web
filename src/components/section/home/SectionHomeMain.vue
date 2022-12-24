@@ -41,8 +41,8 @@ div(
     class="c-section-home-main__wave-wrapper"
   )
     base-wave(
+      :variant="5"
       class="c-section-home-main__wave"
-      variant="5"
     )
 </template>
 

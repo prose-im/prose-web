@@ -14,8 +14,8 @@
     class="c-page-entice__wrapper"
   )
     base-wave(
+      :variant="4"
       class="c-page-entice__wave"
-      variant="4"
     )
 
     base-title(

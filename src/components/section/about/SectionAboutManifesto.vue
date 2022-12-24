@@ -14,8 +14,8 @@
     class="c-section-about-manifesto__inner"
   )
     base-wave(
+      :variant="2"
       class="c-section-about-manifesto__wave"
-      variant="2"
     )
 
     base-title(
