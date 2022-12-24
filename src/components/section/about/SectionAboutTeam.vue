@@ -30,8 +30,8 @@
         class="c-section-about-team__member"
       )
         div(
-          class="c-section-about-team__member-image"
           :style="{ 'background-image': 'url(' + member.imageUrl + ')' }"
+          class="c-section-about-team__member-image"
         )
 
         .c-section-about-team__member-details
@@ -78,7 +78,8 @@ export default {
         {
           imageUrl: ValerianPhoto,
           name: "Valerian Saliou",
-          position: "Founder",
+          position: "Web Platform Developer",
+
           socials: [
             {
               platform: "twitter",
@@ -93,10 +94,12 @@ export default {
             }
           ]
         },
+
         {
           imageUrl: SaifPhoto,
           name: "Saif Hafiani",
           position: "Designer",
+
           socials: [
             {
               platform: "twitter",
@@ -111,10 +114,12 @@ export default {
             }
           ]
         },
+
         {
           imageUrl: GuillaumePhoto,
           name: "Guillaume Robert",
-          position: "Software Engineer",
+          position: "Web Platform Developer",
+
           socials: [
             {
               platform: "twitter",
@@ -129,10 +134,12 @@ export default {
             }
           ]
         },
+
         {
           imageUrl: MarcPhoto,
           name: "Marc Bauer",
-          position: "Software Engineer",
+          position: "Apple Platform Developer",
+
           socials: [
             {
               platform: "twitter",
