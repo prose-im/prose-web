@@ -110,16 +110,18 @@ $c: ".c-section-about-manifesto";
     font-size: 22px;
     line-height: 28px;
     color: $color-base-blue-mid;
+
+    p {
+      margin: 24px 0;
+    }
   }
 
-  #{$c}__description p {
-    margin: 24px 0;
+  #{$c}__column-1-illustration,
+  #{$c}__description-illustration {
+    background-image: url("~/assets/images/components/section/about/SectionAboutManifesto/illustration-placeholder.webp");
   }
 
   #{$c}__column-1-illustration {
-    /* TODO: move this to local URL */
-    background-image: url("https://images.unsplash.com/photo-1568992687947-868a62a9f521?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80");
-
     margin-top: 64px;
     background-position: center;
     background-size: cover;
@@ -131,9 +133,6 @@ $c: ".c-section-about-manifesto";
   }
 
   #{$c}__description-illustration {
-    /* TODO: move this to local URL */
-    background-image: url("https://images.unsplash.com/photo-1568992687947-868a62a9f521?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80");
-
     margin-top: 64px;
     background-position: center;
     background-size: cover;
