@@ -114,7 +114,7 @@ $segment-link-padding-left: 10px;
       padding: 2px 6px 4px $segment-link-padding-left;
       display: flex;
       align-items: center;
-      border-radius: 2px;
+      border-radius: 6px;
       transition: background-color 100ms linear;
 
       &:hover {
