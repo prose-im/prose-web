@@ -27,7 +27,7 @@ import * as projectPackage from "./package.json";
  * CONFIGURATION
  * ************************************************************************* */
 
-const CONFIG = (function() {
+const CONFIG = (function () {
   const _config = {};
 
   // Load common configuration

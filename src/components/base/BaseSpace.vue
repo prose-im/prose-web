@@ -31,9 +31,7 @@ export default {
 
   computed: {
     spacesHtml() {
-      return Array(this.repeat)
-        .fill("&nbsp;")
-        .join("");
+      return Array(this.repeat).fill("&nbsp;").join("");
     }
   }
 };

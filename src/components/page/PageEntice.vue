@@ -69,6 +69,7 @@
             .c-page-entice__subscribe
               input(
                 type="email"
+                name="subscribe_email"
                 placeholder="Enter your email..."
                 class="c-page-entice__action-input"
               )
