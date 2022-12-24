@@ -103,13 +103,6 @@
             )
               | {{ $config.author.name }} © {{ currentYear }}
 
-          span.c-page-footer__separator
-            | –
-
-          image-copyright-ownership-quote(
-            class="c-page-footer__quote"
-          )
-
       .c-page-footer__right
         .c-page-footer__crafted.u-medium
           image-copyright-crafted-flag(
@@ -134,7 +127,6 @@ import ImageSocialIconGithub from "~/assets/images/components/page/PageFooter/so
 
 import ImageCopyrightBadgesOpenSource from "~/assets/images/components/page/PageFooter/copyright-badges-open_source.svg?raw";
 import ImageCopyrightBadgesClimateNeutral from "~/assets/images/components/page/PageFooter/copyright-badges-climate_neutral.svg?raw";
-import ImageCopyrightOwnershipQuote from "~/assets/images/components/page/PageFooter/copyright-ownership-quote.svg?inline";
 import ImageCopyrightCraftedFlag from "~/assets/images/components/page/PageFooter/copyright-crafted-flag.svg?inline";
 
 // CONSTANTS
@@ -148,7 +140,6 @@ export default {
   name: "PageFooter",
 
   components: {
-    ImageCopyrightOwnershipQuote,
     ImageCopyrightCraftedFlag
   },
 
@@ -414,19 +405,6 @@ $alignments-margin-sides: 12px;
     #{$c}__ownership {
       color: $color-base-grey-mid;
       user-select: none;
-
-      #{$c}__separator {
-        margin: 0 6px;
-        user-select: none;
-        opacity: 0.4;
-      }
-
-      #{$c}__quote {
-        width: auto;
-        height: 14px;
-        fill: $color-base-grey-mid;
-        vertical-align: middle;
-      }
     }
 
     #{$c}__crafted {
@@ -535,15 +513,6 @@ $alignments-margin-sides: 12px;
 
       #{$c}__right {
         margin-left: 0;
-      }
-    }
-
-    #{$c}__copyright {
-      #{$c}__ownership {
-        #{$c}__separator,
-        #{$c}__quote {
-          display: none;
-        }
       }
     }
   }
