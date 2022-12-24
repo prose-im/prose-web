@@ -101,7 +101,7 @@ $arrow-size: 8px;
     border-left: $arrow-size solid transparent;
     border-right: $arrow-size solid transparent;
     border-bottom: $arrow-size solid $color-white;
-    margin-left: (-1 * $arrow-size);
+    margin-left: ((-1 * $arrow-size) + 3px);
     position: absolute;
     top: (-1 * $arrow-size);
     left: 50%;
