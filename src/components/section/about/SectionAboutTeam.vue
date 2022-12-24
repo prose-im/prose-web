@@ -60,21 +60,26 @@
      ********************************************************************** -->
 
 <script>
+// NPM
+import shuffle from "lodash.shuffle";
+
+// PROJECT: IMAGES
 import ImageSocialIconTwitter from "~/assets/images/components/page/PageFooter/social-icon-twitter.svg?raw";
 import ImageSocialIconGithub from "~/assets/images/components/page/PageFooter/social-icon-github.svg?raw";
 
-import ValerianPhoto from "~/assets/images/components/section/about/SectionAboutTeam/06.png?raw";
-import SaifPhoto from "~/assets/images/components/section/about/SectionAboutTeam/01.png?raw";
-import GuillaumePhoto from "~/assets/images/components/section/about/SectionAboutTeam/02.png?raw";
-import MarcPhoto from "~/assets/images/components/section/about/SectionAboutTeam/03.png?raw";
+import ValerianAvatar from "~/assets/images/components/section/about/SectionAboutTeam/avatar-valerian.webp?raw";
+import SaifAvatar from "~/assets/images/components/section/about/SectionAboutTeam/avatar-saif.webp?raw";
+import GuillaumeAvatar from "~/assets/images/components/section/about/SectionAboutTeam/avatar-guillaume.webp?raw";
+import MarcAvatar from "~/assets/images/components/section/about/SectionAboutTeam/avatar-marc.webp?raw";
 
 export default {
   name: "SectionAboutTeam",
+
   data() {
     return {
-      teamMembers: [
+      teamMembers: shuffle([
         {
-          imageUrl: ValerianPhoto,
+          imageUrl: ValerianAvatar,
           name: "Valerian Saliou",
           position: "Web Platform Developer",
 
@@ -94,47 +99,7 @@ export default {
         },
 
         {
-          imageUrl: SaifPhoto,
-          name: "Saif Hafiani",
-          position: "Designer",
-
-          socials: [
-            {
-              platform: "twitter",
-              icon: ImageSocialIconTwitter,
-              target: this.$config.url.twitter_prose
-            },
-
-            {
-              platform: "github",
-              icon: ImageSocialIconGithub,
-              target: this.$config.url.github_prose
-            }
-          ]
-        },
-
-        {
-          imageUrl: GuillaumePhoto,
-          name: "Guillaume Robert",
-          position: "Web Platform Developer",
-
-          socials: [
-            {
-              platform: "twitter",
-              icon: ImageSocialIconTwitter,
-              target: this.$config.url.twitter_prose
-            },
-
-            {
-              platform: "github",
-              icon: ImageSocialIconGithub,
-              target: this.$config.url.github_prose
-            }
-          ]
-        },
-
-        {
-          imageUrl: MarcPhoto,
+          imageUrl: MarcAvatar,
           name: "Marc Bauer",
           position: "Apple Platform Developer",
 
@@ -151,8 +116,48 @@ export default {
               target: this.$config.url.github_prose
             }
           ]
+        },
+
+        {
+          imageUrl: GuillaumeAvatar,
+          name: "Guillaume Robert",
+          position: "Website Developer",
+
+          socials: [
+            {
+              platform: "twitter",
+              icon: ImageSocialIconTwitter,
+              target: this.$config.url.twitter_prose
+            },
+
+            {
+              platform: "github",
+              icon: ImageSocialIconGithub,
+              target: this.$config.url.github_prose
+            }
+          ]
+        },
+
+        {
+          imageUrl: SaifAvatar,
+          name: "Saif Hafiani",
+          position: "Designer & Brand",
+
+          socials: [
+            {
+              platform: "twitter",
+              icon: ImageSocialIconTwitter,
+              target: this.$config.url.twitter_prose
+            },
+
+            {
+              platform: "github",
+              icon: ImageSocialIconGithub,
+              target: this.$config.url.github_prose
+            }
+          ]
         }
-      ]
+      ])
     };
   }
 };
@@ -195,14 +200,15 @@ $c: ".c-section-about-team";
     }
 
     &-image {
+      background-color: #f4f4f9;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
       height: 128px;
       width: 128px;
       overflow: hidden;
       border-radius: 100%;
       margin-bottom: 24px;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
     }
 
     &-position {

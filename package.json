@@ -53,6 +53,7 @@
     "eslint-plugin-nuxt": "3.1.0",
     "eslint-plugin-vue": "8.2.0",
     "prettier": "2.5.1",
-    "lodash.merge": "4.6.2"
+    "lodash.merge": "4.6.2",
+    "lodash.shuffle": "4.2.0"
   }
 }
