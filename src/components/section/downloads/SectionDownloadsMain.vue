@@ -9,38 +9,38 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  page-main-title(
-    class="c-section-downloads-main"
+page-main-title(
+  class="c-section-downloads-main"
+)
+  template(
+    slot="title"
   )
-    template(
-      slot="title"
-    )
-      | Download Prose
+    | Download Prose
+
+  template(
+    slot="description"
+  )
+    p
+      | Get the Prose app for your platform.
+
+    p.u-medium
+      | Install it and start messaging your team in seconds.
+
+  base-button(
+    slot="action"
+    size="large"
+    right-icon="arrow-down"
+    class="c-section-downloads-main__action"
+    bolder
+  )
+    | Download the Prose App
 
     template(
-      slot="description"
+      v-if="platformName"
     )
-      p
-        | Get the Prose app for your platform.
+      base-space
 
-      p.u-medium
-        | Install it and start messaging your team in seconds.
-
-    base-button(
-      slot="action"
-      size="large"
-      right-icon="arrow-down"
-      class="c-section-downloads-main__action"
-      bolder
-    )
-      | Download the Prose App
-
-      template(
-        v-if="platformName"
-      )
-        base-space
-
-        | for {{ platformName }}
+      | for {{ platformName }}
 </template>
 
 <!-- **********************************************************************

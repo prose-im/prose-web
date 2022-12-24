@@ -9,15 +9,15 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  div(
-    :class=`[
-      "c-page-content",
-      {
-        "c-page-content--showcase": showcase
-      }
-    ]`
-  )
-    slot
+div(
+  :class=`[
+    "c-page-content",
+    {
+      "c-page-content--showcase": showcase
+    }
+  ]`
+)
+  slot
 </template>
 
 <!-- **********************************************************************

@@ -9,33 +9,33 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  .c-section-terms-text
-    page-wrapper
-      .c-section-terms-text__sections(
-        v-if="sections.length > 0"
+.c-section-terms-text
+  page-wrapper
+    .c-section-terms-text__sections(
+      v-if="sections.length > 0"
+    )
+      .c-section-terms-text__section(
+        v-for="section, sectionIndex in sections"
+        :key="'section_' + sectionIndex"
       )
-        .c-section-terms-text__section(
-          v-for="section, sectionIndex in sections"
-          :key="'section_' + sectionIndex"
-        )
-          .c-section-terms-text__title.u-title.u-medium
-            | {{ (sectionIndex + 1) }}.
+        .c-section-terms-text__title.u-title.u-medium
+          | {{ (sectionIndex + 1) }}.
 
-            base-space(
-              :repeat="2"
-            )
-
-            | {{ section.title }}
-
-          .c-section-terms-text__paragraphs(
-            v-if="section.paragraphs.length > 0"
+          base-space(
+            :repeat="2"
           )
-            p(
-              v-for="paragraph, paragraphIndex in section.paragraphs"
-              :key="'section_' + sectionIndex + '_paragraph_' + paragraphIndex"
-              class="c-section-terms-text__paragraph"
-            )
-              | {{ paragraph }}
+
+          | {{ section.title }}
+
+        .c-section-terms-text__paragraphs(
+          v-if="section.paragraphs.length > 0"
+        )
+          p(
+            v-for="paragraph, paragraphIndex in section.paragraphs"
+            :key="'section_' + sectionIndex + '_paragraph_' + paragraphIndex"
+            class="c-section-terms-text__paragraph"
+          )
+            | {{ paragraph }}
 </template>
 
 <!-- **********************************************************************

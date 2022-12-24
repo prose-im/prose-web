@@ -9,64 +9,64 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  .c-page-entice
-    page-wrapper(class="c-page-entice__wrapper")
-      .c-page-entice__bg-illustration
-      base-title(level="large", tint="gradient", align="center")
-        | Up and running
-        br 
-        | in 2 minutes
-      .c-page-entice__options
-        .c-page-entice__option.c-page-entice__option-hosted
-          .c-page-entice__option-title
-            base-title(level="mini")
-              | We host it for you 
-            p We provide a one-click server hosted on our platform.
-          .c-page-entice__option-illustration
-        .c-page-entice__option.c-page-entice__option-free
-          .c-page-entice__option-title
-            base-title(level="mini")
-              | You host it for free
-            p Install a Prose server on your company’s premises for free.
-          .c-page-entice__option-illustration
-      
-      .c-page-entice__box
-        .c-page-entice__content
-          .c-page-entice__content-inner
-            base-title(level="normal", tint="light", align="center")
-              | Join the waitlist
+.c-page-entice
+  page-wrapper(class="c-page-entice__wrapper")
+    .c-page-entice__bg-illustration
+    base-title(level="large", tint="gradient", align="center")
+      | Up and running
+      br
+      | in 2 minutes
+    .c-page-entice__options
+      .c-page-entice__option.c-page-entice__option-hosted
+        .c-page-entice__option-title
+          base-title(level="mini")
+            | We host it for you
+          p We provide a one-click server hosted on our platform.
+        .c-page-entice__option-illustration
+      .c-page-entice__option.c-page-entice__option-free
+        .c-page-entice__option-title
+          base-title(level="mini")
+            | You host it for free
+          p Install a Prose server on your company’s premises for free.
+        .c-page-entice__option-illustration
 
-            .c-page-entice__text
-              p
-                | Available soon on all major devices.
+    .c-page-entice__box
+      .c-page-entice__content
+        .c-page-entice__content-inner
+          base-title(level="normal", tint="light", align="center")
+            | Join the waitlist
 
-            .c-page-entice__actions
-              .c-page-entice__subscribe
-                input(type="email", class="c-page-entice__action-input")
-                a(
-                  :href="actionTargets.start"
-                  class="c-page-entice__action"
-                )
-                  base-button(
-                    class="c-page-entice__action-button"
-                    size="large"
-                    right-icon="arrow-right"
-                    bolder
-                    darker
-                    tint="gradient"
-                  )
-                    | Submit
+          .c-page-entice__text
+            p
+              | Available soon on all major devices.
 
-              nuxt-link(
-                v-if="false"
-                class="c-page-entice__action c-page-entice__action--link u-medium"
-                to="/downloads/"
+          .c-page-entice__actions
+            .c-page-entice__subscribe
+              input(type="email", class="c-page-entice__action-input")
+              a(
+                :href="actionTargets.start"
+                class="c-page-entice__action"
               )
-                image-content-actions-download-icon(
-                  class="c-page-entice__action-icon"
+                base-button(
+                  class="c-page-entice__action-button"
+                  size="large"
+                  right-icon="arrow-right"
+                  bolder
+                  darker
+                  tint="gradient"
                 )
+                  | Submit
 
-                | Download Prose Apps
+            nuxt-link(
+              v-if="false"
+              class="c-page-entice__action c-page-entice__action--link u-medium"
+              to="/downloads/"
+            )
+              image-content-actions-download-icon(
+                class="c-page-entice__action-icon"
+              )
+
+              | Download Prose Apps
 </template>
 
 <!-- **********************************************************************

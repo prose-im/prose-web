@@ -9,38 +9,38 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  .c-page-footer-segment
-    h6.c-page-footer-segment__title.u-title.u-bold
-      | {{ title }}
+.c-page-footer-segment
+  h6.c-page-footer-segment__title.u-title.u-bold
+    | {{ title }}
 
-    ul.c-page-footer-segment__items
-      li(
-        v-for="segmentItem, index in items"
-        :key="'segment_' + id + '_' + index"
-        :class=`[
-          "c-page-footer-segment__item",
-          {
-            "u-medium": segmentItem.emphasis
-          }
-        ]`
+  ul.c-page-footer-segment__items
+    li(
+      v-for="segmentItem, index in items"
+      :key="'segment_' + id + '_' + index"
+      :class=`[
+        "c-page-footer-segment__item",
+        {
+          "u-medium": segmentItem.emphasis
+        }
+      ]`
+    )
+      nuxt-link(
+        v-if="segmentItem.target.startsWith('/')"
+        :to="segmentItem.target"
+        class="c-page-footer-segment__link"
       )
-        nuxt-link(
-          v-if="segmentItem.target.startsWith('/')"
-          :to="segmentItem.target"
-          class="c-page-footer-segment__link"
-        )
-          | {{ segmentItem.label }}
+        | {{ segmentItem.label }}
 
-        a.c-page-footer-segment__link(
-          v-else
-          :href="segmentItem.target"
+      a.c-page-footer-segment__link(
+        v-else
+        :href="segmentItem.target"
+      )
+        span.c-page-footer-segment__indicator(
+          v-if="segmentItem.indicatorIcon"
+          :style="'background-image: url(' + segmentItem.indicatorIcon + ');'"
         )
-          span.c-page-footer-segment__indicator(
-            v-if="segmentItem.indicatorIcon"
-            :style="'background-image: url(' + segmentItem.indicatorIcon + ');'"
-          )
 
-          | {{ segmentItem.label }}
+        | {{ segmentItem.label }}
 </template>
 
 <!-- **********************************************************************

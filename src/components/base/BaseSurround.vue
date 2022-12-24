@@ -9,21 +9,21 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  span(
-    :class=`[
-      "c-base-surround",
-      "c-base-surround--" + tint,
-      "c-base-surround--" + size
-    ]`
+span(
+  :class=`[
+    "c-base-surround",
+    "c-base-surround--" + tint,
+    "c-base-surround--" + size
+  ]`
+)
+  span.c-base-surround__image(
+    v-if="imageHtml"
+    v-html="imageHtml"
+    :style="imageStyle"
   )
-    span.c-base-surround__image(
-      v-if="imageHtml"
-      v-html="imageHtml"
-      :style="imageStyle"
-    )
 
-    span.c-base-surround__inner
-      slot
+  span.c-base-surround__inner
+    slot
 </template>
 
 <!-- **********************************************************************

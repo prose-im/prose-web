@@ -9,44 +9,44 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  div(
-    :class=`[
-      "c-page-details",
-      "c-page-details--" + align
-    ]`
+div(
+  :class=`[
+    "c-page-details",
+    "c-page-details--" + align
+  ]`
+)
+  page-wrapper(
+    class="c-page-details__inner"
   )
-    page-wrapper(
-      class="c-page-details__inner"
-    )
-      .c-page-details__text
-        base-title(
-          level="mini"
-          class="c-page-details__title"
-        )
-          slot(
-            name="title"
-          )
-
-        .c-page-details__description(
-          v-if="$slots.description"
-        )
-          slot(
-            name="description"
-          )
-
-        .c-page-details__actions(
-          v-if="$slots.actions"
-        )
-          slot(
-            name="actions"
-          )
-
-      .c-page-details__illustration(
-        v-if="$slots.illustration"
+    .c-page-details__text
+      base-title(
+        level="mini"
+        class="c-page-details__title"
       )
         slot(
-          name="illustration"
+          name="title"
         )
+
+      .c-page-details__description(
+        v-if="$slots.description"
+      )
+        slot(
+          name="description"
+        )
+
+      .c-page-details__actions(
+        v-if="$slots.actions"
+      )
+        slot(
+          name="actions"
+        )
+
+    .c-page-details__illustration(
+      v-if="$slots.illustration"
+    )
+      slot(
+        name="illustration"
+      )
 </template>
 
 <!-- **********************************************************************

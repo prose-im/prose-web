@@ -9,29 +9,29 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  .p-changelog-year
-    section-changelog-main(
-      :years="years"
-      :active-year="year"
-      :sidebar-width="sidebarWidth"
-      class="p-changelog-year__main"
-      sidebar-class="p-changelog-year__main-sidebar"
-      content-class="p-changelog-year__main-content"
-    )
+.p-changelog-year
+  section-changelog-main(
+    :years="years"
+    :active-year="year"
+    :sidebar-width="sidebarWidth"
+    class="p-changelog-year__main"
+    sidebar-class="p-changelog-year__main-sidebar"
+    content-class="p-changelog-year__main-content"
+  )
 
-    section-changelog-versions(
-      :versions="changes.versions"
-      :sidebar-width="sidebarWidth"
-      class="p-changelog-year__versions"
-      sidebar-class="p-changelog-year__versions-sidebar"
-      content-class="p-changelog-year__versions-content"
-    )
+  section-changelog-versions(
+    :versions="changes.versions"
+    :sidebar-width="sidebarWidth"
+    class="p-changelog-year__versions"
+    sidebar-class="p-changelog-year__versions-sidebar"
+    content-class="p-changelog-year__versions-content"
+  )
 
-    section-changelog-background(
-      :sidebar-width="sidebarWidth"
-      class="p-changelog-year__background"
-      sidebar-class="p-changelog-year__background-sidebar"
-    )
+  section-changelog-background(
+    :sidebar-width="sidebarWidth"
+    class="p-changelog-year__background"
+    sidebar-class="p-changelog-year__background-sidebar"
+  )
 </template>
 
 <!-- **********************************************************************

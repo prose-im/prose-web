@@ -9,59 +9,59 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  page-split-view(
-    :sidebar-width="sidebarWidth"
-    :sidebar-class="sidebarClass"
-    class="c-section-changelog-main"
+page-split-view(
+  :sidebar-width="sidebarWidth"
+  :sidebar-class="sidebarClass"
+  class="c-section-changelog-main"
+)
+  div(
+    slot="sidebar"
+    class="c-section-changelog-main__sidebar"
   )
-    div(
-      slot="sidebar"
-      class="c-section-changelog-main__sidebar"
+    base-raster(
+      :scale="0.85"
+      name="clock"
+      class="c-section-changelog-main__sidebar-raster"
     )
-      base-raster(
-        :scale="0.85"
-        name="clock"
-        class="c-section-changelog-main__sidebar-raster"
-      )
 
-    div(
-      slot="content"
-      :class=`[
-        "c-section-changelog-main__content",
-        {
-          [contentClass]: contentClass
-        }
-      ]`
+  div(
+    slot="content"
+    :class=`[
+      "c-section-changelog-main__content",
+      {
+        [contentClass]: contentClass
+      }
+    ]`
+  )
+    base-descripted-title(
+      align="left"
+      class="c-section-changelog-main__title"
     )
-      base-descripted-title(
-        align="left"
-        class="c-section-changelog-main__title"
+      template(
+        slot="title"
       )
-        template(
-          slot="title"
-        )
-          | Version History
+        | Version History
 
-        template(
-          slot="description"
-        )
-          p
-            | Prose apps are actively maintained. Major new versions are released periodically.
-
-          p.u-medium
-            | This history is a ledger of all downloadable Prose versions, since day one.
-
-      .c-section-changelog-main__navigate(
-        v-if="navigateYears.length > 0"
+      template(
+        slot="description"
       )
-        h6.c-section-changelog-main__navigate-label.u-title.u-medium
-          | The Time Machine:
+        p
+          | Prose apps are actively maintained. Major new versions are released periodically.
 
-        base-navigate(
-          class="c-section-changelog-main__navigate-years"
-          :choices="navigateYears"
-          :value="activeYear"
-        )
+        p.u-medium
+          | This history is a ledger of all downloadable Prose versions, since day one.
+
+    .c-section-changelog-main__navigate(
+      v-if="navigateYears.length > 0"
+    )
+      h6.c-section-changelog-main__navigate-label.u-title.u-medium
+        | The Time Machine:
+
+      base-navigate(
+        class="c-section-changelog-main__navigate-years"
+        :choices="navigateYears"
+        :value="activeYear"
+      )
 </template>
 
 <!-- **********************************************************************

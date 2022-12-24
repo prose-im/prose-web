@@ -9,18 +9,18 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  page-main-title(
-    class="c-section-about-main"
+page-main-title(
+  class="c-section-about-main"
+)
+  template(
+    slot="title"
   )
-    template(
-      slot="title"
-    )
-      | We are a small team with a big passion
+    | We are a small team with a big passion
 
-    template(
-      slot="description"
-    )
-      .c-section-about-main__illustration-center
+  template(
+    slot="description"
+  )
+    .c-section-about-main__illustration-center
 </template>
 
 <!-- **********************************************************************

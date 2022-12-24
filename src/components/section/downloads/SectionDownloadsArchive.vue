@@ -9,25 +9,28 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  .c-section-downloads-archives
-    page-wrapper
-      .c-section-downloads-archives__inner
-        .c-section-downloads-archives__col-1
-          .c-section-downloads-archives__illustration
-        .c-section-downloads-archives__col-2
-          .c-section-downloads-archives__content
-            base-title(tint="gradient")
-              | Looking for a past version ?
-            a(
-              href="/changelog/"
-              class="c-page-header__action"
+.c-section-downloads-archives
+  page-wrapper
+    .c-section-downloads-archives__inner
+      .c-section-downloads-archives__column-1
+        .c-section-downloads-archives__illustration
+
+      .c-section-downloads-archives__column-2
+        .c-section-downloads-archives__content
+          base-title(
+            tint="gradient"
+          )
+            | Looking for a past version ?
+
+          a(
+            href="/changelog/"
+            class="c-page-header__action"
+          )
+            base-button(
+              class="c-page-header__action-button"
+              right-icon="arrow-right"
             )
-              base-button(
-                class="c-page-header__action-button"
-                right-icon="arrow-right"
-              )
-                | Get to the version archive
-        
+              | Get to the version archive
 </template>
 
 <!-- **********************************************************************
@@ -60,7 +63,7 @@ $c: ".c-section-downloads-archives";
     gap: 128px;
   }
 
-  #{$c}__col-1 {
+  #{$c}__column-1 {
     flex: 1 0 50%;
     width: 100%;
     height: 600px;
@@ -85,7 +88,7 @@ $c: ".c-section-downloads-archives";
   }
 
   @media (max-width: $screen-medium-width-breakpoint) {
-    #{$c}__col-1 {
+    #{$c}__column-1 {
       flex-basis: 100%;
       height: 500px;
     }
@@ -97,7 +100,7 @@ $c: ".c-section-downloads-archives";
   }
 
   @media (max-width: $screen-lilliput-width-breakpoint) {
-    #{$c}__col-1 {
+    #{$c}__column-1 {
       height: 400px;
       width: 100%;
     }

@@ -9,42 +9,54 @@
      ********************************************************************** -->
 
 <template lang="pug">
-    .c-section-home-advantages
-        page-wrapper(class="c-section-home-advantages__inner")
-          base-title(
-              class="c-section-home-advantages__title"
+.c-section-home-advantages
+  page-wrapper(class="c-section-home-advantages__inner")
+    base-title(
+      class="c-section-home-advantages__title"
+      tint="gradient"
+      align="center"
+      level="large"
+    )
+      | Safe. Fast.
+
+      br
+
+      | Transparent.
+
+    template(
+      v-for="(item, index) in advantages"
+    )
+      .c-section-home-advantages__stack(
+        :key="index"
+      )
+        .c-section-home-advantages__column-1
+          .c-section-home-advantages__illustration
+            .c-section-home-advantages__illustration-inner(
+              :style="{ 'background-image': 'url(' + item.image + ')'}"
+            )
+
+        .c-section-home-advantages__column-2
+          .c-section-home-advantages__content
+            base-title(
               tint="gradient"
-              align="center"
-              level="large"
-          )
-              | Safe.Fast.
+            )
+              span.gradient {{ item.highlight }}
+
               br
-              | Transparent.
 
-          template(
-              v-for="(item, idx) in advantages"
-          )
-              .c-section-home-advantages__stack(:key="idx")
-                  .c-section-home-advantages__col-1
-                      .c-section-home-advantages__illustration
-                        .c-section-home-advantages__illustration-inner(:style="{ 'background-image': 'url(' + item.image + ')'}")
-                  .c-section-home-advantages__col-2
-                      .c-section-home-advantages__content
-                          base-title(tint="gradient")
-                              span.gradient {{ item.highlight }}
-                              br
-                              | {{ item.title }}
-                          a(
-                              href="/use-cases/startup"
-                              class="c-section-home-advantages__action"
-                          )
-                              base-button(
-                                  class="c-section-home-advantages__action-button"
-                                  right-icon="arrow-right"
-                              )
-                                  | Learn More
-          .c-section-home-advantages__bg-illustration
+              | {{ item.title }}
 
+            a(
+              href="/use-cases/startup"
+              class="c-section-home-advantages__action"
+            )
+              base-button(
+                class="c-section-home-advantages__action-button"
+                right-icon="arrow-right"
+              )
+                | Learn More
+
+    .c-section-home-advantages__bg-illustration
 </template>
 
 <!-- **********************************************************************
@@ -162,7 +174,7 @@ $c: ".c-section-home-advantages";
     }
   }
 
-  #{$c}__col-1 {
+  #{$c}__column-1 {
     flex-basis: 50%;
 
     #{$c}__illustration {
@@ -187,7 +199,7 @@ $c: ".c-section-home-advantages";
     }
   }
 
-  #{$c}__col-2 {
+  #{$c}__column-2 {
     flex-basis: 50%;
     display: flex;
     width: 100%;
@@ -204,7 +216,7 @@ $c: ".c-section-home-advantages";
   // --> MEDIA-QUERIES <--
 
   @media (max-width: $screen-large-width-breakpoint) {
-    #{$c}__col-1 {
+    #{$c}__column-1 {
       #{$c}__illustration {
         height: 400px;
         aspect-ratio: 1 / 1;
@@ -224,7 +236,7 @@ $c: ".c-section-home-advantages";
       }
     }
 
-    #{$c}__col-1 {
+    #{$c}__column-1 {
       flex-basis: 100%;
       width: 100%;
       max-width: 600px;
@@ -244,7 +256,7 @@ $c: ".c-section-home-advantages";
   }
 
   @media (max-width: $screen-lilliput-width-breakpoint) {
-    #{$c}__col-1 #{$c}__illustration {
+    #{$c}__column-1 #{$c}__illustration {
       height: 400px;
       aspect-ratio: auto;
       width: 100%;

@@ -9,118 +9,118 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  .c-page-footer
-    page-wrapper
-      .c-page-footer__main
-        .c-page-footer__left
-          base-new-logo(
-            class="c-page-footer__logo"
+.c-page-footer
+  page-wrapper
+    .c-page-footer__main
+      .c-page-footer__left
+        base-new-logo(
+          class="c-page-footer__logo"
+        )
+
+        .c-page-footer__motto
+          p
+            | We are building the new standard of the workplace.
+
+          p
+            | It’s
+
+            base-space
+
+            a(
+              :href="$config.url.github_prose"
+              class="u-medium"
+              target="_blank"
+            )
+              | open-source
+
+            | , decentralized, and private.
+
+        ul.c-page-footer__social.u-medium(
+          v-if="socialItems.length > 0"
+        )
+          li.c-page-footer__social-button(
+            v-for="socialItem in socialItems"
+            :key="'social_' + socialItem.platform"
+          )
+            a.c-page-footer__social-link(
+              :href="socialItem.target"
+              target="_blank"
+            )
+              span.c-page-footer__social-icon(
+                v-if="socialItem.icon"
+                v-html="socialItem.icon"
+              )
+
+              | {{ socialItem.label }}
+
+      .c-page-footer__right.c-page-footer__right--full
+        .c-page-footer__segments(
+          v-if="segments.length > 0"
+        )
+          page-footer-segment(
+            v-for="segment in segments"
+            :key="'segment_' + segment.id"
+            :id="segment.id"
+            :title="segment.title"
+            :items="segment.items"
+            class="c-page-footer__segment"
           )
 
-          .c-page-footer__motto
-            p
-              | We are building the new standard of the workplace.
+    .c-page-footer__copyright
+      .c-page-footer__left
+        .c-page-footer__badges(
+          v-if="badges.length > 0"
+        )
+          a.c-page-footer__badge(
+            v-for="badge in badges"
+            v-html="badge.image"
+            :key="badge.id"
+            :href="badge.target"
+            target="_blank"
+          )
 
-            p
-              | It’s
+      .c-page-footer__middle
+        .c-page-footer__ownership
+          base-tooltip(
+            align="left"
+            direction="top"
+          )
+            template(
+              slot="tooltip"
+            )
+              | Prose is a non-profit funded by
 
               base-space
 
-              a(
-                :href="$config.url.github_prose"
-                class="u-medium"
+              a.u-medium(
+                :href="ownershipFunderUrl"
                 target="_blank"
               )
-                | open-source
+                | Valerian Saliou
 
-              | , decentralized, and private.
+            span.c-page-footer__author(
+              slot="default"
+            )
+              | {{ $config.author.name }} © {{ currentYear }}
 
-          ul.c-page-footer__social.u-medium(
-            v-if="socialItems.length > 0"
+          span.c-page-footer__separator
+            | –
+
+          image-copyright-ownership-quote(
+            class="c-page-footer__quote"
           )
-            li.c-page-footer__social-button(
-              v-for="socialItem in socialItems"
-              :key="'social_' + socialItem.platform"
-            )
-              a.c-page-footer__social-link(
-                :href="socialItem.target"
-                target="_blank"
-              )
-                span.c-page-footer__social-icon(
-                  v-if="socialItem.icon"
-                  v-html="socialItem.icon"
-                )
 
-                | {{ socialItem.label }}
-
-        .c-page-footer__right.c-page-footer__right--full
-          .c-page-footer__segments(
-            v-if="segments.length > 0"
+      .c-page-footer__right
+        .c-page-footer__crafted.u-medium
+          image-copyright-crafted-flag(
+            class="c-page-footer__flag"
           )
-            page-footer-segment(
-              v-for="segment in segments"
-              :key="'segment_' + segment.id"
-              :id="segment.id"
-              :title="segment.title"
-              :items="segment.items"
-              class="c-page-footer__segment"
-            )
 
-      .c-page-footer__copyright
-        .c-page-footer__left
-          .c-page-footer__badges(
-            v-if="badges.length > 0"
-          )
-            a.c-page-footer__badge(
-              v-for="badge in badges"
-              v-html="badge.image"
-              :key="badge.id"
-              :href="badge.target"
-              target="_blank"
-            )
+          span.c-page-footer__made-in.c-page-footer__made-in--long
+            | Crafted in the European Union
 
-        .c-page-footer__middle
-          .c-page-footer__ownership
-            base-tooltip(
-              align="left"
-              direction="top"
-            )
-              template(
-                slot="tooltip"
-              )
-                | Prose is a non-profit funded by
-
-                base-space
-
-                a.u-medium(
-                  :href="ownershipFunderUrl"
-                  target="_blank"
-                )
-                  | Valerian Saliou
-
-              span.c-page-footer__author(
-                slot="default"
-              )
-                | {{ $config.author.name }} © {{ currentYear }}
-
-            span.c-page-footer__separator
-              | –
-
-            image-copyright-ownership-quote(
-              class="c-page-footer__quote"
-            )
-
-        .c-page-footer__right
-          .c-page-footer__crafted.u-medium
-            image-copyright-crafted-flag(
-              class="c-page-footer__flag"
-            )
-
-            span.c-page-footer__made-in.c-page-footer__made-in--long
-              | Crafted in the European Union
-
-            span.c-page-footer__made-in.c-page-footer__made-in--short
-              | Made in Europe
+          span.c-page-footer__made-in.c-page-footer__made-in--short
+            | Made in Europe
 </template>
 
 <!-- **********************************************************************

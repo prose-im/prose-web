@@ -9,29 +9,31 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  .c-section-home-main
-    page-main-title(
-      class="c-section-home-main__title"
+.c-section-home-main
+  page-main-title(
+    class="c-section-home-main__title"
+  )
+    template(
+      slot="title"
     )
-      template(
-        slot="title"
-      )
-        | Communicate without insecurity
+      | Communicate without insecurity
 
-      template(
-        slot="description"
-      )
-        .c-section-home-main__illustration
-          .c-section-home-main__illustration-screen
-          .c-section-home-main__illustration-profile-right
-          .c-section-home-main__illustration-rating
-          .c-section-home-main__illustration-user-left
-          .c-section-home-main__illustration-profile-top
-          .c-section-home-main__illustration-user-right
-          .c-section-home-main__illustration-message
-    page-wrapper(class="c-section-home-main__bg-wrapper")
-      .c-section-home-main__bg-illustration
-        
+    template(
+      slot="description"
+    )
+      .c-section-home-main__illustration
+        .c-section-home-main__illustration-screen
+        .c-section-home-main__illustration-profile-right
+        .c-section-home-main__illustration-rating
+        .c-section-home-main__illustration-user-left
+        .c-section-home-main__illustration-profile-top
+        .c-section-home-main__illustration-user-right
+        .c-section-home-main__illustration-message
+
+  page-wrapper(
+    class="c-section-home-main__bg-wrapper"
+  )
+    .c-section-home-main__bg-illustration
 </template>
 
 <!-- **********************************************************************

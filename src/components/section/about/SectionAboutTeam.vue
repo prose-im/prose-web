@@ -9,53 +9,52 @@
      ********************************************************************** -->
 
 <template lang="pug">
+.c-section-about-team
+  .c-section-about-team__bg-illustration
 
-    .c-section-about-team
-        .c-section-about-team__bg-illustration
-        page-wrapper(
-            class="c-section-about-team__inner"
+  page-wrapper(
+    class="c-section-about-team__inner"
+  )
+    base-title(
+      class="c-section-about-team__title"
+      tint="gradient"
+      level="large"
+      align="center"
+    )
+      | Meet the Team
+
+    ul.c-section-about-team__members
+      li(
+        v-for="(member, index) in teamMembers"
+        :key="index"
+        class="c-section-about-team__member"
+      )
+        div(
+          class="c-section-about-team__member-image"
+          :style="{ 'background-image': 'url(' + member.imageUrl + ')' }"
         )
-            base-title(
-                class="c-section-about-team__title"
-                tint="gradient"
-                level="large"
-                align="center"
+
+        .c-section-about-team__member-details
+          h4.c-section-about-team__member-name.u-bold
+            | {{ member.name }}
+
+          p.c-section-about-team__member-position
+            | {{ member.position }}
+
+          ul.c-section-about-team__member-socials
+            li(
+              v-for="(socialItem, index) in member.socials"
+              :key="index"
+              class="c-section-about-team__member-socials"
             )
-                | Meet the Team
-
-            ul.c-section-about-team__members
-                li(
-                    v-for="(member, idx) in teamMembers"
-                    :key="idx"
-                    class="c-section-about-team__member"
+              a.c-section-about-team__member-social-link(
+                :href="socialItem.target"
+                target="_blank"
+              )
+                span.c-section-about-team__member-social-icon(
+                  v-if="socialItem.icon"
+                  v-html="socialItem.icon"
                 )
-                    div(
-                        class="c-section-about-team__member-image"
-                        :style="{ 'background-image': 'url(' + member.imageUrl + ')' }"
-                    )
-                    .c-section-about-team__member-details
-                        h4.c-section-about-team__member-name.u-bold
-                            | {{ member.name }}
-                        p.c-section-about-team__member-position
-                            | {{ member.position }}
-                        ul.c-section-about-team__member-socials
-                            li(
-                                v-for="(socialItem, idx) in member.socials"
-                                :key="idx"
-                                class="c-section-about-team__member-socials"
-                            )
-                                a.c-section-about-team__member-social-link(
-                                    :href="socialItem.target"
-                                    target="_blank"
-                                )
-                                    span.c-section-about-team__member-social-icon(
-                                        v-if="socialItem.icon"
-                                        v-html="socialItem.icon"
-                                    )
-
-
-
-
 </template>
 
 <!-- **********************************************************************

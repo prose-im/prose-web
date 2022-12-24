@@ -9,98 +9,98 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  div(
-    :class=`[
-      "c-page-header",
-      {
-        "c-page-header--embedded": embedded,
-        "c-page-header--floating": (floating || forceFloating),
-        "c-page-header--announcement": hasAnnouncement
-      }
-    ]`
-  )
-    .c-page-header__sticky.js-page-header
-      .c-page-header__announcement(
-        v-if="hasAnnouncement"
-      )
-        page-wrapper(
-          class="c-page-header__announcement-wrap"
-        )
-          span.c-page-header__announcement-title.u-ellipsis.u-medium
-            | {{ (announcement.title || "Announcement") }}
-
-          span.c-page-header__announcement-separator
-
-          span.c-page-header__announcement-description.u-ellipsis
-            | {{ (announcement.description || "(?)") }}
-
-      .c-page-header__bar
-        page-wrapper
-          .c-page-header__inner
-            .c-page-header__left
-              nuxt-link(
-                to="/"
-              )
-                base-new-logo(
-                  class="c-page-header__logo"
-                )
-
-            .c-page-header__middle
-              ul.c-page-header__menu
-                li(
-                  v-for="item in menuItems"
-                  :key="item.id"
-                  :class=`[
-                    "c-page-header__menu-item",
-                    {
-                      "c-page-header__menu-item--active": (currentPageName === item.id)
-                    }
-                  ]`
-                )
-                  nuxt-link(
-                    v-if="item.target"
-                    class="c-page-header__menu-link"
-                    :to="item.target"
-                  )
-                    span.c-page-header__menu-icon(
-                      v-html="item.icon"
-                    )
-
-                    | {{ item.label }}
-
-                  span.c-page-header__menu-link(
-                    v-else-if="item.dropdown"
-                  )
-                    base-dropdown(
-                      :items="item.dropdown"
-                      arrow-class="c-page-header__menu-dropdown-arrow"
-                      class="c-page-header__menu-dropdown"
-                    )
-
-                    span.c-page-header__menu-icon(
-                      v-html="item.icon"
-                    )
-
-                    | {{ item.label }}
-
-                    image-menu-dropdown-link-arrow(
-                      class="c-page-header__menu-arrow"
-                    )
-
-            .c-page-header__right
-              a(
-                :href="actionTarget"
-                class="c-page-header__action"
-              )
-                base-button(
-                  class="c-page-header__action-button"
-                  right-icon="arrow-right"
-                )
-                  | Join Waitlist
-
-    .c-page-header__ghost(
-      v-if="!embedded"
+div(
+  :class=`[
+    "c-page-header",
+    {
+      "c-page-header--embedded": embedded,
+      "c-page-header--floating": (floating || forceFloating),
+      "c-page-header--announcement": hasAnnouncement
+    }
+  ]`
+)
+  .c-page-header__sticky.js-page-header
+    .c-page-header__announcement(
+      v-if="hasAnnouncement"
     )
+      page-wrapper(
+        class="c-page-header__announcement-wrap"
+      )
+        span.c-page-header__announcement-title.u-ellipsis.u-medium
+          | {{ (announcement.title || "Announcement") }}
+
+        span.c-page-header__announcement-separator
+
+        span.c-page-header__announcement-description.u-ellipsis
+          | {{ (announcement.description || "(?)") }}
+
+    .c-page-header__bar
+      page-wrapper
+        .c-page-header__inner
+          .c-page-header__left
+            nuxt-link(
+              to="/"
+            )
+              base-new-logo(
+                class="c-page-header__logo"
+              )
+
+          .c-page-header__middle
+            ul.c-page-header__menu
+              li(
+                v-for="item in menuItems"
+                :key="item.id"
+                :class=`[
+                  "c-page-header__menu-item",
+                  {
+                    "c-page-header__menu-item--active": (currentPageName === item.id)
+                  }
+                ]`
+              )
+                nuxt-link(
+                  v-if="item.target"
+                  class="c-page-header__menu-link"
+                  :to="item.target"
+                )
+                  span.c-page-header__menu-icon(
+                    v-html="item.icon"
+                  )
+
+                  | {{ item.label }}
+
+                span.c-page-header__menu-link(
+                  v-else-if="item.dropdown"
+                )
+                  base-dropdown(
+                    :items="item.dropdown"
+                    arrow-class="c-page-header__menu-dropdown-arrow"
+                    class="c-page-header__menu-dropdown"
+                  )
+
+                  span.c-page-header__menu-icon(
+                    v-html="item.icon"
+                  )
+
+                  | {{ item.label }}
+
+                  image-menu-dropdown-link-arrow(
+                    class="c-page-header__menu-arrow"
+                  )
+
+          .c-page-header__right
+            a(
+              :href="actionTarget"
+              class="c-page-header__action"
+            )
+              base-button(
+                class="c-page-header__action-button"
+                right-icon="arrow-right"
+              )
+                | Join Waitlist
+
+  .c-page-header__ghost(
+    v-if="!embedded"
+  )
 </template>
 
 <!-- **********************************************************************

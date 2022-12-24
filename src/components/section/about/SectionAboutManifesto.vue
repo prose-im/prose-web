@@ -9,39 +9,42 @@
      ********************************************************************** -->
 
 <template lang="pug">
+.c-section-about-manifesto
+  page-wrapper(
+    class="c-section-about-manifesto__inner"
+  )
+    .c-section-about-manifesto__bg-illustration
 
-        .c-section-about-manifesto
-            page-wrapper(
-                class="c-section-about-manifesto__inner"
-            )
-                .c-section-about-manifesto__bg-illustration
-                base-title(
-                    class="c-section-about-manifesto__title"
-                    tint="gradient"
-                )
-                    | Stories from Prose Foundation
+    base-title(
+      class="c-section-about-manifesto__title"
+      tint="gradient"
+    )
+      | Stories from Prose Foundation
 
-                .c-section-about-manifesto__cols
-                    .c-section-about-manifesto__cols__col-1
-                        .c-section-about-manifesto__cols__col-1-illustration
-                    .c-section-about-manifesto__cols__col-2
-                        base-title(
-                            class="c-section-about-manifesto__col-2__title"
-                            tint="gradient"
-                            align="left"
-                        )
-                        .c-section-about-manifesto__description
-                            base-title(
-                                class="c-section-about-manifesto__description-title"
-                                tint="dark"
-                                level="small"
-                            )
-                                | Manifesto
-                            p We are a team of passionate developers who are creating a chatting app that is simple, fun, and easy to use.
-                            p Our app will allow users to communicate with each other in a variety of ways, including text, audio, and video. We are committed to creating an app that is accessible to everyone, regardless of their location or device.
-                            p We believe that communication should be easy and convenient, which is why we are constantly improving our app to make it the best it can be. Our goal is to make sure that our app is the go-to choice for anyone who wants to chat with their friends, family, or colleagues. Thank you for considering our app!
-                            .c-section-about-manifesto__description-illustration
+    .c-section-about-manifesto__cols
+      .c-section-about-manifesto__cols__column-1
+        .c-section-about-manifesto__cols__column-1-illustration
 
+      .c-section-about-manifesto__cols__column-2
+        base-title(
+          class="c-section-about-manifesto__column-2__title"
+          tint="gradient"
+          align="left"
+        )
+
+        .c-section-about-manifesto__description
+          base-title(
+            class="c-section-about-manifesto__description-title"
+            tint="dark"
+            level="small"
+          )
+            | Manifesto
+
+          p We are a team of passionate developers who are creating a chatting app that is simple, fun, and easy to use.
+          p Our app will allow users to communicate with each other in a variety of ways, including text, audio, and video. We are committed to creating an app that is accessible to everyone, regardless of their location or device.
+          p We believe that communication should be easy and convenient, which is why we are constantly improving our app to make it the best it can be. Our goal is to make sure that our app is the go-to choice for anyone who wants to chat with their friends, family, or colleagues. Thank you for considering our app!
+
+          .c-section-about-manifesto__description-illustration
     </template>
 
 <!-- **********************************************************************
@@ -89,13 +92,13 @@ $c: ".c-section-about-manifesto";
     margin-top: 48px;
   }
 
-  #{$c}__cols__col-1 {
+  #{$c}__cols__column-1 {
     flex-basis: 40%;
     display: flex;
     align-items: center;
   }
 
-  #{$c}__cols__col-2 {
+  #{$c}__cols__column-2 {
     flex-basis: 60%;
   }
 
@@ -109,7 +112,8 @@ $c: ".c-section-about-manifesto";
     margin: 24px 0;
   }
 
-  #{$c}__cols__col-1-illustration {
+  #{$c}__cols__column-1-illustration {
+    /* TODO: move this to local URL */
     background-image: url("https://images.unsplash.com/photo-1568992687947-868a62a9f521?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80");
 
     margin-top: 64px;
@@ -123,6 +127,7 @@ $c: ".c-section-about-manifesto";
   }
 
   #{$c}__description-illustration {
+    /* TODO: move this to local URL */
     background-image: url("https://images.unsplash.com/photo-1568992687947-868a62a9f521?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80");
 
     margin-top: 64px;
@@ -138,11 +143,11 @@ $c: ".c-section-about-manifesto";
   // --> MEDIA-QUERIES <--
 
   @media (max-width: $screen-medium-width-breakpoint) {
-    #{$c}__cols__col-1 {
+    #{$c}__cols__column-1 {
       display: none;
     }
 
-    #{$c}__cols__col-2 {
+    #{$c}__cols__column-2 {
       flex-basis: 100%;
     }
   }

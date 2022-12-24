@@ -9,19 +9,18 @@
      ********************************************************************** -->
 
 <template lang="pug">
-    .p-about-index
-        section-about-main(
-          class="p-about-index__main"
-        )
+.p-about-index
+  section-about-main(
+    class="p-about-index__main"
+  )
 
-        section-about-manifesto(
-          class="p-about-index__manifesto"
-        )
+  section-about-manifesto(
+    class="p-about-index__manifesto"
+  )
 
-        section-about-team(
-          class="p-about-index__team"
-        )
-
+  section-about-team(
+    class="p-about-index__team"
+  )
 </template>
 
 <!-- **********************************************************************

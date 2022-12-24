@@ -9,46 +9,46 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  .c-section-terms-main
-    page-wrapper
-      base-title(
-        level="mini"
-        align="center"
-        class="c-section-terms-main__title"
+.c-section-terms-main
+  page-wrapper
+    base-title(
+      level="mini"
+      align="center"
+      class="c-section-terms-main__title"
+    )
+      | Terms of Use
+
+      base-space
+
+      span.c-section-terms-main__title-connector.u-light
+        | &
+
+      base-space
+
+      | Privacy Policy
+
+    p.c-section-terms-main__subtitle
+      | Applies to all Prose online services. Last updated on {{ lastUpdated }}.
+
+    .c-section-terms-main__disclaimer-wrap
+      base-disclaimer(
+        :raster-scale="0.62"
+        raster="stickies"
+        class="c-section-terms-main__disclaimer"
       )
-        | Terms of Use
+        p.c-section-terms-main__disclaimer-line.u-bold
+          | The Prose Foundation may revise these terms at any time without notice.
 
-        base-space
+        p.c-section-terms-main__disclaimer-line
+          | By using this service you agree to be bound by the current version of these Terms of Use.
 
-        span.c-section-terms-main__title-connector.u-light
-          | &
+        p.c-section-terms-main__disclaimer-line.c-section-terms-main__disclaimer-line--spaced
+          span.u-medium
+            | Please read these terms of use carefully
 
-        base-space
+          base-space
 
-        | Privacy Policy
-
-      p.c-section-terms-main__subtitle
-        | Applies to all Prose online services. Last updated on {{ lastUpdated }}.
-
-      .c-section-terms-main__disclaimer-wrap
-        base-disclaimer(
-          :raster-scale="0.62"
-          raster="stickies"
-          class="c-section-terms-main__disclaimer"
-        )
-          p.c-section-terms-main__disclaimer-line.u-bold
-            | The Prose Foundation may revise these terms at any time without notice.
-
-          p.c-section-terms-main__disclaimer-line
-            | By using this service you agree to be bound by the current version of these Terms of Use.
-
-          p.c-section-terms-main__disclaimer-line.c-section-terms-main__disclaimer-line--spaced
-            span.u-medium
-              | Please read these terms of use carefully
-
-            base-space
-
-            | before starting using our software and/or services.
+          | before starting using our software and/or services.
 </template>
 
 <!-- **********************************************************************

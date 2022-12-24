@@ -9,35 +9,35 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  .c-section-contact-form
-    page-wrapper
-      .c-section-contact-form__frame-wrap(
-        v-if="formUrl"
+.c-section-contact-form
+  page-wrapper
+    .c-section-contact-form__frame-wrap(
+      v-if="formUrl"
+    )
+      .c-section-contact-form__loader(
+        v-if="frameLoading"
       )
-        .c-section-contact-form__loader(
-          v-if="frameLoading"
-        )
-          base-spinner(
-            size="18px"
-            border-width="3px"
-            class="c-section-contact-form__spinner"
-          )
-
-        iframe(
-          @load="onFrameLoad"
-          :src="formUrl"
-          title="Contact Form"
-          referrerpolicy="origin"
-          frameborder="0"
-          sandbox="allow-forms allow-popups allow-scripts"
-          ref="frame"
-          class="c-section-contact-form__frame"
+        base-spinner(
+          size="18px"
+          border-width="3px"
+          class="c-section-contact-form__spinner"
         )
 
-      p.c-section-contact-form__empty.u-bold(
-        v-else
+      iframe(
+        @load="onFrameLoad"
+        :src="formUrl"
+        title="Contact Form"
+        referrerpolicy="origin"
+        frameborder="0"
+        sandbox="allow-forms allow-popups allow-scripts"
+        ref="frame"
+        class="c-section-contact-form__frame"
       )
-        | No contact form available!
+
+    p.c-section-contact-form__empty.u-bold(
+      v-else
+    )
+      | No contact form available!
 </template>
 
 <!-- **********************************************************************

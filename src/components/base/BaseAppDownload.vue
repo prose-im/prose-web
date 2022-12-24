@@ -9,58 +9,58 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  div(
-    :class=`[
-      "c-app-download",
-      "c-app-download--" + platform
-    ]`
-  )
-    .c-app-download__inner
-      .c-app-download__icon(
-        v-if="platformIcon"
+div(
+  :class=`[
+    "c-app-download",
+    "c-app-download--" + platform
+  ]`
+)
+  .c-app-download__inner
+    .c-app-download__icon(
+      v-if="platformIcon"
+    )
+      span.c-app-download__icon-image(
+        v-html="platformIcon"
       )
-        span.c-app-download__icon-image(
-          v-html="platformIcon"
-        )
 
-      .c-app-download__text
-        .c-app-download__comingsoon.u-bold(
-          v-if="comingSoon"
-        )
-          | coming soon
+    .c-app-download__text
+      .c-app-download__comingsoon.u-bold(
+        v-if="comingSoon"
+      )
+        | coming soon
 
-        h6.c-app-download__name.u-title.u-bold(
-          v-if="platformName"
-        )
-          | {{ platformName }}
+      h6.c-app-download__name.u-title.u-bold(
+        v-if="platformName"
+      )
+        | {{ platformName }}
 
-        base-tooltip(
-          :bypassed="!!target"
-          align="center"
-          direction="top"
-          class="c-app-download__action-wrap"
+      base-tooltip(
+        :bypassed="!!target"
+        align="center"
+        direction="top"
+        class="c-app-download__action-wrap"
+      )
+        template(
+          slot="tooltip"
         )
-          template(
-            slot="tooltip"
+          | Coming soon!
+
+        a(
+          :href="target"
+          :class=`[
+            "c-app-download__action",
+            {
+              "c-app-download__action--locked": !target
+            }
+          ]`
+          slot="default"
+        )
+          base-button(
+            :right-icon="actionRightIcon"
+            tint="light"
+            class="c-app-download__action-button"
           )
-            | Coming soon!
-
-          a(
-            :href="target"
-            :class=`[
-              "c-app-download__action",
-              {
-                "c-app-download__action--locked": !target
-              }
-            ]`
-            slot="default"
-          )
-            base-button(
-              :right-icon="actionRightIcon"
-              tint="light"
-              class="c-app-download__action-button"
-            )
-              | {{ actionLabel }}
+            | {{ actionLabel }}
 </template>
 
 <!-- **********************************************************************

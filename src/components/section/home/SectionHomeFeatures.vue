@@ -9,31 +9,41 @@
      ********************************************************************** -->
 
 <template lang="pug">
-    .c-section-home-features
-        page-wrapper(
-                class="c-section-home-features__inner"
+.c-section-home-features
+  page-wrapper(
+    class="c-section-home-features__inner"
+  )
+    base-title(
+      class="c-section-home-features__title"
+      tint="gradient"
+      align="center"
+      level="large"
+    )
+      | Prose makes
+
+      br
+
+      | teamwork easy
+
+    .c-section-home-features__grid
+      template(
+        v-for="(item, index) in features"
+      )
+        .c-section-home-features__card(
+          :key="index"
+        )
+          .c-section-home-features__illustration(
+            :style="{ 'background-image': 'url(' + item.image + ')'}"
+          )
+
+          .c-section-home-features__content
+            base-title(
+              level="mini",
+              align="center"
             )
-                base-title(
-                    class="c-section-home-features__title"
-                    tint="gradient"
-                    align="center"
-                    level="large"
-                )
-                  | Prose makes
-                  br
-                  | teamwork easy
+              | {{ item.title }}
 
-                .c-section-home-features__grid
-                  template(
-                      v-for="(item, idx) in features"
-                  )
-                    .c-section-home-features__card(:key="idx")
-                        .c-section-home-features__illustration(:style="{ 'background-image': 'url(' + item.image + ')'}")
-                        .c-section-home-features__content
-                            base-title(level="mini", align="center")
-                              | {{ item.title }}
-                            p.c-section-home-features__content-description {{ item.description }}
-
+            p.c-section-home-features__content-description {{ item.description }}
 </template>
 
 <!-- **********************************************************************

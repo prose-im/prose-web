@@ -9,11 +9,10 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  .p-index
-    section-home-main
-    section-home-advantages
-    section-home-features
-    
+.p-index
+  section-home-main
+  section-home-advantages
+  section-home-features
 </template>
 
 <!-- **********************************************************************

@@ -9,38 +9,40 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  page-section(
-    class="c-section-downloads-platforms"
+page-section(
+  class="c-section-downloads-platforms"
+)
+  .c-section-downloads-platforms__nest(
+    v-for="nest, nestType in platforms"
+    :key="nestType"
   )
-    .c-section-downloads-platforms__nest(
-      v-for="nest, nestType in platforms"
-      :key="nestType"
-    )   
-      base-title(
-          class="c-section-downloads-platforms__title"
-          tint="dark"
-          level="small"
-      )
-        | {{ nest.title }}
+    base-title(
+      class="c-section-downloads-platforms__title"
+      tint="dark"
+      level="small"
+    )
+      | {{ nest.title }}
 
-      base-divider(class="c-section-downloads-platforms__divider")
+    base-divider(
+      class="c-section-downloads-platforms__divider"
+    )
 
-      .c-section-downloads-platforms__apps(
-        v-if="nest.apps.length > 0"
+    .c-section-downloads-platforms__apps(
+      v-if="nest.apps.length > 0"
+    )
+      base-app-download(
+        v-for="nestItem in nest.apps"
+        :key="nestItem.platform"
+        :platform="nestItem.platform"
+        :target="nestItem.target"
+        :action="nestItem.action"
+        :class=`[
+          "c-section-downloads-platforms__app",
+          {
+            "c-section-downloads-platforms__app--spaced": nestItem.spaced
+          }
+        ]`
       )
-        base-app-download(
-          v-for="nestItem in nest.apps"
-          :key="nestItem.platform"
-          :platform="nestItem.platform"
-          :target="nestItem.target"
-          :action="nestItem.action"
-          :class=`[
-            "c-section-downloads-platforms__app",
-            {
-              "c-section-downloads-platforms__app--spaced": nestItem.spaced
-            }
-          ]`
-        )
 </template>
 
 <!-- **********************************************************************

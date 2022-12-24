@@ -9,25 +9,25 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  div(
-    :style="style"
-    :class=`[
-      "c-base-app-icon",
-      "c-base-app-icon--background-" + backgroundColor
-    ]`
+div(
+  :style="style"
+  :class=`[
+    "c-base-app-icon",
+    "c-base-app-icon--background-" + backgroundColor
+  ]`
+)
+  .c-base-app-icon__inner(
+    v-if="$slots.default"
   )
-    .c-base-app-icon__inner(
-      v-if="$slots.default"
-    )
-      slot
+    slot
 
-    image-logo(
-      class="c-base-app-icon__logo"
-    )
+  image-logo(
+    class="c-base-app-icon__logo"
+  )
 
-    .c-base-app-icon__background(
-      :style="backgroundStyle"
-    )
+  .c-base-app-icon__background(
+    :style="backgroundStyle"
+  )
 </template>
 
 <!-- **********************************************************************

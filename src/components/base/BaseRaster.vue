@@ -9,13 +9,13 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  span(
-    :class=`[
-      "c-base-raster",
-      "c-base-raster--" + name
-    ]`
-    :style="'width: ' + width + 'px; height: ' + height + 'px'"
-  )
+span(
+  :class=`[
+    "c-base-raster",
+    "c-base-raster--" + name
+  ]`
+  :style="'width: ' + width + 'px; height: ' + height + 'px'"
+)
 </template>
 
 <!-- **********************************************************************
