@@ -13,7 +13,10 @@
   page-wrapper(
     class="c-page-entice__wrapper"
   )
-    .c-page-entice__background
+    base-wave(
+      class="c-page-entice__wave"
+      variant="4"
+    )
 
     base-title(
       level="large"
@@ -150,18 +153,11 @@ $c: ".c-page-entice";
     position: relative;
   }
 
-  #{$c}__background {
-    background-image: url("@/assets/images/components/base/BaseWave/prose-wave-3.svg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: bottom;
-    pointer-events: none;
-    width: 100%;
-    height: 1800px;
+  #{$c}__wave {
+    height: 911px;
     position: absolute;
     bottom: 0;
     left: 0;
-    opacity: 0.5;
   }
 
   #{$c}__options {
@@ -357,7 +353,7 @@ $c: ".c-page-entice";
       display: none;
     }
 
-    #{$c}__background {
+    #{$c}__wave {
       display: none;
     }
   }

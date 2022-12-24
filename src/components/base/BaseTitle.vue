@@ -127,15 +127,16 @@ $stroke-color: $color-background-secondary;
   }
 
   &--gradient {
-    background: -webkit-linear-gradient(
-      96.08deg,
-      #06005e 18.95%,
-      #3458ad 86.78%,
-      #518eea 116.32%
+    background-image: linear-gradient(
+      -6deg,
+      #06005e 19%,
+      #3458ad 86%,
+      #518eea 116%
     );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background-clip: text;
     padding-bottom: 0.2em;
+
+    @include text-fill-color(transparent);
   }
 
   // --> ALIGNS <--

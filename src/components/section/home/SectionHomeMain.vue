@@ -38,9 +38,12 @@ div(
         .c-section-home-main__illustration-message
 
   page-wrapper(
-    class="c-section-home-main__background-wrapper"
+    class="c-section-home-main__wave-wrapper"
   )
-    .c-section-home-main__background
+    base-wave(
+      class="c-section-home-main__wave"
+      variant="5"
+    )
 </template>
 
 <!-- **********************************************************************
@@ -86,21 +89,14 @@ $inner-padding-top-base: 74px;
     }
   }
 
-  #{$c}__background-wrapper {
+  #{$c}__wave-wrapper {
     position: relative;
 
-    #{$c}__background {
-      background-image: url("@/assets/images/components/base/BaseWave/prose-wave-4.svg");
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: bottom;
-      pointer-events: none;
-      width: 100%;
+    #{$c}__wave {
       height: 1040px;
       position: absolute;
       bottom: -2%;
       left: 0;
-      opacity: 0.5;
     }
   }
 

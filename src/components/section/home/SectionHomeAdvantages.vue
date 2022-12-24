@@ -56,7 +56,10 @@
               )
                 | Learn More
 
-    .c-section-home-advantages__background
+    base-wave(
+      class="c-section-home-advantages__wave"
+      variant="1"
+    )
 </template>
 
 <!-- **********************************************************************
@@ -113,18 +116,11 @@ $c: ".c-section-home-advantages";
     margin-bottom: 40px;
   }
 
-  #{$c}__background {
-    background-image: url("@/assets/images/components/base/BaseWave/prose-wave-0.svg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: bottom;
-    pointer-events: none;
-    width: 100%;
+  #{$c}__wave {
     height: 1040px;
     position: absolute;
     bottom: 0;
     left: 0;
-    opacity: 0.5;
   }
 
   .gradient {
@@ -134,8 +130,9 @@ $c: ".c-section-home-advantages";
       #ea94c7 73.39%,
       #c97ebd 100%
     );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    @include text-fill-color(transparent);
   }
 
   #{$c}__stack {
@@ -247,7 +244,7 @@ $c: ".c-section-home-advantages";
       max-width: 600px;
     }
 
-    #{$c}__background {
+    #{$c}__wave {
       display: none;
     }
   }
