@@ -20,7 +20,7 @@
               | Safe.Fast.
               br
               | Transparent.
-          
+
           template(
               v-for="(item, idx) in advantages"
           )
@@ -44,12 +44,12 @@
                               )
                                   | Learn More
           .c-section-home-advantages__bg-illustration
-    
+
 </template>
 
 <!-- **********************************************************************
-           SCRIPT
-           ********************************************************************** -->
+     SCRIPT
+     ********************************************************************** -->
 
 <script>
 import Safe from "@/assets/images/components/section/home/SectionHomeAdvantages/safe.svg";
@@ -83,8 +83,8 @@ export default {
 </script>
 
 <!-- **********************************************************************
-           STYLE
-           ********************************************************************** -->
+     STYLE
+     ********************************************************************** -->
 
 <style lang="scss">
 $c: ".c-section-home-advantages";

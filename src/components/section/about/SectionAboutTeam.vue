@@ -22,7 +22,7 @@
                 align="center"
             )
                 | Meet the Team
-            
+
             ul.c-section-about-team__members
                 li(
                     v-for="(member, idx) in teamMembers"
@@ -54,13 +54,13 @@
                                     )
 
 
-                
-        
+
+
 </template>
 
 <!-- **********************************************************************
-               SCRIPT
-               ********************************************************************** -->
+     SCRIPT
+     ********************************************************************** -->
 
 <script>
 import ImageSocialIconTwitter from "~/assets/images/components/page/PageFooter/social-icon-twitter.svg?raw";
@@ -155,8 +155,8 @@ export default {
 </script>
 
 <!-- **********************************************************************
-               STYLE
-               ********************************************************************** -->
+     STYLE
+     ********************************************************************** -->
 
 <style lang="scss">
 $c: ".c-section-about-team";

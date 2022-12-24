@@ -161,9 +161,8 @@ export default {
             return {
               id: platform,
 
-              title: `${
-                VERSIONED_PLATFORMS[platform] || platform
-              } v${_version}`,
+              title: `${VERSIONED_PLATFORMS[platform] ||
+                platform} v${_version}`,
 
               target: this.downloadUrl(platform, _version)
             };

@@ -243,8 +243,13 @@ $size-huge-padding-sides: 38px;
 
   &--gradient {
     #{$c}__inner {
-      background: linear-gradient(285.87deg, #644EB4 0.91%, #9063B8 30.57%, #C97EBD 66.98%, #F67086 89.24%);
-
+      background: linear-gradient(
+        285.87deg,
+        #644eb4 0.91%,
+        #9063b8 30.57%,
+        #c97ebd 66.98%,
+        #f67086 89.24%
+      );
 
       #{$c}__label {
         color: $color-white;

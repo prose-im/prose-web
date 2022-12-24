@@ -26,7 +26,7 @@ export default {
 
   head: {
     title: "Prose – All of your workplace communication lives here"
-  },
+  }
 };
 </script>
 

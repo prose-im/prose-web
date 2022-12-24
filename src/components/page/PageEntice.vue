@@ -359,7 +359,6 @@ $c: ".c-page-entice";
         width: 100%;
 
         #{$c}__action {
-
           &-button {
             width: 100%;
           }

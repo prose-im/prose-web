@@ -22,7 +22,7 @@
                   | Prose makes
                   br
                   | teamwork easy
-                
+
                 .c-section-home-features__grid
                   template(
                       v-for="(item, idx) in features"
@@ -33,12 +33,12 @@
                             base-title(level="mini", align="center")
                               | {{ item.title }}
                             p.c-section-home-features__content-description {{ item.description }}
-    
+
 </template>
 
 <!-- **********************************************************************
-           SCRIPT
-           ********************************************************************** -->
+     SCRIPT
+     ********************************************************************** -->
 
 <script>
 import Calls from "@/assets/images/components/section/home/SectionHomeFeatures/calls.svg";
@@ -96,8 +96,8 @@ export default {
 </script>
 
 <!-- **********************************************************************
-           STYLE
-           ********************************************************************** -->
+     STYLE
+     ********************************************************************** -->
 
 <style lang="scss">
 $c: ".c-section-home-features";

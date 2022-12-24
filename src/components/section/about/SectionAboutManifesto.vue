@@ -20,7 +20,7 @@
                     tint="gradient"
                 )
                     | Stories from Prose Foundation
-                
+
                 .c-section-about-manifesto__cols
                     .c-section-about-manifesto__cols__col-1
                         .c-section-about-manifesto__cols__col-1-illustration
@@ -37,16 +37,16 @@
                                 level="small"
                             )
                                 | Manifesto
-                            p We are a team of passionate developers who are creating a chatting app that is simple, fun, and easy to use. 
+                            p We are a team of passionate developers who are creating a chatting app that is simple, fun, and easy to use.
                             p Our app will allow users to communicate with each other in a variety of ways, including text, audio, and video. We are committed to creating an app that is accessible to everyone, regardless of their location or device.
                             p We believe that communication should be easy and convenient, which is why we are constantly improving our app to make it the best it can be. Our goal is to make sure that our app is the go-to choice for anyone who wants to chat with their friends, family, or colleagues. Thank you for considering our app!
                             .c-section-about-manifesto__description-illustration
-            
+
     </template>
 
 <!-- **********************************************************************
-               SCRIPT
-               ********************************************************************** -->
+     SCRIPT
+     ********************************************************************** -->
 
 <script>
 export default {
@@ -55,8 +55,8 @@ export default {
 </script>
 
 <!-- **********************************************************************
-               STYLE
-               ********************************************************************** -->
+     STYLE
+     ********************************************************************** -->
 
 <style lang="scss">
 $c: ".c-section-about-manifesto";
