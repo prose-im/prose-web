@@ -27,10 +27,10 @@
 
     .c-section-home-features__grid
       template(
-        v-for="(item, itemIndex) in features"
+        v-for="(item, index) in features"
       )
         .c-section-home-features__card(
-          :key="itemIndex"
+          :key="'feature_' + index"
         )
           .c-section-home-features__illustration(
             :style="{ 'background-image': 'url(' + item.image + ')'}"

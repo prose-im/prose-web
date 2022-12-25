@@ -29,13 +29,14 @@ div(
       slot="description"
     )
       .c-section-home-main__illustrations
-        span.c-section-home-main__illustration.c-section-home-main__illustration--screen
-        span.c-section-home-main__illustration.c-section-home-main__illustration--profile-right
-        span.c-section-home-main__illustration.c-section-home-main__illustration--rating
-        span.c-section-home-main__illustration.c-section-home-main__illustration--user-left
-        span.c-section-home-main__illustration.c-section-home-main__illustration--profile-top
-        span.c-section-home-main__illustration.c-section-home-main__illustration--user-right
-        span.c-section-home-main__illustration.c-section-home-main__illustration--message
+        span(
+          v-for="(illustration, index) in illustrations"
+          :key="'illustration_' + index"
+          :class=`[
+            "c-section-home-main__illustration",
+            "c-section-home-main__illustration--" + illustration
+          ]`
+        )
 
   page-wrapper(
     class="c-section-home-main__wave-wrapper"
@@ -53,6 +54,20 @@ div(
 <script>
 export default {
   name: "SectionHomeMain",
+
+  data() {
+    return {
+      illustrations: [
+        "screen",
+        "profile-right",
+        "rating",
+        "user-left",
+        "profile-top",
+        "user-right",
+        "message"
+      ]
+    };
+  },
 
   computed: {
     hasAnnouncement() {

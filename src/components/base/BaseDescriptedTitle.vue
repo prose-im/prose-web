@@ -58,7 +58,7 @@ export default {
 $c: ".c-base-descripted-title";
 
 .c-base-descripted-title {
-  &__title {
+  #{$c}__title {
     max-width: 700px;
     margin: 0 auto;
   }

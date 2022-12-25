@@ -173,7 +173,7 @@ $c: ".c-page-entice";
       overflow: hidden;
       border-radius: 32px;
 
-      &-title {
+      #{$c}__option-title {
         padding: 48px;
         display: flex;
         flex-direction: column;
@@ -191,13 +191,13 @@ $c: ".c-page-entice";
         background-position: top left;
       }
 
-      &-hosted {
+      #{$c}__option-hosted {
         #{$c}__option-illustration {
           background-image: url("~/assets/images/components/page/PageEntice/illustration-hosted-by-prose.svg");
         }
       }
 
-      &-free {
+      #{$c}__option-free {
         #{$c}__option-illustration {
           background-image: url("~/assets/images/components/page/PageEntice/illustration-free-hosting.svg");
         }
@@ -388,7 +388,7 @@ $c: ".c-page-entice";
         width: 100%;
 
         #{$c}__action {
-          &-button {
+          #{$c}__action-button {
             width: 100%;
           }
         }

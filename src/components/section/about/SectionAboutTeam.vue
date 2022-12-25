@@ -23,8 +23,8 @@
 
     ul.c-section-about-team__members
       li(
-        v-for="(member, memberIndex) in teamMembers"
-        :key="memberIndex"
+        v-for="(member, index) in teamMembers"
+        :key="'member_' + index"
         class="c-section-about-team__member"
       )
         div(
@@ -44,7 +44,7 @@
           )
             li(
               v-for="socialItem in member.socials"
-              :key="'social_' + memberIndex + '_' + socialItem.platform"
+              :key="'social_' + index + '_' + socialItem.platform"
               class="c-section-about-team__member-socials"
             )
               a.c-section-about-team__member-social-link(
@@ -201,14 +201,14 @@ $c: ".c-section-about-team";
   padding: 80px 0;
   z-index: 1;
 
-  &__members {
+  #{$c}__members {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 32px;
     padding: 56px 0;
   }
 
-  &__member {
+  #{$c}__member {
     background-color: $color-background-secondary;
     border: 1px solid $color-border-secondary;
     padding: 48px 0px;
@@ -218,14 +218,14 @@ $c: ".c-section-about-team";
     backdrop-filter: blur(16px);
     border-radius: 32px;
 
-    &-details {
+    #{$c}__member-details {
       display: flex;
       flex-direction: column;
       gap: 6px;
       align-items: center;
     }
 
-    &-image {
+    #{$c}__member-image {
       background-color: #f4f4f9;
       background-repeat: no-repeat;
       background-position: center;
@@ -237,18 +237,18 @@ $c: ".c-section-about-team";
       margin-bottom: 24px;
     }
 
-    &-position {
+    #{$c}__member-position {
       color: $color-base-grey-dark;
     }
 
-    &-socials {
+    #{$c}__member-socials {
       display: flex;
       justify-content: center;
       gap: 12px;
       margin-top: 6px;
     }
 
-    &-social-icon {
+    #{$c}__member-social-icon {
       fill: $color-base-grey-dark;
       flex: 0 0 auto;
 
@@ -264,7 +264,7 @@ $c: ".c-section-about-team";
 
 @media (max-width: $screen-medium-width-breakpoint) {
   .c-section-about-team {
-    &__members {
+    #{$c}__members {
       grid-template-columns: repeat(2, 1fr);
     }
   }
@@ -272,7 +272,7 @@ $c: ".c-section-about-team";
 
 @media (max-width: $screen-tiny-width-breakpoint) {
   .c-section-about-team {
-    &__members {
+    #{$c}__members {
       grid-template-columns: repeat(1, 1fr);
     }
   }

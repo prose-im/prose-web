@@ -24,10 +24,10 @@
       | Transparent.
 
     template(
-      v-for="(item, itemIndex) in advantages"
+      v-for="(item, index) in advantages"
     )
       .c-section-home-advantages__stack(
-        :key="itemIndex"
+        :key="'advantage_' + index"
       )
         .c-section-home-advantages__column-1
           .c-section-home-advantages__illustration
@@ -184,7 +184,7 @@ $c: ".c-section-home-advantages";
       height: 500px;
       position: relative;
 
-      &-inner {
+      #{$c}__illustration-inner {
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center center;
