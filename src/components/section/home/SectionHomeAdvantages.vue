@@ -24,10 +24,10 @@
       | Transparent.
 
     template(
-      v-for="(item, index) in advantages"
+      v-for="(item, itemIndex) in advantages"
     )
       .c-section-home-advantages__stack(
-        :key="index"
+        :key="itemIndex"
       )
         .c-section-home-advantages__column-1
           .c-section-home-advantages__illustration
