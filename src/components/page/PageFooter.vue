@@ -222,7 +222,7 @@ export default {
 
             {
               label: "Work with Us",
-              target: "/contact/"
+              target: "/about/"
             }
           ]
         },
