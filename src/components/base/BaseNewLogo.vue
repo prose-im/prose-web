@@ -9,7 +9,6 @@
      ********************************************************************** -->
 
 <template lang="pug">
-//- TODO: move this over to BaseLogo
 img.c-base-logo(
   src="@/assets/images/components/base/BaseLogo/prose-logo.png",
   alt="Prose Logo"
