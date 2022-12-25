@@ -20,7 +20,7 @@
           base-title(
             tint="gradient"
           )
-            | Looking for a past version ?
+            | Looking for a past version?
 
           a(
             href="/changelog/"
