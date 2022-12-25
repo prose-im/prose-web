@@ -30,7 +30,7 @@
       | in 2 minutes
 
     .c-page-entice__options
-      .c-page-entice__option.c-page-entice__option-hosted
+      .c-page-entice__option.c-page-entice__option--hosted
         .c-page-entice__option-title
           base-title(
             level="mini"
@@ -42,7 +42,7 @@
 
         .c-page-entice__option-illustration
 
-      .c-page-entice__option.c-page-entice__option-free
+      .c-page-entice__option.c-page-entice__option--free
         .c-page-entice__option-title
           base-title(
             level="mini"
@@ -191,13 +191,13 @@ $c: ".c-page-entice";
         background-position: top left;
       }
 
-      #{$c}__option-hosted {
+      &--hosted {
         #{$c}__option-illustration {
           background-image: url("~/assets/images/components/page/PageEntice/illustration-hosted-by-prose.svg");
         }
       }
 
-      #{$c}__option-free {
+      &--free {
         #{$c}__option-illustration {
           background-image: url("~/assets/images/components/page/PageEntice/illustration-free-hosting.svg");
         }
