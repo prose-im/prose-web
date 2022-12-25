@@ -167,7 +167,7 @@ $c: ".c-page-entice";
     margin: 64px 0 40px;
 
     #{$c}__option {
-      background: rgba(246, 247, 251, 0.9); /* TODO: commonize palette */
+      background: $color-background-tertiary;
       backdrop-filter: blur(4px);
       border: 1px solid #81899b33;
       overflow: hidden;
@@ -180,7 +180,7 @@ $c: ".c-page-entice";
         gap: 8px;
 
         p {
-          color: $color-base-blue-mid;
+          color: $color-base-grey-dark;
         }
       }
 
@@ -210,16 +210,16 @@ $c: ".c-page-entice";
 
     background-image: radial-gradient(
         circle at 0% 0%,
-        rgba(#528feb, 0.475) 0%,
-        rgba(#528feb, 0.2) 35%,
-        rgba(#528feb, 0) 60%
+        rgba($color-base-blue-mid, 0.475) 0%,
+        rgba($color-base-blue-mid, 0.2) 35%,
+        rgba($color-base-blue-mid, 0) 60%
       ),
       radial-gradient(
         circle at 100% 100%,
-        rgba(#9a6bbe, 0.475) 0%,
-        rgba(#9a6bbe, 0.2) 35%,
-        rgba(#9a6bbe, 0) 60%
-      ); /* TODO: commonize palette */
+        rgba($color-base-purple-mid, 0.475) 0%,
+        rgba($color-base-purple-mid, 0.2) 35%,
+        rgba($color-base-purple-mid, 0) 60%
+      );
 
     min-height: 320px;
     display: flex;
@@ -268,7 +268,7 @@ $c: ".c-page-entice";
       font-size: 22px;
       line-height: 22px;
       margin-top: 20px;
-      color: $color-base-blue-mid;
+      color: $color-base-grey-dark;
     }
 
     #{$c}__actions {

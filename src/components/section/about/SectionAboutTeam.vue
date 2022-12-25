@@ -209,14 +209,14 @@ $c: ".c-section-about-team";
   }
 
   &__member {
-    border-radius: 32px;
+    background-color: $color-background-secondary;
+    border: 1px solid $color-border-secondary;
     padding: 48px 0px;
-    border: 1px solid #81899b33; /* TODO: commonize palette */
-    background: #f6f7fb57; /* TODO: commonize palette */
-    backdrop-filter: blur(16px);
     display: flex;
     align-items: center;
     flex-direction: column;
+    backdrop-filter: blur(16px);
+    border-radius: 32px;
 
     &-details {
       display: flex;
@@ -238,7 +238,7 @@ $c: ".c-section-about-team";
     }
 
     &-position {
-      color: $color-base-blue-mid;
+      color: $color-base-grey-dark;
     }
 
     &-socials {
@@ -249,7 +249,7 @@ $c: ".c-section-about-team";
     }
 
     &-social-icon {
-      fill: $color-base-blue-mid;
+      fill: $color-base-grey-dark;
       flex: 0 0 auto;
 
       svg {

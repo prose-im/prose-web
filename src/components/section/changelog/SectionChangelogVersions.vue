@@ -299,7 +299,7 @@ $version-dropdown-offset-left: 8px;
       }
 
       #{$c}__version-number {
-        color: $color-base-blue-mid;
+        color: $color-base-grey-dark;
         font-size: 38px;
         line-height: 36px;
         letter-spacing: -0.3px;

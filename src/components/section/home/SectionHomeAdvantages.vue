@@ -176,8 +176,8 @@ $c: ".c-section-home-advantages";
     flex-basis: 50%;
 
     #{$c}__illustration {
-      background: rgba(246, 247, 251, 0.9); /* TODO: commonize palette */
-      border: 1px solid rgba(129, 137, 155, 0.2); /* TODO: commonize palette */
+      background: $color-background-tertiary;
+      border: 1px solid $color-border-secondary;
       backdrop-filter: blur(4px);
       border-radius: 36px;
       width: 100%;

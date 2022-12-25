@@ -19,24 +19,27 @@ $color-white: #ffffff;
 // Bases
 
 $color-base-blue-dark: #2b255d;
-$color-base-blue-mid: #81899b;
+$color-base-blue-mid: #528feb;
 $color-base-blue-light: #6edcff;
 $color-base-blue-link: #4233be;
-$color-base-grey-dark: #78788e;
+$color-base-grey-dark: #81899b;
 $color-base-grey-mid: #a4a4ae;
 $color-base-grey-light: #f5f6fa;
 $color-base-black-mid: #1d1d28;
 $color-base-green-mid: #00ab7e;
 $color-base-pink-light: #ff88a3;
+$color-base-purple-light: #a19db6;
+$color-base-purple-mid: #9a6bbe;
 
 // Backgrounds
 
 $color-background-primary: $color-white;
 $color-background-secondary: #fbfbfc;
+$color-background-tertiary: rgba(#f6f7fb, 0.9);
 
 // Borders
 
-$color-border-secondary: rgba(43, 37, 93, 0.12);
+$color-border-secondary: rgba(#2b255d, 0.12);
 
 // Buttons
 

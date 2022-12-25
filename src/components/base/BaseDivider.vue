@@ -30,8 +30,8 @@ export default {
 $c: ".c-base-divider";
 
 .c-base-divider {
+  background-color: #e6e8ec;
   height: 2px;
   width: 100%;
-  background-color: #e6e8ec; /* TODO: commonize palette */
 }
 </style>

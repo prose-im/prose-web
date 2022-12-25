@@ -90,7 +90,7 @@ $arrow-size: 8px;
   #{$c}__box {
     background: $color-white;
     border-radius: 6px;
-    box-shadow: 0 10px 40px 0 rgba(#19162c, 0.18); /* TODO: commonize palette */
+    box-shadow: 0 10px 40px 0 rgba(#19162c, 0.18);
     display: block;
     position: relative;
   }

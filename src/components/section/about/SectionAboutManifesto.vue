@@ -105,7 +105,7 @@ $c: ".c-section-about-manifesto";
   #{$c}__description {
     font-size: 22px;
     line-height: 28px;
-    color: $color-base-blue-mid;
+    color: $color-base-grey-dark;
 
     p {
       margin: 24px 0;
