@@ -10,7 +10,7 @@
 
 <template lang="pug">
 img.c-base-logo(
-  src="@/assets/images/components/base/BaseLogo/prose-logo.png",
+  src="@/assets/images/components/base/BaseNewLogo/prose-logo.png",
   alt="Prose Logo"
 )
 </template>
