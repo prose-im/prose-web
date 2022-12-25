@@ -23,8 +23,8 @@
 
     ul.c-section-about-team__members
       li(
-        v-for="(member, index) in teamMembers"
-        :key="index"
+        v-for="(member, memberIndex) in teamMembers"
+        :key="memberIndex"
         class="c-section-about-team__member"
       )
         div(
@@ -39,14 +39,16 @@
           p.c-section-about-team__member-position
             | {{ member.position }}
 
-          ul.c-section-about-team__member-socials
+          ul.c-section-about-team__member-socials(
+            v-if="member.socials && member.socials.length > 0"
+          )
             li(
-              v-for="(socialItem, index) in member.socials"
-              :key="index"
+              v-for="socialItem in member.socials"
+              :key="'social_' + memberIndex + '_' + socialItem.platform"
               class="c-section-about-team__member-socials"
             )
               a.c-section-about-team__member-social-link(
-                :href="socialItem.target"
+                :href="generateSocialLink(socialItem.platform, socialItem.handle)"
                 target="_blank"
               )
                 span.c-section-about-team__member-social-icon(
@@ -60,9 +62,6 @@
      ********************************************************************** -->
 
 <script>
-// NPM
-import shuffle from "lodash.shuffle";
-
 // PROJECT: IMAGES
 import ImageSocialIconTwitter from "~/assets/images/components/page/PageFooter/social-icon-twitter.svg?raw";
 import ImageSocialIconGithub from "~/assets/images/components/page/PageFooter/social-icon-github.svg?raw";
@@ -72,12 +71,18 @@ import SaifAvatar from "~/assets/images/components/section/about/SectionAboutTea
 import GuillaumeAvatar from "~/assets/images/components/section/about/SectionAboutTeam/avatar-guillaume.webp?raw";
 import MarcAvatar from "~/assets/images/components/section/about/SectionAboutTeam/avatar-marc.webp?raw";
 
+// CONSTANTS
+const SOCIAL_BASE_URLS = {
+  github: "https://github.com",
+  twitter: "https://twitter.com"
+};
+
 export default {
   name: "SectionAboutTeam",
 
   data() {
     return {
-      teamMembers: shuffle([
+      teamMembers: [
         {
           imageUrl: ValerianAvatar,
           name: "Valerian Saliou",
@@ -87,13 +92,13 @@ export default {
             {
               platform: "twitter",
               icon: ImageSocialIconTwitter,
-              target: this.$config.url.twitter_prose
+              handle: "valeriansaliou"
             },
 
             {
               platform: "github",
               icon: ImageSocialIconGithub,
-              target: this.$config.url.github_prose
+              handle: "valeriansaliou"
             }
           ]
         },
@@ -107,13 +112,13 @@ export default {
             {
               platform: "twitter",
               icon: ImageSocialIconTwitter,
-              target: this.$config.url.twitter_prose
+              handle: "nesium"
             },
 
             {
               platform: "github",
               icon: ImageSocialIconGithub,
-              target: this.$config.url.github_prose
+              handle: "nesium"
             }
           ]
         },
@@ -127,13 +132,13 @@ export default {
             {
               platform: "twitter",
               icon: ImageSocialIconTwitter,
-              target: this.$config.url.twitter_prose
+              handle: "sahkyostudio"
             },
 
             {
               platform: "github",
               icon: ImageSocialIconGithub,
-              target: this.$config.url.github_prose
+              handle: "sahkyo"
             }
           ]
         },
@@ -147,18 +152,39 @@ export default {
             {
               platform: "twitter",
               icon: ImageSocialIconTwitter,
-              target: this.$config.url.twitter_prose
+              handle: "sahkyostudio"
             },
 
             {
               platform: "github",
               icon: ImageSocialIconGithub,
-              target: this.$config.url.github_prose
+              handle: "sahkyo"
             }
           ]
         }
-      ])
+      ]
     };
+  },
+
+  methods: {
+    // --> HELPERS <--
+
+    /**
+     * Generates social link
+     * @public
+     * @param  {string} platform
+     * @param  {string} handle
+     * @return {string} Generated social link
+     */
+    generateSocialLink(platform, handle) {
+      const _baseUrl = SOCIAL_BASE_URLS[platform] || null;
+
+      if (_baseUrl !== null) {
+        return `${_baseUrl}/${handle}`;
+      }
+
+      return `#${platform}`;
+    }
   }
 };
 </script>
