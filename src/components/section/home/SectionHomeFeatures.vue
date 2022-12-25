@@ -51,53 +51,71 @@
      ********************************************************************** -->
 
 <script>
-import Calls from "@/assets/images/components/section/home/SectionHomeFeatures/calls.svg";
-import Encrypt from "@/assets/images/components/section/home/SectionHomeFeatures/encrypt.svg";
-import History from "@/assets/images/components/section/home/SectionHomeFeatures/history.svg";
-import Integration from "@/assets/images/components/section/home/SectionHomeFeatures/integration.svg";
-import Search from "@/assets/images/components/section/home/SectionHomeFeatures/search.svg";
-import Share from "@/assets/images/components/section/home/SectionHomeFeatures/share.svg";
+import ImageIllustrationCalls from "@/assets/images/components/section/home/SectionHomeFeatures/illustration-calls.svg";
+import ImageIllustrationEncrypt from "@/assets/images/components/section/home/SectionHomeFeatures/illustration-encrypt.svg";
+import ImageIllustrationHistory from "@/assets/images/components/section/home/SectionHomeFeatures/illustration-history.svg";
+import ImageIllustrationIntegration from "@/assets/images/components/section/home/SectionHomeFeatures/illustration-integration.svg";
+import ImageIllustrationSearch from "@/assets/images/components/section/home/SectionHomeFeatures/illustration-search.svg";
+import ImageIllustrationShare from "@/assets/images/components/section/home/SectionHomeFeatures/illustration-share.svg";
 
 export default {
   name: "SectionHomeFeatures",
+
   data() {
     return {
       features: [
         {
           title: "Encrypt everything",
+
           description:
             "All messages, including your chat history, are end-to-end encrypted.",
-          image: Encrypt
+
+          image: ImageIllustrationEncrypt
         },
+
         {
           title: "Share image & files",
+
           description:
             "Send images to your co-workers. Transfer large files without limits.",
-          image: Share
+
+          image: ImageIllustrationShare
         },
+
         {
           title: "Unlimited chat history",
+
           description:
             "Your past chats are stored and encrypted on your Prose server.",
-          image: History
+
+          image: ImageIllustrationHistory
         },
+
         {
           title: "Connect integrations",
+
           description:
             "Want to plug your other apps to Prose? Install community-made integrations.",
-          image: Integration
+
+          image: ImageIllustrationIntegration
         },
+
         {
           title: "Powerful search",
+
           description:
             "Quickly find anything you said, any file you sent, or anyone in your team.",
-          image: Search
+
+          image: ImageIllustrationSearch
         },
+
         {
           title: "Audio & Video calls",
+
           description:
             "Organize one-to-one or large team-wide video calls, with screen-sharing.",
-          image: Calls
+
+          image: ImageIllustrationCalls
         }
       ]
     };

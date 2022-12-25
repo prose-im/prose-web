@@ -67,9 +67,9 @@
      ********************************************************************** -->
 
 <script>
-import Safe from "@/assets/images/components/section/home/SectionHomeAdvantages/safe.svg";
-import Transparent from "@/assets/images/components/section/home/SectionHomeAdvantages/transparent.svg";
-import Fast from "@/assets/images/components/section/home/SectionHomeAdvantages/fast.svg";
+import ImageIllustrationSafe from "@/assets/images/components/section/home/SectionHomeAdvantages/illustration-safe.svg";
+import ImageIllustrationTransparent from "@/assets/images/components/section/home/SectionHomeAdvantages/illustration-transparent.svg";
+import ImageIllustrationFast from "@/assets/images/components/section/home/SectionHomeAdvantages/illustration-fast.svg";
 
 export default {
   name: "SectionHomeAdvantages",
@@ -79,17 +79,17 @@ export default {
         {
           highlight: "Speak freely",
           title: "with world-class encryption",
-          image: Safe
+          image: ImageIllustrationSafe
         },
         {
           highlight: "Most performant",
           title: "experience on the market",
-          image: Fast
+          image: ImageIllustrationFast
         },
         {
           highlight: "Open source",
           title: "code accessible to everyone",
-          image: Transparent
+          image: ImageIllustrationTransparent
         }
       ]
     };

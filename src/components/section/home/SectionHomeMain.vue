@@ -93,7 +93,7 @@ $inner-padding-top-base: 74px;
     );
 
     &--screen {
-      background-image: url("~/assets/images/components/section/home/SectionHomeMain/app-screenshot.svg");
+      background-image: url("~/assets/images/components/section/home/SectionHomeMain/illustration-app-screenshot.svg");
       margin-top: 64px;
       aspect-ratio: 1200 / 720.76;
       width: 100%;
@@ -103,7 +103,7 @@ $inner-padding-top-base: 74px;
     }
 
     &--profile-right {
-      background-image: url("~/assets/images/components/section/home/SectionHomeMain/profile-right.svg");
+      background-image: url("~/assets/images/components/section/home/SectionHomeMain/illustration-profile-right.svg");
 
       aspect-ratio: 253.87 / 329.57;
       width: 33%;
@@ -113,7 +113,7 @@ $inner-padding-top-base: 74px;
     }
 
     &--rating {
-      background-image: url("~/assets/images/components/section/home/SectionHomeMain/bottom-rating.svg");
+      background-image: url("~/assets/images/components/section/home/SectionHomeMain/illustration-bottom-rating.svg");
       aspect-ratio: 208.72 / 98;
       width: 30%;
       position: absolute;
@@ -122,7 +122,7 @@ $inner-padding-top-base: 74px;
     }
 
     &--user-left {
-      background-image: url("~/assets/images/components/section/home/SectionHomeMain/user-left.svg");
+      background-image: url("~/assets/images/components/section/home/SectionHomeMain/illustration-user-left.svg");
       aspect-ratio: 270.51 / 62.79;
       width: 70%;
       transform: rotate(-12deg);
@@ -132,7 +132,7 @@ $inner-padding-top-base: 74px;
     }
 
     &--profile-top {
-      background-image: url("~/assets/images/components/section/home/SectionHomeMain/profile-top.svg");
+      background-image: url("~/assets/images/components/section/home/SectionHomeMain/illustration-profile-top.svg");
       aspect-ratio: 208.72 / 196;
       width: 30%;
       position: absolute;
@@ -141,7 +141,7 @@ $inner-padding-top-base: 74px;
     }
 
     &--profile-top {
-      background-image: url("~/assets/images/components/section/home/SectionHomeMain/profile-top.svg");
+      background-image: url("~/assets/images/components/section/home/SectionHomeMain/illustration-profile-top.svg");
       aspect-ratio: 208.72 / 196;
       width: 30%;
       position: absolute;
@@ -150,7 +150,7 @@ $inner-padding-top-base: 74px;
     }
 
     &--user-right {
-      background-image: url("~/assets/images/components/section/home/SectionHomeMain/user-right.svg");
+      background-image: url("~/assets/images/components/section/home/SectionHomeMain/illustration-user-right.svg");
       aspect-ratio: 270.51 / 62.79;
       width: 70%;
       transform: rotate(17deg);
@@ -160,7 +160,7 @@ $inner-padding-top-base: 74px;
     }
 
     &--message {
-      background-image: url("~/assets/images/components/section/home/SectionHomeMain/message.svg");
+      background-image: url("~/assets/images/components/section/home/SectionHomeMain/illustration-message.svg");
       aspect-ratio: 325.07 / 146;
       width: 50%;
       position: absolute;

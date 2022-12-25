@@ -66,7 +66,7 @@
         )
           | Full changes on GitHub
 
-          image-version-target-icon(
+          image-icon-version-target(
             class="c-section-changelog-versions__version-target-icon"
           )
 
@@ -90,7 +90,7 @@
 
 <script>
 // PROJECT: IMAGES
-import ImageVersionTargetIcon from "~/assets/images/components/section/changelog/SectionChangelogVersions/version-target-icon.svg?inline";
+import ImageIconVersionTarget from "~/assets/images/components/section/changelog/SectionChangelogVersions/icon-version-target.svg?inline";
 
 // CONSTANTS
 const FORMAT_DATE_AREA = "en-US";
@@ -110,7 +110,7 @@ const VERSIONED_PLATFORMS = {
 export default {
   name: "SectionChangelogVersions",
 
-  components: { ImageVersionTargetIcon },
+  components: { ImageIconVersionTarget },
 
   props: {
     sidebarWidth: {

@@ -193,13 +193,13 @@ $c: ".c-page-entice";
 
       &-hosted {
         #{$c}__option-illustration {
-          background-image: url("~/assets/images/components/page/PageEntice/hosted-by-prose.svg");
+          background-image: url("~/assets/images/components/page/PageEntice/illustration-hosted-by-prose.svg");
         }
       }
 
       &-free {
         #{$c}__option-illustration {
-          background-image: url("~/assets/images/components/page/PageEntice/free-hosting.svg");
+          background-image: url("~/assets/images/components/page/PageEntice/illustration-free-hosting.svg");
         }
       }
     }
