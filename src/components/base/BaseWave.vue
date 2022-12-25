@@ -73,5 +73,6 @@ $c: ".c-base-wave";
   pointer-events: none;
   width: 100%;
   opacity: 0.5;
+  overflow: hidden;
 }
 </style>
