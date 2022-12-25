@@ -108,9 +108,9 @@ $inner-padding-top-base: 74px;
     );
 
     &--screen {
-      background-image: url("~/assets/images/components/section/home/SectionHomeMain/illustration-app-screenshot.svg");
+      background-image: url("~/assets/images/components/section/home/SectionHomeMain/illustration-app-screenshot.webp");
       margin-top: 64px;
-      aspect-ratio: 1200 / 720.76;
+      aspect-ratio: 1200 / 720;
       width: 100%;
       overflow: hidden;
       border-radius: 12px;
