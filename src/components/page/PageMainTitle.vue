@@ -39,11 +39,11 @@ div(
         name="action"
       )
 
-    .c-page-main-title__rasters(
-      v-if="$slots.rasters"
+    .c-page-main-title__waves(
+      v-if="$slots.waves"
     )
       slot(
-        name="rasters"
+        name="waves"
       )
 </template>
 
@@ -88,15 +88,6 @@ $c: ".c-page-main-title";
 
   #{$c}__action {
     margin-top: 40px;
-  }
-
-  #{$c}__rasters {
-    pointer-events: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
   }
 
   // ALIGNS

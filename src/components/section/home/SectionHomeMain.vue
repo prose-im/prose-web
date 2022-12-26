@@ -45,13 +45,13 @@ div(
           ]`
         )
 
-  page-wrapper(
-    class="c-section-home-main__wave-wrapper"
-  )
-    base-wave(
-      :variant="5"
-      class="c-section-home-main__wave"
+    template(
+      slot="waves"
     )
+      base-wave(
+        :variant="5"
+        class="c-section-home-main__wave"
+      )
 </template>
 
 <!-- **********************************************************************
@@ -219,15 +219,11 @@ $inner-padding-top-base: 74px;
     }
   }
 
-  #{$c}__wave-wrapper {
-    position: relative;
-
-    #{$c}__wave {
-      height: 1040px;
-      position: absolute;
-      bottom: -2%;
-      left: 0;
-    }
+  #{$c}__wave {
+    height: 1040px;
+    position: absolute;
+    bottom: -2%;
+    left: 0;
   }
 
   // --> BOOLEANS <--
