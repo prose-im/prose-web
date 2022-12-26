@@ -144,7 +144,7 @@ export default {
 $c: ".c-base-button";
 
 // VARIABLES
-$size-normal-padding-sides: 20px;
+$size-normal-padding-sides: 22px;
 $size-large-padding-sides: 28px;
 $size-huge-padding-sides: 38px;
 

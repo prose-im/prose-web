@@ -347,7 +347,6 @@ $alignments-margin-sides: 12px;
     }
 
     #{$c}__segments {
-      padding-top: 9px;
       display: flex;
       justify-content: flex-end;
 
