@@ -18,7 +18,7 @@
   }
 }
 
-@mixin text-stroke($rules) {
-  -webkit-text-stroke: $rules;
-  text-stroke: $rules;
+@mixin text-fill-color($value) {
+  -webkit-text-fill-color: ($value);
+  text-fill-color: ($value);
 }

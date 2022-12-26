@@ -59,7 +59,7 @@ export default {
       default: "dark",
 
       validator(x) {
-        return ["light", "dark"].includes(x);
+        return ["light", "dark", "gradient"].includes(x);
       }
     },
 
@@ -144,7 +144,7 @@ export default {
 $c: ".c-base-button";
 
 // VARIABLES
-$size-normal-padding-sides: 22px;
+$size-normal-padding-sides: 20px;
 $size-large-padding-sides: 28px;
 $size-huge-padding-sides: 38px;
 
@@ -241,6 +241,38 @@ $size-huge-padding-sides: 38px;
     }
   }
 
+  &--gradient {
+    #{$c}__inner {
+      background: linear-gradient(
+        285.87deg,
+        #644eb4 0.91%,
+        #9063b8 30.57%,
+        #c97ebd 66.98%,
+        #f67086 89.24%
+      );
+
+      #{$c}__label {
+        color: $color-white;
+      }
+
+      #{$c}__icon {
+        fill: $color-white;
+      }
+    }
+
+    &:hover {
+      #{$c}__inner {
+        background-color: darken($color-button-light-normal, 100%);
+      }
+    }
+
+    &:active {
+      #{$c}__inner {
+        background-color: darken($color-button-light-normal, 50%);
+      }
+    }
+  }
+
   // --> SIZES <--
 
   &--normal,
@@ -261,7 +293,8 @@ $size-huge-padding-sides: 38px;
 
   &--normal {
     #{$c}__inner {
-      font-size: 13.5px;
+      font-size: 14px;
+      line-height: 22px;
       padding-top: 9px;
       padding-bottom: 11px;
       padding-left: $size-normal-padding-sides;

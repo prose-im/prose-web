@@ -9,19 +9,25 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  div(
-    :class=`[
-      "c-app-download",
-      "c-app-download--" + platform
-    ]`
-  )
-    .c-app-download__inner
-      .c-app-download__icon(
-        v-if="platformIcon"
+div(
+  :class=`[
+    "c-app-download",
+    "c-app-download--" + platform
+  ]`
+)
+  .c-app-download__inner
+    .c-app-download__icon(
+      v-if="platformIcon"
+    )
+      span.c-app-download__icon-image(
+        v-html="platformIcon"
       )
-        span.c-app-download__icon-image(
-          v-html="platformIcon"
-        )
+
+    .c-app-download__text
+      .c-app-download__comingsoon.u-bold(
+        v-if="comingSoon"
+      )
+        | coming soon
 
       h6.c-app-download__name.u-title.u-bold(
         v-if="platformName"
@@ -121,6 +127,11 @@ export default {
       default: null
     },
 
+    comingSoon: {
+      type: Boolean,
+      default: true
+    },
+
     action: {
       type: String,
       default: "download",
@@ -184,27 +195,50 @@ $c: ".c-app-download";
 
 // VARIABLES
 $platforms: (
-  android: #90c92a,
+  android: #67d3a6,
   ios: #1d1d28,
-  linux: #dd6e0e,
-  macos: #224cc4,
+  linux: #ff7e5b,
+  macos: #b1bede,
   web: #35a1ef,
-  windows: #18c3e2
+  windows: #5488e5
 );
 
 .c-app-download {
   background: $color-white;
-  border: 1.5px solid rgba($color-base-blue-dark, 0.1);
-  text-align: center;
-  padding: 22px 18px 12px;
   overflow: hidden;
   display: flex;
-  align-items: center;
-  justify-content: center;
   border-radius: 12px;
+
+  #{$c}__inner {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  #{$c}__text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #{$c}__comingsoon {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 8px;
+    color: $color-white;
+    text-transform: uppercase;
+    font-size: 12px;
+    line-height: 12px;
+    background: #45b36b;
+    border-radius: 4px;
+  }
 
   #{$c}__icon {
     display: block;
+    padding: 60px;
+    border-radius: 24px;
 
     #{$c}__icon-image {
       display: inline-block;
@@ -212,13 +246,14 @@ $platforms: (
       svg {
         width: auto;
         height: 54px;
+        fill: white;
       }
     }
   }
 
   #{$c}__name {
     color: $color-black;
-    font-size: 15px;
+    font-size: 24px;
     margin-top: 10px;
 
     &:first-child {
@@ -252,10 +287,19 @@ $platforms: (
   @each $platform, $tint in $platforms {
     &--#{$platform} {
       #{$c}__icon {
-        #{$c}__icon-image {
-          fill: $tint;
-        }
+        background-color: $tint;
       }
+    }
+  }
+}
+
+// --> MEDIA-QUERIES <--
+
+@media (max-width: $screen-medium-width-breakpoint) {
+  .c-app-download {
+    #{$c}__inner {
+      flex-direction: column;
+      align-items: flex-start;
     }
   }
 }

@@ -9,18 +9,18 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  .p-downloads-index
-    section-downloads-main(
-      class="p-downloads-index__main"
-    )
+.p-downloads-index
+  section-downloads-main(
+    class="p-downloads-index__main"
+  )
 
-    section-downloads-platforms(
-      class="p-downloads-index__platforms"
-    )
+  section-downloads-platforms(
+    class="p-downloads-index__platforms"
+  )
 
-    section-downloads-archive(
-      class="p-downloads-index__archive"
-    )
+  section-downloads-archive(
+    class="p-downloads-index__archive"
+  )
 </template>
 
 <!-- **********************************************************************

@@ -9,14 +9,14 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  page-container
-    page-header
+page-container
+  page-header
 
-    page-content
-      nuxt
+  page-content
+    nuxt
 
-    page-entice
-    page-footer
+  page-entice
+  page-footer
 </template>
 
 <!-- **********************************************************************

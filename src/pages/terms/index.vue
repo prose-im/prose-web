@@ -9,14 +9,14 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  .p-terms-index
-    section-terms-main(
-      class="p-terms-index__main"
-    )
+.p-terms-index
+  section-terms-main(
+    class="p-terms-index__main"
+  )
 
-    section-terms-text(
-      class="p-terms-index__text"
-    )
+  section-terms-text(
+    class="p-terms-index__text"
+  )
 </template>
 
 <!-- **********************************************************************

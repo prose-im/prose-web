@@ -9,38 +9,38 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  .c-page-footer-segment
-    h6.c-page-footer-segment__title.u-title.u-bold
-      | {{ title }}
+.c-page-footer-segment
+  h6.c-page-footer-segment__title.u-title.u-bold
+    | {{ title }}
 
-    ul.c-page-footer-segment__items
-      li(
-        v-for="segmentItem, index in items"
-        :key="'segment_' + id + '_' + index"
-        :class=`[
-          "c-page-footer-segment__item",
-          {
-            "u-medium": segmentItem.emphasis
-          }
-        ]`
+  ul.c-page-footer-segment__items
+    li(
+      v-for="segmentItem, index in items"
+      :key="'segment_' + id + '_' + index"
+      :class=`[
+        "c-page-footer-segment__item",
+        {
+          "u-medium": segmentItem.emphasis
+        }
+      ]`
+    )
+      nuxt-link(
+        v-if="segmentItem.target.startsWith('/')"
+        :to="segmentItem.target"
+        class="c-page-footer-segment__link"
       )
-        nuxt-link(
-          v-if="segmentItem.target.startsWith('/')"
-          :to="segmentItem.target"
-          class="c-page-footer-segment__link"
-        )
-          | {{ segmentItem.label }}
+        | {{ segmentItem.label }}
 
-        a.c-page-footer-segment__link(
-          v-else
-          :href="segmentItem.target"
+      a.c-page-footer-segment__link(
+        v-else
+        :href="segmentItem.target"
+      )
+        span.c-page-footer-segment__indicator(
+          v-if="segmentItem.indicatorIcon"
+          :style="'background-image: url(' + segmentItem.indicatorIcon + ');'"
         )
-          span.c-page-footer-segment__indicator(
-            v-if="segmentItem.indicatorIcon"
-            :style="'background-image: url(' + segmentItem.indicatorIcon + ');'"
-          )
 
-          | {{ segmentItem.label }}
+        | {{ segmentItem.label }}
 </template>
 
 <!-- **********************************************************************
@@ -91,13 +91,15 @@ $segment-link-padding-left: 10px;
   }
 
   #{$c}__title {
-    font-size: 15px;
-    text-transform: uppercase;
-    letter-spacing: -0.05px;
+    font-size: 20px;
+    letter-spacing: -0.015em;
   }
 
   #{$c}__items {
     margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
 
     #{$c}__item {
       margin-left: (-1 * $segment-link-padding-left);
@@ -107,12 +109,12 @@ $segment-link-padding-left: 10px;
     #{$c}__link {
       background-color: transparent;
       color: inherit;
-      font-size: 13.5px;
+      font-size: 14px;
       line-height: 18px;
       padding: 2px 6px 4px $segment-link-padding-left;
       display: flex;
       align-items: center;
-      border-radius: 2px;
+      border-radius: 6px;
       transition: background-color 100ms linear;
 
       &:hover {

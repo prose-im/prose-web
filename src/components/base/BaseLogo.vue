@@ -9,9 +9,9 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  .c-base-logo(
-    v-html="logoImagesHtml[tint][size]"
-  )
+.c-base-logo(
+  v-html="logoImagesHtml[tint][size]"
+)
 </template>
 
 <!-- **********************************************************************
