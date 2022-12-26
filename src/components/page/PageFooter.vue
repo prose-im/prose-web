@@ -525,13 +525,7 @@ $alignments-margin-sides: 12px;
           }
         }
       }
-    }
-  }
-}
 
-@media (max-width: $screen-lilliput-width-breakpoint) {
-  .c-page-footer {
-    #{$c}__copyright {
       #{$c}__crafted {
         #{$c}__made-in {
           &--long {
@@ -543,7 +537,13 @@ $alignments-margin-sides: 12px;
           }
         }
       }
+    }
+  }
+}
 
+@media (max-width: $screen-lilliput-width-breakpoint) {
+  .c-page-footer {
+    #{$c}__copyright {
       #{$c}__left {
         display: none;
       }
@@ -551,10 +551,6 @@ $alignments-margin-sides: 12px;
       #{$c}__middle {
         text-align: left;
       }
-    }
-
-    #{$c}__main #{$c}__segments {
-      justify-content: start;
     }
   }
 }
