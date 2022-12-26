@@ -353,7 +353,6 @@ $alignments-margin-sides: 12px;
       #{$c}__segment {
         width: 165px;
         margin-right: 24px;
-        text-align: left;
 
         &:last-child {
           margin-right: 0;
@@ -467,7 +466,6 @@ $alignments-margin-sides: 12px;
   .c-page-footer {
     #{$c}__main {
       flex-direction: column;
-      text-align: center;
 
       #{$c}__logo,
       #{$c}__motto {
@@ -490,8 +488,6 @@ $alignments-margin-sides: 12px;
 
       #{$c}__segments {
         padding-top: 54px;
-        flex-wrap: wrap;
-        row-gap: 40px;
 
         #{$c}__segment {
           margin-right: 18px;

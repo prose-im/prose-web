@@ -395,6 +395,7 @@ $c: ".c-page-entice";
 
         #{$c}__subscribe {
           border: transparent;
+          padding: 4px;
           flex-direction: column;
           gap: 12px;
         }

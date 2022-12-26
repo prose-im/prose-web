@@ -98,9 +98,11 @@ $c: ".c-section-about-manifesto";
   }
 
   #{$c}__description {
+    color: $color-base-grey-dark;
     font-size: 20px;
     line-height: 28px;
-    color: $color-base-grey-dark;
+    position: relative;
+    z-index: 1;
 
     p {
       margin: 24px 0;
