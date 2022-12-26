@@ -198,7 +198,7 @@ $c: ".c-section-about-team";
 
 .c-section-about-team {
   position: relative;
-  padding: 80px 0;
+  padding: 80px 0 20px;
   z-index: 1;
 
   #{$c}__members {
