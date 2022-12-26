@@ -22,9 +22,9 @@
           )
             | Looking for a past version?
 
-          a(
-            href="/changelog/"
+          nuxt-link(
             class="c-page-header__action"
+            to="/changelog/"
           )
             base-button(
               class="c-page-header__action-button"
