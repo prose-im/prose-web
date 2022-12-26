@@ -9,7 +9,12 @@
      ********************************************************************** -->
 
 <template lang="pug">
-.c-base-descripted-title
+div(
+  :class=`[
+    "c-base-descripted-title",
+    "c-base-descripted-title--" + align
+  ]`
+)
   base-title(
     :align="align"
     level="large"
@@ -58,13 +63,17 @@ export default {
 $c: ".c-base-descripted-title";
 
 .c-base-descripted-title {
-  #{$c}__title {
-    max-width: 700px;
-    margin: 0 auto;
-  }
-
   #{$c}__description {
     margin-top: 22px;
+  }
+
+  // ALIGNS
+
+  &--center {
+    #{$c}__title {
+      max-width: 700px;
+      margin: 0 auto;
+    }
   }
 }
 </style>
