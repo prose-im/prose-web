@@ -46,9 +46,9 @@
 
               | {{ item.title }}
 
-            a(
-              href="/use-cases/startup"
+            nuxt-link(
               class="c-section-home-advantages__action"
+              to="/downloads/"
             )
               base-button(
                 class="c-section-home-advantages__action-button"

@@ -97,7 +97,7 @@ div(
                 class="c-page-header__action-button"
                 right-icon="arrow-right"
               )
-                | Join Waitlist
+                | Start with Prose
 
   .c-page-header__ghost(
     v-if="!embedded"

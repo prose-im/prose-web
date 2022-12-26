@@ -29,11 +29,6 @@
         .c-section-about-manifesto__column-1-illustration
 
       .c-section-about-manifesto__column-2
-        base-title(
-          tint="gradient"
-          align="left"
-        )
-
         .c-section-about-manifesto__description
           base-title(
             class="c-section-about-manifesto__description-title"
@@ -103,7 +98,7 @@ $c: ".c-section-about-manifesto";
   }
 
   #{$c}__description {
-    font-size: 22px;
+    font-size: 20px;
     line-height: 28px;
     color: $color-base-grey-dark;
 
@@ -114,6 +109,7 @@ $c: ".c-section-about-manifesto";
 
   #{$c}__column-1-illustration,
   #{$c}__description-illustration {
+    background-color: $color-base-grey-light;
     background-image: url("~/assets/images/components/section/about/SectionAboutManifesto/illustration-placeholder.webp");
   }
 

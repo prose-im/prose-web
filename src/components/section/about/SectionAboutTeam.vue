@@ -226,7 +226,7 @@ $c: ".c-section-about-team";
     }
 
     #{$c}__member-image {
-      background-color: #f4f4f9;
+      background-color: $color-base-grey-light;
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;

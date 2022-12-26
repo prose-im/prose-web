@@ -295,7 +295,7 @@ $alignments-margin-sides: 12px;
   #{$c}__main {
     #{$c}__motto {
       color: rgba($color-black, 0.4);
-      font-size: 13px;
+      font-size: 13.5px;
       line-height: 18px;
       margin-top: 26px;
 
@@ -306,7 +306,7 @@ $alignments-margin-sides: 12px;
     }
 
     #{$c}__social {
-      font-size: 12.5px;
+      font-size: 13px;
       margin-top: 24px;
       align-items: center;
       display: flex;
