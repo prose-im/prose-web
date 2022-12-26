@@ -70,7 +70,7 @@ $c: ".c-base-disclaimer";
   }
 
   #{$c}__text {
-    font-size: 14.5px;
+    font-size: 15px;
     letter-spacing: -0.14px;
     line-height: 22px;
     text-align: left;

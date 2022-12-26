@@ -206,7 +206,7 @@ $c: ".c-section-terms-text";
 
     #{$c}__paragraph {
       color: $color-black;
-      font-size: 14px;
+      font-size: 15px;
       line-height: 21px;
       text-align: justify;
       margin-bottom: 22px;
