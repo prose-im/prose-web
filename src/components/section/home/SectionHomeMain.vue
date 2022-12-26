@@ -28,7 +28,14 @@ div(
     template(
       slot="description"
     )
-      .c-section-home-main__illustrations
+      .c-section-home-main__showcase
+        .c-section-home-main__application
+          .c-section-home-main__application-contents
+
+          image-application-layout(
+            class="c-section-home-main__application-layout"
+          )
+
         span(
           v-for="(illustration, index) in illustrations"
           :key="'illustration_' + index"
@@ -52,13 +59,19 @@ div(
      ********************************************************************** -->
 
 <script>
+// PROJECT: IMAGES
+import ImageApplicationLayout from "~/assets/images/components/section/home/SectionHomeMain/application-layout.svg?inline";
+
 export default {
   name: "SectionHomeMain",
+
+  components: {
+    ImageApplicationLayout
+  },
 
   data() {
     return {
       illustrations: [
-        "screen",
         "profile-right",
         "rating",
         "user-left",
@@ -94,29 +107,52 @@ $inner-padding-top-base: 74px;
     padding-top: ($page-header-height + $inner-padding-top-base);
   }
 
-  #{$c}__illustrations {
+  #{$c}__showcase {
     position: relative;
+    margin-top: 64px;
   }
 
+  #{$c}__application,
   #{$c}__illustration {
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
     display: block;
     filter: drop-shadow(
       0px 27.2555px 72.6814px rgba($color-base-purple-light, 0.21)
     );
+  }
 
-    &--screen {
-      background-image: url("~/assets/images/components/section/home/SectionHomeMain/illustration-app-screenshot.webp");
-      margin-top: 64px;
-      aspect-ratio: 1200 / 720;
-      width: 100%;
-      overflow: hidden;
-      border-radius: 12px;
-      backdrop-filter: blur(16px);
+  #{$c}__application #{$c}__application-contents,
+  #{$c}__application #{$c}__application-layout,
+  #{$c}__illustration {
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  #{$c}__application {
+    aspect-ratio: 1200 / 720;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+
+    #{$c}__application-contents {
+      background-image: url("~/assets/images/components/section/home/SectionHomeMain/application-contents.webp");
+      position: absolute;
+      top: 1.9%;
+      bottom: 1.15%;
+      left: 0.85%;
+      right: 0;
     }
 
+    #{$c}__application-layout {
+      background-color: $color-white;
+      background-image: url("~/assets/images/components/section/home/SectionHomeMain/application-window.webp");
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  #{$c}__illustration {
     &--profile-right {
       background-image: url("~/assets/images/components/section/home/SectionHomeMain/illustration-profile-right.svg");
 
