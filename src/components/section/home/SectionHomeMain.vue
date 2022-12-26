@@ -129,11 +129,13 @@ $inner-padding-top-base: 74px;
   }
 
   #{$c}__application {
+    background-color: rgba($color-white, 0.85);
     aspect-ratio: 1200 / 720;
     width: 100%;
     position: relative;
     overflow: hidden;
     border-radius: 12px;
+    backdrop-filter: blur(16px);
 
     #{$c}__application-contents {
       background-image: url("~/assets/images/components/section/home/SectionHomeMain/application-contents.webp");
@@ -145,8 +147,6 @@ $inner-padding-top-base: 74px;
     }
 
     #{$c}__application-layout {
-      background-color: $color-white;
-      background-image: url("~/assets/images/components/section/home/SectionHomeMain/application-window.webp");
       width: 100%;
       height: auto;
     }
