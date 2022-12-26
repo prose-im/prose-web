@@ -105,7 +105,7 @@ export default {
 $c: ".c-section-home-advantages";
 
 .c-section-home-advantages {
-  padding-bottom: 200px;
+  padding-bottom: 150px;
   position: relative;
 
   #{$c}__inner {

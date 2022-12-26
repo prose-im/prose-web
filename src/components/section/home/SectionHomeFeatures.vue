@@ -131,7 +131,7 @@ export default {
 $c: ".c-section-home-features";
 
 .c-section-home-features {
-  padding-bottom: 200px;
+  padding-bottom: 80px;
   position: relative;
   z-index: 1;
 

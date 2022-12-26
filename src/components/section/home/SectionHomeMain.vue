@@ -101,7 +101,7 @@ $c: ".c-section-home-main";
 $inner-padding-top-base: 74px;
 
 .c-section-home-main {
-  padding-bottom: 300px;
+  padding-bottom: 260px;
 
   #{$c}__inner {
     padding-top: ($page-header-height + $inner-padding-top-base);
