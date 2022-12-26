@@ -51,6 +51,7 @@
      ********************************************************************** -->
 
 <script>
+// PROJECT: IMAGES
 import ImageIllustrationCalls from "@/assets/images/components/section/home/SectionHomeFeatures/illustration-calls.svg";
 import ImageIllustrationEncrypt from "@/assets/images/components/section/home/SectionHomeFeatures/illustration-encrypt.svg";
 import ImageIllustrationHistory from "@/assets/images/components/section/home/SectionHomeFeatures/illustration-history.svg";

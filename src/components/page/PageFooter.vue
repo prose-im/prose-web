@@ -13,8 +13,10 @@
   page-wrapper
     .c-page-footer__main
       .c-page-footer__left
-        base-new-logo(
+        base-logo(
           class="c-page-footer__logo"
+          tint="black"
+          size="small"
         )
 
         .c-page-footer__motto
@@ -291,10 +293,6 @@ $alignments-margin-sides: 12px;
   }
 
   #{$c}__main {
-    #{$c}__logo {
-      height: 30px;
-    }
-
     #{$c}__motto {
       color: rgba($color-black, 0.4);
       font-size: 13px;

@@ -155,7 +155,6 @@ $inner-padding-top-base: 74px;
   #{$c}__illustration {
     &--profile-right {
       background-image: url("~/assets/images/components/section/home/SectionHomeMain/illustration-profile-right.svg");
-
       aspect-ratio: 253.87 / 329.57;
       width: 33%;
       position: absolute;

@@ -67,6 +67,7 @@
      ********************************************************************** -->
 
 <script>
+// PROJECT: IMAGES
 import ImageIllustrationSafe from "@/assets/images/components/section/home/SectionHomeAdvantages/illustration-safe.svg";
 import ImageIllustrationTransparent from "@/assets/images/components/section/home/SectionHomeAdvantages/illustration-transparent.svg";
 import ImageIllustrationFast from "@/assets/images/components/section/home/SectionHomeAdvantages/illustration-fast.svg";
@@ -81,11 +82,13 @@ export default {
           title: "with world-class encryption",
           image: ImageIllustrationSafe
         },
+
         {
           highlight: "Most performant",
           title: "experience on the market",
           image: ImageIllustrationFast
         },
+
         {
           highlight: "Open source",
           title: "code accessible to everyone",

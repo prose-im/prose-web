@@ -41,8 +41,9 @@ div(
             nuxt-link(
               to="/"
             )
-              base-new-logo(
+              base-logo(
                 class="c-page-header__logo"
+                size="large"
               )
 
           .c-page-header__middle
@@ -150,29 +151,6 @@ export default {
           target: "/downloads/"
         },
 
-        // {
-        //   id: "cases",
-        //   label: "Use Cases",
-
-        //   dropdown: [
-        //     {
-        //       id: "startup",
-        //       title: "Startup",
-        //       label: "Get your communication going",
-        //       target: "/use-cases/startup",
-        //       icon: ImageMenuDropdownHelpIconHelp
-        //     },
-
-        //     {
-        //       id: "smb",
-        //       title: "Small/Medium Business",
-        //       label: "See how prose can set you up for success",
-        //       target: "/use-cases/smbs",
-        //       icon: ImageMenuDropdownHelpIconDocs
-        //     }
-        //   ]
-        // },
-
         {
           id: "company",
           label: "Company",
@@ -184,13 +162,6 @@ export default {
               target: "/about/",
               icon: ImageMenuDropdownHelpIconHelp
             }
-
-            // {
-            //   id: "blog",
-            //   title: "Blog",
-            //   target: "/blog/",
-            //   icon: ImageMenuDropdownHelpIconDocs
-            // }
           ]
         },
 
@@ -397,8 +368,7 @@ $menu-dropdown-offset-left: 60px;
   }
 
   #{$c}__logo {
-    height: 32px;
-    margin-top: -2px;
+    margin-top: 4px;
   }
 
   #{$c}__menu {
@@ -570,7 +540,7 @@ $menu-dropdown-offset-left: 60px;
     }
 
     #{$c}__logo {
-      height: 30px;
+      height: 24px;
     }
 
     #{$c}__middle {
@@ -586,7 +556,7 @@ $menu-dropdown-offset-left: 60px;
 @media (max-width: $screen-lilliput-width-breakpoint) {
   .c-page-header {
     #{$c}__logo {
-      height: 28px;
+      height: 22px;
     }
 
     #{$c}__menu {
