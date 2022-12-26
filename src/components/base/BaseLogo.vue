@@ -89,7 +89,7 @@ $size-widths: (
 
   &--normal {
     background-color: $color-base-purple-mid;
-    background-image: url("~/assets/images/components/base/BaseLogo/logo-tint-normal.png");
+    background-image: url("~/assets/images/components/base/BaseLogo/logo-tint-normal.webp");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: left;
