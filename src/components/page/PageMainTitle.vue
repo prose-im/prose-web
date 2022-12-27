@@ -9,42 +9,42 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  div(
-    :class=`[
-      "c-page-main-title",
-      "c-page-main-title--" + align
-    ]`
+div(
+  :class=`[
+    "c-page-main-title",
+    "c-page-main-title--" + align
+  ]`
+)
+  page-wrapper(
+    class="c-page-main-title__wrapper"
   )
-    page-wrapper(
-      class="c-page-main-title__wrapper"
+    base-descripted-title(
+      :align="align"
+      class="c-page-main-title__title"
     )
-      base-descripted-title(
-        :align="align"
-        class="c-page-main-title__title"
+      slot(
+        slot="title"
+        name="title"
       )
-        slot(
-          slot="title"
-          name="title"
-        )
 
-        slot(
-          slot="description"
-          name="description"
-        )
-
-      .c-page-main-title__action(
-        v-if="$slots.action"
+      slot(
+        slot="description"
+        name="description"
       )
-        slot(
-          name="action"
-        )
 
-      .c-page-main-title__rasters(
-        v-if="$slots.rasters"
+    .c-page-main-title__action(
+      v-if="$slots.action"
+    )
+      slot(
+        name="action"
       )
-        slot(
-          name="rasters"
-        )
+
+    .c-page-main-title__waves(
+      v-if="$slots.waves"
+    )
+      slot(
+        name="waves"
+      )
 </template>
 
 <!-- **********************************************************************
@@ -88,15 +88,6 @@ $c: ".c-page-main-title";
 
   #{$c}__action {
     margin-top: 40px;
-  }
-
-  #{$c}__rasters {
-    pointer-events: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
   }
 
   // ALIGNS

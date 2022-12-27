@@ -9,55 +9,41 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  .c-section-home-features
-    page-wrapper
-      base-title(
-        level="small"
-        align="center"
-        class="c-section-home-features__title"
-        stroke
+.c-section-home-features
+  page-wrapper(
+    class="c-section-home-features__inner"
+  )
+    base-title(
+      class="c-section-home-features__title"
+      tint="gradient"
+      align="center"
+      level="large"
+    )
+      | Prose makes
+
+      br
+
+      | teamwork easy
+
+    .c-section-home-features__grid
+      template(
+        v-for="(item, index) in features"
       )
-        .c-section-home-features__title-background
-          base-raster(
-            :scale="0.85"
-            name="flag"
-            class="c-section-home-features__title-raster"
-          )
-
-        span.c-section-home-features__title-text
-          | Every little thing, that makes your
-
-          br
-
-          | workspace more fun & productive.
-
-      base-feature-grid(
-        :style="gridStyle"
-        class="c-section-home-features__grid"
-      )
-        template(
-          v-for="featureGroup, index in featureGroups"
-          :slot="'line-' + (index + 1)"
+        .c-section-home-features__card(
+          :key="'feature_' + index"
         )
-          base-feature(
-            v-for="feature in featureGroup"
-            :key="'feature_' + feature.icon"
-            :icon="feature.icon"
-            :title="feature.title"
-            :label="feature.label"
+          .c-section-home-features__illustration(
+            :style="{ 'background-image': 'url(' + item.image + ')'}"
           )
 
-      .c-section-home-features__actions
-        a.c-section-home-features__action(
-          :href="actionTarget"
-        )
-          base-button(
-            right-icon="arrow-right"
-            size="large"
-            class="c-section-home-features__action-button"
-            bolder
-          )
-            | Start with Prose today
+          .c-section-home-features__content
+            base-title(
+              level="mini",
+              align="center"
+            )
+              | {{ item.title }}
+
+            p.c-section-home-features__content-description {{ item.description }}
 </template>
 
 <!-- **********************************************************************
@@ -65,79 +51,75 @@
      ********************************************************************** -->
 
 <script>
+// PROJECT: IMAGES
+import ImageIllustrationCalls from "@/assets/images/components/section/home/SectionHomeFeatures/illustration-calls.svg";
+import ImageIllustrationEncrypt from "@/assets/images/components/section/home/SectionHomeFeatures/illustration-encrypt.svg";
+import ImageIllustrationHistory from "@/assets/images/components/section/home/SectionHomeFeatures/illustration-history.svg";
+import ImageIllustrationIntegration from "@/assets/images/components/section/home/SectionHomeFeatures/illustration-integration.svg";
+import ImageIllustrationSearch from "@/assets/images/components/section/home/SectionHomeFeatures/illustration-search.svg";
+import ImageIllustrationShare from "@/assets/images/components/section/home/SectionHomeFeatures/illustration-share.svg";
+
 export default {
   name: "SectionHomeFeatures",
 
-  props: {
-    gridPaddingSides: {
-      type: String,
-      default: "0px"
-    }
-  },
-
   data() {
     return {
-      // --> DATA <--
+      features: [
+        {
+          title: "Encrypt everything",
 
-      featureGroups: [
-        [
-          {
-            icon: "lock",
-            title: "Encrypt everything!",
-            label:
-              "All messages are end-to-end encrypted, even the chat history stored on the server."
-          },
+          description:
+            "All messages, including your chat history, are end-to-end encrypted.",
 
-          {
-            icon: "share",
-            title: "Share image & files",
-            label:
-              "Send images to your co-workers. Transfer large files without limits."
-          },
+          image: ImageIllustrationEncrypt
+        },
 
-          {
-            icon: "storage",
-            title: "Unlimited chat history",
-            label:
-              "Go back in time. Your past chats are stored on your Prose server, and encrypted at rest."
-          }
-        ],
+        {
+          title: "Share image & files",
 
-        [
-          {
-            icon: "plug",
-            title: "Connect integrations",
-            label:
-              "Want to plug your other apps to Prose? Install community-made integrations."
-          },
+          description:
+            "Send images to your co-workers. Transfer large files without limits.",
 
-          {
-            icon: "search",
-            title: "Powerful search",
-            label:
-              "Quickly find anything you said, any file you sent, or anyone in your team."
-          },
+          image: ImageIllustrationShare
+        },
 
-          {
-            icon: "camera",
-            title: "Audio & Video calls",
-            label:
-              "Organize one-to-one or large team-wide video calls, with screen-sharing."
-          }
-        ]
-      ],
+        {
+          title: "Unlimited chat history",
 
-      actionTarget: `${this.$config.url.prose_docs}/guides/start/`
+          description:
+            "Your past chats are stored and encrypted on your Prose server.",
+
+          image: ImageIllustrationHistory
+        },
+
+        {
+          title: "Connect integrations",
+
+          description:
+            "Want to plug your other apps to Prose? Install community-made integrations.",
+
+          image: ImageIllustrationIntegration
+        },
+
+        {
+          title: "Powerful search",
+
+          description:
+            "Quickly find anything you said, any file you sent, or anyone in your team.",
+
+          image: ImageIllustrationSearch
+        },
+
+        {
+          title: "Audio & Video calls",
+
+          description:
+            "Organize one-to-one or large team-wide video calls, with screen-sharing.",
+
+          image: ImageIllustrationCalls
+        }
+      ]
     };
-  },
-
-  computed: {
-    gridStyle() {
-      return {
-        paddingLeft: this.gridPaddingSides,
-        paddingRight: this.gridPaddingSides
-      };
-    }
   }
 };
 </script>
@@ -150,46 +132,63 @@ export default {
 $c: ".c-section-home-features";
 
 .c-section-home-features {
-  background-color: $color-background-secondary;
-  padding-top: 72px;
-  padding-bottom: 50px;
+  padding-bottom: 80px;
+  position: relative;
+  z-index: 1;
 
   #{$c}__title {
-    position: relative;
-
-    // Notice: this trick helps ensure that the spacing below the title does \
-    //   not get too large on mobile devices, as more than 2 lines will be \
-    //   occupied by the title. This is in part due to the flag raster beneath.
-    max-height: 88px;
-
-    #{$c}__title-background {
-      line-height: 0;
-      display: flex;
-      justify-content: center;
-      position: absolute;
-      top: -35px;
-      left: 0;
-      right: 0;
-      z-index: 0;
-    }
-
-    #{$c}__title-raster {
-      transform: rotate(15deg);
-    }
-
-    #{$c}__title-text {
-      position: relative;
-      z-index: 1;
-    }
+    margin-bottom: 64px;
   }
 
   #{$c}__grid {
-    margin-top: 120px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    gap: 32px;
   }
 
-  #{$c}__actions {
+  #{$c}__card {
+    background: $color-background-tertiary;
+    border: 1px solid $color-border-secondary;
+    backdrop-filter: blur(4px);
+    border-radius: 32px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #{$c}__illustration {
+    height: 175px;
+    width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  #{$c}__content {
+    padding: 32px 48px 48px;
     text-align: center;
-    margin-top: 74px;
+  }
+
+  #{$c}__content-description {
+    color: $color-base-grey-dark;
+    line-height: 22px;
+    margin-top: 12px;
+  }
+
+  @media (max-width: $screen-medium-width-breakpoint) {
+    #{$c}__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: $screen-tiny-width-breakpoint) {
+    padding-bottom: 0px;
+
+    #{$c}__grid {
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
 }
 </style>

@@ -45,7 +45,7 @@ export default {
 
     weight: {
       type: String,
-      default: "bold",
+      default: "medium",
 
       validator(x) {
         return ["regular", "medium", "bold"].includes(x);
@@ -57,7 +57,7 @@ export default {
       default: "dark",
 
       validator(x) {
-        return ["light", "dark"].includes(x);
+        return ["light", "dark", "gradient"].includes(x);
       }
     },
 
@@ -93,27 +93,27 @@ $stroke-color: $color-background-secondary;
   // --> LEVELS <--
 
   &--mini {
-    font-size: 22px;
-    line-height: 32px;
-    letter-spacing: -0.1px;
+    font-size: 26px;
+    line-height: 26px;
+    letter-spacing: -0.015em;
   }
 
   &--small {
-    font-size: 24px;
-    line-height: 38px;
-    letter-spacing: -0.1px;
+    font-size: 32px;
+    line-height: 32px;
+    letter-spacing: -0.03em;
   }
 
   &--normal {
-    font-size: 36px;
-    line-height: 42px;
-    letter-spacing: -0.15px;
+    font-size: 56px;
+    line-height: 56px;
+    letter-spacing: -0.03em;
   }
 
   &--large {
-    font-size: 42px;
-    line-height: 48px;
-    letter-spacing: -0.2px;
+    font-size: 80px;
+    line-height: 80px;
+    letter-spacing: -0.03em;
   }
 
   // --> TINTS <--
@@ -124,6 +124,19 @@ $stroke-color: $color-background-secondary;
 
   &--light {
     color: $color-white;
+  }
+
+  &--gradient {
+    background-image: linear-gradient(
+      -6deg,
+      #06005e 19%,
+      #3458ad 86%,
+      #518eea 116%
+    );
+    background-clip: text;
+    padding-bottom: 0.2em;
+
+    @include text-fill-color(transparent);
   }
 
   // --> ALIGNS <--
@@ -161,6 +174,36 @@ $stroke-color: $color-background-secondary;
       0 0 $stroke-size $stroke-color, 0 0 $stroke-size $stroke-color,
       0 0 $stroke-size $stroke-color, 0 0 $stroke-size $stroke-color,
       0 0 $stroke-size $stroke-color, 0 0 $stroke-size $stroke-color;
+  }
+}
+
+// --> MEDIA-QUERIES <--
+
+@media (max-width: $screen-tiny-width-breakpoint) {
+  .c-base-title {
+    &--large {
+      font-size: 56px;
+      line-height: 56px;
+    }
+
+    &--normal {
+      font-size: 48px;
+      line-height: 48px;
+    }
+  }
+}
+
+@media (max-width: $screen-lilliput-width-breakpoint) {
+  .c-base-title {
+    &--large {
+      font-size: 40px;
+      line-height: 40px;
+    }
+
+    &--normal {
+      font-size: 32px;
+      line-height: 32px;
+    }
   }
 }
 </style>

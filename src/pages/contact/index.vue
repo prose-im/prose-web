@@ -9,14 +9,14 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  .p-contact-index
-    section-contact-main(
-      class="p-contact-index__main"
-    )
+.p-contact-index
+  section-contact-main(
+    class="p-contact-index__main"
+  )
 
-    section-contact-form(
-      class="p-contact-index__form"
-    )
+  section-contact-form(
+    class="p-contact-index__form"
+  )
 </template>
 
 <!-- **********************************************************************

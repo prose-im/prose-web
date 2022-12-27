@@ -9,14 +9,14 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  div(
-    :class=`[
-      "c-page-section",
-      "c-page-section--" + level
-    ]`
-  )
-    page-wrapper
-      slot
+div(
+  :class=`[
+    "c-page-section",
+    "c-page-section--" + level
+  ]`
+)
+  page-wrapper
+    slot
 </template>
 
 <!-- **********************************************************************

@@ -9,33 +9,40 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  page-section(
-    level="secondary"
-    class="c-section-downloads-platforms"
+page-section(
+  class="c-section-downloads-platforms"
+)
+  .c-section-downloads-platforms__nest(
+    v-for="nest, nestType in platforms"
+    :key="nestType"
   )
-    .c-section-downloads-platforms__nest(
-      v-for="nest, nestType in platforms"
-      :key="nestType"
+    base-title(
+      class="c-section-downloads-platforms__title"
+      tint="dark"
+      level="small"
     )
-      h4.c-section-downloads-platforms__title.u-title.u-bold
-        | {{ nest.title }}
+      | {{ nest.title }}
 
-      .c-section-downloads-platforms__apps(
-        v-if="nest.apps.length > 0"
+    base-divider(
+      class="c-section-downloads-platforms__divider"
+    )
+
+    .c-section-downloads-platforms__apps(
+      v-if="nest.apps.length > 0"
+    )
+      base-app-download(
+        v-for="nestItem in nest.apps"
+        :key="nestItem.platform"
+        :platform="nestItem.platform"
+        :target="nestItem.target"
+        :action="nestItem.action"
+        :class=`[
+          "c-section-downloads-platforms__app",
+          {
+            "c-section-downloads-platforms__app--spaced": nestItem.spaced
+          }
+        ]`
       )
-        base-app-download(
-          v-for="nestItem in nest.apps"
-          :key="nestItem.platform"
-          :platform="nestItem.platform"
-          :target="nestItem.target"
-          :action="nestItem.action"
-          :class=`[
-            "c-section-downloads-platforms__app",
-            {
-              "c-section-downloads-platforms__app--spaced": nestItem.spaced
-            }
-          ]`
-        )
 </template>
 
 <!-- **********************************************************************
@@ -113,26 +120,24 @@ export default {
 $c: ".c-section-downloads-platforms";
 
 .c-section-downloads-platforms {
-  overflow-x: auto;
   overflow-y: hidden;
 
   #{$c}__nest {
-    margin-bottom: 54px;
+    margin-bottom: 80px;
 
     &:last-child {
       margin-bottom: 0;
     }
   }
 
-  #{$c}__title {
-    color: $color-black;
-    font-size: 17px;
-    text-transform: uppercase;
+  #{$c}__divider {
+    margin: 24px 0 48px;
   }
 
   #{$c}__apps {
-    display: flex;
-    justify-content: flex-start;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 80px;
     margin-top: 22px;
 
     &::after,
@@ -155,6 +160,19 @@ $c: ".c-section-downloads-platforms";
     &::after {
       content: "";
       width: $page-wrapper-lilliput-padding-sides;
+    }
+  }
+}
+
+// --> MEDIA-QUERIES <--
+
+@media (max-width: $screen-medium-width-breakpoint) {
+  .c-section-downloads-platforms {
+    #{$c}__apps {
+      display: flex;
+      justify-content: flex-start;
+      overflow-x: auto;
+      gap: 24px;
     }
   }
 }

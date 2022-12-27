@@ -9,21 +9,21 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  .c-page-error
-    h1(
-      v-if="error.statusCode === 404"
-    )
-      | Page Not Found
+.c-page-error
+  h1(
+    v-if="error.statusCode === 404"
+  )
+    | Page Not Found
 
-    h1(
-      v-else
-    )
-      | Error {{ error.statusCode }}
+  h1(
+    v-else
+  )
+    | Error {{ error.statusCode }}
 
-    nuxt-link(
-      to="/"
-    )
-      | Go to the home page
+  nuxt-link(
+    to="/"
+  )
+    | Go to the home page
 </template>
 
 <!-- **********************************************************************

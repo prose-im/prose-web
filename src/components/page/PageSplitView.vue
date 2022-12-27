@@ -9,40 +9,40 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  div(
+div(
+  :class=`[
+    "c-page-split-view",
+    {
+      "c-page-split-view--sidebar-background": sidebarBackground,
+      "c-page-split-view--sidebar-border": sidebarBorder
+    }
+  ]`
+)
+  page-wrapper(
     :class=`[
-      "c-page-split-view",
+      "c-page-split-view__wrapper",
       {
-        "c-page-split-view--sidebar-background": sidebarBackground,
-        "c-page-split-view--sidebar-border": sidebarBorder
+        [wrapperClass]: wrapperClass
       }
     ]`
   )
-    page-wrapper(
+    div(
+      :style="sidebarStyle"
       :class=`[
-        "c-page-split-view__wrapper",
+        "c-page-split-view__sidebar",
         {
-          [wrapperClass]: wrapperClass
+          [sidebarClass]: sidebarClass
         }
       ]`
     )
-      div(
-        :style="sidebarStyle"
-        :class=`[
-          "c-page-split-view__sidebar",
-          {
-            [sidebarClass]: sidebarClass
-          }
-        ]`
+      slot(
+        name="sidebar"
       )
-        slot(
-          name="sidebar"
-        )
 
-      .c-page-split-view__content
-        slot(
-          name="content"
-        )
+    .c-page-split-view__content
+      slot(
+        name="content"
+      )
 </template>
 
 <!-- **********************************************************************

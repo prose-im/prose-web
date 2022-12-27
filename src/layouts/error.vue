@@ -9,61 +9,61 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  //- Notice: as the 'error' layout behaves as a page as per Nuxt rules, we \
-  //-   therefore treat it as a page here (inheriting the 'default' layout).
-  .p-error
-    page-main-title
+//- Notice: as the 'error' layout behaves as a page as per Nuxt rules, we \
+//-   therefore treat it as a page here (inheriting the 'default' layout).
+.p-error
+  page-main-title
+    template(
+      slot="title"
+    )
       template(
-        slot="title"
+        v-if="error.statusCode === 404"
       )
-        template(
-          v-if="error.statusCode === 404"
-        )
-          | Page Not Found
-
-        template(
-          v-else
-        )
-          | An Error Occurred
+        | Page Not Found
 
       template(
-        slot="description"
+        v-else
       )
-        template(
-          v-if="error.statusCode === 404"
+        | An Error Occurred
+
+    template(
+      slot="description"
+    )
+      template(
+        v-if="error.statusCode === 404"
+      )
+        p.u-medium
+          | This page could not be found.
+
+        p
+          | Please go back to the homepage and start from there.
+
+      template(
+        v-else
+      )
+        p(
+          v-if="error.message"
         )
-          p.u-medium
-            | This page could not be found.
+          | {{ error.message }}.
 
-          p
-            | Please go back to the homepage and start from there.
-
-        template(
+        p(
           v-else
         )
-          p(
-            v-if="error.message"
-          )
-            | {{ error.message }}.
+          | An unexpected error occurred. Can you try again?
 
-          p(
-            v-else
-          )
-            | An unexpected error occurred. Can you try again?
+        p.u-medium
+          | Error code: {{ error.statusCode }}
 
-          p.u-medium
-            | Error code: {{ error.statusCode }}
-
-      nuxt-link(
-        to="/"
-        slot="action"
+    nuxt-link(
+      to="/"
+      slot="action"
+    )
+      base-button(
+        right-icon="arrow-right"
+        size="large"
+        bolder
       )
-        base-button(
-          right-icon="arrow-right"
-          size="large"
-          bolder
-        )
-          | Go to the home page
+        | Go to the home page
 </template>
 
 <!-- **********************************************************************

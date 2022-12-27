@@ -9,14 +9,14 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  page-split-view(
-    :sidebar-width="sidebarWidth"
-    :sidebar-class="sidebarClass"
-    class="c-section-changelog-background"
-    wrapper-class="c-section-changelog-background__wrapper"
-    sidebar-background
-    sidebar-border
-  )
+page-split-view(
+  :sidebar-width="sidebarWidth"
+  :sidebar-class="sidebarClass"
+  class="c-section-changelog-background"
+  wrapper-class="c-section-changelog-background__wrapper"
+  sidebar-background
+  sidebar-border
+)
 </template>
 
 <!-- **********************************************************************

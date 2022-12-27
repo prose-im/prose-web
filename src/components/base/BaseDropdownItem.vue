@@ -123,7 +123,7 @@ $hover-transition-duration: 150ms;
 
     #{$c}__title {
       color: $color-base-blue-dark;
-      font-size: 13.5px;
+      font-size: 14px;
       letter-spacing: 0.1px;
 
       #{$c}__arrow {

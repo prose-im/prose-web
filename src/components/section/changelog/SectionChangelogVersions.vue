@@ -9,79 +9,79 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  .c-section-changelog-versions
-    page-split-view(
-      v-for="version in versions"
-      :key="'version_' + version.version"
-      :sidebar-width="sidebarWidth"
-      :sidebar-class="sidebarClass"
-      class="c-section-changelog-versions__version"
+.c-section-changelog-versions
+  page-split-view(
+    v-for="version in versions"
+    :key="'version_' + version.version"
+    :sidebar-width="sidebarWidth"
+    :sidebar-class="sidebarClass"
+    class="c-section-changelog-versions__version"
+  )
+    div(
+      slot="sidebar"
+      class="c-section-changelog-versions__version-sidebar"
     )
-      div(
-        slot="sidebar"
-        class="c-section-changelog-versions__version-sidebar"
-      )
-        .c-section-changelog-versions__version-sidebar-wrapped
-          .c-section-changelog-versions__version-tag
-            span.c-section-changelog-versions__version-label
-              | Version
+      .c-section-changelog-versions__version-sidebar-wrapped
+        .c-section-changelog-versions__version-tag
+          span.c-section-changelog-versions__version-label
+            | Version
 
-            span.c-section-changelog-versions__version-number.u-title.u-bold
-              | {{ version.version }}
+          span.c-section-changelog-versions__version-number.u-title.u-bold
+            | {{ version.version }}
 
-          .c-section-changelog-versions__version-downloads(
-            v-if="versionsDownloadsDropdown[version.version].length > 0"
-          )
-            base-dropdown(
-              :items="versionsDownloadsDropdown[version.version]"
-              arrow-class="c-section-changelog-versions__version-dropdown-arrow"
-              class="c-section-changelog-versions__version-dropdown"
-            )
-
-            base-button(
-              right-icon="chevron-down"
-              tint="light"
-              class="c-section-changelog-versions__version-button"
-              bolder
-            )
-              | Downloads
-
-      div(
-        slot="content"
-        :class=`[
-          "c-section-changelog-versions__version-content",
-          {
-            [contentClass]: contentClass
-          }
-        ]`
-      )
-        .c-section-changelog-versions__version-metas
-          h4.c-section-changelog-versions__version-date.u-title.u-medium
-            | {{ formatDate(version.date) }}
-
-          a.c-section-changelog-versions__version-target.u-bold(
-            v-if="versionsFullChangesUrls[version.version]"
-            :href="versionsFullChangesUrls[version.version]"
-            target="_blank"
-          )
-            | Full changes on GitHub
-
-            image-version-target-icon(
-              class="c-section-changelog-versions__version-target-icon"
-            )
-
-        .c-section-changelog-versions__changelog(
-          v-for="changes, changesGroup in version.changelog"
-          :key="'changelog_' + version.version + '_' + changesGroup"
+        .c-section-changelog-versions__version-downloads(
+          v-if="versionsDownloadsDropdown[version.version].length > 0"
         )
-          h6.c-section-changelog-versions__changelog-group.u-title.u-bold
-            | {{ (groupNames[changesGroup] || changesGroup) }}
+          base-dropdown(
+            :items="versionsDownloadsDropdown[version.version]"
+            arrow-class="c-section-changelog-versions__version-dropdown-arrow"
+            class="c-section-changelog-versions__version-dropdown"
+          )
 
-          .c-section-changelog-versions__changelog-changes
-            li.c-section-changelog-versions__changelog-change(
-              v-for="change in changes"
-            )
-              | {{ change[0] }}: {{ change[1] }}.
+          base-button(
+            right-icon="chevron-down"
+            tint="light"
+            class="c-section-changelog-versions__version-button"
+            bolder
+          )
+            | Downloads
+
+    div(
+      slot="content"
+      :class=`[
+        "c-section-changelog-versions__version-content",
+        {
+          [contentClass]: contentClass
+        }
+      ]`
+    )
+      .c-section-changelog-versions__version-metas
+        h4.c-section-changelog-versions__version-date.u-title.u-medium
+          | {{ formatDate(version.date) }}
+
+        a.c-section-changelog-versions__version-target.u-bold(
+          v-if="versionsFullChangesUrls[version.version]"
+          :href="versionsFullChangesUrls[version.version]"
+          target="_blank"
+        )
+          | Full changes on GitHub
+
+          image-icon-version-target(
+            class="c-section-changelog-versions__version-target-icon"
+          )
+
+      .c-section-changelog-versions__changelog(
+        v-for="changes, changesGroup in version.changelog"
+        :key="'changelog_' + version.version + '_' + changesGroup"
+      )
+        h6.c-section-changelog-versions__changelog-group.u-title.u-bold
+          | {{ (groupNames[changesGroup] || changesGroup) }}
+
+        .c-section-changelog-versions__changelog-changes
+          li.c-section-changelog-versions__changelog-change(
+            v-for="change in changes"
+          )
+            | {{ change[0] }}: {{ change[1] }}.
 </template>
 
 <!-- **********************************************************************
@@ -90,7 +90,7 @@
 
 <script>
 // PROJECT: IMAGES
-import ImageVersionTargetIcon from "~/assets/images/components/section/changelog/SectionChangelogVersions/version-target-icon.svg?inline";
+import ImageIconVersionTarget from "~/assets/images/components/section/changelog/SectionChangelogVersions/icon-version-target.svg?inline";
 
 // CONSTANTS
 const FORMAT_DATE_AREA = "en-US";
@@ -110,7 +110,7 @@ const VERSIONED_PLATFORMS = {
 export default {
   name: "SectionChangelogVersions",
 
-  components: { ImageVersionTargetIcon },
+  components: { ImageIconVersionTarget },
 
   props: {
     sidebarWidth: {
@@ -299,7 +299,7 @@ $version-dropdown-offset-left: 8px;
       }
 
       #{$c}__version-number {
-        color: $color-base-blue-mid;
+        color: $color-base-grey-dark;
         font-size: 38px;
         line-height: 36px;
         letter-spacing: -0.3px;
@@ -346,7 +346,7 @@ $version-dropdown-offset-left: 8px;
 
       #{$c}__version-target {
         color: $color-base-blue-link;
-        font-size: 13.5px;
+        font-size: 14px;
         margin-left: 14px;
         flex: 0 0 auto;
         display: flex;

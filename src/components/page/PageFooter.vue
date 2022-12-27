@@ -9,120 +9,113 @@
      ********************************************************************** -->
 
 <template lang="pug">
-  .c-page-footer
-    page-wrapper
-      .c-page-footer__main
-        .c-page-footer__left
-          base-logo(
-            class="c-page-footer__logo",
-            tint="black"
-            size="large"
+.c-page-footer
+  page-wrapper
+    .c-page-footer__main
+      .c-page-footer__left
+        base-logo(
+          class="c-page-footer__logo"
+          tint="black"
+          size="small"
+        )
+
+        .c-page-footer__motto
+          p
+            | We are building the new standard of the workplace.
+
+          p
+            | It’s
+
+            base-space
+
+            a(
+              :href="$config.url.github_prose"
+              class="u-medium"
+              target="_blank"
+            )
+              | open-source
+
+            | , decentralized, and private.
+
+        ul.c-page-footer__social.u-medium(
+          v-if="socialItems.length > 0"
+        )
+          li.c-page-footer__social-button(
+            v-for="socialItem in socialItems"
+            :key="'social_' + socialItem.platform"
+          )
+            a.c-page-footer__social-link(
+              :href="socialItem.target"
+              target="_blank"
+            )
+              span.c-page-footer__social-icon(
+                v-if="socialItem.icon"
+                v-html="socialItem.icon"
+              )
+
+              | {{ socialItem.label }}
+
+      .c-page-footer__right.c-page-footer__right--full
+        .c-page-footer__segments(
+          v-if="segments.length > 0"
+        )
+          page-footer-segment(
+            v-for="segment in segments"
+            :key="'segment_' + segment.id"
+            :id="segment.id"
+            :title="segment.title"
+            :items="segment.items"
+            class="c-page-footer__segment"
           )
 
-          .c-page-footer__motto
-            p
-              | We are building the new standard of the workplace.
+    .c-page-footer__copyright
+      .c-page-footer__left
+        .c-page-footer__badges(
+          v-if="badges.length > 0"
+        )
+          a.c-page-footer__badge(
+            v-for="badge in badges"
+            v-html="badge.image"
+            :key="badge.id"
+            :href="badge.target"
+            target="_blank"
+          )
 
-            p
-              | It’s
+      .c-page-footer__middle
+        .c-page-footer__ownership
+          base-tooltip(
+            align="left"
+            direction="top"
+          )
+            template(
+              slot="tooltip"
+            )
+              | Prose is a non-profit funded by
 
               base-space
 
-              a(
-                :href="$config.url.github_prose"
-                class="u-medium"
+              a.u-medium(
+                :href="ownershipFunderUrl"
                 target="_blank"
               )
-                | open-source
+                | Valerian Saliou
 
-              | , decentralized, and private.
+            span.c-page-footer__author(
+              slot="default"
+            )
+              | {{ $config.author.name }} © {{ currentYear }}
 
-          ul.c-page-footer__social.u-medium(
-            v-if="socialItems.length > 0"
+      .c-page-footer__right
+        .c-page-footer__crafted.u-medium
+          image-copyright-crafted-flag(
+            class="c-page-footer__flag"
           )
-            li.c-page-footer__social-button(
-              v-for="socialItem in socialItems"
-              :key="'social_' + socialItem.platform"
-            )
-              a.c-page-footer__social-link(
-                :href="socialItem.target"
-                target="_blank"
-              )
-                span.c-page-footer__social-icon(
-                  v-if="socialItem.icon"
-                  v-html="socialItem.icon"
-                )
 
-                | {{ socialItem.label }}
+          span.c-page-footer__made-in.c-page-footer__made-in--long
+            | Crafted in the European Union
 
-        .c-page-footer__right.c-page-footer__right--full
-          .c-page-footer__segments(
-            v-if="segments.length > 0"
-          )
-            page-footer-segment(
-              v-for="segment in segments"
-              :key="'segment_' + segment.id"
-              :id="segment.id"
-              :title="segment.title"
-              :items="segment.items"
-              class="c-page-footer__segment"
-            )
-
-      .c-page-footer__copyright
-        .c-page-footer__left
-          .c-page-footer__badges(
-            v-if="badges.length > 0"
-          )
-            a.c-page-footer__badge(
-              v-for="badge in badges"
-              v-html="badge.image"
-              :key="badge.id"
-              :href="badge.target"
-              target="_blank"
-            )
-
-        .c-page-footer__middle
-          .c-page-footer__ownership
-            base-tooltip(
-              align="left"
-              direction="top"
-            )
-              template(
-                slot="tooltip"
-              )
-                | Prose is a non-profit funded by
-
-                base-space
-
-                a.u-medium(
-                  :href="ownershipFunderUrl"
-                  target="_blank"
-                )
-                  | Valerian Saliou
-
-              span.c-page-footer__author(
-                slot="default"
-              )
-                | {{ $config.author.name }} © {{ currentYear }}
-
-            span.c-page-footer__separator
-              | –
-
-            image-copyright-ownership-quote(
-              class="c-page-footer__quote"
-            )
-
-        .c-page-footer__right
-          .c-page-footer__crafted.u-medium
-            image-copyright-crafted-flag(
-              class="c-page-footer__flag"
-            )
-
-            span.c-page-footer__made-in.c-page-footer__made-in--long
-              | Crafted in the European Union
-
-            span.c-page-footer__made-in.c-page-footer__made-in--short
-              | Made in Europe
+          span.c-page-footer__made-in.c-page-footer__made-in--short
+            | Made in Europe
 </template>
 
 <!-- **********************************************************************
@@ -136,7 +129,6 @@ import ImageSocialIconGithub from "~/assets/images/components/page/PageFooter/so
 
 import ImageCopyrightBadgesOpenSource from "~/assets/images/components/page/PageFooter/copyright-badges-open_source.svg?raw";
 import ImageCopyrightBadgesClimateNeutral from "~/assets/images/components/page/PageFooter/copyright-badges-climate_neutral.svg?raw";
-import ImageCopyrightOwnershipQuote from "~/assets/images/components/page/PageFooter/copyright-ownership-quote.svg?inline";
 import ImageCopyrightCraftedFlag from "~/assets/images/components/page/PageFooter/copyright-crafted-flag.svg?inline";
 
 // CONSTANTS
@@ -150,7 +142,6 @@ export default {
   name: "PageFooter",
 
   components: {
-    ImageCopyrightOwnershipQuote,
     ImageCopyrightCraftedFlag
   },
 
@@ -233,7 +224,7 @@ export default {
 
             {
               label: "Work with Us",
-              target: "/contact/"
+              target: "/about/"
             }
           ]
         },
@@ -302,13 +293,9 @@ $alignments-margin-sides: 12px;
   }
 
   #{$c}__main {
-    #{$c}__logo {
-      height: 30px;
-    }
-
     #{$c}__motto {
       color: rgba($color-black, 0.4);
-      font-size: 13px;
+      font-size: 13.5px;
       line-height: 18px;
       margin-top: 26px;
 
@@ -319,7 +306,7 @@ $alignments-margin-sides: 12px;
     }
 
     #{$c}__social {
-      font-size: 12.5px;
+      font-size: 13px;
       margin-top: 24px;
       align-items: center;
       display: flex;
@@ -360,7 +347,6 @@ $alignments-margin-sides: 12px;
     }
 
     #{$c}__segments {
-      padding-top: 9px;
       display: flex;
       justify-content: flex-end;
 
@@ -415,19 +401,6 @@ $alignments-margin-sides: 12px;
     #{$c}__ownership {
       color: $color-base-grey-mid;
       user-select: none;
-
-      #{$c}__separator {
-        margin: 0 6px;
-        user-select: none;
-        opacity: 0.4;
-      }
-
-      #{$c}__quote {
-        width: auto;
-        height: 14px;
-        fill: $color-base-grey-mid;
-        vertical-align: middle;
-      }
     }
 
     #{$c}__crafted {
@@ -497,6 +470,7 @@ $alignments-margin-sides: 12px;
       #{$c}__logo,
       #{$c}__motto {
         text-align: center;
+        margin: 0 auto;
       }
 
       #{$c}__social,
@@ -534,15 +508,6 @@ $alignments-margin-sides: 12px;
         margin-left: 0;
       }
     }
-
-    #{$c}__copyright {
-      #{$c}__ownership {
-        #{$c}__separator,
-        #{$c}__quote {
-          display: none;
-        }
-      }
-    }
   }
 }
 
@@ -556,13 +521,7 @@ $alignments-margin-sides: 12px;
           }
         }
       }
-    }
-  }
-}
 
-@media (max-width: $screen-lilliput-width-breakpoint) {
-  .c-page-footer {
-    #{$c}__copyright {
       #{$c}__crafted {
         #{$c}__made-in {
           &--long {
@@ -574,7 +533,13 @@ $alignments-margin-sides: 12px;
           }
         }
       }
+    }
+  }
+}
 
+@media (max-width: $screen-lilliput-width-breakpoint) {
+  .c-page-footer {
+    #{$c}__copyright {
       #{$c}__left {
         display: none;
       }
