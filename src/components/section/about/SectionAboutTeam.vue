@@ -70,6 +70,7 @@ import ValerianAvatar from "~/assets/images/components/section/about/SectionAbou
 import SaifAvatar from "~/assets/images/components/section/about/SectionAboutTeam/avatar-saif.webp?raw";
 import GuillaumeAvatar from "~/assets/images/components/section/about/SectionAboutTeam/avatar-guillaume.webp?raw";
 import MarcAvatar from "~/assets/images/components/section/about/SectionAboutTeam/avatar-marc.webp?raw";
+import RemiAvatar from "~/assets/images/components/section/about/SectionAboutTeam/avatar-remi.webp?raw";
 
 // CONSTANTS
 const SOCIAL_BASE_URLS = {
@@ -159,6 +160,26 @@ export default {
               platform: "github",
               icon: ImageSocialIconGithub,
               handle: "sahkyo"
+            }
+          ]
+        },
+
+        {
+          imageUrl: RemiAvatar,
+          name: "Rémi Bardon",
+          position: "Open-Source Contributor",
+
+          socials: [
+            {
+              platform: "twitter",
+              icon: ImageSocialIconTwitter,
+              handle: "remibardon"
+            },
+
+            {
+              platform: "github",
+              icon: ImageSocialIconGithub,
+              handle: "RemiBardon"
             }
           ]
         }
