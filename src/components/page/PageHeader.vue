@@ -112,6 +112,7 @@ div(
 // PROJECT: IMAGES
 import ImageMenuDropdownLinkArrow from "~/assets/images/components/page/PageHeader/menu-dropdown-link-arrow.svg?inline";
 
+import ImageMenuDropdownCompanyIconAbout from "~/assets/images/components/page/PageHeader/menu-dropdown-company-icon-about.svg?raw";
 import ImageMenuDropdownHelpIconHelp from "~/assets/images/components/page/PageHeader/menu-dropdown-help-icon-help.svg?raw";
 import ImageMenuDropdownHelpIconDocs from "~/assets/images/components/page/PageHeader/menu-dropdown-help-icon-docs.svg?raw";
 import ImageMenuDropdownHelpIconContact from "~/assets/images/components/page/PageHeader/menu-dropdown-help-icon-contact.svg?raw";
@@ -158,9 +159,10 @@ export default {
           dropdown: [
             {
               id: "about",
-              title: "About",
+              title: "About Prose",
+              label: "Discover who is building Prose",
               target: "/about/",
-              icon: ImageMenuDropdownHelpIconHelp
+              icon: ImageMenuDropdownCompanyIconAbout
             }
           ]
         },

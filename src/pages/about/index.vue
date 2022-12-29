@@ -32,7 +32,7 @@ export default {
   name: "AboutIndexPage",
 
   head: {
-    title: "About the Company"
+    title: "About Prose"
   }
 };
 </script>
