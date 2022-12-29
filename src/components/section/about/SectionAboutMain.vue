@@ -43,7 +43,7 @@ $c: ".c-section-about-main";
 .c-section-about-main {
   #{$c}__illustration-center {
     background-color: $color-base-grey-light;
-    background-image: url("~/assets/images/components/section/about/SectionAboutMain/illustration-placeholder.webp");
+    background-image: url("~/assets/images/components/section/about/SectionAboutMain/illustration-wide.webp");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
