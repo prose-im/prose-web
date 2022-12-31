@@ -151,10 +151,10 @@ export default {
       ) {
         this.subscribeForm.submitted = true;
 
-        this.$crisp.push(
-          ["set", "user:email", [this.subscribeForm.email]],
-          ["set", "session:segments", [["waitlist"]]]
-        );
+        if (typeof window.$crisp !== "undefined") {
+          window.$crisp.push(["set", "user:email", [this.subscribeForm.email]]);
+          window.$crisp.push(["set", "session:segments", [["waitlist"]]]);
+        }
       }
     }
   }
