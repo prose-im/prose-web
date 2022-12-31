@@ -4,7 +4,7 @@
  * Copyright 2022, Prose Foundation
  */
 
-export default function ({ $config }) {
+export default function ({ $config }, inject) {
   // Important: ALWAYS define $crisp, as the Crisp Chatbox SDK might be used \
   //   here and there in the website code.
   window.$crisp = [];
@@ -23,4 +23,7 @@ export default function ({ $config }) {
       document.getElementsByTagName("head")[0].appendChild(_script);
     })();
   }
+
+  // Inject $crisp in context
+  inject("crisp", window.$crisp);
 }
