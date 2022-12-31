@@ -69,17 +69,21 @@
               | Available soon on all major devices.
 
           .c-page-entice__actions
-            .c-page-entice__subscribe
+            form.c-page-entice__action.c-page-entice__action--subscribe(
+              v-if="!subscribeForm.submitted"
+              @submit.prevent="onSubscribeSubmit"
+            )
               input(
+                v-model="subscribeForm.email"
                 type="email"
                 name="subscribe_email"
                 placeholder="Enter your email..."
                 class="c-page-entice__action-input"
               )
 
-              a(
-                :href="actionTargets.start"
-                class="c-page-entice__action"
+              button(
+                class="c-page-entice__action-submit"
+                type="submit"
               )
                 base-button(
                   class="c-page-entice__action-button"
@@ -91,16 +95,10 @@
                 )
                   | Submit
 
-            nuxt-link(
-              v-if="false"
-              class="c-page-entice__action c-page-entice__action--link u-medium"
-              to="/downloads/"
+            .c-page-entice__action.c-page-entice__action--subscribed.u-medium(
+              v-else
             )
-              image-content-actions-download-icon(
-                class="c-page-entice__action-icon"
-              )
-
-              | Download Prose Apps
+              | Thank you! We will let you know when Prose is available.
 </template>
 
 <!-- **********************************************************************
@@ -111,6 +109,9 @@
 // PROJECT: IMAGES
 import ImageContentActionsDownloadIcon from "~/assets/images/components/page/PageEntice/content-actions-download-icon.svg?inline";
 
+// INSTANCES
+const EMAIL_REGEX = /^([^@]+)@([^@]+\.[^@.]+)$/;
+
 export default {
   name: "PageEntice",
 
@@ -118,10 +119,11 @@ export default {
 
   data() {
     return {
-      // --> DATA <--
+      // --> STATE <--
 
-      actionTargets: {
-        start: `${this.$config.url.prose_docs}/guides/start/`
+      subscribeForm: {
+        submitted: false,
+        email: ""
       }
     };
   },
@@ -130,6 +132,30 @@ export default {
     hasActionDownload() {
       // Hide download link on downloads page
       return this.$route.name !== "downloads";
+    }
+  },
+
+  methods: {
+    // --> EVENT LISTENERS <--
+
+    /**
+     * Triggers when subscribe form is submitted
+     * @public
+     * @return {undefined}
+     */
+    onSubscribeSubmit() {
+      if (
+        this.subscribeForm.submitted !== true &&
+        this.subscribeForm.email &&
+        EMAIL_REGEX.test(this.subscribeForm.email) === true
+      ) {
+        this.subscribeForm.submitted = true;
+
+        this.$crisp.push(
+          ["set", "user:email", [this.subscribeForm.email]],
+          ["set", "session:segments", [["waitlist"]]]
+        );
+      }
     }
   }
 };
@@ -274,46 +300,41 @@ $c: ".c-page-entice";
     #{$c}__actions {
       margin-top: 44px;
       min-width: 400px;
+    }
 
-      #{$c}__action {
-        &:last-child {
-          margin-right: 0;
-        }
-
-        #{$c}__action-icon {
-          vertical-align: middle;
-          width: auto;
-          height: 14px;
-          margin-top: -2px;
-          margin-right: 5px;
-        }
-
-        &--link {
-          color: $color-white;
-
-          &:hover {
-            text-decoration: underline;
-          }
-        }
-      }
-
-      #{$c}__subscribe {
+    #{$c}__action {
+      &--subscribe {
         display: flex;
-        padding: 4px 4px 4px 20px;
+        padding: 4px 4px 4px 22px;
         border: 1px solid #81899b;
         border-radius: 32px;
       }
 
+      &--subscribed {
+        font-size: 17px;
+        text-align: center;
+        line-height: 22px;
+      }
+
       #{$c}__action-input {
-        background-color: transparent;
         color: $color-white;
-        border: none;
+        background-color: transparent;
+        border: 0 none;
+        font-size: 14px;
+        padding: 0 6px 0 0;
         flex-grow: 1;
 
         &:focus,
         &:active {
           outline: none;
         }
+      }
+
+      #{$c}__action-submit {
+        background-color: transparent;
+        border: 0 none;
+        margin: 0;
+        padding: 0;
       }
     }
   }
@@ -386,16 +407,12 @@ $c: ".c-page-entice";
 
       #{$c}__actions {
         width: 100%;
+      }
 
-        #{$c}__action {
-          #{$c}__action-button {
-            width: 100%;
-          }
-        }
-
-        #{$c}__subscribe {
+      #{$c}__action {
+        &--subscribe {
           border: transparent;
-          padding: 4px;
+          padding: 0;
           flex-direction: column;
           gap: 12px;
         }
@@ -410,6 +427,10 @@ $c: ".c-page-entice";
           &:active {
             outline: none;
           }
+        }
+
+        #{$c}__action-button {
+          width: 100%;
         }
       }
     }
