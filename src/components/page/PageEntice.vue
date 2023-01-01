@@ -149,12 +149,12 @@ export default {
         this.subscribeForm.email &&
         EMAIL_REGEX.test(this.subscribeForm.email) === true
       ) {
+        // Mark form as submitted
         this.subscribeForm.submitted = true;
 
-        if (typeof window.$crisp !== "undefined") {
-          window.$crisp.push(["set", "user:email", [this.subscribeForm.email]]);
-          window.$crisp.push(["set", "session:segments", [["waitlist"]]]);
-        }
+        // Assign email and segments
+        this.$crisp.user.setEmail(this.subscribeForm.email);
+        this.$crisp.session.setSegments(["waitlist"]);
       }
     }
   }
