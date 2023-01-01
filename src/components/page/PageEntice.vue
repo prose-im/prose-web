@@ -68,13 +68,21 @@
             p
               | Available soon on all major devices.
 
-          .c-page-entice__actions
+          div(
+            :class=`[
+              "c-page-entice__actions",
+              {
+                "c-page-entice__actions--invalid": hasActionsInvalid
+              }
+            ]`
+          )
             form.c-page-entice__action.c-page-entice__action--subscribe(
               v-if="!subscribeForm.submitted"
               @submit.prevent="onSubscribeSubmit"
             )
               input(
                 v-model="subscribeForm.email"
+                :disabled="subscribeForm.loading"
                 type="email"
                 name="subscribe_email"
                 placeholder="Enter your email..."
@@ -82,6 +90,7 @@
               )
 
               button(
+                :disabled="subscribeForm.loading"
                 class="c-page-entice__action-submit"
                 type="submit"
               )
@@ -109,6 +118,9 @@
 // PROJECT: IMAGES
 import ImageContentActionsDownloadIcon from "~/assets/images/components/page/PageEntice/content-actions-download-icon.svg?inline";
 
+// CONSTANTS
+const SUBSCRIBE_SUBMIT_DELAY = 200; // 1/5 second
+
 // INSTANCES
 const EMAIL_REGEX = /^([^@]+)@([^@]+\.[^@.]+)$/;
 
@@ -121,8 +133,12 @@ export default {
     return {
       // --> STATE <--
 
+      hasActionsInvalid: false,
+
       subscribeForm: {
+        loading: false,
         submitted: false,
+
         email: ""
       }
     };
@@ -144,17 +160,33 @@ export default {
      * @return {undefined}
      */
     onSubscribeSubmit() {
-      if (
-        this.subscribeForm.submitted !== true &&
-        this.subscribeForm.email &&
-        EMAIL_REGEX.test(this.subscribeForm.email) === true
-      ) {
-        // Mark form as submitted
-        this.subscribeForm.submitted = true;
+      if (this.subscribeForm.loading !== true) {
+        // Set states
+        this.subscribeForm.loading = true;
+        this.hasActionsInvalid = false;
 
-        // Assign email and segments
-        this.$crisp.user.setEmail(this.subscribeForm.email);
-        this.$crisp.session.setSegments(["waitlist"]);
+        this.$nextTick(() => {
+          setTimeout(() => {
+            if (
+              this.subscribeForm.submitted !== true &&
+              this.subscribeForm.email &&
+              EMAIL_REGEX.test(this.subscribeForm.email) === true
+            ) {
+              // Mark form as submitted
+              this.subscribeForm.submitted = true;
+
+              // Assign email and segments
+              this.$crisp.user.setEmail(this.subscribeForm.email);
+              this.$crisp.session.setSegments(["waitlist"]);
+            } else {
+              // Mark as invalid
+              this.hasActionsInvalid = true;
+            }
+
+            // Reset loading state
+            this.subscribeForm.loading = false;
+          }, SUBSCRIBE_SUBMIT_DELAY);
+        });
       }
     }
   }
@@ -167,6 +199,9 @@ export default {
 
 <style lang="scss">
 $c: ".c-page-entice";
+
+// VARIABLES
+$animate-shake-base-depth: 2px;
 
 .c-page-entice {
   background-color: $color-background-primary;
@@ -300,6 +335,12 @@ $c: ".c-page-entice";
     #{$c}__actions {
       margin-top: 44px;
       min-width: 400px;
+
+      &--invalid {
+        animation-name: shake;
+        animation-duration: 800ms;
+        animation-iteration-count: 1;
+      }
     }
 
     #{$c}__action {
@@ -328,6 +369,10 @@ $c: ".c-page-entice";
         &:active {
           outline: none;
         }
+
+        &:disabled {
+          opacity: 0.6;
+        }
       }
 
       #{$c}__action-submit {
@@ -335,6 +380,10 @@ $c: ".c-page-entice";
         border: 0 none;
         margin: 0;
         padding: 0;
+
+        &:disabled {
+          opacity: 0.8;
+        }
       }
     }
   }
@@ -438,6 +487,31 @@ $c: ".c-page-entice";
     #{$c}__options {
       grid-template-columns: repeat(1, 1fr);
     }
+  }
+}
+
+// --> KEYFRAMES <--
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d((-1 * $animate-shake-base-depth), 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d((2 * $animate-shake-base-depth), 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d((-4 * $animate-shake-base-depth), 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d((4 * $animate-shake-base-depth), 0, 0);
   }
 }
 </style>
