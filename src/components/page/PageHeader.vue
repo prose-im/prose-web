@@ -19,7 +19,7 @@ div(
     }
   ]`
 )
-  .c-page-header__sticky.js-page-header
+  .c-page-header__sticky
     .c-page-header__announcement(
       v-if="hasAnnouncement"
     )
@@ -89,15 +89,13 @@ div(
                   )
 
           .c-page-header__right
-            a(
-              :href="actionTarget"
-              class="c-page-header__action"
-            )
+            .c-page-header__action
               base-button(
+                @click.prevent="onActionButtonClick"
                 class="c-page-header__action-button"
                 right-icon="arrow-right"
               )
-                | Start with Prose
+                | Join the Waitlist
 
   .c-page-header__ghost(
     v-if="!embedded"
@@ -197,9 +195,7 @@ export default {
             }
           ]
         }
-      ],
-
-      actionTarget: `${this.$config.url.prose_docs}/guides/start/`
+      ]
     };
   },
 
@@ -256,6 +252,31 @@ export default {
       // Update reactive marker? (only if changed)
       if (_forceFloating !== this.forceFloating) {
         this.forceFloating = _forceFloating;
+      }
+    },
+
+    /**
+     * Triggers when action button is clicked
+     * @public
+     * @return {undefined}
+     */
+    onActionButtonClick() {
+      const _pageEnticeBoxElement = document.querySelector(
+        ".js-page-entice-box"
+      );
+
+      if (_pageEnticeBoxElement) {
+        // Scroll to entice box element
+        _pageEnticeBoxElement.scrollIntoView();
+
+        // Focus email field
+        const _subscribeEmailFieldElement = document.querySelector(
+          `input[name="subscribe_email"]`
+        );
+
+        if (_subscribeEmailFieldElement) {
+          _subscribeEmailFieldElement.focus();
+        }
       }
     }
   }
