@@ -382,6 +382,7 @@ $animate-shake-base-depth: 2px;
         padding: 0;
 
         &:disabled {
+          pointer-events: none;
           opacity: 0.8;
         }
       }
