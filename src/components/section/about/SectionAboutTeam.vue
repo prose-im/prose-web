@@ -287,13 +287,28 @@ $c: ".c-section-about-team";
       margin-top: 6px;
     }
 
-    #{$c}__member-social-icon {
-      fill: $color-base-grey-dark;
-      flex: 0 0 auto;
+    #{$c}__member-social-link {
+      #{$c}__member-social-icon {
+        fill: $color-base-grey-dark;
+        flex: 0 0 auto;
+        transition: fill 100ms linear;
 
-      svg {
-        height: 24px;
-        width: 24px;
+        svg {
+          height: 24px;
+          width: 24px;
+        }
+      }
+
+      &:hover {
+        #{$c}__member-social-icon {
+          fill: darken($color-base-grey-dark, 10%);
+        }
+      }
+
+      &:active {
+        #{$c}__member-social-icon {
+          fill: darken($color-base-grey-dark, 16%);
+        }
       }
     }
   }
