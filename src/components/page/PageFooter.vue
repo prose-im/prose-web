@@ -48,9 +48,9 @@
               :href="socialItem.target"
               target="_blank"
             )
-              span.c-page-footer__social-icon(
-                v-if="socialItem.icon"
-                v-html="socialItem.icon"
+              base-social-icon(
+                :platform="socialItem.platform"
+                class="c-page-footer__social-icon"
               )
 
               | {{ socialItem.label }}
@@ -124,9 +124,6 @@
 
 <script>
 // PROJECT: IMAGES
-import ImageSocialIconTwitter from "~/assets/images/components/page/PageFooter/social-icon-twitter.svg?raw";
-import ImageSocialIconGithub from "~/assets/images/components/page/PageFooter/social-icon-github.svg?raw";
-
 import ImageCopyrightBadgesOpenSource from "~/assets/images/components/page/PageFooter/copyright-badges-open_source.svg?raw";
 import ImageCopyrightBadgesClimateNeutral from "~/assets/images/components/page/PageFooter/copyright-badges-climate_neutral.svg?raw";
 import ImageCopyrightCraftedFlag from "~/assets/images/components/page/PageFooter/copyright-crafted-flag.svg?inline";
@@ -155,14 +152,12 @@ export default {
         {
           platform: "twitter",
           label: "Twitter",
-          icon: ImageSocialIconTwitter,
           target: this.$config.url.twitter_prose
         },
 
         {
           platform: "github",
           label: "GitHub",
-          icon: ImageSocialIconGithub,
           target: this.$config.url.github_prose
         }
       ],
@@ -335,13 +330,11 @@ $alignments-margin-sides: 12px;
         }
 
         #{$c}__social-icon {
+          height: 12px;
+          width: 14px;
           margin-right: 3px;
           fill: $color-base-black-mid;
           flex: 0 0 auto;
-
-          svg {
-            height: 12px;
-          }
         }
       }
     }
