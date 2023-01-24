@@ -51,9 +51,9 @@
                 :href="generateSocialLink(socialItem.platform, socialItem.handle, socialItem.instance)"
                 target="_blank"
               )
-                span.c-section-about-team__member-social-icon(
-                  v-if="socialItem.icon"
-                  v-html="socialItem.icon"
+                base-social-icon(
+                  :platform="socialItem.platform"
+                  class="c-section-about-team__member-social-icon"
                 )
 </template>
 
@@ -63,10 +63,6 @@
 
 <script>
 // PROJECT: IMAGES
-import ImageSocialIconMastodon from "~/assets/images/components/section/about/SectionAboutTeam/social-icon-mastodon.svg?raw";
-import ImageSocialIconTwitter from "~/assets/images/components/section/about/SectionAboutTeam/social-icon-twitter.svg?raw";
-import ImageSocialIconGithub from "~/assets/images/components/section/about/SectionAboutTeam/social-icon-github.svg?raw";
-
 import ValerianAvatar from "~/assets/images/components/section/about/SectionAboutTeam/avatar-valerian.webp?raw";
 import SaifAvatar from "~/assets/images/components/section/about/SectionAboutTeam/avatar-saif.webp?raw";
 import GuillaumeAvatar from "~/assets/images/components/section/about/SectionAboutTeam/avatar-guillaume.webp?raw";
@@ -94,20 +90,17 @@ export default {
           socials: [
             {
               platform: "mastodon",
-              icon: ImageSocialIconMastodon,
               instance: "toot.io",
               handle: "valerian"
             },
 
             {
               platform: "twitter",
-              icon: ImageSocialIconTwitter,
               handle: "valeriansaliou"
             },
 
             {
               platform: "github",
-              icon: ImageSocialIconGithub,
               handle: "valeriansaliou"
             }
           ]
@@ -121,13 +114,11 @@ export default {
           socials: [
             {
               platform: "twitter",
-              icon: ImageSocialIconTwitter,
               handle: "nesium"
             },
 
             {
               platform: "github",
-              icon: ImageSocialIconGithub,
               handle: "nesium"
             }
           ]
@@ -141,13 +132,11 @@ export default {
           socials: [
             {
               platform: "twitter",
-              icon: ImageSocialIconTwitter,
               handle: "sahkyostudio"
             },
 
             {
               platform: "github",
-              icon: ImageSocialIconGithub,
               handle: "sahkyo"
             }
           ]
@@ -161,13 +150,11 @@ export default {
           socials: [
             {
               platform: "twitter",
-              icon: ImageSocialIconTwitter,
               handle: "sahkyostudio"
             },
 
             {
               platform: "github",
-              icon: ImageSocialIconGithub,
               handle: "sahkyo"
             }
           ]
@@ -181,13 +168,11 @@ export default {
           socials: [
             {
               platform: "twitter",
-              icon: ImageSocialIconTwitter,
               handle: "remibardon"
             },
 
             {
               platform: "github",
-              icon: ImageSocialIconGithub,
               handle: "RemiBardon"
             }
           ]
@@ -288,15 +273,14 @@ $c: ".c-section-about-team";
     }
 
     #{$c}__member-social-link {
+      line-height: 0;
+      display: block;
+
       #{$c}__member-social-icon {
         fill: $color-base-grey-dark;
-        flex: 0 0 auto;
+        height: 24px;
+        width: 24px;
         transition: fill 100ms linear;
-
-        svg {
-          height: 24px;
-          width: 24px;
-        }
       }
 
       &:hover {
