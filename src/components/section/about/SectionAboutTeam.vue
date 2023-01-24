@@ -48,7 +48,7 @@
               class="c-section-about-team__member-socials"
             )
               a.c-section-about-team__member-social-link(
-                :href="generateSocialLink(socialItem.platform, socialItem.handle)"
+                :href="generateSocialLink(socialItem.platform, socialItem.handle, socialItem.instance)"
                 target="_blank"
               )
                 span.c-section-about-team__member-social-icon(
@@ -63,8 +63,9 @@
 
 <script>
 // PROJECT: IMAGES
-import ImageSocialIconTwitter from "~/assets/images/components/page/PageFooter/social-icon-twitter.svg?raw";
-import ImageSocialIconGithub from "~/assets/images/components/page/PageFooter/social-icon-github.svg?raw";
+import ImageSocialIconMastodon from "~/assets/images/components/section/about/SectionAboutTeam/social-icon-mastodon.svg?raw";
+import ImageSocialIconTwitter from "~/assets/images/components/section/about/SectionAboutTeam/social-icon-twitter.svg?raw";
+import ImageSocialIconGithub from "~/assets/images/components/section/about/SectionAboutTeam/social-icon-github.svg?raw";
 
 import ValerianAvatar from "~/assets/images/components/section/about/SectionAboutTeam/avatar-valerian.webp?raw";
 import SaifAvatar from "~/assets/images/components/section/about/SectionAboutTeam/avatar-saif.webp?raw";
@@ -74,8 +75,9 @@ import RemiAvatar from "~/assets/images/components/section/about/SectionAboutTea
 
 // CONSTANTS
 const SOCIAL_BASE_URLS = {
-  github: "https://github.com",
-  twitter: "https://twitter.com"
+  github: "https://github.com/[handle]",
+  twitter: "https://twitter.com/[handle]",
+  mastodon: "https://[instance]/@[handle]"
 };
 
 export default {
@@ -90,6 +92,13 @@ export default {
           position: "Web Platform Developer",
 
           socials: [
+            {
+              platform: "mastodon",
+              icon: ImageSocialIconMastodon,
+              instance: "toot.io",
+              handle: "valerian"
+            },
+
             {
               platform: "twitter",
               icon: ImageSocialIconTwitter,
@@ -195,13 +204,22 @@ export default {
      * @public
      * @param  {string} platform
      * @param  {string} handle
+     * @param  {string} [instance]
      * @return {string} Generated social link
      */
-    generateSocialLink(platform, handle) {
+    generateSocialLink(platform, handle, instance = null) {
       const _baseUrl = SOCIAL_BASE_URLS[platform] || null;
 
       if (_baseUrl !== null) {
-        return `${_baseUrl}/${handle}`;
+        // Inject handle in base URL
+        let _socialUrl = _baseUrl.replace("[handle]", handle);
+
+        // Inject instance in base URL? (if needed)
+        if (instance !== null) {
+          _socialUrl = _socialUrl.replace("[instance]", instance);
+        }
+
+        return _socialUrl;
       }
 
       return `#${platform}`;
@@ -269,13 +287,28 @@ $c: ".c-section-about-team";
       margin-top: 6px;
     }
 
-    #{$c}__member-social-icon {
-      fill: $color-base-grey-dark;
-      flex: 0 0 auto;
+    #{$c}__member-social-link {
+      #{$c}__member-social-icon {
+        fill: $color-base-grey-dark;
+        flex: 0 0 auto;
+        transition: fill 100ms linear;
 
-      svg {
-        height: 24px;
-        width: 24px;
+        svg {
+          height: 24px;
+          width: 24px;
+        }
+      }
+
+      &:hover {
+        #{$c}__member-social-icon {
+          fill: darken($color-base-grey-dark, 10%);
+        }
+      }
+
+      &:active {
+        #{$c}__member-social-icon {
+          fill: darken($color-base-grey-dark, 16%);
+        }
       }
     }
   }
