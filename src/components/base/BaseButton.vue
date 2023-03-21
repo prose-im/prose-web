@@ -59,7 +59,7 @@ export default {
       default: "dark",
 
       validator(x) {
-        return ["light", "dark", "gradient"].includes(x);
+        return ["light", "dark", "gradient", "fancy", "none"].includes(x);
       }
     },
 
@@ -68,7 +68,7 @@ export default {
       default: "normal",
 
       validator(x) {
-        return ["normal", "large", "huge"].includes(x);
+        return ["simple", "normal", "large", "huge"].includes(x);
       }
     },
 
@@ -186,6 +186,19 @@ $size-huge-padding-sides: 38px;
 
   // --> TINTS <--
 
+  &--none {
+    #{$c}__inner {
+
+      #{$c}__label {
+        color: $color-base-blue-dark;
+      }
+
+      #{$c}__icon {
+        fill: $color-base-blue-dark;
+      }
+    }
+  }
+
   &--dark {
     #{$c}__inner {
       background-color: $color-button-dark-normal;
@@ -244,12 +257,53 @@ $size-huge-padding-sides: 38px;
   &--gradient {
     #{$c}__inner {
       background: linear-gradient(
-        285.87deg,
-        #644eb4 0.91%,
-        #9063b8 30.57%,
-        #c97ebd 66.98%,
-        #f67086 89.24%
+        328.77deg,
+        #06005e -151.85%,
+        #3458ad -117.66%,
+        #518eea -70.44%,
+        #5b6bcd -26.48%,
+        #644eb4 7.71%,
+        #9063b8 61.44%,
+        #c97ebd 111.91%,
+        #f67086 160.76%
       );
+      box-shadow: 0px 3px 20px -6px rgba(100, 78, 180, 0.61),
+        inset 0px 1px 2px rgba(255, 255, 255, 0.33),
+        inset 0px -2px 2px rgba(102, 79, 187, 0.55);
+
+      #{$c}__label {
+        color: $color-white;
+      }
+
+      #{$c}__icon {
+        fill: $color-white;
+      }
+    }
+
+    &:hover {
+      #{$c}__inner {
+        background-color: darken($color-button-light-normal, 100%);
+      }
+    }
+
+    &:active {
+      #{$c}__inner {
+        background-color: darken($color-button-light-normal, 50%);
+      }
+    }
+  }
+
+  &--fancy {
+    #{$c}__inner {
+      background: linear-gradient(
+        138.14deg,
+        #3458ad 2.91%,
+        #141a75 110.18%,
+        #141a75 110.19%
+      );
+      box-shadow: inset 0px -2.23809px 2.23809px #3975cf,
+        inset 0px 1px 2px rgba(255, 255, 255, 0.33),
+        inset 0px -2px 2px rgba(18, 31, 62, 0.54);
 
       #{$c}__label {
         color: $color-white;
@@ -288,6 +342,14 @@ $size-huge-padding-sides: 38px;
     #{$c}__inner {
       padding-top: 13px;
       padding-bottom: 15px;
+    }
+  }
+
+  &--simple {
+    #{$c}__inner {
+      font-size: 14px;
+      line-height: 22px;
+      padding: 0;
     }
   }
 
