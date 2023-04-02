@@ -21,22 +21,18 @@
       tint="gradient"
       align="center"
     )
-      | Built by engineers,
-
-      br
-
-      | for engineers
+      span(v-html="useCase.sectionTwoTitle")
 
     .c-section-cases-bento__grid
         template(
-            v-for="feature, index in features"
+            v-for="feature, index in useCase.features"
         )
             base-icon-card(
                 :key="index"
                 class="c-section-cases-bento__card"
                 :icon="feature.icon"
                 :tint="feature.tint"
-                :image="feature.imageSrc"
+                :image="index === 0 ? imageSrc : ''"
             )
 
                 template(
@@ -60,33 +56,16 @@
 export default {
   name: "SectionCasesBento",
 
+  props: {
+    useCase: {
+      type: Object,
+      required: true
+    }
+  },
+
   computed: {
-    features() {
-      return [
-        {
-          icon: "open-source",
-          tint: "blue",
-          title: "Open Source",
-          description:
-            "Inspect, modify or build on top of our open source code – Prose is completely transparent so you always know what’s going on under the hood.",
-          imageSrc:
-            require("~/assets/images/components/section/use-cases/SectionCasesBento/github-commits.svg")
-        },
-        {
-          icon: "native",
-          tint: "pink",
-          title: "Native",
-          description:
-            "Enjoy dedicated native apps for MacOS, Windows and Linux. Your battery will be grateful."
-        },
-        {
-          icon: "decentralized",
-          tint: "purple",
-          title: "Decentralized",
-          description:
-            "Prose is powered by the decentralized XMPP protocol which makes it more resilient than centralized alternatives."
-        }
-      ];
+    imageSrc() {
+      return require(`~/assets/images/components/section/use-cases${this.useCase.features[0].imageSrc}`);
     }
   }
 };
@@ -105,7 +84,7 @@ $c: ".c-section-cases-bento";
 
   #{$c}__wrapper {
     position: relative;
-  } 
+  }
 
   #{$c}__grid {
     display: grid;
@@ -128,6 +107,22 @@ $c: ".c-section-cases-bento";
     position: absolute;
     bottom: 0;
     left: 0;
+  }
+}
+
+@media (max-width: $screen-tiny-width-breakpoint) {
+  .c-section-cases-bento {
+    padding: 150px 0 0;
+
+    #{$c}__grid {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    #{$c}__card {
+      &:nth-child(1) {
+        grid-column: 1 / 1;
+      }
+    }
   }
 }
 </style>

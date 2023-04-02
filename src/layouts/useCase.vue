@@ -12,10 +12,9 @@
 page-container
   page-header
 
-  page-content
+  page-content(useCase)
     nuxt
 
-  page-entice-use-case
   page-footer
 </template>
 

@@ -18,14 +18,12 @@ div
     template(
       slot="overline"
     ) 
-      | Prose for Developers
+      | {{ useCase.overline }}
 
     template(
       slot="title"
     )
-      | Connect and collab on
-      br
-      | open source software
+      span(v-html="useCase.h1")
 
     template(
       slot="action"
@@ -40,14 +38,15 @@ div
           tint="fancy"
           size="large"
           class="c-app-download__action-button"
+          @click.prevent="onActionButtonClick"
         )
           | Get early access
   
   page-wrapper(
     class="c-page-main-title__wrapper"
   )
-    .c-section-cases-main__illustration
-      .c-section-cases-main__illustration-center
+    base-background(:type="useCase.coverBg", class="c-section-cases-main__illustration")
+      .c-section-cases-main__illustration-center(:style="`--mobile-image: url(${mobileImage}); --desktop-image: url(${desktopImage})`")
 </template>
 
 <!-- **********************************************************************
@@ -62,6 +61,49 @@ export default {
 
   components: {
     BaseButton
+  },
+
+  props: {
+    useCase: {
+      type: Object,
+      required: true
+    }
+  },
+
+  computed: {
+    mobileImage() {
+      return require(`~/assets/images/components/section/use-cases${this.useCase.mobileImage}`);
+    },
+    desktopImage() {
+      return require(`~/assets/images/components/section/use-cases${this.useCase.desktopImage}`);
+    },
+  },
+
+  methods: {
+    /**
+     * Triggers when action button is clicked
+     * @public
+     * @return {undefined}
+     */
+     onActionButtonClick() {
+      const _pageEnticeBoxElement = document.querySelector(
+        ".js-page-entice-box"
+      );
+
+      if (_pageEnticeBoxElement) {
+        // Scroll to entice box element
+        _pageEnticeBoxElement.scrollIntoView();
+
+        // Focus email field
+        const _subscribeEmailFieldElement = document.querySelector(
+          `input[name="subscribe_email"]`
+        );
+
+        if (_subscribeEmailFieldElement) {
+          _subscribeEmailFieldElement.focus();
+        }
+      }
+    }
   }
 };
 </script>
@@ -74,20 +116,25 @@ export default {
 $c: ".c-section-cases-main";
 
 #{$c}__illustration {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 2 / 1;
-  overflow: hidden;
-  border-radius: 32px;
-  margin-top: -32px;
+  margin-top: -24px;
+  padding-top: 120px;
 }
 
 #{$c}__illustration-center {
-  background-image: url("~/assets/images/components/section/use-cases/SectionCasesMain/developers-main.png");
-  background-position: center;
+  background-image: var(--desktop-image);
+  position: absolute;
+  background-position: bottom;
   background-size: contain;
+  top: 0;
   background-repeat: no-repeat;
   height: 100%;
   width: 100%;
+}
+
+@media (max-width: $screen-small-width-breakpoint) {
+  #{$c}__illustration-center  {
+    background-image: var(--mobile-image);
+    left: 2.5%;
+  }
 }
 </style>

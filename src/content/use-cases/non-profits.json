@@ -1,0 +1,56 @@
+{
+  "overline": "Prose for Non-Profits",
+  "h1": "Bridge borders with <br> decentralized messaging",
+  "coverBg": "navy",
+  "desktopImage": "/SectionCasesMain/non-profits-main.png",
+  "mobileImage": "/SectionCasesMain/non-profits-mobile-main.png",
+  "sectionTwoTitle": "Empowering <br> change-makers",
+  "features": [
+    {
+      "icon": "community",
+      "tint": "blue",
+      "title": "Community Forum",
+      "description": "Engage with supporters, donors, and beneficiaries by providing a platform for discussions, updates, and feedback.",
+      "imageSrc": "/SectionCasesBento/community.svg"
+    },
+    {
+      "icon": "resources",
+      "tint": "pink",
+      "title": "Resource Sharing",
+      "description": "Exchange essential resources, templates, and best practices within your non-profit community."
+    },
+    {
+      "icon": "workflows",
+      "tint": "purple",
+      "title": "Customizable Workflows",
+      "description": "Adapt the platform to suit the unique needs and processes of your non-profit organization."
+    }
+  ],
+  "sectionThreeTitle": "Drive <br> Transformation",
+  "tabs": [
+    {
+      "icon": "collaboration",
+      "tint": "pink",
+      "title": "External Collaboration",
+      "description":
+        "Invite external partners, donors, or stakeholders to specific channels, fostering cooperation and transparency.",
+      "media": "/SectionCasesTabs/collaboration.png"
+    },
+    {
+      "icon": "thread",
+      "tint": "purple",
+      "title": "Threaded Conversations",
+      "description":
+        "Keep discussions organized and focused by replying directly to specific messages within channels.",
+      "media": "/SectionCasesTabs/threads.png"
+    },
+    {
+      "icon": "mobile",
+      "tint": "blue",
+      "title": "Mobile Compatible",
+      "description":
+        "Stay connected with your community on the go, ensuring you never miss an important update or conversation.",
+      "media": "/SectionCasesTabs/mobile.png"
+    }
+  ]
+}

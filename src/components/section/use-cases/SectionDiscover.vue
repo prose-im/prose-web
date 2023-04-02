@@ -9,13 +9,13 @@
      ********************************************************************** -->
 
 <template lang="pug">
-.c-page-entice
+.c-section-cases-discover
   page-wrapper(
-    class="c-page-entice__wrapper"
+    class="c-section-cases-discover__wrapper"
   )
     base-wave(
       :variant="4"
-      class="c-page-entice__wave"
+      class="c-section-cases-discover__wave"
     )
 
     base-title(
@@ -29,33 +29,33 @@
 
       | use cases
 
-    .c-page-entice-use-case__options
-      template(v-for="gate, index in gates")
-        a(:href="gate.link", :key="index", class="c-page-entice-use-case__option") 
+    .c-section-cases-discover-use-case__options
+      template(v-for="useCase, index in otherCases")
+        a(:href="useCase.url", :key="index", class="c-section-cases-discover-use-case__option") 
           base-card(
-            :media="gate.media"
+            :media="useCase.media"
           )
             template(
               slot="title"
             )
-              | {{ gate.title }}
+              | {{ useCase.title }}
             template(
               slot="description"
             )
-              | {{ gate.description }}
+              | {{ useCase.description }}
             template(
               slot="link"
             )
               base-button(
-                size="mini"
                 right-icon="arrow-right"
                 tint="none"
+                size="simple"
               )
                 | Learn More
 
-    .c-page-entice__box.js-page-entice-box
-      .c-page-entice__content
-        .c-page-entice__content-inner
+    .c-section-cases-discover__box.js-page-entice-box
+      .c-section-cases-discover__content
+        .c-section-cases-discover__content-inner
           base-title(
             level="normal"
             tint="light"
@@ -63,19 +63,19 @@
           )
             | Sign up for early access
 
-          .c-page-entice__text
+          .c-section-cases-discover__text
             p
               | Available soon on all major devices.
 
           div(
             :class=`[
-              "c-page-entice__actions",
+              "c-section-cases-discover__actions",
               {
-                "c-page-entice__actions--invalid": hasActionsInvalid
+                "c-section-cases-discover__actions--invalid": hasActionsInvalid
               }
             ]`
           )
-            form.c-page-entice__action.c-page-entice__action--subscribe(
+            form.c-section-cases-discover__action.c-section-cases-discover__action--subscribe(
               v-if="!subscribeForm.submitted"
               @submit.prevent="onSubscribeSubmit"
             )
@@ -85,16 +85,16 @@
                 type="email"
                 name="subscribe_email"
                 placeholder="Enter your email..."
-                class="c-page-entice__action-input"
+                class="c-section-cases-discover__action-input"
               )
 
               button(
                 :disabled="subscribeForm.loading"
-                class="c-page-entice__action-submit"
+                class="c-section-cases-discover__action-submit"
                 type="submit"
               )
                 base-button(
-                  class="c-page-entice__action-button"
+                  class="c-section-cases-discover__action-button"
                   size="large"
                   right-icon="arrow-right"
                   bolder
@@ -103,7 +103,7 @@
                 )
                   | Submit
 
-            .c-page-entice__action.c-page-entice__action--subscribed.u-medium(
+            .c-section-cases-discover__action.c-section-cases-discover__action--subscribed.u-medium(
               v-else
             )
               | Thank you! We will let you know when Prose is available.
@@ -124,9 +124,20 @@ const SUBSCRIBE_SUBMIT_DELAY = 200; // 1/5 second
 const EMAIL_REGEX = /^([^@]+)@([^@]+\.[^@.]+)$/;
 
 export default {
-  name: "PageEnticeUseCase",
+  name: "SectionDiscover",
 
   components: { ImageContentActionsDownloadIcon },
+
+  props: {
+    useCase: {
+      type: Object,
+      required: true
+    },
+    otherCases: {
+      type: Array,
+      required: true
+    }
+  },
 
   data() {
     return {
@@ -147,28 +158,6 @@ export default {
     hasActionDownload() {
       // Hide download link on downloads page
       return this.$route.name !== "downloads";
-    },
-    gates() {
-      return [
-        {
-          title: "Remote Teams",
-          description:
-            "Know for certain who you’re talking to even if you’ve never met IRL.",
-          media: require("~/assets/images/components/page/PageEntice/open-source-projects.png")
-        },
-        {
-          title: "Organizations",
-          description:
-            "Communicate efficiently even in low bandwidth regions of the world.",
-          media: require("~/assets/images/components/page/PageEntice/remote-teams.png")
-        },
-        {
-          title: "Web3",
-          description:
-            "Prevent scams, spam, and other unwanted interactions on your server.",
-          media: require("~/assets/images/components/page/PageEntice/web3.png")
-        }
-      ];
     }
   },
 
@@ -219,17 +208,17 @@ export default {
      ********************************************************************** -->
 
 <style lang="scss">
-$c: ".c-page-entice";
+$c: ".c-section-cases-discover";
 
 // VARIABLES
 $animate-shake-base-depth: 2px;
 
-.c-page-entice {
+.c-section-cases-discover {
   background-color: $color-background-primary;
-  padding-top: 20px;
   position: relative;
 
   #{$c}__wrapper {
+    padding-top: 120px;
     padding-bottom: 120px;
     z-index: 1;
     position: relative;
@@ -251,6 +240,7 @@ $animate-shake-base-depth: 2px;
 
   #{$c}-use-case__option {
     width: 100%;
+    display: flex;
   }
 
   #{$c}__box {
@@ -380,7 +370,7 @@ $animate-shake-base-depth: 2px;
 // --> MEDIA-QUERIES <--
 
 @media (max-width: $screen-large-width-breakpoint) {
-  .c-page-entice {
+  .c-section-cases-discover {
     #{$c}__content {
       #{$c}__title {
         font-size: 26px;
@@ -390,7 +380,7 @@ $animate-shake-base-depth: 2px;
 }
 
 @media (max-width: $screen-medium-width-breakpoint) {
-  .c-page-entice {
+  .c-section-cases-discover {
     #{$c}__content {
       #{$c}__content-inner {
         flex: 1;
@@ -415,10 +405,14 @@ $animate-shake-base-depth: 2px;
       display: none;
     }
   }
+
+  .c-section-cases-discover #{$c}-use-case__options {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 @media (max-width: $screen-tiny-width-breakpoint) {
-  .c-page-entice {
+  .c-section-cases-discover {
     #{$c}__content {
       padding: 0 28px;
 
@@ -470,10 +464,6 @@ $animate-shake-base-depth: 2px;
           width: 100%;
         }
       }
-    }
-
-    #{$c}__options {
-      grid-template-columns: repeat(1, 1fr);
     }
   }
 }

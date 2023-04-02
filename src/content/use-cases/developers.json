@@ -1,0 +1,56 @@
+{
+  "overline": "Prose for Developers",
+  "h1": "Connect and collab on <br> open source software",
+  "coverBg": "blue",
+  "desktopImage": "/SectionCasesMain/developers-main.png",
+  "mobileImage": "/SectionCasesMain/developers-main-mobile.png",
+  "sectionTwoTitle": "Built by engineers, <br> for engineers",
+  "features": [
+    {
+      "icon": "open-source",
+      "tint": "blue",
+      "title": "Open Source",
+      "description": "Inspect, modify or build on top of our open source code – Prose is completely transparent so you always know what’s going on under the hood.",
+      "imageSrc": "/SectionCasesBento/github-commits.svg"
+    },
+    {
+      "icon": "native",
+      "tint": "pink",
+      "title": "Native",
+      "description": "Enjoy dedicated native apps for MacOS, Windows and Linux. Your battery will be grateful."
+    },
+    {
+      "icon": "end-to-end",
+      "tint": "purple",
+      "title": "End-to-end encryption",
+      "description": "Guarantees secure communication channels, protecting your team's conversations from unauthorized access."
+    }
+  ],
+  "sectionThreeTitle": "Endless <br> Customization",
+  "tabs": [
+    {
+      "icon": "integrations",
+      "tint": "pink",
+      "title": "API Integrations",
+      "description":
+        "Build bots and connect to your favorite tools with an easy to use API.",
+      "media": "/SectionCasesTabs/integrations.png"
+    },
+    {
+      "icon": "server",
+      "tint": "purple",
+      "title": "Self-hosted",
+      "description":
+        "Hosting Prose means you control the cost and can scale more efficiently.",
+      "media": "/SectionCasesTabs/self-hosted.png"
+    },
+    {
+      "icon": "paintbrush",
+      "tint": "blue",
+      "title": "Configurable",
+      "description":
+        "Create custom features and modify the code to fit your specific requirements",
+      "media": "/SectionCasesTabs/tailor-made-experience.png"
+    }
+  ]
+}

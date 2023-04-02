@@ -1,0 +1,57 @@
+<!--
+ * This file is part of prose-web
+ *
+ * Copyright 2022, Prose Foundation
+ -->
+
+<!-- **********************************************************************
+     TEMPLATE
+     ********************************************************************** -->
+
+<template lang="pug">
+div(class="tab-content", :class="{ 'active': isActive }")
+    slot 
+</template>
+
+<!-- **********************************************************************
+        SCRIPT
+        ********************************************************************** -->
+
+<script>
+export default {
+    name: "BaseTab",
+
+    inject: ["setActiveTab", "tabsComponent"],
+
+  props: {
+    tab: {
+      type: Object,
+      required: true
+    }
+  },
+  
+  computed: {
+    isActive() {
+      return this.$parent.activeTab === this.tab.title;
+    }
+  },
+
+  mounted() {
+    this.$emit("updateTabs");
+  },
+};
+</script>
+
+<style scoped>
+
+.tab-content {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: 0;
+  position: absolute;
+}
+.active {
+  opacity: 1;
+  z-index: 1;
+}
+</style>

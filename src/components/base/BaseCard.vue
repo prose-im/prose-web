@@ -13,10 +13,11 @@
     .c-base-card__image 
         img(:src="media", alt="", class="c-base-card__image-img")
     .c-base-card__content
-        h3.c-base-card__title
-            slot(name="title")
-        p.c-base-card__description
-            slot(name="description")
+        .c-base-card__text
+          h3.c-base-card__title
+              slot(name="title")
+          p.c-base-card__description
+              slot(name="description")
         .c-base-card__link
             slot(name="link")
             
@@ -56,6 +57,9 @@ export default {
 $c: ".c-base-card";
 
 .c-base-card {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
   border-radius: 32px;
   overflow: hidden;
   background: linear-gradient(
@@ -78,6 +82,10 @@ $c: ".c-base-card";
 
   #{$c}__content {
     padding: 32px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    flex-grow: 1;
   }
 
   #{$c}__title {

@@ -30,6 +30,24 @@ import ImageIconDecentralized from "~/assets/images/components/base/BaseIcon3D/d
 import ImageIconPaintbrush from "~/assets/images/components/base/BaseIcon3D/paintbrush.svg?raw";
 import ImageIconIntegrations from "~/assets/images/components/base/BaseIcon3D/integrations.svg?raw";
 import ImageIconServer from "~/assets/images/components/base/BaseIcon3D/server.svg?raw";
+import ImageIconEncrypted from "~/assets/images/components/base/BaseIcon3D/end-to-end.svg?raw";
+import ImageIconScalable from "~/assets/images/components/base/BaseIcon3D/scalable.svg?raw";
+import ImageIconPrivacy from "~/assets/images/components/base/BaseIcon3D/privacy.svg?raw";
+import ImageIconNotification from "~/assets/images/components/base/BaseIcon3D/notification.svg?raw";
+import ImageIconVerified from "~/assets/images/components/base/BaseIcon3D/verified.svg?raw";
+import ImageIconAttachment from "~/assets/images/components/base/BaseIcon3D/attachment.svg?raw";
+import ImageIconFlags from "~/assets/images/components/base/BaseIcon3D/flags.svg?raw";
+import ImageIconSpaces from "~/assets/images/components/base/BaseIcon3D/spaces.svg?raw";
+import ImageIconKnowledge from "~/assets/images/components/base/BaseIcon3D/knowledge.svg?raw";
+import ImageIconCalls from "~/assets/images/components/base/BaseIcon3D/calls.svg?raw";
+import ImageIconRoles from "~/assets/images/components/base/BaseIcon3D/roles.svg?raw";
+import ImageIconProductivity from "~/assets/images/components/base/BaseIcon3D/productivity.svg?raw";
+import ImageIconCommunity from "~/assets/images/components/base/BaseIcon3D/community.svg?raw";
+import ImageIconResources from "~/assets/images/components/base/BaseIcon3D/resources.svg?raw";
+import ImageIconWorkflows from "~/assets/images/components/base/BaseIcon3D/workflows.svg?raw";
+import ImageIconCollaboration from "~/assets/images/components/base/BaseIcon3D/collaboration.svg?raw";
+import ImageIconThread from "~/assets/images/components/base/BaseIcon3D/thread.svg?raw";
+import ImageIconMobile from "~/assets/images/components/base/BaseIcon3D/mobile.svg?raw";
 
 export default {
   name: "BaseIconAvatar",
@@ -49,7 +67,32 @@ export default {
       default: null,
 
       validator(x) {
-        return ["open-source", "native", "decentralized", "paintbrush", "integrations", "server"].includes(x);
+        return [
+          "open-source",
+          "native",
+          "decentralized",
+          "paintbrush",
+          "integrations",
+          "server",
+          "end-to-end",
+          "scalable",
+          "privacy",
+          "notification",
+          "verified",
+          "attachment",
+          "flags",
+          "spaces",
+          "knowledge",
+          "calls",
+          "roles",
+          "productivity",
+          "community",
+          "resources",
+          "workflows",
+          "collaboration",
+          "thread",
+          "mobile"
+        ].includes(x);
       }
     }
   },
@@ -79,6 +122,78 @@ export default {
 
         case "server": {
           return ImageIconServer;
+        }
+
+        case "end-to-end": {
+          return ImageIconEncrypted;
+        }
+
+        case "scalable": {
+          return ImageIconScalable;
+        }
+
+        case "privacy": {
+          return ImageIconPrivacy;
+        }
+
+        case "notification": {
+          return ImageIconNotification;
+        }
+
+        case "verified": {
+          return ImageIconVerified;
+        }
+
+        case "attachment": {
+          return ImageIconAttachment;
+        }
+
+        case "calls": {
+          return ImageIconCalls;
+        }
+
+        case "roles": {
+          return ImageIconRoles;
+        }
+
+        case "productivity": {
+          return ImageIconProductivity;
+        }
+
+        case "flags": {
+          return ImageIconFlags;
+        }
+
+        case "spaces": {
+          return ImageIconSpaces;
+        }
+
+        case "knowledge": {
+          return ImageIconKnowledge;
+        }
+
+        case "community": {
+          return ImageIconCommunity;
+        }
+
+        case "resources": {
+          return ImageIconResources;
+        }
+
+        case "workflows": {
+          return ImageIconWorkflows;
+        }
+
+        case "collaboration": {
+          return ImageIconCollaboration;
+        }
+
+        case "thread": {
+          return ImageIconThread;
+        }
+
+        case "mobile": {
+          return ImageIconMobile;
         }
 
         default: {
@@ -121,14 +236,14 @@ $c: ".c-base-icon-3d";
     background: linear-gradient(180deg, #f67086 0%, #f86079 100%);
     box-shadow: 0px 17px 20px -6px rgba(246, 112, 134, 0.61),
       inset 0px -2px 2px #e84f68, inset 0px 2px 2px rgba(255, 255, 255, 0.25);
-      border-radius: 64px;
+    border-radius: 64px;
   }
 
   &--purple {
     background: linear-gradient(180deg, #7e67d1 0%, #644eb4 100%);
     box-shadow: 0px 17px 20px -6px rgba(100, 78, 180, 0.61),
       inset 0px -2px 2px #4930a2, inset 0px 2px 2px rgba(255, 255, 255, 0.25);
-      border-radius: 64px;
+    border-radius: 64px;
   }
 }
 </style>
