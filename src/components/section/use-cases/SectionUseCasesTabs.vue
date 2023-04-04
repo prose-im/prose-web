@@ -30,7 +30,7 @@
         img(
           :src="getAssetUrl(tab.media)"
           alt=""
-          class="c-section-use-cases-tabs__media-img"
+          class="c-section-use-cases-tabs__media-image"
         )
 </template>
 
@@ -82,7 +82,7 @@ $c: ".c-section-use-cases-tabs";
     position: absolute;
   }
 
-  #{$c}__media-img {
+  #{$c}__media-image {
     width: 100%;
     height: 100%;
     object-fit: cover;

@@ -14,7 +14,7 @@
     img(
       :src="media"
       alt=""
-      class="c-base-card__image-img"
+      class="c-base-card__image-inner"
     )
 
   .c-base-card__content
@@ -85,7 +85,7 @@ $c: ".c-base-card";
     height: 175px;
     position: relative;
 
-    #{$c}__image-img {
+    #{$c}__image-inner {
       height: 100%;
       width: 100%;
       object-fit: cover;
