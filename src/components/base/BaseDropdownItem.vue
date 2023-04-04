@@ -100,7 +100,7 @@ $hover-transition-duration: 150ms;
 
   #{$c}__icon {
     min-width: ($icon-width + 8px);
-    padding-top: 1.5px;
+    margin-top: -5px;
     padding-right: 4px;
     flex: 0 0 auto;
 

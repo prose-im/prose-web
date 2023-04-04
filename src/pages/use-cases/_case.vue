@@ -73,7 +73,7 @@ export default {
 
   validate({ params }) {
     // Case is set, but not valid?
-    if (params.case && CASE_REGEX.test(params.case) === false) {
+    if (!params.case || params.case && CASE_REGEX.test(params.case) === false) {
       return false;
     }
 
@@ -96,7 +96,14 @@ export default {
 
   head() {
     return {
-      title: `Prose for ${this.useCase.target}`
+      title: `${this.useCase.overline}`,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: `${this.useCase.metaDescription}`
+        }
+      ],
     };
   }
 };

@@ -88,6 +88,44 @@ export default {
       {
         name: "format-detection",
         content: "telephone=no"
+      },
+      {
+        hid: "description",
+        name: "description",
+        content:
+          "Prose is a decentralized, open-source, and privacy-first workplace communication platform."
+      },
+      {
+        hid: "og-title",
+        property: "og:title",
+        content: "Prose – All of your workplace communication lives here"
+      },
+      {
+        hid: "og-description",
+        property: "og:description",
+        content:
+          "Prose is a decentralized, open-source, and privacy-first workplace communication platform."
+      },
+      {
+        hid: "og-image",
+        property: "og:image",
+        content: "https://prose.org/prose-og-image.jpg"
+      },
+      {
+        hid: "twitter-title",
+        name: "twitter:title",
+        content: "Prose – All of your workplace communication lives here"
+      },
+      {
+        hid: "twitter-description",
+        name: "twitter:description",
+        content:
+          "Prose is a decentralized, open-source, and privacy-first workplace communication platform."
+      },
+      {
+        hid: "twitter-image",
+        name: "twitter:image",
+        content: "https://prose.org/prose-og-image.jpg"
       }
     ],
 

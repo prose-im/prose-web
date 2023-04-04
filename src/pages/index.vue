@@ -25,7 +25,7 @@ export default {
   layout: "landing",
 
   head: {
-    title: "Prose – All of your workplace communication lives here"
+    title: "Prose – All of your workplace communication lives here",
   }
 };
 </script>
