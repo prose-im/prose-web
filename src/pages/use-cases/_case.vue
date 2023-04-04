@@ -35,8 +35,7 @@
     ********************************************************************** -->
 
 <script>
-const CASE_REGEX = /(developers|web3|non-profits|remote-teams)/;
-
+// CONSTANTS
 const USE_CASES = [
   {
     slug: "developers",
@@ -89,7 +88,10 @@ export default {
 
   validate({ params }) {
     // Case is set, but not valid?
-    if (params.case && CASE_REGEX.test(params.case) === false) {
+    const _useCase =
+      USE_CASES.find(useCase => useCase.slug === params.case) || null;
+
+    if (_useCase === null) {
       return false;
     }
 
