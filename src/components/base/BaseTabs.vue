@@ -9,8 +9,8 @@
      ********************************************************************** -->
 
 <template lang="pug">
-.c-section-use-cases-tabs
-  ul.c-section-use-cases-tabs__grid
+.c-base-tabs
+  ul.c-base-tabs__grid
     li(
       v-for="(item, index) in tabs"
     )
@@ -21,7 +21,7 @@
         :tint="item.tab.tint"
         :active="item.tab.title === activeTab"
         :image="getAssetUrl(item.tab.media)"
-        class="c-section-use-cases-tabs__card"
+        class="c-base-tabs__card"
         tab
       )
         template(
@@ -34,7 +34,7 @@
         )
           | {{ item.tab.description }}
 
-  .c-section-use-cases-tabs__media-stack
+  .c-base-tabs__media-stack
     slot
 </template>
 
@@ -112,9 +112,9 @@ export default {
      ********************************************************************** -->
 
 <style lang="scss">
-$c: ".c-section-use-cases-tabs";
+$c: ".c-base-tabs";
 
-.c-section-use-cases-tabs {
+.c-base-tabs {
   #{$c}__grid {
     display: grid;
     margin: 0 auto;
@@ -139,7 +139,7 @@ $c: ".c-section-use-cases-tabs";
 // --> MEDIA-QUERIES <--
 
 @media (max-width: $screen-medium-width-breakpoint) {
-  .c-section-use-cases-tabs {
+  .c-base-tabs {
     #{$c}__grid {
       grid-gap: 16px;
     }
@@ -147,7 +147,7 @@ $c: ".c-section-use-cases-tabs";
 }
 
 @media (max-width: $screen-small-width-breakpoint) {
-  .c-section-use-cases-tabs {
+  .c-base-tabs {
     #{$c}__media-stack {
       display: none;
     }
