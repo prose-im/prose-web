@@ -68,9 +68,9 @@
 
 <script>
 // PROJECT: IMAGES
-import ImageIllustrationSafe from "@/assets/images/components/section/home/SectionHomeAdvantages/illustration-safe.svg";
-import ImageIllustrationTransparent from "@/assets/images/components/section/home/SectionHomeAdvantages/illustration-transparent.svg";
-import ImageIllustrationFast from "@/assets/images/components/section/home/SectionHomeAdvantages/illustration-fast.svg";
+import ImageIllustrationSafe from "@/assets/images/components/section/home/SectionHomeAdvantages/safe.png";
+import ImageIllustrationTransparent from "@/assets/images/components/section/home/SectionHomeAdvantages/transparent.png";
+import ImageIllustrationFast from "@/assets/images/components/section/home/SectionHomeAdvantages/fast.png";
 
 export default {
   name: "SectionHomeAdvantages",
@@ -148,30 +148,6 @@ $c: ".c-section-home-advantages";
 
     &:nth-child(even) {
       flex-direction: row-reverse;
-
-      #{$c}__illustration-inner {
-        transform-origin: right;
-        left: 2%;
-      }
-    }
-
-    &:nth-child(odd) {
-      #{$c}__illustration-inner {
-        right: 2%;
-        transform-origin: left;
-      }
-    }
-
-    &:nth-child(2) {
-      #{$c}__illustration-inner {
-        top: 55%;
-      }
-    }
-
-    &:nth-child(4) {
-      #{$c}__illustration-inner {
-        left: -7%;
-      }
     }
   }
 
@@ -183,8 +159,8 @@ $c: ".c-section-home-advantages";
       border: 1px solid $color-border-secondary;
       backdrop-filter: blur(4px);
       border-radius: 36px;
-      width: 100%;
       height: 500px;
+      aspect-ratio: 1 / 1;
       position: relative;
 
       #{$c}__illustration-inner {
@@ -194,8 +170,8 @@ $c: ".c-section-home-advantages";
         position: absolute;
         width: 100%;
         height: 100%;
-        top: 60%;
-        transform: translateY(-50%) scale(1.2);
+        top: 0;
+        left: 0;
       }
     }
   }
@@ -223,9 +199,11 @@ $c: ".c-section-home-advantages";
       #{$c}__illustration {
         height: 400px;
         aspect-ratio: 1 / 1;
-        width: auto;
-        margin: 0 auto;
       }
+    }
+
+    #{$c}__column-2 {
+      justify-content: flex-start;
     }
   }
 }
@@ -244,11 +222,24 @@ $c: ".c-section-home-advantages";
     #{$c}__column-1 {
       flex-basis: 100%;
       width: 100%;
-      max-width: 600px;
+
+      #{$c}__illustration {
+        aspect-ratio: auto;
+      }
     }
 
     #{$c}__wave {
       display: none;
+    }
+  }
+}
+
+@media (max-width: $screen-small-width-breakpoint) {
+  .c-section-home-advantages {
+    #{$c}__column-1 {
+      #{$c}__illustration {
+        height: 400px;
+      }
     }
   }
 }
@@ -260,16 +251,11 @@ $c: ".c-section-home-advantages";
     #{$c}__stack {
       padding: 0 0 80px 0;
     }
-  }
-}
 
-@media (max-width: $screen-lilliput-width-breakpoint) {
-  .c-section-home-advantages {
     #{$c}__column-1 {
       #{$c}__illustration {
-        height: 400px;
-        aspect-ratio: auto;
-        width: 100%;
+        height: auto;
+        aspect-ratio: 1/1;
       }
     }
   }
