@@ -45,7 +45,7 @@ const USE_CASES = [
     url: "/use-cases/developers/",
 
     media: require("~/assets/images/components/section/use-cases/" +
-      "SectionUseCasesDiscover/developers.png")
+      "SectionUseCasesDiscover/developers.webp")
   },
 
   {
@@ -56,7 +56,7 @@ const USE_CASES = [
     url: "/use-cases/remote-teams/",
 
     media: require("~/assets/images/components/section/use-cases/" +
-      "SectionUseCasesDiscover/remote-teams.png")
+      "SectionUseCasesDiscover/remote-teams.webp")
   },
 
   {
@@ -67,7 +67,7 @@ const USE_CASES = [
     url: "/use-cases/non-profits/",
 
     media: require("~/assets/images/components/section/use-cases/" +
-      "SectionUseCasesDiscover/non-profits.png")
+      "SectionUseCasesDiscover/non-profits.webp")
   },
 
   {
@@ -78,7 +78,7 @@ const USE_CASES = [
     url: "/use-cases/web3/",
 
     media: require("~/assets/images/components/section/use-cases/" +
-      "SectionUseCasesDiscover/web3.png")
+      "SectionUseCasesDiscover/web3.webp")
   }
 ];
 

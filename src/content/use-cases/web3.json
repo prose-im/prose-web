@@ -3,8 +3,8 @@
   "overline": "Prose for web3",
   "h1": "Build and scale your <br> Web3 community",
   "coverBg": "purple",
-  "desktopImage": "/SectionUseCasesMain/web3-main.png",
-  "mobileImage": "/SectionUseCasesMain/web3-main-mobile.png",
+  "desktopImage": "/SectionUseCasesMain/web3-main.webp",
+  "mobileImage": "/SectionUseCasesMain/web3-main-mobile.webp",
   "sectionTwoTitle": "Ready for Minting <br> Day and everyday",
 
   "features": [
@@ -39,7 +39,7 @@
       "tint": "pink",
       "title": "Smart Notifications",
       "description": "Never miss an important message or update with customizable notifications.",
-      "media": "/SectionUseCasesTabs/notifications.png"
+      "media": "/SectionUseCasesTabs/notifications.webp"
     },
 
     {
@@ -47,7 +47,7 @@
       "tint": "purple",
       "title": "Verified Users",
       "description": "Rest easy knowing you're communicating with verified users.",
-      "media": "/SectionUseCasesTabs/verified.png"
+      "media": "/SectionUseCasesTabs/verified.webp"
     },
 
     {
@@ -55,7 +55,7 @@
       "tint": "blue",
       "title": "Any file, anywhere",
       "description": "Easily organize, access, and share your files across all platforms.",
-      "media": "/SectionUseCasesTabs/attachments.png"
+      "media": "/SectionUseCasesTabs/attachments.webp"
     }
   ]
 }

@@ -3,8 +3,8 @@
   "overline": "Prose for Remote Teams",
   "h1": "Collaborate and thrive <br> with distributed teams",
   "coverBg": "pink",
-  "desktopImage": "/SectionUseCasesMain/remote-teams-main.png",
-  "mobileImage": "/SectionUseCasesMain/remote-teams-mobile-main.png",
+  "desktopImage": "/SectionUseCasesMain/remote-teams-main.webp",
+  "mobileImage": "/SectionUseCasesMain/remote-teams-mobile-main.webp",
   "sectionTwoTitle": "Harness the <br> power of distance",
 
   "features": [
@@ -39,7 +39,7 @@
       "tint": "pink",
       "title": "Instant calls",
       "description": "Foster a stronger sense of team cohesion and engagement with face-to-face calls.",
-      "media": "/SectionUseCasesTabs/calls.png"
+      "media": "/SectionUseCasesTabs/calls.webp"
     },
 
     {
@@ -47,7 +47,7 @@
       "tint": "purple",
       "title": "Roles and permissions",
       "description": "Grant control over user roles and access levels, ensuring information security.",
-      "media": "/SectionUseCasesTabs/roles.png"
+      "media": "/SectionUseCasesTabs/roles.webp"
     },
 
     {
@@ -55,7 +55,7 @@
       "tint": "blue",
       "title": "10x productivity",
       "description": "Streamline task assignment and progress tracking, boosting productivity.",
-      "media": "/SectionUseCasesTabs/productivity.png"
+      "media": "/SectionUseCasesTabs/productivity.webp"
     }
   ]
 }

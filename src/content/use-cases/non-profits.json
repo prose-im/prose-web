@@ -3,8 +3,8 @@
   "overline": "Prose for Non-Profits",
   "h1": "Bridge borders with <br> decentralized messaging",
   "coverBg": "navy",
-  "desktopImage": "/SectionUseCasesMain/non-profits-main.png",
-  "mobileImage": "/SectionUseCasesMain/non-profits-mobile-main.png",
+  "desktopImage": "/SectionUseCasesMain/non-profits-main.webp",
+  "mobileImage": "/SectionUseCasesMain/non-profits-mobile-main.webp",
   "sectionTwoTitle": "Empowering <br> change-makers",
 
   "features": [
@@ -39,7 +39,7 @@
       "tint": "pink",
       "title": "External Collaboration",
       "description": "Invite external partners, donors, or stakeholders to specific channels, fostering cooperation and transparency.",
-      "media": "/SectionUseCasesTabs/collaboration.png"
+      "media": "/SectionUseCasesTabs/collaboration.webp"
     },
 
     {
@@ -47,7 +47,7 @@
       "tint": "purple",
       "title": "Threaded Conversations",
       "description": "Keep discussions organized and focused by replying directly to specific messages within channels.",
-      "media": "/SectionUseCasesTabs/threads.png"
+      "media": "/SectionUseCasesTabs/threads.webp"
     },
 
     {
@@ -55,7 +55,7 @@
       "tint": "blue",
       "title": "Mobile Compatible",
       "description": "Stay connected with your community on the go, ensuring you never miss an important update or conversation.",
-      "media": "/SectionUseCasesTabs/mobile.png"
+      "media": "/SectionUseCasesTabs/mobile.webp"
     }
   ]
 }

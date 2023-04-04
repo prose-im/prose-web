@@ -3,8 +3,8 @@
   "overline": "Prose for Developers",
   "h1": "Connect and collab on <br> open source software",
   "coverBg": "blue",
-  "desktopImage": "/SectionUseCasesMain/developers-main.png",
-  "mobileImage": "/SectionUseCasesMain/developers-main-mobile.png",
+  "desktopImage": "/SectionUseCasesMain/developers-main.webp",
+  "mobileImage": "/SectionUseCasesMain/developers-main-mobile.webp",
   "sectionTwoTitle": "Built by engineers, <br> for engineers",
 
   "features": [
@@ -39,7 +39,7 @@
       "tint": "pink",
       "title": "API Integrations",
       "description": "Build bots and connect to your favorite tools with an easy to use API.",
-      "media": "/SectionUseCasesTabs/integrations.png"
+      "media": "/SectionUseCasesTabs/integrations.webp"
     },
 
     {
@@ -47,7 +47,7 @@
       "tint": "purple",
       "title": "Self-hosted",
       "description": "Hosting Prose means you control the cost and can scale more efficiently.",
-      "media": "/SectionUseCasesTabs/self-hosted.png"
+      "media": "/SectionUseCasesTabs/self-hosted.webp"
     },
 
     {
@@ -55,7 +55,7 @@
       "tint": "blue",
       "title": "Configurable",
       "description": "Create custom features and modify the code to fit your specific requirements",
-      "media": "/SectionUseCasesTabs/tailor-made-experience.png"
+      "media": "/SectionUseCasesTabs/tailor-made-experience.webp"
     }
   ]
 }
