@@ -116,7 +116,15 @@ export default {
 
   head() {
     return {
-      title: `Prose for ${this.useCase.target}`
+      title: `${this.useCase.overline}`,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+
+          content: `${this.useCase.metaDescription}`
+        }
+      ]
     };
   }
 };

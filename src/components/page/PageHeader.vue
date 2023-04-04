@@ -115,6 +115,11 @@ import ImageMenuDropdownHelpIconHelp from "~/assets/images/components/page/PageH
 import ImageMenuDropdownHelpIconDocs from "~/assets/images/components/page/PageHeader/menu-dropdown-help-icon-docs.svg?raw";
 import ImageMenuDropdownHelpIconContact from "~/assets/images/components/page/PageHeader/menu-dropdown-help-icon-contact.svg?raw";
 
+import ImageMenuDropdownUseCaseDevelopers from "~/assets/images/components/page/PageHeader/menu-dropdown-usecase-icon-developers.svg?raw";
+import ImageMenuDropdownUseCaseWeb3 from "~/assets/images/components/page/PageHeader/menu-dropdown-usecase-icon-web3.svg?raw";
+import ImageMenuDropdownUseCaseNonProfits from "~/assets/images/components/page/PageHeader/menu-dropdown-usecase-icon-nonprofits.svg?raw";
+import ImageMenuDropdownUseCaseRemoteTeams from "~/assets/images/components/page/PageHeader/menu-dropdown-usecase-icon-remoteteams.svg?raw";
+
 // CONSTANTS
 const SCROLLED_THRESHOLD_VERTICAL = 30;
 
@@ -150,6 +155,45 @@ export default {
           id: "downloads",
           label: "Downloads",
           target: "/downloads/"
+        },
+
+        {
+          id: "usecase",
+          label: "Use Cases",
+
+          dropdown: [
+            {
+              id: "developers",
+              title: "Developers",
+              label: "Collaborate on open source projects",
+              target: "/use-cases/developers/",
+              icon: ImageMenuDropdownUseCaseDevelopers
+            },
+
+            {
+              id: "web3",
+              title: "Web3",
+              label: "Build & scale Web3 communities",
+              target: "/use-cases/web3/",
+              icon: ImageMenuDropdownUseCaseWeb3
+            },
+
+            {
+              id: "ngo",
+              title: "Non-Profits",
+              label: "Ignite collaboration for social impact",
+              target: "/use-cases/non-profits/",
+              icon: ImageMenuDropdownUseCaseNonProfits
+            },
+
+            {
+              id: "remote",
+              title: "Remote Teams",
+              label: "Enhance remote team collaboration",
+              target: "/use-cases/remote-teams/",
+              icon: ImageMenuDropdownUseCaseRemoteTeams
+            }
+          ]
         },
 
         {
@@ -516,6 +560,18 @@ $menu-dropdown-offset-left: 60px;
 
 // --> MEDIA-QUERIES <--
 
+@media (max-width: $screen-medium-width-breakpoint) {
+  .c-page-header {
+    #{$c}__menu {
+      #{$c}__menu-item {
+        &:nth-child(3) {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
 @media (max-width: $screen-small-width-breakpoint) {
   .c-page-header {
     #{$c}__menu {
@@ -570,6 +626,7 @@ $menu-dropdown-offset-left: 60px;
 
     #{$c}__middle {
       padding-right: 0;
+      justify-content: flex-end;
     }
 
     #{$c}__right {
@@ -588,6 +645,10 @@ $menu-dropdown-offset-left: 60px;
       #{$c}__menu-item {
         &:nth-child(2) {
           margin-right: 0;
+        }
+
+        &:nth-child(n + 2) {
+          display: none;
         }
 
         &:nth-child(n + 3) {
