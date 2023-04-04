@@ -68,12 +68,13 @@
 
 <script>
 // PROJECT: IMAGES
-import ImageIllustrationSafe from "@/assets/images/components/section/home/SectionHomeAdvantages/safe.png";
-import ImageIllustrationTransparent from "@/assets/images/components/section/home/SectionHomeAdvantages/transparent.png";
-import ImageIllustrationFast from "@/assets/images/components/section/home/SectionHomeAdvantages/fast.png";
+import ImageIllustrationSafe from "@/assets/images/components/section/home/SectionHomeAdvantages/illustration-safe.webp?raw";
+import ImageIllustrationTransparent from "@/assets/images/components/section/home/SectionHomeAdvantages/illustration-transparent.webp?raw";
+import ImageIllustrationFast from "@/assets/images/components/section/home/SectionHomeAdvantages/illustration-fast.webp?raw";
 
 export default {
   name: "SectionHomeAdvantages",
+
   data() {
     return {
       advantages: [

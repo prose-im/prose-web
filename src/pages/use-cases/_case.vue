@@ -40,7 +40,8 @@ const USE_CASES = [
     slug: "developers",
     title: "Developers",
     description:
-      "Collaborate and innovate on open source projects with like-minded developers.",
+      "Collaborate and innovate on open source projects with like-minded " +
+      "developers.",
     url: "/use-cases/developers/",
 
     media: require("~/assets/images/components/section/use-cases/" +
