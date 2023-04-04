@@ -1,0 +1,63 @@
+{
+  "metaDescription": "Collaborate on open source software with native apps, end-to-end encryption, and extensive customization options.",
+  "overline": "Prose for Developers",
+
+  "sineColor": "blue",
+
+  "desktopImage": "/SectionUseCasesMain/developers-main.webp",
+  "mobileImage": "/SectionUseCasesMain/developers-main-mobile.webp",
+
+  "sectionOneTitle": "Connect &amp; collaborate on <br> open source software",
+  "sectionTwoTitle": "Built by engineers, <br> for engineers",
+  "sectionThreeTitle": "Endless <br> Customization",
+
+  "features": [
+    {
+      "icon": "open-source",
+      "tint": "blue",
+      "title": "Open Source",
+      "description": "Inspect, modify or build on top of our open source code – Prose is completely transparent so you always know what’s going on under the hood.",
+      "imageSrc": "/SectionUseCasesBento/github-commits.svg"
+    },
+
+    {
+      "icon": "native",
+      "tint": "pink",
+      "title": "Native",
+      "description": "Enjoy dedicated native apps for MacOS, Windows and Linux. Your battery will be grateful."
+    },
+
+    {
+      "icon": "end-to-end",
+      "tint": "purple",
+      "title": "End-to-end encryption",
+      "description": "Guarantees secure communication channels, protecting your team's conversations from unauthorized access."
+    }
+  ],
+
+  "tabs": [
+    {
+      "icon": "integrations",
+      "tint": "pink",
+      "title": "API Integrations",
+      "description": "Build bots and connect to your favorite tools with an easy to use API.",
+      "media": "/SectionUseCasesTabs/integrations.webp"
+    },
+
+    {
+      "icon": "server",
+      "tint": "purple",
+      "title": "Self-hosted",
+      "description": "Hosting Prose means you control the cost and can scale more efficiently.",
+      "media": "/SectionUseCasesTabs/self-hosted.webp"
+    },
+
+    {
+      "icon": "paintbrush",
+      "tint": "blue",
+      "title": "Configurable",
+      "description": "Create custom features and modify the code to fit your specific requirements",
+      "media": "/SectionUseCasesTabs/tailor-made-experience.webp"
+    }
+  ]
+}

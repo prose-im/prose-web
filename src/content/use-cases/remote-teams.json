@@ -1,0 +1,63 @@
+{
+  "metaDescription": "Boost remote team collaboration with Prose, offering multi-language support, dedicated spaces, and a knowledge base for seamless communication and productivity.",
+  "overline": "Prose for Remote Teams",
+
+  "sineColor": "pink",
+
+  "desktopImage": "/SectionUseCasesMain/remote-teams-main.webp",
+  "mobileImage": "/SectionUseCasesMain/remote-teams-mobile-main.webp",
+
+  "sectionOneTitle": "Collaborate and thrive <br> with distributed teams",
+  "sectionTwoTitle": "Harness the <br> power of distance",
+  "sectionThreeTitle": "Peak <br> Productivity",
+
+  "features": [
+    {
+      "icon": "flags",
+      "tint": "blue",
+      "title": "Multi-language",
+      "description": "Prose makes communication and collaboration for global teams easy by providing translations and accommodating various languages.",
+      "imageSrc": "/SectionUseCasesBento/multi-language.svg"
+    },
+
+    {
+      "icon": "spaces",
+      "tint": "pink",
+      "title": "Dedicated Spaces",
+      "description": "Facilitate the organization of discussions into dedicated spaces, streamlining communication and collaboration."
+    },
+
+    {
+      "icon": "knowledge",
+      "tint": "purple",
+      "title": "Knowledge Base",
+      "description": "Consolidate important information and resources and easily find and reference the materials you need."
+    }
+  ],
+
+  "tabs": [
+    {
+      "icon": "calls",
+      "tint": "pink",
+      "title": "Instant calls",
+      "description": "Foster a stronger sense of team cohesion and engagement with face-to-face calls.",
+      "media": "/SectionUseCasesTabs/calls.webp"
+    },
+
+    {
+      "icon": "roles",
+      "tint": "purple",
+      "title": "Roles and permissions",
+      "description": "Grant control over user roles and access levels, ensuring information security.",
+      "media": "/SectionUseCasesTabs/roles.webp"
+    },
+
+    {
+      "icon": "productivity",
+      "tint": "blue",
+      "title": "10x productivity",
+      "description": "Streamline task assignment and progress tracking, boosting productivity.",
+      "media": "/SectionUseCasesTabs/productivity.webp"
+    }
+  ]
+}

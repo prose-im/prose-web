@@ -86,8 +86,12 @@ $c: ".c-section-downloads-archives";
     gap: 24px;
     flex-direction: column;
   }
+}
 
-  @media (max-width: $screen-medium-width-breakpoint) {
+// --> MEDIA-QUERIES <--
+
+@media (max-width: $screen-medium-width-breakpoint) {
+  .c-section-downloads-archives {
     #{$c}__column-1 {
       flex-basis: 100%;
       height: 500px;
@@ -98,8 +102,10 @@ $c: ".c-section-downloads-archives";
       gap: 24px;
     }
   }
+}
 
-  @media (max-width: $screen-lilliput-width-breakpoint) {
+@media (max-width: $screen-lilliput-width-breakpoint) {
+  .c-section-downloads-archives {
     #{$c}__column-1 {
       height: 400px;
       width: 100%;

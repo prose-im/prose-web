@@ -18,10 +18,18 @@ div(
   page-wrapper(
     class="c-page-main-title__wrapper"
   )
+    p.c-page-main-title__overline(
+      v-if="$slots.overline"
+    )
+      slot(
+        name="overline"
+      )
+
     base-descripted-title(
       :align="align"
       class="c-page-main-title__title"
     )
+
       slot(
         slot="title"
         name="title"
@@ -84,6 +92,12 @@ $c: ".c-page-main-title";
   #{$c}__action {
     position: relative;
     z-index: 1;
+  }
+
+  #{$c}__overline {
+    color: $color-base-grey-dark;
+    font-weight: $font-weight-medium;
+    margin-bottom: 20px;
   }
 
   #{$c}__action {

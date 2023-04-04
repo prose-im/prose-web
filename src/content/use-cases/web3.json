@@ -1,0 +1,63 @@
+{
+  "metaDescription": "Scale your Web3 community with Prose, a privacy-focused and decentralized platform offering unrivaled control, smart notifications, and seamless file sharing.",
+  "overline": "Prose for web3",
+
+  "sineColor": "purple",
+
+  "desktopImage": "/SectionUseCasesMain/web3-main.webp",
+  "mobileImage": "/SectionUseCasesMain/web3-main-mobile.webp",
+
+  "sectionOneTitle": "Build and scale your <br> Web3 community",
+  "sectionTwoTitle": "Ready for Minting <br> Day and everyday",
+  "sectionThreeTitle": "Unrivaled <br> Control",
+
+  "features": [
+    {
+      "icon": "scalable",
+      "tint": "blue",
+      "title": "Scalable",
+      "description": "Prose uses end-to-end encryption to protect your conversations from prying eyes, and is designed to handle large communities with ease.",
+      "imageSrc": "/SectionUseCasesBento/nfts.svg"
+    },
+
+    {
+      "icon": "privacy",
+      "tint": "pink",
+      "title": "Privacy-focused",
+      "description": "Your conversations and data remain confidential with cutting-edge encryption technologies and robust security measures."
+    },
+
+    {
+      "icon": "decentralized",
+      "tint": "purple",
+      "title": "Decentralized",
+      "description": "Prose is powered by the decentralized XMPP protocol which makes it more resilient than centralized alternatives."
+    }
+  ],
+
+  "tabs": [
+    {
+      "icon": "notification",
+      "tint": "pink",
+      "title": "Smart Notifications",
+      "description": "Never miss an important message or update with customizable notifications.",
+      "media": "/SectionUseCasesTabs/notifications.webp"
+    },
+
+    {
+      "icon": "verified",
+      "tint": "purple",
+      "title": "Verified Users",
+      "description": "Rest easy knowing you're communicating with verified users.",
+      "media": "/SectionUseCasesTabs/verified.webp"
+    },
+
+    {
+      "icon": "attachment",
+      "tint": "blue",
+      "title": "Any file, anywhere",
+      "description": "Easily organize, access, and share your files across all platforms.",
+      "media": "/SectionUseCasesTabs/attachments.webp"
+    }
+  ]
+}

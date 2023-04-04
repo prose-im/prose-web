@@ -176,14 +176,20 @@ $c: ".c-section-home-features";
     line-height: 22px;
     margin-top: 12px;
   }
+}
 
-  @media (max-width: $screen-medium-width-breakpoint) {
+// --> MEDIA-QUERIES <--
+
+@media (max-width: $screen-medium-width-breakpoint) {
+  .c-section-home-features {
     #{$c}__grid {
       grid-template-columns: repeat(2, 1fr);
     }
   }
+}
 
-  @media (max-width: $screen-tiny-width-breakpoint) {
+@media (max-width: $screen-tiny-width-breakpoint) {
+  .c-section-home-features {
     padding-bottom: 0px;
 
     #{$c}__grid {

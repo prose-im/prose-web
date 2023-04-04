@@ -1,0 +1,63 @@
+{
+  "metaDescription": "Discover a messaging platform for non-profits, offering community forums, resource sharing, and customizable workflows to empower change-makers.",
+  "overline": "Prose for Non-Profits",
+
+  "sineColor": "navy",
+
+  "desktopImage": "/SectionUseCasesMain/non-profits-main.webp",
+  "mobileImage": "/SectionUseCasesMain/non-profits-mobile-main.webp",
+
+  "sectionOneTitle": "Bridge borders with <br> decentralized messaging",
+  "sectionTwoTitle": "Empowering <br> change-makers",
+  "sectionThreeTitle": "Drive <br> Transformation",
+
+  "features": [
+    {
+      "icon": "community",
+      "tint": "blue",
+      "title": "Community Forum",
+      "description": "Engage with supporters, donors, and beneficiaries by providing a platform for discussions, updates, and feedback.",
+      "imageSrc": "/SectionUseCasesBento/community.svg"
+    },
+
+    {
+      "icon": "resources",
+      "tint": "pink",
+      "title": "Resource Sharing",
+      "description": "Exchange essential resources, templates, and best practices within your non-profit community."
+    },
+
+    {
+      "icon": "workflows",
+      "tint": "purple",
+      "title": "Customizable Workflows",
+      "description": "Adapt the platform to suit the unique needs and processes of your non-profit organization."
+    }
+  ],
+
+  "tabs": [
+    {
+      "icon": "collaboration",
+      "tint": "pink",
+      "title": "External Collaboration",
+      "description": "Invite external partners, donors, or stakeholders to specific channels, fostering cooperation and transparency.",
+      "media": "/SectionUseCasesTabs/collaboration.webp"
+    },
+
+    {
+      "icon": "thread",
+      "tint": "purple",
+      "title": "Threaded Conversations",
+      "description": "Keep discussions organized and focused by replying directly to specific messages within channels.",
+      "media": "/SectionUseCasesTabs/threads.webp"
+    },
+
+    {
+      "icon": "mobile",
+      "tint": "blue",
+      "title": "Mobile Compatible",
+      "description": "Stay connected with your community on the go, ensuring you never miss an important update or conversation.",
+      "media": "/SectionUseCasesTabs/mobile.webp"
+    }
+  ]
+}
