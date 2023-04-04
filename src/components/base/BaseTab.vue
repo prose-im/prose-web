@@ -10,7 +10,7 @@
 
 <template lang="pug">
 div(class="tab-content", :class="{ 'active': isActive }")
-    slot 
+    slot
 </template>
 
 <!-- **********************************************************************
@@ -19,9 +19,9 @@ div(class="tab-content", :class="{ 'active': isActive }")
 
 <script>
 export default {
-    name: "BaseTab",
+  name: "BaseTab",
 
-    inject: ["setActiveTab", "tabsComponent"],
+  inject: ["setActiveTab", "tabsComponent"],
 
   props: {
     tab: {
@@ -29,7 +29,7 @@ export default {
       required: true
     }
   },
-  
+
   computed: {
     isActive() {
       return this.$parent.activeTab === this.tab.title;
@@ -38,12 +38,11 @@ export default {
 
   mounted() {
     this.$emit("updateTabs");
-  },
+  }
 };
 </script>
 
 <style scoped>
-
 .tab-content {
   opacity: 0;
   transition: opacity 0.2s ease;

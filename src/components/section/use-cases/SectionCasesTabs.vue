@@ -11,25 +11,27 @@
 <template lang="pug">
 .c-section-cases-tabs
   page-wrapper
-
     base-title(
       level="large"
       tint="gradient"
       align="center"
     )
-      span(v-html="useCase.sectionThreeTitle")
+      span(
+        v-html="useCase.sectionThreeTitle"
+      )
 
     base-tabs
-      base-tab(class="c-section-cases-tabs__media", v-for="tab, index in useCase.tabs", :tab="tab", :key="index")
+      base-tab(
+        v-for="tab, index in useCase.tabs",
+        :tab="tab",
+        :key="index",
+        class="c-section-cases-tabs__media"
+      )
         img(
           :src="getUrl(tab.media)"
           alt=""
           class="c-section-cases-tabs__media-img"
         )
-    
-    
-    
-    
 </template>
 
 <!-- **********************************************************************
@@ -88,5 +90,4 @@ $c: ".c-section-cases-tabs";
     }
   }
 }
-
 </style>

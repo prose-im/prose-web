@@ -27,4 +27,3 @@ export default {
   name: "UseCaseLayout"
 };
 </script>
-      

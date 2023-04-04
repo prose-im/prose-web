@@ -33,24 +33,21 @@
       "icon": "calls",
       "tint": "pink",
       "title": "Instant calls",
-      "description":
-        "Foster a stronger sense of team cohesion and engagement with face-to-face calls.",
+      "description": "Foster a stronger sense of team cohesion and engagement with face-to-face calls.",
       "media": "/SectionCasesTabs/calls.png"
     },
     {
       "icon": "roles",
       "tint": "purple",
       "title": "Roles and permissions",
-      "description":
-        "Grant control over user roles and access levels, ensuring information security.",
+      "description": "Grant control over user roles and access levels, ensuring information security.",
       "media": "/SectionCasesTabs/roles.png"
     },
     {
       "icon": "productivity",
       "tint": "blue",
       "title": "10x productivity",
-      "description":
-        "Streamline task assignment and progress tracking, boosting productivity.",
+      "description": "Streamline task assignment and progress tracking, boosting productivity.",
       "media": "/SectionCasesTabs/productivity.png"
     }
   ]
