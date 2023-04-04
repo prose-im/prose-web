@@ -32,24 +32,21 @@
       "icon": "integrations",
       "tint": "pink",
       "title": "API Integrations",
-      "description":
-        "Build bots and connect to your favorite tools with an easy to use API.",
+      "description": "Build bots and connect to your favorite tools with an easy to use API.",
       "media": "/SectionCasesTabs/integrations.png"
     },
     {
       "icon": "server",
       "tint": "purple",
       "title": "Self-hosted",
-      "description":
-        "Hosting Prose means you control the cost and can scale more efficiently.",
+      "description": "Hosting Prose means you control the cost and can scale more efficiently.",
       "media": "/SectionCasesTabs/self-hosted.png"
     },
     {
       "icon": "paintbrush",
       "tint": "blue",
       "title": "Configurable",
-      "description":
-        "Create custom features and modify the code to fit your specific requirements",
+      "description": "Create custom features and modify the code to fit your specific requirements",
       "media": "/SectionCasesTabs/tailor-made-experience.png"
     }
   ]

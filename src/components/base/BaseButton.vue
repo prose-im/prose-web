@@ -188,7 +188,6 @@ $size-huge-padding-sides: 38px;
 
   &--none {
     #{$c}__inner {
-
       #{$c}__label {
         color: $color-base-blue-dark;
       }

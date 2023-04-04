@@ -14,16 +14,17 @@ div
     class="c-section-cases-main"
     align="left"
   )
-
     template(
       slot="overline"
-    ) 
+    )
       | {{ useCase.overline }}
 
     template(
       slot="title"
     )
-      span(v-html="useCase.h1")
+      span(
+        v-html="useCase.h1"
+      )
 
     template(
       slot="action"
@@ -34,19 +35,24 @@ div
         slot="default"
       )
         base-button(
+          @click.prevent="onActionButtonClick"
           right-icon="arrow-right"
           tint="fancy"
           size="large"
           class="c-app-download__action-button"
-          @click.prevent="onActionButtonClick"
         )
           | Get early access
-  
+
   page-wrapper(
     class="c-page-main-title__wrapper"
   )
-    base-background(:type="useCase.coverBg", class="c-section-cases-main__illustration")
-      .c-section-cases-main__illustration-center(:style="`--mobile-image: url(${mobileImage}); --desktop-image: url(${desktopImage})`")
+    base-background(
+      :type="useCase.coverBg",
+      class="c-section-cases-main__illustration"
+    )
+      .c-section-cases-main__illustration-center(
+        :style="`--mobile-image: url(${mobileImage}); --desktop-image: url(${desktopImage})`"
+      )
 </template>
 
 <!-- **********************************************************************
@@ -74,9 +80,10 @@ export default {
     mobileImage() {
       return require(`~/assets/images/components/section/use-cases${this.useCase.mobileImage}`);
     },
+
     desktopImage() {
       return require(`~/assets/images/components/section/use-cases${this.useCase.desktopImage}`);
-    },
+    }
   },
 
   methods: {
@@ -85,7 +92,7 @@ export default {
      * @public
      * @return {undefined}
      */
-     onActionButtonClick() {
+    onActionButtonClick() {
       const _pageEnticeBoxElement = document.querySelector(
         ".js-page-entice-box"
       );
@@ -132,7 +139,7 @@ $c: ".c-section-cases-main";
 }
 
 @media (max-width: $screen-small-width-breakpoint) {
-  #{$c}__illustration-center  {
+  #{$c}__illustration-center {
     background-image: var(--mobile-image);
     left: 2.5%;
   }

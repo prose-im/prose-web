@@ -34,38 +34,42 @@
     ********************************************************************** -->
 
 <script>
-const CASE_REGEX = /(developers|web3|non-profits|remote-teams)/
+const CASE_REGEX = /(developers|web3|non-profits|remote-teams)/;
 
 const USE_CASES = [
   {
     slug: "developers",
     title: "Developers",
-    description: "Know for certain who you’re talking to even if you’ve never met IRL.",
+    description:
+      "Know for certain who you’re talking to even if you’ve never met IRL.",
     url: "/use-cases/developers/",
     media: require("~/assets/images/components/section/use-cases/SectionDiscover/developers.png")
   },
   {
     slug: "remote-teams",
     title: "Remote Teams",
-    description: "Know for certain who you’re talking to even if you’ve never met IRL.",
+    description:
+      "Know for certain who you’re talking to even if you’ve never met IRL.",
     url: "/use-cases/remote-teams/",
     media: require("~/assets/images/components/section/use-cases/SectionDiscover/remote-teams.png")
   },
   {
     slug: "non-profits",
     title: "Non Profits",
-    description: "Communicate efficiently even in low bandwidth regions of the world.",
+    description:
+      "Communicate efficiently even in low bandwidth regions of the world.",
     url: "/use-cases/non-profits/",
     media: require("~/assets/images/components/section/use-cases/SectionDiscover/non-profits.png")
   },
   {
     slug: "web3",
     title: "Web3",
-    description: "Prevent scams, spam, and other unwanted interactions on your server.",
+    description:
+      "Prevent scams, spam, and other unwanted interactions on your server.",
     url: "/use-cases/web3/",
     media: require("~/assets/images/components/section/use-cases/SectionDiscover/web3.png")
   }
-]
+];
 
 export default {
   name: "UseCases",
@@ -89,7 +93,9 @@ export default {
         error({ statusCode: 404, message: "Page not found" });
       });
 
-    const _otherCases = USE_CASES.filter(useCase => useCase.slug !== params.case)
+    const _otherCases = USE_CASES.filter(
+      useCase => useCase.slug !== params.case
+    );
 
     return { useCase: _case, otherCases: _otherCases };
   },

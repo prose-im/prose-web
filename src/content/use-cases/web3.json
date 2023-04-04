@@ -32,24 +32,21 @@
       "icon": "notification",
       "tint": "pink",
       "title": "Smart Notifications",
-      "description":
-        "Never miss an important message or update with customizable notifications.",
+      "description": "Never miss an important message or update with customizable notifications.",
       "media": "/SectionCasesTabs/notifications.png"
     },
     {
       "icon": "verified",
       "tint": "purple",
       "title": "Verified Users",
-      "description":
-        "Rest easy knowing you're communicating with verified users.",
+      "description": "Rest easy knowing you're communicating with verified users.",
       "media": "/SectionCasesTabs/verified.png"
     },
     {
       "icon": "attachment",
       "tint": "blue",
       "title": "Any file, anywhere",
-      "description":
-        "Easily organize, access, and share your files across all platforms.",
+      "description": "Easily organize, access, and share your files across all platforms.",
       "media": "/SectionCasesTabs/attachments.png"
     }
   ]

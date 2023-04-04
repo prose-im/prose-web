@@ -10,32 +10,32 @@
 
 <template lang="pug">
 div
-    ul.c-section-cases-tabs__grid
-        li(
-            v-for="(item, index) in tabs"
+  ul.c-section-cases-tabs__grid
+    li(
+      v-for="(item, index) in tabs"
+    )
+      base-icon-card(
+        @click="() => selectTab(item.tab)"
+        :key="index"
+        :icon="item.tab.icon"
+        :tint="item.tab.tint"
+        :active="item.tab.title === activeTab"
+        :image="getUrl(item.tab.media)"
+        class="c-section-cases-tabs__card"
+        tab
+      )
+        template(
+          slot="title"
         )
-            base-icon-card(
-                :key="index"
-                class="c-section-cases-tabs__card"
-                :icon="item.tab.icon"
-                :tint="item.tab.tint"
-                :active="item.tab.title === activeTab"
-                :image="getUrl(item.tab.media)"
-                tab
-                @click="() => selectTab(item.tab)"
-            )
+          | {{ item.tab.title }}
 
-                template(
-                    slot="title"
-                )
-                    | {{ item.tab.title }}
+        template(
+          slot="description"
+        )
+          | {{ item.tab.description }}
 
-                template(
-                    slot="description"
-                )
-                    | {{ item.tab.description }}
-    .c-section-cases-tabs__media-stack
-      slot
+  .c-section-cases-tabs__media-stack
+    slot
 </template>
 
 <!-- **********************************************************************
@@ -68,14 +68,17 @@ export default {
     selectTab(selectedTab) {
       this.activeTab = selectedTab.title;
     },
+
     updateTabs() {
       this.tabs = this.$children.filter(
         child => child.$options.name === "BaseTab"
       );
+
       if (this.tabs.length > 0) {
         this.activeTab = this.tabs[0].tab.title;
       }
     },
+
     getUrl(url) {
       return require(`@/assets/images/components/section/use-cases${url}`);
     }
@@ -88,7 +91,7 @@ export default {
         ********************************************************************** -->
 
 <style lang="scss">
-$c: ".c-section-cases-tabs"; 
+$c: ".c-section-cases-tabs";
 
 #{$c}__grid {
   display: grid;
@@ -99,16 +102,16 @@ $c: ".c-section-cases-tabs";
 }
 
 #{$c}__card {
-    cursor: pointer;
-  }
+  cursor: pointer;
+}
 
 #{$c}__media-stack {
-    position: relative;
-    aspect-ratio: 2/1;
-    width: 100%;
-    overflow: hidden;
-    border-radius: 32px;
-  }
+  position: relative;
+  aspect-ratio: 2/1;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 32px;
+}
 
 @media (max-width: $screen-medium-width-breakpoint) {
   #{$c}__grid {
@@ -116,13 +119,12 @@ $c: ".c-section-cases-tabs";
   }
 }
 
-
 @media (max-width: $screen-small-width-breakpoint) {
-    #{$c}__media-stack {
-      display: none;
-    }
+  #{$c}__media-stack {
+    display: none;
+  }
 
-    #{$c}__grid {
+  #{$c}__grid {
     grid-template-columns: repeat(1, 1fr);
     grid-gap: 32px;
   }

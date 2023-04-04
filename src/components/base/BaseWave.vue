@@ -36,7 +36,7 @@ const VARIANTS = [
   ImageVariant4,
   ImageVariant5,
   ImageVariant6,
-  ImageVariant7,
+  ImageVariant7
 ];
 
 export default {
