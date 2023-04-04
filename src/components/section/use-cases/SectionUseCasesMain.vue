@@ -88,22 +88,13 @@ export default {
      * @return {undefined}
      */
     onActionButtonClick() {
-      const _pageEnticeBoxElement = document.querySelector(
-        ".js-page-entice-box"
+      const _pageHeaderActionElement = document.querySelector(
+        ".js-page-header-action"
       );
 
-      if (_pageEnticeBoxElement) {
-        // Scroll to entice box element
-        _pageEnticeBoxElement.scrollIntoView();
-
-        // Focus email field
-        const _subscribeEmailFieldElement = document.querySelector(
-          `input[name="subscribe_email"]`
-        );
-
-        if (_subscribeEmailFieldElement) {
-          _subscribeEmailFieldElement.focus();
-        }
+      if (_pageHeaderActionElement) {
+        // Click on header action element
+        _pageHeaderActionElement.click();
       }
     }
   }

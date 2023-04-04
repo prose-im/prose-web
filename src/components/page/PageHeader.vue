@@ -92,7 +92,7 @@ div(
             .c-page-header__action
               base-button(
                 @click.prevent="onActionButtonClick"
-                class="c-page-header__action-button"
+                class="c-page-header__action-button js-page-header-action"
                 right-icon="arrow-right"
               )
                 | Join the Waitlist
