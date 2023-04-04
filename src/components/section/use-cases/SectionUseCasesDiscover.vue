@@ -39,8 +39,8 @@
           class="c-section-use-cases-discover__option"
         )
           base-card(
-            class="c-section-use-cases-discover__option-card"
             :media="useCase.media"
+            class="c-section-use-cases-discover__option-card"
           )
             template(
               slot="title"
@@ -245,7 +245,7 @@ $animate-shake-base-depth: 2px;
     width: 100%;
     display: flex;
 
-    &-card {
+    #{$c}__option-card {
       box-shadow: 0px 28px 36px 0px #2b255d15;
     }
   }
