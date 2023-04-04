@@ -11,20 +11,21 @@
 <template lang="pug">
 .p-use-case
     section-cases-main(
+      :use-case="useCase"
       class="p-cases-index__main"
-      :useCase="useCase"
     )
 
     section-cases-bento(
-      :useCase="useCase"
+      :use-case="useCase"
     )
 
     section-cases-tabs(
-      :useCase="useCase"
+      :use-case="useCase"
     )
 
     section-discover(
-      :useCase="useCase", :otherCases="otherCases"
+      :use-case="useCase",
+      :other-cases="otherCases"
     )
 
 </template>
@@ -43,31 +44,42 @@ const USE_CASES = [
     description:
       "Know for certain who you’re talking to even if you’ve never met IRL.",
     url: "/use-cases/developers/",
-    media: require("~/assets/images/components/section/use-cases/SectionDiscover/developers.png")
+
+    media: require("~/assets/images/components/section/use-cases/" +
+      "SectionDiscover/developers.png")
   },
+
   {
     slug: "remote-teams",
     title: "Remote Teams",
     description:
       "Know for certain who you’re talking to even if you’ve never met IRL.",
     url: "/use-cases/remote-teams/",
-    media: require("~/assets/images/components/section/use-cases/SectionDiscover/remote-teams.png")
+
+    media: require("~/assets/images/components/section/use-cases/" +
+      "SectionDiscover/remote-teams.png")
   },
+
   {
     slug: "non-profits",
     title: "Non Profits",
     description:
       "Communicate efficiently even in low bandwidth regions of the world.",
     url: "/use-cases/non-profits/",
-    media: require("~/assets/images/components/section/use-cases/SectionDiscover/non-profits.png")
+
+    media: require("~/assets/images/components/section/use-cases/" +
+      "SectionDiscover/non-profits.png")
   },
+
   {
     slug: "web3",
     title: "Web3",
     description:
       "Prevent scams, spam, and other unwanted interactions on your server.",
     url: "/use-cases/web3/",
-    media: require("~/assets/images/components/section/use-cases/SectionDiscover/web3.png")
+
+    media: require("~/assets/images/components/section/use-cases/" +
+      "SectionDiscover/web3.png")
   }
 ];
 
