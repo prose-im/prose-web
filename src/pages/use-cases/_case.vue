@@ -73,7 +73,7 @@ const USE_CASES = [
 
 export default {
   name: "UseCases",
-  layout: "useCase",
+  layout: "usecase",
 
   validate({ params }) {
     // Case is set, but not valid?
