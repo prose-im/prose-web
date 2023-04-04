@@ -1,11 +1,15 @@
 {
   "metaDescription": "Collaborate on open source software with native apps, end-to-end encryption, and extensive customization options.",
   "overline": "Prose for Developers",
-  "h1": "Connect and collab on <br> open source software",
-  "coverBg": "blue",
+
+  "sineColor": "blue",
+
   "desktopImage": "/SectionUseCasesMain/developers-main.webp",
   "mobileImage": "/SectionUseCasesMain/developers-main-mobile.webp",
+
+  "sectionOneTitle": "Connect and collab on <br> open source software",
   "sectionTwoTitle": "Built by engineers, <br> for engineers",
+  "sectionThreeTitle": "Endless <br> Customization",
 
   "features": [
     {
@@ -30,8 +34,6 @@
       "description": "Guarantees secure communication channels, protecting your team's conversations from unauthorized access."
     }
   ],
-
-  "sectionThreeTitle": "Endless <br> Customization",
 
   "tabs": [
     {

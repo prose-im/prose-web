@@ -1,11 +1,15 @@
 {
   "metaDescription": "Scale your Web3 community with Prose, a privacy-focused and decentralized platform offering unrivaled control, smart notifications, and seamless file sharing.",
   "overline": "Prose for web3",
-  "h1": "Build and scale your <br> Web3 community",
-  "coverBg": "purple",
+
+  "sineColor": "purple",
+
   "desktopImage": "/SectionUseCasesMain/web3-main.webp",
   "mobileImage": "/SectionUseCasesMain/web3-main-mobile.webp",
+
+  "sectionOneTitle": "Build and scale your <br> Web3 community",
   "sectionTwoTitle": "Ready for Minting <br> Day and everyday",
+  "sectionThreeTitle": "Unrivaled <br> Control",
 
   "features": [
     {
@@ -30,8 +34,6 @@
       "description": "Prose is powered by the decentralized XMPP protocol which makes it more resilient than centralized alternatives."
     }
   ],
-
-  "sectionThreeTitle": "Unrivaled <br> Control",
 
   "tabs": [
     {

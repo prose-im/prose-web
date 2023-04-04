@@ -53,6 +53,13 @@ export default {
     };
   },
 
+  props: {
+    mediaUrlPrefix: {
+      type: String,
+      default: ""
+    }
+  },
+
   data() {
     return {
       // --> STATE <--
@@ -101,7 +108,7 @@ export default {
      * @return {string} Asset URL
      */
     getAssetUrl(url) {
-      return require(`@/assets/images/components/section/use-cases${url}`);
+      return require(`@/assets/images${this.mediaUrlPrefix}${url}`);
     }
   }
 };

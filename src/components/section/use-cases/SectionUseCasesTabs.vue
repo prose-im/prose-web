@@ -20,7 +20,9 @@
         v-html="useCase.sectionThreeTitle"
       )
 
-    base-tabs
+    base-tabs(
+      :media-url-prefix="mediaUrlPrefix"
+    )
       base-tab(
         v-for="tab, index in useCase.tabs",
         :tab="tab",
@@ -49,6 +51,14 @@ export default {
     }
   },
 
+  data() {
+    return {
+      // --> DATA <--
+
+      mediaUrlPrefix: "/components/section/use-cases"
+    };
+  },
+
   methods: {
     // --> HELPERS <--
 
@@ -59,7 +69,7 @@ export default {
      * @return {string} Asset URL
      */
     getAssetUrl(url) {
-      return require(`@/assets/images/components/section/use-cases${url}`);
+      return require(`@/assets/images${this.mediaUrlPrefix}${url}`);
     }
   }
 };

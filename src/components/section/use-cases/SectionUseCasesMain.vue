@@ -22,7 +22,7 @@
       slot="title"
     )
       span(
-        v-html="useCase.h1"
+        v-html="useCase.sectionOneTitle"
       )
 
     template(
@@ -44,7 +44,7 @@
 
   page-wrapper
     base-sine(
-      :color="useCase.coverBg"
+      :color="useCase.sineColor"
       class="c-section-use-cases-main__illustration"
     )
       .c-section-use-cases-main__illustration-center(

@@ -1,11 +1,15 @@
 {
   "metaDescription": "Boost remote team collaboration with Prose, offering multi-language support, dedicated spaces, and a knowledge base for seamless communication and productivity.",
   "overline": "Prose for Remote Teams",
-  "h1": "Collaborate and thrive <br> with distributed teams",
-  "coverBg": "pink",
+
+  "sineColor": "pink",
+
   "desktopImage": "/SectionUseCasesMain/remote-teams-main.webp",
   "mobileImage": "/SectionUseCasesMain/remote-teams-mobile-main.webp",
+
+  "sectionOneTitle": "Collaborate and thrive <br> with distributed teams",
   "sectionTwoTitle": "Harness the <br> power of distance",
+  "sectionThreeTitle": "Peak <br> Productivity",
 
   "features": [
     {
@@ -30,8 +34,6 @@
       "description": "Consolidate important information and resources and easily find and reference the materials you need."
     }
   ],
-
-  "sectionThreeTitle": "Peak <br> Productivity",
 
   "tabs": [
     {

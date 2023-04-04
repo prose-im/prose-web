@@ -1,11 +1,15 @@
 {
   "metaDescription": "Discover a messaging platform for non-profits, offering community forums, resource sharing, and customizable workflows to empower change-makers.",
   "overline": "Prose for Non-Profits",
-  "h1": "Bridge borders with <br> decentralized messaging",
-  "coverBg": "navy",
+
+  "sineColor": "navy",
+
   "desktopImage": "/SectionUseCasesMain/non-profits-main.webp",
   "mobileImage": "/SectionUseCasesMain/non-profits-mobile-main.webp",
+
+  "sectionOneTitle": "Bridge borders with <br> decentralized messaging",
   "sectionTwoTitle": "Empowering <br> change-makers",
+  "sectionThreeTitle": "Drive <br> Transformation",
 
   "features": [
     {
@@ -30,8 +34,6 @@
       "description": "Adapt the platform to suit the unique needs and processes of your non-profit organization."
     }
   ],
-
-  "sectionThreeTitle": "Drive <br> Transformation",
 
   "tabs": [
     {
