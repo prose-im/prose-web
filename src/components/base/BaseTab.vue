@@ -9,13 +9,20 @@
      ********************************************************************** -->
 
 <template lang="pug">
-div(class="tab-content", :class="{ 'active': isActive }")
-    slot
+div(
+  :class=`[
+    "c-base-tab",
+    {
+      "c-base-tab--active": isActive
+    }
+  ]`
+)
+  slot
 </template>
 
 <!-- **********************************************************************
-        SCRIPT
-        ********************************************************************** -->
+     SCRIPT
+     ********************************************************************** -->
 
 <script>
 export default {
@@ -43,14 +50,19 @@ export default {
 </script>
 
 <style scoped>
-.tab-content {
+$c: ".c-base-tab";
+
+.c-base-tab {
   opacity: 0;
   transition: opacity 0.2s ease;
   z-index: 0;
   position: absolute;
-}
-.active {
-  opacity: 1;
-  z-index: 1;
+
+  // --> BOOLEANS <--
+
+  &--active {
+    opacity: 1;
+    z-index: 1;
+  }
 }
 </style>

@@ -18,7 +18,6 @@ div(
   page-wrapper(
     class="c-page-main-title__wrapper"
   )
-
     p.c-page-main-title__overline(
       v-if="$slots.overline"
     )
@@ -96,9 +95,9 @@ $c: ".c-page-main-title";
   }
 
   #{$c}__overline {
-    margin-bottom: 20px;
     color: $color-base-grey-dark;
     font-weight: $font-weight-medium;
+    margin-bottom: 20px;
   }
 
   #{$c}__action {

@@ -2,23 +2,26 @@
   "overline": "Prose for Remote Teams",
   "h1": "Collaborate and thrive <br> with distributed teams",
   "coverBg": "pink",
-  "desktopImage": "/SectionCasesMain/remote-teams-main.png",
-  "mobileImage": "/SectionCasesMain/remote-teams-mobile-main.png",
+  "desktopImage": "/SectionUseCasesMain/remote-teams-main.png",
+  "mobileImage": "/SectionUseCasesMain/remote-teams-mobile-main.png",
   "sectionTwoTitle": "Harness the <br> power of distance",
+
   "features": [
     {
       "icon": "flags",
       "tint": "blue",
       "title": "Multi-language",
       "description": "Prose makes communication and collaboration for global teams easy by providing translations and accommodating various languages.",
-      "imageSrc": "/SectionCasesBento/multi-language.svg"
+      "imageSrc": "/SectionUseCasesBento/multi-language.svg"
     },
+
     {
       "icon": "spaces",
       "tint": "pink",
       "title": "Dedicated Spaces",
       "description": "Facilitate the organization of discussions into dedicated spaces, streamlining communication and collaboration."
     },
+
     {
       "icon": "knowledge",
       "tint": "purple",
@@ -26,28 +29,32 @@
       "description": "Consolidate important information and resources and easily find and reference the materials you need."
     }
   ],
+
   "sectionThreeTitle": "Peak <br> Productivity",
+
   "tabs": [
     {
       "icon": "calls",
       "tint": "pink",
       "title": "Instant calls",
       "description": "Foster a stronger sense of team cohesion and engagement with face-to-face calls.",
-      "media": "/SectionCasesTabs/calls.png"
+      "media": "/SectionUseCasesTabs/calls.png"
     },
+
     {
       "icon": "roles",
       "tint": "purple",
       "title": "Roles and permissions",
       "description": "Grant control over user roles and access levels, ensuring information security.",
-      "media": "/SectionCasesTabs/roles.png"
+      "media": "/SectionUseCasesTabs/roles.png"
     },
+
     {
       "icon": "productivity",
       "tint": "blue",
       "title": "10x productivity",
       "description": "Streamline task assignment and progress tracking, boosting productivity.",
-      "media": "/SectionCasesTabs/productivity.png"
+      "media": "/SectionUseCasesTabs/productivity.png"
     }
   ]
 }

@@ -2,23 +2,26 @@
   "overline": "Prose for web3",
   "h1": "Build and scale your <br> Web3 community",
   "coverBg": "purple",
-  "desktopImage": "/SectionCasesMain/web3-main.png",
-  "mobileImage": "/SectionCasesMain/web3-main-mobile.png",
+  "desktopImage": "/SectionUseCasesMain/web3-main.png",
+  "mobileImage": "/SectionUseCasesMain/web3-main-mobile.png",
   "sectionTwoTitle": "Ready for Minting <br> Day and everyday",
+
   "features": [
     {
       "icon": "scalable",
       "tint": "blue",
       "title": "Scalable",
       "description": "Prose uses end-to-end encryption to protect your conversations from prying eyes, and is designed to handle large communities with ease.",
-      "imageSrc": "/SectionCasesBento/nfts.svg"
+      "imageSrc": "/SectionUseCasesBento/nfts.svg"
     },
+
     {
       "icon": "privacy",
       "tint": "pink",
       "title": "Privacy-focused",
       "description": "Your conversations and data remain confidential with cutting-edge encryption technologies and robust security measures."
     },
+
     {
       "icon": "decentralized",
       "tint": "purple",
@@ -26,28 +29,32 @@
       "description": "Prose is powered by the decentralized XMPP protocol which makes it more resilient than centralized alternatives."
     }
   ],
+
   "sectionThreeTitle": "Unrivaled <br> Control",
+
   "tabs": [
     {
       "icon": "notification",
       "tint": "pink",
       "title": "Smart Notifications",
       "description": "Never miss an important message or update with customizable notifications.",
-      "media": "/SectionCasesTabs/notifications.png"
+      "media": "/SectionUseCasesTabs/notifications.png"
     },
+
     {
       "icon": "verified",
       "tint": "purple",
       "title": "Verified Users",
       "description": "Rest easy knowing you're communicating with verified users.",
-      "media": "/SectionCasesTabs/verified.png"
+      "media": "/SectionUseCasesTabs/verified.png"
     },
+
     {
       "icon": "attachment",
       "tint": "blue",
       "title": "Any file, anywhere",
       "description": "Easily organize, access, and share your files across all platforms.",
-      "media": "/SectionCasesTabs/attachments.png"
+      "media": "/SectionUseCasesTabs/attachments.png"
     }
   ]
 }

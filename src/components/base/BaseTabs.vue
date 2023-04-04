@@ -9,19 +9,19 @@
      ********************************************************************** -->
 
 <template lang="pug">
-div
-  ul.c-section-cases-tabs__grid
+.c-section-use-cases-tabs
+  ul.c-section-use-cases-tabs__grid
     li(
       v-for="(item, index) in tabs"
     )
       base-icon-card(
-        @click="() => selectTab(item.tab)"
+        @click="selectTab(item.tab)"
         :key="index"
         :icon="item.tab.icon"
         :tint="item.tab.tint"
         :active="item.tab.title === activeTab"
-        :image="getUrl(item.tab.media)"
-        class="c-section-cases-tabs__card"
+        :image="getAssetUrl(item.tab.media)"
+        class="c-section-use-cases-tabs__card"
         tab
       )
         template(
@@ -34,13 +34,13 @@ div
         )
           | {{ item.tab.description }}
 
-  .c-section-cases-tabs__media-stack
+  .c-section-use-cases-tabs__media-stack
     slot
 </template>
 
 <!-- **********************************************************************
-        SCRIPT
-        ********************************************************************** -->
+     SCRIPT
+     ********************************************************************** -->
 
 <script>
 export default {
@@ -55,6 +55,8 @@ export default {
 
   data() {
     return {
+      // --> STATE <--
+
       activeTab: "",
       tabs: []
     };
@@ -65,10 +67,23 @@ export default {
   },
 
   methods: {
+    // --> HELPERS <--
+
+    /**
+     * Selects tab
+     * @public
+     * @param  {object} selectedTab
+     * @return {undefined}
+     */
     selectTab(selectedTab) {
       this.activeTab = selectedTab.title;
     },
 
+    /**
+     * Updates tab
+     * @public
+     * @return {undefined}
+     */
     updateTabs() {
       this.tabs = this.$children.filter(
         child => child.$options.name === "BaseTab"
@@ -79,7 +94,13 @@ export default {
       }
     },
 
-    getUrl(url) {
+    /**
+     * Gets asset URL
+     * @public
+     * @param  {string} url
+     * @return {string} Asset URL
+     */
+    getAssetUrl(url) {
       return require(`@/assets/images/components/section/use-cases${url}`);
     }
   }
@@ -87,46 +108,54 @@ export default {
 </script>
 
 <!-- **********************************************************************
-        STYLE
-        ********************************************************************** -->
+     STYLE
+     ********************************************************************** -->
 
 <style lang="scss">
-$c: ".c-section-cases-tabs";
+$c: ".c-section-use-cases-tabs";
 
-#{$c}__grid {
-  display: grid;
-  margin: 0 auto;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 40px;
-  margin: 64px 0 40px;
+.c-section-use-cases-tabs {
+  #{$c}__grid {
+    display: grid;
+    margin: 0 auto;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 40px;
+    margin: 64px 0 40px;
+  }
+
+  #{$c}__card {
+    cursor: pointer;
+  }
+
+  #{$c}__media-stack {
+    position: relative;
+    aspect-ratio: 2/1;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 32px;
+  }
 }
 
-#{$c}__card {
-  cursor: pointer;
-}
-
-#{$c}__media-stack {
-  position: relative;
-  aspect-ratio: 2/1;
-  width: 100%;
-  overflow: hidden;
-  border-radius: 32px;
-}
+// --> MEDIA-QUERIES <--
 
 @media (max-width: $screen-medium-width-breakpoint) {
-  #{$c}__grid {
-    grid-gap: 16px;
+  .c-section-use-cases-tabs {
+    #{$c}__grid {
+      grid-gap: 16px;
+    }
   }
 }
 
 @media (max-width: $screen-small-width-breakpoint) {
-  #{$c}__media-stack {
-    display: none;
-  }
+  .c-section-use-cases-tabs {
+    #{$c}__media-stack {
+      display: none;
+    }
 
-  #{$c}__grid {
-    grid-template-columns: repeat(1, 1fr);
-    grid-gap: 32px;
+    #{$c}__grid {
+      grid-template-columns: repeat(1, 1fr);
+      grid-gap: 32px;
+    }
   }
 }
 </style>

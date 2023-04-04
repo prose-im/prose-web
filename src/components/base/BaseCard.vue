@@ -10,23 +10,34 @@
 
 <template lang="pug">
 .c-base-card
-    .c-base-card__image 
-        img(:src="media", alt="", class="c-base-card__image-img")
-    .c-base-card__content
-        .c-base-card__text
-          h3.c-base-card__title
-              slot(name="title")
-          p.c-base-card__description
-              slot(name="description")
-        .c-base-card__link
-            slot(name="link")
-            
+  .c-base-card__image
+    img(
+      :src="media"
+      alt=""
+      class="c-base-card__image-img"
+    )
 
+  .c-base-card__content
+    .c-base-card__text
+      h3.c-base-card__title
+        slot(
+          name="title"
+        )
+
+      p.c-base-card__description
+        slot(
+          name="description"
+        )
+
+    .c-base-card__link
+      slot(
+        name="link"
+      )
 </template>
 
 <!-- **********************************************************************
-        SCRIPT
-        ********************************************************************** -->
+     SCRIPT
+     ********************************************************************** -->
 
 <script>
 export default {
@@ -41,6 +52,7 @@ export default {
         return ["blue", "pink", "purple"].includes(x);
       }
     },
+
     media: {
       type: String,
       default: null
@@ -50,8 +62,8 @@ export default {
 </script>
 
 <!-- **********************************************************************
-        STYLE
-        ********************************************************************** -->
+     STYLE
+     ********************************************************************** -->
 
 <style lang="scss">
 $c: ".c-base-card";
@@ -72,12 +84,12 @@ $c: ".c-base-card";
   #{$c}__image {
     height: 175px;
     position: relative;
-  }
 
-  #{$c}__image-img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
+    #{$c}__image-img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
   }
 
   #{$c}__content {

@@ -34,6 +34,7 @@ export default {
       type: Boolean,
       default: false
     },
+
     useCase: {
       type: Boolean,
       default: false

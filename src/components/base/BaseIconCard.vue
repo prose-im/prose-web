@@ -10,64 +10,65 @@
 
 <template lang="pug">
 div(
-    :class=`[
-      "c-base-icon-card", 
-      "c-base-icon-card--" + tint,
-      {
-        "c-base-icon-card--tab": tab,
-        "c-base-icon-card--active": active
-      }
-    ]`
-    @click="$emit('click')"
+  @click="$emit('click')"
+  :class=`[
+    "c-base-icon-card",
+    "c-base-icon-card--" + tint,
+    {
+      "c-base-icon-card--tab": tab,
+      "c-base-icon-card--active": active
+    }
+  ]`
 )
-    div(
-        class="c-base-icon-card__content"
-    )   
+  .c-base-icon-card__content
+    .c-base-icon-card__icon
+      img(
+        v-if="tab && !active && !mobile"
+        src="@/assets/images/components/base/BaseIconCard/default.svg"
+        width="64"
+        height="64"
+      )
 
-        div(
-            class="c-base-icon-card__icon"
-        ) 
-          img(v-if="tab && !active && !mobile" src="@/assets/images/components/base/BaseIcon3D/default.svg" width="64" height="64")
-          base-icon-avatar(
-            v-else
-              :icon="icon"
-              :tint="tint"
-          )
-            
-        h3(
-          class="c-base-icon-card__title"
-        )
-          slot(
-            name="title"
-          )
+      base-icon(
+        v-else
+        :icon="icon"
+        :tint="tint"
+      )
 
-        .c-base-icon-card__skeleton-stack(v-if="tab && !active && !mobile")
-          .c-base-icon-card__skeleton.c-base-icon-card__skeleton-full
-          .c-base-icon-card__skeleton.c-base-icon-card__skeleton-half
-        p(
-          v-else
-          class="c-base-icon-card__description"
-        ) 
-          slot(
-            
-            name="description"
-          )
+    h3(
+      class="c-base-icon-card__title"
+    )
+      slot(
+        name="title"
+      )
 
-    div(
-        class="c-base-icon-card__image-wrapper"
-        v-if="image.length"
-    )   
-        img(
-            class="c-base-icon-card__image"
-            :src="image"
-            alt=""
-        )
+    .c-base-icon-card__skeleton-stack(
+      v-if="tab && !active && !mobile"
+    )
+      .c-base-icon-card__skeleton.c-base-icon-card__skeleton--full
+      .c-base-icon-card__skeleton.c-base-icon-card__skeleton--half
 
+    p(
+      v-else
+      class="c-base-icon-card__description"
+    )
+      slot(
+        name="description"
+      )
+
+  .c-base-icon-card__image-wrapper(
+    v-if="image.length"
+  )
+    img(
+      :src="image"
+      class="c-base-icon-card__image"
+      alt=""
+    )
 </template>
 
 <!-- **********************************************************************
-        SCRIPT
-        ********************************************************************** -->
+     SCRIPT
+     ********************************************************************** -->
 
 <script>
 export default {
@@ -78,20 +79,24 @@ export default {
       type: String,
       required: true
     },
+
     tint: {
       type: String,
       required: true
     },
+
     image: {
       default: "",
       type: String,
       required: false
     },
+
     active: {
       default: false,
       type: Boolean,
       required: false
     },
+
     tab: {
       default: false,
       type: Boolean,
@@ -101,6 +106,8 @@ export default {
 
   data() {
     return {
+      // --> DATA <--
+
       windowWidth: 1440
     };
   },
@@ -112,16 +119,27 @@ export default {
   },
 
   mounted() {
-    this.handleResize();
-    window.addEventListener("resize", this.handleResize);
+    // Trigger immediate resize event
+    this.onResize();
+
+    // Bind event listeners
+    window.addEventListener("resize", this.onResize);
   },
 
   beforeDestroy() {
-    window.removeEventListener("resize", this.handleResize);
+    // Unbind event listeners
+    window.removeEventListener("resize", this.onResize);
   },
 
   methods: {
-    handleResize() {
+    // --> EVENT LISTENERS <--
+
+    /**
+     * Triggers when resizing window
+     * @public
+     * @return {undefined}
+     */
+    onResize() {
       this.windowWidth = window.innerWidth;
     }
   }
@@ -129,8 +147,8 @@ export default {
 </script>
 
 <!-- **********************************************************************
-        STYLE
-        ********************************************************************** -->
+     STYLE
+     ********************************************************************** -->
 
 <style lang="scss">
 $c: ".c-base-icon-card";
@@ -149,6 +167,57 @@ $c: ".c-base-icon-card";
   transition: background 0.2s ease-in-out, border 0.2s ease-in-out;
   height: 100%;
 
+  #{$c}__content {
+    padding: 32px;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #{$c}__image-wrapper {
+    flex: 1 0 calc(50% - 40px);
+    width: 100%;
+  }
+
+  #{$c}__image {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  #{$c}__icon {
+    margin-bottom: 24px;
+  }
+
+  #{$c}__title {
+    margin-bottom: 10px;
+    font-size: 26px;
+    line-height: 26px;
+    letter-spacing: -0.015em;
+    font-weight: $font-weight-medium;
+  }
+
+  #{$c}__description {
+    color: $color-base-grey-dark;
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  #{$c}__skeleton {
+    height: 18px;
+    background: #e3e8f2;
+    border-radius: 4px;
+
+    &--full {
+      width: 100%;
+      margin-bottom: 10px;
+      margin-top: 4px;
+    }
+
+    &--half {
+      width: 50%;
+    }
+  }
+
   &--tab:hover:not(.c-base-icon-card--active) {
     border: 1px solid #81899b67;
     background: linear-gradient(
@@ -158,14 +227,16 @@ $c: ".c-base-icon-card";
     );
   }
 
+  // --> BOOLEANS <--
+
   &--tab {
     #{$c}__image-wrapper {
       display: none;
     }
   }
 
-  &.c-base-icon-card--active {
-    &.c-base-icon-card--pink {
+  &--active {
+    &#{$c}--pink {
       border-color: $color-base-pink-light;
       background: linear-gradient(
         180deg,
@@ -174,7 +245,7 @@ $c: ".c-base-icon-card";
       );
     }
 
-    &.c-base-icon-card--blue {
+    &#{$c}--blue {
       border-color: $color-base-blue-mid;
       background: linear-gradient(
         180deg,
@@ -183,7 +254,7 @@ $c: ".c-base-icon-card";
       );
     }
 
-    &.c-base-icon-card--purple {
+    &#{$c}--purple {
       border-color: $color-base-purple-mid;
       background: linear-gradient(
         180deg,
@@ -192,73 +263,26 @@ $c: ".c-base-icon-card";
       );
     }
   }
+}
 
-  &__content {
-    padding: 32px;
-    flex: 1 1 auto;
-    display: flex;
-    flex-direction: column;
-  }
+// --> MEDIA-QUERIES <--
 
-  &__image-wrapper {
-    flex: 1 0 calc(50% - 40px);
-    width: 100%;
-  }
-
-  &__image {
-    height: 100%;
-    object-fit: cover;
-  }
-
-  &__icon {
-    margin-bottom: 24px;
-  }
-
-  &__title {
-    margin-bottom: 10px;
-    font-size: 26px;
-    line-height: 26px;
-    letter-spacing: -0.015em;
-    font-weight: $font-weight-medium;
-  }
-
-  &__description {
-    color: $color-base-grey-dark;
-    font-size: 16px;
-    line-height: 26px;
-  }
-
-  &__skeleton {
-    height: 18px;
-    background: #e3e8f2;
-    border-radius: 4px;
-  }
-
-  &__skeleton-full {
-    width: 100%;
-    margin-bottom: 10px;
-    margin-top: 4px;
-  }
-
-  &__skeleton-half {
-    width: 50%;
-  }
-
-  @media (max-width: $screen-medium-width-breakpoint) {
-    &__image-wrapper {
+@media (max-width: $screen-medium-width-breakpoint) {
+  .c-base-icon-card {
+    #{$c}__image-wrapper {
       flex: 1 0 40%;
       width: auto;
     }
 
-    &__image {
+    #{$c}__image {
       width: 100%;
       object-position: left;
     }
 
-    &.c-base-icon-card--active {
-      &.c-base-icon-card--pink,
-      &.c-base-icon-card--blue,
-      &.c-base-icon-card--purple {
+    &--active {
+      &#{$c}--pink,
+      &#{$c}--blue,
+      &#{$c}--purple {
         border: 1px solid #81899b33;
         background: linear-gradient(
           180deg,
@@ -268,11 +292,13 @@ $c: ".c-base-icon-card";
       }
     }
   }
+}
 
-  @media (max-width: $screen-small-width-breakpoint) {
+@media (max-width: $screen-small-width-breakpoint) {
+  .c-base-icon-card {
     flex-direction: column-reverse;
 
-    &__image {
+    #{$c}__image {
       aspect-ratio: 1.43 / 1;
       object-fit: cover;
       object-position: center;

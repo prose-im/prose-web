@@ -10,20 +10,20 @@
 
 <template lang="pug">
 .p-use-case
-    section-cases-main(
+    section-use-cases-main(
       :use-case="useCase"
       class="p-cases-index__main"
     )
 
-    section-cases-bento(
+    section-use-cases-bento(
       :use-case="useCase"
     )
 
-    section-cases-tabs(
+    section-use-cases-tabs(
       :use-case="useCase"
     )
 
-    section-discover(
+    section-use-cases-discover(
       :use-case="useCase",
       :other-cases="otherCases"
     )
@@ -45,7 +45,7 @@ const USE_CASES = [
     url: "/use-cases/developers/",
 
     media: require("~/assets/images/components/section/use-cases/" +
-      "SectionDiscover/developers.png")
+      "SectionUseCasesDiscover/developers.png")
   },
 
   {
@@ -56,7 +56,7 @@ const USE_CASES = [
     url: "/use-cases/remote-teams/",
 
     media: require("~/assets/images/components/section/use-cases/" +
-      "SectionDiscover/remote-teams.png")
+      "SectionUseCasesDiscover/remote-teams.png")
   },
 
   {
@@ -67,7 +67,7 @@ const USE_CASES = [
     url: "/use-cases/non-profits/",
 
     media: require("~/assets/images/components/section/use-cases/" +
-      "SectionDiscover/non-profits.png")
+      "SectionUseCasesDiscover/non-profits.png")
   },
 
   {
@@ -78,7 +78,7 @@ const USE_CASES = [
     url: "/use-cases/web3/",
 
     media: require("~/assets/images/components/section/use-cases/" +
-      "SectionDiscover/web3.png")
+      "SectionUseCasesDiscover/web3.png")
   }
 ];
 
