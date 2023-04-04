@@ -28,8 +28,8 @@
       template(
         v-for="useCase, index in otherCases"
       )
-        a(
-          :href="useCase.url",
+        nuxt-link(
+          :to="useCase.url",
           :key="index",
           class="c-section-use-cases-discover__option"
         )
