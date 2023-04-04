@@ -24,7 +24,6 @@
     )
 
     section-use-cases-discover(
-      :use-case="useCase",
       :other-cases="otherCases"
     )
 
@@ -83,8 +82,7 @@ const USE_CASES = [
 ];
 
 export default {
-  name: "UseCases",
-  layout: "usecase",
+  name: "UseCasesCasePage",
 
   validate({ params }) {
     // Case is set, but not valid?

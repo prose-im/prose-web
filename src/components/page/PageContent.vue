@@ -13,8 +13,7 @@ div(
   :class=`[
     "c-page-content",
     {
-      "c-page-content--showcase": showcase,
-      "c-page-content--use-case": useCase,
+      "c-page-content--showcase": showcase
     }
   ]`
 )
@@ -31,11 +30,6 @@ export default {
 
   props: {
     showcase: {
-      type: Boolean,
-      default: false
-    },
-
-    useCase: {
       type: Boolean,
       default: false
     }
@@ -60,10 +54,6 @@ $c: ".c-page-content";
 
   &--showcase {
     padding-top: 0;
-  }
-
-  &--use-case {
-    padding-bottom: 0;
   }
 }
 
