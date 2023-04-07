@@ -125,7 +125,6 @@
 <script>
 // PROJECT: IMAGES
 import ImageCopyrightBadgesOpenSource from "~/assets/images/components/page/PageFooter/copyright-badges-open_source.svg?raw";
-import ImageCopyrightBadgesClimateNeutral from "~/assets/images/components/page/PageFooter/copyright-badges-climate_neutral.svg?raw";
 import ImageCopyrightCraftedFlag from "~/assets/images/components/page/PageFooter/copyright-crafted-flag.svg?inline";
 
 // CONSTANTS
@@ -167,12 +166,6 @@ export default {
           id: "open_source",
           image: ImageCopyrightBadgesOpenSource,
           target: this.$config.url.github_prose
-        },
-
-        {
-          id: "climate_neutral",
-          image: ImageCopyrightBadgesClimateNeutral,
-          target: `${this.$config.url.climateneutral_web}/`
         }
       ],
 
