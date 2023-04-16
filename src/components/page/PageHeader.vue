@@ -111,6 +111,8 @@ div(
 import ImageMenuDropdownLinkArrow from "~/assets/images/components/page/PageHeader/menu-dropdown-link-arrow.svg?inline";
 
 import ImageMenuDropdownCompanyIconAbout from "~/assets/images/components/page/PageHeader/menu-dropdown-company-icon-about.svg?raw";
+import ImageMenuDropdownCompanyIconBlog from "~/assets/images/components/page/PageHeader/menu-dropdown-company-icon-blog.svg?raw";
+
 import ImageMenuDropdownHelpIconHelp from "~/assets/images/components/page/PageHeader/menu-dropdown-help-icon-help.svg?raw";
 import ImageMenuDropdownHelpIconDocs from "~/assets/images/components/page/PageHeader/menu-dropdown-help-icon-docs.svg?raw";
 import ImageMenuDropdownHelpIconContact from "~/assets/images/components/page/PageHeader/menu-dropdown-help-icon-contact.svg?raw";
@@ -207,6 +209,13 @@ export default {
               label: "Discover who is building Prose",
               target: "/about/",
               icon: ImageMenuDropdownCompanyIconAbout
+            },
+            {
+              id: "blog",
+              title: "Blog",
+              label: "Find out more about Prose",
+              target: "/blog/",
+              icon: ImageMenuDropdownCompanyIconBlog
             }
           ]
         },

@@ -225,6 +225,11 @@ export default {
 
           items: [
             {
+              label: "Blog",
+              target: "/blog/"
+            },
+
+            {
               label: "Terms & Privacy",
               target: "/terms/"
             },
