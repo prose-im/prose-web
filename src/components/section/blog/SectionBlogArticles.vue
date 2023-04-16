@@ -25,15 +25,16 @@
           :media="article.cover.src"
           class="c-section-blog-articles__article-card"
         )
-          template(
-            slot="overline"
-          )
-            time {{ $formatDate(article.createdAt) }}
 
           template(
             slot="title"
           )
             h2 {{ article.title }}
+
+          template(
+            slot="description"
+          )
+            time {{ $formatDate(article.createdAt) }}
           
 </template>
 

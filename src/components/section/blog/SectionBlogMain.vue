@@ -21,6 +21,7 @@
           :alt="featured.cover.alt"
         )
       .c-section-blog-main_featured--link-content
+          .c-section-blog-main_featured--link-badge NEW
           time.c-section-blog-main_featured--link-overline {{ $formatDate(featured.createdAt) }}
           h2.c-section-blog-main_featured--link-title {{ featured.title }}
           p.c-section-blog-main_featured--link-description {{ featured.description }}
@@ -59,8 +60,8 @@ $c: ".c-section-blog-main";
 
   #{$c}_featured--link-image {
     aspect-ratio: 16/9;
-    flex-shrink: 0;
-    height: 400px;
+    flex-shrink: 1;
+    min-height: 325px;
     overflow: hidden;
     border-radius: 32px;
 
@@ -75,6 +76,19 @@ $c: ".c-section-blog-main";
     display: flex;
     flex-direction: column;
     gap: 10px;
+    align-items: flex-start;
+  }
+
+  #{$c}_featured--link-badge {
+    padding: 4px 8px;
+    border-radius: 99rem;
+    background-color: $color-base-pink-light;
+    color: $color-white;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: $font-weight-bolder;
+    letter-spacing: 0.015em;
+    text-transform: uppercase;
   }
 
   #{$c}_featured--link-overline {
@@ -98,7 +112,7 @@ $c: ".c-section-blog-main";
 
 // --> MEDIA-QUERIES <--
 
-@media (max-width: $screen-large-width-breakpoint) {
+@media (max-width: $screen-medium-width-breakpoint) {
   .c-section-blog-main {
     #{$c}_featured--link {
       flex-direction: column;
@@ -109,6 +123,7 @@ $c: ".c-section-blog-main";
     #{$c}_featured--link-image {
       aspect-ratio: 16/9;
       width: 100%;
+      min-height: auto;
       height: auto;
     }
 

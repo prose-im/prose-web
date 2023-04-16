@@ -19,11 +19,6 @@
 
   .c-base-card__content
     .c-base-card__text
-      .c-base-card__overline(v-if="$slots.overline")
-        slot(
-          name="overline"
-        )
-
       .c-base-card__title
         slot(
           name="title"
@@ -110,10 +105,6 @@ $c: ".c-base-card";
     display: flex;
     flex-direction: column;
     gap: 10px;
-  }
-
-  #{$c}__overline {
-    color: $color-base-grey-dark;
   }
 
   #{$c}__title {

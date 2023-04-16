@@ -34,9 +34,14 @@ export default {
     const articles = await $content("blog")
       .only(["title", "description", "date", "cover", "slug", "createdAt"])
       .sortBy("createdAt", "desc")
+      .skip(1)
       .fetch();
 
-    const featured = articles.at(0)
+    const [ featured ] = await $content("blog")
+      .only(["title", "description", "date", "cover", "slug", "createdAt"])
+      .sortBy("createdAt", "desc")
+      .limit(1)
+      .fetch();
 
     return {
       articles,
