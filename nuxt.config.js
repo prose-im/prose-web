@@ -216,7 +216,7 @@ export default {
   css: ["assets/stylesheets/all"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [{ src: "plugins/crisp.js", mode: "client" }],
+  plugins: [{ src: "plugins/crisp.js", mode: "client" }, { src: "plugins/formatDate.js"}],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: [{ path: "components", pathPrefix: false }],

@@ -10,12 +10,14 @@
 
 <template lang="pug">
 .p-blog-index
+  page-wrapper
     section-blog-main(
-    class="p-blog-index__main"
+      class="p-blog-index__main"
+      :featured="featured"
     )
-
-    section-blog-text(
-    class="p-blog-index__text"
+    section-blog-articles(
+      class="p-blog-index__articles"
+      :articles="articles"
     )
 </template>
 
@@ -26,10 +28,24 @@
 <script>
 export default {
   name: "BlogIndexPage",
-  layout: "simple",
+  layout: "default",
+
+  async asyncData({ $content }) {
+    const articles = await $content("blog")
+      .only(["title", "description", "date", "cover", "slug", "createdAt"])
+      .sortBy("createdAt", "desc")
+      .fetch();
+
+    const featured = articles.at(0)
+
+    return {
+      articles,
+      featured
+    };
+  },
 
   head: {
-    title: "Prose | Blog"
+    title: "Prose Blog"
   }
 };
 </script>

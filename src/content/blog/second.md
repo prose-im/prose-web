@@ -1,5 +1,5 @@
 ---
-title: "Introducing Prose"
+title: "How we designed the prose logo"
 description: "This is an article about Prose"
 cover:
   src: "/opengraph/prose.jpg"

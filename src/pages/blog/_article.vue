@@ -12,7 +12,7 @@
 .p-article-index
   page-wrapper
     .article-header
-      .article-date {{ page.date }}
+      .article-date {{ $formatDate(page.createdAt) }}
       h1.article-h1 {{ page.title }}
       .article-description {{ page.description }}
       .article-cover

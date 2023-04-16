@@ -19,17 +19,22 @@
 
   .c-base-card__content
     .c-base-card__text
-      h3.c-base-card__title
+      .c-base-card__overline(v-if="$slots.overline")
+        slot(
+          name="overline"
+        )
+
+      .c-base-card__title
         slot(
           name="title"
         )
 
-      p.c-base-card__description
+      .c-base-card__description
         slot(
           name="description"
         )
 
-    .c-base-card__link
+    .c-base-card__link(v-if="$slots.link")
       slot(
         name="link"
       )
@@ -82,7 +87,8 @@ $c: ".c-base-card";
   backdrop-filter: blur(16px);
 
   #{$c}__image {
-    height: 175px;
+    aspect-ratio: 16 / 9;
+    width: 100%;
     position: relative;
 
     #{$c}__image-inner {
@@ -100,8 +106,17 @@ $c: ".c-base-card";
     flex-grow: 1;
   }
 
+  #{$c}__text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #{$c}__overline {
+    color: $color-base-grey-dark;
+  }
+
   #{$c}__title {
-    margin-bottom: 10px;
     color: $color-base-blue-dark;
     font-size: 26px;
     line-height: 26px;

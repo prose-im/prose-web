@@ -9,46 +9,21 @@
      ********************************************************************** -->
 
 <template lang="pug">
-.c-section-terms-main
-    page-wrapper
-    base-title(
-        level="mini"
-        align="center"
-        class="c-section-terms-main__title"
+.c-section-blog-main
+    nuxt-link(
+      :to="`/blog/${featured.slug}/`",
+      class="c-section-blog-main_featured--link"
     )
-        | Terms of Use
-
-        base-space
-
-        span.c-section-terms-main__title-connector.u-light
-        | &
-
-        base-space
-
-        | Privacy Policy
-
-    p.c-section-terms-main__subtitle
-        | Applies to all Prose online services. Last updated on {{ lastUpdated }}.
-
-    .c-section-terms-main__disclaimer-wrap
-        base-disclaimer(
-        :raster-scale="0.62"
-        raster="stickies"
-        class="c-section-terms-main__disclaimer"
+      .c-section-blog-main_featured--link-image
+        img(
+          class="c-section-blog-main_featured--link-image-inner"
+          :src="featured.cover.src"
+          :alt="featured.cover.alt"
         )
-        p.c-section-terms-main__disclaimer-line.u-bold
-            | The Prose Foundation may revise these terms at any time without notice.
-
-        p.c-section-terms-main__disclaimer-line
-            | By using this service you agree to be bound by the current version of these Terms of Use.
-
-        p.c-section-terms-main__disclaimer-line.c-section-terms-main__disclaimer-line--spaced
-            span.u-medium
-            | Please read these terms of use carefully
-
-            base-space
-
-            | before starting using our software and/or services.
+      .c-section-blog-main_featured--link-content
+          time.c-section-blog-main_featured--link-overline {{ $formatDate(featured.createdAt) }}
+          h2.c-section-blog-main_featured--link-title {{ featured.title }}
+          p.c-section-blog-main_featured--link-description {{ featured.description }}
 </template>
 
 <!-- **********************************************************************
@@ -57,14 +32,13 @@
 
 <script>
 export default {
-  name: "SectionTermsMain",
+  name: "SectionBlogMain",
 
-  data() {
-    return {
-      // --> DATA <--
-
-      lastUpdated: "21st March 2022"
-    };
+  props: {
+    featured: {
+      type: Object,
+      default: () => {}
+    }
   }
 };
 </script>
@@ -74,39 +48,78 @@ export default {
              ********************************************************************** -->
 
 <style lang="scss">
-$c: ".c-section-terms-main";
+$c: ".c-section-blog-main";
 
-.c-section-terms-main {
-  text-align: center;
-
-  #{$c}__title {
-    #{$c}__title-connector {
-      font-size: 0.8em;
-      margin: 0 6px;
-      opacity: 0.65;
-    }
-  }
-
-  #{$c}__subtitle {
-    font-size: 14.5px;
-    color: $color-base-grey-dark;
-    line-height: 22px;
-    font-style: italic;
-    margin-top: 3px;
-  }
-
-  #{$c}__disclaimer-wrap {
-    margin-top: 46px;
+.c-section-blog-main {
+  #{$c}_featured--link {
     display: flex;
-    justify-content: center;
+    gap: 64px;
+    align-items: center;
+  }
 
-    #{$c}__disclaimer {
-      #{$c}__disclaimer-line {
-        &--spaced {
-          margin-top: 12px;
-        }
-      }
+  #{$c}_featured--link-image {
+    aspect-ratio: 16/9;
+    flex-shrink: 0;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 32px;
+
+    &-inner {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
     }
+  }
+
+  #{$c}_featured--link-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #{$c}_featured--link-overline {
+    color: $color-base-grey-dark;
+  }
+
+  #{$c}_featured--link-title {
+    font-size: 56px;
+    line-height: 56px;
+    letter-spacing: -0.015em;
+    font-weight: $font-weight-medium;
+    color: $color-base-blue-dark;
+  }
+
+  #{$c}_featured--link-description {
+    color: $color-base-grey-dark;
+    font-size: 20px;
+    line-height: 32px;
+  }
+}
+
+// --> MEDIA-QUERIES <--
+
+@media (max-width: $screen-large-width-breakpoint) {
+  .c-section-blog-main {
+    #{$c}_featured--link {
+      flex-direction: column;
+      gap: 24px;
+      align-items: flex-start;
+    }
+
+    #{$c}_featured--link-image {
+      aspect-ratio: 16/9;
+      width: 100%;
+      height: auto;
+    }
+
+
+  #{$c}_featured--link-title {
+    font-size: 40px;
+    line-height: 40px;
+    letter-spacing: -0.015em;
+    font-weight: $font-weight-medium;
+    color: $color-base-blue-dark;
+  }
   }
 }
 </style>
