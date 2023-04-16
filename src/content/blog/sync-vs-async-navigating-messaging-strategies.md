@@ -1,6 +1,6 @@
 ---
-title: "Introducing Prose"
-description: "This is an article about Prose"
+title: "Sync vs Async : Navigating Messaging Strategies"
+description: "Unraveling Business Messaging Strategies Amidst Centralized SaaS Dominance"
 cover:
   src: "/opengraph/prose.jpg"
   alt: "An image showcasing My Page."

@@ -11,13 +11,14 @@
 <template lang="pug">
 .p-article-index
   page-wrapper
-    .article-header
-      .article-date {{ $formatDate(page.createdAt) }}
-      h1.article-h1 {{ page.title }}
-      .article-description {{ page.description }}
-      .article-cover
-        img(:src="page.cover.src", :alt="page.cover.alt")
-    nuxt-content(:document="page")
+    article
+      header.article-header
+        time(:datetime="page.createdAt").article-date {{ $formatDate(page.createdAt) }}
+        h1.article-h1 {{ page.title }}
+        .article-description {{ page.description }}
+        .article-cover
+          img(:src="page.cover.src", :alt="page.cover.alt")
+      nuxt-content(:document="page")
 </template>
 
 <!-- **********************************************************************
@@ -102,6 +103,11 @@ $c: ".p-article-index";
 .p-article-index {
   padding-bottom: 74px;
 
+  ::selection {
+    background: #518eea20;
+    color: $color-base-blue-mid;
+  }
+
   #{$c}__text {
     margin-top: 34px;
   }
@@ -165,24 +171,24 @@ $c: ".p-article-index";
     }
 
     h2 {
-      font-size: 2.5rem;
-      margin: 3rem 0 0.5rem;
+      font-size: 40px;
+      margin-top: 80px;
     }
 
     h3 {
-      font-size: 1.75rem;
-      margin: 2rem 0 0.5rem;
+      font-size: 28px;
+      margin-top: 56px;
     }
 
     h4 {
-      font-size: 1.25rem;
-      margin: 2rem 0 0.25rem;
+      font-size: 24px;
+      margin-top: 56px;
     }
 
     p {
-      font-size: 16px;
-      line-height: 24px;
-      margin: 20px 0;
+      font-size: 20px;
+      line-height: 32px;
+      margin-top: 40px;
       color: $color-base-grey-dark;
     }
 
@@ -199,13 +205,16 @@ $c: ".p-article-index";
       padding-left: 20px;
       p {
         color: $color-base-blue-dark;
-        font-size: 18px;
+        font-size: 24px;
       }
     }
 
     ol,
     ul {
       margin-left: 20px;
+      font-size: 20px;
+      line-height: 32px;
+      margin-top: 40px;
     }
 
     ul li {
@@ -218,7 +227,6 @@ $c: ".p-article-index";
 
     li {
       color: $color-base-grey-dark;
-      line-height: 24px;
       margin-bottom: 10px;
     }
 
@@ -236,6 +244,11 @@ $c: ".p-article-index";
       max-width: 100%;
     }
 
+    hr {
+      border: 0;
+      border-top: 1px solid #a4a4ae40;
+    }
+
     code[class*="language-"],
     pre[class*="language-"] {
       color: #d6deeb;
@@ -246,9 +259,10 @@ $c: ".p-article-index";
       word-break: normal;
       word-wrap: normal;
       line-height: 1.5;
-      font-size: 14px;
+      font-size: 16px;
       border-radius: 0.5em;
       text-shadow: none;
+      background: $color-black;
 
       -moz-tab-size: 4;
       -o-tab-size: 4;
@@ -265,7 +279,8 @@ $c: ".p-article-index";
     code[class*="language-"]::-moz-selection,
     code[class*="language-"] ::-moz-selection {
       text-shadow: none;
-      background: $color-base-black-mid;
+      background: #518eea50;
+      color: inherit;
     }
 
     pre[class*="language-"]::selection,
@@ -273,7 +288,8 @@ $c: ".p-article-index";
     code[class*="language-"]::selection,
     code[class*="language-"] ::selection {
       text-shadow: none;
-      background: $color-base-black-mid;
+      background: #518eea50;
+      color: inherit;
     }
 
     @media print {
@@ -291,15 +307,19 @@ $c: ".p-article-index";
     }
 
     :not(pre) > code[class*="language-"],
-    pre[class*="language-"] {
-      color: white;
-      background: $color-base-black-mid;
+    :not(pre) > code {
+      color: $color-base-pink-light;
+      background: $color-base-grey-light;
+      border: 1px solid #a4a4ae40;
     }
 
-    :not(pre) > code[class*="language-"] {
-      padding: 0.1em;
+    :not(pre) > code[class*="language-"],
+    :not(pre) > code {
+      padding: 0.1em 0.25em;
       border-radius: 0.3em;
       white-space: normal;
+      line-height: 1.5;
+      font-size: 16px;
     }
 
     .token.comment,

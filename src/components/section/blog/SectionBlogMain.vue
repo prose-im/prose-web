@@ -22,7 +22,7 @@
         )
       .c-section-blog-main_featured--link-content
           .c-section-blog-main_featured--link-badge NEW
-          time.c-section-blog-main_featured--link-overline {{ $formatDate(featured.createdAt) }}
+          time(:datetime="featured.createdAt").c-section-blog-main_featured--link-overline {{ $formatDate(featured.createdAt) }}
           h2.c-section-blog-main_featured--link-title {{ featured.title }}
           p.c-section-blog-main_featured--link-description {{ featured.description }}
 </template>

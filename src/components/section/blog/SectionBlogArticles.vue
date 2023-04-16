@@ -34,7 +34,7 @@
           template(
             slot="description"
           )
-            time {{ $formatDate(article.createdAt) }}
+            time(:datetime="article.createdAt") {{ $formatDate(article.createdAt) }}
           
 </template>
 
