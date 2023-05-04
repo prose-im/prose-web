@@ -1,8 +1,22 @@
+<!--
+ * This file is part of prose-web
+ *
+ * Copyright 2022, Prose Foundation
+ -->
+
+<!-- **********************************************************************
+     TEMPLATE
+     ********************************************************************** -->
+
 <template>
-  <div class="parallax" ref="parallax">
+  <div ref="parallax" class="parallax">
     <slot></slot>
   </div>
 </template>
+
+<!-- **********************************************************************
+     SCRIPT
+     ********************************************************************** -->
 
 <script>
 export default {
@@ -20,6 +34,14 @@ export default {
       initialScroll: 0,
       currentTranslation: 0
     };
+  },
+  mounted() {
+    this.initObserver();
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  beforeDestroy() {
+    this.observer.disconnect();
+    window.removeEventListener("scroll", this.handleScroll);
   },
   methods: {
     onIntersection(entries) {
@@ -44,14 +66,6 @@ export default {
         this.initialScroll = window.scrollY;
       }
     }
-  },
-  mounted() {
-    this.initObserver();
-    window.addEventListener("scroll", this.handleScroll);
-  },
-  beforeDestroy() {
-    this.observer.disconnect();
-    window.removeEventListener("scroll", this.handleScroll);
   }
 };
 </script>

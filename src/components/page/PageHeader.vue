@@ -94,9 +94,63 @@ div(
                 @click.prevent="onActionButtonClick"
                 class="c-page-header__action-button js-page-header-action"
                 right-icon="arrow-right"
+                tint="fancy"
               )
                 | Join the Waitlist
 
+            .c-page-header__mobile-toggle
+              base-menu-toggle(:isOpen="isMobileMenuOpen" @click="() => isMobileMenuOpen = !isMobileMenuOpen")
+    
+    .c-page-header__mobile(v-if="isMobileMenuOpen")
+      page-wrapper            
+        ul.c-page-header__mobile-menu
+          li(
+            v-for="item in menuItems"
+            :key="item.id"
+            :class=`[
+              "c-page-header__menu-item",
+              {
+                "c-page-header__menu-item--active": (currentPageName === item.id)
+              }
+            ]`
+          )
+            nuxt-link(
+                v-if="item.target"
+                class="c-page-header__menu-link"
+                :to="item.target"
+              )
+                
+                | {{ item.label }}
+
+            base-disclosure(
+                v-else-if="item.dropdown"
+              )
+              base-disclosure-button.c-page-header__menu-link
+                | {{ item.label }}
+
+                image-menu-dropdown-link-arrow(
+                  class="c-page-header__menu-arrow"
+                )
+              base-disclosure-panel
+                ul.c-page-header__mobile-submenu
+                  li(v-for="dropdownItem in item.dropdown")
+                    nuxt-link(
+                      :to="dropdownItem.target"
+                      class="c-page-header__menu-item"
+                    )
+                      span.c-page-header__disclosure-panel-icon(
+                        v-html="dropdownItem.icon"
+                      )
+                      span.c-page-header__disclosure-panel-title {{ dropdownItem.title }}
+
+        base-button(
+          @click.prevent="() => { onActionButtonClick(); isMobileMenuOpen = false }"
+          class="c-page-header__action-button js-page-header-action"
+          right-icon="arrow-right"
+          tint="fancy"
+        )
+          | Join the Waitlist
+      
   .c-page-header__ghost(
     v-if="!embedded"
   )
@@ -142,6 +196,7 @@ export default {
       // --> STATE <--
 
       forceFloating: false,
+      isMobileMenuOpen: false,
 
       // --> DATA <--
 
@@ -269,6 +324,18 @@ export default {
     }
   },
 
+  watch: {
+    isMobileMenuOpen: {
+      immediate: true,
+      handler(_isOpen) {
+        if (process.client) {
+          if (_isOpen) document.body.style = "overflow: hidden;";
+          else document.body.style = "";
+        }
+      }
+    }
+  },
+
   beforeMount() {
     // Only bind scroll listener if not floating (and thus should check when \
     //   to force floating mode based on scroll)
@@ -322,7 +389,7 @@ export default {
 
       if (_pageEnticeBoxElement) {
         // Scroll to entice box element
-        _pageEnticeBoxElement.scrollIntoView();
+        _pageEnticeBoxElement.scrollIntoView({ behavior: "smooth" });
 
         // Focus email field
         const _subscribeEmailFieldElement = document.querySelector(
@@ -347,8 +414,10 @@ $c: ".c-page-header";
 
 // VARIABLES
 $menu-icon-size: 16px;
+$icon-width: 18px;
 
 $menu-dropdown-offset-left: 60px;
+$hover-transition-duration: 150ms;
 
 .c-page-header {
   #{$c}__sticky,
@@ -453,97 +522,166 @@ $menu-dropdown-offset-left: 60px;
     font-size: 14px;
     user-select: none;
     display: flex;
+  }
 
-    &,
-    a {
-      color: $color-base-blue-dark;
-      text-decoration: none;
+  &,
+  a {
+    color: $color-base-blue-dark;
+    text-decoration: none;
+  }
+
+  #{$c}__menu-item {
+    margin-right: 25px;
+
+    &:last-child {
+      margin-right: 0;
     }
 
-    #{$c}__menu-item {
-      margin-right: 25px;
+    #{$c}__menu-icon {
+      line-height: 0;
+      margin-right: 5px;
+      opacity: 0.8;
 
-      &:last-child {
-        margin-right: 0;
-      }
-
-      #{$c}__menu-icon {
-        line-height: 0;
-        margin-right: 5px;
-        opacity: 0.8;
-
-        svg {
-          fill: $color-base-blue-dark;
-          width: $menu-icon-size;
-        }
-      }
-
-      #{$c}__menu-arrow {
+      svg {
         fill: $color-base-blue-dark;
-        margin-left: 6px;
-        margin-bottom: -1px;
-        opacity: 0.35;
-        transition: opacity 100ms linear;
+        width: $menu-icon-size;
       }
+    }
 
-      #{$c}__menu-link {
-        padding: 5px 0;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        position: relative;
+    #{$c}__menu-arrow {
+      fill: $color-base-blue-dark;
+      margin-left: 6px;
+      margin-bottom: -1px;
+      opacity: 0.35;
+      transition: opacity 100ms linear;
+    }
 
-        &:hover {
-          #{$c}__menu-icon {
-            opacity: 0.9;
-          }
+    #{$c}__menu-link {
+      padding: 5px 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      position: relative;
 
-          #{$c}__menu-arrow {
-            opacity: 0.45;
-          }
-
-          #{$c}__menu-dropdown {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-          }
+      &:hover {
+        #{$c}__menu-icon {
+          opacity: 0.9;
         }
 
-        &:active {
-          #{$c}__menu-icon {
-            opacity: 1;
-          }
-
-          #{$c}__menu-arrow {
-            opacity: 0.55;
-          }
+        #{$c}__menu-arrow {
+          opacity: 0.45;
         }
 
         #{$c}__menu-dropdown {
-          min-width: 360px;
-          position: absolute;
-          left: (-1 * $menu-dropdown-offset-left);
-          top: 100%;
-          opacity: 0;
-          visibility: hidden;
-          transform: translateY(-3px);
-          transition: all 150ms linear;
-          transition-property: opacity, transform;
-
-          #{$c}__menu-dropdown-arrow {
-            left: ($menu-dropdown-offset-left + calc($menu-icon-size / 2));
-          }
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
         }
       }
 
-      &--active {
-        #{$c}__menu-link {
-          text-decoration: underline;
-          text-decoration-color: rgba($color-base-blue-dark, 0.2);
-          text-decoration-thickness: 2px;
+      &:active {
+        #{$c}__menu-icon {
+          opacity: 1;
+        }
+
+        #{$c}__menu-arrow {
+          opacity: 0.55;
+        }
+      }
+
+      #{$c}__menu-dropdown {
+        min-width: 360px;
+        position: absolute;
+        left: (-1 * $menu-dropdown-offset-left);
+        top: 100%;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-3px);
+        transition: all 150ms linear;
+        transition-property: opacity, transform;
+
+        #{$c}__menu-dropdown-arrow {
+          left: ($menu-dropdown-offset-left + calc($menu-icon-size / 2));
         }
       }
     }
+
+    &--active {
+      #{$c}__menu-link {
+        text-decoration: underline;
+        text-decoration-color: rgba($color-base-blue-dark, 0.2);
+        text-decoration-thickness: 2px;
+      }
+    }
+  }
+
+  // --> MOBILE <--
+
+  #{$c}__mobile {
+    display: none;
+    max-width: 100vw;
+    border-top: 1px solid $color-border-secondary;
+    padding: 16px 0 40px;
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(6px) saturate(160%) contrast(45%) brightness(140%);
+    z-index: 2000;
+    overflow-y: scroll;
+    box-shadow: 0px 20px 20px rgba($color-base-blue-dark, 0.1);
+
+    #{$c}__mobile-menu {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 32px;
+    }
+
+    #{$c}__mobile-submenu {
+      #{$c}__menu-item {
+        padding: 8px 0;
+      }
+    }
+
+    #{$c}__menu-item {
+      width: 100%;
+      margin-right: 0px;
+      display: flex;
+      align-items: center;
+
+      #{$c}__menu-link {
+        padding: 16px 0;
+        font-size: 18px;
+        width: 100%;
+        margin: 0;
+      }
+    }
+
+    .disclosure.is-open #{$c}__menu-arrow {
+      transform: rotate(180deg);
+    }
+  }
+
+  #{$c}__disclosure-panel-icon {
+    min-width: ($icon-width + 8px);
+    margin-bottom: -1px;
+    padding-right: 4px;
+    flex: 0 0 auto;
+
+    svg {
+      fill: $color-base-blue-dark;
+      width: $icon-width;
+      opacity: 0.25;
+      transition: opacity $hover-transition-duration linear;
+    }
+  }
+
+  #{$c}__disclosure-panel-title {
+    line-height: 18px;
+    font-weight: $font-weight-bolder;
+  }
+
+  #{$c}__mobile-toggle {
+    display: none;
+    color: $color-base-blue-dark;
   }
 
   // --> BOOLEANS <--
@@ -573,9 +711,21 @@ $menu-dropdown-offset-left: 60px;
   .c-page-header {
     #{$c}__menu {
       #{$c}__menu-item {
-        &:nth-child(3) {
-          display: none;
-        }
+        display: none;
+      }
+    }
+
+    #{$c}__mobile {
+      display: block;
+    }
+
+    #{$c}__right {
+      #{$c}__action {
+        display: none;
+      }
+
+      #{$c}__mobile-toggle {
+        display: block;
       }
     }
   }
@@ -636,10 +786,6 @@ $menu-dropdown-offset-left: 60px;
     #{$c}__middle {
       padding-right: 0;
       justify-content: flex-end;
-    }
-
-    #{$c}__right {
-      display: none;
     }
   }
 }
