@@ -218,11 +218,36 @@ $c: ".p-article-index";
     }
 
     ul li {
-      list-style-type: disc;
+      list-style-type: none;
+      &::before {
+        content: "•";
+        color: $color-base-pink-light;
+        display: inline-block;
+        width: 1em;
+        font-size: 1.5em;
+        position: absolute;
+        margin-left: -20px;
+      }
+    }
+
+    ol {
+      counter-reset: li;
     }
 
     ol li {
-      list-style-type: decimal;
+      list-style-type: none;
+      counter-increment: li;
+
+      &::before {
+        content: counter(li) ".";
+        color: $color-base-pink-light;
+        display: inline-block;
+        width: 1em;
+        position: absolute;
+        margin-left: -20px;
+      }
+
+
     }
 
     li {

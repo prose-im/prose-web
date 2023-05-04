@@ -9,7 +9,7 @@
      ********************************************************************** -->
 
 <template lang="pug">
-span.c-base-wave(
+.c-base-wave(
   v-html="imageHtml"
 )
 </template>
@@ -74,7 +74,7 @@ $c: ".c-base-wave";
   background-position: bottom;
   pointer-events: none;
   width: 100%;
-  opacity: 0.5;
+  opacity: 0.7;
   overflow: hidden;
 }
 </style>

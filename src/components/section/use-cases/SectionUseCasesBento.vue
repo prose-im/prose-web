@@ -13,10 +13,8 @@
   page-wrapper(
     class="c-section-use-cases-bento__wrapper"
   )
-    base-wave(
-      :variant="7"
-      class="c-section-use-cases-bento__wave"
-    )
+    div.c-base-wave.c-section-use-cases-bento__wave
+      img(src="~/assets/images/components/base/BaseWave/variant-7.svg", alt="", class="c-base-wave__image")
 
     base-title(
       level="large"
@@ -109,10 +107,23 @@ $c: ".c-section-use-cases-bento";
     position: absolute;
     bottom: 0;
     left: 0;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
   }
 }
 
 // --> MEDIA-QUERIES <--
+
+@media (max-width: $screen-small-width-breakpoint) {
+  .c-section-use-cases-bento {
+    #{$c}__wave {
+      display: none;
+    }
+  }
+}
 
 @media (max-width: $screen-tiny-width-breakpoint) {
   .c-section-use-cases-bento {

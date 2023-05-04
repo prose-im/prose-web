@@ -28,7 +28,7 @@
 <script>
 export default {
   name: "BlogIndexPage",
-  layout: "default",
+  layout: "simple",
 
   async asyncData({ $content }) {
     const articles = await $content("blog")
