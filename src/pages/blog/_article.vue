@@ -117,6 +117,11 @@ $c: ".p-article-index";
   }
 
   .article-date {
+    line-height: 22px;
+    font-weight: 600;
+    border-radius: 20px;
+    padding: 6px 12px;
+    background-color: $color-base-grey-light;
     color: $color-base-grey-dark;
   }
 

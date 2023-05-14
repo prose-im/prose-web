@@ -3,7 +3,7 @@ title: "Introducing Prose"
 description: "Decentralized Team Messaging in an Era of Centralized SaaS"
 cover:
   src: "/blog/introducing-prose/prose-macos-login.jpg"
-  alt: "An image showcasing My Page."
+  alt: "The prose welcome screen"
 head:
   meta:
     - name: "keywords"

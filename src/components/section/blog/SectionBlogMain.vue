@@ -127,14 +127,13 @@ $c: ".c-section-blog-main";
       height: auto;
     }
 
-
-  #{$c}_featured--link-title {
-    font-size: 40px;
-    line-height: 40px;
-    letter-spacing: -0.015em;
-    font-weight: $font-weight-medium;
-    color: $color-base-blue-dark;
-  }
+    #{$c}_featured--link-title {
+      font-size: 40px;
+      line-height: 40px;
+      letter-spacing: -0.015em;
+      font-weight: $font-weight-medium;
+      color: $color-base-blue-dark;
+    }
   }
 }
 </style>
