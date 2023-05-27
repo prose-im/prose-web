@@ -50,7 +50,7 @@ export default {
     const page = await $content(`blog/${params.article}`)
       .fetch()
       .catch(() => {
-        error({ statusCode: 404, message: "Page not found" });
+        error({ statusCode: 404, message: "Article not found" });
       });
 
     return {
