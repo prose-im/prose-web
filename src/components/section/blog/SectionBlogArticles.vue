@@ -10,7 +10,7 @@
 
 <template lang="pug">
 .c-section-blog-articles
-  .c-section-blog-articles__title
+  .c-section-blog-articles__title.u-medium
     | Read more about Prose
 
   ul.c-section-blog-articles__grid
@@ -78,7 +78,6 @@ $c: ".c-section-blog-articles";
     font-size: 32px;
     line-height: 32px;
     margin-bottom: 24px;
-    font-weight: $font-weight-medium;
     color: $color-base-blue-dark;
   }
 

@@ -37,7 +37,7 @@
 
         .c-section-home-advantages__column-2
           .c-section-home-advantages__content
-            .c-section-home-advantages__overline
+            .c-section-home-advantages__overline.u-medium
               | {{ item.overline }}
 
             base-title(
@@ -187,7 +187,6 @@ $c: ".c-section-home-advantages";
 
   #{$c}__overline {
     line-height: 22px;
-    font-weight: 600;
     border-radius: 20px;
     padding: 6px 12px;
     background-color: $color-base-grey-light;

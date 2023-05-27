@@ -22,7 +22,7 @@
       )
 
     .c-section-blog-main__featured-content
-      .c-section-blog-main__featured-badge
+      .c-section-blog-main__featured-badge.u-bold
         | NEW
 
       time(
@@ -31,7 +31,7 @@
       )
         | {{ $filters.formatDate(featured.createdAt) }}
 
-      h2.c-section-blog-main__featured-title
+      h2.c-section-blog-main__featured-title.u-medium
         | {{ featured.title }}
 
       p.c-section-blog-main__featured-description
@@ -94,7 +94,6 @@ $c: ".c-section-blog-main";
     background-color: $color-base-pink-light;
     color: $color-white;
     font-size: 12px;
-    font-weight: $font-weight-bolder;
     line-height: 16px;
     letter-spacing: 0.015em;
     text-transform: uppercase;
@@ -109,7 +108,6 @@ $c: ".c-section-blog-main";
   #{$c}__featured-title {
     color: $color-base-blue-dark;
     font-size: 56px;
-    font-weight: $font-weight-medium;
     line-height: 56px;
     letter-spacing: -0.015em;
   }
@@ -142,7 +140,6 @@ $c: ".c-section-blog-main";
       font-size: 40px;
       line-height: 40px;
       letter-spacing: -0.015em;
-      font-weight: $font-weight-medium;
       color: $color-base-blue-dark;
     }
   }

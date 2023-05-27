@@ -149,7 +149,7 @@ div(
                         v-html="dropdownItem.icon"
                       )
 
-                      span.c-page-header__disclosure-panel-title
+                      span.c-page-header__disclosure-panel-title.u-medium
                         | {{ dropdownItem.title }}
 
         base-button(
@@ -686,7 +686,6 @@ $hover-transition-duration: 150ms;
 
   #{$c}__disclosure-panel-title {
     line-height: 18px;
-    font-weight: $font-weight-bolder;
   }
 
   #{$c}__mobile-toggle {
