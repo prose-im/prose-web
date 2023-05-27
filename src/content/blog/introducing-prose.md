@@ -32,7 +32,7 @@ Instant Messaging first penetrated our personal lives in late 1996, with the adv
 
 IM quickly became ubiquitous with WhatsApp, iMessage and Facebook Messenger in the early 2010s. At the same time, online communities were using IRC or XMPP to gather hundred of people in group chats, while businesses were still… using email, which enabled G Suite and Outlook to thrive.
 
-The [XMPP standard](https://en.wikipedia.org/wiki/XMPP), introduced as “[Jabber](https://en.wikipedia.org/wiki/Jabber)” in 1999, set out to build a modern open and extensible instant messaging standard. Servers and clients (ie. applications) were to implement the protocol and interconnect, forming a decentralized network. Anyone willing to join the network as a user can choose a public XMPP server, and register for an email-looking address like: `john.doe@acme.com` (called [Jabber ID](https://en.wikipedia.org/wiki/JID_(Jabber))). In that regard, XMPP can be compared to the way email operates. XMPP quickly became popular in online and open-source software communities, alongside IRC.
+The [XMPP standard](https://en.wikipedia.org/wiki/XMPP), introduced as “[Jabber](https://en.wikipedia.org/wiki/Jabber)” in 1999, set out to build a modern open and extensible instant messaging standard. Servers and clients (ie. applications) were to implement the protocol and interconnect, forming a decentralized network. Anyone willing to join the network as a user can choose a public XMPP server, and register for an email-looking address like: `john.doe@acme.com` (called [Jabber ID](<https://en.wikipedia.org/wiki/JID_(Jabber)>)). In that regard, XMPP can be compared to the way email operates. XMPP quickly became popular in online and open-source software communities, alongside IRC.
 
 Slack, launched in 2013, went on a mission to redefine how people communicate within the workspace. It aimed at making team messaging more efficient & instant, and replace old-fashioned mailing lists with Slack channels. While in the first years, early adopters were mostly tech-savvy companies, startups and communities, Slack then gained traction in more traditional businesses, schools, universities and large corporations.
 
@@ -98,7 +98,6 @@ To make this vision a reality, **I will assemble a remote team of developers & d
 
 <markdown-image src="/blog/introducing-prose/prose-macos-profile-omemo.jpg" alt="A screenshot of the prose app" caption="All messages sent and received are end-to-end encrypted. This means that even the server cannot read messages. Easily revoke a connected device access to all of your future encrypted messages."></markdown-image>
 
-
 ### On the business model of an open-source project
 
 **Making money with an open-source business is incredibly hard**. A lot of open-source businesses fail, while others need to continuously raise VC funds in order to sustain their team.
@@ -118,5 +117,3 @@ Prose will offer a set of native open-source apps, from Desktop to Mobile, all b
 #### Share this post
 
 [Twitter](https://twitter.com/intent/tweet?text=Announcing%20Prose%3A%20Decentralized%20Team%20Messaging%20in%20an%20Era%20of%20Centralized%20SaaS&url=https://journal.valeriansaliou.name/announcing-prose-decentralized-team-messaging/)
-
-

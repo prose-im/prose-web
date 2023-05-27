@@ -18,7 +18,7 @@ head:
 
 Imagine you're a craftsman, building a beautiful piece of furniture. Would you rather use tools specifically designed for your craft, or make do with a Swiss Army knife that has a bit of everything but is master of none?
 
-Building a native app for macOS is akin to crafting that beautiful piece of furniture with the right tools. It fits perfectly within the ecosystem, much like a handcrafted chair blends seamlessly with the interior design of a room. Cross-platform apps, on the other hand, are the Swiss Army knife – versatile, but often lacking in the *finesse* that comes with specialisation.
+Building a native app for macOS is akin to crafting that beautiful piece of furniture with the right tools. It fits perfectly within the ecosystem, much like a handcrafted chair blends seamlessly with the interior design of a room. Cross-platform apps, on the other hand, are the Swiss Army knife – versatile, but often lacking in the _finesse_ that comes with specialisation.
 
 The purpose of this article is not to suggest that cross-platform solutions are inherently bad. In fact, many apps we use on a daily basis like Discord, Figma, 1Password and Notion are all [Electron-based apps](https://www.electronjs.org/apps). With that said, let's explore the reasons behind our decision to natively develop Prose.
 
@@ -34,13 +34,13 @@ Going native doesn’t mean you have to sacrifice your branding and create a bla
 
 Ever found yourself in need of battery in the middle of an important call ? You reach awkwardly for the charger only to remember you left it in another room.
 
-<markdown-image src="/blog/going-native/google-eats-ram-meme.png" alt="Popular meme of Google Chrome devouring RAM" caption="Popular meme of Google Chrome devouring RAM"></markdown-image>
+<markdown-image src="/blog/why-prose-chose-swiftui/google-eats-ram-meme.png" alt="Popular meme of Google Chrome devouring RAM" caption="Popular meme of Google Chrome devouring RAM"></markdown-image>
 
 As a device ages, its battery capacity naturally decreases. This leads to more frequent charging. If you’re a macOS user, you can see which apps are using significant energy simply by clicking on the battery icon in the menu bar. Chances are, you’ll find the usual suspects like Google Chrome. The reason these apps are draining your battery is because they require a lot of RAM to run compared to native alternatives. It's like comparing a gas-guzzling truck with a fuel-efficient hybrid car. So in the same way you get more mileage with a hybrid, you’ll get more screen time using native apps.
 
 ### Instant startup times
 
-We love it when apps launch quickly. With the Prose app, you simply click on the icon and the app is ready to go.  In the case of Discord, assuming there are no updates, it takes about 8 seconds for the UI to render. This is one of the [many problems faced by the Airbnb](https://medium.com/airbnb-engineering/react-native-at-airbnb-the-technology-dafd0b43838) team that ultimately led to their switch to native. Although the incredibly talented engineering team at Discord has put in significant effort to enhance the performance of React Native (as stated in their blog post [How Discord Achieves Native iOS Performance with React Native](https://discord.com/blog/how-discord-achieves-native-ios-performance-with-react-native)), there will always be limitations to what can be achieved compared to a native app that is fast by default.
+We love it when apps launch quickly. With the Prose app, you simply click on the icon and the app is ready to go. In the case of Discord, assuming there are no updates, it takes about 8 seconds for the UI to render. This is one of the [many problems faced by the Airbnb](https://medium.com/airbnb-engineering/react-native-at-airbnb-the-technology-dafd0b43838) team that ultimately led to their switch to native. Although the incredibly talented engineering team at Discord has put in significant effort to enhance the performance of React Native (as stated in their blog post [How Discord Achieves Native iOS Performance with React Native](https://discord.com/blog/how-discord-achieves-native-ios-performance-with-react-native)), there will always be limitations to what can be achieved compared to a native app that is fast by default.
 
 ## Challenge accepted
 
@@ -64,10 +64,9 @@ When it's time to scale up the team, finding skilled macOS developers can be a H
 
 ## The Bottom Line
 
-While there are many advantages to choosing native development, it ultimately depends on the context. From our perspective, the user’s primary concern is not the tech stack, which is why we strive to provide the best experience possible. Additionally, it's worth noting that SwiftUI, while a powerful tool, is not without its drawbacks from a developer's perspective. As the team at Remotion put it so eloquently : 
+While there are many advantages to choosing native development, it ultimately depends on the context. From our perspective, the user’s primary concern is not the tech stack, which is why we strive to provide the best experience possible. Additionally, it's worth noting that SwiftUI, while a powerful tool, is not without its drawbacks from a developer's perspective. As the team at Remotion put it so eloquently :
 
 > “If you're willing and able to put in the work, macOS apps can reach a quality of experience that's simply not possible with cross-platform frameworks.”
-> 
 
 They seem to think the extra work is worth it and we couldn’t agree more.
 
@@ -76,5 +75,3 @@ They seem to think the extra work is worth it and we couldn’t agree more.
 We're working on building Prose and want to create a community with other macOS developers. We're excited to share our journey with you and would love to know what you'd like us to blog about. Tweet us [@prose_im](https://twitter.com/prose_im) and let us know!
 
 There's so much potential for what we can achieve with macOS, and there are already some incredible apps out there that have set the bar high. If you're curious about Prose, kindly sign up to our waitlist and we’ll notify you as soon as its ready!
-
-
