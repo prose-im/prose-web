@@ -21,6 +21,13 @@
 import Vue from "vue";
 
 export default {
+  provide() {
+    return {
+      state: this.state,
+      toggle: this.toggleDisclosure
+    };
+  },
+
   data() {
     return {
       state: Vue.observable({
@@ -28,12 +35,7 @@ export default {
       })
     };
   },
-  provide() {
-    return {
-      state: this.state,
-      toggle: this.toggleDisclosure
-    };
-  },
+
   methods: {
     toggleDisclosure() {
       this.state.value = !this.state.value;

@@ -54,11 +54,11 @@ STYLE
 }
 
 .c-markdown-image__caption {
-    text-align: center;
-    font-size: 14px !important;
-    line-height: 20px !important;
-    color: $color-base-grey-dark;
-    margin-top: 12px;
+  text-align: center;
+  font-size: 14px !important;
+  line-height: 20px !important;
+  color: $color-base-grey-dark;
+  margin-top: 12px;
 }
 
 .c-markdown-image__image {

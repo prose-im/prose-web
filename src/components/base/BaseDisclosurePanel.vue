@@ -20,8 +20,8 @@ transition(name="fadeHeight" mode="out-in")
 
 <script>
 export default {
-    name: "BaseDisclosurePanel",
-    inject: ["state"],
+  name: "BaseDisclosurePanel",
+  inject: ["state"]
 };
 </script>
 
