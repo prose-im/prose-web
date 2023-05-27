@@ -10,7 +10,7 @@
 
 <template lang="pug">
 .c-section-blog-articles
-  .c-section-blog-articles_title 
+  .c-section-blog-articles_title
     | Read more about Prose
   ul.c-section-blog-articles_grid
     li(
@@ -34,8 +34,8 @@
           template(
             slot="description"
           )
-            time(:datetime="article.createdAt") {{ $formatDate(article.createdAt) }}
-          
+            time(:datetime="article.createdAt") {{ $filters.formatDate(article.createdAt) }}
+
 </template>
 
 <!-- **********************************************************************

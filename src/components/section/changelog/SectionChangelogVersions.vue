@@ -57,7 +57,7 @@
     )
       .c-section-changelog-versions__version-metas
         h4.c-section-changelog-versions__version-date.u-title.u-medium
-          | {{ formatDate(version.date) }}
+          | {{ $filters.formatDate(version.date) }}
 
         a.c-section-changelog-versions__version-target.u-bold(
           v-if="versionsFullChangesUrls[version.version]"
@@ -93,14 +93,6 @@
 import ImageIconVersionTarget from "~/assets/images/components/section/changelog/SectionChangelogVersions/icon-version-target.svg?inline";
 
 // CONSTANTS
-const FORMAT_DATE_AREA = "en-US";
-
-const FORMAT_DATE_OPTIONS = {
-  year: "numeric",
-  month: "long",
-  day: "numeric"
-};
-
 const VERSIONED_PLATFORMS = {
   macos: "macOS",
   windows: "Windows",
@@ -189,24 +181,6 @@ export default {
 
   methods: {
     // --> HELPERS <--
-
-    /**
-     * Formats date
-     * @public
-     * @param  {string} dateString
-     * @return {string} Formatted date
-     */
-    formatDate(dateString) {
-      const _date = new Date(dateString);
-
-      // Parsed date is valid? Format.
-      if (isNaN(_date.getTime()) === false) {
-        return _date.toLocaleDateString(FORMAT_DATE_AREA, FORMAT_DATE_OPTIONS);
-      }
-
-      // Parsed date is invalid, mirror raw date string
-      return dateString;
-    },
 
     /**
      * Generates download URL for platform and version

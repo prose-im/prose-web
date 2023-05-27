@@ -13,7 +13,7 @@
   page-wrapper
     article
       header.article-header
-        time(:datetime="page.createdAt").article-date {{ $formatDate(page.createdAt) }}
+        time(:datetime="page.createdAt").article-date {{ $filters.formatDate(page.createdAt) }}
         h1.article-h1 {{ page.title }}
         .article-description {{ page.description }}
         .article-cover
@@ -251,8 +251,6 @@ $c: ".p-article-index";
         position: absolute;
         margin-left: -20px;
       }
-
-
     }
 
     li {
