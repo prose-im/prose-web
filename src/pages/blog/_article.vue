@@ -1,29 +1,44 @@
 <!--
  * This file is part of prose-web
  *
- * Copyright 2022, Prose Foundation
+ * Copyright 2023, Prose Foundation
  -->
 
 <!-- **********************************************************************
-  TEMPLATE
-********************************************************************** -->
+     TEMPLATE
+     ********************************************************************** -->
 
 <template lang="pug">
 .p-article-index
   page-wrapper
     article
       header.article-header
-        time(:datetime="page.createdAt").article-date {{ $filters.formatDate(page.createdAt) }}
-        h1.article-h1 {{ page.title }}
-        .article-description {{ page.description }}
+        time(
+          :datetime="page.createdAt"
+          class="article-date"
+        )
+          | {{ $filters.formatDate(page.createdAt) }}
+
+        h1.article-h1
+          | {{ page.title }}
+
+        .article-description
+          | {{ page.description }}
+
         .article-cover
-          img(:src="page.cover.src", :alt="page.cover.alt")
-      nuxt-content(:document="page")
+          img(
+            :src="page.cover.src",
+            :alt="page.cover.alt"
+          )
+
+      nuxt-content(
+        :document="page"
+      )
 </template>
 
 <!-- **********************************************************************
-  SCRIPT
-********************************************************************** -->
+     SCRIPT
+     ********************************************************************** -->
 
 <script>
 export default {
@@ -45,6 +60,7 @@ export default {
   head() {
     return {
       title: this.page.title,
+
       meta: [
         {
           hid: "description",
@@ -94,8 +110,8 @@ export default {
 </script>
 
 <!-- **********************************************************************
-  STYLE
-********************************************************************** -->
+     STYLE
+     ********************************************************************** -->
 
 <style lang="scss">
 $c: ".p-article-index";

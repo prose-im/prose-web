@@ -1,7 +1,7 @@
 <!--
  * This file is part of prose-web
  *
- * Copyright 2022, Prose Foundation
+ * Copyright 2023, Prose Foundation
  -->
 
 <!-- **********************************************************************
@@ -12,18 +12,19 @@
 .p-blog-index
   page-wrapper
     section-blog-main(
-      class="p-blog-index__main"
       :featured="featured"
+      class="p-blog-index__main"
     )
+
     section-blog-articles(
-      class="p-blog-index__articles"
       :articles="articles"
+      class="p-blog-index__articles"
     )
 </template>
 
 <!-- **********************************************************************
-             SCRIPT
-             ********************************************************************** -->
+     SCRIPT
+     ********************************************************************** -->
 
 <script>
 export default {
@@ -37,7 +38,7 @@ export default {
       .skip(1)
       .fetch();
 
-    const [ featured ] = await $content("blog")
+    const [featured] = await $content("blog")
       .only(["title", "description", "date", "cover", "slug", "createdAt"])
       .sortBy("createdAt", "desc")
       .limit(1)
@@ -56,8 +57,8 @@ export default {
 </script>
 
 <!-- **********************************************************************
-             STYLE
-             ********************************************************************** -->
+     STYLE
+     ********************************************************************** -->
 
 <style lang="scss">
 $c: ".p-blog-index";
