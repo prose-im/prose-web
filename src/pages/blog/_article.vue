@@ -9,30 +9,31 @@
      ********************************************************************** -->
 
 <template lang="pug">
-.p-article-index
+.p-blog-article
   page-wrapper
     article
-      header.article-header
+      header.p-blog-article__header
         time(
           :datetime="page.createdAt"
-          class="article-date"
+          class="p-blog-article__date"
         )
           | {{ $filters.formatDate(page.createdAt) }}
 
-        h1.article-h1
+        h1.p-blog-article__title
           | {{ page.title }}
 
-        .article-description
+        .p-blog-article__description
           | {{ page.description }}
 
-        .article-cover
+        .p-blog-article__cover
           img(
-            :src="page.cover.src",
+            :src="page.cover.src"
             :alt="page.cover.alt"
           )
 
       nuxt-content(
         :document="page"
+        class="p-blog-article__content"
       )
 </template>
 
@@ -83,7 +84,7 @@ export default {
         {
           hid: "og-image",
           property: "og:image",
-          content: `https://prose.org${this.page.cover.src}`
+          content: `${this.$config.url.prose_web}${this.page.cover.src}`
         },
 
         {
@@ -101,7 +102,7 @@ export default {
         {
           hid: "twitter-image",
           name: "twitter:image",
-          content: `https://prose.org${this.page.cover.src}`
+          content: `${this.$config.url.prose_web}${this.page.cover.src}`
         }
       ]
     };
@@ -114,73 +115,68 @@ export default {
      ********************************************************************** -->
 
 <style lang="scss">
-$c: ".p-article-index";
+$c: ".p-blog-article";
 
-.p-article-index {
+.p-blog-article {
   padding-bottom: 74px;
 
   ::selection {
-    background: #518eea20;
     color: $color-base-blue-mid;
   }
 
-  #{$c}__text {
-    margin-top: 34px;
-  }
-
-  .article-header {
+  #{$c}__header {
     text-align: center;
-  }
 
-  .article-date {
-    line-height: 22px;
-    font-weight: 600;
-    border-radius: 20px;
-    padding: 6px 12px;
-    background-color: $color-base-grey-light;
-    color: $color-base-grey-dark;
-  }
+    #{$c}__date {
+      background-color: $color-base-grey-light;
+      color: $color-base-grey-dark;
+      line-height: 22px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 20px;
+    }
 
-  .article-h1 {
-    margin-top: 24px;
-    font-size: 80px;
-    line-height: 80px;
-    letter-spacing: -0.03em;
-    font-weight: $font-weight-medium;
-    background-image: linear-gradient(
-      -6deg,
-      #06005e 19%,
-      #3458ad 86%,
-      #518eea 116%
-    );
-    background-clip: text;
-    padding-bottom: 0.2em;
+    #{$c}__title {
+      background-image: linear-gradient(
+        -6deg,
+        #06005e 19%,
+        #3458ad 86%,
+        #518eea 116%
+      );
+      background-clip: text;
+      font-weight: $font-weight-medium;
+      font-size: 80px;
+      line-height: 80px;
+      letter-spacing: -0.03em;
+      margin-top: 24px;
+      padding-bottom: 0.2em;
 
-    @include text-fill-color(transparent);
-  }
+      @include text-fill-color(transparent);
+    }
 
-  .article-description {
-    margin-top: 16px;
-    font-size: 24px;
-    line-height: 32px;
-    color: $color-base-grey-dark;
-  }
+    #{$c}__description {
+      color: $color-base-grey-dark;
+      font-size: 24px;
+      line-height: 32px;
+      margin-top: 16px;
+    }
 
-  .article-cover {
-    margin: 40px auto;
-    aspect-ratio: 1200 / 630;
-    display: relative;
-    overflow: hidden;
-    border-radius: 24px;
+    #{$c}__cover {
+      margin: 40px auto;
+      aspect-ratio: 1200 / 630;
+      display: relative;
+      overflow: hidden;
+      border-radius: 24px;
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
   }
 
-  .nuxt-content {
+  #{$c}__content {
     max-width: 65ch;
     margin: 0 auto;
 
@@ -224,6 +220,7 @@ $c: ".p-article-index";
       border-left: 4px solid #dedfe4;
       margin: 20px 0;
       padding-left: 20px;
+
       p {
         color: $color-base-blue-dark;
         font-size: 24px;
@@ -240,6 +237,7 @@ $c: ".p-article-index";
 
     ul li {
       list-style-type: none;
+
       &::before {
         content: "•";
         color: $color-base-pink-light;
@@ -307,24 +305,8 @@ $c: ".p-article-index";
       border-radius: 0.5em;
       text-shadow: none;
       background: $color-black;
-
-      -moz-tab-size: 4;
-      -o-tab-size: 4;
       tab-size: 4;
-
-      -webkit-hyphens: none;
-      -moz-hyphens: none;
-      -ms-hyphens: none;
       hyphens: none;
-    }
-
-    pre[class*="language-"]::-moz-selection,
-    pre[class*="language-"] ::-moz-selection,
-    code[class*="language-"]::-moz-selection,
-    code[class*="language-"] ::-moz-selection {
-      text-shadow: none;
-      background: #518eea50;
-      color: inherit;
     }
 
     pre[class*="language-"]::selection,
@@ -336,14 +318,6 @@ $c: ".p-article-index";
       color: inherit;
     }
 
-    @media print {
-      code[class*="language-"],
-      pre[class*="language-"] {
-        text-shadow: none;
-      }
-    }
-
-    /* Code blocks */
     pre[class*="language-"] {
       padding: 1em;
       margin: 1em 0;
@@ -459,21 +433,29 @@ $c: ".p-article-index";
 // --> MEDIA-QUERIES <--
 
 @media (max-width: $screen-tiny-width-breakpoint) {
-  #{$c} .article-h1 {
-    font-size: 56px;
-    line-height: 56px;
-  }
+  #{$c} {
+    #{$c}__header {
+      #{$c}__title {
+        font-size: 56px;
+        line-height: 56px;
+      }
+    }
 
-  #{$c} .article-description {
-    font-size: 20px;
-    line-height: 30px;
+    #{$c}__description {
+      font-size: 20px;
+      line-height: 30px;
+    }
   }
 }
 
 @media (max-width: $screen-lilliput-width-breakpoint) {
-  #{$c} .article-h1 {
-    font-size: 40px;
-    line-height: 40px;
+  #{$c} {
+    #{$c}__header {
+      #{$c}__title {
+        font-size: 40px;
+        line-height: 40px;
+      }
+    }
   }
 }
 </style>
