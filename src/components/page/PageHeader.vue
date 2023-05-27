@@ -99,10 +99,15 @@ div(
                 | Join the Waitlist
 
             .c-page-header__mobile-toggle
-              base-menu-toggle(:isOpen="isMobileMenuOpen" @click="() => isMobileMenuOpen = !isMobileMenuOpen")
-    
-    .c-page-header__mobile(v-if="isMobileMenuOpen")
-      page-wrapper            
+              base-menu-toggle(
+                @click="onMobileToggleClick"
+                :is-open="isMobileMenuOpen"
+              )
+
+    .c-page-header__mobile(
+      v-if="isMobileMenuOpen"
+    )
+      page-wrapper
         ul.c-page-header__mobile-menu
           li(
             v-for="item in menuItems"
@@ -115,25 +120,27 @@ div(
             ]`
           )
             nuxt-link(
-                v-if="item.target"
-                class="c-page-header__menu-link"
-                :to="item.target"
-              )
-                
-                | {{ item.label }}
+              v-if="item.target"
+              class="c-page-header__menu-link"
+              :to="item.target"
+            )
+              | {{ item.label }}
 
             base-disclosure(
-                v-else-if="item.dropdown"
-              )
+              v-else-if="item.dropdown"
+            )
               base-disclosure-button.c-page-header__menu-link
                 | {{ item.label }}
 
                 image-menu-dropdown-link-arrow(
                   class="c-page-header__menu-arrow"
                 )
+
               base-disclosure-panel
                 ul.c-page-header__mobile-submenu
-                  li(v-for="dropdownItem in item.dropdown")
+                  li(
+                    v-for="dropdownItem in item.dropdown"
+                  )
                     nuxt-link(
                       :to="dropdownItem.target"
                       class="c-page-header__menu-item"
@@ -141,16 +148,18 @@ div(
                       span.c-page-header__disclosure-panel-icon(
                         v-html="dropdownItem.icon"
                       )
-                      span.c-page-header__disclosure-panel-title {{ dropdownItem.title }}
+
+                      span.c-page-header__disclosure-panel-title
+                        | {{ dropdownItem.title }}
 
         base-button(
-          @click.prevent="() => { onActionButtonClick(); isMobileMenuOpen = false }"
+          @click.prevent="onActionButtonClick"
           class="c-page-header__action-button js-page-header-action"
           right-icon="arrow-right"
           tint="fancy"
         )
           | Join the Waitlist
-      
+
   .c-page-header__ghost(
     v-if="!embedded"
   )
@@ -265,6 +274,7 @@ export default {
               target: "/about/",
               icon: ImageMenuDropdownCompanyIconAbout
             },
+
             {
               id: "blog",
               title: "Blog",
@@ -321,18 +331,6 @@ export default {
     currentPageName() {
       // Pick up the parent-most page (segments are separated w/ '-')
       return (this.$route.name || "").split("-")[0] || null;
-    }
-  },
-
-  watch: {
-    isMobileMenuOpen: {
-      immediate: true,
-      handler(_isOpen) {
-        if (process.client) {
-          if (_isOpen) document.body.style = "overflow: hidden;";
-          else document.body.style = "";
-        }
-      }
     }
   },
 
@@ -400,6 +398,18 @@ export default {
           _subscribeEmailFieldElement.focus();
         }
       }
+
+      // Force-close mobile menu (if open)
+      this.isMobileMenuOpen = false;
+    },
+
+    /**
+     * Triggers when mobile toggle is clicked
+     * @public
+     * @return {undefined}
+     */
+    onMobileToggleClick() {
+      this.isMobileMenuOpen = !this.isMobileMenuOpen;
     }
   }
 };

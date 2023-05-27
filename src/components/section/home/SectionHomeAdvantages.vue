@@ -37,11 +37,14 @@
 
         .c-section-home-advantages__column-2
           .c-section-home-advantages__content
-            .c-section-home-advantages__overline {{ item.overline }}
+            .c-section-home-advantages__overline
+              | {{ item.overline }}
+
             base-title(
               tint="gradient"
             )
-              span.gradient(:style="`--text: '${item.highlight}'`") {{ item.highlight }}
+              span.c-section-home-advantages__gradient
+                | {{ item.highlight }}
 
               br
 
@@ -121,22 +124,12 @@ $c: ".c-section-home-advantages";
     left: 0;
   }
 
-  .gradient {
-    --text: "";
-    position: relative;
-    @include text-fill-color(transparent);
+  #{$c}__gradient {
+    background-image: linear-gradient(72.67deg, #f67086 21.85%, #ea94c7 91.96%);
+    background-clip: text;
+    padding-right: 1px;
 
-    &::before {
-      content: var(--text);
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 7px;
-      bottom: 0;
-      z-index: -1;
-      background: linear-gradient(72.67deg, #f67086 21.85%, #ea94c7 91.96%);
-      background-clip: text;
-    }
+    @include text-fill-color(transparent);
   }
 
   #{$c}__stack {
@@ -256,10 +249,6 @@ $c: ".c-section-home-advantages";
         height: 400px;
       }
     }
-  }
-
-  #{$c} .gradient::before {
-    top: 4px;
   }
 }
 

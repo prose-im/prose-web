@@ -13,8 +13,11 @@
   page-wrapper(
     class="c-section-use-cases-bento__wrapper"
   )
-    div.c-base-wave.c-section-use-cases-bento__wave
-      img(src="~/assets/images/components/base/BaseWave/variant-7.svg", alt="", class="c-base-wave__image")
+    base-wave(
+      :variant="7"
+      class="c-section-use-cases-bento__wave"
+      image
+    )
 
     base-title(
       level="large"
@@ -107,11 +110,6 @@ $c: ".c-section-use-cases-bento";
     position: absolute;
     bottom: 0;
     left: 0;
-
-    img {
-      width: 100%;
-      height: auto;
-    }
   }
 }
 

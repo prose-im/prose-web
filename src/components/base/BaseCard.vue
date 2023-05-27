@@ -29,7 +29,9 @@
           name="description"
         )
 
-    .c-base-card__link(v-if="$slots.link")
+    .c-base-card__link(
+      v-if="$slots.link"
+    )
       slot(
         name="link"
       )

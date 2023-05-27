@@ -28,7 +28,13 @@ div(
     template(
       slot="description"
     )
-      p.c-section-home-main__description Prose is an app for all of your team chats, calls & files. <br/> All of your workplace communication lives here.
+      p.c-section-home-main__description
+        | Prose is an app for all of your team chats, calls & files.
+
+        br
+
+        | All of your workplace communication lives here.
+
       .c-section-home-main__showcase
         .c-section-home-main__application
           .c-section-home-main__application-contents
@@ -40,7 +46,7 @@ div(
         base-parallax(
           v-for="{id, speed} in illustrations"
           :key="'illustration_' + id"
-          :speed="speed" 
+          :speed="speed"
           :class=`[
             "c-section-home-main__illustration",
             "c-section-home-main__illustration--" + id
@@ -160,7 +166,6 @@ $inner-padding-top-base: 74px;
   }
 
   #{$c}__illustration {
-
     &-inner {
       width: 100%;
       height: 100%;
@@ -319,14 +324,17 @@ $inner-padding-top-base: 74px;
   }
 }
 
-// --> ANIMATION <--
+// --> KEYFRAMES <--
+
 @keyframes scale {
   0% {
     transform: scale(0);
   }
+
   60% {
     transform: scale(1.1);
   }
+
   100% {
     transform: scale(1);
   }

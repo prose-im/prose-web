@@ -40,12 +40,14 @@
             template(
               slot="title"
             )
-              h3 {{ useCase.title }}
+              h3
+                | {{ useCase.title }}
 
             template(
               slot="description"
             )
-              p {{ useCase.description }}
+              p
+                | {{ useCase.description }}
 
             template(
               slot="link"
