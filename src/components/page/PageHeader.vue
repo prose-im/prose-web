@@ -128,6 +128,7 @@ div(
 
             base-disclosure(
               v-else-if="item.dropdown"
+              class="c-page-header__menu-dropdown"
             )
               base-disclosure-button.c-page-header__menu-link
                 | {{ item.label }}
@@ -665,8 +666,12 @@ $hover-transition-duration: 150ms;
       }
     }
 
-    .disclosure.is-open #{$c}__menu-arrow {
-      transform: rotate(180deg);
+    #{$c}__menu-dropdown {
+      &.is-open {
+        #{$c}__menu-arrow {
+          transform: rotate(180deg);
+        }
+      }
     }
   }
 
