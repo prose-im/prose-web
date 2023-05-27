@@ -229,7 +229,7 @@ $animate-shake-base-depth: 2px;
 
     #{$c}__option {
       background: $color-background-tertiary;
-      backdrop-filter: blur(4px);
+      backdrop-filter: blur(10px);
       border: 1px solid #81899b33;
       overflow: hidden;
       border-radius: 32px;

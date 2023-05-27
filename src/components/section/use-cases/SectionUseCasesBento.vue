@@ -16,6 +16,7 @@
     base-wave(
       :variant="7"
       class="c-section-use-cases-bento__wave"
+      image
     )
 
     base-title(
@@ -113,6 +114,14 @@ $c: ".c-section-use-cases-bento";
 }
 
 // --> MEDIA-QUERIES <--
+
+@media (max-width: $screen-small-width-breakpoint) {
+  .c-section-use-cases-bento {
+    #{$c}__wave {
+      display: none;
+    }
+  }
+}
 
 @media (max-width: $screen-tiny-width-breakpoint) {
   .c-section-use-cases-bento {

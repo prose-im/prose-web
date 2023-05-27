@@ -37,24 +37,18 @@
 
         .c-section-home-advantages__column-2
           .c-section-home-advantages__content
+            .c-section-home-advantages__overline
+              | {{ item.overline }}
+
             base-title(
               tint="gradient"
             )
-              span.gradient {{ item.highlight }}
+              span.c-section-home-advantages__gradient
+                | {{ item.highlight }}
 
               br
 
-              | {{ item.title }}
-
-            nuxt-link(
-              class="c-section-home-advantages__action"
-              to="/downloads/"
-            )
-              base-button(
-                class="c-section-home-advantages__action-button"
-                right-icon="arrow-right"
-              )
-                | Learn More
+              span {{ item.title }}
 
     base-wave(
       :variant="1"
@@ -79,20 +73,23 @@ export default {
     return {
       advantages: [
         {
+          overline: "Decentralized",
           highlight: "Speak freely",
           title: "with world-class encryption",
           image: ImageIllustrationSafe
         },
 
         {
+          overline: "Native",
           highlight: "Most performant",
           title: "experience on the market",
           image: ImageIllustrationFast
         },
 
         {
-          highlight: "Open source",
-          title: "code accessible to everyone",
+          overline: "Open source",
+          highlight: "Inspect, audit",
+          title: "and contribute to the codebase",
           image: ImageIllustrationTransparent
         }
       ]
@@ -127,14 +124,10 @@ $c: ".c-section-home-advantages";
     left: 0;
   }
 
-  .gradient {
-    background: radial-gradient(
-      38.99% 300.85% at 0.55% 3.29%,
-      #f67086 0%,
-      #ea94c7 73.39%,
-      #c97ebd 100%
-    );
+  #{$c}__gradient {
+    background-image: linear-gradient(72.67deg, #f67086 21.85%, #ea94c7 91.96%);
     background-clip: text;
+    padding-right: 1px;
 
     @include text-fill-color(transparent);
   }
@@ -158,7 +151,7 @@ $c: ".c-section-home-advantages";
     #{$c}__illustration {
       background: $color-background-tertiary;
       border: 1px solid $color-border-secondary;
-      backdrop-filter: blur(4px);
+      backdrop-filter: blur(10px);
       border-radius: 36px;
       height: 500px;
       aspect-ratio: 1 / 1;
@@ -189,6 +182,16 @@ $c: ".c-section-home-advantages";
     gap: 24px;
     flex-direction: column;
     width: fit-content;
+    align-items: flex-start;
+  }
+
+  #{$c}__overline {
+    line-height: 22px;
+    font-weight: 600;
+    border-radius: 20px;
+    padding: 6px 12px;
+    background-color: $color-base-grey-light;
+    color: $color-base-grey-dark;
   }
 }
 
@@ -227,6 +230,10 @@ $c: ".c-section-home-advantages";
       #{$c}__illustration {
         aspect-ratio: auto;
       }
+    }
+
+    #{$c}__overline {
+      display: none;
     }
 
     #{$c}__wave {

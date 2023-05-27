@@ -23,11 +23,18 @@ div(
     template(
       slot="title"
     )
-      | Communicate without insecurity
+      | A New Dawn in Team Messaging
 
     template(
       slot="description"
     )
+      p.c-section-home-main__description
+        | Prose is an app for all of your team chats, calls & files.
+
+        br
+
+        | All of your workplace communication lives here.
+
       .c-section-home-main__showcase
         .c-section-home-main__application
           .c-section-home-main__application-contents
@@ -36,14 +43,15 @@ div(
             class="c-section-home-main__application-layout"
           )
 
-        span(
-          v-for="(illustration, index) in illustrations"
-          :key="'illustration_' + index"
+        base-parallax(
+          v-for="illustration in illustrations"
+          :key="'illustration_' + illustration"
           :class=`[
             "c-section-home-main__illustration",
             "c-section-home-main__illustration--" + illustration
           ]`
         )
+          .c-section-home-main__illustration-inner
 
     template(
       slot="waves"
@@ -72,12 +80,13 @@ export default {
   data() {
     return {
       illustrations: [
-        "profile-right",
-        "rating",
-        "user-left",
-        "profile-top",
-        "user-right",
-        "message"
+        "message",
+        "attachment-blue",
+        "lewis",
+        "attachment-purple",
+        "identity",
+        "julia",
+        "liz"
       ]
     };
   },
@@ -107,6 +116,11 @@ $inner-padding-top-base: 74px;
     padding-top: ($page-header-height + $inner-padding-top-base);
   }
 
+  #{$c}__description {
+    font-size: 20px;
+    line-height: 32px;
+  }
+
   #{$c}__showcase {
     position: relative;
     margin-top: 64px;
@@ -115,9 +129,6 @@ $inner-padding-top-base: 74px;
   #{$c}__application,
   #{$c}__illustration {
     display: block;
-    filter: drop-shadow(
-      0px 27.2555px 72.6814px rgba($color-base-purple-light, 0.21)
-    );
   }
 
   #{$c}__application #{$c}__application-contents,
@@ -129,20 +140,21 @@ $inner-padding-top-base: 74px;
   }
 
   #{$c}__application {
-    background-color: rgba($color-white, 0.85);
-    aspect-ratio: 1200 / 720;
+    background-color: rgba(#f6f7fb, 0.8);
+    aspect-ratio: 1200 / 780;
     width: 100%;
     position: relative;
     overflow: hidden;
     border-radius: 12px;
-    backdrop-filter: blur(16px);
+    backdrop-filter: blur(40px);
+    box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1), inset 0px 0.5px 1px #ffffff;
 
     #{$c}__application-contents {
       background-image: url("~/assets/images/components/section/home/SectionHomeMain/application-contents.webp");
       position: absolute;
-      top: 1.9%;
-      bottom: 1.15%;
-      left: 0.85%;
+      top: 0;
+      bottom: 0;
+      left: 0;
       right: 0;
     }
 
@@ -153,69 +165,121 @@ $inner-padding-top-base: 74px;
   }
 
   #{$c}__illustration {
-    &--profile-right {
-      background-image: url("~/assets/images/components/section/home/SectionHomeMain/illustration-profile-right.svg");
-      aspect-ratio: 253.87 / 329.57;
-      width: 33%;
-      position: absolute;
-      right: -15%;
-      bottom: -25%;
+    &-inner {
+      width: 100%;
+      height: 100%;
+      background-size: contain;
+      background-repeat: no-repeat;
     }
 
-    &--rating {
-      background-image: url("~/assets/images/components/section/home/SectionHomeMain/illustration-bottom-rating.svg");
-      aspect-ratio: 208.72 / 98;
-      width: 30%;
+    &--identity {
+      aspect-ratio: 162 / 170;
+      width: 17%;
       position: absolute;
-      left: 20%;
-      bottom: -15%;
+      right: -5%;
+      bottom: 13%;
+      filter: drop-shadow(0px 20px 8px #81899b29);
+
+      #{$c}__illustration-inner {
+        background-image: url("~/assets/images/components/section/home/SectionHomeMain/illustration-identity.svg");
+        animation: 1s scale 0.7s ease-in-out forwards;
+        transform: scale(0);
+      }
     }
 
-    &--user-left {
-      background-image: url("~/assets/images/components/section/home/SectionHomeMain/illustration-user-left.svg");
-      aspect-ratio: 270.51 / 62.79;
-      width: 70%;
-      transform: rotate(-12deg);
+    &--attachment-blue {
+      aspect-ratio: 1 / 1;
+      width: 12%;
       position: absolute;
-      left: -28%;
-      bottom: -7%;
+      right: 35%;
+      bottom: -5%;
+      filter: drop-shadow(0px 20px 12px rgba(81, 142, 234, 0.34));
+
+      #{$c}__illustration-inner {
+        background-image: url("~/assets/images/components/section/home/SectionHomeMain/illustration-attachment-blue.svg");
+        animation: 1s scale 0.6s ease-in-out forwards;
+        transform: scale(0);
+      }
     }
 
-    &--profile-top {
-      background-image: url("~/assets/images/components/section/home/SectionHomeMain/illustration-profile-top.svg");
-      aspect-ratio: 208.72 / 196;
-      width: 30%;
+    &--attachment-purple {
+      aspect-ratio: 1 / 1;
+      width: 15%;
       position: absolute;
-      left: -8%;
-      top: -15%;
+      left: 9%;
+      top: -7%;
+      filter: drop-shadow(0px 28px 16px rgba(100, 78, 180, 0.34));
+
+      #{$c}__illustration-inner {
+        width: 100%;
+        height: 100%;
+        background-image: url("~/assets/images/components/section/home/SectionHomeMain/illustration-attachment-purple.svg");
+        animation: 1s scale ease-in-out forwards;
+        transform: scale(0);
+      }
     }
 
-    &--profile-top {
-      background-image: url("~/assets/images/components/section/home/SectionHomeMain/illustration-profile-top.svg");
-      aspect-ratio: 208.72 / 196;
-      width: 30%;
+    &--lewis {
+      aspect-ratio: 270.59 / 66;
+      width: 23%;
       position: absolute;
-      left: -8%;
-      top: -15%;
+      left: -6%;
+      bottom: 9%;
+      filter: drop-shadow(0px 14px 8px #81899b29);
+
+      #{$c}__illustration-inner {
+        background-image: url("~/assets/images/components/section/home/SectionHomeMain/illustration-lewis.svg");
+        animation: 1s scale 0.9s ease-in-out forwards;
+        transform: scale(0);
+      }
     }
 
-    &--user-right {
-      background-image: url("~/assets/images/components/section/home/SectionHomeMain/illustration-user-right.svg");
-      aspect-ratio: 270.51 / 62.79;
-      width: 70%;
-      transform: rotate(17deg);
+    &--julia {
+      aspect-ratio: 1 / 1;
+      width: 7%;
       position: absolute;
-      right: -20%;
-      top: -5%;
+      left: 58%;
+      top: 46%;
+      z-index: 1;
+      filter: drop-shadow(0px 14px 10px rgba(246, 112, 134, 0.34));
+
+      #{$c}__illustration-inner {
+        background-image: url("~/assets/images/components/section/home/SectionHomeMain/illustration-julia.webp");
+        animation: 1s scale 0.3s ease-in-out forwards;
+        transform: scale(0);
+      }
+    }
+
+    &--liz {
+      aspect-ratio: 1 / 1;
+      width: 18%;
+      position: absolute;
+      left: 58%;
+      top: 25%;
+      filter: drop-shadow(0px 32px 24px rgba(88, 154, 246, 0.5));
+
+      #{$c}__illustration-inner {
+        background-image: url("~/assets/images/components/section/home/SectionHomeMain/illustration-liz.webp");
+        animation: 1s scale 0.1s ease-in-out forwards;
+        transform: scale(0);
+      }
     }
 
     &--message {
-      background-image: url("~/assets/images/components/section/home/SectionHomeMain/illustration-message.svg");
-      aspect-ratio: 325.07 / 146;
-      width: 50%;
+      aspect-ratio: 271 / 82.45;
+      width: 23%;
       position: absolute;
-      left: -20%;
-      top: 50%;
+      left: 69%;
+      top: 22%;
+      z-index: 1;
+      filter: drop-shadow(0px 20px 8px #81899b29);
+      transform-origin: bottom left;
+
+      #{$c}__illustration-inner {
+        background-image: url("~/assets/images/components/section/home/SectionHomeMain/illustration-message.svg");
+        animation: 1s scale 0.5s ease-in-out forwards;
+        transform: scale(0);
+      }
     }
   }
 
@@ -240,9 +304,38 @@ $inner-padding-top-base: 74px;
 
 // --> MEDIA-QUERIES <--
 
+@media (max-width: $screen-small-width-breakpoint) {
+  .c-section-home-main {
+    #{$c}__description {
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    #{$c}__application {
+      border-radius: 4px;
+    }
+  }
+}
+
 @media (max-width: $screen-tiny-width-breakpoint) {
   .c-section-home-main {
     padding-bottom: 100px;
+  }
+}
+
+// --> KEYFRAMES <--
+
+@keyframes scale {
+  0% {
+    transform: scale(0);
+  }
+
+  60% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
   }
 }
 </style>
