@@ -25,7 +25,8 @@ svg(@click="$emit('click')" xmlns="http://www.w3.org/2000/svg", width="24", heig
 
 <script>
 export default {
-  title: "Base Menu Toggle",
+  title: "BaseMenuToggle",
+
   props: {
     isOpen: {
       type: Boolean,
