@@ -99,7 +99,7 @@ div(
                 | Join the Waitlist
 
             .c-page-header__mobile-toggle
-              base-menu-toggle(
+              page-header-menu-toggle(
                 @click="onMobileToggleClick"
                 :is-open="isMobileMenuOpen"
               )
@@ -562,7 +562,7 @@ $hover-transition-duration: 150ms;
     #{$c}__menu-arrow {
       fill: $color-base-blue-dark;
       margin-left: 6px;
-      margin-bottom: -1px;
+      margin-bottom: -2px;
       opacity: 0.35;
       transition: opacity 100ms linear;
     }
