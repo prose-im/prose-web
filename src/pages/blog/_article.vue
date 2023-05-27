@@ -15,11 +15,11 @@
       header.p-blog-article__header
         time(
           :datetime="page.createdAt"
-          class="p-blog-article__date"
+          class="p-blog-article__date u-medium"
         )
           | {{ $filters.formatDate(page.createdAt) }}
 
-        h1.p-blog-article__title
+        h1.p-blog-article__title.u-medium
           | {{ page.title }}
 
         .p-blog-article__description
@@ -50,7 +50,7 @@ export default {
     const page = await $content(`blog/${params.article}`)
       .fetch()
       .catch(() => {
-        error({ statusCode: 404, message: "Page not found" });
+        error({ statusCode: 404, message: "Article not found" });
       });
 
     return {
@@ -131,7 +131,6 @@ $c: ".p-blog-article";
       background-color: $color-base-grey-light;
       color: $color-base-grey-dark;
       line-height: 22px;
-      font-weight: 600;
       padding: 6px 12px;
       border-radius: 20px;
     }
@@ -144,7 +143,6 @@ $c: ".p-blog-article";
         #518eea 116%
       );
       background-clip: text;
-      font-weight: $font-weight-medium;
       font-size: 80px;
       line-height: 80px;
       letter-spacing: -0.03em;

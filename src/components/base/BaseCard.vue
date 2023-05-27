@@ -19,7 +19,7 @@
 
   .c-base-card__content
     .c-base-card__text
-      .c-base-card__title
+      .c-base-card__title.u-medium
         slot(
           name="title"
         )
@@ -114,7 +114,6 @@ $c: ".c-base-card";
     font-size: 26px;
     line-height: 26px;
     letter-spacing: -0.015em;
-    font-weight: $font-weight-medium;
   }
 
   #{$c}__description {

@@ -99,7 +99,7 @@ div(
                 | Join the Waitlist
 
             .c-page-header__mobile-toggle
-              base-menu-toggle(
+              page-header-menu-toggle(
                 @click="onMobileToggleClick"
                 :is-open="isMobileMenuOpen"
               )
@@ -128,6 +128,7 @@ div(
 
             base-disclosure(
               v-else-if="item.dropdown"
+              class="c-page-header__menu-dropdown"
             )
               base-disclosure-button.c-page-header__menu-link
                 | {{ item.label }}
@@ -149,7 +150,7 @@ div(
                         v-html="dropdownItem.icon"
                       )
 
-                      span.c-page-header__disclosure-panel-title
+                      span.c-page-header__disclosure-panel-title.u-medium
                         | {{ dropdownItem.title }}
 
         base-button(
@@ -561,7 +562,7 @@ $hover-transition-duration: 150ms;
     #{$c}__menu-arrow {
       fill: $color-base-blue-dark;
       margin-left: 6px;
-      margin-bottom: -1px;
+      margin-bottom: -2px;
       opacity: 0.35;
       transition: opacity 100ms linear;
     }
@@ -665,8 +666,12 @@ $hover-transition-duration: 150ms;
       }
     }
 
-    .disclosure.is-open #{$c}__menu-arrow {
-      transform: rotate(180deg);
+    #{$c}__menu-dropdown {
+      &.is-open {
+        #{$c}__menu-arrow {
+          transform: rotate(180deg);
+        }
+      }
     }
   }
 
@@ -686,7 +691,6 @@ $hover-transition-duration: 150ms;
 
   #{$c}__disclosure-panel-title {
     line-height: 18px;
-    font-weight: $font-weight-bolder;
   }
 
   #{$c}__mobile-toggle {

@@ -9,8 +9,12 @@
      ********************************************************************** -->
 
 <template lang="pug">
-.disclosure(:class="{ 'is-open': state.value }")
-    slot
+.c-base-disclosure(
+  :class=`{
+    "is-open": state.value
+  }`
+)
+  slot
 </template>
 
 <!-- **********************************************************************
@@ -18,6 +22,7 @@
      ********************************************************************** -->
 
 <script>
+// NPM
 import Vue from "vue";
 
 export default {
@@ -30,6 +35,8 @@ export default {
 
   data() {
     return {
+      // --> STATE <--
+
       state: Vue.observable({
         value: false
       })
@@ -37,6 +44,13 @@ export default {
   },
 
   methods: {
+    // --> HELPERS <--
+
+    /**
+     * Toggles disclosure
+     * @public
+     * @return {undefined}
+     */
     toggleDisclosure() {
       this.state.value = !this.state.value;
     }
@@ -44,8 +58,10 @@ export default {
 };
 </script>
 
-<style>
-.disclosure {
+<style lang="scss">
+$c: ".c-base-disclosure";
+
+.c-base-disclosure {
   width: 100%;
 }
 </style>

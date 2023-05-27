@@ -18,7 +18,7 @@ div(
   page-wrapper(
     class="c-page-main-title__wrapper"
   )
-    p.c-page-main-title__overline(
+    p.c-page-main-title__overline.u-medium(
       v-if="$slots.overline"
     )
       slot(
@@ -96,7 +96,6 @@ $c: ".c-page-main-title";
 
   #{$c}__overline {
     color: $color-base-grey-dark;
-    font-weight: $font-weight-medium;
     margin-bottom: 20px;
   }
 

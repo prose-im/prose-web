@@ -36,7 +36,7 @@ div(
       )
 
     h3(
-      class="c-base-icon-card__title"
+      class="c-base-icon-card__title u-medium"
     )
       slot(
         name="title"
@@ -193,7 +193,6 @@ $c: ".c-base-icon-card";
     font-size: 26px;
     line-height: 26px;
     letter-spacing: -0.015em;
-    font-weight: $font-weight-medium;
   }
 
   #{$c}__description {

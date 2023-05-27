@@ -5,42 +5,45 @@
  -->
 
 <!-- **********************************************************************
-  TEMPLATE
-  ********************************************************************** -->
+     TEMPLATE
+     ********************************************************************** -->
 
 <template lang="pug">
 .c-section-blog-articles
-  .c-section-blog-articles_title
+  .c-section-blog-articles__title.u-medium
     | Read more about Prose
-  ul.c-section-blog-articles_grid
+
+  ul.c-section-blog-articles__grid
     li(
       v-for="article in articles"
       :key="article.slug"
     )
       nuxt-link(
-        :to="`/blog/${article.slug}/`",
+        :to="`/blog/${article.slug}/`"
         class="c-section-blog-articles__article"
       )
         base-card(
           :media="article.cover.src"
           class="c-section-blog-articles__article-card"
         )
-
           template(
             slot="title"
           )
-            h2 {{ article.title }}
+            h2
+              | {{ article.title }}
 
           template(
             slot="description"
           )
-            time(:datetime="article.createdAt") {{ $filters.formatDate(article.createdAt) }}
-
+            time(
+              :datetime="article.createdAt"
+            )
+              | {{ $filters.formatDate(article.createdAt) }}
 </template>
 
 <!-- **********************************************************************
-SCRIPT
-********************************************************************** -->
+     SCRIPT
+     ********************************************************************** -->
 
 <script>
 export default {
@@ -56,8 +59,8 @@ export default {
 </script>
 
 <!-- **********************************************************************
-STYLE
-********************************************************************** -->
+     STYLE
+     ********************************************************************** -->
 
 <style lang="scss">
 $c: ".c-section-blog-articles";
@@ -65,27 +68,28 @@ $c: ".c-section-blog-articles";
 .c-section-blog-articles {
   padding: 150px 0;
 
-  #{$c}_grid {
+  #{$c}__grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 24px;
   }
 
-  #{$c}_title {
+  #{$c}__title {
     font-size: 32px;
     line-height: 32px;
     margin-bottom: 24px;
-    font-weight: $font-weight-medium;
     color: $color-base-blue-dark;
   }
 
-  #{$c}__article-card {
-    transition: all ease 0.2s;
-    height: 100%;
+  #{$c}__article {
+    #{$c}__article-card {
+      transition: all ease 0.2s;
+      height: 100%;
 
-    &:hover {
-      box-shadow: 0px 28px 36px 0px #2b255d15;
-      transform: translateY(-5px);
+      &:hover {
+        box-shadow: 0px 28px 36px 0px #2b255d15;
+        transform: translateY(-5px);
+      }
     }
   }
 }
@@ -94,7 +98,7 @@ $c: ".c-section-blog-articles";
 
 @media (max-width: 1200px) {
   .c-section-blog-articles {
-    #{$c}_grid {
+    #{$c}__grid {
       grid-template-columns: repeat(2, 1fr);
     }
   }
@@ -104,7 +108,7 @@ $c: ".c-section-blog-articles";
 
 @media (max-width: $screen-tiny-width-breakpoint) {
   .c-section-blog-articles {
-    #{$c}_grid {
+    #{$c}__grid {
       grid-template-columns: repeat(1, 1fr);
     }
   }
