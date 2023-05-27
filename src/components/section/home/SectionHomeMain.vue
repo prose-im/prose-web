@@ -44,11 +44,12 @@ div(
           )
 
         base-parallax(
-          v-for="illustration in illustrations"
-          :key="'illustration_' + illustration"
+          v-for="{id, speed} in illustrations"
+          :key="'illustration_' + id"
+          :speed="speed"
           :class=`[
             "c-section-home-main__illustration",
-            "c-section-home-main__illustration--" + illustration
+            "c-section-home-main__illustration--" + id
           ]`
         )
           .c-section-home-main__illustration-inner
@@ -80,13 +81,13 @@ export default {
   data() {
     return {
       illustrations: [
-        "message",
-        "attachment-blue",
-        "lewis",
-        "attachment-purple",
-        "identity",
-        "julia",
-        "liz"
+        { id: "message", speed: 0.4 },
+        { id: "attachment-blue", speed: 0.3 },
+        { id: "lewis", speed: -0.6 },
+        { id: "attachment-purple", speed: 0.5 },
+        { id: "identity", speed: -0.3 },
+        { id: "julia", speed: -0.3 },
+        { id: "liz", speed: 0.2 }
       ]
     };
   },
