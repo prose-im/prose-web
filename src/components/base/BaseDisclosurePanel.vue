@@ -9,9 +9,13 @@
      ********************************************************************** -->
 
 <template lang="pug">
-transition(name="fadeHeight" mode="out-in")
-  div(v-if="state.value")
-    slot
+transition(
+  name="fadeHeight"
+  mode="out-in"
+)
+  slot(
+    v-if="state.value"
+  )
 </template>
 
 <!-- **********************************************************************
@@ -21,11 +25,12 @@ transition(name="fadeHeight" mode="out-in")
 <script>
 export default {
   name: "BaseDisclosurePanel",
+
   inject: ["state"]
 };
 </script>
 
-<style>
+<style lang="scss">
 .fadeHeight-enter-active,
 .fadeHeight-leave-active {
   transition: all 0.2s;

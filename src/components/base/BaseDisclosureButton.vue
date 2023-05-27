@@ -9,8 +9,10 @@
      ********************************************************************** -->
 
 <template lang="pug">
-button.disclosure-button(@click="toggle")
-    slot
+button.c-base-disclosure-button(
+  @click="toggle"
+)
+  slot
 </template>
 
 <!-- **********************************************************************
@@ -28,8 +30,10 @@ export default {
      STYLE
      ********************************************************************** -->
 
-<style scoped>
-.disclosure-button {
+<style lang="scss">
+$c: ".c-base-disclosure-button";
+
+.c-base-disclosure-button {
   outline: none;
   border: none;
   background: none;
