@@ -16,6 +16,8 @@ head:
       content: "© 2023 Prose"
 ---
 
+_👉 Note that this article is a repost of the Prose project announcement published on Valerian's personal blog ([original article](https://journal.valeriansaliou.name/announcing-prose-decentralized-team-messaging/))._
+
 Nowadays, almost every company is using messaging tools within their teams. Such tools help businesses boost productivity. They (almost) entirely replaced email. But there’s a hitch: those new platforms are all centralized. From Slack, Skype for Business to Microsoft Teams, or the now-defunct HipChat, all company’s industrial secrets & small talk get relayed and stored on centralized cloud servers (located mostly in the US). The exact same is happening to personal communications, with Facebook Messenger, Telegram, WhatsApp and iMessage.
 
 While the Internet makes decentralization technically possible and desirable, it is not a de-facto requirement for service operators. Instead, all VC-funded companies have a strong economic incentive to centralize, as a means to concentrate more value in their walled gardens. While this centralized model is efficient at building $1B+ public companies, it goes against what the Internet was built for.
