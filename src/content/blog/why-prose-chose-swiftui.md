@@ -48,7 +48,7 @@ When we chose [SwiftUI](https://developer.apple.com/xcode/swiftui/), we knew it 
 
 ### Platform specificity
 
-Going native means that initially, Prose will only have a macOS app. However, there's a silver lining - we hope to leverage [Mac Catalyst](https://developer.apple.com/mac-catalyst/) to get a head start on our iOS app. Basically, Mac Catalyst allows for code sharing across different Apple platforms, enabling your app to run on multiple devices with minimal additional code. We are also developing a web version of Prose so that Windows and Linux users can use it while we build the remaining apps.
+Going native means that initially, Prose will only have a macOS app. However, there's a silver lining - we are also developing a web version of Prose so that Windows and Linux users can use it while we build the remaining apps.
 
 ### Smaller community
 
