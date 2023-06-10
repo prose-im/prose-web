@@ -30,8 +30,10 @@ div(
     )
       p.c-section-home-main__description
         |  Prose is a distributed, open-source, and native
-        br 
-        | platform for workplace communication.
+
+        br
+
+        | platform f=or workplace communication.
 
       .c-section-home-main__showcase
         .c-section-home-main__application
