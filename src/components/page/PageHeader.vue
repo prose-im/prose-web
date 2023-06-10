@@ -141,6 +141,7 @@ div(
                 ul.c-page-header__mobile-submenu
                   li(
                     v-for="dropdownItem in item.dropdown"
+                    @click="isMobileMenuOpen = false"
                   )
                     nuxt-link(
                       :to="dropdownItem.target"

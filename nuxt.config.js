@@ -94,8 +94,8 @@ export default {
         hid: "description",
         name: "description",
         content:
-          "Prose is a decentralized, open-source, and privacy-first " +
-          "workplace communication platform."
+          "Prose is a decentralized, open-source and native workplace " +
+          "communication platform."
       },
 
       {
@@ -108,8 +108,8 @@ export default {
         hid: "og-description",
         property: "og:description",
         content:
-          "Prose is a decentralized, open-source, and privacy-first " +
-          "workplace communication platform."
+          "Prose is a decentralized, open-source and native workplace " +
+          "communication platform."
       },
 
       {
@@ -128,8 +128,8 @@ export default {
         hid: "twitter-description",
         name: "twitter:description",
         content:
-          "Prose is a decentralized, open-source, and privacy-first " +
-          "workplace communication platform."
+          "Prose is a decentralized, open-source and native workplace " +
+          "communication platform."
       },
 
       {

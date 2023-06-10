@@ -73,7 +73,7 @@ export default {
     return {
       advantages: [
         {
-          overline: "Decentralized",
+          overline: "Secure",
           highlight: "Speak freely",
           title: "with world-class encryption",
           image: ImageIllustrationSafe

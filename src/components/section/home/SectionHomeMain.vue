@@ -29,11 +29,11 @@ div(
       slot="description"
     )
       p.c-section-home-main__description
-        | Prose is an app for all of your team chats, calls & files.
+        |  Prose is a distributed, open-source, and native
 
         br
 
-        | All of your workplace communication lives here.
+        | platform f=or workplace communication.
 
       .c-section-home-main__showcase
         .c-section-home-main__application

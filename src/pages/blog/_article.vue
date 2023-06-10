@@ -148,6 +148,7 @@ $c: ".p-blog-article";
       letter-spacing: -0.03em;
       margin-top: 24px;
       padding-bottom: 0.2em;
+      text-wrap: balance;
 
       @include text-fill-color(transparent);
     }
