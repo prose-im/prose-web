@@ -33,7 +33,7 @@ div(
 
         br
 
-        | platform f=or workplace communication.
+        | platform for workplace communication.
 
       .c-section-home-main__showcase
         .c-section-home-main__application
