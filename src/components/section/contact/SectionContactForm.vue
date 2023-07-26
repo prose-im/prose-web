@@ -29,7 +29,7 @@
         title="Contact Form"
         referrerpolicy="origin"
         frameborder="0"
-        sandbox="allow-forms allow-popups allow-scripts"
+        sandbox="allow-forms allow-popups allow-scripts allow-same-origin"
         ref="frame"
         class="c-section-contact-form__frame"
       )
