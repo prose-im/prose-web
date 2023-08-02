@@ -6,6 +6,8 @@
 
 Copyright 2022, Prose Foundation.
 
+_Tested at NodeJS version: `v20.5.0`_
+
 ## Build Setup
 
 Built with [Nuxt](https://nuxtjs.org/). See the commands below for reference on how to build the website, or develop.
