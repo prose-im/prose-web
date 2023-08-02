@@ -7,7 +7,8 @@
   "private": true,
   "engineStrict": true,
   "engines": {
-    "node": ">=12.0.0"
+    "node": ">= 20",
+    "npm": ">= 9"
   },
   "repository": {
     "type": "git",
@@ -19,8 +20,8 @@
     "url": "https://prose.org/"
   },
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt generate",
+    "dev": "NODE_OPTIONS=--openssl-legacy-provider nuxt",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider nuxt generate",
     "clean": "rm -rf ./build",
     "test": "npm run lint",
     "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
@@ -39,7 +40,8 @@
     "crisp-sdk-web": "1.0.13"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "7.16.3",
+    "@babel/eslint-parser": "7.22.9",
+    "@babel/plugin-proposal-private-property-in-object": "7.21.11",
     "@nuxtjs/eslint-config": "8.0.0",
     "@nuxtjs/eslint-module": "3.0.2",
     "@nuxtjs/svg": "0.4.0",
@@ -50,10 +52,11 @@
     "sass": "1.49.11",
     "pug-plain-loader": "1.1.0",
     "sass-loader": "10.2.1",
-    "eslint": "8.4.1",
-    "eslint-config-prettier": "8.3.0",
-    "eslint-plugin-nuxt": "3.1.0",
-    "eslint-plugin-vue": "8.2.0",
+    "eslint": "8.31.0",
+    "eslint-config-prettier": "8.6.0",
+    "eslint-plugin-nuxt": "3.2.0",
+    "eslint-plugin-vue": "9.8.0",
+    "eslint-plugin-promise": "6.1.1",
     "prettier": "2.5.1",
     "lodash.merge": "4.6.2"
   }
