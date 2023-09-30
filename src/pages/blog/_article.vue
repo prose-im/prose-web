@@ -14,10 +14,10 @@
     article
       header.p-blog-article__header
         time(
-          :datetime="page.createdAt"
+          :datetime="page.date"
           class="p-blog-article__date u-medium"
         )
-          | {{ $filters.formatDate(page.createdAt) }}
+          | {{ $filters.formatDate(page.date) }}
 
         h1.p-blog-article__title.u-medium
           | {{ page.title }}

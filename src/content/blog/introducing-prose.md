@@ -1,6 +1,7 @@
 ---
 title: "Introducing Prose"
 description: "Decentralized Team Messaging in an Era of Centralized SaaS"
+date: 2023-05-27
 cover:
   src: "/blog/introducing-prose/prose-macos-login.jpg"
   alt: "The prose welcome screen"
