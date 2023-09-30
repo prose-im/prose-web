@@ -26,10 +26,10 @@
         | NEW
 
       time(
-        :datetime="featured.createdAt"
+        :datetime="featured.date"
         class="c-section-blog-main__featured-overline"
       )
-        | {{ $filters.formatDate(featured.createdAt) }}
+        | {{ $filters.formatDate(featured.date) }}
 
       h2.c-section-blog-main__featured-title.u-medium
         | {{ featured.title }}

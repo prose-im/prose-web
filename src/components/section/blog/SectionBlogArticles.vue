@@ -36,9 +36,9 @@
             slot="description"
           )
             time(
-              :datetime="article.createdAt"
+              :datetime="article.date"
             )
-              | {{ $filters.formatDate(article.createdAt) }}
+              | {{ $filters.formatDate(article.date) }}
 </template>
 
 <!-- **********************************************************************
