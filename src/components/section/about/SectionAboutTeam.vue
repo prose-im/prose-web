@@ -72,7 +72,7 @@ import RemiAvatar from "~/assets/images/components/section/about/SectionAboutTea
 // CONSTANTS
 const SOCIAL_BASE_URLS = {
   github: "https://github.com/[handle]",
-  twitter: "https://twitter.com/[handle]",
+  x: "https://x.com/[handle]",
   mastodon: "https://[instance]/@[handle]"
 };
 
@@ -95,7 +95,7 @@ export default {
             },
 
             {
-              platform: "twitter",
+              platform: "x",
               handle: "valeriansaliou"
             },
 
@@ -113,7 +113,7 @@ export default {
 
           socials: [
             {
-              platform: "twitter",
+              platform: "x",
               handle: "nesium"
             },
 
@@ -131,7 +131,7 @@ export default {
 
           socials: [
             {
-              platform: "twitter",
+              platform: "x",
               handle: "sahkyostudio"
             },
 
@@ -149,7 +149,7 @@ export default {
 
           socials: [
             {
-              platform: "twitter",
+              platform: "x",
               handle: "sahkyostudio"
             },
 
@@ -167,7 +167,7 @@ export default {
 
           socials: [
             {
-              platform: "twitter",
+              platform: "x",
               handle: "remibardon"
             },
 
