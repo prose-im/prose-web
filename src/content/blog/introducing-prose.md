@@ -119,4 +119,4 @@ Prose will offer a set of native open-source apps, from Desktop to Mobile, all b
 
 #### Share this post
 
-[Twitter](https://twitter.com/intent/tweet?text=Announcing%20Prose%3A%20Decentralized%20Team%20Messaging%20in%20an%20Era%20of%20Centralized%20SaaS&url=https://journal.valeriansaliou.name/announcing-prose-decentralized-team-messaging/)
+[X](https://x.com/intent/tweet?text=Announcing%20Prose%3A%20Decentralized%20Team%20Messaging%20in%20an%20Era%20of%20Centralized%20SaaS&url=https://journal.valeriansaliou.name/announcing-prose-decentralized-team-messaging/)

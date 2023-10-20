@@ -61,7 +61,7 @@ The relatively small number of macOS developers means that macOS-focused develop
 
 ### Hiring challenges
 
-When it's time to scale up the team, finding skilled macOS developers can be a Herculean task. The talent pool is not only smaller but also less diverse. Fortunately, we have [Marc](https://twitter.com/nesium), a veteran developer in both macOS and iOS, on our team.
+When it's time to scale up the team, finding skilled macOS developers can be a Herculean task. The talent pool is not only smaller but also less diverse. Fortunately, we have [Marc](https://x.com/nesium), a veteran developer in both macOS and iOS, on our team.
 
 ## The Bottom Line
 
@@ -73,6 +73,6 @@ They seem to think the extra work is worth it and we couldn’t agree more.
 
 ## Help us make Prose awesome!
 
-We're working on building Prose and want to create a community with other macOS developers. We're excited to share our journey with you and would love to know what you'd like us to blog about. Tweet us [@prose_im](https://twitter.com/prose_im) and let us know!
+We're working on building Prose and want to create a community with other macOS developers. We're excited to share our journey with you and would love to know what you'd like us to blog about. Tweet us [@prose_im](https://x.com/prose_im) and let us know!
 
 There's so much potential for what we can achieve with macOS, and there are already some incredible apps out there that have set the bar high. If you're curious about Prose, kindly sign up to our waitlist and we’ll notify you as soon as its ready!

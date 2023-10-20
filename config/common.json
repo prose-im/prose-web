@@ -4,12 +4,16 @@
     "prose_docs": "https://docs.prose.org",
     "prose_help": "https://help.prose.org",
     "prose_status": "https://status.prose.org",
-    "twitter_prose": "https://twitter.com/prose_im",
+    "x_prose": "https://x.com/prose_im",
     "github_prose": "https://github.com/prose-im",
     "xmpp_web": "https://xmpp.org",
     "valeriansaliou_web": "https://valeriansaliou.name",
     "crisp_client": "https://client.crisp.chat",
     "crisp_plugins": "https://plugins.crisp.chat"
+  },
+
+  "social": {
+    "x_prose": "prose_im"
   },
 
   "modifiers": {

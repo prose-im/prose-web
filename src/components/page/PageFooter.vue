@@ -149,9 +149,9 @@ export default {
 
       socialItems: [
         {
-          platform: "twitter",
-          label: "Twitter",
-          target: this.$config.url.twitter_prose
+          platform: "x",
+          label: `@${this.$config.social.x_prose}`,
+          target: this.$config.url.x_prose
         },
 
         {
