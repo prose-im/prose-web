@@ -6,16 +6,6 @@ media: text
 cover:
   src: "/blog/why-prose-chose-swiftui/swift-ui.webp"
   alt: "Swift UI logo"
-head:
-  meta:
-    - name: "keywords"
-      content: "prose"
-    - name: "robots"
-      content: "index, follow"
-    - name: "author"
-      content: "Prose"
-    - name: "copyright"
-      content: "© 2023 Prose"
 ---
 
 Imagine you're a craftsman, building a beautiful piece of furniture. Would you rather use tools specifically designed for your craft, or make do with a Swiss Army knife that has a bit of everything but is master of none?
