@@ -6,16 +6,6 @@ media: text
 cover:
   src: "/blog/introducing-prose/prose-macos-login.jpg"
   alt: "The prose welcome screen"
-head:
-  meta:
-    - name: "keywords"
-      content: "prose"
-    - name: "robots"
-      content: "index, follow"
-    - name: "author"
-      content: "Prose"
-    - name: "copyright"
-      content: "© 2023 Prose"
 ---
 
 _👉 Note that this article is a repost of the Prose project announcement published on Valerian's personal blog ([original article](https://journal.valeriansaliou.name/announcing-prose-decentralized-team-messaging/))._
