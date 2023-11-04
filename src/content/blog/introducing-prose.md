@@ -2,6 +2,7 @@
 title: "Introducing Prose"
 description: "Decentralized Team Messaging in an Era of Centralized SaaS"
 date: 2023-05-27
+media: text
 cover:
   src: "/blog/introducing-prose/prose-macos-login.jpg"
   alt: "The prose welcome screen"
@@ -116,7 +117,3 @@ With the centralization of workspace messaging towards two huge conglomerates, i
 Prose will offer a set of native open-source apps, from Desktop to Mobile, all built on solid foundations: the XMPP protocol.
 
 **I am looking to assemble a world-class remote team of developers & designers, working towards this vision with me. If you are interested, please [drop me a line](mailto:valerian@valeriansaliou.name)**. I am looking for macOS & iOS developers (Swift/SwiftUI), as well as Windows and Android developers. Adding to that, UI designers and illustrators to design & maintain [Prose’s website](https://prose.org/) (`prose.org`), identity and app designs.
-
-#### Share this post
-
-[X](https://x.com/intent/tweet?text=Announcing%20Prose%3A%20Decentralized%20Team%20Messaging%20in%20an%20Era%20of%20Centralized%20SaaS&url=https://journal.valeriansaliou.name/announcing-prose-decentralized-team-messaging/)

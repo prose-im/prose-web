@@ -25,7 +25,9 @@
         .p-blog-article__description
           | {{ page.description }}
 
-        .p-blog-article__cover
+        .p-blog-article__cover(
+          v-if="page.media === 'text'"
+        )
           img(
             :src="page.cover.src"
             :alt="page.cover.alt"
@@ -33,7 +35,10 @@
 
       nuxt-content(
         :document="page"
-        class="p-blog-article__content"
+        :class=`[
+          "p-blog-article__content",
+          "p-blog-article__content--" + page.media
+        ]`
       )
 </template>
 
@@ -161,7 +166,7 @@ $c: ".p-blog-article";
     }
 
     #{$c}__cover {
-      margin: 40px auto;
+      margin: 40px auto 0;
       aspect-ratio: 1200 / 630;
       display: relative;
       overflow: hidden;
@@ -176,8 +181,15 @@ $c: ".p-blog-article";
   }
 
   #{$c}__content {
-    max-width: 65ch;
-    margin: 0 auto;
+    margin: 46px auto 0;
+
+    &--text {
+      max-width: 70ch;
+    }
+
+    &--video {
+      max-width: 100%;
+    }
 
     h2,
     h3,

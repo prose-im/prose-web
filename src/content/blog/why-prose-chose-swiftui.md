@@ -2,6 +2,7 @@
 title: "Going Native: Why Prose chose SwiftUI"
 description: "Building a native macOS app in a world of cross-platform frameworks"
 date: 2023-06-10
+media: text
 cover:
   src: "/blog/why-prose-chose-swiftui/swift-ui.webp"
   alt: "Swift UI logo"
