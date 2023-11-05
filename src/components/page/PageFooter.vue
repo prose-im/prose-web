@@ -155,6 +155,12 @@ export default {
         },
 
         {
+          platform: "youtube",
+          label: "YouTube",
+          target: this.$config.url.youtube_prose
+        },
+
+        {
           platform: "github",
           label: "GitHub",
           target: this.$config.url.github_prose
