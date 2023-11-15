@@ -72,8 +72,7 @@ import RemiAvatar from "~/assets/images/components/section/about/SectionAboutTea
 // CONSTANTS
 const SOCIAL_BASE_URLS = {
   github: "https://github.com/[handle]",
-  x: "https://x.com/[handle]",
-  mastodon: "https://[instance]/@[handle]"
+  x: "https://x.com/[handle]"
 };
 
 export default {
@@ -88,12 +87,6 @@ export default {
           position: "Web Platform Developer",
 
           socials: [
-            {
-              platform: "mastodon",
-              instance: "toot.io",
-              handle: "valerian"
-            },
-
             {
               platform: "x",
               handle: "valeriansaliou"

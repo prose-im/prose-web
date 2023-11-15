@@ -20,7 +20,6 @@ span.c-base-social-icon(
 
 <script>
 // PROJECT: IMAGES
-import ImageMastodon from "~/assets/images/components/base/BaseSocialIcon/mastodon.svg?raw";
 import ImageX from "~/assets/images/components/base/BaseSocialIcon/x.svg?raw";
 import ImageGitHub from "~/assets/images/components/base/BaseSocialIcon/github.svg?raw";
 import ImageYouTube from "~/assets/images/components/base/BaseSocialIcon/youtube.svg?raw";
@@ -34,7 +33,7 @@ export default {
       default: null,
 
       validator(x) {
-        return ["mastodon", "x", "github", "youtube"].includes(x);
+        return ["x", "github", "youtube"].includes(x);
       }
     }
   },
@@ -42,10 +41,6 @@ export default {
   computed: {
     iconHtml() {
       switch (this.platform) {
-        case "mastodon": {
-          return ImageMastodon;
-        }
-
         case "x": {
           return ImageX;
         }
