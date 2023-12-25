@@ -221,7 +221,7 @@ export default {
         title: "Heads up: Prose is still a Work in Progress",
 
         description:
-          "We expect the macOS, Windows and Web apps to be released end-2023."
+          "We expect the macOS, Windows and Web apps to be released mid-2024."
       },
 
       menuItems: [
