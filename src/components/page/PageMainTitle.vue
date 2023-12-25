@@ -29,7 +29,6 @@ div(
       :align="align"
       class="c-page-main-title__title"
     )
-
       slot(
         slot="title"
         name="title"

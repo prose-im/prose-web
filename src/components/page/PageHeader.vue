@@ -40,6 +40,7 @@ div(
           .c-page-header__left
             nuxt-link(
               to="/"
+              class="c-page-header__homepage"
             )
               base-logo(
                 class="c-page-header__logo"
@@ -89,14 +90,16 @@ div(
                   )
 
           .c-page-header__right
-            .c-page-header__action
+            a(
+              :href="$config.url.prose_app"
+              class="c-page-header__action"
+            )
               base-button(
-                @click.prevent="onActionButtonClick"
-                class="c-page-header__action-button js-page-header-action"
+                class="c-page-header__action-button"
                 right-icon="arrow-right"
                 tint="fancy"
               )
-                | Join the Waitlist
+                | Go to App
 
             .c-page-header__mobile-toggle
               page-header-menu-toggle(
@@ -154,13 +157,16 @@ div(
                       span.c-page-header__disclosure-panel-title.u-medium
                         | {{ dropdownItem.title }}
 
-        base-button(
-          @click.prevent="onActionButtonClick"
-          class="c-page-header__action-button js-page-header-action"
-          right-icon="arrow-right"
-          tint="fancy"
+        a(
+          :href="$config.url.prose_app"
+          class="c-page-header__action"
         )
-          | Join the Waitlist
+          base-button(
+            class="c-page-header__action-button"
+            right-icon="arrow-right"
+            tint="fancy"
+          )
+            | Go to App
 
   .c-page-header__ghost(
     v-if="!embedded"
@@ -378,34 +384,6 @@ export default {
     },
 
     /**
-     * Triggers when action button is clicked
-     * @public
-     * @return {undefined}
-     */
-    onActionButtonClick() {
-      const _pageEnticeBoxElement = document.querySelector(
-        ".js-page-entice-box"
-      );
-
-      if (_pageEnticeBoxElement) {
-        // Scroll to entice box element
-        _pageEnticeBoxElement.scrollIntoView({ behavior: "smooth" });
-
-        // Focus email field
-        const _subscribeEmailFieldElement = document.querySelector(
-          `input[name="subscribe_email"]`
-        );
-
-        if (_subscribeEmailFieldElement) {
-          _subscribeEmailFieldElement.focus();
-        }
-      }
-
-      // Force-close mobile menu (if open)
-      this.isMobileMenuOpen = false;
-    },
-
-    /**
      * Triggers when mobile toggle is clicked
      * @public
      * @return {undefined}
@@ -524,6 +502,20 @@ $hover-transition-duration: 150ms;
 
   #{$c}__right {
     padding-left: 50px;
+  }
+
+  #{$c}__homepage {
+    &:hover {
+      @include mask-image-raw(
+        linear-gradient(rgba($color-white, 0.85), rgba($color-white, 0.85))
+      );
+    }
+
+    &:active {
+      @include mask-image-raw(
+        linear-gradient(rgba($color-white, 0.8), rgba($color-white, 0.75))
+      );
+    }
   }
 
   #{$c}__logo {
@@ -673,6 +665,10 @@ $hover-transition-duration: 150ms;
           transform: rotate(180deg);
         }
       }
+    }
+
+    #{$c}__action {
+      display: inline-block;
     }
   }
 

@@ -1,5 +1,6 @@
 {
   "url": {
+    "prose_app": "https://app.prose.org",
     "prose_files": "https://files.prose.org",
     "prose_docs": "https://docs.prose.org",
     "prose_help": "https://help.prose.org",

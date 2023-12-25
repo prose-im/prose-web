@@ -29,18 +29,15 @@
       slot="action"
     )
       a(
-        href="#"
-        class=""
-        slot="default"
+        :href="$config.url.prose_app"
       )
         base-button(
-          @click.prevent="onActionButtonClick"
           right-icon="arrow-right"
           tint="fancy"
           size="large"
           class="c-app-download__action-button"
         )
-          | Get early access
+          | Access Prose Web App
 
   page-wrapper
     base-sine(
@@ -76,26 +73,6 @@ export default {
     desktopImage() {
       return require(`~/assets/images/components/section/` +
         `use-cases${this.useCase.desktopImage}`);
-    }
-  },
-
-  methods: {
-    // --> EVENT LISTENERS <--
-
-    /**
-     * Triggers when action button is clicked
-     * @public
-     * @return {undefined}
-     */
-    onActionButtonClick() {
-      const _pageHeaderActionElement = document.querySelector(
-        ".js-page-header-action"
-      );
-
-      if (_pageHeaderActionElement) {
-        // Click on header action element
-        _pageHeaderActionElement.click();
-      }
     }
   }
 };

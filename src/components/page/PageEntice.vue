@@ -54,7 +54,7 @@
 
         .c-page-entice__option-illustration
 
-    .c-page-entice__box.js-page-entice-box
+    .c-page-entice__box
       .c-page-entice__content
         .c-page-entice__content-inner
           base-title(
