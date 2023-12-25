@@ -23,11 +23,15 @@
   text-fill-color: ($value);
 }
 
+@mixin mask-image-raw($value) {
+  -webkit-mask-image: $value;
+  mask-image: $value;
+}
+
 @mixin mask-image($value) {
   --mask-image: url(#{$value});
 
-  -webkit-mask-image: var(--mask-image);
-  mask-image: var(--mask-image);
+  @include mask-image-raw(var(--mask-image));
 }
 
 @mixin mask-repeat($value) {
