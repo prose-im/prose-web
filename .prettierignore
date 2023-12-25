@@ -19,5 +19,8 @@ build
 # macOS
 .DS_Store
 
+# Misc.
+*.md
+
 # Configuration
 config/local.json
