@@ -7,6 +7,7 @@ name: Build and Deploy
 
 jobs:
   deploy:
+    environment: prose.org
     runs-on: ubuntu-latest
 
     steps:
@@ -54,7 +55,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_ACCESS_KEY }}
           AWS_EC2_METADATA_DISABLED: true
         run: |
-          aws s3 sync --delete --endpoint-url ${{ secrets.S3_ENDPOINT }} build/ s3://${{ secrets.S3_BUCKET }}/${{ secrets.S3_SITE_DOMAIN }}/
+          aws s3 sync --delete --endpoint-url ${{ vars.S3_ENDPOINT }} build/ s3://${{ vars.S3_BUCKET }}/${{ vars.S3_SITE_DOMAIN }}/
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v3
