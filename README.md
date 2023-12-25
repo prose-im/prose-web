@@ -4,7 +4,7 @@
 
 **Prose website sources and build system.**
 
-Copyright 2022, Prose Foundation.
+Copyright 2022, Prose Foundation - Released under the [Mozilla Public License 2.0](./LICENSE.md).
 
 _Tested at NodeJS version: `v20.5.0`_
 
@@ -31,3 +31,7 @@ $ npm run lint
 # clean all static assets previously built
 $ npm run clean
 ```
+
+## License
+
+Licensing information can be found in the [LICENSE.md](./LICENSE.md) document.
