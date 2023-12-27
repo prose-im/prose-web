@@ -37,7 +37,7 @@ jobs:
 
       - name: Get current revision
         id: current_revision
-        uses: pr-mpt/actions-commit-hash@v1
+        uses: prompt/actions-commit-hash@v3
 
       - name: Install dependencies
         run: npm install --no-audit
