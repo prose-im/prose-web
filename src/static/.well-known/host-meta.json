@@ -1,0 +1,8 @@
+{
+  "links": [
+    {
+      "rel": "urn:xmpp:alt-connections:websocket",
+      "href": "wss://app.prose.org/websocket/"
+    }
+  ]
+}
