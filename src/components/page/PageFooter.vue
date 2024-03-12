@@ -112,10 +112,10 @@
           )
 
           span.c-page-footer__made-in.c-page-footer__made-in--long
-            | Crafted in the European Union
+            | Crafted in Europe
 
           span.c-page-footer__made-in.c-page-footer__made-in--short
-            | Made in Europe
+            | Made in EU
 </template>
 
 <!-- **********************************************************************
