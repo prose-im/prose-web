@@ -32,7 +32,7 @@ export default {
       default: "medium",
 
       validator(x) {
-        return ["small", "medium", "large"].includes(x);
+        return ["tiny", "small", "medium", "large"].includes(x);
       }
     },
 
@@ -59,6 +59,7 @@ $c: ".c-base-logo";
 $size-ratio: calc(28 / 104);
 
 $size-widths: (
+  "tiny": 80px,
   "small": 88px,
   "medium": 96px,
   "large": 104px
