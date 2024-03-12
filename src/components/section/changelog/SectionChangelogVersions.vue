@@ -34,7 +34,6 @@
         )
           base-dropdown(
             :items="versionsDownloadsDropdown[version.version]"
-            arrow-class="c-section-changelog-versions__version-dropdown-arrow"
             class="c-section-changelog-versions__version-dropdown"
           )
 
@@ -235,9 +234,6 @@ export default {
 <style lang="scss">
 $c: ".c-section-changelog-versions";
 
-// VARIABLES
-$version-dropdown-offset-left: 8px;
-
 .c-section-changelog-versions {
   #{$c}__version {
     border-top: 1px solid $color-border-secondary;
@@ -296,14 +292,10 @@ $version-dropdown-offset-left: 8px;
         min-width: calc(100% + 70px);
         position: absolute;
         top: 100%;
-        left: (-1 * $version-dropdown-offset-left);
+        left: -8px;
         opacity: 0;
         visibility: hidden;
         transition: opacity 75ms linear;
-
-        #{$c}__version-dropdown-arrow {
-          left: (42px + $version-dropdown-offset-left);
-        }
       }
     }
 

@@ -142,13 +142,15 @@ $inner-padding-top-base: 74px;
 
   #{$c}__application {
     background-color: rgba(#f6f7fb, 0.8);
+    outline: 1px solid rgba($color-black, 0.1);
     aspect-ratio: 1200 / 780;
     width: 100%;
     position: relative;
     overflow: hidden;
     border-radius: 12px;
     backdrop-filter: blur(40px);
-    box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1), inset 0px 0.5px 1px #ffffff;
+    box-shadow: 0 4px 12px rgba($color-black, 0.035),
+      inset 0px 0.5px 1px #ffffff;
 
     #{$c}__application-contents {
       background-image: url("~/assets/images/components/section/home/SectionHomeMain/application-contents.webp");

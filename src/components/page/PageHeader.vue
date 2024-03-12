@@ -14,7 +14,6 @@ div(
     "c-page-header",
     {
       "c-page-header--embedded": embedded,
-      "c-page-header--floating": (floating || forceFloating),
       "c-page-header--announcement": hasAnnouncement
     }
   ]`
@@ -44,7 +43,7 @@ div(
             )
               base-logo(
                 class="c-page-header__logo"
-                size="large"
+                size="tiny"
               )
 
           .c-page-header__middle
@@ -75,7 +74,6 @@ div(
                 )
                   base-dropdown(
                     :items="item.dropdown"
-                    arrow-class="c-page-header__menu-dropdown-arrow"
                     class="c-page-header__menu-dropdown"
                   )
 
@@ -193,9 +191,6 @@ import ImageMenuDropdownUseCaseWeb3 from "~/assets/images/components/page/PageHe
 import ImageMenuDropdownUseCaseNonProfits from "~/assets/images/components/page/PageHeader/menu-dropdown-usecase-icon-nonprofits.svg?raw";
 import ImageMenuDropdownUseCaseRemoteTeams from "~/assets/images/components/page/PageHeader/menu-dropdown-usecase-icon-remoteteams.svg?raw";
 
-// CONSTANTS
-const SCROLLED_THRESHOLD_VERTICAL = 30;
-
 export default {
   name: "PageHeader",
 
@@ -212,7 +207,6 @@ export default {
     return {
       // --> STATE <--
 
-      forceFloating: false,
       isMobileMenuOpen: false,
 
       // --> DATA <--
@@ -328,10 +322,6 @@ export default {
   },
 
   computed: {
-    floating() {
-      return !this.embedded;
-    },
-
     hasAnnouncement() {
       return this.$config.modifiers.announcement === true;
     },
@@ -342,46 +332,8 @@ export default {
     }
   },
 
-  beforeMount() {
-    // Only bind scroll listener if not floating (and thus should check when \
-    //   to force floating mode based on scroll)
-    if (!this.floating) {
-      // Bind scroll listener
-      window.addEventListener("scroll", this.onWindowScroll);
-    }
-  },
-
-  mounted() {
-    // Only process first scroll event if not floating (and thus should check \
-    //   when to force floating mode based on scroll)
-    if (!this.floating) {
-      // Process first scroll event (eg. the page is reloaded on a scrolled \
-      //   page, therefore we need to emulate a scroll event to compute first \
-      //   state)
-      this.onWindowScroll();
-    }
-  },
-
-  beforeDestroy() {
-    window.removeEventListener("scroll", this.onWindowScroll);
-  },
-
   methods: {
     // --> EVENT LISTENERS <--
-
-    /**
-     * Triggers when window scrolls
-     * @public
-     * @return {undefined}
-     */
-    onWindowScroll() {
-      const _forceFloating = window.scrollY >= SCROLLED_THRESHOLD_VERTICAL;
-
-      // Update reactive marker? (only if changed)
-      if (_forceFloating !== this.forceFloating) {
-        this.forceFloating = _forceFloating;
-      }
-    },
 
     /**
      * Triggers when mobile toggle is clicked
@@ -403,29 +355,18 @@ export default {
 $c: ".c-page-header";
 
 // VARIABLES
-$menu-icon-size: 16px;
 $icon-width: 18px;
 
-$menu-dropdown-offset-left: 60px;
+$inner-width-maximum: 740px;
+
 $hover-transition-duration: 150ms;
 
 .c-page-header {
+  background-color: $color-background-primary;
+
   #{$c}__sticky,
   #{$c}__ghost {
-    border-bottom: 1px solid transparent;
     height: $page-header-height;
-  }
-
-  #{$c}__sticky,
-  #{$c}__bar {
-    transition: all 250ms linear;
-    transition-property: background-color, border-color;
-  }
-
-  #{$c}__announcement,
-  #{$c}__bar {
-    display: flex;
-    align-items: center;
   }
 
   #{$c}__sticky {
@@ -442,6 +383,8 @@ $hover-transition-duration: 150ms;
     line-height: 20px;
     letter-spacing: -0.05px;
     height: $page-header-announcement-height;
+    display: flex;
+    align-items: center;
     position: relative;
 
     &::before {
@@ -477,34 +420,51 @@ $hover-transition-duration: 150ms;
 
   #{$c}__bar {
     height: $page-header-height;
+    display: flex;
+    align-items: flex-end;
   }
 
   #{$c}__inner {
+    background-color: rgba($color-background-primary, 0.9);
+    backdrop-filter: blur(6px) saturate(160%) contrast(45%) brightness(140%);
+    border: 1px solid $color-border-tertiary;
+    min-height: 60px;
+    max-width: $inner-width-maximum;
+    margin: 0 auto;
+    padding: 8px;
+    box-sizing: border-box;
     display: flex;
     align-items: center;
+    border-radius: 60px;
+    box-shadow: rgba($color-black, 0.086) 0 0.6px 0.6px -1.25px,
+      rgba($color-black, 0.076) 0 2.25px 2.25px -2.5px,
+      rgba($color-black, 0.03) 0 10px 10px -3.75px;
+  }
+
+  #{$c}__left,
+  #{$c}__middle,
+  #{$c}__right {
+    display: flex;
   }
 
   #{$c}__middle,
   #{$c}__right {
-    flex: 0 1 auto;
-    display: flex;
     align-items: center;
   }
 
-  #{$c}__left {
-    display: flex;
-    flex: 1;
+  #{$c}__left,
+  #{$c}__right {
+    flex: 0 0 auto;
   }
 
   #{$c}__middle {
-    padding-left: 8px;
-  }
-
-  #{$c}__right {
-    padding-left: 50px;
+    justify-content: center;
+    flex: 1;
   }
 
   #{$c}__homepage {
+    margin-left: 22px;
+
     &:hover {
       @include mask-image-raw(
         linear-gradient(rgba($color-white, 0.85), rgba($color-white, 0.85))
@@ -519,11 +479,12 @@ $hover-transition-duration: 150ms;
   }
 
   #{$c}__logo {
-    margin-top: 4px;
+    margin-top: 3px;
   }
 
   #{$c}__menu {
     font-size: 14px;
+    margin-top: -2px;
     user-select: none;
     display: flex;
   }
@@ -535,7 +496,7 @@ $hover-transition-duration: 150ms;
   }
 
   #{$c}__menu-item {
-    margin-right: 25px;
+    margin-right: 20px;
 
     &:last-child {
       margin-right: 0;
@@ -548,7 +509,7 @@ $hover-transition-duration: 150ms;
 
       svg {
         fill: $color-base-blue-dark;
-        width: $menu-icon-size;
+        width: 16px;
       }
     }
 
@@ -594,26 +555,22 @@ $hover-transition-duration: 150ms;
       }
 
       #{$c}__menu-dropdown {
-        min-width: 360px;
+        min-width: 320px;
         position: absolute;
-        left: (-1 * $menu-dropdown-offset-left);
+        left: -8px;
         top: 100%;
         opacity: 0;
         visibility: hidden;
         transform: translateY(-3px);
         transition: all 150ms linear;
         transition-property: opacity, transform;
-
-        #{$c}__menu-dropdown-arrow {
-          left: ($menu-dropdown-offset-left + calc($menu-icon-size / 2));
-        }
       }
     }
 
     &--active {
       #{$c}__menu-link {
         text-decoration: underline;
-        text-decoration-color: rgba($color-base-blue-dark, 0.2);
+        text-decoration-color: $color-border-secondary;
         text-decoration-thickness: 2px;
       }
     }
@@ -625,7 +582,8 @@ $hover-transition-duration: 150ms;
     display: none;
     max-width: 100vw;
     border-top: 1px solid $color-border-secondary;
-    padding: 16px 0 40px;
+    margin-top: 14px;
+    padding: 20px 0 38px;
     background-color: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(6px) saturate(160%) contrast(45%) brightness(140%);
     z-index: 2000;
@@ -691,22 +649,12 @@ $hover-transition-duration: 150ms;
   }
 
   #{$c}__mobile-toggle {
-    display: none;
     color: $color-base-blue-dark;
+    margin-right: 16px;
+    display: none;
   }
 
   // --> BOOLEANS <--
-
-  &--floating {
-    #{$c}__sticky {
-      border-bottom-color: $color-border-secondary;
-    }
-
-    #{$c}__bar {
-      background-color: rgba($color-background-primary, 0.9);
-      backdrop-filter: blur(6px) saturate(160%) contrast(45%) brightness(140%);
-    }
-  }
 
   &--announcement {
     #{$c}__sticky,
@@ -718,11 +666,17 @@ $hover-transition-duration: 150ms;
 
 // --> MEDIA-QUERIES <--
 
-@media (max-width: $screen-medium-width-breakpoint) {
+@media (max-width: #{($inner-width-maximum + (2 * $page-wrapper-small-padding-sides))}) {
   .c-page-header {
+    #{$c}__homepage {
+      margin-left: 18px;
+    }
+
     #{$c}__menu {
       #{$c}__menu-item {
-        display: none;
+        &:nth-child(3) {
+          display: none;
+        }
       }
     }
 
@@ -742,89 +696,41 @@ $hover-transition-duration: 150ms;
   }
 }
 
-@media (max-width: $screen-small-width-breakpoint) {
+@media (max-width: $screen-tiny-width-breakpoint) {
   .c-page-header {
     #{$c}__menu {
       #{$c}__menu-item {
-        #{$c}__menu-link {
-          #{$c}__menu-dropdown {
-            min-width: 328px;
-          }
+        &:nth-child(2) {
+          display: none;
         }
       }
     }
 
-    #{$c}__left {
-      flex: 0 0 auto;
-    }
-
-    #{$c}__middle {
-      padding: 0 10px;
-      flex: 1;
-      justify-content: center;
-    }
-
-    #{$c}__right {
-      padding-left: 0;
-      flex: 0 0 auto;
-    }
-  }
-}
-
-@media (max-width: $screen-tiny-width-breakpoint) {
-  .c-page-header {
     #{$c}__announcement {
       #{$c}__announcement-description,
       #{$c}__announcement-separator {
         display: none;
       }
     }
-
-    #{$c}__menu {
-      #{$c}__menu-item {
-        #{$c}__menu-link {
-          #{$c}__menu-dropdown {
-            min-width: 214px;
-          }
-        }
-      }
-    }
-
-    #{$c}__logo {
-      height: 24px;
-    }
-
-    #{$c}__middle {
-      padding-right: 0;
-      justify-content: flex-end;
-    }
   }
 }
 
 @media (max-width: $screen-lilliput-width-breakpoint) {
   .c-page-header {
-    #{$c}__logo {
-      height: 22px;
+    #{$c}__homepage {
+      margin-left: 12px;
     }
+  }
+}
 
+@media (max-width: 420px) {
+  .c-page-header {
     #{$c}__menu {
       #{$c}__menu-item {
-        &:nth-child(2) {
-          margin-right: 0;
-        }
-
-        &:nth-child(n + 2) {
-          display: none;
-        }
-
-        &:nth-child(n + 3) {
+        &:nth-child(1) {
           display: none;
         }
       }
-    }
-
-    #{$c}__middle {
-      justify-content: flex-end;
     }
   }
 }
