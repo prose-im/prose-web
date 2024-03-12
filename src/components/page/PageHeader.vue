@@ -303,7 +303,7 @@ export default {
             {
               id: "docs",
               title: "Technical Docs",
-              label: "Resources for Prose server administrators",
+              label: "Resources for Prose server admins",
               target: `${this.$config.url.prose_docs}/`,
               icon: ImageMenuDropdownHelpIconDocs
             },
@@ -555,7 +555,7 @@ $hover-transition-duration: 150ms;
       }
 
       #{$c}__menu-dropdown {
-        min-width: 320px;
+        min-width: 300px;
         position: absolute;
         left: -8px;
         top: 100%;
@@ -669,19 +669,20 @@ $hover-transition-duration: 150ms;
 @media (max-width: #{($inner-width-maximum + (2 * $page-wrapper-small-padding-sides))}) {
   .c-page-header {
     #{$c}__homepage {
-      margin-left: 18px;
-    }
-
-    #{$c}__menu {
-      #{$c}__menu-item {
-        &:nth-child(3) {
-          display: none;
-        }
-      }
+      margin-left: 0;
     }
 
     #{$c}__mobile {
       display: block;
+    }
+
+    #{$c}__left {
+      flex: 1;
+      justify-content: center;
+    }
+
+    #{$c}__middle {
+      display: none;
     }
 
     #{$c}__right {
@@ -698,38 +699,10 @@ $hover-transition-duration: 150ms;
 
 @media (max-width: $screen-tiny-width-breakpoint) {
   .c-page-header {
-    #{$c}__menu {
-      #{$c}__menu-item {
-        &:nth-child(2) {
-          display: none;
-        }
-      }
-    }
-
     #{$c}__announcement {
       #{$c}__announcement-description,
       #{$c}__announcement-separator {
         display: none;
-      }
-    }
-  }
-}
-
-@media (max-width: $screen-lilliput-width-breakpoint) {
-  .c-page-header {
-    #{$c}__homepage {
-      margin-left: 12px;
-    }
-  }
-}
-
-@media (max-width: 420px) {
-  .c-page-header {
-    #{$c}__menu {
-      #{$c}__menu-item {
-        &:nth-child(1) {
-          display: none;
-        }
       }
     }
   }
