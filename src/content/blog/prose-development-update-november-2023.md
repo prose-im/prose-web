@@ -13,4 +13,4 @@ cover:
   <source src="https://files.prose.org/public/videos/blog/prose-development-update-november-2023/development-update-hvc1.mp4" type="video/mp4; codecs=hvc1">
 </video>
 
-🎥 _This video can also be [watched on YouTube](https://youtu.be/t-n1HO2SXBo), or [downloaded](https://files.prose.org/public/videos/blog/prose-development-update-november-2023/development-update-vp9.webm)._
+🎥 _This video can also be [watched on YouTube](https://youtu.be/t-n1HO2SXBo)._

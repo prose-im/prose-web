@@ -238,7 +238,7 @@ $animate-shake-base-depth: 2px;
         padding: 48px;
         display: flex;
         flex-direction: column;
-        gap: 8px;
+        gap: 14px;
 
         p {
           color: $color-base-grey-dark;

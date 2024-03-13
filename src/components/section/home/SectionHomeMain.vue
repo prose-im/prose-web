@@ -119,7 +119,7 @@ $inner-padding-top-base: 74px;
 
   #{$c}__description {
     font-size: 20px;
-    line-height: 32px;
+    line-height: 30px;
   }
 
   #{$c}__showcase {
