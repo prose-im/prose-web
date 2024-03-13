@@ -205,22 +205,22 @@ export default {
           items: [
             {
               label: "Developers",
-              target: "/use-cases/developers/"
+              target: "/usecases/developers/"
             },
 
             {
               label: "Non-Profits",
-              target: "/use-cases/non-profits/"
+              target: "/usecases/non-profits/"
             },
 
             {
               label: "Remote Teams",
-              target: "/use-cases/remote-teams/"
+              target: "/usecases/remote-teams/"
             },
 
             {
               label: "Web3",
-              target: "/use-cases/web3/"
+              target: "/usecases/web3/"
             }
           ]
         },

@@ -103,6 +103,7 @@ $segment-link-padding-left: 10px;
 
     #{$c}__item {
       margin-left: (-1 * $segment-link-padding-left);
+      margin-block: -2px;
       display: block;
     }
 
@@ -111,10 +112,10 @@ $segment-link-padding-left: 10px;
       color: inherit;
       font-size: 14px;
       line-height: 18px;
-      padding: 2px 6px 4px $segment-link-padding-left;
+      padding: 5px 6px 6px $segment-link-padding-left;
       display: flex;
       align-items: center;
-      border-radius: 6px;
+      border-radius: 8px;
       transition: background-color 100ms linear;
 
       &:hover {
@@ -132,6 +133,7 @@ $segment-link-padding-left: 10px;
       height: 9px;
       margin-right: 5px;
       margin-bottom: -1px;
+      flex: 0 0 auto;
       border-radius: 100%;
     }
   }

@@ -67,12 +67,12 @@ export default {
   computed: {
     mobileImage() {
       return require(`~/assets/images/components/section/` +
-        `use-cases${this.useCase.mobileImage}`);
+        `usecases${this.useCase.mobileImage}`);
     },
 
     desktopImage() {
       return require(`~/assets/images/components/section/` +
-        `use-cases${this.useCase.desktopImage}`);
+        `usecases${this.useCase.desktopImage}`);
     }
   }
 };

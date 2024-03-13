@@ -68,7 +68,7 @@ export default {
   computed: {
     imageSrc() {
       return require(`~/assets/images/components/section/` +
-        `use-cases${this.useCase.features[0].imageSrc}`);
+        `usecases${this.useCase.features[0].imageSrc}`);
     }
   }
 };

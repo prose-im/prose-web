@@ -10,23 +10,22 @@
 
 <template lang="pug">
 .p-use-case
-    section-use-cases-main(
-      :use-case="useCase"
-      class="p-cases-index__main"
-    )
+  section-use-cases-main(
+    :use-case="useCase"
+    class="p-cases-index__main"
+  )
 
-    section-use-cases-bento(
-      :use-case="useCase"
-    )
+  section-use-cases-bento(
+    :use-case="useCase"
+  )
 
-    section-use-cases-tabs(
-      :use-case="useCase"
-    )
+  section-use-cases-tabs(
+    :use-case="useCase"
+  )
 
-    section-use-cases-discover(
-      :other-cases="otherCases"
-    )
-
+  section-use-cases-discover(
+    :other-cases="otherCases"
+  )
 </template>
 
 <!-- **********************************************************************
@@ -42,9 +41,9 @@ const USE_CASES = [
     description:
       "Collaborate and innovate on open source projects with like-minded " +
       "developers.",
-    url: "/use-cases/developers/",
+    url: "/usecases/developers/",
 
-    media: require("~/assets/images/components/section/use-cases/" +
+    media: require("~/assets/images/components/section/usecases/" +
       "SectionUseCasesDiscover/developers.webp")
   },
 
@@ -53,9 +52,9 @@ const USE_CASES = [
     title: "Remote Teams",
     description:
       "Know for certain who you’re talking to even if you’ve never met IRL.",
-    url: "/use-cases/remote-teams/",
+    url: "/usecases/remote-teams/",
 
-    media: require("~/assets/images/components/section/use-cases/" +
+    media: require("~/assets/images/components/section/usecases/" +
       "SectionUseCasesDiscover/remote-teams.webp")
   },
 
@@ -64,9 +63,9 @@ const USE_CASES = [
     title: "Non Profits",
     description:
       "Communicate efficiently even in low bandwidth regions of the world.",
-    url: "/use-cases/non-profits/",
+    url: "/usecases/non-profits/",
 
-    media: require("~/assets/images/components/section/use-cases/" +
+    media: require("~/assets/images/components/section/usecases/" +
       "SectionUseCasesDiscover/non-profits.webp")
   },
 
@@ -75,9 +74,9 @@ const USE_CASES = [
     title: "Web3",
     description:
       "Prevent scams, spam, and other unwanted interactions on your server.",
-    url: "/use-cases/web3/",
+    url: "/usecases/web3/",
 
-    media: require("~/assets/images/components/section/use-cases/" +
+    media: require("~/assets/images/components/section/usecases/" +
       "SectionUseCasesDiscover/web3.webp")
   }
 ];
@@ -101,7 +100,7 @@ export default {
 
   async asyncData({ $content, params, error }) {
     // Fetch content for selected case
-    const _case = await $content("use-cases", params.case)
+    const _case = await $content("usecases", params.case)
       .fetch()
       .catch(() => {
         error({ statusCode: 404, message: "Page not found" });

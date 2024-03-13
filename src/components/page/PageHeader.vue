@@ -54,7 +54,7 @@ div(
                 :class=`[
                   "c-page-header__menu-item",
                   {
-                    "c-page-header__menu-item--active": (currentPageName === item.id)
+                    "c-page-header__menu-item--active": (currentRootPageName === item.id)
                   }
                 ]`
               )
@@ -63,10 +63,6 @@ div(
                   class="c-page-header__menu-link"
                   :to="item.target"
                 )
-                  span.c-page-header__menu-icon(
-                    v-html="item.icon"
-                  )
-
                   | {{ item.label }}
 
                 span.c-page-header__menu-link(
@@ -75,10 +71,6 @@ div(
                   base-dropdown(
                     :items="item.dropdown"
                     class="c-page-header__menu-dropdown"
-                  )
-
-                  span.c-page-header__menu-icon(
-                    v-html="item.icon"
                   )
 
                   | {{ item.label }}
@@ -116,7 +108,7 @@ div(
             :class=`[
               "c-page-header__menu-item",
               {
-                "c-page-header__menu-item--active": (currentPageName === item.id)
+                "c-page-header__menu-item--active": (currentRootPageName === item.id)
               }
             ]`
           )
@@ -226,7 +218,7 @@ export default {
         },
 
         {
-          id: "usecase",
+          id: "usecases",
           label: "Use Cases",
 
           dropdown: [
@@ -234,7 +226,7 @@ export default {
               id: "developers",
               title: "Developers",
               label: "Collaborate on open source projects",
-              target: "/use-cases/developers/",
+              target: "/usecases/developers/",
               icon: ImageMenuDropdownUseCaseDevelopers
             },
 
@@ -242,7 +234,7 @@ export default {
               id: "web3",
               title: "Web3",
               label: "Build & scale Web3 communities",
-              target: "/use-cases/web3/",
+              target: "/usecases/web3/",
               icon: ImageMenuDropdownUseCaseWeb3
             },
 
@@ -250,7 +242,7 @@ export default {
               id: "ngo",
               title: "Non-Profits",
               label: "Ignite collaboration for social impact",
-              target: "/use-cases/non-profits/",
+              target: "/usecases/non-profits/",
               icon: ImageMenuDropdownUseCaseNonProfits
             },
 
@@ -258,7 +250,7 @@ export default {
               id: "remote",
               title: "Remote Teams",
               label: "Enhance remote team collaboration",
-              target: "/use-cases/remote-teams/",
+              target: "/usecases/remote-teams/",
               icon: ImageMenuDropdownUseCaseRemoteTeams
             }
           ]
@@ -326,7 +318,7 @@ export default {
       return this.$config.modifiers.announcement === true;
     },
 
-    currentPageName() {
+    currentRootPageName() {
       // Pick up the parent-most page (segments are separated w/ '-')
       return (this.$route.name || "").split("-")[0] || null;
     }
@@ -484,7 +476,7 @@ $hover-transition-duration: 150ms;
 
   #{$c}__menu {
     font-size: 14px;
-    margin-top: -2px;
+    margin-top: -1px;
     user-select: none;
     display: flex;
   }
@@ -496,21 +488,10 @@ $hover-transition-duration: 150ms;
   }
 
   #{$c}__menu-item {
-    margin-right: 20px;
+    margin-right: 2px;
 
     &:last-child {
       margin-right: 0;
-    }
-
-    #{$c}__menu-icon {
-      line-height: 0;
-      margin-right: 5px;
-      opacity: 0.8;
-
-      svg {
-        fill: $color-base-blue-dark;
-        width: 16px;
-      }
     }
 
     #{$c}__menu-arrow {
@@ -522,16 +503,15 @@ $hover-transition-duration: 150ms;
     }
 
     #{$c}__menu-link {
-      padding: 5px 0;
+      padding: 8px 12px 9px;
       cursor: pointer;
       display: flex;
       align-items: center;
       position: relative;
+      border-radius: 30px;
 
       &:hover {
-        #{$c}__menu-icon {
-          opacity: 0.9;
-        }
+        background-color: rgba($color-base-grey-light, 0.75);
 
         #{$c}__menu-arrow {
           opacity: 0.45;
@@ -545,9 +525,7 @@ $hover-transition-duration: 150ms;
       }
 
       &:active {
-        #{$c}__menu-icon {
-          opacity: 1;
-        }
+        background-color: $color-base-grey-light;
 
         #{$c}__menu-arrow {
           opacity: 0.55;
@@ -569,9 +547,11 @@ $hover-transition-duration: 150ms;
 
     &--active {
       #{$c}__menu-link {
-        text-decoration: underline;
-        text-decoration-color: $color-border-secondary;
-        text-decoration-thickness: 2px;
+        &,
+        &:hover,
+        &:active {
+          background-color: darken($color-base-grey-light, 1.5%);
+        }
       }
     }
   }
@@ -610,10 +590,12 @@ $hover-transition-duration: 150ms;
       align-items: center;
 
       #{$c}__menu-link {
+        background-color: transparent;
         padding: 16px 0;
         font-size: 18px;
         width: 100%;
         margin: 0;
+        border-radius: 0;
       }
     }
 

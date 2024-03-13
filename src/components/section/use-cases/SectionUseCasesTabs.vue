@@ -55,7 +55,7 @@ export default {
     return {
       // --> DATA <--
 
-      mediaUrlPrefix: "/components/section/use-cases"
+      mediaUrlPrefix: "/components/section/usecases"
     };
   },
 
