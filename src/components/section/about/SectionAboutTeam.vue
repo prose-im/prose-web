@@ -156,7 +156,7 @@ export default {
         {
           imageUrl: RemiAvatar,
           name: "Rémi Bardon",
-          position: "Open-Source Contributor",
+          position: "Pod Server Developer",
 
           socials: [
             {
