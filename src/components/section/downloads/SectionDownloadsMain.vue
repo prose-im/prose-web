@@ -27,10 +27,17 @@ page-main-title(
       | Install it and start messaging your team in seconds.
 
   base-button(
+    @click="onActionClick"
+    :class=`[
+      "c-section-downloads-main__action",
+      {
+        "c-section-downloads-main__action--disabled": !platformName
+      }
+    ]`
     slot="action"
     size="large"
+    tint="gradient"
     right-icon="arrow-down"
-    class="c-section-downloads-main__action"
     bolder
   )
     | Download the Prose App
@@ -85,6 +92,21 @@ export default {
 
   mounted() {
     this.navigatorAppVersion = window.navigator.appVersion || null;
+  },
+
+  methods: {
+    // --> EVENT LISTENERS <--
+
+    /**
+     * Triggers when action is clicked
+     * @public
+     * @return {undefined}
+     */
+    onActionClick() {
+      if (this.platformName !== null) {
+        this.$emit("download", this.platformName.toLowerCase());
+      }
+    }
   }
 };
 </script>
@@ -98,8 +120,10 @@ $c: ".c-section-downloads-main";
 
 .c-section-downloads-main {
   #{$c}__action {
-    pointer-events: none;
-    opacity: 0.35;
+    &--disabled {
+      pointer-events: none;
+      opacity: 0.35;
+    }
   }
 }
 
