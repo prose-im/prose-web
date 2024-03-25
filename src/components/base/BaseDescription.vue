@@ -48,8 +48,8 @@ $c: ".c-base-description";
 
 .c-base-description {
   color: $color-base-grey-dark;
-  font-size: 16px;
-  line-height: 26px;
+  font-size: 17px;
+  line-height: 28px;
 
   // --> ALIGNS <--
 
