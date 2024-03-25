@@ -25,7 +25,7 @@ div(
 
     .c-app-download__text
       .c-app-download__comingsoon.u-bold(
-        v-if="comingSoon"
+        v-if="hasComingSoon"
       )
         | coming soon
 
@@ -34,33 +34,35 @@ div(
       )
         | {{ platformName }}
 
-      base-tooltip(
-        :bypassed="!!target"
-        align="center"
-        direction="top"
-        class="c-app-download__action-wrap"
-      )
-        template(
-          slot="tooltip"
-        )
-          | Coming soon!
-
+      .c-app-download__actions
         a(
-          :href="target"
+          v-for="(target, index) in filteredTargets"
+          :key="'action_' + index"
+          :href="target?.url"
           :class=`[
             "c-app-download__action",
             {
-              "c-app-download__action--locked": !target
+              "c-app-download__action--locked": (target === null),
+              ["js-app-download js-app-download--" + platform]: (target !== null && index === 0)
             }
           ]`
           slot="default"
         )
           base-button(
-            :right-icon="actionRightIcon"
-            tint="light"
+            :right-icon="(index === 0) ? actionRightIcon : null"
+            :tint="(target !== null && index === 0) ? 'fancy' : 'light'"
             class="c-app-download__action-button"
           )
             | {{ actionLabel }}
+
+            template(
+              v-if="target?.name"
+            )
+              base-space(
+                :repeat="2"
+              )
+
+              | ({{ target.name }})
 </template>
 
 <!-- **********************************************************************
@@ -122,14 +124,12 @@ export default {
       }
     },
 
-    target: {
-      type: String,
-      default: null
-    },
+    targets: {
+      type: Array,
 
-    comingSoon: {
-      type: Boolean,
-      default: true
+      default() {
+        return [];
+      }
     },
 
     action: {
@@ -181,6 +181,25 @@ export default {
           return "Download";
         }
       }
+    },
+
+    hasComingSoon() {
+      return this.filteredTargets[0] === null;
+    },
+
+    filteredTargets() {
+      // Pick non-empty targets only
+      const targets = this.targets.filter(target => {
+        return target !== null;
+      });
+
+      // Guarantee at least 1 empty target if empty
+      // Notice: this allows showing a disabled button
+      if (targets.length === 0) {
+        targets.push(null);
+      }
+
+      return targets;
     }
   }
 };
@@ -195,10 +214,10 @@ $c: ".c-app-download";
 
 // VARIABLES
 $platforms: (
-  android: #67d3a6,
+  android: #48d69b,
   ios: #1d1d28,
   linux: #ff7e5b,
-  macos: #b1bede,
+  macos: #7e8cb0,
   web: #35a1ef,
   windows: #5488e5
 );
@@ -261,11 +280,15 @@ $platforms: (
     }
   }
 
-  #{$c}__action-wrap {
+  #{$c}__actions {
     margin-top: 30px;
 
-    &:first-child {
-      margin-top: 0;
+    > * {
+      margin-top: 12px;
+
+      &:first-child {
+        margin-top: 0;
+      }
     }
   }
 
@@ -299,7 +322,12 @@ $platforms: (
   .c-app-download {
     #{$c}__inner {
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
+    }
+
+    #{$c}__text {
+      text-align: center;
+      display: block;
     }
   }
 }

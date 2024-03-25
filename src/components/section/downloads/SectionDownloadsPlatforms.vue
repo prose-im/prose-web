@@ -34,7 +34,7 @@ page-section(
         v-for="nestItem in nest.apps"
         :key="nestItem.platform"
         :platform="nestItem.platform"
-        :target="nestItem.target"
+        :targets="nestItem.targets"
         :action="nestItem.action"
         :class=`[
           "c-section-downloads-platforms__app",
@@ -50,14 +50,44 @@ page-section(
      ********************************************************************** -->
 
 <script>
+// CONSTANTS
+const PACKAGE_APP_NAME = "Prose";
+
+const ARCHITECTURES = {
+  apple: {
+    name: "Apple",
+    full: "aarch64",
+    short: "aarch64"
+  },
+
+  intel: {
+    name: "Intel",
+    full: "x86_64",
+    short: "aarch64"
+  }
+};
+
 export default {
   name: "SectionDownloadsPlatforms",
 
-  data() {
-    return {
-      // --> DATA <--
+  props: {
+    version: {
+      type: String,
+      default: null
+    },
 
-      platforms: {
+    matrix: {
+      type: Object,
+
+      default() {
+        return {};
+      }
+    }
+  },
+
+  computed: {
+    platforms() {
+      return {
         desktop: {
           title: "Desktop Apps",
 
@@ -65,26 +95,41 @@ export default {
             {
               platform: "web",
               action: "load",
-              target: null,
+              targets: [{ url: this.$config.url.prose_app }],
               spaced: true
             },
 
             {
               platform: "macos",
               action: "download",
-              target: null
+
+              targets: [
+                this.generateDesktopTarget(
+                  "macos",
+                  "dmg",
+                  ARCHITECTURES.apple,
+                  "darwin"
+                ),
+
+                this.generateDesktopTarget(
+                  "macos",
+                  "dmg",
+                  ARCHITECTURES.intel,
+                  "darwin"
+                )
+              ]
             },
 
             {
               platform: "windows",
               action: "download",
-              target: null
+              targets: [this.generateDesktopTarget("windows", "msi")]
             },
 
             {
               platform: "linux",
               action: "download",
-              target: null
+              targets: [this.generateDesktopTarget("linux", "AppImage")]
             }
           ]
         },
@@ -96,18 +141,102 @@ export default {
             {
               platform: "ios",
               action: "get",
-              target: null
+              targets: [this.generateMobileTarget("ios")]
             },
 
             {
               platform: "android",
               action: "get",
-              target: null
+              targets: [this.generateMobileTarget("android")]
             }
           ]
         }
+      };
+    }
+  },
+
+  methods: {
+    // --> EXTERNALS <--
+
+    /**
+     * Request a download for target platform (from parent)
+     * @public
+     * @param  {string} platform
+     * @return {undefined}
+     */
+    downloadFromParent(platform) {
+      const platformDownloadElement =
+        this.$el.querySelector(
+          `.js-app-download.js-app-download--${platform}`
+        ) || null;
+
+      // Trigger click on platform download button? (if any)
+      if (platformDownloadElement !== null) {
+        platformDownloadElement.click();
+      } else {
+        alert(
+          "Could not download Prose. Is it available yet for your platform?"
+        );
       }
-    };
+    },
+
+    // --> HELPERS <--
+
+    /**
+     * Generates target URL for platform (desktop)
+     * @public
+     * @param  {string} platform
+     * @param  {string} packageExtension
+     * @param  {object} [architecture]
+     * @param  {string} [matrixPlatform]
+     * @return {string} Target URL (or none)
+     */
+    generateDesktopTarget(
+      platform,
+      packageExtension,
+      architecture = ARCHITECTURES.intel,
+      matrixPlatform = null
+    ) {
+      // Default to platform if no matrix platform given
+      matrixPlatform = matrixPlatform || platform;
+
+      // Generate platform slug
+      const platformSlug = `${matrixPlatform}-${architecture.full}`;
+
+      // Check if a version is available on matrix? (for platform)
+      if (platformSlug in this.matrix) {
+        // Generate package file name
+        const packageFileName = [
+          `${PACKAGE_APP_NAME}_${this.version}_${architecture.short}`,
+          packageExtension
+        ].join(".");
+
+        // Generate target URL to package for platform
+        const packageFileUrl =
+          `${this.$config.url.prose_files}/apps/versions/` +
+          `${this.version}/macos/${architecture.full}/` +
+          packageFileName;
+
+        return {
+          url: packageFileUrl,
+          name: architecture.name
+        };
+      }
+
+      // No target URL for platform
+      return null;
+    },
+
+    /**
+     * Generates target URL for platform (mobile)
+     * @public
+     * @param  {string} platform
+     * @return {string} Target URL (or none)
+     */
+    generateMobileTarget() {
+      // No mobile target available at the moment
+      return null;
+    }
   }
 };
 </script>
@@ -166,7 +295,7 @@ $c: ".c-section-downloads-platforms";
 
 // --> MEDIA-QUERIES <--
 
-@media (max-width: $screen-medium-width-breakpoint) {
+@media (max-width: 1140px) {
   .c-section-downloads-platforms {
     #{$c}__apps {
       display: flex;
