@@ -63,7 +63,7 @@ const ARCHITECTURES = {
   intel: {
     name: "Intel",
     full: "x86_64",
-    short: "aarch64"
+    short: "x64"
   }
 };
 
