@@ -146,20 +146,30 @@ export default {
 
       this.versions.forEach(version => {
         const _version = version.version;
+        const _platforms = version.platforms || {};
 
-        _versionDropdowns[_version] = (version.platforms || []).map(
-          platform => {
-            return {
-              id: platform,
+        // Append all dropdown items
+        const _dropdownItems = [];
 
-              title: `${
-                VERSIONED_PLATFORMS[platform] || platform
-              } v${_version}`,
+        for (const _platform in _platforms) {
+          const _architectures = _platforms[_platform];
 
-              target: this.downloadUrl(platform, _version)
-            };
-          }
-        );
+          this.downloadUrls(_platform, _architectures, _version).forEach(
+            downloadUrl => {
+              _dropdownItems.push({
+                id: _platform,
+
+                title: `${
+                  VERSIONED_PLATFORMS[_platform] || _platform
+                } v${_version} (${downloadUrl.platform})`,
+
+                target: downloadUrl.target
+              });
+            }
+          );
+
+          _versionDropdowns[_version] = _dropdownItems;
+        }
       });
 
       return _versionDropdowns;
@@ -182,13 +192,14 @@ export default {
     // --> HELPERS <--
 
     /**
-     * Generates download URL for platform and version
+     * Generates download URLs for platform and version
      * @public
      * @param  {string} platform
+     * @param  {object} architectures
      * @param  {string} version
      * @return {string} Download URL
      */
-    downloadUrl(platform, version) {
+    downloadUrls(platform, architectures, version) {
       // Acquire file extension (based on platform)
       let _extension;
 
@@ -204,11 +215,20 @@ export default {
         }
       }
 
-      // Generate download URL
-      return (
-        `${this.$config.url.prose_files}/apps/releases/` +
-        `${version}/prose-v${version}-${platform}.${_extension}`
-      );
+      // Generate download URLs
+      return architectures.map(architecture => {
+        const _downloadUrl = this.$filters.formatDownloadUrl(
+          version,
+          platform,
+          _extension,
+          this.$config.downloads.app.architectures[architecture]
+        );
+
+        return {
+          platform: _downloadUrl.name,
+          target: _downloadUrl.url
+        };
+      });
     },
 
     /**
@@ -219,8 +239,8 @@ export default {
      */
     fullChangesUrl(version) {
       return (
-        `${this.$config.url.github_prose}/prose-core-client/` +
-        `releases/tag/v${version}`
+        `${this.$config.url.github_prose}/` +
+        `${this.$config.downloads.app.project}/releases/tag/${version}`
       );
     }
   }
@@ -293,6 +313,7 @@ $c: ".c-section-changelog-versions";
         position: absolute;
         top: 100%;
         left: -8px;
+        z-index: 1;
         opacity: 0;
         visibility: hidden;
         transition: opacity 75ms linear;
