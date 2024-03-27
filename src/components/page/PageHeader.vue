@@ -204,8 +204,8 @@ export default {
       // --> DATA <--
 
       announcement: {
-        title: "Heads up: Prose is still a Work in Progress",
-        description: "We expect the macOS and Web apps to be released mid-2024."
+        title: "Heads up: Prose is almost ready",
+        description: "We expect the Prose server to be released late 2024."
       },
 
       menuItems: [
