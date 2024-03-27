@@ -20,7 +20,7 @@ const FORMAT_DATE_OPTIONS = {
  * EXPORTS
  * ************************************************************************* */
 
-export default (_, inject) => {
+export default ({ $config }, inject) => {
   // Inject filters in context
   inject("filters", {
     formatDate: dateString => {
@@ -33,6 +33,25 @@ export default (_, inject) => {
 
       // Parsed date is invalid, mirror raw date string
       return dateString;
+    },
+
+    formatDownloadUrl: (version, platform, extension, architecture) => {
+      // Generate package file name
+      const packageFileName = [
+        [$config.downloads.app.package, version, architecture.short].join("_"),
+        extension
+      ].join(".");
+
+      // Generate target URL to package for platform
+      const packageFileUrl =
+        `${$config.url.prose_files}/apps/versions/` +
+        `${version}/${platform}/${architecture.full}/` +
+        packageFileName;
+
+      return {
+        url: packageFileUrl,
+        name: architecture.name
+      };
     }
   });
 };

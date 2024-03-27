@@ -50,23 +50,6 @@ page-section(
      ********************************************************************** -->
 
 <script>
-// CONSTANTS
-const PACKAGE_APP_NAME = "Prose";
-
-const ARCHITECTURES = {
-  apple: {
-    name: "Apple",
-    full: "aarch64",
-    short: "aarch64"
-  },
-
-  intel: {
-    name: "Intel",
-    full: "x86_64",
-    short: "x64"
-  }
-};
-
 export default {
   name: "SectionDownloadsPlatforms",
 
@@ -87,6 +70,8 @@ export default {
 
   computed: {
     platforms() {
+      const _architectures = this.$config.downloads.app.architectures;
+
       return {
         desktop: {
           title: "Desktop Apps",
@@ -107,14 +92,14 @@ export default {
                 this.generateDesktopTarget(
                   "macos",
                   "dmg",
-                  ARCHITECTURES.apple,
+                  _architectures.apple,
                   "darwin"
                 ),
 
                 this.generateDesktopTarget(
                   "macos",
                   "dmg",
-                  ARCHITECTURES.intel,
+                  _architectures.intel,
                   "darwin"
                 )
               ]
@@ -123,13 +108,27 @@ export default {
             {
               platform: "windows",
               action: "download",
-              targets: [this.generateDesktopTarget("windows", "msi")]
+
+              targets: [
+                this.generateDesktopTarget(
+                  "windows",
+                  "msi",
+                  _architectures.intel
+                )
+              ]
             },
 
             {
               platform: "linux",
               action: "download",
-              targets: [this.generateDesktopTarget("linux", "AppImage")]
+
+              targets: [
+                this.generateDesktopTarget(
+                  "linux",
+                  "AppImage",
+                  _architectures.intel
+                )
+              ]
             }
           ]
         },
@@ -187,14 +186,14 @@ export default {
      * @public
      * @param  {string} platform
      * @param  {string} packageExtension
-     * @param  {object} [architecture]
+     * @param  {object} architecture
      * @param  {string} [matrixPlatform]
      * @return {string} Target URL (or none)
      */
     generateDesktopTarget(
       platform,
       packageExtension,
-      architecture = ARCHITECTURES.intel,
+      architecture,
       matrixPlatform = null
     ) {
       // Default to platform if no matrix platform given
@@ -205,22 +204,12 @@ export default {
 
       // Check if a version is available on matrix? (for platform)
       if (platformSlug in this.matrix) {
-        // Generate package file name
-        const packageFileName = [
-          `${PACKAGE_APP_NAME}_${this.version}_${architecture.short}`,
-          packageExtension
-        ].join(".");
-
-        // Generate target URL to package for platform
-        const packageFileUrl =
-          `${this.$config.url.prose_files}/apps/versions/` +
-          `${this.version}/macos/${architecture.full}/` +
-          packageFileName;
-
-        return {
-          url: packageFileUrl,
-          name: architecture.name
-        };
+        return this.$filters.formatDownloadUrl(
+          this.version,
+          platform,
+          packageExtension,
+          architecture
+        );
       }
 
       // No target URL for platform

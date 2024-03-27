@@ -22,6 +22,26 @@
     "announcement": true
   },
 
+  "downloads": {
+    "app": {
+      "package": "Prose",
+
+      "architectures": {
+        "apple": {
+          "name": "Apple",
+          "full": "aarch64",
+          "short": "aarch64"
+        },
+
+        "intel": {
+          "name": "Intel",
+          "full": "x86_64",
+          "short": "x64"
+        }
+      }
+    }
+  },
+
   "tokens": {
     "public": {
       "crisp_website_id": "84a1e461-9755-47fb-bdc9-bf368a5d79db"

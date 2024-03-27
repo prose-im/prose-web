@@ -276,6 +276,7 @@ export default {
     url: CONFIG.url,
     social: CONFIG.social,
     email: CONFIG.email,
+    downloads: CONFIG.downloads,
     features: CONFIG.features,
     modifiers: CONFIG.modifiers,
     tokens: CONFIG.tokens.public,
