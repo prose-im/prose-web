@@ -2,7 +2,7 @@
   "versions": [
     {
       "version": "0.2.2",
-      "date": "2023-03-25",
+      "date": "2024-03-25",
 
       "platforms": {
         "macos": ["apple", "intel"]
@@ -17,7 +17,7 @@
 
     {
       "version": "0.2.1",
-      "date": "2023-03-24",
+      "date": "2024-03-24",
 
       "platforms": {
         "macos": ["apple"]
@@ -34,7 +34,7 @@
 
     {
       "version": "0.2.0",
-      "date": "2023-03-23",
+      "date": "2024-03-23",
 
       "platforms": {
         "macos": ["apple"]
