@@ -25,6 +25,7 @@
   "downloads": {
     "app": {
       "package": "Prose",
+      "project": "prose-app-web",
 
       "architectures": {
         "apple": {

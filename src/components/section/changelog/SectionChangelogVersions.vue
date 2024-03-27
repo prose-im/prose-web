@@ -239,8 +239,8 @@ export default {
      */
     fullChangesUrl(version) {
       return (
-        `${this.$config.url.github_prose}/prose-app-web/` +
-        `releases/tag/${version}`
+        `${this.$config.url.github_prose}/` +
+        `${this.$config.downloads.app.project}/releases/tag/${version}`
       );
     }
   }
