@@ -25,7 +25,7 @@ div(
 
     .c-app-download__text
       .c-app-download__comingsoon.u-bold(
-        v-if="hasComingSoon"
+        v-if="hasNoTarget && ready"
       )
         | coming soon
 
@@ -33,6 +33,14 @@ div(
         v-if="platformName"
       )
         | {{ platformName }}
+
+        base-spinner(
+          v-if="hasNoTarget && !ready"
+          color="grey"
+          size="8px"
+          border-width="1px"
+          class="c-app-download__spinner"
+        )
 
       .c-app-download__actions
         a(
@@ -139,6 +147,11 @@ export default {
       validator(x) {
         return ["load", "download", "get"].includes(x);
       }
+    },
+
+    ready: {
+      type: Boolean,
+      default: true
     }
   },
 
@@ -183,23 +196,23 @@ export default {
       }
     },
 
-    hasComingSoon() {
+    hasNoTarget() {
       return this.filteredTargets[0] === null;
     },
 
     filteredTargets() {
       // Pick non-empty targets only
-      const targets = this.targets.filter(target => {
+      const _targets = this.targets.filter(target => {
         return target !== null;
       });
 
       // Guarantee at least 1 empty target if empty
       // Notice: this allows showing a disabled button
-      if (targets.length === 0) {
-        targets.push(null);
+      if (_targets.length === 0) {
+        _targets.push(null);
       }
 
-      return targets;
+      return _targets;
     }
   }
 };
@@ -274,9 +287,17 @@ $platforms: (
     color: $color-black;
     font-size: 24px;
     margin-top: 10px;
+    display: flex;
+    align-items: center;
 
     &:first-child {
       margin-top: 0;
+    }
+
+    #{$c}__spinner {
+      margin-left: 8px;
+      margin-bottom: -3px;
+      flex: 0 0 auto;
     }
   }
 
