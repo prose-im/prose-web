@@ -55,7 +55,7 @@ page-split-view(
       v-if="navigateYears.length > 0"
     )
       h6.c-section-changelog-main__navigate-label.u-title.u-medium
-        | The Time Machine:
+        | Years:
 
       base-navigate(
         class="c-section-changelog-main__navigate-years"
