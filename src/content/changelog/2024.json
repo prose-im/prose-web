@@ -1,6 +1,24 @@
 {
   "versions": [
     {
+      "version": "0.2.3",
+      "date": "2024-03-28",
+
+      "platforms": {
+        "macos": ["apple", "intel"]
+      },
+
+      "changelog": {
+        "features": [["Messaging", "Show composing indicators in the sidebar"]],
+
+        "fixes": [
+          ["Interface", "Improve behavior of tooltips and input fields"],
+          ["Messaging", "Improve behavior of last message editor"]
+        ]
+      }
+    },
+
+    {
       "version": "0.2.2",
       "date": "2024-03-25",
 
