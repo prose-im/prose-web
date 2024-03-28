@@ -32,21 +32,21 @@ export default {
   layout: "simple",
 
   async asyncData({ $content }) {
-    const articles = await $content("blog")
+    const _articles = await $content("blog")
       .only(["title", "description", "date", "cover", "slug"])
       .sortBy("date", "desc")
       .skip(1)
       .fetch();
 
-    const [featured] = await $content("blog")
+    const [_featured] = await $content("blog")
       .only(["title", "description", "date", "cover", "slug"])
       .sortBy("date", "desc")
       .limit(1)
       .fetch();
 
     return {
-      articles,
-      featured
+      articles: _articles,
+      featured: _featured
     };
   },
 

@@ -52,14 +52,14 @@ export default {
   layout: "simple",
 
   async asyncData({ $content, params, error }) {
-    const page = await $content(`blog/${params.article}`)
+    const _page = await $content(`blog/${params.article}`)
       .fetch()
       .catch(() => {
         error({ statusCode: 404, message: "Article not found" });
       });
 
     return {
-      page
+      page: _page
     };
   },
 
