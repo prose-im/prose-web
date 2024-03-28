@@ -35,14 +35,26 @@
 export default {
   name: "DownloadsIndexPage",
 
-  async asyncData({ $config, $http }) {
+  data() {
+    return {
+      // --> DATA <--
+
+      version: null,
+      matrix: {}
+    };
+  },
+
+  async fetch() {
     // Load update manifest to acquire latest available version
-    const latestUpdate = await $http.$get(
-      `${$config.url.prose_files}/apps/updates/latest.json`
+    const _latestUpdate = await this.$http.$get(
+      `${this.$config.url.prose_files}/apps/updates/latest.json`
     );
 
-    return { version: latestUpdate.version, matrix: latestUpdate.platforms };
+    this.version = _latestUpdate.version;
+    this.matrix = _latestUpdate.platforms;
   },
+
+  fetchOnServer: false,
 
   head: {
     title: "Download Prose apps"

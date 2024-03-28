@@ -36,6 +36,7 @@ page-section(
         :platform="nestItem.platform"
         :targets="nestItem.targets"
         :action="nestItem.action"
+        :ready="version !== null"
         :class=`[
           "c-section-downloads-platforms__app",
           {
@@ -164,14 +165,14 @@ export default {
      * @return {undefined}
      */
     downloadFromParent(platform) {
-      const platformDownloadElement =
+      const _platformDownloadElement =
         this.$el.querySelector(
           `.js-app-download.js-app-download--${platform}`
         ) || null;
 
       // Trigger click on platform download button? (if any)
-      if (platformDownloadElement !== null) {
-        platformDownloadElement.click();
+      if (_platformDownloadElement !== null) {
+        _platformDownloadElement.click();
       } else {
         alert(
           "Could not download Prose. Is it available yet for your platform?"
@@ -200,10 +201,10 @@ export default {
       matrixPlatform = matrixPlatform || platform;
 
       // Generate platform slug
-      const platformSlug = `${matrixPlatform}-${architecture.full}`;
+      const _platformSlug = `${matrixPlatform}-${architecture.full}`;
 
       // Check if a version is available on matrix? (for platform)
-      if (platformSlug in this.matrix) {
+      if (_platformSlug in this.matrix) {
         return this.$filters.formatDownloadUrl(
           this.version,
           platform,

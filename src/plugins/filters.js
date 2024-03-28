@@ -37,19 +37,19 @@ export default ({ $config }, inject) => {
 
     formatDownloadUrl: (version, platform, extension, architecture) => {
       // Generate package file name
-      const packageFileName = [
+      const _packageFileName = [
         [$config.downloads.app.package, version, architecture.short].join("_"),
         extension
       ].join(".");
 
       // Generate target URL to package for platform
-      const packageFileUrl =
+      const _packageFileUrl =
         `${$config.url.prose_files}/apps/versions/` +
         `${version}/${platform}/${architecture.full}/` +
-        packageFileName;
+        _packageFileName;
 
       return {
-        url: packageFileUrl,
+        url: _packageFileUrl,
         name: architecture.name
       };
     }
