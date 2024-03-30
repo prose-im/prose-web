@@ -350,6 +350,10 @@ $platforms: (
       text-align: center;
       display: block;
     }
+
+    #{$c}__name {
+      justify-content: center;
+    }
   }
 }
 </style>
