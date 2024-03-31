@@ -1,6 +1,20 @@
 {
   "versions": [
     {
+      "version": "0.2.4",
+      "date": "2024-03-31",
+
+      "platforms": {
+        "macos": ["apple", "intel"]
+      },
+
+      "changelog": {
+        "features": [["Messaging", "Add a text formatting toolbar"]],
+        "fixes": [["Messaging", "Improve rendering of formatted messages"]]
+      }
+    },
+
+    {
       "version": "0.2.3",
       "date": "2024-03-28",
 
