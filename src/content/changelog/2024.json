@@ -1,6 +1,32 @@
 {
   "versions": [
     {
+      "version": "0.3.0",
+      "date": "2024-04-10",
+
+      "platforms": {
+        "macos": ["apple", "intel"]
+      },
+
+      "changelog": {
+        "features": [
+          [
+            "Messaging",
+            "Add base support for end-to-end encryption of messages"
+          ],
+
+          ["Messaging", "Restore last conversation when starting Prose"]
+        ],
+
+        "changes": [
+          ["Interface", "General improvements"],
+          ["Interface", "Rework login screen on macOS"],
+          ["Interface", "Add vibrancy on macOS window"]
+        ]
+      }
+    },
+
+    {
       "version": "0.2.4",
       "date": "2024-03-31",
 
