@@ -1,6 +1,23 @@
 {
   "versions": [
     {
+      "version": "0.3.1",
+      "date": "2024-04-21",
+
+      "platforms": {
+        "macos": ["apple", "intel"]
+      },
+
+      "changelog": {
+        "features": [
+          ["Messaging", "New unread stack section"],
+          ["Messaging", "Add message author profile card"],
+          ["Messaging", "Add message reaction card"]
+        ]
+      }
+    },
+
+    {
       "version": "0.3.0",
       "date": "2024-04-10",
 
