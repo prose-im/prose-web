@@ -1,6 +1,26 @@
 {
   "versions": [
     {
+      "version": "0.3.2",
+      "date": "2024-04-29",
+
+      "platforms": {
+        "macos": ["apple", "intel"]
+      },
+
+      "changelog": {
+        "features": [
+          ["Messaging", "Show banner when user is on night time in DMs"]
+        ],
+
+        "fixes": [
+          ["Messaging", "Improve reconnection flow when connection is lost"],
+          ["Application", "Improve notifications for macOS"]
+        ]
+      }
+    },
+
+    {
       "version": "0.3.1",
       "date": "2024-04-21",
 
