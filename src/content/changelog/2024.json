@@ -1,6 +1,33 @@
 {
   "versions": [
     {
+      "version": "0.4.0",
+      "date": "2024-05-31",
+
+      "platforms": {
+        "macos": ["apple", "intel"]
+      },
+
+      "changelog": {
+        "features": [
+          ["Messaging", "Add end-to-end encryption key verification popup"],
+          ["Messaging", "Enlarge up to 3 consecutive emojis in messages"]
+        ],
+
+        "changes": [
+          ["Networking", "Connect using a native a XMPP socket on macOS"]
+        ],
+
+        "fixes": [
+          [
+            "Application",
+            "Attempt to fix reconnection issues in the macOS application"
+          ]
+        ]
+      }
+    },
+
+    {
       "version": "0.3.2",
       "date": "2024-04-29",
 
