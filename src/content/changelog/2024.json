@@ -1,6 +1,26 @@
 {
   "versions": [
     {
+      "version": "0.4.2",
+      "date": "2024-06-12",
+
+      "platforms": {
+        "macos": ["apple", "intel"]
+      },
+
+      "changelog": {
+        "features": [
+          ["Messaging", "Add the ability to mark a message as unread"]
+        ],
+
+        "fixes": [
+          ["Messaging", "Fix navigation to uninitialized rooms"],
+          ["Messaging", "Fix user mentioning"]
+        ]
+      }
+    },
+
+    {
       "version": "0.4.1",
       "date": "2024-06-04",
 
