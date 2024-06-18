@@ -1,6 +1,27 @@
 {
   "versions": [
     {
+      "version": "0.4.3",
+      "date": "2024-06-18",
+
+      "platforms": {
+        "macos": ["apple", "intel"]
+      },
+
+      "changelog": {
+        "features": [
+          ["Interface", "Add message compose modal"],
+          ["Messaging", "Show room name in notification banners"]
+        ],
+
+        "fixes": [
+          ["Messaging", "Fix insertion order of certain messages"],
+          ["Messaging", "Fix behavior of mark message as unread"]
+        ]
+      }
+    },
+
+    {
       "version": "0.4.2",
       "date": "2024-06-12",
 
