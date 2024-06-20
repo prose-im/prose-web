@@ -1,6 +1,27 @@
 {
   "versions": [
     {
+      "version": "0.4.4",
+      "date": "2024-06-20",
+
+      "platforms": {
+        "macos": ["apple", "intel"]
+      },
+
+      "changelog": {
+        "features": [
+          ["Messaging", "Add support for invisible availability"],
+          ["Application", "Add ability to disable cache purging on logout"]
+        ],
+
+        "fixes": [
+          ["Networking", "Fix reconnection issues"],
+          ["Messaging", "Fix insertion order of certain messages"]
+        ]
+      }
+    },
+
+    {
       "version": "0.4.3",
       "date": "2024-06-18",
 
