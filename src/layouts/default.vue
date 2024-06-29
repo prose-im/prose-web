@@ -13,7 +13,7 @@ page-container
   page-header
 
   page-content
-    nuxt
+    slot
 
   page-entice
   page-footer

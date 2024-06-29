@@ -17,7 +17,7 @@ page-container
   page-content(
     showcase
   )
-    nuxt
+    slot
 
   page-entice
   page-footer

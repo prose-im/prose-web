@@ -14,7 +14,7 @@
 .p-error
   page-main-title
     template(
-      slot="title"
+      v-slot:title
     )
       template(
         v-if="error.statusCode === 404"
@@ -27,7 +27,7 @@
         | An Error Occurred
 
     template(
-      slot="description"
+      v-slot:description
     )
       template(
         v-if="error.statusCode === 404"
@@ -55,8 +55,8 @@
           | Error code: {{ error.statusCode }}
 
     nuxt-link(
+      v-slot:action
       to="/"
-      slot="action"
     )
       base-button(
         right-icon="arrow-right"
@@ -70,10 +70,15 @@
      SCRIPT
      ********************************************************************** -->
 
+<script setup>
+definePageMeta({
+  layout: "simple"
+});
+</script>
+
 <script>
 export default {
   name: "ErrorLayout",
-  layout: "simple",
 
   props: {
     error: {
