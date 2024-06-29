@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "vue": "3.4.21",
+    "vue-pug-plugin": "2.0.3",
     "Base64": "1.2.0",
     "crisp-sdk-web": "1.0.13"
   },
@@ -39,6 +40,7 @@
     "@nuxtjs/eslint-module": "4.1.0",
     "@nuxtjs/robots": "3.0.0",
     "@nuxtjs/sitemap": "5.1.0",
+    "@vue/language-plugin-pug": "^2.0.17",
     "pug": "3.0.2",
     "sass": "1.70.0",
     "pug-plain-loader": "1.1.0",
