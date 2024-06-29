@@ -6,22 +6,25 @@
 
 /**************************************************************************
  * IMPORTS
- * ************************************************************************* */
+ ***************************************************************************/
 
 // NPM
 import { Crisp } from "crisp-sdk-web";
+import { defineNuxtPlugin, useRuntimeConfig, inject } from "#imports";
 
 /**************************************************************************
  * EXPORTS
- * ************************************************************************* */
+ ***************************************************************************/
 
-export default function ({ $config }, inject) {
+export default defineNuxtPlugin(() => {
+  const _config = useRuntimeConfig();
+
   // Insert Crisp? (website identifier is defined, and chatbox feature is \
   //   enabled)
-  if ($config.tokens.crisp_website_id && $config.features.chatbox === true) {
-    Crisp.configure($config.tokens.crisp_website_id);
+  if (_config.tokens.crisp_website_id && _config.features.chatbox === true) {
+    Crisp.configure(_config.tokens.crisp_website_id);
   }
 
   // Inject $crisp to context
   inject("crisp", Crisp);
-}
+});
