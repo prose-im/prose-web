@@ -35,12 +35,12 @@
     "crisp-sdk-web": "1.0.13"
   },
   "devDependencies": {
-    "@nuxt/content": "2.12.1",
+    "@nuxt/content": "2.13.0",
     "@nuxt/eslint-config": "0.1.0",
     "@nuxtjs/eslint-module": "4.1.0",
     "@nuxtjs/robots": "3.0.0",
     "@nuxtjs/sitemap": "5.1.0",
-    "@vue/language-plugin-pug": "^2.0.17",
+    "@vue/language-plugin-pug": "2.0.22",
     "pug": "3.0.2",
     "sass": "1.70.0",
     "pug-plain-loader": "1.1.0",
