@@ -47,7 +47,7 @@ export default {
   async fetch() {
     // Load update manifest to acquire latest available version
     const _latestUpdate = await this.$http.$get(
-      `${this.$config.url.prose_files}/apps/updates/latest.json`
+      `${this.$config.public.url.prose_files}/apps/updates/latest.json`
     );
 
     this.version = _latestUpdate.version;

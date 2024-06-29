@@ -94,7 +94,7 @@ export default {
 
   computed: {
     hasAnnouncement() {
-      return this.$config.modifiers.announcement === true;
+      return this.$config.public.modifiers.announcement === true;
     }
   }
 };

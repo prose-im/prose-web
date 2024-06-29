@@ -82,6 +82,9 @@ export default defineNuxtConfig({
     static: "static"
   },
 
+  // CSS Files
+  css: ["@/assets/stylesheets/all.scss"],
+
   // Auto-import all components as global
   components: [{ path: "components", pathPrefix: false }],
 
@@ -245,18 +248,20 @@ export default defineNuxtConfig({
 
   // Runtime Configuration
   runtimeConfig: {
-    // Important: remap config as to strip any private token from there, as \
-    //   eg. in the future there might be some private built-time token \
-    //   shared in this configuration file, which we DO NOT want to leak on \
-    //   the Web.
-    url: CONFIG.url,
-    social: CONFIG.social,
-    email: CONFIG.email,
-    downloads: CONFIG.downloads,
-    features: CONFIG.features,
-    modifiers: CONFIG.modifiers,
-    tokens: CONFIG.tokens.public,
-    author: projectPackage.author
+    public: {
+      // Important: remap config as to strip any private token from there, as \
+      //   eg. in the future there might be some private built-time token \
+      //   shared in this configuration file, which we DO NOT want to leak on \
+      //   the Web.
+      url: CONFIG.url,
+      social: CONFIG.social,
+      email: CONFIG.email,
+      downloads: CONFIG.downloads,
+      features: CONFIG.features,
+      modifiers: CONFIG.modifiers,
+      tokens: CONFIG.tokens.public,
+      author: projectPackage.author
+    }
   },
 
   // Sitemap Configuration

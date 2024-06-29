@@ -16,7 +16,7 @@ nuxt-layout(
     :throttle="250"
     :duration="3000"
     :height="3"
-    :color="$config.modifiers.announcement ? '#0f2a5b' : '#ff88a3'"
+    :color="$config.public.modifiers.announcement ? '#0f2a5b' : '#ff88a3'"
     error-color="#db0031"
   )
 

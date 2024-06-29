@@ -71,7 +71,7 @@ export default {
 
   computed: {
     platforms() {
-      const _architectures = this.$config.downloads.app.architectures;
+      const _architectures = this.$config.public.downloads.app.architectures;
 
       return {
         desktop: {
@@ -81,7 +81,7 @@ export default {
             {
               platform: "web",
               action: "load",
-              targets: [{ url: this.$config.url.prose_app }],
+              targets: [{ url: this.$config.public.url.prose_app }],
               spaced: true
             },
 

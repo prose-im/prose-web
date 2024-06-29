@@ -21,8 +21,11 @@ export default defineNuxtPlugin(() => {
 
   // Insert Crisp? (website identifier is defined, and chatbox feature is \
   //   enabled)
-  if (_config.tokens.crisp_website_id && _config.features.chatbox === true) {
-    Crisp.configure(_config.tokens.crisp_website_id);
+  if (
+    _config.public.tokens.crisp_website_id &&
+    _config.public.features.chatbox === true
+  ) {
+    Crisp.configure(_config.public.tokens.crisp_website_id);
   }
 
   // Inject $crisp to context

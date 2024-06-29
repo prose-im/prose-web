@@ -47,13 +47,17 @@ export default defineNuxtPlugin(() => {
     formatDownloadUrl: (version, platform, extension, architecture) => {
       // Generate package file name
       const _packageFileName = [
-        [_config.downloads.app.package, version, architecture.short].join("_"),
+        [
+          _config.public.downloads.app.package,
+          version,
+          architecture.short
+        ].join("_"),
         extension
       ].join(".");
 
       // Generate target URL to package for platform
       const _packageFileUrl =
-        `${_config.url.prose_files}/apps/versions/` +
+        `${_config.public.url.prose_files}/apps/versions/` +
         `${version}/${platform}/${architecture.full}/` +
         _packageFileName;
 

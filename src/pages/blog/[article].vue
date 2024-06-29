@@ -95,7 +95,7 @@ export default {
         {
           hid: "og-image",
           property: "og:image",
-          content: `${this.$config.url.prose_web}${this.page.cover.src}`
+          content: `${this.$config.public.url.prose_web}${this.page.cover.src}`
         },
 
         {
@@ -113,7 +113,7 @@ export default {
         {
           hid: "twitter-image",
           name: "twitter:image",
-          content: `${this.$config.url.prose_web}${this.page.cover.src}`
+          content: `${this.$config.public.url.prose_web}${this.page.cover.src}`
         }
       ]
     };

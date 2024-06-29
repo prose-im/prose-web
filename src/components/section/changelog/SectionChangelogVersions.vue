@@ -223,7 +223,7 @@ export default {
           version,
           platform,
           _extension,
-          this.$config.downloads.app.architectures[architecture]
+          this.$config.public.downloads.app.architectures[architecture]
         );
 
         return {
@@ -241,8 +241,8 @@ export default {
      */
     fullChangesUrl(version) {
       return (
-        `${this.$config.url.github_prose}/` +
-        `${this.$config.downloads.app.project}/releases/tag/${version}`
+        `${this.$config.public.url.github_prose}/` +
+        `${this.$config.public.downloads.app.project}/releases/tag/${version}`
       );
     }
   }

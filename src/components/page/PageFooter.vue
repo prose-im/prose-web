@@ -29,7 +29,7 @@
             base-space
 
             a(
-              :href="$config.url.github_prose"
+              :href="$config.public.url.github_prose"
               class="u-medium"
               target="_blank"
             )
@@ -104,7 +104,7 @@
               v-slot:default
             )
               span.c-page-footer__author
-                | {{ $config.author.name }} © {{ currentYear }}
+                | {{ $config.public.author.name }} © {{ currentYear }}
 
       .c-page-footer__right
         .c-page-footer__crafted.u-medium
@@ -151,20 +151,20 @@ export default {
       socialItems: [
         {
           platform: "x",
-          label: `@${this.$config.social.x_prose}`,
-          target: this.$config.url.x_prose
+          label: `@${this.$config.public.social.x_prose}`,
+          target: this.$config.public.url.x_prose
         },
 
         {
           platform: "youtube",
           label: "YouTube",
-          target: this.$config.url.youtube_prose
+          target: this.$config.public.url.youtube_prose
         },
 
         {
           platform: "github",
           label: "GitHub",
-          target: this.$config.url.github_prose
+          target: this.$config.public.url.github_prose
         }
       ],
 
@@ -172,7 +172,7 @@ export default {
         {
           id: "open_source",
           image: ImageCopyrightBadgesOpenSource,
-          target: this.$config.url.github_prose
+          target: this.$config.public.url.github_prose
         }
       ],
 
@@ -194,7 +194,7 @@ export default {
 
             {
               label: "Open-Source",
-              target: this.$config.url.github_prose
+              target: this.$config.public.url.github_prose
             }
           ]
         },
@@ -245,7 +245,7 @@ export default {
               label: "Brand Assets",
 
               target:
-                `${this.$config.url.prose_files}/` +
+                `${this.$config.public.url.prose_files}/` +
                 `public/documents/brand-assets.zip`
             },
 
@@ -263,12 +263,12 @@ export default {
           items: [
             {
               label: "Help Center",
-              target: `${this.$config.url.prose_help}/`
+              target: `${this.$config.public.url.prose_help}/`
             },
 
             {
               label: "Technical Docs",
-              target: `${this.$config.url.prose_docs}/`
+              target: `${this.$config.public.url.prose_docs}/`
             },
 
             {
@@ -278,11 +278,11 @@ export default {
 
             {
               label: "System Status",
-              target: `${this.$config.url.prose_status}/`,
+              target: `${this.$config.public.url.prose_status}/`,
               emphasis: true,
 
               indicatorIcon:
-                `${this.$config.url.prose_status}/includes/badge/` +
+                `${this.$config.public.url.prose_status}/includes/badge/` +
                 `?healthy=${STATUS_COLORS.healthy}&` +
                 `sick=${STATUS_COLORS.sick}&` +
                 `dead=${STATUS_COLORS.dead}`
@@ -291,7 +291,7 @@ export default {
         }
       ],
 
-      ownershipFunderUrl: `${this.$config.url.valeriansaliou_web}/`
+      ownershipFunderUrl: `${this.$config.public.url.valeriansaliou_web}/`
     };
   }
 };

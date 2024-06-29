@@ -29,7 +29,7 @@
       v-slot:action
     )
       a(
-        :href="$config.url.prose_app"
+        :href="$config.public.url.prose_app"
       )
         base-button(
           right-icon="arrow-right"

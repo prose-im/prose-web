@@ -81,7 +81,7 @@ div(
 
           .c-page-header__right
             a(
-              :href="$config.url.prose_app"
+              :href="$config.public.url.prose_app"
               class="c-page-header__action"
             )
               base-button(
@@ -148,7 +148,7 @@ div(
                         | {{ dropdownItem.title }}
 
         a(
-          :href="$config.url.prose_app"
+          :href="$config.public.url.prose_app"
           class="c-page-header__action"
         )
           base-button(
@@ -286,7 +286,7 @@ export default {
               id: "help",
               title: "Help Center",
               label: "Get help with using Prose as a user",
-              target: `${this.$config.url.prose_help}/`,
+              target: `${this.$config.public.url.prose_help}/`,
               icon: ImageMenuDropdownHelpIconHelp
             },
 
@@ -294,7 +294,7 @@ export default {
               id: "docs",
               title: "Technical Docs",
               label: "Resources for Prose server admins",
-              target: `${this.$config.url.prose_docs}/`,
+              target: `${this.$config.public.url.prose_docs}/`,
               icon: ImageMenuDropdownHelpIconDocs
             },
 
@@ -313,7 +313,7 @@ export default {
 
   computed: {
     hasAnnouncement() {
-      return this.$config.modifiers.announcement === true;
+      return this.$config.public.modifiers.announcement === true;
     },
 
     currentRootPageName() {
