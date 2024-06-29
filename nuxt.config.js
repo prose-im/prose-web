@@ -60,6 +60,11 @@ export default defineNuxtConfig({
   // Telemetry
   telemetry: false,
 
+  // General Site Configuration
+  site: {
+    url: CONFIG.url.prose_web
+  },
+
   // Source Directory
   srcDir: "src/",
   publicDir: "public/",

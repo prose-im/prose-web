@@ -22,9 +22,6 @@
      ********************************************************************** -->
 
 <script>
-// NPM
-import Vue from "vue";
-
 export default {
   provide() {
     return {
@@ -37,9 +34,9 @@ export default {
     return {
       // --> STATE <--
 
-      state: Vue.observable({
+      state: {
         value: false
-      })
+      }
     };
   },
 
