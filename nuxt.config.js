@@ -13,6 +13,7 @@ import fs from "fs";
 import path from "path";
 
 // NPM
+import { defineNuxtConfig } from "nuxt/config";
 import merge from "lodash.merge";
 
 // CONFIGURATION
@@ -51,7 +52,7 @@ const CONFIG = (function () {
  * EXPORTS
  * ************************************************************************* */
 
-export default {
+export default defineNuxtConfig({
   // Target: https://go.nuxtjs.dev/config-target
   target: "static",
 
@@ -68,7 +69,8 @@ export default {
   telemetry: false,
 
   // Global page headers: https://go.nuxtjs.dev/config-head
-  head: {
+  // TODO: might not work, check this (or migrate to App.vue)
+  meta: {
     title: "prose-web",
 
     htmlAttrs: {
@@ -256,6 +258,8 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    // TODO: completely reconfigure this
+
     extractCSS: true,
     publicPath: "/public/",
 
@@ -269,10 +273,11 @@ export default {
   // Public runtime configuration: \
   //   https://nuxtjs.org/docs/configuration-glossary/\
   //     configuration-runtime-config
-  publicRuntimeConfig: {
+  runtimeConfig: {
     // Important: remap config as to strip any private token from there, as \
-    //   eg. in the future there might be some private built-time token shared \
-    //   in this configuration file, which we DO NOT want to leak on the Web.
+    //   eg. in the future there might be some private built-time token \
+    //   shared in this configuration file, which we DO NOT want to leak on \
+    //   the Web.
     url: CONFIG.url,
     social: CONFIG.social,
     email: CONFIG.email,
@@ -317,4 +322,4 @@ export default {
   styleResources: {
     scss: ["assets/stylesheets/variables/*", "assets/stylesheets/tools/*"]
   }
-};
+});
