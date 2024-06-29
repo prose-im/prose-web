@@ -72,7 +72,7 @@ $c: ".c-base-social-icon";
 // VARIABLES
 $icon-size-default: 24px;
 
-.c-base-social-icon {
+#{$c} {
   height: $icon-size-default;
   width: $icon-size-default;
   display: inline-block;

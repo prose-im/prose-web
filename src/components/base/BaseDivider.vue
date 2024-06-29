@@ -29,7 +29,7 @@ export default {
 <style lang="scss">
 $c: ".c-base-divider";
 
-.c-base-divider {
+#{$c} {
   background-color: #e6e8ec;
   height: 2px;
   width: 100%;

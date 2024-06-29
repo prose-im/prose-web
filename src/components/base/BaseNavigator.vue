@@ -82,7 +82,7 @@ $c: ".c-base-navigator";
 $navigator-padding-top-bottom: 6px;
 $navigator-item-margin-bottom: 4px;
 
-.c-base-navigator {
+#{$c} {
   background-color: rgba($color-white, 0.1);
   text-align: center;
   user-select: none;

@@ -47,7 +47,7 @@ export default {
 <style lang="scss">
 $c: ".c-page-section";
 
-.c-page-section {
+#{$c} {
   border-color: transparent;
   border-width: 1px 0;
   border-style: solid;

@@ -66,7 +66,7 @@ export default {
 <style lang="scss">
 $c: ".c-section-about-manifesto";
 
-.c-section-about-manifesto {
+#{$c} {
   position: relative;
   padding: 80px 0;
 
@@ -142,7 +142,7 @@ $c: ".c-section-about-manifesto";
 // --> MEDIA-QUERIES <--
 
 @media (max-width: $screen-medium-width-breakpoint) {
-  .c-section-about-manifesto {
+  #{$c} {
     #{$c}__columns {
       #{$c}__column-1 {
         display: none;

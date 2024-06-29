@@ -167,7 +167,7 @@ export default {
 <style lang="scss">
 $c: ".c-section-terms-text";
 
-.c-section-terms-text {
+#{$c} {
   #{$c}__sections {
     width: 100%;
     max-width: 740px;
@@ -221,7 +221,7 @@ $c: ".c-section-terms-text";
 // --> MEDIA-QUERIES <--
 
 @media (max-width: $screen-lilliput-width-breakpoint) {
-  .c-section-terms-text {
+  #{$c} {
     #{$c}__sections {
       #{$c}__section {
         &::after {

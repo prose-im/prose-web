@@ -85,7 +85,7 @@ export default {
 <style lang="scss">
 $c: ".c-section-use-cases-main";
 
-.c-section-use-cases-main {
+#{$c} {
   #{$c}__illustration {
     margin-top: -24px;
     padding-top: 120px;
@@ -106,7 +106,7 @@ $c: ".c-section-use-cases-main";
 // --> MEDIA-QUERIES <--
 
 @media (max-width: $screen-small-width-breakpoint) {
-  .c-section-use-cases-main {
+  #{$c} {
     #{$c}__illustration-center {
       background-image: var(--mobile-image);
       left: 2.5%;

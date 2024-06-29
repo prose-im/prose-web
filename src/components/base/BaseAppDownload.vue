@@ -234,7 +234,7 @@ $platforms: (
   windows: #5488e5
 );
 
-.c-app-download {
+#{$c} {
   background: $color-white;
   overflow: hidden;
   display: flex;
@@ -339,7 +339,7 @@ $platforms: (
 // --> MEDIA-QUERIES <--
 
 @media (max-width: $screen-medium-width-breakpoint) {
-  .c-app-download {
+  #{$c} {
     #{$c}__inner {
       flex-direction: column;
       align-items: center;

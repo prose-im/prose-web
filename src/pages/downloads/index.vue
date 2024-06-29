@@ -84,11 +84,13 @@ export default {
 <style lang="scss">
 $c: ".p-downloads-index";
 
-#{$c}__platforms {
-  margin-top: 90px;
-}
+#{$c} {
+  #{$c}__platforms {
+    margin-top: 90px;
+  }
 
-#{$c}__archive {
-  margin-top: 64px;
+  #{$c}__archive {
+    margin-top: 64px;
+  }
 }
 </style>

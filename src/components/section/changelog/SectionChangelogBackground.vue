@@ -48,7 +48,7 @@ export default {
 <style lang="scss">
 $c: ".c-section-changelog-background";
 
-.c-section-changelog-background {
+#{$c} {
   #{$c}__wrapper {
     position: absolute;
     top: 0;

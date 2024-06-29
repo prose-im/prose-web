@@ -69,7 +69,7 @@ export default {
 <style lang="scss">
 $c: ".p-blog-index";
 
-.p-blog-index {
+#{$c} {
   padding-bottom: 74px;
 
   #{$c}__text {

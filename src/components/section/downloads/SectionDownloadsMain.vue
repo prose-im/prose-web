@@ -122,7 +122,7 @@ export default {
 <style lang="scss">
 $c: ".c-section-downloads-main";
 
-.c-section-downloads-main {
+#{$c} {
   #{$c}__action {
     &--disabled {
       pointer-events: none;
@@ -134,7 +134,7 @@ $c: ".c-section-downloads-main";
 // --> MEDIA-QUERIES <--
 
 @media (max-width: 740px) {
-  .c-section-downloads-main {
+  #{$c} {
     #{$c}__rasters {
       display: none;
     }

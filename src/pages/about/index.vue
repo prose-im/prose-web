@@ -44,7 +44,7 @@ export default {
 <style lang="scss">
 $c: ".p-about-index";
 
-.p-about-index {
+#{$c} {
   #{$c}__form {
     margin-top: 44px;
   }

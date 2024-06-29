@@ -46,7 +46,7 @@ export default {
 <style lang="scss">
 $c: ".p-terms-index";
 
-.p-terms-index {
+#{$c} {
   padding-bottom: 74px;
 
   #{$c}__text {

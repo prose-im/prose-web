@@ -127,7 +127,7 @@ $rasters: (
   target
 );
 
-.c-base-raster {
+#{$c} {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;

@@ -52,7 +52,7 @@ export default {
 <style lang="scss">
 $c: ".c-base-disclaimer";
 
-.c-base-disclaimer {
+#{$c} {
   background: $color-background-secondary;
   border: 1px solid $color-border-secondary;
   padding: 25px 56px 28px;
@@ -80,21 +80,21 @@ $c: ".c-base-disclaimer";
 // --> MEDIA-QUERIES <--
 
 @media (max-width: $screen-small-width-breakpoint) {
-  .c-base-disclaimer {
+  #{$c} {
     padding-left: 32px;
     padding-right: 32px;
   }
 }
 
 @media (max-width: $screen-tiny-width-breakpoint) {
-  .c-base-disclaimer {
+  #{$c} {
     padding-left: 28px;
     padding-right: 28px;
   }
 }
 
 @media (max-width: $screen-lilliput-width-breakpoint) {
-  .c-base-disclaimer {
+  #{$c} {
     padding-left: 18px;
     padding-right: 18px;
     flex-direction: column;

@@ -46,7 +46,7 @@ export default {
 <style lang="scss">
 $c: ".p-contact-index";
 
-.p-contact-index {
+#{$c} {
   #{$c}__form {
     margin-top: 44px;
   }

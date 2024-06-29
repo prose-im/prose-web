@@ -62,7 +62,7 @@ export default {
 <style lang="scss">
 $c: ".c-section-blog-main";
 
-.c-section-blog-main {
+#{$c} {
   #{$c}__featured {
     display: flex;
     gap: 64px;
@@ -122,7 +122,7 @@ $c: ".c-section-blog-main";
 // --> MEDIA-QUERIES <--
 
 @media (max-width: $screen-medium-width-breakpoint) {
-  .c-section-blog-main {
+  #{$c} {
     #{$c}__featured {
       flex-direction: column;
       gap: 24px;

@@ -57,7 +57,7 @@ export default {
 <style lang="scss">
 $c: ".c-markdown-image";
 
-.c-markdown-image {
+#{$c} {
   margin-top: 40px;
 
   #{$c}__caption {

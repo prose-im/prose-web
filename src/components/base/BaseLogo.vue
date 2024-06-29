@@ -65,7 +65,7 @@ $size-widths: (
   "large": 104px
 );
 
-.c-base-logo {
+#{$c} {
   @include mask-image(
     "~/assets/images/components/base/BaseLogo/logo-path.svg?data"
   );

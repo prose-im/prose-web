@@ -67,7 +67,7 @@ export default {
 <style lang="scss">
 $c: ".c-base-dropdown";
 
-.c-base-dropdown {
+#{$c} {
   padding-top: 12px;
 
   #{$c}__box {
@@ -95,7 +95,7 @@ $c: ".c-base-dropdown";
 // --> MEDIA-QUERIES <--
 
 @media (max-width: $screen-tiny-width-breakpoint) {
-  .c-base-dropdown {
+  #{$c} {
     #{$c}__inner {
       padding-left: 22px;
       padding-right: 18px;

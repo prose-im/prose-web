@@ -123,7 +123,7 @@ $content-padding-left-small: 42px;
 $content-padding-left-tiny: 28px;
 $content-padding-left-lilliput: 22px;
 
-.p-changelog-year {
+#{$c} {
   #{$c}__main,
   #{$c}__versions {
     z-index: 1;
@@ -147,7 +147,7 @@ $content-padding-left-lilliput: 22px;
 // --> MEDIA-QUERIES <--
 
 @media (max-width: $screen-medium-width-breakpoint) {
-  .p-changelog-year {
+  #{$c} {
     #{$c}__main #{$c}__main-content,
     #{$c}__versions #{$c}__versions-content {
       padding-left: $content-padding-left-medium;
@@ -156,7 +156,7 @@ $content-padding-left-lilliput: 22px;
 }
 
 @media (max-width: $screen-small-width-breakpoint) {
-  .p-changelog-year {
+  #{$c} {
     #{$c}__main #{$c}__main-content,
     #{$c}__versions #{$c}__versions-content {
       padding-left: $content-padding-left-small;
@@ -165,7 +165,7 @@ $content-padding-left-lilliput: 22px;
 }
 
 @media (max-width: $screen-tiny-width-breakpoint) {
-  .p-changelog-year {
+  #{$c} {
     #{$c}__main #{$c}__main-content,
     #{$c}__versions #{$c}__versions-content {
       padding-left: $content-padding-left-tiny;
@@ -180,7 +180,7 @@ $content-padding-left-lilliput: 22px;
 }
 
 @media (max-width: $screen-lilliput-width-breakpoint) {
-  .p-changelog-year {
+  #{$c} {
     #{$c}__main #{$c}__main-content,
     #{$c}__versions #{$c}__versions-content {
       padding-left: $content-padding-left-lilliput;

@@ -81,7 +81,7 @@ export default {
 <style lang="scss">
 $c: ".c-section-use-cases-bento";
 
-.c-section-use-cases-bento {
+#{$c} {
   padding: 250px 0 150px;
   position: relative;
 
@@ -116,7 +116,7 @@ $c: ".c-section-use-cases-bento";
 // --> MEDIA-QUERIES <--
 
 @media (max-width: $screen-small-width-breakpoint) {
-  .c-section-use-cases-bento {
+  #{$c} {
     #{$c}__wave {
       display: none;
     }
@@ -124,7 +124,7 @@ $c: ".c-section-use-cases-bento";
 }
 
 @media (max-width: $screen-tiny-width-breakpoint) {
-  .c-section-use-cases-bento {
+  #{$c} {
     padding: 150px 0 0;
 
     #{$c}__grid {

@@ -106,7 +106,7 @@ export default {
 <style lang="scss">
 $c: ".c-base-wave";
 
-.c-base-wave {
+#{$c} {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: bottom;

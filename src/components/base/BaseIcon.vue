@@ -215,7 +215,7 @@ export default {
 <style lang="scss">
 $c: ".c-base-icon";
 
-.c-base-icon {
+#{$c} {
   width: 64px;
   height: 64px;
   display: block;

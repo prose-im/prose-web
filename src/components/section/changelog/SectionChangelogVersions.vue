@@ -256,7 +256,7 @@ export default {
 <style lang="scss">
 $c: ".c-section-changelog-versions";
 
-.c-section-changelog-versions {
+#{$c} {
   #{$c}__version {
     border-top: 1px solid $color-border-secondary;
     padding-top: 28px;
@@ -389,7 +389,7 @@ $c: ".c-section-changelog-versions";
 // --> MEDIA-QUERIES <--
 
 @media (max-width: $screen-lilliput-width-breakpoint) {
-  .c-section-changelog-versions {
+  #{$c} {
     #{$c}__version {
       #{$c}__version-downloads {
         display: none;

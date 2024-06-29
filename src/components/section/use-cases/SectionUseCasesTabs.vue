@@ -82,7 +82,7 @@ export default {
 <style lang="scss">
 $c: ".c-section-use-cases-tabs";
 
-.c-section-use-cases-tabs {
+#{$c} {
   padding: 150px 0;
   position: relative;
 
@@ -102,7 +102,7 @@ $c: ".c-section-use-cases-tabs";
 // --> MEDIA-QUERIES <--
 
 @media (max-width: $screen-medium-width-breakpoint) {
-  .c-section-use-cases-tabs {
+  #{$c} {
     padding: 150px 0 50px;
 
     #{$c}__media-stack {

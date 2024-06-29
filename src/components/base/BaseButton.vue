@@ -150,7 +150,7 @@ $size-normal-padding-sides: 22px;
 $size-large-padding-sides: 28px;
 $size-huge-padding-sides: 38px;
 
-.c-base-button {
+#{$c} {
   display: inline-block;
 
   &:active {

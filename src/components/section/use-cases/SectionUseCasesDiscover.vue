@@ -84,7 +84,7 @@ export default {
 <style lang="scss">
 $c: ".c-section-use-cases-discover";
 
-.c-section-use-cases-discover {
+#{$c} {
   background-color: $color-background-primary;
   position: relative;
 
@@ -115,7 +115,7 @@ $c: ".c-section-use-cases-discover";
 // --> MEDIA-QUERIES <--
 
 @media (max-width: $screen-medium-width-breakpoint) {
-  .c-section-use-cases-discover {
+  #{$c} {
     #{$c}__options {
       grid-template-columns: repeat(1, 1fr);
     }

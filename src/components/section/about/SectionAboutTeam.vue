@@ -213,7 +213,7 @@ export default {
 <style lang="scss">
 $c: ".c-section-about-team";
 
-.c-section-about-team {
+#{$c} {
   position: relative;
   padding: 80px 0 20px;
   z-index: 1;
@@ -294,7 +294,7 @@ $c: ".c-section-about-team";
 // --> MEDIA-QUERIES <--
 
 @media (max-width: $screen-medium-width-breakpoint) {
-  .c-section-about-team {
+  #{$c} {
     #{$c}__members {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -302,7 +302,7 @@ $c: ".c-section-about-team";
 }
 
 @media (max-width: $screen-tiny-width-breakpoint) {
-  .c-section-about-team {
+  #{$c} {
     #{$c}__members {
       grid-template-columns: repeat(1, 1fr);
     }

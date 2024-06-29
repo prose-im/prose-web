@@ -124,7 +124,7 @@ export default {
 <style lang="scss">
 $c: ".c-section-changelog-main";
 
-.c-section-changelog-main {
+#{$c} {
   #{$c}__sidebar {
     text-align: left;
     padding-right: 18px;
@@ -154,7 +154,7 @@ $c: ".c-section-changelog-main";
 // --> MEDIA-QUERIES <--
 
 @media (max-width: $screen-lilliput-width-breakpoint) {
-  .c-section-changelog-main {
+  #{$c} {
     #{$c}__sidebar {
       #{$c}__sidebar-raster {
         display: none;

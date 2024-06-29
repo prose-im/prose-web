@@ -89,7 +89,7 @@ $c: ".c-base-title";
 $stroke-size: 2px;
 $stroke-color: $color-background-secondary;
 
-.c-base-title {
+#{$c} {
   // --> LEVELS <--
 
   &--mini {
@@ -180,7 +180,7 @@ $stroke-color: $color-background-secondary;
 // --> MEDIA-QUERIES <--
 
 @media (max-width: $screen-tiny-width-breakpoint) {
-  .c-base-title {
+  #{$c} {
     &--large {
       font-size: 56px;
       line-height: 56px;
@@ -194,7 +194,7 @@ $stroke-color: $color-background-secondary;
 }
 
 @media (max-width: $screen-lilliput-width-breakpoint) {
-  .c-base-title {
+  #{$c} {
     &--large {
       font-size: 40px;
       line-height: 40px;

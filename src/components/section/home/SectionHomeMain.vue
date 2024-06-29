@@ -110,7 +110,7 @@ $c: ".c-section-home-main";
 // VARIABLES
 $inner-padding-top-base: 74px;
 
-.c-section-home-main {
+#{$c} {
   padding-bottom: 260px;
 
   #{$c}__inner {
@@ -308,7 +308,7 @@ $inner-padding-top-base: 74px;
 // --> MEDIA-QUERIES <--
 
 @media (max-width: $screen-small-width-breakpoint) {
-  .c-section-home-main {
+  #{$c} {
     #{$c}__description {
       font-size: 16px;
       line-height: 24px;
@@ -321,7 +321,7 @@ $inner-padding-top-base: 74px;
 }
 
 @media (max-width: $screen-tiny-width-breakpoint) {
-  .c-section-home-main {
+  #{$c} {
     padding-bottom: 100px;
   }
 }

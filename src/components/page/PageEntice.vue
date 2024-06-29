@@ -203,7 +203,7 @@ $c: ".c-page-entice";
 // VARIABLES
 $animate-shake-base-depth: 2px;
 
-.c-page-entice {
+#{$c} {
   background-color: $color-background-primary;
   padding-top: 20px;
   position: relative;
@@ -393,7 +393,7 @@ $animate-shake-base-depth: 2px;
 // --> MEDIA-QUERIES <--
 
 @media (max-width: $screen-large-width-breakpoint) {
-  .c-page-entice {
+  #{$c} {
     #{$c}__content {
       #{$c}__title {
         font-size: 26px;
@@ -403,7 +403,7 @@ $animate-shake-base-depth: 2px;
 }
 
 @media (max-width: $screen-medium-width-breakpoint) {
-  .c-page-entice {
+  #{$c} {
     #{$c}__content {
       #{$c}__content-inner {
         flex: 1;
@@ -431,7 +431,7 @@ $animate-shake-base-depth: 2px;
 }
 
 @media (max-width: $screen-tiny-width-breakpoint) {
-  .c-page-entice {
+  #{$c} {
     #{$c}__content {
       padding: 0 28px;
 

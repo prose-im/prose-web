@@ -46,7 +46,7 @@ export default {
 <style lang="scss">
 $c: ".c-base-description";
 
-.c-base-description {
+#{$c} {
   color: $color-base-grey-dark;
   font-size: 17px;
   line-height: 28px;

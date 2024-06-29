@@ -61,7 +61,7 @@ export default {
 <style lang="scss">
 $c: ".c-base-disclosure";
 
-.c-base-disclosure {
+#{$c} {
   width: 100%;
 }
 </style>

@@ -149,7 +149,7 @@ $tooltip-spacing-top-bottom: 7px;
 $tooltip-spacing-left-right: -2px;
 $tooltip-translate-offset-vertical: 2px;
 
-.c-base-tooltip {
+#{$c} {
   display: inline-block;
   cursor: context-menu;
   position: relative;

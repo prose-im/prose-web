@@ -50,7 +50,7 @@ export default {
 <style lang="scss">
 $c: ".c-section-downloads-archives";
 
-.c-section-downloads-archives {
+#{$c} {
   position: relative;
   overflow: visible;
 
@@ -91,7 +91,7 @@ $c: ".c-section-downloads-archives";
 // --> MEDIA-QUERIES <--
 
 @media (max-width: $screen-medium-width-breakpoint) {
-  .c-section-downloads-archives {
+  #{$c} {
     #{$c}__column-1 {
       flex-basis: 100%;
       height: 500px;
@@ -105,7 +105,7 @@ $c: ".c-section-downloads-archives";
 }
 
 @media (max-width: $screen-lilliput-width-breakpoint) {
-  .c-section-downloads-archives {
+  #{$c} {
     #{$c}__column-1 {
       height: 400px;
       width: 100%;

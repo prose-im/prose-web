@@ -155,7 +155,7 @@ export default {
 <style lang="scss">
 $c: ".c-base-icon-card";
 
-.c-base-icon-card {
+#{$c} {
   display: flex;
   border-radius: 32px;
   background: linear-gradient(
@@ -269,7 +269,7 @@ $c: ".c-base-icon-card";
 // --> MEDIA-QUERIES <--
 
 @media (max-width: $screen-medium-width-breakpoint) {
-  .c-base-icon-card {
+  #{$c} {
     #{$c}__image-wrapper {
       flex: 1 0 40%;
       width: auto;
@@ -296,7 +296,7 @@ $c: ".c-base-icon-card";
 }
 
 @media (max-width: $screen-small-width-breakpoint) {
-  .c-base-icon-card {
+  #{$c} {
     flex-direction: column-reverse;
 
     #{$c}__image {

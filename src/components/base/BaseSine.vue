@@ -82,7 +82,7 @@ export default {
 <style lang="scss">
 $c: ".c-base-sine";
 
-.c-base-sine {
+#{$c} {
   position: relative;
 
   #{$c}__content {
@@ -137,7 +137,7 @@ $c: ".c-base-sine";
 // --> MEDIA-QUERIES <--
 
 @media (max-width: $screen-small-width-breakpoint) {
-  .c-base-sine {
+  #{$c} {
     #{$c}__content {
       border-radius: 16px;
       aspect-ratio: 1.1 / 1;

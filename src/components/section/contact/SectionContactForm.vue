@@ -91,7 +91,7 @@ export default {
 <style lang="scss">
 $c: ".c-section-contact-form";
 
-.c-section-contact-form {
+#{$c} {
   #{$c}__frame-wrap {
     position: relative;
 

@@ -73,7 +73,7 @@ $icon-width: 18px;
 
 $hover-transition-duration: 150ms;
 
-.c-base-dropdown-item {
+#{$c} {
   display: flex;
 
   &:hover {

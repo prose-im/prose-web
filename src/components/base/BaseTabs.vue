@@ -121,7 +121,7 @@ export default {
 <style lang="scss">
 $c: ".c-base-tabs";
 
-.c-base-tabs {
+#{$c} {
   #{$c}__grid {
     display: grid;
     margin: 0 auto;
@@ -146,7 +146,7 @@ $c: ".c-base-tabs";
 // --> MEDIA-QUERIES <--
 
 @media (max-width: $screen-medium-width-breakpoint) {
-  .c-base-tabs {
+  #{$c} {
     #{$c}__grid {
       grid-gap: 16px;
     }
@@ -154,7 +154,7 @@ $c: ".c-base-tabs";
 }
 
 @media (max-width: $screen-small-width-breakpoint) {
-  .c-base-tabs {
+  #{$c} {
     #{$c}__media-stack {
       display: none;
     }

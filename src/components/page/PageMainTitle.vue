@@ -86,7 +86,7 @@ export default {
 <style lang="scss">
 $c: ".c-page-main-title";
 
-.c-page-main-title {
+#{$c} {
   #{$c}__wrapper {
     position: relative;
   }

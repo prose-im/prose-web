@@ -351,7 +351,7 @@ $inner-width-maximum: 740px;
 
 $hover-transition-duration: 150ms;
 
-.c-page-header {
+#{$c} {
   background-color: $color-background-primary;
 
   #{$c}__sticky,
@@ -647,7 +647,7 @@ $hover-transition-duration: 150ms;
 // --> MEDIA-QUERIES <--
 
 @media (max-width: #{($inner-width-maximum + (2 * $page-wrapper-small-padding-sides))}) {
-  .c-page-header {
+  #{$c} {
     #{$c}__homepage {
       margin-left: 0;
     }
@@ -678,7 +678,7 @@ $hover-transition-duration: 150ms;
 }
 
 @media (max-width: $screen-tiny-width-breakpoint) {
-  .c-page-header {
+  #{$c} {
     #{$c}__announcement {
       #{$c}__announcement-description,
       #{$c}__announcement-separator {

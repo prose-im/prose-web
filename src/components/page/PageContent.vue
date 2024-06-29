@@ -44,7 +44,7 @@ export default {
 <style lang="scss">
 $c: ".c-page-content";
 
-.c-page-content {
+#{$c} {
   background-color: $color-background-primary;
   padding-top: 96px;
   padding-bottom: 120px;
@@ -60,7 +60,7 @@ $c: ".c-page-content";
 // --> MEDIA-QUERIES <--
 
 @media (max-width: $screen-tiny-width-breakpoint) {
-  .c-page-content {
+  #{$c} {
     &:not(#{$c}--showcase) {
       padding-top: 52px;
       padding-bottom: 90px;

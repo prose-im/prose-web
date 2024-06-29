@@ -128,7 +128,7 @@ export default {
 <style lang="scss">
 $c: ".p-blog-article";
 
-.p-blog-article {
+#{$c} {
   padding-bottom: 74px;
 
   ::selection {

@@ -140,7 +140,7 @@ export default {
 <style lang="scss">
 $c: ".c-base-direction";
 
-.c-base-direction {
+#{$c} {
   display: flex;
   align-items: center;
 
@@ -199,7 +199,7 @@ $c: ".c-base-direction";
 // --> MEDIA-QUERIES <--
 
 @media (max-width: $screen-tiny-width-breakpoint) {
-  .c-base-direction {
+  #{$c} {
     flex-direction: column;
 
     #{$c}__action {

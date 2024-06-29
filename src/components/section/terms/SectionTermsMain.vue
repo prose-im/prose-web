@@ -76,7 +76,7 @@ export default {
 <style lang="scss">
 $c: ".c-section-terms-main";
 
-.c-section-terms-main {
+#{$c} {
   text-align: center;
 
   #{$c}__title {

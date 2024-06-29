@@ -131,7 +131,7 @@ export default {
 <style lang="scss">
 $c: ".c-section-home-features";
 
-.c-section-home-features {
+#{$c} {
   padding-bottom: 80px;
   position: relative;
   z-index: 1;
@@ -181,7 +181,7 @@ $c: ".c-section-home-features";
 // --> MEDIA-QUERIES <--
 
 @media (max-width: $screen-medium-width-breakpoint) {
-  .c-section-home-features {
+  #{$c} {
     #{$c}__grid {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -189,7 +189,7 @@ $c: ".c-section-home-features";
 }
 
 @media (max-width: $screen-tiny-width-breakpoint) {
-  .c-section-home-features {
+  #{$c} {
     padding-bottom: 0px;
 
     #{$c}__grid {
