@@ -44,17 +44,9 @@ export default {
     };
   },
 
-  async fetch() {
-    // Load update manifest to acquire latest available version
-    const _latestUpdate = await this.$http.$get(
-      `${this.$config.public.url.prose_files}/apps/updates/latest.json`
-    );
-
-    this.version = _latestUpdate.version;
-    this.matrix = _latestUpdate.platforms;
+  async mounted() {
+    await this.fetchLatest();
   },
-
-  fetchOnServer: false,
 
   head: {
     title: "Download Prose apps"
@@ -72,6 +64,18 @@ export default {
     onMainDownload(platform) {
       // Trigger download from parent method (on platforms)
       this.$refs.platforms.downloadFromParent(platform);
+    },
+
+    // --> HELPERS <--
+
+    async fetchLatest() {
+      // Load update manifest to acquire latest available version
+      const _latestUpdate = await $fetch(
+        `${this.$config.public.url.prose_files}/apps/updates/latest.json`
+      );
+
+      this.version = _latestUpdate.version;
+      this.matrix = _latestUpdate.platforms;
     }
   }
 };
