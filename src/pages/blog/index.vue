@@ -26,11 +26,17 @@
      SCRIPT
      ********************************************************************** -->
 
+<script setup>
+definePageMeta({
+  layout: "simple"
+});
+</script>
+
 <script>
 export default {
   name: "BlogIndexPage",
-  layout: "simple",
 
+  // TODO: not migrated
   async asyncData({ $content }) {
     const _articles = await $content("blog")
       .only(["title", "description", "date", "cover", "slug"])

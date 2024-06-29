@@ -23,10 +23,15 @@
      SCRIPT
      ********************************************************************** -->
 
+<script setup>
+definePageMeta({
+  layout: "simple"
+});
+</script>
+
 <script>
 export default {
   name: "ContactIndexPage",
-  layout: "simple",
 
   head: {
     title: "Contact the Prose team"

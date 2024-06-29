@@ -23,10 +23,15 @@
      SCRIPT
      ********************************************************************** -->
 
+<script setup>
+definePageMeta({
+  layout: "simple"
+});
+</script>
+
 <script>
 export default {
   name: "TermsIndexPage",
-  layout: "simple",
 
   head: {
     title: "Prose Terms of Use and Privacy Policy"

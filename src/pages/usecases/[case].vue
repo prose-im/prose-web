@@ -32,6 +32,12 @@
     SCRIPT
     ********************************************************************** -->
 
+<script setup>
+definePageMeta({
+  layout: "simple"
+});
+</script>
+
 <script>
 // CONSTANTS
 const USE_CASES = [
@@ -83,8 +89,8 @@ const USE_CASES = [
 
 export default {
   name: "UseCasesCasePage",
-  layout: "simple",
 
+  // TODO: need to migrate
   validate({ params }) {
     // Case is set, but not valid?
     const _useCase =
@@ -98,6 +104,7 @@ export default {
     return true;
   },
 
+  // TODO: not migrated
   async asyncData({ $content, params, error }) {
     // Fetch content for selected case
     const _case = await $content("usecases", params.case)

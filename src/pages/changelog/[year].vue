@@ -38,14 +38,51 @@
      SCRIPT
      ********************************************************************** -->
 
+<script setup>
+definePageMeta({
+  layout: "simple"
+});
+
+// TODO: not fully migrated
+const { year, years, changes } = await useAsyncData(async () => {
+  // Acquire all available content years
+  const _years = (
+    await $content("changelog", {
+      deep: true
+    })
+      .only(["slug"])
+      .fetch()
+  )
+    .map(yearData => {
+      return yearData.slug;
+    })
+    .sort()
+    .reverse();
+
+  // Important: fallback on non-existing year '0000' if no first year is \
+  //   available, that way 404 errors are generated properly for the root \
+  //   changelog page.
+  const _year = params.year || _years[0] || "0000";
+
+  // Fetch changes for selected year
+  const _changes = await $content("changelog", _year)
+    .fetch()
+    .catch(() => {
+      error({ statusCode: 404, message: "Year not found" });
+    });
+
+  return { year: _year, years: _years, changes: _changes };
+});
+</script>
+
 <script>
 // INSTANCES
 const YEAR_REGEX = /^([12][0-9]{3})$/;
 
 export default {
   name: "ChangelogYearPage",
-  layout: "simple",
 
+  // TODO: need to migrate
   validate({ params }) {
     // Year is set, but not valid?
     if (params.year && YEAR_REGEX.test(params.year) === false) {
@@ -54,36 +91,6 @@ export default {
 
     // Page parameters are valid
     return true;
-  },
-
-  async asyncData({ $content, params, error }) {
-    // Acquire all available content years
-    const _years = (
-      await $content("changelog", {
-        deep: true
-      })
-        .only(["slug"])
-        .fetch()
-    )
-      .map(yearData => {
-        return yearData.slug;
-      })
-      .sort()
-      .reverse();
-
-    // Important: fallback on non-existing year '0000' if no first year is \
-    //   available, that way 404 errors are generated properly for the root \
-    //   changelog page.
-    const _year = params.year || _years[0] || "0000";
-
-    // Fetch changes for selected year
-    const _changes = await $content("changelog", _year)
-      .fetch()
-      .catch(() => {
-        error({ statusCode: 404, message: "Year not found" });
-      });
-
-    return { year: _year, years: _years, changes: _changes };
   },
 
   data() {

@@ -19,10 +19,15 @@
      SCRIPT
      ********************************************************************** -->
 
+<script setup>
+definePageMeta({
+  layout: "landing"
+});
+</script>
+
 <script>
 export default {
   name: "IndexPage",
-  layout: "landing",
 
   head: {
     title: "Prose – All of your workplace communication lives here"

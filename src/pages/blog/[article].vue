@@ -46,11 +46,17 @@
      SCRIPT
      ********************************************************************** -->
 
+<script setup>
+definePageMeta({
+  layout: "simple"
+});
+</script>
+
 <script>
 export default {
   name: "BlogArticlePage",
-  layout: "simple",
 
+  // TODO: not migrated
   async asyncData({ $content, params, error }) {
     const _page = await $content(`blog/${params.article}`)
       .fetch()
