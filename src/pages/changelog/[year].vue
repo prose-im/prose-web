@@ -43,36 +43,32 @@ definePageMeta({
   layout: "simple"
 });
 
-// TODO: not fully migrated
-const { year, years, changes } = await useAsyncData(async () => {
-  // Acquire all available content years
-  const _years = (
-    await $content("changelog", {
-      deep: true
-    })
-      .only(["slug"])
-      .fetch()
-  )
+const _route = useRoute();
+
+// Acquire all available content years
+const { data: years } = await useAsyncData(async () => {
+  return (await queryContent("changelog").only(["title"]).find())
     .map(yearData => {
-      return yearData.slug;
+      return yearData.title;
     })
     .sort()
     .reverse();
-
-  // Important: fallback on non-existing year '0000' if no first year is \
-  //   available, that way 404 errors are generated properly for the root \
-  //   changelog page.
-  const _year = params.year || _years[0] || "0000";
-
-  // Fetch changes for selected year
-  const _changes = await $content("changelog", _year)
-    .fetch()
-    .catch(() => {
-      error({ statusCode: 404, message: "Year not found" });
-    });
-
-  return { year: _year, years: _years, changes: _changes };
 });
+
+// Important: fallback on non-existing year '0000' if no first year is \
+//   available, that way 404 errors are generated properly for the root \
+//   changelog page.
+const year = _route.params.year || years[0] || "0000";
+
+// Fetch changes for selected year
+const { data: changes } = await useAsyncData(async () => {
+  return await queryContent("changelog", year).findOne();
+});
+
+// Year does not exist?
+if (changes.value === null) {
+  throw createError({ statusCode: 404, statusMessage: "Year not found" });
+}
 </script>
 
 <script>
