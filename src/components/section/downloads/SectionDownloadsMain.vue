@@ -26,28 +26,30 @@ page-main-title(
     p.u-medium
       | Install it and start messaging your team in seconds.
 
-  base-button(
+  template(
     v-slot:action
-    @click="onActionClick"
-    :class=`[
-      "c-section-downloads-main__action",
-      {
-        "c-section-downloads-main__action--disabled": !platformName
-      }
-    ]`
-    size="large"
-    tint="gradient"
-    right-icon="arrow-down"
-    bolder
   )
-    | Download the Prose App
-
-    template(
-      v-if="platformName"
+    base-button(
+      @click="onActionClick"
+      :class=`[
+        "c-section-downloads-main__action",
+        {
+          "c-section-downloads-main__action--disabled": !platformName
+        }
+      ]`
+      size="large"
+      tint="gradient"
+      right-icon="arrow-down"
+      bolder
     )
-      base-space
+      | Download the Prose App
 
-      | for {{ platformName }}
+      template(
+        v-if="platformName"
+      )
+        base-space
+
+        | for {{ platformName }}
 </template>
 
 <!-- **********************************************************************

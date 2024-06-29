@@ -14,54 +14,56 @@ page-split-view(
   :sidebar-class="sidebarClass"
   class="c-section-changelog-main"
 )
-  div(
+  template(
     v-slot:sidebar
-    class="c-section-changelog-main__sidebar"
   )
-    base-raster(
-      :scale="0.85"
-      name="clock"
-      class="c-section-changelog-main__sidebar-raster"
-    )
+    .c-section-changelog-main__sidebar
+      base-raster(
+        :scale="0.85"
+        name="clock"
+        class="c-section-changelog-main__sidebar-raster"
+      )
 
-  div(
+  template(
     v-slot:content
-    :class=`[
-      "c-section-changelog-main__content",
-      {
-        [contentClass]: contentClass
-      }
-    ]`
   )
-    base-descripted-title(
-      align="left"
-      class="c-section-changelog-main__title"
+    div(
+      :class=`[
+        "c-section-changelog-main__content",
+        {
+          [contentClass]: contentClass
+        }
+      ]`
     )
-      template(
-        v-slot:title
+      base-descripted-title(
+        align="left"
+        class="c-section-changelog-main__title"
       )
-        | Version History
+        template(
+          v-slot:title
+        )
+          | Version History
 
-      template(
-        v-slot:description
+        template(
+          v-slot:description
+        )
+          p
+            | Prose apps are actively maintained. Major new versions are released periodically.
+
+          p.u-medium
+            | This history is a ledger of all downloadable Prose versions, since day one.
+
+      .c-section-changelog-main__navigate(
+        v-if="navigateYears.length > 0"
       )
-        p
-          | Prose apps are actively maintained. Major new versions are released periodically.
+        h6.c-section-changelog-main__navigate-label.u-title.u-medium
+          | Years:
 
-        p.u-medium
-          | This history is a ledger of all downloadable Prose versions, since day one.
-
-    .c-section-changelog-main__navigate(
-      v-if="navigateYears.length > 0"
-    )
-      h6.c-section-changelog-main__navigate-label.u-title.u-medium
-        | Years:
-
-      base-navigate(
-        class="c-section-changelog-main__navigate-years"
-        :choices="navigateYears"
-        :value="activeYear"
-      )
+        base-navigate(
+          class="c-section-changelog-main__navigate-years"
+          :choices="navigateYears"
+          :value="activeYear"
+        )
 </template>
 
 <!-- **********************************************************************

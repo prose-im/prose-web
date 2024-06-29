@@ -53,226 +53,192 @@ const CONFIG = (function () {
  * ************************************************************************* */
 
 export default defineNuxtConfig({
-  // Target: https://go.nuxtjs.dev/config-target
+  // Server-Side Rendering (SSG)
+  ssr: true,
   target: "static",
 
-  // Global name: \
-  //   https://nuxtjs.org/docs/configuration-glossary/configuration-global-name
-  globalName: "prose",
-
-  // Server-Side Rendering: \
-  //   https://nuxtjs.org/docs/configuration-glossary/configuration-ssr
-  ssr: true,
-
-  // Telemetry: \
-  //   https://nuxtjs.org/docs/configuration-glossary/configuration-telemetry
+  // Telemetry
   telemetry: false,
 
-  // Global page headers: https://go.nuxtjs.dev/config-head
-  // TODO: might not work, check this (or migrate to App.vue)
-  meta: {
-    title: "prose-web",
-
-    htmlAttrs: {
-      lang: "en"
-    },
-
-    meta: [
-      {
-        charset: "utf-8"
-      },
-
-      {
-        name: "viewport",
-        content: "width=device-width, initial-scale=1"
-      },
-
-      {
-        name: "format-detection",
-        content: "telephone=no"
-      },
-
-      {
-        hid: "description",
-        name: "description",
-        content:
-          "Prose is a decentralized, open-source and native workplace " +
-          "communication platform."
-      },
-
-      {
-        hid: "og-title",
-        property: "og:title",
-        content: "Prose – All of your workplace communication lives here"
-      },
-
-      {
-        hid: "og-description",
-        property: "og:description",
-        content:
-          "Prose is a decentralized, open-source and native workplace " +
-          "communication platform."
-      },
-
-      {
-        hid: "og-image",
-        property: "og:image",
-        content: `${CONFIG.url.prose_web}/opengraph/prose.jpg`
-      },
-
-      {
-        hid: "twitter-title",
-        name: "twitter:title",
-        content: "Prose – All of your workplace communication lives here"
-      },
-
-      {
-        hid: "twitter-description",
-        name: "twitter:description",
-        content:
-          "Prose is a decentralized, open-source and native workplace " +
-          "communication platform."
-      },
-
-      {
-        hid: "twitter-image",
-        name: "twitter:image",
-        content: `${CONFIG.url.prose_web}/opengraph/prose.jpg`
-      }
-    ],
-
-    link: [
-      {
-        rel: "shortcut icon",
-        type: "image/x-icon",
-        href: "/favicons/favicon.ico"
-      },
-
-      {
-        rel: "icon",
-        type: "image/png",
-        href: "/favicons/favicon.png"
-      },
-
-      {
-        rel: "icon",
-        type: "image/png",
-        sizes: "512x512",
-        href: "/favicons/favicon-512x512.png"
-      },
-
-      {
-        rel: "icon",
-        type: "image/png",
-        sizes: "256x256",
-        href: "/favicons/favicon-256x256.png"
-      },
-
-      {
-        rel: "icon",
-        type: "image/png",
-        sizes: "192x192",
-        href: "/favicons/favicon-192x192.png"
-      },
-
-      {
-        rel: "icon",
-        type: "image/png",
-        sizes: "144x144",
-        href: "/favicons/favicon-144x144.png"
-      },
-
-      {
-        rel: "icon",
-        type: "image/png",
-        sizes: "128x128",
-        href: "/favicons/favicon-128x128.png"
-      },
-
-      {
-        rel: "icon",
-        type: "image/png",
-        sizes: "32x32",
-        href: "/favicons/favicon-32x32.png"
-      }
-    ]
-  },
-
-  // Source directory: \
-  //   https://nuxtjs.org/docs/configuration-glossary/configuration-srcdir
+  // Source Directory
   srcDir: "src/",
+  publicDir: "public/",
 
-  // Directories: \
-  //   https://nuxtjs.org/docs/configuration-glossary/configuration-dir/
+  // Directories
   dir: {
     assets: "assets",
-    app: "app",
+    composables: "composables",
     layouts: "layouts",
     middleware: "middleware",
-    store: "store",
+    modules: "modules",
     pages: "pages",
+    plugins: "plugins",
+    public: "../public",
     static: "static"
   },
 
-  // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ["assets/stylesheets/all"],
-
-  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-    { src: "plugins/crisp.js", mode: "client" },
-    { src: "plugins/filters.js" }
-  ],
-
-  // Auto import components: https://go.nuxtjs.dev/config-components
+  // Auto-import all components as global
   components: [{ path: "components", pathPrefix: false }],
 
-  // Modules for dev and build (recommended): \
-  //   https://go.nuxtjs.dev/config-modules
-  buildModules: [
-    "@nuxtjs/eslint-module",
-    "@nuxtjs/style-resources",
-    "@nuxtjs/svg"
-  ],
+  // Modules
+  modules: ["@nuxt/content", "@nuxtjs/robots", "@nuxtjs/sitemap"],
 
-  // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ["@nuxt/content", "@nuxt/http", "@nuxtjs/robots", "@nuxtjs/sitemap"],
-
-  // Router: https://nuxtjs.org/docs/configuration-glossary/configuration-router
-  router: {
-    base: "/",
-    mode: "history",
-    trailingSlash: true,
-    prefetchLinks: false
-  },
-
-  // Loading: \
-  //   https://nuxtjs.org/docs/configuration-glossary/configuration-loading
-  loading: {
-    color: CONFIG.modifiers.announcement ? "#0f2a5b" : "#ff88a3",
-    failedColor: "#db0031",
-    height: "3px",
-    throttle: 250,
-    duration: 3000,
-    continuous: false
-  },
-
-  // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
-    // TODO: completely reconfigure this
-
-    extractCSS: true,
-    publicPath: "/public/",
-
-    splitChunks: {
-      layouts: false,
-      pages: true,
-      commons: true
+  // Preprocessing
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: [
+            '@use "@/assets/stylesheets/variables/all.scss" as *;',
+            '@use "@/assets/stylesheets/tools/all.scss" as *;'
+          ].join("\n")
+        }
+      }
     }
   },
 
-  // Public runtime configuration: \
-  //   https://nuxtjs.org/docs/configuration-glossary/\
-  //     configuration-runtime-config
+  // Nitro Configuration
+  nitro: {
+    publicDir: "public",
+
+    output: {
+      dir: "build",
+      serverDir: "build/server",
+      publicDir: "build/public"
+    }
+  },
+
+  // App Configuration
+  app: {
+    rootId: "__prose",
+    baseURL: "/",
+    buildAssetsDir: "/_prose/",
+
+    // Global page headers
+    head: {
+      meta: [
+        {
+          charset: "utf-8"
+        },
+
+        {
+          name: "viewport",
+          content: "width=device-width, initial-scale=1"
+        },
+
+        {
+          name: "format-detection",
+          content: "telephone=no"
+        },
+
+        {
+          hid: "description",
+          name: "description",
+          content:
+            "Prose is a decentralized, open-source and native workplace " +
+            "communication platform."
+        },
+
+        {
+          hid: "og-title",
+          property: "og:title",
+          content: "Prose – All of your workplace communication lives here"
+        },
+
+        {
+          hid: "og-description",
+          property: "og:description",
+          content:
+            "Prose is a decentralized, open-source and native workplace " +
+            "communication platform."
+        },
+
+        {
+          hid: "og-image",
+          property: "og:image",
+          content: `${CONFIG.url.prose_web}/opengraph/prose.jpg`
+        },
+
+        {
+          hid: "twitter-title",
+          name: "twitter:title",
+          content: "Prose – All of your workplace communication lives here"
+        },
+
+        {
+          hid: "twitter-description",
+          name: "twitter:description",
+          content:
+            "Prose is a decentralized, open-source and native workplace " +
+            "communication platform."
+        },
+
+        {
+          hid: "twitter-image",
+          name: "twitter:image",
+          content: `${CONFIG.url.prose_web}/opengraph/prose.jpg`
+        }
+      ],
+
+      link: [
+        {
+          rel: "shortcut icon",
+          type: "image/x-icon",
+          href: "/favicons/favicon.ico"
+        },
+
+        {
+          rel: "icon",
+          type: "image/png",
+          href: "/favicons/favicon.png"
+        },
+
+        {
+          rel: "icon",
+          type: "image/png",
+          sizes: "512x512",
+          href: "/favicons/favicon-512x512.png"
+        },
+
+        {
+          rel: "icon",
+          type: "image/png",
+          sizes: "256x256",
+          href: "/favicons/favicon-256x256.png"
+        },
+
+        {
+          rel: "icon",
+          type: "image/png",
+          sizes: "192x192",
+          href: "/favicons/favicon-192x192.png"
+        },
+
+        {
+          rel: "icon",
+          type: "image/png",
+          sizes: "144x144",
+          href: "/favicons/favicon-144x144.png"
+        },
+
+        {
+          rel: "icon",
+          type: "image/png",
+          sizes: "128x128",
+          href: "/favicons/favicon-128x128.png"
+        },
+
+        {
+          rel: "icon",
+          type: "image/png",
+          sizes: "32x32",
+          href: "/favicons/favicon-32x32.png"
+        }
+      ]
+    }
+  },
+
+  // Runtime Configuration
   runtimeConfig: {
     // Important: remap config as to strip any private token from there, as \
     //   eg. in the future there might be some private built-time token \
@@ -288,38 +254,22 @@ export default defineNuxtConfig({
     author: projectPackage.author
   },
 
-  // Generate options: \
-  //   https://nuxtjs.org/docs/configuration-glossary/configuration-generate
-  generate: {
-    dir: "build",
-    fallback: "404.html"
-  },
-
-  // CLI settings: \
-  //   https://nuxtjs.org/docs/configuration-glossary/configuration-cli
-  cli: {
-    badgeMessages: [
-      `${projectPackage.author.name} © ${new Date().getFullYear()}`
-    ],
-
-    bannerColor: "blueBright"
-  },
-
-  // (Module) Robots: https://github.com/nuxt-community/robots-module
-  robots: {
-    UserAgent: "*",
-    Allow: "/",
-    Sitemap: `${CONFIG.url.prose_web}/sitemap.xml`
-  },
-
-  // (Module) Sitemap: https://sitemap.nuxtjs.org/usage/sitemap
+  // Sitemap Configuration
   sitemap: {
     hostname: CONFIG.url.prose_web
   },
 
-  // (Module) Style Resources: \
-  //   https://github.com/nuxt-community/style-resources-module
-  styleResources: {
-    scss: ["assets/stylesheets/variables/*", "assets/stylesheets/tools/*"]
+  // Robots Configuration
+  robots: {
+    rules: {
+      UserAgent: "*",
+      Allow: "/",
+      Sitemap: `${CONFIG.url.prose_web}/sitemap.xml`
+    }
+  },
+
+  // Dev Tools Configuration
+  devtools: {
+    enabled: true
   }
 });

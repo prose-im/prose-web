@@ -29,15 +29,19 @@ div(
       :align="align"
       class="c-page-main-title__title"
     )
-      slot(
+      template(
         v-slot:title
-        name="title"
       )
+        slot(
+          name="title"
+        )
 
-      slot(
+      template(
         v-slot:description
-        name="description"
       )
+        slot(
+          name="description"
+        )
 
     .c-page-main-title__action(
       v-if="$slots.action"

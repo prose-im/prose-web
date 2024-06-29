@@ -100,10 +100,11 @@
               )
                 | Valerian Saliou
 
-            span.c-page-footer__author(
+            template(
               v-slot:default
             )
-              | {{ $config.author.name }} © {{ currentYear }}
+              span.c-page-footer__author
+                | {{ $config.author.name }} © {{ currentYear }}
 
       .c-page-footer__right
         .c-page-footer__crafted.u-medium

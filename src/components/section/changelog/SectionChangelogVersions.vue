@@ -17,70 +17,72 @@
     :sidebar-class="sidebarClass"
     class="c-section-changelog-versions__version"
   )
-    div(
+    template(
       v-slot:sidebar
-      class="c-section-changelog-versions__version-sidebar"
     )
-      .c-section-changelog-versions__version-sidebar-wrapped
-        .c-section-changelog-versions__version-tag
-          span.c-section-changelog-versions__version-label
-            | Version
+      .c-section-changelog-versions__version-sidebar
+        .c-section-changelog-versions__version-sidebar-wrapped
+          .c-section-changelog-versions__version-tag
+            span.c-section-changelog-versions__version-label
+              | Version
 
-          span.c-section-changelog-versions__version-number.u-title.u-bold
-            | {{ version.version }}
+            span.c-section-changelog-versions__version-number.u-title.u-bold
+              | {{ version.version }}
 
-        .c-section-changelog-versions__version-downloads(
-          v-if="versionsDownloadsDropdown[version.version].length > 0"
-        )
-          base-dropdown(
-            :items="versionsDownloadsDropdown[version.version]"
-            class="c-section-changelog-versions__version-dropdown"
+          .c-section-changelog-versions__version-downloads(
+            v-if="versionsDownloadsDropdown[version.version].length > 0"
           )
+            base-dropdown(
+              :items="versionsDownloadsDropdown[version.version]"
+              class="c-section-changelog-versions__version-dropdown"
+            )
 
-          base-button(
-            right-icon="chevron-down"
-            tint="light"
-            class="c-section-changelog-versions__version-button"
-            bolder
-          )
-            | Downloads
+            base-button(
+              right-icon="chevron-down"
+              tint="light"
+              class="c-section-changelog-versions__version-button"
+              bolder
+            )
+              | Downloads
 
-    div(
+    template(
       v-slot:content
-      :class=`[
-        "c-section-changelog-versions__version-content",
-        {
-          [contentClass]: contentClass
-        }
-      ]`
     )
-      .c-section-changelog-versions__version-metas
-        h4.c-section-changelog-versions__version-date.u-title.u-medium
-          | {{ $filters.formatDate(version.date) }}
-
-        a.c-section-changelog-versions__version-target.u-bold(
-          v-if="versionsFullChangesUrls[version.version]"
-          :href="versionsFullChangesUrls[version.version]"
-          target="_blank"
-        )
-          | Full changes on GitHub
-
-          image-icon-version-target(
-            class="c-section-changelog-versions__version-target-icon"
-          )
-
-      .c-section-changelog-versions__changelog(
-        v-for="changes, changesGroup in version.changelog"
-        :key="'changelog_' + version.version + '_' + changesGroup"
+      div(
+        :class=`[
+          "c-section-changelog-versions__version-content",
+          {
+            [contentClass]: contentClass
+          }
+        ]`
       )
-        h6.c-section-changelog-versions__changelog-group.u-title.u-bold
-          | {{ (groupNames[changesGroup] || changesGroup) }}
+        .c-section-changelog-versions__version-metas
+          h4.c-section-changelog-versions__version-date.u-title.u-medium
+            | {{ $filters.formatDate(version.date) }}
 
-        .c-section-changelog-versions__changelog-changes
-          li.c-section-changelog-versions__changelog-change(
-            v-for="change in changes"
+          a.c-section-changelog-versions__version-target.u-bold(
+            v-if="versionsFullChangesUrls[version.version]"
+            :href="versionsFullChangesUrls[version.version]"
+            target="_blank"
           )
-            | {{ change[0] }}: {{ change[1] }}.
+            | Full changes on GitHub
+
+            image-icon-version-target(
+              class="c-section-changelog-versions__version-target-icon"
+            )
+
+        .c-section-changelog-versions__changelog(
+          v-for="changes, changesGroup in version.changelog"
+          :key="'changelog_' + version.version + '_' + changesGroup"
+        )
+          h6.c-section-changelog-versions__changelog-group.u-title.u-bold
+            | {{ (groupNames[changesGroup] || changesGroup) }}
+
+          .c-section-changelog-versions__changelog-changes
+            li.c-section-changelog-versions__changelog-change(
+              v-for="change in changes"
+            )
+              | {{ change[0] }}: {{ change[1] }}.
 </template>
 
 <!-- **********************************************************************
