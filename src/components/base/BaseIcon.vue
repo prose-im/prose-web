@@ -27,30 +27,30 @@ div(
 
 <script>
 // PROJECT: IMAGES
-import ImageIconOpenSource from "~/assets/images/components/base/BaseIcon/open-source.svg?raw";
-import ImageIconNative from "~/assets/images/components/base/BaseIcon/native.svg?raw";
-import ImageIconDecentralized from "~/assets/images/components/base/BaseIcon/decentralized.svg?raw";
-import ImageIconPaintbrush from "~/assets/images/components/base/BaseIcon/paintbrush.svg?raw";
-import ImageIconIntegrations from "~/assets/images/components/base/BaseIcon/integrations.svg?raw";
-import ImageIconServer from "~/assets/images/components/base/BaseIcon/server.svg?raw";
-import ImageIconEncrypted from "~/assets/images/components/base/BaseIcon/end-to-end.svg?raw";
-import ImageIconScalable from "~/assets/images/components/base/BaseIcon/scalable.svg?raw";
-import ImageIconPrivacy from "~/assets/images/components/base/BaseIcon/privacy.svg?raw";
-import ImageIconNotification from "~/assets/images/components/base/BaseIcon/notification.svg?raw";
-import ImageIconVerified from "~/assets/images/components/base/BaseIcon/verified.svg?raw";
-import ImageIconAttachment from "~/assets/images/components/base/BaseIcon/attachment.svg?raw";
-import ImageIconFlags from "~/assets/images/components/base/BaseIcon/flags.svg?raw";
-import ImageIconSpaces from "~/assets/images/components/base/BaseIcon/spaces.svg?raw";
-import ImageIconKnowledge from "~/assets/images/components/base/BaseIcon/knowledge.svg?raw";
-import ImageIconCalls from "~/assets/images/components/base/BaseIcon/calls.svg?raw";
-import ImageIconRoles from "~/assets/images/components/base/BaseIcon/roles.svg?raw";
-import ImageIconProductivity from "~/assets/images/components/base/BaseIcon/productivity.svg?raw";
-import ImageIconCommunity from "~/assets/images/components/base/BaseIcon/community.svg?raw";
-import ImageIconResources from "~/assets/images/components/base/BaseIcon/resources.svg?raw";
-import ImageIconWorkflows from "~/assets/images/components/base/BaseIcon/workflows.svg?raw";
-import ImageIconCollaboration from "~/assets/images/components/base/BaseIcon/collaboration.svg?raw";
-import ImageIconThread from "~/assets/images/components/base/BaseIcon/thread.svg?raw";
-import ImageIconMobile from "~/assets/images/components/base/BaseIcon/mobile.svg?raw";
+import ImageIconOpenSource from "@/assets/images/components/base/BaseIcon/open-source.svg?raw";
+import ImageIconNative from "@/assets/images/components/base/BaseIcon/native.svg?raw";
+import ImageIconDecentralized from "@/assets/images/components/base/BaseIcon/decentralized.svg?raw";
+import ImageIconPaintbrush from "@/assets/images/components/base/BaseIcon/paintbrush.svg?raw";
+import ImageIconIntegrations from "@/assets/images/components/base/BaseIcon/integrations.svg?raw";
+import ImageIconServer from "@/assets/images/components/base/BaseIcon/server.svg?raw";
+import ImageIconEncrypted from "@/assets/images/components/base/BaseIcon/end-to-end.svg?raw";
+import ImageIconScalable from "@/assets/images/components/base/BaseIcon/scalable.svg?raw";
+import ImageIconPrivacy from "@/assets/images/components/base/BaseIcon/privacy.svg?raw";
+import ImageIconNotification from "@/assets/images/components/base/BaseIcon/notification.svg?raw";
+import ImageIconVerified from "@/assets/images/components/base/BaseIcon/verified.svg?raw";
+import ImageIconAttachment from "@/assets/images/components/base/BaseIcon/attachment.svg?raw";
+import ImageIconFlags from "@/assets/images/components/base/BaseIcon/flags.svg?raw";
+import ImageIconSpaces from "@/assets/images/components/base/BaseIcon/spaces.svg?raw";
+import ImageIconKnowledge from "@/assets/images/components/base/BaseIcon/knowledge.svg?raw";
+import ImageIconCalls from "@/assets/images/components/base/BaseIcon/calls.svg?raw";
+import ImageIconRoles from "@/assets/images/components/base/BaseIcon/roles.svg?raw";
+import ImageIconProductivity from "@/assets/images/components/base/BaseIcon/productivity.svg?raw";
+import ImageIconCommunity from "@/assets/images/components/base/BaseIcon/community.svg?raw";
+import ImageIconResources from "@/assets/images/components/base/BaseIcon/resources.svg?raw";
+import ImageIconWorkflows from "@/assets/images/components/base/BaseIcon/workflows.svg?raw";
+import ImageIconCollaboration from "@/assets/images/components/base/BaseIcon/collaboration.svg?raw";
+import ImageIconThread from "@/assets/images/components/base/BaseIcon/thread.svg?raw";
+import ImageIconMobile from "@/assets/images/components/base/BaseIcon/mobile.svg?raw";
 
 export default {
   name: "BaseIcon",

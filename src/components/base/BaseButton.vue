@@ -46,9 +46,9 @@ div(
 
 <script>
 // PROJECT: IMAGES
-import ImageIconArrowRight from "~/assets/images/components/base/BaseButton/icon-arrow-right.svg?raw";
-import ImageIconArrowDown from "~/assets/images/components/base/BaseButton/icon-arrow-down.svg?raw";
-import ImageIconChevronDown from "~/assets/images/components/base/BaseButton/icon-chevron-down.svg?raw";
+import ImageIconArrowRight from "@/assets/images/components/base/BaseButton/icon-arrow-right.svg?raw";
+import ImageIconArrowDown from "@/assets/images/components/base/BaseButton/icon-arrow-down.svg?raw";
+import ImageIconChevronDown from "@/assets/images/components/base/BaseButton/icon-chevron-down.svg?raw";
 
 export default {
   name: "BaseButton",

@@ -89,7 +89,7 @@ export default defineNuxtConfig({
   components: [{ path: "components", pathPrefix: false }],
 
   // Modules
-  modules: ["@nuxt/content", "@nuxtjs/robots", "@nuxtjs/sitemap"],
+  modules: ["@nuxt/content", "@nuxtjs/robots", "@nuxtjs/sitemap", "nuxt-svgo"],
 
   // Preprocessing
   vite: {
@@ -262,6 +262,11 @@ export default defineNuxtConfig({
       tokens: CONFIG.tokens.public,
       author: projectPackage.author
     }
+  },
+
+  // SVGO Configuration
+  svgo: {
+    autoImportPath: false
   },
 
   // Sitemap Configuration

@@ -33,13 +33,13 @@
 import Base64 from "Base64";
 
 // PROJECT: IMAGES
-import ImageVariant1 from "~/assets/images/components/base/BaseWave/variant-1.svg?raw";
-import ImageVariant2 from "~/assets/images/components/base/BaseWave/variant-2.svg?raw";
-import ImageVariant3 from "~/assets/images/components/base/BaseWave/variant-3.svg?raw";
-import ImageVariant4 from "~/assets/images/components/base/BaseWave/variant-4.svg?raw";
-import ImageVariant5 from "~/assets/images/components/base/BaseWave/variant-5.svg?raw";
-import ImageVariant6 from "~/assets/images/components/base/BaseWave/variant-6.svg?raw";
-import ImageVariant7 from "~/assets/images/components/base/BaseWave/variant-7.svg?raw";
+import ImageVariant1 from "@/assets/images/components/base/BaseWave/variant-1.svg?raw";
+import ImageVariant2 from "@/assets/images/components/base/BaseWave/variant-2.svg?raw";
+import ImageVariant3 from "@/assets/images/components/base/BaseWave/variant-3.svg?raw";
+import ImageVariant4 from "@/assets/images/components/base/BaseWave/variant-4.svg?raw";
+import ImageVariant5 from "@/assets/images/components/base/BaseWave/variant-5.svg?raw";
+import ImageVariant6 from "@/assets/images/components/base/BaseWave/variant-6.svg?raw";
+import ImageVariant7 from "@/assets/images/components/base/BaseWave/variant-7.svg?raw";
 
 // CONSTANTS
 const VARIANTS = [

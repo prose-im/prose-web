@@ -20,9 +20,9 @@ span.c-base-social-icon(
 
 <script>
 // PROJECT: IMAGES
-import ImageX from "~/assets/images/components/base/BaseSocialIcon/x.svg?raw";
-import ImageGitHub from "~/assets/images/components/base/BaseSocialIcon/github.svg?raw";
-import ImageYouTube from "~/assets/images/components/base/BaseSocialIcon/youtube.svg?raw";
+import ImageX from "@/assets/images/components/base/BaseSocialIcon/x.svg?raw";
+import ImageGitHub from "@/assets/images/components/base/BaseSocialIcon/github.svg?raw";
+import ImageYouTube from "@/assets/images/components/base/BaseSocialIcon/youtube.svg?raw";
 
 export default {
   name: "BaseSocialIcon",

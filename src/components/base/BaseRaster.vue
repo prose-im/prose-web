@@ -137,7 +137,7 @@ $rasters: (
 
   @each $name, $sizes in $rasters {
     &--#{$name} {
-      background-image: url("~/assets/images/components/base/BaseRaster/#{$name}.webp");
+      background-image: url("@/assets/images/components/base/BaseRaster/#{$name}.webp");
     }
   }
 }

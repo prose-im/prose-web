@@ -91,7 +91,7 @@
 
 <script>
 // PROJECT: IMAGES
-import ImageIconVersionTarget from "~/assets/images/components/section/changelog/SectionChangelogVersions/icon-version-target.svg?inline";
+import ImageIconVersionTarget from "@/assets/images/components/section/changelog/SectionChangelogVersions/icon-version-target.svg?component";
 
 // CONSTANTS
 const VERSIONED_PLATFORMS = {

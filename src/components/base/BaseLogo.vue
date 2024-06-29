@@ -67,7 +67,7 @@ $size-widths: (
 
 #{$c} {
   @include mask-image(
-    "~/assets/images/components/base/BaseLogo/logo-path.svg?data"
+    "@/assets/images/components/base/BaseLogo/logo-path.svg?data"
   );
   @include mask-repeat(no-repeat);
   @include mask-size(contain);
@@ -90,7 +90,7 @@ $size-widths: (
 
   &--normal {
     background-color: $color-base-purple-mid;
-    background-image: url("~/assets/images/components/base/BaseLogo/logo-tint-normal.webp");
+    background-image: url("@/assets/images/components/base/BaseLogo/logo-tint-normal.webp");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: left;

@@ -35,7 +35,7 @@ span.c-base-dropdown-item
 
 <script>
 // PROJECT: IMAGES
-import ImageTitleArrow from "~/assets/images/components/base/BaseDropdownItem/title-arrow.svg?inline";
+import ImageTitleArrow from "@/assets/images/components/base/BaseDropdownItem/title-arrow.svg?component";
 
 export default {
   name: "BaseDropdownItem",

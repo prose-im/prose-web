@@ -125,8 +125,8 @@
 
 <script>
 // PROJECT: IMAGES
-import ImageCopyrightBadgesOpenSource from "~/assets/images/components/page/PageFooter/copyright-badges-open_source.svg?raw";
-import ImageCopyrightCraftedFlag from "~/assets/images/components/page/PageFooter/copyright-crafted-flag.svg?inline";
+import ImageCopyrightBadgesOpenSource from "@/assets/images/components/page/PageFooter/copyright-badges-open_source.svg?raw";
+import ImageCopyrightCraftedFlag from "@/assets/images/components/page/PageFooter/copyright-crafted-flag.svg?component";
 
 // CONSTANTS
 const STATUS_COLORS = {

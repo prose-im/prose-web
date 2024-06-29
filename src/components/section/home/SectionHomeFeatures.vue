@@ -31,8 +31,11 @@
         :key="'feature_' + index"
       )
         .c-section-home-features__card
-          .c-section-home-features__illustration(
-            :style="{ 'background-image': 'url(' + item.image + ')'}"
+          div(
+            :class=`[
+              "c-section-home-features__illustration",
+              "c-section-home-features__illustration--" + item.id
+            ]`
           )
 
           .c-section-home-features__content
@@ -50,14 +53,6 @@
      ********************************************************************** -->
 
 <script>
-// PROJECT: IMAGES
-import ImageIllustrationCalls from "@/assets/images/components/section/home/SectionHomeFeatures/illustration-calls.svg";
-import ImageIllustrationEncrypt from "@/assets/images/components/section/home/SectionHomeFeatures/illustration-encrypt.svg";
-import ImageIllustrationHistory from "@/assets/images/components/section/home/SectionHomeFeatures/illustration-history.svg";
-import ImageIllustrationIntegration from "@/assets/images/components/section/home/SectionHomeFeatures/illustration-integration.svg";
-import ImageIllustrationSearch from "@/assets/images/components/section/home/SectionHomeFeatures/illustration-search.svg";
-import ImageIllustrationShare from "@/assets/images/components/section/home/SectionHomeFeatures/illustration-share.svg";
-
 export default {
   name: "SectionHomeFeatures",
 
@@ -65,57 +60,51 @@ export default {
     return {
       features: [
         {
+          id: "encrypt",
           title: "Encrypt everything",
 
           description:
-            "All messages, including your chat history, are end-to-end encrypted.",
-
-          image: ImageIllustrationEncrypt
+            "All messages, including your chat history, are end-to-end encrypted."
         },
 
         {
+          id: "share",
           title: "Share image & files",
 
           description:
-            "Send images to your co-workers. Transfer large files without limits.",
-
-          image: ImageIllustrationShare
+            "Send images to your co-workers. Transfer large files without limits."
         },
 
         {
+          id: "history",
           title: "Unlimited chat history",
 
           description:
-            "Your past chats are stored and encrypted on your Prose server.",
-
-          image: ImageIllustrationHistory
+            "Your past chats are stored and encrypted on your Prose server."
         },
 
         {
+          id: "integration",
           title: "Connect integrations",
 
           description:
-            "Want to plug your other apps to Prose? Install community-made integrations.",
-
-          image: ImageIllustrationIntegration
+            "Want to plug your other apps to Prose? Install community-made integrations."
         },
 
         {
+          id: "search",
           title: "Powerful search",
 
           description:
-            "Quickly find anything you said, any file you sent, or anyone in your team.",
-
-          image: ImageIllustrationSearch
+            "Quickly find anything you said, any file you sent, or anyone in your team."
         },
 
         {
+          id: "calls",
           title: "Audio & Video calls",
 
           description:
-            "Organize one-to-one or large team-wide video calls, with screen-sharing.",
-
-          image: ImageIllustrationCalls
+            "Organize one-to-one or large team-wide video calls, with screen-sharing."
         }
       ]
     };
@@ -163,6 +152,30 @@ $c: ".c-section-home-features";
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
+
+    &--encrypt {
+      background-image: url("@/assets/images/components/section/home/SectionHomeFeatures/illustration-encrypt.svg");
+    }
+
+    &--share {
+      background-image: url("@/assets/images/components/section/home/SectionHomeFeatures/illustration-share.svg");
+    }
+
+    &--history {
+      background-image: url("@/assets/images/components/section/home/SectionHomeFeatures/illustration-history.svg");
+    }
+
+    &--integration {
+      background-image: url("@/assets/images/components/section/home/SectionHomeFeatures/illustration-integration.svg");
+    }
+
+    &--search {
+      background-image: url("@/assets/images/components/section/home/SectionHomeFeatures/illustration-search.svg");
+    }
+
+    &--calls {
+      background-image: url("@/assets/images/components/section/home/SectionHomeFeatures/illustration-calls.svg");
+    }
   }
 
   #{$c}__content {

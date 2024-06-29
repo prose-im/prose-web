@@ -78,12 +78,12 @@ div(
 
 <script>
 // PROJECT: IMAGES
-import ImagePlatformIconWindows from "~/assets/images/components/base/BaseAppDownload/platform-icon-windows.svg?raw";
-import ImagePlatformIconAndroid from "~/assets/images/components/base/BaseAppDownload/platform-icon-android.svg?raw";
-import ImagePlatformIconIOS from "~/assets/images/components/base/BaseAppDownload/platform-icon-ios.svg?raw";
-import ImagePlatformIconLinux from "~/assets/images/components/base/BaseAppDownload/platform-icon-linux.svg?raw";
-import ImagePlatformIconMacOS from "~/assets/images/components/base/BaseAppDownload/platform-icon-macos.svg?raw";
-import ImagePlatformIconWeb from "~/assets/images/components/base/BaseAppDownload/platform-icon-web.svg?raw";
+import ImagePlatformIconWindows from "@/assets/images/components/base/BaseAppDownload/platform-icon-windows.svg?raw";
+import ImagePlatformIconAndroid from "@/assets/images/components/base/BaseAppDownload/platform-icon-android.svg?raw";
+import ImagePlatformIconIOS from "@/assets/images/components/base/BaseAppDownload/platform-icon-ios.svg?raw";
+import ImagePlatformIconLinux from "@/assets/images/components/base/BaseAppDownload/platform-icon-linux.svg?raw";
+import ImagePlatformIconMacOS from "@/assets/images/components/base/BaseAppDownload/platform-icon-macos.svg?raw";
+import ImagePlatformIconWeb from "@/assets/images/components/base/BaseAppDownload/platform-icon-web.svg?raw";
 
 // CONSTANTS
 const PLATFORMS = {

@@ -116,7 +116,7 @@
 
 <script>
 // PROJECT: IMAGES
-import ImageContentActionsDownloadIcon from "~/assets/images/components/page/PageEntice/content-actions-download-icon.svg?inline";
+import ImageContentActionsDownloadIcon from "@/assets/images/components/page/PageEntice/content-actions-download-icon.svg?component";
 
 // CONSTANTS
 const SUBSCRIBE_SUBMIT_DELAY = 200; // 1/5 second
@@ -254,13 +254,13 @@ $animate-shake-base-depth: 2px;
 
       &--hosted {
         #{$c}__option-illustration {
-          background-image: url("~/assets/images/components/page/PageEntice/illustration-hosted-by-prose.svg");
+          background-image: url("@/assets/images/components/page/PageEntice/illustration-hosted-by-prose.svg");
         }
       }
 
       &--free {
         #{$c}__option-illustration {
-          background-image: url("~/assets/images/components/page/PageEntice/illustration-free-hosting.svg");
+          background-image: url("@/assets/images/components/page/PageEntice/illustration-free-hosting.svg");
         }
       }
     }

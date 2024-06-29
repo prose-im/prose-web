@@ -61,9 +61,9 @@
 
 <script>
 // PROJECT: IMAGES
-import ImageIllustrationSafe from "@/assets/images/components/section/home/SectionHomeAdvantages/illustration-safe.webp?raw";
-import ImageIllustrationTransparent from "@/assets/images/components/section/home/SectionHomeAdvantages/illustration-transparent.webp?raw";
-import ImageIllustrationFast from "@/assets/images/components/section/home/SectionHomeAdvantages/illustration-fast.webp?raw";
+import ImageIllustrationSafe from "@/assets/images/components/section/home/SectionHomeAdvantages/illustration-safe.webp";
+import ImageIllustrationTransparent from "@/assets/images/components/section/home/SectionHomeAdvantages/illustration-transparent.webp";
+import ImageIllustrationFast from "@/assets/images/components/section/home/SectionHomeAdvantages/illustration-fast.webp";
 
 export default {
   name: "SectionHomeAdvantages",

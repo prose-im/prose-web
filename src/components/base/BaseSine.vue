@@ -28,10 +28,10 @@ div(
 
 <script>
 // PROJECT: IMAGES
-import ImageColorBlue from "~/assets/images/components/base/BaseSine/color-blue.svg?raw";
-import ImageColorPurple from "~/assets/images/components/base/BaseSine/color-purple.svg?raw";
-import ImageColorPink from "~/assets/images/components/base/BaseSine/color-pink.svg?raw";
-import ImageColorNavy from "~/assets/images/components/base/BaseSine/color-navy.svg?raw";
+import ImageColorBlue from "@/assets/images/components/base/BaseSine/color-blue.svg?raw";
+import ImageColorPurple from "@/assets/images/components/base/BaseSine/color-purple.svg?raw";
+import ImageColorPink from "@/assets/images/components/base/BaseSine/color-pink.svg?raw";
+import ImageColorNavy from "@/assets/images/components/base/BaseSine/color-navy.svg?raw";
 
 export default {
   name: "BaseSine",

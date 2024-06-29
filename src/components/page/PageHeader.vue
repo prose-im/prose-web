@@ -169,19 +169,19 @@ div(
 
 <script>
 // PROJECT: IMAGES
-import ImageMenuDropdownLinkArrow from "~/assets/images/components/page/PageHeader/menu-dropdown-link-arrow.svg?inline";
+import ImageMenuDropdownLinkArrow from "@/assets/images/components/page/PageHeader/menu-dropdown-link-arrow.svg?component";
 
-import ImageMenuDropdownCompanyIconAbout from "~/assets/images/components/page/PageHeader/menu-dropdown-company-icon-about.svg?raw";
-import ImageMenuDropdownCompanyIconBlog from "~/assets/images/components/page/PageHeader/menu-dropdown-company-icon-blog.svg?raw";
+import ImageMenuDropdownCompanyIconAbout from "@/assets/images/components/page/PageHeader/menu-dropdown-company-icon-about.svg?raw";
+import ImageMenuDropdownCompanyIconBlog from "@/assets/images/components/page/PageHeader/menu-dropdown-company-icon-blog.svg?raw";
 
-import ImageMenuDropdownHelpIconHelp from "~/assets/images/components/page/PageHeader/menu-dropdown-help-icon-help.svg?raw";
-import ImageMenuDropdownHelpIconDocs from "~/assets/images/components/page/PageHeader/menu-dropdown-help-icon-docs.svg?raw";
-import ImageMenuDropdownHelpIconContact from "~/assets/images/components/page/PageHeader/menu-dropdown-help-icon-contact.svg?raw";
+import ImageMenuDropdownHelpIconHelp from "@/assets/images/components/page/PageHeader/menu-dropdown-help-icon-help.svg?raw";
+import ImageMenuDropdownHelpIconDocs from "@/assets/images/components/page/PageHeader/menu-dropdown-help-icon-docs.svg?raw";
+import ImageMenuDropdownHelpIconContact from "@/assets/images/components/page/PageHeader/menu-dropdown-help-icon-contact.svg?raw";
 
-import ImageMenuDropdownUseCaseDevelopers from "~/assets/images/components/page/PageHeader/menu-dropdown-usecase-icon-developers.svg?raw";
-import ImageMenuDropdownUseCaseWeb3 from "~/assets/images/components/page/PageHeader/menu-dropdown-usecase-icon-web3.svg?raw";
-import ImageMenuDropdownUseCaseNonProfits from "~/assets/images/components/page/PageHeader/menu-dropdown-usecase-icon-nonprofits.svg?raw";
-import ImageMenuDropdownUseCaseRemoteTeams from "~/assets/images/components/page/PageHeader/menu-dropdown-usecase-icon-remoteteams.svg?raw";
+import ImageMenuDropdownUseCaseDevelopers from "@/assets/images/components/page/PageHeader/menu-dropdown-usecase-icon-developers.svg?raw";
+import ImageMenuDropdownUseCaseWeb3 from "@/assets/images/components/page/PageHeader/menu-dropdown-usecase-icon-web3.svg?raw";
+import ImageMenuDropdownUseCaseNonProfits from "@/assets/images/components/page/PageHeader/menu-dropdown-usecase-icon-nonprofits.svg?raw";
+import ImageMenuDropdownUseCaseRemoteTeams from "@/assets/images/components/page/PageHeader/menu-dropdown-usecase-icon-remoteteams.svg?raw";
 
 export default {
   name: "PageHeader",
@@ -494,6 +494,7 @@ $hover-transition-duration: 150ms;
 
     #{$c}__menu-arrow {
       fill: $color-base-blue-dark;
+      height: 5px;
       margin-left: 6px;
       margin-bottom: -2px;
       opacity: 0.35;

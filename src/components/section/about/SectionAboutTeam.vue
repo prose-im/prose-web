@@ -63,11 +63,11 @@
 
 <script>
 // PROJECT: IMAGES
-import ValerianAvatar from "~/assets/images/components/section/about/SectionAboutTeam/avatar-valerian.webp?raw";
-import SaifAvatar from "~/assets/images/components/section/about/SectionAboutTeam/avatar-saif.webp?raw";
-import GuillaumeAvatar from "~/assets/images/components/section/about/SectionAboutTeam/avatar-guillaume.webp?raw";
-import MarcAvatar from "~/assets/images/components/section/about/SectionAboutTeam/avatar-marc.webp?raw";
-import RemiAvatar from "~/assets/images/components/section/about/SectionAboutTeam/avatar-remi.webp?raw";
+import ValerianAvatar from "@/assets/images/components/section/about/SectionAboutTeam/avatar-valerian.webp";
+import SaifAvatar from "@/assets/images/components/section/about/SectionAboutTeam/avatar-saif.webp";
+import GuillaumeAvatar from "@/assets/images/components/section/about/SectionAboutTeam/avatar-guillaume.webp";
+import MarcAvatar from "@/assets/images/components/section/about/SectionAboutTeam/avatar-marc.webp";
+import RemiAvatar from "@/assets/images/components/section/about/SectionAboutTeam/avatar-remi.webp";
 
 // CONSTANTS
 const SOCIAL_BASE_URLS = {

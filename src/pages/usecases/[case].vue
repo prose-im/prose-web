@@ -49,7 +49,7 @@ const USE_CASES = [
       "developers.",
     url: "/usecases/developers/",
 
-    media: require("~/assets/images/components/section/usecases/" +
+    media: require("@/assets/images/components/section/usecases/" +
       "SectionUseCasesDiscover/developers.webp")
   },
 
@@ -60,7 +60,7 @@ const USE_CASES = [
       "Know for certain who you’re talking to even if you’ve never met IRL.",
     url: "/usecases/remote-teams/",
 
-    media: require("~/assets/images/components/section/usecases/" +
+    media: require("@/assets/images/components/section/usecases/" +
       "SectionUseCasesDiscover/remote-teams.webp")
   },
 
@@ -71,7 +71,7 @@ const USE_CASES = [
       "Communicate efficiently even in low bandwidth regions of the world.",
     url: "/usecases/non-profits/",
 
-    media: require("~/assets/images/components/section/usecases/" +
+    media: require("@/assets/images/components/section/usecases/" +
       "SectionUseCasesDiscover/non-profits.webp")
   },
 
@@ -82,7 +82,7 @@ const USE_CASES = [
       "Prevent scams, spam, and other unwanted interactions on your server.",
     url: "/usecases/web3/",
 
-    media: require("~/assets/images/components/section/usecases/" +
+    media: require("@/assets/images/components/section/usecases/" +
       "SectionUseCasesDiscover/web3.webp")
   }
 ];
