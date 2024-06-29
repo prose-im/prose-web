@@ -28,10 +28,9 @@
     .c-section-home-features__grid
       template(
         v-for="(item, index) in features"
+        :key="'feature_' + index"
       )
-        .c-section-home-features__card(
-          :key="'feature_' + index"
-        )
+        .c-section-home-features__card
           .c-section-home-features__illustration(
             :style="{ 'background-image': 'url(' + item.image + ')'}"
           )

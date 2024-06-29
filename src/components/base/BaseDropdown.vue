@@ -14,6 +14,7 @@ span.c-base-dropdown
     span.c-base-dropdown__inner
       template(
         v-for="item in items"
+        :key="'dropdown_' + item.id"
       )
         nuxt-link(
           v-if="item.target.startsWith('/')"
@@ -21,7 +22,6 @@ span.c-base-dropdown
           class="c-base-dropdown__item"
         )
           base-dropdown-item(
-            :key="'dropdown_internal_' + item.id"
             :title="item.title"
             :label="item.label"
             :icon="item.icon"
@@ -33,7 +33,6 @@ span.c-base-dropdown
           class="c-base-dropdown__item"
         )
           base-dropdown-item(
-            :key="'dropdown_external_' + item.id"
             :title="item.title"
             :label="item.label"
             :icon="item.icon"

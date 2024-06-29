@@ -24,9 +24,9 @@
       :media-url-prefix="mediaUrlPrefix"
     )
       base-tab(
-        v-for="tab, index in useCase.tabs",
-        :tab="tab",
-        :key="index",
+        v-for="tab, index in useCase.tabs"
+        :key="index"
+        :tab="tab"
         class="c-section-use-cases-tabs__media"
       )
         img(

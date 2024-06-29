@@ -13,10 +13,10 @@
   ul.c-base-tabs__grid
     li(
       v-for="(item, index) in tabs"
+      :key="index"
     )
       base-icon-card(
         @click="selectTab(item.tab)"
-        :key="index"
         :icon="item.tab.icon"
         :tint="item.tab.tint"
         :active="item.tab.title === activeTab"

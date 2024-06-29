@@ -27,10 +27,10 @@
     .c-section-use-cases-discover__options
       template(
         v-for="useCase, index in otherCases"
+        :key="index"
       )
         nuxt-link(
-          :to="useCase.url",
-          :key="index",
+          :to="useCase.url"
           class="c-section-use-cases-discover__option"
         )
           base-card(

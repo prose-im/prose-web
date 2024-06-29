@@ -25,10 +25,9 @@
 
     template(
       v-for="(item, index) in advantages"
+      :key="'advantage_' + index"
     )
-      .c-section-home-advantages__stack(
-        :key="'advantage_' + index"
-      )
+      .c-section-home-advantages__stack
         .c-section-home-advantages__column-1
           .c-section-home-advantages__illustration
             .c-section-home-advantages__illustration-inner(

@@ -31,9 +31,9 @@
     .c-section-use-cases-bento__grid
       template(
         v-for="feature, index in useCase.features"
+        :key="index"
       )
         base-icon-card(
-          :key="index"
           :icon="feature.icon"
           :tint="feature.tint"
           :image="(index === 0) ? imageSrc : ''"
