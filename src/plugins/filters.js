@@ -27,11 +27,12 @@ const FORMAT_DATE_OPTIONS = {
  * EXPORTS
  * ************************************************************************* */
 
-export default defineNuxtPlugin(() => {
-  const _config = useRuntimeConfig();
+export default defineNuxtPlugin(nuxtApp => {
+  const _config = useRuntimeConfig(),
+    _app = nuxtApp.vueApp;
 
-  // Inject $filters to context
-  inject("filters", {
+  // Register $filters into Vue
+  _app.config.globalProperties.$filters = {
     formatDate: dateString => {
       const _date = new Date(dateString);
 
@@ -66,5 +67,5 @@ export default defineNuxtPlugin(() => {
         name: architecture.name
       };
     }
-  });
+  };
 });

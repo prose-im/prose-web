@@ -16,8 +16,9 @@ import { defineNuxtPlugin, useRuntimeConfig, inject } from "#imports";
  * EXPORTS
  ***************************************************************************/
 
-export default defineNuxtPlugin(() => {
-  const _config = useRuntimeConfig();
+export default defineNuxtPlugin(nuxtApp => {
+  const _config = useRuntimeConfig(),
+    _app = nuxtApp.vueApp;
 
   // Insert Crisp? (website identifier is defined, and chatbox feature is \
   //   enabled)
@@ -28,6 +29,6 @@ export default defineNuxtPlugin(() => {
     Crisp.configure(_config.public.tokens.crisp_website_id);
   }
 
-  // Inject $crisp to context
-  inject("crisp", Crisp);
+  // Register $crisp into Vue
+  _app.config.globalProperties.$crisp = Crisp;
 });
