@@ -27,13 +27,13 @@
           class="c-section-blog-articles__article-card"
         )
           template(
-            slot="title"
+            v-slot:title
           )
             h2
               | {{ article.title }}
 
           template(
-            slot="description"
+            v-slot:description
           )
             time(
               :datetime="article.date"

@@ -104,6 +104,8 @@ export default {
     }
   },
 
+  emits: ["click"],
+
   data() {
     return {
       // --> DATA <--

@@ -38,19 +38,19 @@
             class="c-section-use-cases-discover__option-card"
           )
             template(
-              slot="title"
+              v-slot:title
             )
               h3
                 | {{ useCase.title }}
 
             template(
-              slot="description"
+              v-slot:description
             )
               p
                 | {{ useCase.description }}
 
             template(
-              slot="link"
+              v-slot:link
             )
               base-button(
                 right-icon="arrow-right"

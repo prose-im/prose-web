@@ -21,12 +21,12 @@ div(
     class="c-section-home-main__inner"
   )
     template(
-      slot="title"
+      v-slot:title
     )
       | A New Dawn in Team Messaging
 
     template(
-      slot="description"
+      v-slot:description
     )
       p.c-section-home-main__description
         |  Prose is a distributed, open-source, and native
@@ -55,7 +55,7 @@ div(
           .c-section-home-main__illustration-inner
 
     template(
-      slot="waves"
+      v-slot:waves
     )
       base-wave(
         :variant="5"

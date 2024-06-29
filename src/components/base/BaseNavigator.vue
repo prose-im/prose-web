@@ -52,6 +52,8 @@ export default {
     }
   },
 
+  emits: ["toggle"],
+
   methods: {
     // --> EVENT LISTENERS <--
 

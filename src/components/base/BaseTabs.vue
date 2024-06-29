@@ -25,12 +25,12 @@
         tab
       )
         template(
-          slot="title"
+          v-slot:title
         )
           | {{ item.tab.title }}
 
         template(
-          slot="description"
+          v-slot:description
         )
           | {{ item.tab.description }}
 

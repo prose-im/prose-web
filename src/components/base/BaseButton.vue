@@ -97,6 +97,8 @@ export default {
     }
   },
 
+  emits: ["click"],
+
   computed: {
     rightIconHtml() {
       switch (this.rightIcon) {

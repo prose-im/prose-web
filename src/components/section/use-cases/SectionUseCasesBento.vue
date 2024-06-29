@@ -40,12 +40,12 @@
           class="c-section-use-cases-bento__card"
         )
           template(
-            slot="title"
+            v-slot:title
           )
             | {{ feature.title }}
 
           template(
-            slot="description"
+            v-slot:description
           )
             | {{ feature.description }}
 </template>

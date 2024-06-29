@@ -18,7 +18,7 @@
     class="c-section-changelog-versions__version"
   )
     div(
-      slot="sidebar"
+      v-slot:sidebar
       class="c-section-changelog-versions__version-sidebar"
     )
       .c-section-changelog-versions__version-sidebar-wrapped
@@ -46,7 +46,7 @@
             | Downloads
 
     div(
-      slot="content"
+      v-slot:content
       :class=`[
         "c-section-changelog-versions__version-content",
         {

@@ -13,12 +13,12 @@ page-main-title(
   class="c-section-downloads-main"
 )
   template(
-    slot="title"
+    v-slot:title
   )
     | Download Prose
 
   template(
-    slot="description"
+    v-slot:description
   )
     p
       | Get the Prose app for your platform.
@@ -27,6 +27,7 @@ page-main-title(
       | Install it and start messaging your team in seconds.
 
   base-button(
+    v-slot:action
     @click="onActionClick"
     :class=`[
       "c-section-downloads-main__action",
@@ -34,7 +35,6 @@ page-main-title(
         "c-section-downloads-main__action--disabled": !platformName
       }
     ]`
-    slot="action"
     size="large"
     tint="gradient"
     right-icon="arrow-down"
@@ -64,6 +64,8 @@ const PLATFORM_NAMES = {
 
 export default {
   name: "SectionDownloadsMain",
+
+  emits: ["download"],
 
   data() {
     return {

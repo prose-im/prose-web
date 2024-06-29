@@ -37,6 +37,8 @@ export default {
     }
   },
 
+  emits: ["updateTabs"],
+
   computed: {
     isActive() {
       return this.$parent.activeTab === this.tab.title;

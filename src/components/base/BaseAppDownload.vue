@@ -54,7 +54,6 @@ div(
               ["js-app-download js-app-download--" + platform]: (target !== null && index === 0)
             }
           ]`
-          slot="default"
         )
           base-button(
             :right-icon="(index === 0) ? actionRightIcon : null"

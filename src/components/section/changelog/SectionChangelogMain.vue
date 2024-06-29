@@ -15,7 +15,7 @@ page-split-view(
   class="c-section-changelog-main"
 )
   div(
-    slot="sidebar"
+    v-slot:sidebar
     class="c-section-changelog-main__sidebar"
   )
     base-raster(
@@ -25,7 +25,7 @@ page-split-view(
     )
 
   div(
-    slot="content"
+    v-slot:content
     :class=`[
       "c-section-changelog-main__content",
       {
@@ -38,12 +38,12 @@ page-split-view(
       class="c-section-changelog-main__title"
     )
       template(
-        slot="title"
+        v-slot:title
       )
         | Version History
 
       template(
-        slot="description"
+        v-slot:description
       )
         p
           | Prose apps are actively maintained. Major new versions are released periodically.

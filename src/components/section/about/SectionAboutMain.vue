@@ -13,12 +13,12 @@ page-main-title(
   class="c-section-about-main"
 )
   template(
-    slot="title"
+    v-slot:title
   )
     | We are a small team with a big passion
 
   template(
-    slot="description"
+    v-slot:description
   )
     .c-section-about-main__illustration-center
 </template>

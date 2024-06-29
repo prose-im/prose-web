@@ -88,7 +88,7 @@
             direction="top"
           )
             template(
-              slot="tooltip"
+              v-slot:tooltip
             )
               | Prose is a non-profit funded by
 
@@ -101,7 +101,7 @@
                 | Valerian Saliou
 
             span.c-page-footer__author(
-              slot="default"
+              v-slot:default
             )
               | {{ $config.author.name }} © {{ currentYear }}
 

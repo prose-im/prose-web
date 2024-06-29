@@ -14,19 +14,19 @@
     align="left"
   )
     template(
-      slot="overline"
+      v-slot:overline
     )
       | {{ useCase.overline }}
 
     template(
-      slot="title"
+      v-slot:title
     )
       span(
         v-html="useCase.sectionOneTitle"
       )
 
     template(
-      slot="action"
+      v-slot:action
     )
       a(
         :href="$config.url.prose_app"

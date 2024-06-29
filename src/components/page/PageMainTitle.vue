@@ -30,12 +30,12 @@ div(
       class="c-page-main-title__title"
     )
       slot(
-        slot="title"
+        v-slot:title
         name="title"
       )
 
       slot(
-        slot="description"
+        v-slot:description
         name="description"
       )
 
