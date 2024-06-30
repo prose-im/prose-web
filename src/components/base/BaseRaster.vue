@@ -127,7 +127,7 @@ $rasters: (
   target
 );
 
-.c-base-raster {
+#{$c} {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -137,7 +137,7 @@ $rasters: (
 
   @each $name, $sizes in $rasters {
     &--#{$name} {
-      background-image: url("~/assets/images/components/base/BaseRaster/#{$name}.webp");
+      background-image: url("@/assets/images/components/base/BaseRaster/#{$name}.webp");
     }
   }
 }

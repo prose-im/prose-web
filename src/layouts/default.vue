@@ -13,18 +13,8 @@ page-container
   page-header
 
   page-content
-    nuxt
+    slot
 
   page-entice
   page-footer
 </template>
-
-<!-- **********************************************************************
-     SCRIPT
-     ********************************************************************** -->
-
-<script>
-export default {
-  name: "DefaultLayout"
-};
-</script>

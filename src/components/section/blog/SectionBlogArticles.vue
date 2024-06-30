@@ -27,13 +27,13 @@
           class="c-section-blog-articles__article-card"
         )
           template(
-            slot="title"
+            v-slot:title
           )
             h2
               | {{ article.title }}
 
           template(
-            slot="description"
+            v-slot:description
           )
             time(
               :datetime="article.date"
@@ -65,7 +65,7 @@ export default {
 <style lang="scss">
 $c: ".c-section-blog-articles";
 
-.c-section-blog-articles {
+#{$c} {
   padding: 150px 0;
 
   #{$c}__grid {
@@ -97,7 +97,7 @@ $c: ".c-section-blog-articles";
 // --> MEDIA-QUERIES <--
 
 @media (max-width: 1200px) {
-  .c-section-blog-articles {
+  #{$c} {
     #{$c}__grid {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -107,7 +107,7 @@ $c: ".c-section-blog-articles";
 // --> MEDIA-QUERIES <--
 
 @media (max-width: $screen-tiny-width-breakpoint) {
-  .c-section-blog-articles {
+  #{$c} {
     #{$c}__grid {
       grid-template-columns: repeat(1, 1fr);
     }

@@ -71,7 +71,7 @@ export default {
 
   computed: {
     platforms() {
-      const _architectures = this.$config.downloads.app.architectures;
+      const _architectures = this.$config.public.downloads.app.architectures;
 
       return {
         desktop: {
@@ -81,7 +81,7 @@ export default {
             {
               platform: "web",
               action: "load",
-              targets: [{ url: this.$config.url.prose_app }],
+              targets: [{ url: this.$config.public.url.prose_app }],
               spaced: true
             },
 
@@ -238,7 +238,7 @@ export default {
 <style lang="scss">
 $c: ".c-section-downloads-platforms";
 
-.c-section-downloads-platforms {
+#{$c} {
   overflow-y: hidden;
 
   #{$c}__nest {
@@ -286,7 +286,7 @@ $c: ".c-section-downloads-platforms";
 // --> MEDIA-QUERIES <--
 
 @media (max-width: 1140px) {
-  .c-section-downloads-platforms {
+  #{$c} {
     #{$c}__apps {
       display: flex;
       justify-content: flex-start;

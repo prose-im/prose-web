@@ -19,21 +19,13 @@
      SCRIPT
      ********************************************************************** -->
 
-<script>
-export default {
-  name: "IndexPage",
-  layout: "landing",
+<script setup>
+definePageMeta({
+  layout: "landing"
+});
 
-  head: {
-    title: "Prose – All of your workplace communication lives here"
-  }
-};
+// Set page title
+useHead({
+  title: "Prose – All of your workplace communication lives here"
+});
 </script>
-
-<!-- **********************************************************************
-     STYLE
-     ********************************************************************** -->
-
-<style lang="scss">
-$c: ".p-index";
-</style>

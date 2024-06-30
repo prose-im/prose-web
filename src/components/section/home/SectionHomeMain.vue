@@ -21,12 +21,12 @@ div(
     class="c-section-home-main__inner"
   )
     template(
-      slot="title"
+      v-slot:title
     )
       | A New Dawn in Team Messaging
 
     template(
-      slot="description"
+      v-slot:description
     )
       p.c-section-home-main__description
         |  Prose is a distributed, open-source, and native
@@ -55,7 +55,7 @@ div(
           .c-section-home-main__illustration-inner
 
     template(
-      slot="waves"
+      v-slot:waves
     )
       base-wave(
         :variant="5"
@@ -69,7 +69,7 @@ div(
 
 <script>
 // PROJECT: IMAGES
-import ImageApplicationLayout from "~/assets/images/components/section/home/SectionHomeMain/application-layout.svg?inline";
+import ImageApplicationLayout from "@/assets/images/components/section/home/SectionHomeMain/application-layout.svg?component";
 
 export default {
   name: "SectionHomeMain",
@@ -94,7 +94,7 @@ export default {
 
   computed: {
     hasAnnouncement() {
-      return this.$config.modifiers.announcement === true;
+      return this.$config.public.modifiers.announcement === true;
     }
   }
 };
@@ -110,7 +110,7 @@ $c: ".c-section-home-main";
 // VARIABLES
 $inner-padding-top-base: 74px;
 
-.c-section-home-main {
+#{$c} {
   padding-bottom: 260px;
 
   #{$c}__inner {
@@ -153,7 +153,7 @@ $inner-padding-top-base: 74px;
       inset 0px 0.5px 1px #ffffff;
 
     #{$c}__application-contents {
-      background-image: url("~/assets/images/components/section/home/SectionHomeMain/application-contents.webp");
+      background-image: url("@/assets/images/components/section/home/SectionHomeMain/application-contents.webp");
       position: absolute;
       top: 0;
       bottom: 0;
@@ -184,7 +184,7 @@ $inner-padding-top-base: 74px;
       filter: drop-shadow(0px 20px 8px #81899b29);
 
       #{$c}__illustration-inner {
-        background-image: url("~/assets/images/components/section/home/SectionHomeMain/illustration-identity.svg");
+        background-image: url("@/assets/images/components/section/home/SectionHomeMain/illustration-identity.svg");
         animation: 1s scale 0.7s ease-in-out forwards;
         transform: scale(0);
       }
@@ -199,7 +199,7 @@ $inner-padding-top-base: 74px;
       filter: drop-shadow(0px 20px 12px rgba(81, 142, 234, 0.34));
 
       #{$c}__illustration-inner {
-        background-image: url("~/assets/images/components/section/home/SectionHomeMain/illustration-attachment-blue.svg");
+        background-image: url("@/assets/images/components/section/home/SectionHomeMain/illustration-attachment-blue.svg");
         animation: 1s scale 0.6s ease-in-out forwards;
         transform: scale(0);
       }
@@ -216,7 +216,7 @@ $inner-padding-top-base: 74px;
       #{$c}__illustration-inner {
         width: 100%;
         height: 100%;
-        background-image: url("~/assets/images/components/section/home/SectionHomeMain/illustration-attachment-purple.svg");
+        background-image: url("@/assets/images/components/section/home/SectionHomeMain/illustration-attachment-purple.svg");
         animation: 1s scale ease-in-out forwards;
         transform: scale(0);
       }
@@ -231,7 +231,7 @@ $inner-padding-top-base: 74px;
       filter: drop-shadow(0px 14px 8px #81899b29);
 
       #{$c}__illustration-inner {
-        background-image: url("~/assets/images/components/section/home/SectionHomeMain/illustration-lewis.svg");
+        background-image: url("@/assets/images/components/section/home/SectionHomeMain/illustration-lewis.svg");
         animation: 1s scale 0.9s ease-in-out forwards;
         transform: scale(0);
       }
@@ -247,7 +247,7 @@ $inner-padding-top-base: 74px;
       filter: drop-shadow(0px 14px 10px rgba(246, 112, 134, 0.34));
 
       #{$c}__illustration-inner {
-        background-image: url("~/assets/images/components/section/home/SectionHomeMain/illustration-julia.webp");
+        background-image: url("@/assets/images/components/section/home/SectionHomeMain/illustration-julia.webp");
         animation: 1s scale 0.3s ease-in-out forwards;
         transform: scale(0);
       }
@@ -262,7 +262,7 @@ $inner-padding-top-base: 74px;
       filter: drop-shadow(0px 32px 24px rgba(88, 154, 246, 0.5));
 
       #{$c}__illustration-inner {
-        background-image: url("~/assets/images/components/section/home/SectionHomeMain/illustration-liz.webp");
+        background-image: url("@/assets/images/components/section/home/SectionHomeMain/illustration-liz.webp");
         animation: 1s scale 0.1s ease-in-out forwards;
         transform: scale(0);
       }
@@ -279,7 +279,7 @@ $inner-padding-top-base: 74px;
       transform-origin: bottom left;
 
       #{$c}__illustration-inner {
-        background-image: url("~/assets/images/components/section/home/SectionHomeMain/illustration-message.svg");
+        background-image: url("@/assets/images/components/section/home/SectionHomeMain/illustration-message.svg");
         animation: 1s scale 0.5s ease-in-out forwards;
         transform: scale(0);
       }
@@ -308,7 +308,7 @@ $inner-padding-top-base: 74px;
 // --> MEDIA-QUERIES <--
 
 @media (max-width: $screen-small-width-breakpoint) {
-  .c-section-home-main {
+  #{$c} {
     #{$c}__description {
       font-size: 16px;
       line-height: 24px;
@@ -321,7 +321,7 @@ $inner-padding-top-base: 74px;
 }
 
 @media (max-width: $screen-tiny-width-breakpoint) {
-  .c-section-home-main {
+  #{$c} {
     padding-bottom: 100px;
   }
 }

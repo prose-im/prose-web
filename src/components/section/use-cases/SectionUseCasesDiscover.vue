@@ -27,10 +27,10 @@
     .c-section-use-cases-discover__options
       template(
         v-for="useCase, index in otherCases"
+        :key="index"
       )
         nuxt-link(
-          :to="useCase.url",
-          :key="index",
+          :to="useCase.url"
           class="c-section-use-cases-discover__option"
         )
           base-card(
@@ -38,19 +38,19 @@
             class="c-section-use-cases-discover__option-card"
           )
             template(
-              slot="title"
+              v-slot:title
             )
               h3
                 | {{ useCase.title }}
 
             template(
-              slot="description"
+              v-slot:description
             )
               p
                 | {{ useCase.description }}
 
             template(
-              slot="link"
+              v-slot:link
             )
               base-button(
                 right-icon="arrow-right"
@@ -84,7 +84,7 @@ export default {
 <style lang="scss">
 $c: ".c-section-use-cases-discover";
 
-.c-section-use-cases-discover {
+#{$c} {
   background-color: $color-background-primary;
   position: relative;
 
@@ -115,7 +115,7 @@ $c: ".c-section-use-cases-discover";
 // --> MEDIA-QUERIES <--
 
 @media (max-width: $screen-medium-width-breakpoint) {
-  .c-section-use-cases-discover {
+  #{$c} {
     #{$c}__options {
       grid-template-columns: repeat(1, 1fr);
     }

@@ -100,7 +100,7 @@ $c: ".c-page-split-view";
 // VARIABLES
 $sidebar-background-infinite-width: 100000px;
 
-.c-page-split-view {
+#{$c} {
   #{$c}__wrapper {
     display: flex;
   }

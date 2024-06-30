@@ -22,9 +22,6 @@
      ********************************************************************** -->
 
 <script>
-// NPM
-import Vue from "vue";
-
 export default {
   provide() {
     return {
@@ -37,9 +34,9 @@ export default {
     return {
       // --> STATE <--
 
-      state: Vue.observable({
+      state: {
         value: false
-      })
+      }
     };
   },
 
@@ -61,7 +58,7 @@ export default {
 <style lang="scss">
 $c: ".c-base-disclosure";
 
-.c-base-disclosure {
+#{$c} {
   width: 100%;
 }
 </style>

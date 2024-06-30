@@ -15,6 +15,7 @@ span(
     "c-base-logo--" + size,
     "c-base-logo--" + tint
   ]`
+  :style="logoStyle"
 )
 </template>
 
@@ -23,6 +24,9 @@ span(
      ********************************************************************** -->
 
 <script>
+// PROJECT: IMAGES
+import ImageLogoPath from "@/assets/images/components/base/BaseLogo/logo-path.svg?url_encode";
+
 export default {
   name: "BaseLogo",
 
@@ -43,6 +47,14 @@ export default {
       validator(x) {
         return ["normal", "black", "white"].includes(x);
       }
+    }
+  },
+
+  computed: {
+    logoStyle() {
+      return {
+        "--mask-image": `url("${ImageLogoPath}")`
+      };
     }
   }
 };
@@ -65,10 +77,8 @@ $size-widths: (
   "large": 104px
 );
 
-.c-base-logo {
-  @include mask-image(
-    "~/assets/images/components/base/BaseLogo/logo-path.svg?data"
-  );
+#{$c} {
+  @include mask-image-raw(var(--mask-image));
   @include mask-repeat(no-repeat);
   @include mask-size(contain);
   @include mask-position(left);
@@ -90,7 +100,7 @@ $size-widths: (
 
   &--normal {
     background-color: $color-base-purple-mid;
-    background-image: url("~/assets/images/components/base/BaseLogo/logo-tint-normal.webp");
+    background-image: url("@/assets/images/components/base/BaseLogo/logo-tint-normal.webp");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: left;

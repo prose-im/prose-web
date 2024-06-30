@@ -13,12 +13,12 @@ page-main-title(
   class="c-section-downloads-main"
 )
   template(
-    slot="title"
+    v-slot:title
   )
     | Download Prose
 
   template(
-    slot="description"
+    v-slot:description
   )
     p
       | Get the Prose app for your platform.
@@ -26,28 +26,30 @@ page-main-title(
     p.u-medium
       | Install it and start messaging your team in seconds.
 
-  base-button(
-    @click="onActionClick"
-    :class=`[
-      "c-section-downloads-main__action",
-      {
-        "c-section-downloads-main__action--disabled": !platformName
-      }
-    ]`
-    slot="action"
-    size="large"
-    tint="gradient"
-    right-icon="arrow-down"
-    bolder
+  template(
+    v-slot:action
   )
-    | Download the Prose App
-
-    template(
-      v-if="platformName"
+    base-button(
+      @click="onActionClick"
+      :class=`[
+        "c-section-downloads-main__action",
+        {
+          "c-section-downloads-main__action--disabled": !platformName
+        }
+      ]`
+      size="large"
+      tint="gradient"
+      right-icon="arrow-down"
+      bolder
     )
-      base-space
+      | Download the Prose App
 
-      | for {{ platformName }}
+      template(
+        v-if="platformName"
+      )
+        base-space
+
+        | for {{ platformName }}
 </template>
 
 <!-- **********************************************************************
@@ -64,6 +66,8 @@ const PLATFORM_NAMES = {
 
 export default {
   name: "SectionDownloadsMain",
+
+  emits: ["download"],
 
   data() {
     return {
@@ -118,7 +122,7 @@ export default {
 <style lang="scss">
 $c: ".c-section-downloads-main";
 
-.c-section-downloads-main {
+#{$c} {
   #{$c}__action {
     &--disabled {
       pointer-events: none;
@@ -130,7 +134,7 @@ $c: ".c-section-downloads-main";
 // --> MEDIA-QUERIES <--
 
 @media (max-width: 740px) {
-  .c-section-downloads-main {
+  #{$c} {
     #{$c}__rasters {
       display: none;
     }

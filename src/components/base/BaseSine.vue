@@ -23,15 +23,15 @@ div(
 </template>
 
 <!-- **********************************************************************
-             SCRIPT
-             ********************************************************************** -->
+     SCRIPT
+     ********************************************************************** -->
 
 <script>
 // PROJECT: IMAGES
-import ImageColorBlue from "~/assets/images/components/base/BaseSine/color-blue.svg?raw";
-import ImageColorPurple from "~/assets/images/components/base/BaseSine/color-purple.svg?raw";
-import ImageColorPink from "~/assets/images/components/base/BaseSine/color-pink.svg?raw";
-import ImageColorNavy from "~/assets/images/components/base/BaseSine/color-navy.svg?raw";
+import ImageColorBlue from "@/assets/images/components/base/BaseSine/color-blue.svg?raw";
+import ImageColorPurple from "@/assets/images/components/base/BaseSine/color-purple.svg?raw";
+import ImageColorPink from "@/assets/images/components/base/BaseSine/color-pink.svg?raw";
+import ImageColorNavy from "@/assets/images/components/base/BaseSine/color-navy.svg?raw";
 
 export default {
   name: "BaseSine",
@@ -76,13 +76,13 @@ export default {
 </script>
 
 <!-- **********************************************************************
-             STYLE
-             ********************************************************************** -->
+     STYLE
+     ********************************************************************** -->
 
 <style lang="scss">
 $c: ".c-base-sine";
 
-.c-base-sine {
+#{$c} {
   position: relative;
 
   #{$c}__content {
@@ -137,7 +137,7 @@ $c: ".c-base-sine";
 // --> MEDIA-QUERIES <--
 
 @media (max-width: $screen-small-width-breakpoint) {
-  .c-base-sine {
+  #{$c} {
     #{$c}__content {
       border-radius: 16px;
       aspect-ratio: 1.1 / 1;

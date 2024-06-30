@@ -83,7 +83,7 @@ $c: ".c-page-footer-segment";
 // VARIABLES
 $segment-link-padding-left: 10px;
 
-.c-page-footer-segment {
+#{$c} {
   color: $color-black;
 
   &:last-child {

@@ -116,7 +116,7 @@
 
 <script>
 // PROJECT: IMAGES
-import ImageContentActionsDownloadIcon from "~/assets/images/components/page/PageEntice/content-actions-download-icon.svg?inline";
+import ImageContentActionsDownloadIcon from "@/assets/images/components/page/PageEntice/content-actions-download-icon.svg?component";
 
 // CONSTANTS
 const SUBSCRIBE_SUBMIT_DELAY = 200; // 1/5 second
@@ -203,7 +203,7 @@ $c: ".c-page-entice";
 // VARIABLES
 $animate-shake-base-depth: 2px;
 
-.c-page-entice {
+#{$c} {
   background-color: $color-background-primary;
   padding-top: 20px;
   position: relative;
@@ -254,13 +254,13 @@ $animate-shake-base-depth: 2px;
 
       &--hosted {
         #{$c}__option-illustration {
-          background-image: url("~/assets/images/components/page/PageEntice/illustration-hosted-by-prose.svg");
+          background-image: url("@/assets/images/components/page/PageEntice/illustration-hosted-by-prose.svg");
         }
       }
 
       &--free {
         #{$c}__option-illustration {
-          background-image: url("~/assets/images/components/page/PageEntice/illustration-free-hosting.svg");
+          background-image: url("@/assets/images/components/page/PageEntice/illustration-free-hosting.svg");
         }
       }
     }
@@ -393,7 +393,7 @@ $animate-shake-base-depth: 2px;
 // --> MEDIA-QUERIES <--
 
 @media (max-width: $screen-large-width-breakpoint) {
-  .c-page-entice {
+  #{$c} {
     #{$c}__content {
       #{$c}__title {
         font-size: 26px;
@@ -403,7 +403,7 @@ $animate-shake-base-depth: 2px;
 }
 
 @media (max-width: $screen-medium-width-breakpoint) {
-  .c-page-entice {
+  #{$c} {
     #{$c}__content {
       #{$c}__content-inner {
         flex: 1;
@@ -431,7 +431,7 @@ $animate-shake-base-depth: 2px;
 }
 
 @media (max-width: $screen-tiny-width-breakpoint) {
-  .c-page-entice {
+  #{$c} {
     #{$c}__content {
       padding: 0 28px;
 

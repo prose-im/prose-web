@@ -30,7 +30,7 @@ export default {
 <style lang="scss">
 $c: ".c-page-container";
 
-.c-page-container {
+#{$c} {
   position: relative;
 }
 </style>

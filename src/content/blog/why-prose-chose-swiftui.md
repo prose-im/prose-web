@@ -26,7 +26,7 @@ Going native doesn’t mean you have to sacrifice your branding and create a bla
 
 Ever found yourself in need of battery in the middle of an important call ? You reach awkwardly for the charger only to remember you left it in another room.
 
-<markdown-image src="/blog/why-prose-chose-swiftui/google-eats-ram-meme.png" alt="Popular meme of Google Chrome devouring RAM" caption="Popular meme of Google Chrome devouring RAM"></markdown-image>
+<content-image src="/blog/why-prose-chose-swiftui/google-eats-ram-meme.png" alt="Popular meme of Google Chrome devouring RAM" caption="Popular meme of Google Chrome devouring RAM"></content-image>
 
 As a device ages, its battery capacity naturally decreases. This leads to more frequent charging. If you’re a macOS user, you can see which apps are using significant energy simply by clicking on the battery icon in the menu bar. Chances are, you’ll find the usual suspects like Google Chrome. The reason these apps are draining your battery is because they require a lot of RAM to run compared to native alternatives. It's like comparing a gas-guzzling truck with a fuel-efficient hybrid car. So in the same way you get more mileage with a hybrid, you’ll get more screen time using native apps.
 

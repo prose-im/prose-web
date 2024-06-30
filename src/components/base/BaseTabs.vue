@@ -12,27 +12,27 @@
 .c-base-tabs
   ul.c-base-tabs__grid
     li(
-      v-for="(item, index) in tabs"
+      v-for="(tab, index) in tabs"
+      :key="index"
     )
       base-icon-card(
-        @click="selectTab(item.tab)"
-        :key="index"
-        :icon="item.tab.icon"
-        :tint="item.tab.tint"
-        :active="item.tab.title === activeTab"
-        :image="getAssetUrl(item.tab.media)"
+        @click="onCardClick(tab)"
+        :icon="tab.icon"
+        :tint="tab.tint"
+        :active="tab.id === activeTabId"
+        :image="tab.media"
         class="c-base-tabs__card"
         tab
       )
         template(
-          slot="title"
+          v-slot:title
         )
-          | {{ item.tab.title }}
+          | {{ tab.title }}
 
         template(
-          slot="description"
+          v-slot:description
         )
-          | {{ item.tab.description }}
+          | {{ tab.description }}
 
   .c-base-tabs__media-stack
     slot
@@ -46,69 +46,55 @@
 export default {
   name: "BaseTabs",
 
-  provide() {
-    return {
-      setActiveTab: this.selectTab,
-      tabsComponent: this
-    };
-  },
-
   props: {
-    mediaUrlPrefix: {
-      type: String,
-      default: ""
+    tabs: {
+      type: Array,
+      required: true
     }
   },
+
+  emits: ["pick"],
 
   data() {
     return {
       // --> STATE <--
 
-      activeTab: "",
-      tabs: []
+      activeTabId: null
     };
   },
 
-  mounted() {
-    this.updateTabs();
+  created() {
+    // Pick first available tab
+    this.changeActiveTab(this.tabs[0]);
   },
 
   methods: {
     // --> HELPERS <--
 
     /**
-     * Selects tab
+     * Changes active tab
+     * @public
+     * @param  {object} [tab]
+     * @return {undefined}
+     */
+    changeActiveTab(tab = null) {
+      const _tabId = tab?.id || null;
+
+      this.activeTabId = _tabId;
+
+      this.$emit("pick", _tabId);
+    },
+
+    // --> EVENT LISTENERS <--
+
+    /**
+     * Handles card click
      * @public
      * @param  {object} selectedTab
      * @return {undefined}
      */
-    selectTab(selectedTab) {
-      this.activeTab = selectedTab.title;
-    },
-
-    /**
-     * Updates tab
-     * @public
-     * @return {undefined}
-     */
-    updateTabs() {
-      this.tabs = this.$children.filter(
-        child => child.$options.name === "BaseTab"
-      );
-
-      if (this.tabs.length > 0) {
-        this.activeTab = this.tabs[0].tab.title;
-      }
-    },
-
-    /**
-     * Gets asset URL
-     * @public
-     * @param  {string} url
-     * @return {string} Asset URL
-     */
-    getAssetUrl(url) {
-      return require(`@/assets/images${this.mediaUrlPrefix}${url}`);
+    onCardClick(selectedTab) {
+      this.changeActiveTab(selectedTab);
     }
   }
 };
@@ -121,7 +107,7 @@ export default {
 <style lang="scss">
 $c: ".c-base-tabs";
 
-.c-base-tabs {
+#{$c} {
   #{$c}__grid {
     display: grid;
     margin: 0 auto;
@@ -146,7 +132,7 @@ $c: ".c-base-tabs";
 // --> MEDIA-QUERIES <--
 
 @media (max-width: $screen-medium-width-breakpoint) {
-  .c-base-tabs {
+  #{$c} {
     #{$c}__grid {
       grid-gap: 16px;
     }
@@ -154,7 +140,7 @@ $c: ".c-base-tabs";
 }
 
 @media (max-width: $screen-small-width-breakpoint) {
-  .c-base-tabs {
+  #{$c} {
     #{$c}__media-stack {
       display: none;
     }

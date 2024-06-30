@@ -4,8 +4,8 @@
 
   "sineColor": "purple",
 
-  "desktopImage": "/SectionUseCasesMain/web3-main.webp",
-  "mobileImage": "/SectionUseCasesMain/web3-main-mobile.webp",
+  "desktopImage": "/usecases/web3/main-desktop.webp",
+  "mobileImage": "/usecases/web3/main-mobile.webp",
 
   "sectionOneTitle": "Build and scale your <br> Web3 community",
   "sectionTwoTitle": "Ready for Minting <br> Day and everyday",
@@ -17,7 +17,7 @@
       "tint": "blue",
       "title": "Scalable",
       "description": "Prose uses end-to-end encryption to protect your conversations from prying eyes, and is designed to handle large communities with ease.",
-      "imageSrc": "/SectionUseCasesBento/nfts.svg"
+      "imageSrc": "/usecases/web3/nfts.svg"
     },
 
     {
@@ -37,27 +37,30 @@
 
   "tabs": [
     {
+      "id": "notifications",
       "icon": "notification",
       "tint": "pink",
       "title": "Smart Notifications",
       "description": "Never miss an important message or update with customizable notifications.",
-      "media": "/SectionUseCasesTabs/notifications.webp"
+      "media": "/usecases/web3/tab-notifications.webp"
     },
 
     {
+      "id": "verified",
       "icon": "verified",
       "tint": "purple",
       "title": "Verified Users",
       "description": "Rest easy knowing you're communicating with verified users.",
-      "media": "/SectionUseCasesTabs/verified.webp"
+      "media": "/usecases/web3/tab-verified.webp"
     },
 
     {
+      "id": "attachments",
       "icon": "attachment",
       "tint": "blue",
       "title": "Any file, anywhere",
       "description": "Easily organize, access, and share your files across all platforms.",
-      "media": "/SectionUseCasesTabs/attachments.webp"
+      "media": "/usecases/web3/tab-attachments.webp"
     }
   ]
 }

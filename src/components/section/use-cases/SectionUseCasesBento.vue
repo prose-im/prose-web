@@ -16,7 +16,6 @@
     base-wave(
       :variant="7"
       class="c-section-use-cases-bento__wave"
-      image
     )
 
     base-title(
@@ -31,21 +30,21 @@
     .c-section-use-cases-bento__grid
       template(
         v-for="feature, index in useCase.features"
+        :key="index"
       )
         base-icon-card(
-          :key="index"
           :icon="feature.icon"
           :tint="feature.tint"
           :image="(index === 0) ? imageSrc : ''"
           class="c-section-use-cases-bento__card"
         )
           template(
-            slot="title"
+            v-slot:title
           )
             | {{ feature.title }}
 
           template(
-            slot="description"
+            v-slot:description
           )
             | {{ feature.description }}
 </template>
@@ -67,8 +66,7 @@ export default {
 
   computed: {
     imageSrc() {
-      return require(`~/assets/images/components/section/` +
-        `usecases${this.useCase.features[0].imageSrc}`);
+      return this.useCase.features[0].imageSrc;
     }
   }
 };
@@ -81,7 +79,7 @@ export default {
 <style lang="scss">
 $c: ".c-section-use-cases-bento";
 
-.c-section-use-cases-bento {
+#{$c} {
   padding: 250px 0 150px;
   position: relative;
 
@@ -116,7 +114,7 @@ $c: ".c-section-use-cases-bento";
 // --> MEDIA-QUERIES <--
 
 @media (max-width: $screen-small-width-breakpoint) {
-  .c-section-use-cases-bento {
+  #{$c} {
     #{$c}__wave {
       display: none;
     }
@@ -124,7 +122,7 @@ $c: ".c-section-use-cases-bento";
 }
 
 @media (max-width: $screen-tiny-width-breakpoint) {
-  .c-section-use-cases-bento {
+  #{$c} {
     padding: 150px 0 0;
 
     #{$c}__grid {

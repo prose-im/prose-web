@@ -63,11 +63,11 @@
 
 <script>
 // PROJECT: IMAGES
-import ValerianAvatar from "~/assets/images/components/section/about/SectionAboutTeam/avatar-valerian.webp?raw";
-import SaifAvatar from "~/assets/images/components/section/about/SectionAboutTeam/avatar-saif.webp?raw";
-import GuillaumeAvatar from "~/assets/images/components/section/about/SectionAboutTeam/avatar-guillaume.webp?raw";
-import MarcAvatar from "~/assets/images/components/section/about/SectionAboutTeam/avatar-marc.webp?raw";
-import RemiAvatar from "~/assets/images/components/section/about/SectionAboutTeam/avatar-remi.webp?raw";
+import ValerianAvatar from "@/assets/images/components/section/about/SectionAboutTeam/avatar-valerian.webp";
+import SaifAvatar from "@/assets/images/components/section/about/SectionAboutTeam/avatar-saif.webp";
+import GuillaumeAvatar from "@/assets/images/components/section/about/SectionAboutTeam/avatar-guillaume.webp";
+import MarcAvatar from "@/assets/images/components/section/about/SectionAboutTeam/avatar-marc.webp";
+import RemiAvatar from "@/assets/images/components/section/about/SectionAboutTeam/avatar-remi.webp";
 
 // CONSTANTS
 const SOCIAL_BASE_URLS = {
@@ -213,7 +213,7 @@ export default {
 <style lang="scss">
 $c: ".c-section-about-team";
 
-.c-section-about-team {
+#{$c} {
   position: relative;
   padding: 80px 0 20px;
   z-index: 1;
@@ -294,7 +294,7 @@ $c: ".c-section-about-team";
 // --> MEDIA-QUERIES <--
 
 @media (max-width: $screen-medium-width-breakpoint) {
-  .c-section-about-team {
+  #{$c} {
     #{$c}__members {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -302,7 +302,7 @@ $c: ".c-section-about-team";
 }
 
 @media (max-width: $screen-tiny-width-breakpoint) {
-  .c-section-about-team {
+  #{$c} {
     #{$c}__members {
       grid-template-columns: repeat(1, 1fr);
     }

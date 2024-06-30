@@ -62,7 +62,7 @@ $c: ".c-base-navigate";
 // VARIABLES
 $navigate-border-radius: 2px;
 
-.c-base-navigate {
+#{$c} {
   display: inline-block;
 
   #{$c}__entry {

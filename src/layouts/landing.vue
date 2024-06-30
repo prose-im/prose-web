@@ -17,18 +17,8 @@ page-container
   page-content(
     showcase
   )
-    nuxt
+    slot
 
   page-entice
   page-footer
 </template>
-
-<!-- **********************************************************************
-     SCRIPT
-     ********************************************************************** -->
-
-<script>
-export default {
-  name: "LandingLayout"
-};
-</script>

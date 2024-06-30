@@ -62,7 +62,7 @@ export default {
 <style lang="scss">
 $c: ".c-base-descripted-title";
 
-.c-base-descripted-title {
+#{$c} {
   #{$c}__description {
     margin-top: 22px;
   }
