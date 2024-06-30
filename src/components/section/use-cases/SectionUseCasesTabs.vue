@@ -21,16 +21,17 @@
       )
 
     base-tabs(
-      :media-url-prefix="mediaUrlPrefix"
+      :tabs="useCase.tabs"
     )
       base-tab(
         v-for="tab, index in useCase.tabs"
         :key="index"
         :tab="tab"
+        :active="false"
         class="c-section-use-cases-tabs__media"
       )
         img(
-          :src="getAssetUrl(tab.media)"
+          :src="tab.media"
           alt=""
           class="c-section-use-cases-tabs__media-image"
         )
@@ -48,28 +49,6 @@ export default {
     useCase: {
       type: Object,
       required: true
-    }
-  },
-
-  data() {
-    return {
-      // --> DATA <--
-
-      mediaUrlPrefix: "/components/section/usecases"
-    };
-  },
-
-  methods: {
-    // --> HELPERS <--
-
-    /**
-     * Gets asset URL
-     * @public
-     * @param  {string} url
-     * @return {string} Asset URL
-     */
-    getAssetUrl(url) {
-      return `@/assets/images${this.mediaUrlPrefix}${url}`;
     }
   }
 };

@@ -12,27 +12,27 @@
 .c-base-tabs
   ul.c-base-tabs__grid
     li(
-      v-for="(item, index) in tabs"
+      v-for="(tab, index) in tabs"
       :key="index"
     )
       base-icon-card(
-        @click="selectTab(item.tab)"
-        :icon="item.tab.icon"
-        :tint="item.tab.tint"
-        :active="item.tab.title === activeTab"
-        :image="getAssetUrl(item.tab.media)"
+        @click="selectTab(tab)"
+        :icon="tab.icon"
+        :tint="tab.tint"
+        :active="tab.title === activeTab"
+        :image="tab.media"
         class="c-base-tabs__card"
         tab
       )
         template(
           v-slot:title
         )
-          | {{ item.tab.title }}
+          | {{ tab.title }}
 
         template(
           v-slot:description
         )
-          | {{ item.tab.description }}
+          | {{ tab.description }}
 
   .c-base-tabs__media-stack
     slot
@@ -54,9 +54,9 @@ export default {
   },
 
   props: {
-    mediaUrlPrefix: {
-      type: String,
-      default: ""
+    tabs: {
+      type: Array,
+      required: true
     }
   },
 
@@ -64,8 +64,7 @@ export default {
     return {
       // --> STATE <--
 
-      activeTab: "",
-      tabs: []
+      activeTab: ""
     };
   },
 
@@ -92,23 +91,14 @@ export default {
      * @return {undefined}
      */
     updateTabs() {
-      this.tabs = this.$children.filter(
-        child => child.$options.name === "BaseTab"
-      );
-
-      if (this.tabs.length > 0) {
-        this.activeTab = this.tabs[0].tab.title;
-      }
-    },
-
-    /**
-     * Gets asset URL
-     * @public
-     * @param  {string} url
-     * @return {string} Asset URL
-     */
-    getAssetUrl(url) {
-      return `@/assets/images${this.mediaUrlPrefix}${url}`;
+      // TODO: migrate
+      //       this.tabs = this.$children.filter(
+      //         child => child.$options.name === "BaseTab"
+      //       );
+      //
+      //       if (this.tabs.length > 0) {
+      //         this.activeTab = this.tabs[0].tab.title;
+      //       }
     }
   }
 };

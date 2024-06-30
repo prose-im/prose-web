@@ -22,9 +22,8 @@ div(
 )
   .c-base-icon-card__content
     .c-base-icon-card__icon
-      img(
+      image-default(
         v-if="tab && !active && !mobile"
-        src="@/assets/images/components/base/BaseIconCard/default.svg"
         width="64"
         height="64"
       )
@@ -71,8 +70,13 @@ div(
      ********************************************************************** -->
 
 <script>
+// PROJECT: IMAGES
+import ImageDefault from "@/assets/images/components/base/BaseIconCard/default.svg?component";
+
 export default {
   name: "BaseIconCard",
+
+  components: { ImageDefault },
 
   props: {
     icon: {

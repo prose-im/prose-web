@@ -13,7 +13,7 @@ div(
   :class=`[
     "c-base-tab",
     {
-      "c-base-tab--active": isActive
+      "c-base-tab--active": active
     }
   ]`
 )
@@ -34,16 +34,15 @@ export default {
     tab: {
       type: Object,
       required: true
+    },
+
+    active: {
+      type: Boolean,
+      default: false
     }
   },
 
   emits: ["updateTabs"],
-
-  computed: {
-    isActive() {
-      return this.$parent.activeTab === this.tab.title;
-    }
-  },
 
   mounted() {
     this.$emit("updateTabs");

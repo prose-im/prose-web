@@ -42,10 +42,7 @@ const USE_CASES = [
       "Collaborate and innovate on open source projects with like-minded " +
       "developers.",
     url: "/usecases/developers/",
-
-    media:
-      "@/assets/images/components/section/usecases/" +
-      "SectionUseCasesDiscover/developers.webp"
+    media: "/usecases/developers/banner.webp"
   },
 
   {
@@ -54,10 +51,7 @@ const USE_CASES = [
     description:
       "Know for certain who you’re talking to even if you’ve never met IRL.",
     url: "/usecases/remote-teams/",
-
-    media:
-      "@/assets/images/components/section/usecases/" +
-      "SectionUseCasesDiscover/remote-teams.webp"
+    media: "/usecases/remote-teams/banner.webp"
   },
 
   {
@@ -66,10 +60,7 @@ const USE_CASES = [
     description:
       "Communicate efficiently even in low bandwidth regions of the world.",
     url: "/usecases/non-profits/",
-
-    media:
-      "@/assets/images/components/section/usecases/" +
-      "SectionUseCasesDiscover/non-profits.webp"
+    media: "/usecases/non-profits/banner.webp"
   },
 
   {
@@ -78,10 +69,7 @@ const USE_CASES = [
     description:
       "Prevent scams, spam, and other unwanted interactions on your server.",
     url: "/usecases/web3/",
-
-    media:
-      "@/assets/images/components/section/usecases/" +
-      "SectionUseCasesDiscover/web3.webp"
+    media: "/usecases/web3/banner.webp"
   }
 ];
 

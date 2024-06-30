@@ -45,7 +45,7 @@
       class="c-section-use-cases-main__illustration"
     )
       .c-section-use-cases-main__illustration-center(
-        :style="`--mobile-image: url(${mobileImage}); --desktop-image: url(${desktopImage})`"
+        :style="`--mobile-image: url(${useCase.mobileImage}); --desktop-image: url(${useCase.desktopImage})`"
       )
 </template>
 
@@ -61,22 +61,6 @@ export default {
     useCase: {
       type: Object,
       required: true
-    }
-  },
-
-  computed: {
-    mobileImage() {
-      return (
-        `@/assets/images/components/section/` +
-        `usecases${this.useCase.mobileImage}`
-      );
-    },
-
-    desktopImage() {
-      return (
-        `@/assets/images/components/section/` +
-        `usecases${this.useCase.desktopImage}`
-      );
     }
   }
 };

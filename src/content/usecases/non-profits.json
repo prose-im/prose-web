@@ -4,8 +4,8 @@
 
   "sineColor": "navy",
 
-  "desktopImage": "/SectionUseCasesMain/non-profits-main.webp",
-  "mobileImage": "/SectionUseCasesMain/non-profits-mobile-main.webp",
+  "desktopImage": "/usecases/non-profits/main-desktop.webp",
+  "mobileImage": "/usecases/non-profits/main-mobile.webp",
 
   "sectionOneTitle": "Bridge borders with <br> decentralized messaging",
   "sectionTwoTitle": "Empowering <br> change-makers",
@@ -17,7 +17,7 @@
       "tint": "blue",
       "title": "Community Forum",
       "description": "Engage with supporters, donors, and beneficiaries by providing a platform for discussions, updates, and feedback.",
-      "imageSrc": "/SectionUseCasesBento/community.svg"
+      "imageSrc": "/usecases/non-profits/community.svg"
     },
 
     {
@@ -41,7 +41,7 @@
       "tint": "pink",
       "title": "External Collaboration",
       "description": "Invite external partners, donors, or stakeholders to specific channels, fostering cooperation and transparency.",
-      "media": "/SectionUseCasesTabs/collaboration.webp"
+      "media": "/usecases/non-profits/tab-collaboration.webp"
     },
 
     {
@@ -49,7 +49,7 @@
       "tint": "purple",
       "title": "Threaded Conversations",
       "description": "Keep discussions organized and focused by replying directly to specific messages within channels.",
-      "media": "/SectionUseCasesTabs/threads.webp"
+      "media": "/usecases/non-profits/tab-threads.webp"
     },
 
     {
@@ -57,7 +57,7 @@
       "tint": "blue",
       "title": "Mobile Compatible",
       "description": "Stay connected with your community on the go, ensuring you never miss an important update or conversation.",
-      "media": "/SectionUseCasesTabs/mobile.webp"
+      "media": "/usecases/non-profits/tab-mobile.webp"
     }
   ]
 }
