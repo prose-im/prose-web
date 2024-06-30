@@ -29,8 +29,7 @@
     "lint": "npm run lint:js && npm run lint:prettier"
   },
   "dependencies": {
-    "vue": "3.4.21",
-    "Base64": "1.2.0",
+    "vue": "3.4.31",
     "crisp-sdk-web": "1.0.13"
   },
   "devDependencies": {

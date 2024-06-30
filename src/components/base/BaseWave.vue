@@ -10,16 +10,6 @@
 
 <template lang="pug">
 .c-base-wave(
-  v-if="imageSource"
-)
-  img(
-    :src="imageSource"
-    alt=""
-    class="c-base-wave__image"
-  )
-
-.c-base-wave(
-  v-else
   v-html="imageHtml"
 )
 </template>
@@ -29,9 +19,6 @@
      ********************************************************************** -->
 
 <script>
-// NPM
-import Base64 from "Base64";
-
 // PROJECT: IMAGES
 import ImageVariant1 from "@/assets/images/components/base/BaseWave/variant-1.svg?raw";
 import ImageVariant2 from "@/assets/images/components/base/BaseWave/variant-2.svg?raw";
@@ -63,37 +50,12 @@ export default {
       validator(x) {
         return x > 0 && x <= VARIANTS.length;
       }
-    },
-
-    image: {
-      type: Boolean,
-      default: false
     }
   },
 
   computed: {
     imageHtml() {
-      // Return as bare HTML? (ie. raw SVG content)
-      if (this.image !== true) {
-        return VARIANTS[this.variant - 1] || null;
-      }
-
-      return null;
-    },
-
-    imageSource() {
-      // Encode as image?
-      // Notice: this is typically used in environment where the parent crops \
-      //   the contained wave image.
-      if (this.image === true) {
-        const _source = VARIANTS[this.variant - 1] || null;
-
-        if (_source !== null) {
-          return `data:image/svg+xml;base64,${Base64.btoa(_source)}`;
-        }
-      }
-
-      return null;
+      return VARIANTS[this.variant - 1] || null;
     }
   }
 };
@@ -114,10 +76,5 @@ $c: ".c-base-wave";
   width: 100%;
   opacity: 0.7;
   overflow: hidden;
-
-  #{$c}__image {
-    width: 100%;
-    height: auto;
-  }
 }
 </style>

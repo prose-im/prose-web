@@ -16,7 +16,6 @@
     base-wave(
       :variant="7"
       class="c-section-use-cases-bento__wave"
-      image
     )
 
     base-title(
