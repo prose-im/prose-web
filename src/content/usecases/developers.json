@@ -37,6 +37,7 @@
 
   "tabs": [
     {
+      "id": "integrations",
       "icon": "integrations",
       "tint": "pink",
       "title": "API Integrations",
@@ -45,6 +46,7 @@
     },
 
     {
+      "id": "self-hosted",
       "icon": "server",
       "tint": "purple",
       "title": "Self-hosted",
@@ -53,6 +55,7 @@
     },
 
     {
+      "id": "tailor-made-experience",
       "icon": "paintbrush",
       "tint": "blue",
       "title": "Configurable",

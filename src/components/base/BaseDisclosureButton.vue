@@ -22,6 +22,7 @@ button.c-base-disclosure-button(
 <script>
 export default {
   name: "BaseDisclosureButton",
+
   inject: ["toggle"]
 };
 </script>

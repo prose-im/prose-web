@@ -21,13 +21,13 @@
       )
 
     base-tabs(
+      @pick="onTabsPick"
       :tabs="useCase.tabs"
     )
       base-tab(
-        v-for="tab, index in useCase.tabs"
+        v-for="(tab, index) in useCase.tabs"
         :key="index"
-        :tab="tab"
-        :active="false"
+        :active="tab.id === activeTabId"
         class="c-section-use-cases-tabs__media"
       )
         img(
@@ -49,6 +49,28 @@ export default {
     useCase: {
       type: Object,
       required: true
+    }
+  },
+
+  data() {
+    return {
+      // --> STATE <--
+
+      activeTabId: null
+    };
+  },
+
+  methods: {
+    // --> EVENT LISTENERS <--
+
+    /**
+     * Handles tabs pick
+     * @public
+     * @param  {string} id
+     * @return {undefined}
+     */
+    onTabsPick(id) {
+      this.activeTabId = id;
     }
   }
 };

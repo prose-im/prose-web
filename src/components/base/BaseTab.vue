@@ -28,24 +28,11 @@ div(
 export default {
   name: "BaseTab",
 
-  inject: ["setActiveTab", "tabsComponent"],
-
   props: {
-    tab: {
-      type: Object,
-      required: true
-    },
-
     active: {
       type: Boolean,
       default: false
     }
-  },
-
-  emits: ["updateTabs"],
-
-  mounted() {
-    this.$emit("updateTabs");
   }
 };
 </script>

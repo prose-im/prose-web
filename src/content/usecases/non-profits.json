@@ -37,6 +37,7 @@
 
   "tabs": [
     {
+      "id": "collaboration",
       "icon": "collaboration",
       "tint": "pink",
       "title": "External Collaboration",
@@ -45,6 +46,7 @@
     },
 
     {
+      "id": "threads",
       "icon": "thread",
       "tint": "purple",
       "title": "Threaded Conversations",
@@ -53,6 +55,7 @@
     },
 
     {
+      "id": "mobile",
       "icon": "mobile",
       "tint": "blue",
       "title": "Mobile Compatible",

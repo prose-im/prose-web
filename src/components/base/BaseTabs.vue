@@ -16,10 +16,10 @@
       :key="index"
     )
       base-icon-card(
-        @click="selectTab(tab)"
+        @click="onCardClick(tab)"
         :icon="tab.icon"
         :tint="tab.tint"
-        :active="tab.title === activeTab"
+        :active="tab.id === activeTabId"
         :image="tab.media"
         class="c-base-tabs__card"
         tab
@@ -46,13 +46,6 @@
 export default {
   name: "BaseTabs",
 
-  provide() {
-    return {
-      setActiveTab: this.selectTab,
-      tabsComponent: this
-    };
-  },
-
   props: {
     tabs: {
       type: Array,
@@ -60,45 +53,48 @@ export default {
     }
   },
 
+  emits: ["pick"],
+
   data() {
     return {
       // --> STATE <--
 
-      activeTab: ""
+      activeTabId: null
     };
   },
 
-  mounted() {
-    this.updateTabs();
+  created() {
+    // Pick first available tab
+    this.changeActiveTab(this.tabs[0]);
   },
 
   methods: {
     // --> HELPERS <--
 
     /**
-     * Selects tab
+     * Changes active tab
+     * @public
+     * @param  {object} [tab]
+     * @return {undefined}
+     */
+    changeActiveTab(tab = null) {
+      const _tabId = tab?.id || null;
+
+      this.activeTabId = _tabId;
+
+      this.$emit("pick", _tabId);
+    },
+
+    // --> EVENT LISTENERS <--
+
+    /**
+     * Handles card click
      * @public
      * @param  {object} selectedTab
      * @return {undefined}
      */
-    selectTab(selectedTab) {
-      this.activeTab = selectedTab.title;
-    },
-
-    /**
-     * Updates tab
-     * @public
-     * @return {undefined}
-     */
-    updateTabs() {
-      // TODO: migrate
-      //       this.tabs = this.$children.filter(
-      //         child => child.$options.name === "BaseTab"
-      //       );
-      //
-      //       if (this.tabs.length > 0) {
-      //         this.activeTab = this.tabs[0].tab.title;
-      //       }
+    onCardClick(selectedTab) {
+      this.changeActiveTab(selectedTab);
     }
   }
 };

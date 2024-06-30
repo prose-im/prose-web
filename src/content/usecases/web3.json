@@ -37,6 +37,7 @@
 
   "tabs": [
     {
+      "id": "notifications",
       "icon": "notification",
       "tint": "pink",
       "title": "Smart Notifications",
@@ -45,6 +46,7 @@
     },
 
     {
+      "id": "verified",
       "icon": "verified",
       "tint": "purple",
       "title": "Verified Users",
@@ -53,6 +55,7 @@
     },
 
     {
+      "id": "attachments",
       "icon": "attachment",
       "tint": "blue",
       "title": "Any file, anywhere",

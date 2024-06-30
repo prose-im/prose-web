@@ -37,6 +37,7 @@
 
   "tabs": [
     {
+      "id": "calls",
       "icon": "calls",
       "tint": "pink",
       "title": "Instant calls",
@@ -45,6 +46,7 @@
     },
 
     {
+      "id": "roles",
       "icon": "roles",
       "tint": "purple",
       "title": "Roles and permissions",
@@ -53,6 +55,7 @@
     },
 
     {
+      "id": "productivity",
       "icon": "productivity",
       "tint": "blue",
       "title": "10x productivity",
