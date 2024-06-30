@@ -1,7 +1,7 @@
 <!--
  * This file is part of prose-web
  *
- * Copyright 2022, Prose Foundation
+ * Copyright 2024, Prose Foundation
  -->
 
 <!-- **********************************************************************
@@ -9,16 +9,16 @@
      ********************************************************************** -->
 
 <template lang="pug">
-figure.c-markdown-image
+figure.c-content-image
   img(
     :src="src",
     :alt="alt",
-    class="c-markdown-image__image"
+    class="c-content-image__image"
   )
 
   figcaption(
     v-if="caption"
-    class="c-markdown-image__caption"
+    class="c-content-image__caption"
   )
     | {{ caption }}
 </template>
@@ -29,7 +29,7 @@ figure.c-markdown-image
 
 <script>
 export default {
-  name: "MarkdownImage",
+  name: "ContentImage",
 
   props: {
     src: {
@@ -55,7 +55,7 @@ export default {
      ********************************************************************** -->
 
 <style lang="scss">
-$c: ".c-markdown-image";
+$c: ".c-content-image";
 
 #{$c} {
   margin-top: 40px;

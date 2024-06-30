@@ -22,3 +22,14 @@ nuxt-layout(
 
   nuxt-page
 </template>
+
+<!-- **********************************************************************
+     SCRIPT
+     ********************************************************************** -->
+
+<script setup>
+// Set page title (default title if none set)
+useHead({
+  title: "Prose"
+});
+</script>

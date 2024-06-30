@@ -33,8 +33,8 @@
             :alt="page.cover.alt"
           )
 
-      nuxt-content(
-        :document="page"
+      content-renderer(
+        :value="page"
         :class=`[
           "p-blog-article__content",
           "p-blog-article__content--" + page.media
@@ -47,79 +47,73 @@
      ********************************************************************** -->
 
 <script setup>
+// INSTANCES
+const _config = useRuntimeConfig();
+
 definePageMeta({
   layout: "simple"
 });
-</script>
 
-<script>
-export default {
-  name: "BlogArticlePage",
+const _route = useRoute();
 
-  // TODO: not migrated
-  async asyncData({ $content, params, error }) {
-    const _page = await $content(`blog/${params.article}`)
-      .fetch()
-      .catch(() => {
-        error({ statusCode: 404, message: "Article not found" });
-      });
+// Acquire article page
+const { data: page } = await useAsyncData(async () => {
+  return await queryContent("blog", _route.params.article).findOne();
+});
 
-    return {
-      page: _page
-    };
-  },
+// Article does not exist?
+if (page.value === null) {
+  throw createError({ statusCode: 404, statusMessage: "Article not found" });
+}
 
-  // TODO: migrate this one
-  head() {
-    return {
-      title: this.page.title,
+// Set page title & metadata
+useHead({
+  title: page.value.title,
 
-      meta: [
-        {
-          hid: "description",
-          name: "description",
-          content: this.page.description
-        },
+  meta: [
+    {
+      hid: "description",
+      name: "description",
+      content: page.value.description
+    },
 
-        {
-          hid: "og-title",
-          property: "og:title",
-          content: this.page.title
-        },
+    {
+      hid: "og-title",
+      property: "og:title",
+      content: page.value.title
+    },
 
-        {
-          hid: "og-description",
-          property: "og:description",
-          content: this.page.description
-        },
+    {
+      hid: "og-description",
+      property: "og:description",
+      content: page.value.description
+    },
 
-        {
-          hid: "og-image",
-          property: "og:image",
-          content: `${this.$config.public.url.prose_web}${this.page.cover.src}`
-        },
+    {
+      hid: "og-image",
+      property: "og:image",
+      content: `${_config.public.url.prose_web}${page.value.cover.src}`
+    },
 
-        {
-          hid: "twitter-title",
-          name: "twitter:title",
-          content: this.page.title
-        },
+    {
+      hid: "twitter-title",
+      name: "twitter:title",
+      content: page.value.title
+    },
 
-        {
-          hid: "twitter-description",
-          name: "twitter:description",
-          content: this.page.description
-        },
+    {
+      hid: "twitter-description",
+      name: "twitter:description",
+      content: page.value.description
+    },
 
-        {
-          hid: "twitter-image",
-          name: "twitter:image",
-          content: `${this.$config.public.url.prose_web}${this.page.cover.src}`
-        }
-      ]
-    };
-  }
-};
+    {
+      hid: "twitter-image",
+      name: "twitter:image",
+      content: `${_config.public.url.prose_web}${page.value.cover.src}`
+    }
+  ]
+});
 </script>
 
 <!-- **********************************************************************

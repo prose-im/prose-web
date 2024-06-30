@@ -270,6 +270,13 @@ export default defineNuxtConfig({
     }
   },
 
+  // Content Configuration
+  content: {
+    markdown: {
+      anchorLinks: false
+    }
+  },
+
   // SVGO Configuration
   svgo: {
     autoImportPath: false

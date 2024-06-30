@@ -42,7 +42,7 @@
 definePageMeta({
   layout: "simple",
 
-  validate: async ({ params }) => {
+  validate({ params }) {
     const _yearRegex = /^([12][0-9]{3})$/;
 
     // Year is set, but not valid?

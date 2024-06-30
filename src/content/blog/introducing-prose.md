@@ -18,7 +18,7 @@ On the side, it has been more than 20 years that a modern open messaging standar
 
 **It’s time to change the status quo with Prose**, a native cross-platform team messaging app, built on solid foundations, thanks to the XMPP standard. This article announces the [Prose project](https://prose.org/), which I am starting aside from [Crisp](https://crisp.chat/), my main business.
 
-<markdown-image src="/blog/introducing-prose/prose-macos-login.jpg" alt="Hello World. This is Prose" caption="Hello World. This is Prose"></markdown-image>
+<content-image src="/blog/introducing-prose/prose-macos-login.jpg" alt="Hello World. This is Prose" caption="Hello World. This is Prose"></content-image>
 
 ## A Short History of Team Messaging
 
@@ -52,7 +52,7 @@ Moving back communications to a decentralized model also makes the whole system 
 
 Being **stable and mature**, XMPP has all the required properties for a project with a long-term vision. Furthermore, all features Prose aims to develop are already available within the XMPP standard (eg. end-to-end encryption is covered under the [OMEMO XEP](https://xmpp.org/extensions/xep-0384.html), calls are covered under the [Jingle XEP](https://xmpp.org/extensions/xep-0166.html), while user profiles are handled by the [vCard4 over XMPP XEP](https://xmpp.org/extensions/xep-0292.html)).
 
-<markdown-image src="/blog/introducing-prose/xmpp-network.png" alt="A simplified scheme of how users and servers for different teams interact on the XMPP network." caption="A simplified scheme of how users and servers for different teams interact on the XMPP network. Users are hosted on a server. Servers connect to each other. Note that while some servers are self-hosted, I expect a majority of organizations to use third-party cloud hosting, for the convenience it provides. This cloud service could be provided by Prose itself."></markdown-image>
+<content-image src="/blog/introducing-prose/xmpp-network.png" alt="A simplified scheme of how users and servers for different teams interact on the XMPP network." caption="A simplified scheme of how users and servers for different teams interact on the XMPP network. Users are hosted on a server. Servers connect to each other. Note that while some servers are self-hosted, I expect a majority of organizations to use third-party cloud hosting, for the convenience it provides. This cloud service could be provided by Prose itself."></content-image>
 
 Multiple good-quality open-source XMPP server implementations are available, such as [ejabberd](https://www.ejabberd.im/), [Prosody](https://prosody.im/) or [OpenFire](https://www.igniterealtime.org/projects/openfire/). Those servers can be connected-to by any client application over the XMPP protocol. Servers can open connections to each other, so that users on different servers can communicate (exchange messages, call each other, view profiles, etc.). Instead of reinventing the wheel, those servers can be used as a foundation to build great user-facing applications.
 
@@ -82,15 +82,15 @@ To make this vision a reality, **I will assemble a remote team of developers & d
 
 #### An unified messaging experience
 
-<markdown-image src="/blog/introducing-prose/prose-macos-messaging.jpg" alt="SA screenshot of the prose app" caption="Share messages and files with your colleagues, with a best-in-class native messaging experience. Prose is designed for remote teams, split across different timezones."></markdown-image>
+<content-image src="/blog/introducing-prose/prose-macos-messaging.jpg" alt="SA screenshot of the prose app" caption="Share messages and files with your colleagues, with a best-in-class native messaging experience. Prose is designed for remote teams, split across different timezones."></content-image>
 
 #### Call anyone from a single app
 
-<markdown-image src="/blog/introducing-prose/prose-macos-call-pstn.jpg" alt="A screenshot of the prose app" caption="Start audio and video calls with your team members, or even call external phone numbers. Prose makes it easy to organize conference calls inside of outside of your workspace."></markdown-image>
+<content-image src="/blog/introducing-prose/prose-macos-call-pstn.jpg" alt="A screenshot of the prose app" caption="Start audio and video calls with your team members, or even call external phone numbers. Prose makes it easy to organize conference calls inside of outside of your workspace."></content-image>
 
 #### Ubiquitous end-to-end encryption, made easy
 
-<markdown-image src="/blog/introducing-prose/prose-macos-profile-omemo.jpg" alt="A screenshot of the prose app" caption="All messages sent and received are end-to-end encrypted. This means that even the server cannot read messages. Easily revoke a connected device access to all of your future encrypted messages."></markdown-image>
+<content-image src="/blog/introducing-prose/prose-macos-profile-omemo.jpg" alt="A screenshot of the prose app" caption="All messages sent and received are end-to-end encrypted. This means that even the server cannot read messages. Easily revoke a connected device access to all of your future encrypted messages."></content-image>
 
 ### On the business model of an open-source project
 

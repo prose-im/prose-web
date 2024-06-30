@@ -69,7 +69,7 @@ export default {
      * @return {string} Asset URL
      */
     getAssetUrl(url) {
-      return require(`@/assets/images${this.mediaUrlPrefix}${url}`);
+      return `@/assets/images${this.mediaUrlPrefix}${url}`;
     }
   }
 };

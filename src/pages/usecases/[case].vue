@@ -33,12 +33,6 @@
     ********************************************************************** -->
 
 <script setup>
-definePageMeta({
-  layout: "simple"
-});
-</script>
-
-<script>
 // CONSTANTS
 const USE_CASES = [
   {
@@ -49,8 +43,9 @@ const USE_CASES = [
       "developers.",
     url: "/usecases/developers/",
 
-    media: require("@/assets/images/components/section/usecases/" +
-      "SectionUseCasesDiscover/developers.webp")
+    media:
+      "@/assets/images/components/section/usecases/" +
+      "SectionUseCasesDiscover/developers.webp"
   },
 
   {
@@ -60,8 +55,9 @@ const USE_CASES = [
       "Know for certain who you’re talking to even if you’ve never met IRL.",
     url: "/usecases/remote-teams/",
 
-    media: require("@/assets/images/components/section/usecases/" +
-      "SectionUseCasesDiscover/remote-teams.webp")
+    media:
+      "@/assets/images/components/section/usecases/" +
+      "SectionUseCasesDiscover/remote-teams.webp"
   },
 
   {
@@ -71,8 +67,9 @@ const USE_CASES = [
       "Communicate efficiently even in low bandwidth regions of the world.",
     url: "/usecases/non-profits/",
 
-    media: require("@/assets/images/components/section/usecases/" +
-      "SectionUseCasesDiscover/non-profits.webp")
+    media:
+      "@/assets/images/components/section/usecases/" +
+      "SectionUseCasesDiscover/non-profits.webp"
   },
 
   {
@@ -82,57 +79,46 @@ const USE_CASES = [
       "Prevent scams, spam, and other unwanted interactions on your server.",
     url: "/usecases/web3/",
 
-    media: require("@/assets/images/components/section/usecases/" +
-      "SectionUseCasesDiscover/web3.webp")
+    media:
+      "@/assets/images/components/section/usecases/" +
+      "SectionUseCasesDiscover/web3.webp"
   }
 ];
 
-export default {
-  name: "UseCasesCasePage",
+definePageMeta({
+  layout: "simple"
+});
 
-  // TODO: need to migrate
-  validate({ params }) {
-    // Case is set, but not valid?
-    const _useCase =
-      USE_CASES.find(useCase => useCase.slug === params.case) || null;
+const _route = useRoute();
 
-    if (_useCase === null) {
-      return false;
+// Acquire use case page
+const { data: useCase } = await useAsyncData(async () => {
+  return await queryContent("usecases", _route.params.case).findOne();
+});
+
+// Article does not exist?
+if (useCase.value === null) {
+  throw createError({ statusCode: 404, statusMessage: "Use case not found" });
+}
+
+// Stamp use case with its slug (from path)
+useCase.value.slug = useCase.value._path.split("/").slice(-1)[0];
+
+// Acquire other use cases
+const otherCases = USE_CASES.filter(
+  otherCase => otherCase.slug !== _route.params.case
+);
+
+// Set page title & metadata
+useHead({
+  title: useCase.value.overline,
+
+  meta: [
+    {
+      hid: "description",
+      name: "description",
+      content: useCase.value.metaDescription
     }
-
-    // Page parameters are valid
-    return true;
-  },
-
-  // TODO: not migrated
-  async asyncData({ $content, params, error }) {
-    // Fetch content for selected case
-    const _case = await $content("usecases", params.case)
-      .fetch()
-      .catch(() => {
-        error({ statusCode: 404, message: "Page not found" });
-      });
-
-    const _otherCases = USE_CASES.filter(
-      useCase => useCase.slug !== params.case
-    );
-
-    return { useCase: _case, otherCases: _otherCases };
-  },
-
-  // TODO: migrate this one
-  head() {
-    return {
-      title: `${this.useCase.overline}`,
-      meta: [
-        {
-          hid: "description",
-          name: "description",
-
-          content: `${this.useCase.metaDescription}`
-        }
-      ]
-    };
-  }
-};
+  ]
+});
 </script>
