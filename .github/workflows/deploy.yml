@@ -49,7 +49,7 @@ jobs:
         run: npm run build
 
       - name: Archive build files
-        run: tar -zcvf --dereference ./build-${{ steps.current_revision.outputs.short }}.tar.gz dist/
+        run: tar -zcvf ./build-${{ steps.current_revision.outputs.short }}.tar.gz build/public/
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
@@ -78,4 +78,4 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_ACCESS_KEY }}
           AWS_EC2_METADATA_DISABLED: true
         run: |
-          aws s3 sync --delete --endpoint-url ${{ vars.S3_ENDPOINT }} dist/ s3://${{ vars.S3_BUCKET }}/${{ vars.S3_SITE_DOMAIN }}/
+          aws s3 sync --delete --endpoint-url ${{ vars.S3_ENDPOINT }} build/public/ s3://${{ vars.S3_BUCKET }}/${{ vars.S3_SITE_DOMAIN }}/
