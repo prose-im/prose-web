@@ -77,26 +77,26 @@ nuxt-layout(
 definePageMeta({
   layout: "simple"
 });
+
+// Define props
+const props = defineProps({
+  error: {
+    type: Object,
+    required: true
+  }
+});
+
+// Set page title
+useHead({
+  title:
+    props.error.statusCode === 404
+      ? "Page not found"
+      : `${props.error.statusCode} Error`
+});
 </script>
 
 <script>
 export default {
-  name: "ErrorLayout",
-
-  props: {
-    error: {
-      type: Object,
-      required: true
-    }
-  },
-
-  head() {
-    return {
-      title:
-        this.error.statusCode === 404
-          ? "Page not found"
-          : `${this.error.statusCode} Error`
-    };
-  }
+  name: "ErrorLayout"
 };
 </script>

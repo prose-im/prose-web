@@ -27,15 +27,16 @@
 definePageMeta({
   layout: "simple"
 });
+
+// Set page title
+useHead({
+  title: "Contact the Prose team"
+});
 </script>
 
 <script>
 export default {
-  name: "ContactIndexPage",
-
-  head: {
-    title: "Contact the Prose team"
-  }
+  name: "ContactIndexPage"
 };
 </script>
 

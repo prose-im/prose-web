@@ -120,6 +120,7 @@ export default {
     return { useCase: _case, otherCases: _otherCases };
   },
 
+  // TODO: migrate this one
   head() {
     return {
       title: `${this.useCase.overline}`,

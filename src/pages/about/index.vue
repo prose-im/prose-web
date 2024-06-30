@@ -27,13 +27,16 @@
      SCRIPT
      ********************************************************************** -->
 
+<script setup>
+// Set page title
+useHead({
+  title: "About Prose"
+});
+</script>
+
 <script>
 export default {
-  name: "AboutIndexPage",
-
-  head: {
-    title: "About Prose"
-  }
+  name: "AboutIndexPage"
 };
 </script>
 

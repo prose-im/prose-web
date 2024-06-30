@@ -31,6 +31,13 @@
      SCRIPT
      ********************************************************************** -->
 
+<script setup>
+// Set page title
+useHead({
+  title: "Download Prose apps"
+});
+</script>
+
 <script>
 export default {
   name: "DownloadsIndexPage",
@@ -46,10 +53,6 @@ export default {
 
   async mounted() {
     await this.fetchLatest();
-  },
-
-  head: {
-    title: "Download Prose apps"
   },
 
   methods: {

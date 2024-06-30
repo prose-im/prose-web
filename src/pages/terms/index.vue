@@ -27,15 +27,16 @@
 definePageMeta({
   layout: "simple"
 });
+
+// Set page title
+useHead({
+  title: "Prose Terms of Use and Privacy Policy"
+});
 </script>
 
 <script>
 export default {
-  name: "TermsIndexPage",
-
-  head: {
-    title: "Prose Terms of Use and Privacy Policy"
-  }
+  name: "TermsIndexPage"
 };
 </script>
 

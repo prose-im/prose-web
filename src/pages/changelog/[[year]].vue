@@ -81,6 +81,11 @@ const { data: changes } = await useAsyncData(async () => {
 if (changes.value === null) {
   throw createError({ statusCode: 404, statusMessage: "Year not found" });
 }
+
+// Set page title
+useHead({
+  title: `Prose version history (${year || "Latest"})`
+});
 </script>
 
 <script>
@@ -92,12 +97,6 @@ export default {
       // --> DATA <--
 
       sidebarWidth: "185px"
-    };
-  },
-
-  head() {
-    return {
-      title: `Prose version history (${this.year || "Latest"})`
     };
   }
 };

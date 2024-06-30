@@ -30,6 +30,11 @@
 definePageMeta({
   layout: "simple"
 });
+
+// Set page title
+useHead({
+  title: "Prose Blog"
+});
 </script>
 
 <script>
@@ -54,10 +59,6 @@ export default {
       articles: _articles,
       featured: _featured
     };
-  },
-
-  head: {
-    title: "Prose Blog"
   }
 };
 </script>

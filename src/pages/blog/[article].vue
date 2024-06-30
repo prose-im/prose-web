@@ -69,6 +69,7 @@ export default {
     };
   },
 
+  // TODO: migrate this one
   head() {
     return {
       title: this.page.title,

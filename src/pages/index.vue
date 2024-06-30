@@ -23,14 +23,15 @@
 definePageMeta({
   layout: "landing"
 });
+
+// Set page title
+useHead({
+  title: "Prose – All of your workplace communication lives here"
+});
 </script>
 
 <script>
 export default {
-  name: "IndexPage",
-
-  head: {
-    title: "Prose – All of your workplace communication lives here"
-  }
+  name: "IndexPage"
 };
 </script>
