@@ -89,7 +89,13 @@ export default defineNuxtConfig({
   components: [{ path: "components", pathPrefix: false }],
 
   // Modules
-  modules: ["@nuxt/content", "@nuxtjs/robots", "@nuxtjs/sitemap", "nuxt-svgo"],
+  modules: [
+    "@nuxt/image",
+    "@nuxt/content",
+    "@nuxtjs/robots",
+    "@nuxtjs/sitemap",
+    "nuxt-svgo"
+  ],
 
   // Preprocessing
   vite: {
