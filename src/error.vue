@@ -74,10 +74,6 @@ nuxt-layout(
      ********************************************************************** -->
 
 <script setup>
-definePageMeta({
-  layout: "simple"
-});
-
 // Define props
 const props = defineProps({
   error: {
