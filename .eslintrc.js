@@ -3,16 +3,20 @@ module.exports = {
 
   env: {
     browser: true,
+    es6: true,
     node: true
   },
 
-  parserOptions: {
-    parser: "@babel/eslint-parser",
-    requireConfigFile: false
+  globals: {
+    $fetch: true
   },
 
-  extends: ["@nuxtjs", "plugin:nuxt/recommended", "prettier"],
+  extends: ["@nuxt/eslint-config"],
 
-  plugins: [],
+  parserOptions: {
+    ecmaVersion: "latest",
+    sourceType: "module"
+  },
+
   rules: {}
 };
