@@ -30,25 +30,25 @@
   },
   "dependencies": {
     "vue": "3.4.31",
-    "crisp-sdk-web": "1.0.13"
+    "crisp-sdk-web": "1.0.25"
   },
   "devDependencies": {
+    "@nuxt/eslint-config": "0.1.0",
     "@nuxt/image": "1.7.0",
     "@nuxt/content": "2.13.0",
-    "@nuxt/eslint-config": "0.1.0",
     "@nuxtjs/robots": "3.0.0",
-    "@nuxtjs/sitemap": "5.1.0",
-    "pug": "3.0.2",
-    "sass": "1.70.0",
+    "@nuxtjs/sitemap": "5.2.2",
+    "pug": "3.0.3",
+    "sass": "1.77.6",
     "pug-plain-loader": "1.1.0",
-    "sass-loader": "13.3.3",
+    "sass-loader": "14.2.1",
     "eslint": "8.45.0",
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-nuxt": "4.0.0",
     "eslint-plugin-vue": "9.18.1",
     "eslint-plugin-vue-pug": "0.6.0",
-    "nuxt": "3.11.2",
-    "nuxt-svgo": "4.0.0",
+    "nuxt": "3.12.2",
+    "nuxt-svgo": "4.0.1",
     "prettier": "2.5.1",
     "lodash.merge": "4.6.2"
   }
