@@ -9,7 +9,7 @@
  ***************************************************************************/
 
 // NPM
-import { defineNuxtPlugin, useRuntimeConfig, inject } from "#imports";
+import { defineNuxtPlugin, useRuntimeConfig } from "#imports";
 
 /**************************************************************************
  * CONSTANTS

@@ -10,7 +10,7 @@
 
 // NPM
 import { Crisp } from "crisp-sdk-web";
-import { defineNuxtPlugin, useRuntimeConfig, inject } from "#imports";
+import { defineNuxtPlugin, useRuntimeConfig } from "#imports";
 
 /**************************************************************************
  * EXPORTS

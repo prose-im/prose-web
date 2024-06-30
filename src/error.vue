@@ -94,9 +94,3 @@ useHead({
       : `${props.error.statusCode} Error`
 });
 </script>
-
-<script>
-export default {
-  name: "ErrorLayout"
-};
-</script>

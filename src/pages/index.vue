@@ -29,9 +29,3 @@ useHead({
   title: "Prose – All of your workplace communication lives here"
 });
 </script>
-
-<script>
-export default {
-  name: "IndexPage"
-};
-</script>
