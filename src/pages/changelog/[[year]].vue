@@ -40,7 +40,19 @@
 
 <script setup>
 definePageMeta({
-  layout: "simple"
+  layout: "simple",
+
+  validate: async ({ params }) => {
+    const _yearRegex = /^([12][0-9]{3})$/;
+
+    // Year is set, but not valid?
+    if (params.year && _yearRegex.test(params.year) === false) {
+      return false;
+    }
+
+    // Page parameters are valid
+    return true;
+  }
 });
 
 const _route = useRoute();
@@ -58,7 +70,7 @@ const { data: years } = await useAsyncData(async () => {
 // Important: fallback on non-existing year '0000' if no first year is \
 //   available, that way 404 errors are generated properly for the root \
 //   changelog page.
-const year = _route.params.year || years[0] || "0000";
+const year = _route.params.year || years.value[0] || "0000";
 
 // Fetch changes for selected year
 const { data: changes } = await useAsyncData(async () => {
@@ -72,22 +84,8 @@ if (changes.value === null) {
 </script>
 
 <script>
-// INSTANCES
-const YEAR_REGEX = /^([12][0-9]{3})$/;
-
 export default {
   name: "ChangelogYearPage",
-
-  // TODO: need to migrate
-  validate({ params }) {
-    // Year is set, but not valid?
-    if (params.year && YEAR_REGEX.test(params.year) === false) {
-      return false;
-    }
-
-    // Page parameters are valid
-    return true;
-  },
 
   data() {
     return {
