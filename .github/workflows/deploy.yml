@@ -49,7 +49,7 @@ jobs:
         run: npm run build
 
       - name: Archive build files
-        run: tar -zcvf ./build-${{ steps.current_revision.outputs.short }}.tar.gz dist/
+        run: tar -zcvf --dereference ./build-${{ steps.current_revision.outputs.short }}.tar.gz dist/
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
