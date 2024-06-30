@@ -13,12 +13,12 @@ page-main-title(
   class="c-section-about-main"
 )
   template(
-    slot="title"
+    v-slot:title
   )
     | We are a small team with a big passion
 
   template(
-    slot="description"
+    v-slot:description
   )
     .c-section-about-main__illustration-center
 </template>
@@ -40,10 +40,10 @@ export default {
 <style lang="scss">
 $c: ".c-section-about-main";
 
-.c-section-about-main {
+#{$c} {
   #{$c}__illustration-center {
     background-color: $color-base-grey-light;
-    background-image: url("~/assets/images/components/section/about/SectionAboutMain/illustration-wide.webp");
+    background-image: url("@/assets/images/components/section/about/SectionAboutMain/illustration-wide.webp");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;

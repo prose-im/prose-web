@@ -4,8 +4,8 @@
 
   "sineColor": "blue",
 
-  "desktopImage": "/SectionUseCasesMain/developers-main.webp",
-  "mobileImage": "/SectionUseCasesMain/developers-main-mobile.webp",
+  "desktopImage": "/usecases/developers/main-desktop.webp",
+  "mobileImage": "/usecases/developers/main-mobile.webp",
 
   "sectionOneTitle": "Connect &amp; collaborate on <br> open source software",
   "sectionTwoTitle": "Built by engineers, <br> for engineers",
@@ -17,7 +17,7 @@
       "tint": "blue",
       "title": "Open Source",
       "description": "Inspect, modify or build on top of our open source code – Prose is completely transparent so you always know what’s going on under the hood.",
-      "imageSrc": "/SectionUseCasesBento/github-commits.svg"
+      "imageSrc": "/usecases/developers/github-commits.svg"
     },
 
     {
@@ -37,27 +37,30 @@
 
   "tabs": [
     {
+      "id": "integrations",
       "icon": "integrations",
       "tint": "pink",
       "title": "API Integrations",
       "description": "Build bots and connect to your favorite tools with an easy to use API.",
-      "media": "/SectionUseCasesTabs/integrations.webp"
+      "media": "/usecases/developers/tab-integrations.webp"
     },
 
     {
+      "id": "self-hosted",
       "icon": "server",
       "tint": "purple",
       "title": "Self-hosted",
       "description": "Hosting Prose means you control the cost and can scale more efficiently.",
-      "media": "/SectionUseCasesTabs/self-hosted.webp"
+      "media": "/usecases/developers/tab-self-hosted.webp"
     },
 
     {
+      "id": "tailor-made-experience",
       "icon": "paintbrush",
       "tint": "blue",
       "title": "Configurable",
       "description": "Create custom features and modify the code to fit your specific requirements",
-      "media": "/SectionUseCasesTabs/tailor-made-experience.webp"
+      "media": "/usecases/developers/tab-tailor-made-experience.webp"
     }
   ]
 }

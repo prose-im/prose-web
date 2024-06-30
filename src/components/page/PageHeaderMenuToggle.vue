@@ -80,14 +80,16 @@ export default {
       type: Boolean,
       default: false
     }
-  }
+  },
+
+  emits: ["click"]
 };
 </script>
 
 <style lang="scss">
 $c: ".c-page-header-menu-toggle";
 
-.c-page-header-menu-toggle {
+#{$c} {
   cursor: pointer;
 
   #{$c}__icon {

@@ -53,9 +53,9 @@ export default {
     window.addEventListener("scroll", this.onWindowScroll);
   },
 
-  beforeDestroy() {
+  beforeUnmount() {
     // Stop observer
-    this.observer.disconnect();
+    this.stopObserver();
 
     // Unbind scroll event
     window.removeEventListener("scroll", this.onWindowScroll);
@@ -72,7 +72,18 @@ export default {
     startObserver() {
       this.observer = new IntersectionObserver(this.onIntersection);
 
-      this.observer.observe(this.$refs.parallax);
+      if (this.$refs.parallax) {
+        this.observer.observe(this.$refs.parallax);
+      }
+    },
+
+    /**
+     * Stops intersection observer
+     * @public
+     * @return {undefined}
+     */
+    stopObserver() {
+      this.observer?.disconnect();
     },
 
     // --> EVENT LISTENERS <--
@@ -103,9 +114,11 @@ export default {
         this.currentTranslation +=
           (window.scrollY - this.initialScroll) * 0.1 * this.speed;
 
-        // Update translate transform style
-        this.$refs.parallax.style.transform =
-          "translateY(" + this.currentTranslation + "px)";
+        // Update translate transform style?
+        if (this.$refs.parallax) {
+          this.$refs.parallax.style.transform =
+            "translateY(" + this.currentTranslation + "px)";
+        }
 
         // Store current scroll vertical position
         this.initialScroll = window.scrollY;

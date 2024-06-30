@@ -22,9 +22,8 @@ div(
 )
   .c-base-icon-card__content
     .c-base-icon-card__icon
-      img(
+      image-default(
         v-if="tab && !active && !mobile"
-        src="@/assets/images/components/base/BaseIconCard/default.svg"
         width="64"
         height="64"
       )
@@ -71,8 +70,13 @@ div(
      ********************************************************************** -->
 
 <script>
+// PROJECT: IMAGES
+import ImageDefault from "@/assets/images/components/base/BaseIconCard/default.svg?component";
+
 export default {
   name: "BaseIconCard",
+
+  components: { ImageDefault },
 
   props: {
     icon: {
@@ -104,6 +108,8 @@ export default {
     }
   },
 
+  emits: ["click"],
+
   data() {
     return {
       // --> DATA <--
@@ -126,7 +132,7 @@ export default {
     window.addEventListener("resize", this.onResize);
   },
 
-  beforeDestroy() {
+  beforeUnmount() {
     // Unbind event listeners
     window.removeEventListener("resize", this.onResize);
   },
@@ -153,7 +159,7 @@ export default {
 <style lang="scss">
 $c: ".c-base-icon-card";
 
-.c-base-icon-card {
+#{$c} {
   display: flex;
   border-radius: 32px;
   background: linear-gradient(
@@ -267,7 +273,7 @@ $c: ".c-base-icon-card";
 // --> MEDIA-QUERIES <--
 
 @media (max-width: $screen-medium-width-breakpoint) {
-  .c-base-icon-card {
+  #{$c} {
     #{$c}__image-wrapper {
       flex: 1 0 40%;
       width: auto;
@@ -294,7 +300,7 @@ $c: ".c-base-icon-card";
 }
 
 @media (max-width: $screen-small-width-breakpoint) {
-  .c-base-icon-card {
+  #{$c} {
     flex-direction: column-reverse;
 
     #{$c}__image {

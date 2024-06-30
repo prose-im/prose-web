@@ -46,9 +46,9 @@ div(
 
 <script>
 // PROJECT: IMAGES
-import ImageIconArrowRight from "~/assets/images/components/base/BaseButton/icon-arrow-right.svg?raw";
-import ImageIconArrowDown from "~/assets/images/components/base/BaseButton/icon-arrow-down.svg?raw";
-import ImageIconChevronDown from "~/assets/images/components/base/BaseButton/icon-chevron-down.svg?raw";
+import ImageIconArrowRight from "@/assets/images/components/base/BaseButton/icon-arrow-right.svg?raw";
+import ImageIconArrowDown from "@/assets/images/components/base/BaseButton/icon-arrow-down.svg?raw";
+import ImageIconChevronDown from "@/assets/images/components/base/BaseButton/icon-chevron-down.svg?raw";
 
 export default {
   name: "BaseButton",
@@ -96,6 +96,8 @@ export default {
       }
     }
   },
+
+  emits: ["click"],
 
   computed: {
     rightIconHtml() {
@@ -148,7 +150,7 @@ $size-normal-padding-sides: 22px;
 $size-large-padding-sides: 28px;
 $size-huge-padding-sides: 38px;
 
-.c-base-button {
+#{$c} {
   display: inline-block;
 
   &:active {

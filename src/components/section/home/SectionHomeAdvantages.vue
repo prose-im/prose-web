@@ -25,10 +25,9 @@
 
     template(
       v-for="(item, index) in advantages"
+      :key="'advantage_' + index"
     )
-      .c-section-home-advantages__stack(
-        :key="'advantage_' + index"
-      )
+      .c-section-home-advantages__stack
         .c-section-home-advantages__column-1
           .c-section-home-advantages__illustration
             .c-section-home-advantages__illustration-inner(
@@ -62,9 +61,9 @@
 
 <script>
 // PROJECT: IMAGES
-import ImageIllustrationSafe from "@/assets/images/components/section/home/SectionHomeAdvantages/illustration-safe.webp?raw";
-import ImageIllustrationTransparent from "@/assets/images/components/section/home/SectionHomeAdvantages/illustration-transparent.webp?raw";
-import ImageIllustrationFast from "@/assets/images/components/section/home/SectionHomeAdvantages/illustration-fast.webp?raw";
+import ImageIllustrationSafe from "@/assets/images/components/section/home/SectionHomeAdvantages/illustration-safe.webp";
+import ImageIllustrationTransparent from "@/assets/images/components/section/home/SectionHomeAdvantages/illustration-transparent.webp";
+import ImageIllustrationFast from "@/assets/images/components/section/home/SectionHomeAdvantages/illustration-fast.webp";
 
 export default {
   name: "SectionHomeAdvantages",
@@ -105,7 +104,7 @@ export default {
 <style lang="scss">
 $c: ".c-section-home-advantages";
 
-.c-section-home-advantages {
+#{$c} {
   padding-bottom: 150px;
   position: relative;
 
@@ -197,7 +196,7 @@ $c: ".c-section-home-advantages";
 // --> MEDIA-QUERIES <--
 
 @media (max-width: $screen-large-width-breakpoint) {
-  .c-section-home-advantages {
+  #{$c} {
     #{$c}__column-1 {
       #{$c}__illustration {
         height: 400px;
@@ -212,7 +211,7 @@ $c: ".c-section-home-advantages";
 }
 
 @media (max-width: $screen-medium-width-breakpoint) {
-  .c-section-home-advantages {
+  #{$c} {
     #{$c}__stack {
       flex-direction: column;
       gap: 40px;
@@ -242,7 +241,7 @@ $c: ".c-section-home-advantages";
 }
 
 @media (max-width: $screen-small-width-breakpoint) {
-  .c-section-home-advantages {
+  #{$c} {
     #{$c}__column-1 {
       #{$c}__illustration {
         height: 400px;
@@ -252,7 +251,7 @@ $c: ".c-section-home-advantages";
 }
 
 @media (max-width: $screen-tiny-width-breakpoint) {
-  .c-section-home-advantages {
+  #{$c} {
     padding-bottom: 100px;
 
     #{$c}__stack {

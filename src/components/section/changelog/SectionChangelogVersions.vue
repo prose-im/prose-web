@@ -17,70 +17,72 @@
     :sidebar-class="sidebarClass"
     class="c-section-changelog-versions__version"
   )
-    div(
-      slot="sidebar"
-      class="c-section-changelog-versions__version-sidebar"
+    template(
+      v-slot:sidebar
     )
-      .c-section-changelog-versions__version-sidebar-wrapped
-        .c-section-changelog-versions__version-tag
-          span.c-section-changelog-versions__version-label
-            | Version
+      .c-section-changelog-versions__version-sidebar
+        .c-section-changelog-versions__version-sidebar-wrapped
+          .c-section-changelog-versions__version-tag
+            span.c-section-changelog-versions__version-label
+              | Version
 
-          span.c-section-changelog-versions__version-number.u-title.u-bold
-            | {{ version.version }}
+            span.c-section-changelog-versions__version-number.u-title.u-bold
+              | {{ version.version }}
 
-        .c-section-changelog-versions__version-downloads(
-          v-if="versionsDownloadsDropdown[version.version].length > 0"
-        )
-          base-dropdown(
-            :items="versionsDownloadsDropdown[version.version]"
-            class="c-section-changelog-versions__version-dropdown"
+          .c-section-changelog-versions__version-downloads(
+            v-if="versionsDownloadsDropdown[version.version].length > 0"
           )
+            base-dropdown(
+              :items="versionsDownloadsDropdown[version.version]"
+              class="c-section-changelog-versions__version-dropdown"
+            )
 
-          base-button(
-            right-icon="chevron-down"
-            tint="light"
-            class="c-section-changelog-versions__version-button"
-            bolder
-          )
-            | Downloads
+            base-button(
+              right-icon="chevron-down"
+              tint="light"
+              class="c-section-changelog-versions__version-button"
+              bolder
+            )
+              | Downloads
 
-    div(
-      slot="content"
-      :class=`[
-        "c-section-changelog-versions__version-content",
-        {
-          [contentClass]: contentClass
-        }
-      ]`
+    template(
+      v-slot:content
     )
-      .c-section-changelog-versions__version-metas
-        h4.c-section-changelog-versions__version-date.u-title.u-medium
-          | {{ $filters.formatDate(version.date) }}
-
-        a.c-section-changelog-versions__version-target.u-bold(
-          v-if="versionsFullChangesUrls[version.version]"
-          :href="versionsFullChangesUrls[version.version]"
-          target="_blank"
-        )
-          | Full changes on GitHub
-
-          image-icon-version-target(
-            class="c-section-changelog-versions__version-target-icon"
-          )
-
-      .c-section-changelog-versions__changelog(
-        v-for="changes, changesGroup in version.changelog"
-        :key="'changelog_' + version.version + '_' + changesGroup"
+      div(
+        :class=`[
+          "c-section-changelog-versions__version-content",
+          {
+            [contentClass]: contentClass
+          }
+        ]`
       )
-        h6.c-section-changelog-versions__changelog-group.u-title.u-bold
-          | {{ (groupNames[changesGroup] || changesGroup) }}
+        .c-section-changelog-versions__version-metas
+          h4.c-section-changelog-versions__version-date.u-title.u-medium
+            | {{ $filters.formatDate(version.date) }}
 
-        .c-section-changelog-versions__changelog-changes
-          li.c-section-changelog-versions__changelog-change(
-            v-for="change in changes"
+          a.c-section-changelog-versions__version-target.u-bold(
+            v-if="versionsFullChangesUrls[version.version]"
+            :href="versionsFullChangesUrls[version.version]"
+            target="_blank"
           )
-            | {{ change[0] }}: {{ change[1] }}.
+            | Full changes on GitHub
+
+            image-icon-version-target(
+              class="c-section-changelog-versions__version-target-icon"
+            )
+
+        .c-section-changelog-versions__changelog(
+          v-for="changes, changesGroup in version.changelog"
+          :key="'changelog_' + version.version + '_' + changesGroup"
+        )
+          h6.c-section-changelog-versions__changelog-group.u-title.u-bold
+            | {{ (groupNames[changesGroup] || changesGroup) }}
+
+          .c-section-changelog-versions__changelog-changes
+            li.c-section-changelog-versions__changelog-change(
+              v-for="change in changes"
+            )
+              | {{ change[0] }}: {{ change[1] }}.
 </template>
 
 <!-- **********************************************************************
@@ -89,7 +91,7 @@
 
 <script>
 // PROJECT: IMAGES
-import ImageIconVersionTarget from "~/assets/images/components/section/changelog/SectionChangelogVersions/icon-version-target.svg?inline";
+import ImageIconVersionTarget from "@/assets/images/components/section/changelog/SectionChangelogVersions/icon-version-target.svg?component";
 
 // CONSTANTS
 const VERSIONED_PLATFORMS = {
@@ -221,7 +223,7 @@ export default {
           version,
           platform,
           _extension,
-          this.$config.downloads.app.architectures[architecture]
+          this.$config.public.downloads.app.architectures[architecture]
         );
 
         return {
@@ -239,8 +241,8 @@ export default {
      */
     fullChangesUrl(version) {
       return (
-        `${this.$config.url.github_prose}/` +
-        `${this.$config.downloads.app.project}/releases/tag/${version}`
+        `${this.$config.public.url.github_prose}/` +
+        `${this.$config.public.downloads.app.project}/releases/tag/${version}`
       );
     }
   }
@@ -254,7 +256,7 @@ export default {
 <style lang="scss">
 $c: ".c-section-changelog-versions";
 
-.c-section-changelog-versions {
+#{$c} {
   #{$c}__version {
     border-top: 1px solid $color-border-secondary;
     padding-top: 28px;
@@ -387,7 +389,7 @@ $c: ".c-section-changelog-versions";
 // --> MEDIA-QUERIES <--
 
 @media (max-width: $screen-lilliput-width-breakpoint) {
-  .c-section-changelog-versions {
+  #{$c} {
     #{$c}__version {
       #{$c}__version-downloads {
         display: none;

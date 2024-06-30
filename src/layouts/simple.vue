@@ -13,17 +13,7 @@ page-container
   page-header
 
   page-content
-    nuxt
+    slot
 
   page-footer
 </template>
-
-<!-- **********************************************************************
-     SCRIPT
-     ********************************************************************** -->
-
-<script>
-export default {
-  name: "SimpleLayout"
-};
-</script>

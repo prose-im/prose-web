@@ -21,16 +21,17 @@
       )
 
     base-tabs(
-      :media-url-prefix="mediaUrlPrefix"
+      @pick="onTabsPick"
+      :tabs="useCase.tabs"
     )
       base-tab(
-        v-for="tab, index in useCase.tabs",
-        :tab="tab",
-        :key="index",
+        v-for="(tab, index) in useCase.tabs"
+        :key="index"
+        :active="tab.id === activeTabId"
         class="c-section-use-cases-tabs__media"
       )
         img(
-          :src="getAssetUrl(tab.media)"
+          :src="tab.media"
           alt=""
           class="c-section-use-cases-tabs__media-image"
         )
@@ -53,23 +54,23 @@ export default {
 
   data() {
     return {
-      // --> DATA <--
+      // --> STATE <--
 
-      mediaUrlPrefix: "/components/section/usecases"
+      activeTabId: null
     };
   },
 
   methods: {
-    // --> HELPERS <--
+    // --> EVENT LISTENERS <--
 
     /**
-     * Gets asset URL
+     * Handles tabs pick
      * @public
-     * @param  {string} url
-     * @return {string} Asset URL
+     * @param  {string} id
+     * @return {undefined}
      */
-    getAssetUrl(url) {
-      return require(`@/assets/images${this.mediaUrlPrefix}${url}`);
+    onTabsPick(id) {
+      this.activeTabId = id;
     }
   }
 };
@@ -82,7 +83,7 @@ export default {
 <style lang="scss">
 $c: ".c-section-use-cases-tabs";
 
-.c-section-use-cases-tabs {
+#{$c} {
   padding: 150px 0;
   position: relative;
 
@@ -102,7 +103,7 @@ $c: ".c-section-use-cases-tabs";
 // --> MEDIA-QUERIES <--
 
 @media (max-width: $screen-medium-width-breakpoint) {
-  .c-section-use-cases-tabs {
+  #{$c} {
     padding: 150px 0 50px;
 
     #{$c}__media-stack {

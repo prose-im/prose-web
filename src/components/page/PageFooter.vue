@@ -29,7 +29,7 @@
             base-space
 
             a(
-              :href="$config.url.github_prose"
+              :href="$config.public.url.github_prose"
               class="u-medium"
               target="_blank"
             )
@@ -88,7 +88,7 @@
             direction="top"
           )
             template(
-              slot="tooltip"
+              v-slot:tooltip
             )
               | Prose is a non-profit funded by
 
@@ -100,10 +100,11 @@
               )
                 | Valerian Saliou
 
-            span.c-page-footer__author(
-              slot="default"
+            template(
+              v-slot:default
             )
-              | {{ $config.author.name }} © {{ currentYear }}
+              span.c-page-footer__author
+                | {{ $config.public.author.name }} © {{ currentYear }}
 
       .c-page-footer__right
         .c-page-footer__crafted.u-medium
@@ -124,8 +125,8 @@
 
 <script>
 // PROJECT: IMAGES
-import ImageCopyrightBadgesOpenSource from "~/assets/images/components/page/PageFooter/copyright-badges-open_source.svg?raw";
-import ImageCopyrightCraftedFlag from "~/assets/images/components/page/PageFooter/copyright-crafted-flag.svg?inline";
+import ImageCopyrightBadgesOpenSource from "@/assets/images/components/page/PageFooter/copyright-badges-open_source.svg?raw";
+import ImageCopyrightCraftedFlag from "@/assets/images/components/page/PageFooter/copyright-crafted-flag.svg?component";
 
 // CONSTANTS
 const STATUS_COLORS = {
@@ -150,20 +151,20 @@ export default {
       socialItems: [
         {
           platform: "x",
-          label: `@${this.$config.social.x_prose}`,
-          target: this.$config.url.x_prose
+          label: `@${this.$config.public.social.x_prose}`,
+          target: this.$config.public.url.x_prose
         },
 
         {
           platform: "youtube",
           label: "YouTube",
-          target: this.$config.url.youtube_prose
+          target: this.$config.public.url.youtube_prose
         },
 
         {
           platform: "github",
           label: "GitHub",
-          target: this.$config.url.github_prose
+          target: this.$config.public.url.github_prose
         }
       ],
 
@@ -171,7 +172,7 @@ export default {
         {
           id: "open_source",
           image: ImageCopyrightBadgesOpenSource,
-          target: this.$config.url.github_prose
+          target: this.$config.public.url.github_prose
         }
       ],
 
@@ -193,7 +194,7 @@ export default {
 
             {
               label: "Open-Source",
-              target: this.$config.url.github_prose
+              target: this.$config.public.url.github_prose
             }
           ]
         },
@@ -244,7 +245,7 @@ export default {
               label: "Brand Assets",
 
               target:
-                `${this.$config.url.prose_files}/` +
+                `${this.$config.public.url.prose_files}/` +
                 `public/documents/brand-assets.zip`
             },
 
@@ -262,12 +263,12 @@ export default {
           items: [
             {
               label: "Help Center",
-              target: `${this.$config.url.prose_help}/`
+              target: `${this.$config.public.url.prose_help}/`
             },
 
             {
               label: "Technical Docs",
-              target: `${this.$config.url.prose_docs}/`
+              target: `${this.$config.public.url.prose_docs}/`
             },
 
             {
@@ -277,11 +278,11 @@ export default {
 
             {
               label: "System Status",
-              target: `${this.$config.url.prose_status}/`,
+              target: `${this.$config.public.url.prose_status}/`,
               emphasis: true,
 
               indicatorIcon:
-                `${this.$config.url.prose_status}/includes/badge/` +
+                `${this.$config.public.url.prose_status}/includes/badge/` +
                 `?healthy=${STATUS_COLORS.healthy}&` +
                 `sick=${STATUS_COLORS.sick}&` +
                 `dead=${STATUS_COLORS.dead}`
@@ -290,7 +291,7 @@ export default {
         }
       ],
 
-      ownershipFunderUrl: `${this.$config.url.valeriansaliou_web}/`
+      ownershipFunderUrl: `${this.$config.public.url.valeriansaliou_web}/`
     };
   }
 };
@@ -306,7 +307,7 @@ $c: ".c-page-footer";
 // VARIABLES
 $alignments-margin-sides: 12px;
 
-.c-page-footer {
+#{$c} {
   background-color: $color-background-secondary;
   border-top: 1px solid $color-border-secondary;
   padding: 40px 0 24px;
@@ -474,7 +475,7 @@ $alignments-margin-sides: 12px;
 // --> MEDIA-QUERIES <--
 
 @media (max-width: 1170px) {
-  .c-page-footer {
+  #{$c} {
     #{$c}__main {
       #{$c}__segments {
         #{$c}__segment:nth-child(2) {
@@ -486,7 +487,7 @@ $alignments-margin-sides: 12px;
 }
 
 @media (max-width: $screen-medium-width-breakpoint) {
-  .c-page-footer {
+  #{$c} {
     #{$c}__main {
       #{$c}__segments {
         #{$c}__segment {
@@ -499,7 +500,7 @@ $alignments-margin-sides: 12px;
 }
 
 @media (max-width: $screen-small-width-breakpoint) {
-  .c-page-footer {
+  #{$c} {
     #{$c}__main {
       flex-direction: column;
 
@@ -548,7 +549,7 @@ $alignments-margin-sides: 12px;
 }
 
 @media (max-width: $screen-tiny-width-breakpoint) {
-  .c-page-footer {
+  #{$c} {
     #{$c}__copyright {
       #{$c}__badges {
         #{$c}__badge {
@@ -574,7 +575,7 @@ $alignments-margin-sides: 12px;
 }
 
 @media (max-width: $screen-lilliput-width-breakpoint) {
-  .c-page-footer {
+  #{$c} {
     #{$c}__copyright {
       #{$c}__left {
         display: none;

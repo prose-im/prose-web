@@ -26,34 +26,50 @@
      SCRIPT
      ********************************************************************** -->
 
-<script>
-export default {
-  name: "BlogIndexPage",
-  layout: "simple",
+<script setup>
+// CONSTANTS
+const CONTENT_ARTICLE_KEYS = ["_path", "title", "description", "date", "cover"],
+  CONTENT_ARTICLE_SORT = { date: -1 };
 
-  async asyncData({ $content }) {
-    const _articles = await $content("blog")
-      .only(["title", "description", "date", "cover", "slug"])
-      .sortBy("date", "desc")
+// HELPERS
+function mapSlugFromPath(article) {
+  article.slug = article._path.split("/").slice(-1)[0];
+
+  return article;
+}
+
+definePageMeta({
+  layout: "simple"
+});
+
+// Fetch articles
+const { data: articles } = await useAsyncData(async () => {
+  return (
+    await queryContent("blog")
+      .only(CONTENT_ARTICLE_KEYS)
+      .sort(CONTENT_ARTICLE_SORT)
       .skip(1)
-      .fetch();
+      .find()
+  ).map(mapSlugFromPath);
+});
 
-    const [_featured] = await $content("blog")
-      .only(["title", "description", "date", "cover", "slug"])
-      .sortBy("date", "desc")
-      .limit(1)
-      .fetch();
+// Fetch featured article
+const { data: featured } = await useAsyncData(async () => {
+  const featured = (
+    await queryContent("blog")
+      .only(CONTENT_ARTICLE_KEYS)
+      .sort(CONTENT_ARTICLE_SORT)
+      .limit()
+      .find()
+  ).map(mapSlugFromPath);
 
-    return {
-      articles: _articles,
-      featured: _featured
-    };
-  },
+  return featured[0] || null;
+});
 
-  head: {
-    title: "Prose Blog"
-  }
-};
+// Set page title
+useHead({
+  title: "Prose Blog"
+});
 </script>
 
 <!-- **********************************************************************
@@ -63,7 +79,7 @@ export default {
 <style lang="scss">
 $c: ".p-blog-index";
 
-.p-blog-index {
+#{$c} {
   padding-bottom: 74px;
 
   #{$c}__text {

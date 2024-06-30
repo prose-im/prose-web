@@ -70,7 +70,7 @@ export default {
 <style lang="scss">
 $c: ".c-base-card";
 
-.c-base-card {
+#{$c} {
   display: flex;
   flex-direction: column;
   flex-grow: 1;

@@ -5,6 +5,13 @@
  */
 
 /**************************************************************************
+ * IMPORTS
+ ***************************************************************************/
+
+// NPM
+import { defineNuxtPlugin, useRuntimeConfig } from "#imports";
+
+/**************************************************************************
  * CONSTANTS
  * ************************************************************************* */
 
@@ -20,9 +27,12 @@ const FORMAT_DATE_OPTIONS = {
  * EXPORTS
  * ************************************************************************* */
 
-export default ({ $config }, inject) => {
-  // Inject filters in context
-  inject("filters", {
+export default defineNuxtPlugin(nuxtApp => {
+  const _config = useRuntimeConfig(),
+    _app = nuxtApp.vueApp;
+
+  // Register $filters into Vue
+  _app.config.globalProperties.$filters = {
     formatDate: dateString => {
       const _date = new Date(dateString);
 
@@ -38,13 +48,17 @@ export default ({ $config }, inject) => {
     formatDownloadUrl: (version, platform, extension, architecture) => {
       // Generate package file name
       const _packageFileName = [
-        [$config.downloads.app.package, version, architecture.short].join("_"),
+        [
+          _config.public.downloads.app.package,
+          version,
+          architecture.short
+        ].join("_"),
         extension
       ].join(".");
 
       // Generate target URL to package for platform
       const _packageFileUrl =
-        `${$config.url.prose_files}/apps/versions/` +
+        `${_config.public.url.prose_files}/apps/versions/` +
         `${version}/${platform}/${architecture.full}/` +
         _packageFileName;
 
@@ -53,5 +67,5 @@ export default ({ $config }, inject) => {
         name: architecture.name
       };
     }
-  });
-};
+  };
+});

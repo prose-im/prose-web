@@ -54,7 +54,6 @@ div(
               ["js-app-download js-app-download--" + platform]: (target !== null && index === 0)
             }
           ]`
-          slot="default"
         )
           base-button(
             :right-icon="(index === 0) ? actionRightIcon : null"
@@ -79,12 +78,12 @@ div(
 
 <script>
 // PROJECT: IMAGES
-import ImagePlatformIconWindows from "~/assets/images/components/base/BaseAppDownload/platform-icon-windows.svg?raw";
-import ImagePlatformIconAndroid from "~/assets/images/components/base/BaseAppDownload/platform-icon-android.svg?raw";
-import ImagePlatformIconIOS from "~/assets/images/components/base/BaseAppDownload/platform-icon-ios.svg?raw";
-import ImagePlatformIconLinux from "~/assets/images/components/base/BaseAppDownload/platform-icon-linux.svg?raw";
-import ImagePlatformIconMacOS from "~/assets/images/components/base/BaseAppDownload/platform-icon-macos.svg?raw";
-import ImagePlatformIconWeb from "~/assets/images/components/base/BaseAppDownload/platform-icon-web.svg?raw";
+import ImagePlatformIconWindows from "@/assets/images/components/base/BaseAppDownload/platform-icon-windows.svg?raw";
+import ImagePlatformIconAndroid from "@/assets/images/components/base/BaseAppDownload/platform-icon-android.svg?raw";
+import ImagePlatformIconIOS from "@/assets/images/components/base/BaseAppDownload/platform-icon-ios.svg?raw";
+import ImagePlatformIconLinux from "@/assets/images/components/base/BaseAppDownload/platform-icon-linux.svg?raw";
+import ImagePlatformIconMacOS from "@/assets/images/components/base/BaseAppDownload/platform-icon-macos.svg?raw";
+import ImagePlatformIconWeb from "@/assets/images/components/base/BaseAppDownload/platform-icon-web.svg?raw";
 
 // CONSTANTS
 const PLATFORMS = {
@@ -235,7 +234,7 @@ $platforms: (
   windows: #5488e5
 );
 
-.c-app-download {
+#{$c} {
   background: $color-white;
   overflow: hidden;
   display: flex;
@@ -340,7 +339,7 @@ $platforms: (
 // --> MEDIA-QUERIES <--
 
 @media (max-width: $screen-medium-width-breakpoint) {
-  .c-app-download {
+  #{$c} {
     #{$c}__inner {
       flex-direction: column;
       align-items: center;

@@ -23,15 +23,15 @@
      SCRIPT
      ********************************************************************** -->
 
-<script>
-export default {
-  name: "ContactIndexPage",
-  layout: "simple",
+<script setup>
+definePageMeta({
+  layout: "simple"
+});
 
-  head: {
-    title: "Contact the Prose team"
-  }
-};
+// Set page title
+useHead({
+  title: "Contact the Prose team"
+});
 </script>
 
 <!-- **********************************************************************
@@ -41,7 +41,7 @@ export default {
 <style lang="scss">
 $c: ".p-contact-index";
 
-.p-contact-index {
+#{$c} {
   #{$c}__form {
     margin-top: 44px;
   }

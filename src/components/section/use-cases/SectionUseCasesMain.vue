@@ -14,22 +14,22 @@
     align="left"
   )
     template(
-      slot="overline"
+      v-slot:overline
     )
       | {{ useCase.overline }}
 
     template(
-      slot="title"
+      v-slot:title
     )
       span(
         v-html="useCase.sectionOneTitle"
       )
 
     template(
-      slot="action"
+      v-slot:action
     )
       a(
-        :href="$config.url.prose_app"
+        :href="$config.public.url.prose_app"
       )
         base-button(
           right-icon="arrow-right"
@@ -45,7 +45,7 @@
       class="c-section-use-cases-main__illustration"
     )
       .c-section-use-cases-main__illustration-center(
-        :style="`--mobile-image: url(${mobileImage}); --desktop-image: url(${desktopImage})`"
+        :style="`--mobile-image: url(${useCase.mobileImage}); --desktop-image: url(${useCase.desktopImage})`"
       )
 </template>
 
@@ -62,18 +62,6 @@ export default {
       type: Object,
       required: true
     }
-  },
-
-  computed: {
-    mobileImage() {
-      return require(`~/assets/images/components/section/` +
-        `usecases${this.useCase.mobileImage}`);
-    },
-
-    desktopImage() {
-      return require(`~/assets/images/components/section/` +
-        `usecases${this.useCase.desktopImage}`);
-    }
   }
 };
 </script>
@@ -85,7 +73,7 @@ export default {
 <style lang="scss">
 $c: ".c-section-use-cases-main";
 
-.c-section-use-cases-main {
+#{$c} {
   #{$c}__illustration {
     margin-top: -24px;
     padding-top: 120px;
@@ -106,7 +94,7 @@ $c: ".c-section-use-cases-main";
 // --> MEDIA-QUERIES <--
 
 @media (max-width: $screen-small-width-breakpoint) {
-  .c-section-use-cases-main {
+  #{$c} {
     #{$c}__illustration-center {
       background-image: var(--mobile-image);
       left: 2.5%;

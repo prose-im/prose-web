@@ -22,6 +22,7 @@ button.c-base-disclosure-button(
 <script>
 export default {
   name: "BaseDisclosureButton",
+
   inject: ["toggle"]
 };
 </script>
@@ -33,7 +34,7 @@ export default {
 <style lang="scss">
 $c: ".c-base-disclosure-button";
 
-.c-base-disclosure-button {
+#{$c} {
   outline: none;
   border: none;
   background: none;

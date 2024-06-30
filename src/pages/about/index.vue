@@ -27,14 +27,11 @@
      SCRIPT
      ********************************************************************** -->
 
-<script>
-export default {
-  name: "AboutIndexPage",
-
-  head: {
-    title: "About Prose"
-  }
-};
+<script setup>
+// Set page title
+useHead({
+  title: "About Prose"
+});
 </script>
 
 <!-- **********************************************************************
@@ -44,7 +41,7 @@ export default {
 <style lang="scss">
 $c: ".p-about-index";
 
-.p-about-index {
+#{$c} {
   #{$c}__form {
     margin-top: 44px;
   }

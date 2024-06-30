@@ -23,15 +23,15 @@
      SCRIPT
      ********************************************************************** -->
 
-<script>
-export default {
-  name: "TermsIndexPage",
-  layout: "simple",
+<script setup>
+definePageMeta({
+  layout: "simple"
+});
 
-  head: {
-    title: "Prose Terms of Use and Privacy Policy"
-  }
-};
+// Set page title
+useHead({
+  title: "Prose Terms of Use and Privacy Policy"
+});
 </script>
 
 <!-- **********************************************************************
@@ -41,7 +41,7 @@ export default {
 <style lang="scss">
 $c: ".p-terms-index";
 
-.p-terms-index {
+#{$c} {
   padding-bottom: 74px;
 
   #{$c}__text {

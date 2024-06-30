@@ -31,6 +31,13 @@
      SCRIPT
      ********************************************************************** -->
 
+<script setup>
+// Set page title
+useHead({
+  title: "Download Prose apps"
+});
+</script>
+
 <script>
 export default {
   name: "DownloadsIndexPage",
@@ -44,20 +51,8 @@ export default {
     };
   },
 
-  async fetch() {
-    // Load update manifest to acquire latest available version
-    const _latestUpdate = await this.$http.$get(
-      `${this.$config.url.prose_files}/apps/updates/latest.json`
-    );
-
-    this.version = _latestUpdate.version;
-    this.matrix = _latestUpdate.platforms;
-  },
-
-  fetchOnServer: false,
-
-  head: {
-    title: "Download Prose apps"
+  async mounted() {
+    await this.fetchLatest();
   },
 
   methods: {
@@ -72,6 +67,18 @@ export default {
     onMainDownload(platform) {
       // Trigger download from parent method (on platforms)
       this.$refs.platforms.downloadFromParent(platform);
+    },
+
+    // --> HELPERS <--
+
+    async fetchLatest() {
+      // Load update manifest to acquire latest available version
+      const _latestUpdate = await $fetch(
+        `${this.$config.public.url.prose_files}/apps/updates/latest.json`
+      );
+
+      this.version = _latestUpdate.version;
+      this.matrix = _latestUpdate.platforms;
     }
   }
 };
@@ -84,11 +91,13 @@ export default {
 <style lang="scss">
 $c: ".p-downloads-index";
 
-#{$c}__platforms {
-  margin-top: 90px;
-}
+#{$c} {
+  #{$c}__platforms {
+    margin-top: 90px;
+  }
 
-#{$c}__archive {
-  margin-top: 64px;
+  #{$c}__archive {
+    margin-top: 64px;
+  }
 }
 </style>

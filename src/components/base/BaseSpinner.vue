@@ -92,7 +92,7 @@ $speeds: (
   "slow": 1500ms
 );
 
-.c-base-spinner {
+#{$c} {
   line-height: 0;
   text-align: center;
 

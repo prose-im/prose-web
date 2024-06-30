@@ -58,10 +58,11 @@ export default {
 
   computed: {
     formUrl() {
-      if (this.$config.tokens.crisp_website_id) {
+      if (this.$config.public.tokens.crisp_website_id) {
         return (
-          `${this.$config.url.crisp_plugins}/urn:crisp.im:contact-form:0/` +
-          `contact/${this.$config.tokens.crisp_website_id}`
+          `${this.$config.public.url.crisp_plugins}/` +
+          `urn:crisp.im:contact-form:0/contact/` +
+          `${this.$config.public.tokens.crisp_website_id}`
         );
       }
 
@@ -91,7 +92,7 @@ export default {
 <style lang="scss">
 $c: ".c-section-contact-form";
 
-.c-section-contact-form {
+#{$c} {
   #{$c}__frame-wrap {
     position: relative;
 

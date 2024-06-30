@@ -66,7 +66,7 @@ export default {
 <style lang="scss">
 $c: ".c-section-about-manifesto";
 
-.c-section-about-manifesto {
+#{$c} {
   position: relative;
   padding: 80px 0;
 
@@ -115,7 +115,7 @@ $c: ".c-section-about-manifesto";
   }
 
   #{$c}__column-1-illustration {
-    background-image: url("~/assets/images/components/section/about/SectionAboutManifesto/illustration-small.webp");
+    background-image: url("@/assets/images/components/section/about/SectionAboutManifesto/illustration-small.webp");
     margin-top: 64px;
     background-position: center;
     background-size: cover;
@@ -127,7 +127,7 @@ $c: ".c-section-about-manifesto";
   }
 
   #{$c}__description-illustration {
-    background-image: url("~/assets/images/components/section/about/SectionAboutManifesto/illustration-medium.webp");
+    background-image: url("@/assets/images/components/section/about/SectionAboutManifesto/illustration-medium.webp");
     margin-top: 64px;
     background-position: center;
     background-size: cover;
@@ -142,7 +142,7 @@ $c: ".c-section-about-manifesto";
 // --> MEDIA-QUERIES <--
 
 @media (max-width: $screen-medium-width-breakpoint) {
-  .c-section-about-manifesto {
+  #{$c} {
     #{$c}__columns {
       #{$c}__column-1 {
         display: none;

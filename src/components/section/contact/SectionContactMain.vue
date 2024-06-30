@@ -46,7 +46,7 @@ export default {
 <style lang="scss">
 $c: ".c-section-contact-main";
 
-.c-section-contact-main {
+#{$c} {
   #{$c}__direction {
     margin-top: 22px;
     display: flex;

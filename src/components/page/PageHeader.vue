@@ -81,7 +81,7 @@ div(
 
           .c-page-header__right
             a(
-              :href="$config.url.prose_app"
+              :href="$config.public.url.prose_app"
               class="c-page-header__action"
             )
               base-button(
@@ -148,7 +148,7 @@ div(
                         | {{ dropdownItem.title }}
 
         a(
-          :href="$config.url.prose_app"
+          :href="$config.public.url.prose_app"
           class="c-page-header__action"
         )
           base-button(
@@ -169,19 +169,19 @@ div(
 
 <script>
 // PROJECT: IMAGES
-import ImageMenuDropdownLinkArrow from "~/assets/images/components/page/PageHeader/menu-dropdown-link-arrow.svg?inline";
+import ImageMenuDropdownLinkArrow from "@/assets/images/components/page/PageHeader/menu-dropdown-link-arrow.svg?component";
 
-import ImageMenuDropdownCompanyIconAbout from "~/assets/images/components/page/PageHeader/menu-dropdown-company-icon-about.svg?raw";
-import ImageMenuDropdownCompanyIconBlog from "~/assets/images/components/page/PageHeader/menu-dropdown-company-icon-blog.svg?raw";
+import ImageMenuDropdownCompanyIconAbout from "@/assets/images/components/page/PageHeader/menu-dropdown-company-icon-about.svg?raw";
+import ImageMenuDropdownCompanyIconBlog from "@/assets/images/components/page/PageHeader/menu-dropdown-company-icon-blog.svg?raw";
 
-import ImageMenuDropdownHelpIconHelp from "~/assets/images/components/page/PageHeader/menu-dropdown-help-icon-help.svg?raw";
-import ImageMenuDropdownHelpIconDocs from "~/assets/images/components/page/PageHeader/menu-dropdown-help-icon-docs.svg?raw";
-import ImageMenuDropdownHelpIconContact from "~/assets/images/components/page/PageHeader/menu-dropdown-help-icon-contact.svg?raw";
+import ImageMenuDropdownHelpIconHelp from "@/assets/images/components/page/PageHeader/menu-dropdown-help-icon-help.svg?raw";
+import ImageMenuDropdownHelpIconDocs from "@/assets/images/components/page/PageHeader/menu-dropdown-help-icon-docs.svg?raw";
+import ImageMenuDropdownHelpIconContact from "@/assets/images/components/page/PageHeader/menu-dropdown-help-icon-contact.svg?raw";
 
-import ImageMenuDropdownUseCaseDevelopers from "~/assets/images/components/page/PageHeader/menu-dropdown-usecase-icon-developers.svg?raw";
-import ImageMenuDropdownUseCaseWeb3 from "~/assets/images/components/page/PageHeader/menu-dropdown-usecase-icon-web3.svg?raw";
-import ImageMenuDropdownUseCaseNonProfits from "~/assets/images/components/page/PageHeader/menu-dropdown-usecase-icon-nonprofits.svg?raw";
-import ImageMenuDropdownUseCaseRemoteTeams from "~/assets/images/components/page/PageHeader/menu-dropdown-usecase-icon-remoteteams.svg?raw";
+import ImageMenuDropdownUseCaseDevelopers from "@/assets/images/components/page/PageHeader/menu-dropdown-usecase-icon-developers.svg?raw";
+import ImageMenuDropdownUseCaseWeb3 from "@/assets/images/components/page/PageHeader/menu-dropdown-usecase-icon-web3.svg?raw";
+import ImageMenuDropdownUseCaseNonProfits from "@/assets/images/components/page/PageHeader/menu-dropdown-usecase-icon-nonprofits.svg?raw";
+import ImageMenuDropdownUseCaseRemoteTeams from "@/assets/images/components/page/PageHeader/menu-dropdown-usecase-icon-remoteteams.svg?raw";
 
 export default {
   name: "PageHeader",
@@ -286,7 +286,7 @@ export default {
               id: "help",
               title: "Help Center",
               label: "Get help with using Prose as a user",
-              target: `${this.$config.url.prose_help}/`,
+              target: `${this.$config.public.url.prose_help}/`,
               icon: ImageMenuDropdownHelpIconHelp
             },
 
@@ -294,7 +294,7 @@ export default {
               id: "docs",
               title: "Technical Docs",
               label: "Resources for Prose server admins",
-              target: `${this.$config.url.prose_docs}/`,
+              target: `${this.$config.public.url.prose_docs}/`,
               icon: ImageMenuDropdownHelpIconDocs
             },
 
@@ -313,7 +313,7 @@ export default {
 
   computed: {
     hasAnnouncement() {
-      return this.$config.modifiers.announcement === true;
+      return this.$config.public.modifiers.announcement === true;
     },
 
     currentRootPageName() {
@@ -351,7 +351,7 @@ $inner-width-maximum: 740px;
 
 $hover-transition-duration: 150ms;
 
-.c-page-header {
+#{$c} {
   background-color: $color-background-primary;
 
   #{$c}__sticky,
@@ -494,6 +494,7 @@ $hover-transition-duration: 150ms;
 
     #{$c}__menu-arrow {
       fill: $color-base-blue-dark;
+      height: 5px;
       margin-left: 6px;
       margin-bottom: -2px;
       opacity: 0.35;
@@ -647,7 +648,7 @@ $hover-transition-duration: 150ms;
 // --> MEDIA-QUERIES <--
 
 @media (max-width: #{($inner-width-maximum + (2 * $page-wrapper-small-padding-sides))}) {
-  .c-page-header {
+  #{$c} {
     #{$c}__homepage {
       margin-left: 0;
     }
@@ -678,7 +679,7 @@ $hover-transition-duration: 150ms;
 }
 
 @media (max-width: $screen-tiny-width-breakpoint) {
-  .c-page-header {
+  #{$c} {
     #{$c}__announcement {
       #{$c}__announcement-description,
       #{$c}__announcement-separator {
