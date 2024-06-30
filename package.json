@@ -33,7 +33,7 @@
     "crisp-sdk-web": "1.0.25"
   },
   "devDependencies": {
-    "@nuxt/eslint": "0.3.13",
+    "@nuxt/eslint-config": "0.3.13",
     "@nuxt/image": "1.7.0",
     "@nuxt/content": "2.13.0",
     "@nuxtjs/robots": "3.0.0",

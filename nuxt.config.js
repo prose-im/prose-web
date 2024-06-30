@@ -90,7 +90,6 @@ export default defineNuxtConfig({
 
   // Modules
   modules: [
-    "@nuxt/eslint",
     "@nuxt/image",
     "@nuxt/content",
     "@nuxtjs/robots",
