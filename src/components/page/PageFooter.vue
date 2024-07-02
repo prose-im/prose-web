@@ -365,6 +365,7 @@ $alignments-margin-sides: 12px;
           height: 12px;
           width: 14px;
           margin-right: 3px;
+          margin-bottom: -1px;
           fill: $color-base-black-mid;
           flex: 0 0 auto;
         }
