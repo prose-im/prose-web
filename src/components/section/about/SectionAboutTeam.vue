@@ -72,7 +72,8 @@ import RemiAvatar from "@/assets/images/components/section/about/SectionAboutTea
 // CONSTANTS
 const SOCIAL_BASE_URLS = {
   github: "https://github.com/[handle]",
-  x: "https://x.com/[handle]"
+  x: "https://x.com/[handle]",
+  mastodon: "https://[instance]/@[handle]"
 };
 
 export default {
@@ -93,6 +94,12 @@ export default {
             },
 
             {
+              platform: "mastodon",
+              instance: "toot.io",
+              handle: "valerian"
+            },
+
+            {
               platform: "github",
               handle: "valeriansaliou"
             }
@@ -108,6 +115,12 @@ export default {
             {
               platform: "x",
               handle: "nesium"
+            },
+
+            {
+              platform: "mastodon",
+              instance: "mastodon.social",
+              handle: "nesium3000"
             },
 
             {
@@ -236,6 +249,7 @@ $c: ".c-section-about-team";
     border-radius: 32px;
 
     #{$c}__member-details {
+      text-align: center;
       display: flex;
       flex-direction: column;
       gap: 6px;
