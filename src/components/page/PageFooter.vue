@@ -46,6 +46,7 @@
           )
             a.c-page-footer__social-link(
               :href="socialItem.target"
+              rel="me"
               target="_blank"
             )
               base-social-icon(
