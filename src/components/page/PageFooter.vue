@@ -156,6 +156,12 @@ export default {
         },
 
         {
+          platform: "mastodon",
+          label: `@${this.$config.public.social.mastodon_prose}`,
+          target: this.$config.public.url.mastodon_prose
+        },
+
+        {
           platform: "youtube",
           label: "YouTube",
           target: this.$config.public.url.youtube_prose
