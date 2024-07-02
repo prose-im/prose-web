@@ -156,6 +156,12 @@ export default {
         },
 
         {
+          platform: "mastodon",
+          label: `@${this.$config.public.social.mastodon_prose}`,
+          target: this.$config.public.url.mastodon_prose
+        },
+
+        {
           platform: "youtube",
           label: "YouTube",
           target: this.$config.public.url.youtube_prose
@@ -365,6 +371,7 @@ $alignments-margin-sides: 12px;
           height: 12px;
           width: 14px;
           margin-right: 3px;
+          margin-bottom: -1px;
           fill: $color-base-black-mid;
           flex: 0 0 auto;
         }

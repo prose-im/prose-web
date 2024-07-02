@@ -6,6 +6,7 @@
     "prose_help": "https://help.prose.org",
     "prose_status": "https://status.prose.org",
     "x_prose": "https://x.com/prose_im",
+    "mastodon_prose": "https://toot.io/@prose",
     "youtube_prose": "https://www.youtube.com/@ProseMessaging",
     "github_prose": "https://github.com/prose-im",
     "xmpp_web": "https://xmpp.org",
@@ -15,7 +16,8 @@
   },
 
   "social": {
-    "x_prose": "prose_im"
+    "x_prose": "prose_im",
+    "mastodon_prose": "prose"
   },
 
   "modifiers": {
