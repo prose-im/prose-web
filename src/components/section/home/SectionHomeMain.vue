@@ -29,11 +29,28 @@ div(
       v-slot:description
     )
       p.c-section-home-main__description
-        |  Prose is a distributed, open-source, and native
+        | Prose is a distributed, open-source, and native
 
         br
 
         | platform for workplace communication.
+
+      p.c-section-home-main__engine
+        | Powered by
+
+        base-space
+
+        image-engine-xmpp(
+          class="c-section-home-main__engine-icon"
+        )
+
+        base-space
+
+        a.u-medium(
+          :href="$config.public.url.xmpp_web"
+          target="_blank"
+        )
+          | XMPP
 
       .c-section-home-main__showcase
         .c-section-home-main__application
@@ -69,12 +86,14 @@ div(
 
 <script>
 // PROJECT: IMAGES
+import ImageEngineXmpp from "@/assets/images/components/section/home/SectionHomeMain/engine-xmpp.svg?component";
 import ImageApplicationLayout from "@/assets/images/components/section/home/SectionHomeMain/application-layout.svg?component";
 
 export default {
   name: "SectionHomeMain",
 
   components: {
+    ImageEngineXmpp,
     ImageApplicationLayout
   },
 
@@ -120,6 +139,28 @@ $inner-padding-top-base: 74px;
   #{$c}__description {
     font-size: 20px;
     line-height: 30px;
+  }
+
+  #{$c}__engine {
+    font-size: 18px;
+    line-height: 24px;
+    margin-top: 20px;
+
+    a {
+      color: $color-base-black-mid;
+
+      &:hover {
+        color: darken($color-base-blue-mid, 6%);
+      }
+    }
+
+    #{$c}__engine-icon {
+      vertical-align: middle;
+      height: 20px;
+      margin-top: -4px;
+      margin-left: 4px;
+      display: inline-block;
+    }
   }
 
   #{$c}__showcase {
@@ -312,6 +353,15 @@ $inner-padding-top-base: 74px;
     #{$c}__description {
       font-size: 16px;
       line-height: 24px;
+    }
+
+    #{$c}__engine {
+      font-size: 15px;
+      line-height: 22px;
+
+      #{$c}__engine-icon {
+        height: 18px;
+      }
     }
 
     #{$c}__application {
