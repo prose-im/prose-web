@@ -20,7 +20,7 @@
 
       base-space
 
-      span.c-section-terms-main__title-connector.u-light
+      span.c-section-terms-main__title-connector
         | &
 
       base-space
