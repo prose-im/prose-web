@@ -16,8 +16,8 @@ div(
   ]`
 )
   base-title(
+    :level="level"
     :align="align"
-    level="large"
     tint="gradient"
     class="c-base-descripted-title__title"
   )
@@ -27,6 +27,7 @@ div(
 
   base-description(
     :align="align"
+    :tint="tint"
     class="c-base-descripted-title__description"
   )
     slot(
@@ -43,12 +44,30 @@ export default {
   name: "BaseDescriptedTitle",
 
   props: {
+    level: {
+      type: String,
+      default: "large",
+
+      validator(x) {
+        return ["normal", "large"].includes(x);
+      }
+    },
+
     align: {
       type: String,
       default: "left",
 
       validator(x) {
         return ["left", "center", "right"].includes(x);
+      }
+    },
+
+    tint: {
+      type: String,
+      default: "light",
+
+      validator(x) {
+        return ["light", "dark"].includes(x);
       }
     }
   }

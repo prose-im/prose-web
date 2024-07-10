@@ -105,8 +105,8 @@ $stroke-color: $color-background-secondary;
   }
 
   &--normal {
-    font-size: 56px;
-    line-height: 56px;
+    font-size: 54px;
+    line-height: 54px;
     letter-spacing: -0.03em;
   }
 

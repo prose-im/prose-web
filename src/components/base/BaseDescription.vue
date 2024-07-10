@@ -12,7 +12,8 @@
 div(
   :class=`[
     "c-base-description",
-    "c-base-description--" + align
+    "c-base-description--" + align,
+    "c-base-description--" + tint
   ]`
 )
   slot
@@ -34,6 +35,15 @@ export default {
       validator(x) {
         return ["left", "center", "right"].includes(x);
       }
+    },
+
+    tint: {
+      type: String,
+      default: "light",
+
+      validator(x) {
+        return ["light", "dark"].includes(x);
+      }
     }
   }
 };
@@ -47,7 +57,6 @@ export default {
 $c: ".c-base-description";
 
 #{$c} {
-  color: $color-base-grey-dark;
   font-size: 17px;
   line-height: 28px;
 
@@ -63,6 +72,16 @@ $c: ".c-base-description";
 
   &--right {
     text-align: right;
+  }
+
+  // --> TINTS <--
+
+  &--light {
+    color: $color-base-grey-dark;
+  }
+
+  &--dark {
+    color: $color-base-black-mid;
   }
 }
 </style>
