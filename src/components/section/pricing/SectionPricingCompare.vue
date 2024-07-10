@@ -12,7 +12,7 @@
 .c-section-pricing-compare
   page-wrapper
     base-descripted-title(
-      level="normal"
+      level="medium"
       align="center"
     )
       template(

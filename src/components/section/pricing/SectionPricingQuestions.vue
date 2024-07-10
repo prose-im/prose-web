@@ -12,7 +12,7 @@
 .c-section-pricing-questions
   page-wrapper
     base-descripted-title(
-      level="normal"
+      level="medium"
     )
       template(
         v-slot:title

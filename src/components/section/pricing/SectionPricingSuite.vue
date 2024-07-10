@@ -12,7 +12,7 @@
 .c-section-pricing-suite
   page-wrapper
     base-descripted-title(
-      level="normal"
+      level="medium"
       align="center"
     )
       template(

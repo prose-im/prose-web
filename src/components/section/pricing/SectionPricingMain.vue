@@ -24,7 +24,7 @@
 
         .c-section-pricing-main__inner
           base-descripted-title(
-            level="normal"
+            level="medium"
             align="center"
             tint="dark"
           )
