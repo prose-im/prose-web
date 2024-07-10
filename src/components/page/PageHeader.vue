@@ -171,9 +171,6 @@ div(
 // PROJECT: IMAGES
 import ImageMenuDropdownLinkArrow from "@/assets/images/components/page/PageHeader/menu-dropdown-link-arrow.svg?component";
 
-import ImageMenuDropdownCompanyIconAbout from "@/assets/images/components/page/PageHeader/menu-dropdown-company-icon-about.svg?raw";
-import ImageMenuDropdownCompanyIconBlog from "@/assets/images/components/page/PageHeader/menu-dropdown-company-icon-blog.svg?raw";
-
 import ImageMenuDropdownHelpIconHelp from "@/assets/images/components/page/PageHeader/menu-dropdown-help-icon-help.svg?raw";
 import ImageMenuDropdownHelpIconDocs from "@/assets/images/components/page/PageHeader/menu-dropdown-help-icon-docs.svg?raw";
 import ImageMenuDropdownHelpIconContact from "@/assets/images/components/page/PageHeader/menu-dropdown-help-icon-contact.svg?raw";
@@ -216,6 +213,12 @@ export default {
         },
 
         {
+          id: "pricing",
+          label: "Pricing",
+          target: "/pricing/"
+        },
+
+        {
           id: "usecases",
           label: "Use Cases",
 
@@ -250,29 +253,6 @@ export default {
               label: "Enhance remote team collaboration",
               target: "/usecases/remote-teams/",
               icon: ImageMenuDropdownUseCaseRemoteTeams
-            }
-          ]
-        },
-
-        {
-          id: "company",
-          label: "Company",
-
-          dropdown: [
-            {
-              id: "about",
-              title: "About Prose",
-              label: "Discover who is building Prose",
-              target: "/about/",
-              icon: ImageMenuDropdownCompanyIconAbout
-            },
-
-            {
-              id: "blog",
-              title: "Blog",
-              label: "Find out more about Prose",
-              target: "/blog/",
-              icon: ImageMenuDropdownCompanyIconBlog
             }
           ]
         },
