@@ -10,7 +10,9 @@
 
 <template lang="pug">
 .p-pricing-index
-  section-pricing-main
+  section-pricing-main(
+    class="p-pricing-index__main"
+  )
 
   section-pricing-suite(
     class="p-pricing-index__suite"
@@ -35,7 +37,7 @@
 
 <script setup>
 definePageMeta({
-  layout: "retracted"
+  layout: "integrated"
 });
 
 // Set page title

@@ -398,14 +398,14 @@ $hover-transition-duration: 150ms;
     background-color: rgba($color-background-primary, 0.9);
     backdrop-filter: blur(6px) saturate(160%) contrast(45%) brightness(140%);
     border: 1px solid $color-border-tertiary;
-    min-height: 60px;
+    min-height: $page-header-bar-height;
     max-width: $inner-width-maximum;
     margin: 0 auto;
     padding: 8px;
     box-sizing: border-box;
     display: flex;
     align-items: center;
-    border-radius: 60px;
+    border-radius: $page-header-bar-height;
     box-shadow: rgba($color-black, 0.086) 0 0.6px 0.6px -1.25px,
       rgba($color-black, 0.076) 0 2.25px 2.25px -2.5px,
       rgba($color-black, 0.03) 0 10px 10px -3.75px;
