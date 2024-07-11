@@ -10,7 +10,9 @@
 
 <template lang="pug">
 .c-section-home-advantages
-  page-wrapper(class="c-section-home-advantages__inner")
+  page-wrapper(
+    class="c-section-home-advantages__inner"
+  )
     base-title(
       class="c-section-home-advantages__title"
       tint="gradient"

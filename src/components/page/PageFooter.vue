@@ -244,6 +244,11 @@ export default {
             },
 
             {
+              label: "About Us",
+              target: "/about/"
+            },
+
+            {
               label: "Terms & Privacy",
               target: "/terms/"
             },
@@ -254,11 +259,6 @@ export default {
               target:
                 `${this.$config.public.url.prose_files}/` +
                 `public/documents/brand-assets.zip`
-            },
-
-            {
-              label: "Work with Us",
-              target: "/about/"
             }
           ]
         },

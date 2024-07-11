@@ -37,6 +37,7 @@ page-split-view(
     )
       base-descripted-title(
         align="left"
+        level="normal"
         class="c-section-changelog-main__title"
       )
         template(
