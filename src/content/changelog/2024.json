@@ -1,6 +1,27 @@
 {
   "versions": [
     {
+      "version": "0.4.5",
+      "date": "2024-07-11",
+
+      "platforms": {
+        "macos": ["apple", "intel"]
+      },
+
+      "changelog": {
+        "features": [
+          ["Account", "Add onboarding popup"],
+          ["Account", "Add support for display name"],
+          ["Messaging", "Add ability to quote a message"],
+          ["Networking", "Add support for JRD host meta files"]
+        ],
+
+        "changes": [["Messaging", "Collapse participants of large rooms"]],
+        "fixes": [["Messaging", "Disable alerts if user is not available"]]
+      }
+    },
+
+    {
       "version": "0.4.4",
       "date": "2024-06-20",
 
