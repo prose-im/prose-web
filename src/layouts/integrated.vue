@@ -36,7 +36,7 @@ $c: ".l-integrated";
 
 #{$c} {
   #{$c}__content {
-    margin-top: -($page-header-bar-height / 2);
+    margin-top: (-1 * calc($page-header-bar-height / 2));
   }
 }
 </style>
