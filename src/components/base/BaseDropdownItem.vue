@@ -16,7 +16,7 @@ span.c-base-dropdown-item
   )
 
   span.c-base-dropdown-item__text
-    span.c-base-dropdown-item__title.u-bold
+    span.c-base-dropdown-item__title.u-semibold
       | {{ title }}
 
       image-title-arrow(

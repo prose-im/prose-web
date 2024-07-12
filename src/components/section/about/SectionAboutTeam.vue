@@ -33,7 +33,7 @@
         )
 
         .c-section-about-team__member-details
-          h4.c-section-about-team__member-name.u-bold
+          h4.c-section-about-team__member-name.u-semibold
             | {{ member.name }}
 
           p.c-section-about-team__member-position

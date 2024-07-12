@@ -22,7 +22,7 @@ ul.c-base-navigate
   )
     nuxt-link(
       :to="choice.target"
-      class="c-base-navigate__entry-link u-bold"
+      class="c-base-navigate__entry-link u-semibold"
     )
       | {{ choice.name }}
 </template>

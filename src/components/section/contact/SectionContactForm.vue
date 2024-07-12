@@ -34,7 +34,7 @@
         class="c-section-contact-form__frame"
       )
 
-    p.c-section-contact-form__empty.u-bold(
+    p.c-section-contact-form__empty.u-semibold(
       v-else
     )
       | No contact form available!

@@ -28,7 +28,7 @@ div(
         "c-base-button__label",
         {
           "u-medium": !bolder,
-          "u-bold": bolder
+          "u-semibold": bolder
         }
       ]`
     )

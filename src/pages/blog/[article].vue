@@ -285,7 +285,7 @@ $c: ".p-blog-article";
     }
 
     strong {
-      font-weight: $font-weight-bolder;
+      font-weight: $font-weight-semibold;
       color: $color-base-blue-dark;
     }
 

@@ -48,7 +48,7 @@ export default {
       default: "medium",
 
       validator(x) {
-        return ["regular", "medium", "bold"].includes(x);
+        return ["regular", "medium", "semibold"].includes(x);
       }
     },
 

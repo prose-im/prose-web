@@ -28,7 +28,7 @@ ul.c-base-navigator
         v-html="item.iconHtml"
       )
 
-      span.c-base-navigator__button-label.u-bold
+      span.c-base-navigator__button-label.u-semibold
         | {{ item.label }}
 </template>
 

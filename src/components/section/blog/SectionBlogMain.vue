@@ -22,7 +22,7 @@
       )
 
     .c-section-blog-main__featured-content
-      .c-section-blog-main__featured-badge.u-bold
+      .c-section-blog-main__featured-badge.u-semibold
         | NEW
 
       time(

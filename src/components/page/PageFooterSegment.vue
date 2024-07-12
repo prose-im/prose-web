@@ -10,7 +10,7 @@
 
 <template lang="pug">
 .c-page-footer-segment
-  h6.c-page-footer-segment__title.u-title.u-bold
+  h6.c-page-footer-segment__title.u-title.u-semibold
     | {{ title }}
 
   ul.c-page-footer-segment__items
