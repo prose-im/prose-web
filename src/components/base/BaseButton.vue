@@ -68,7 +68,7 @@ export default {
       default: "normal",
 
       validator(x) {
-        return ["simple", "normal", "large", "huge"].includes(x);
+        return ["simple", "small", "normal", "large", "huge"].includes(x);
       }
     },
 
@@ -146,6 +146,7 @@ export default {
 $c: ".c-base-button";
 
 // VARIABLES
+$size-small-padding-sides: 26px;
 $size-normal-padding-sides: 22px;
 $size-large-padding-sides: 28px;
 $size-huge-padding-sides: 38px;
@@ -330,6 +331,7 @@ $size-huge-padding-sides: 38px;
 
   // --> SIZES <--
 
+  &--small,
   &--normal,
   &--large,
   &--huge {
@@ -351,6 +353,17 @@ $size-huge-padding-sides: 38px;
       font-size: 14px;
       line-height: 22px;
       padding: 0;
+    }
+  }
+
+  &--small {
+    #{$c}__inner {
+      font-size: 14px;
+      line-height: 20px;
+      padding-top: 6px;
+      padding-bottom: 8px;
+      padding-left: $size-small-padding-sides;
+      padding-right: $size-small-padding-sides;
     }
   }
 
