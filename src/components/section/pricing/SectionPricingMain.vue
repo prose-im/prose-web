@@ -237,7 +237,7 @@ $plan-section-separated-margin-sides: 42px;
 #{$c} {
   #{$c}__wrapper {
     border: 1px solid $color-border-tertiary;
-    margin: 0 -46px;
+    margin: 0 -76px;
     padding: $wrapper-padding;
     position: relative;
     border-radius: $wrapper-border-radius;
@@ -317,7 +317,7 @@ $plan-section-separated-margin-sides: 42px;
     padding: 0 76px;
     column-gap: 60px;
     display: grid;
-    grid-template-columns: 1fr 2.25fr;
+    grid-template-columns: 1fr 2.5fr;
 
     #{$c}__plan {
       padding: 20px 30px;
