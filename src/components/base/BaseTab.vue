@@ -40,7 +40,7 @@ export default {
 <style lang="scss" scoped>
 $c: ".c-base-tab";
 
-.c-base-tab {
+#{$c} {
   opacity: 0;
   transition: opacity 0.2s ease;
   z-index: 0;
