@@ -66,7 +66,7 @@ $padding-edges: 3px;
   border: 0.5px solid $color-border-primary;
   text-align: center;
   width: fit-content;
-  max-width: 320px;
+  max-width: 340px;
   padding: $padding-edges;
   border-radius: $border-radius;
   box-shadow: 0 2px 4px 0 rgba($color-black, 0.02);
@@ -77,7 +77,7 @@ $padding-edges: 3px;
       rgba($color-background-secondary, 0) 0%,
       rgba($color-background-secondary, 0.9) 100%
     );
-    padding: 8px 32px 12px;
+    padding: 8px 28px 12px;
     border-radius: ($border-radius - $padding-edges);
   }
 
@@ -105,9 +105,9 @@ $padding-edges: 3px;
 
   #{$c}__description {
     color: $color-base-black-mid;
-    font-size: 12px;
+    font-size: 13px;
+    line-height: 18px;
     letter-spacing: 0;
-    line-height: 17px;
     margin-top: 9px;
   }
 }
