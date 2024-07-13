@@ -41,6 +41,96 @@
 
               p.u-medium
                 | Deploy Prose on our secure Cloud, or on your own premises.
+
+          .c-section-pricing-main__plans
+            .c-section-pricing-main__plan.c-section-pricing-main__panel
+              .c-section-pricing-main__plan-section
+                p.c-section-pricing-main__plan-title.u-semibold
+                  | Community
+
+                p.c-section-pricing-main__plan-price.c-section-pricing-main__plan-price--secondary
+                  | Free
+
+                p.c-section-pricing-main__plan-description
+                  | On your premises
+
+                a.c-section-pricing-main__plan-action
+                  base-button(
+                    tint="dark"
+                    reverse
+                  )
+                    | Self-Host Prose
+
+            .c-section-pricing-main__plan.c-section-pricing-main__panel
+              .c-section-pricing-main__plan-section.c-section-pricing-main__plan-section--separated
+                p.c-section-pricing-main__plan-title.u-semibold
+                  | Business
+
+                  base-badge(
+                    color="green"
+                    class="c-section-pricing-main__plan-badge"
+                  )
+                    | Most popular
+
+                p.c-section-pricing-main__plan-price.c-section-pricing-main__plan-price--primary
+                  span.u-semibold
+                    | $5
+
+                  base-space
+
+                  span.c-section-pricing-main__plan-price-label
+                    | /user/month
+
+                p.c-section-pricing-main__plan-description
+                  | Cloud hosting, billed annually.
+
+                .c-section-pricing-main__plan-action
+                  a
+                    base-button(
+                      right-icon="arrow-right"
+                      tint="dark"
+                      size="huge"
+                    )
+                      | Create your Prose Server
+
+                p.c-section-pricing-main__plan-notice
+                  | 7 days free trial
+
+                  base-space(
+                    :repeat="2"
+                  )
+
+                  span.u-bold
+                    | ·
+
+                  base-space(
+                    :repeat="2"
+                  )
+
+                  | Cancel anytime
+
+              .c-section-pricing-main__plan-section
+
+          .c-section-pricing-main__actions
+            a.c-section-pricing-main__action.u-medium
+              | See all plan details
+
+              image-action-arrow
+
+      .c-section-pricing-main__options
+        .c-section-pricing-main__option.c-section-pricing-main__panel
+          .c-section-pricing-main__option-text
+            p.u-medium
+              | Annual billing
+
+            p
+              | Save 20%
+
+          .c-section-pricing-main__option-form
+            form-toggle(
+              v-model="planOptions.annual"
+              name="annual"
+            )
 </template>
 
 <!-- **********************************************************************
@@ -48,14 +138,25 @@
      ********************************************************************** -->
 
 <script>
+// PROJECT: IMAGES
+import ImageActionArrow from "@/assets/images/components/section/pricing/SectionPricingMain/action-arrow.svg?component";
+
 export default {
   name: "SectionPricingMain",
+
+  components: { ImageActionArrow },
 
   data() {
     return {
       // --> DATA <--
 
-      decorationBubbles: ["blue", "pink"]
+      decorationBubbles: ["blue", "pink"],
+
+      // --> STATE <--
+
+      planOptions: {
+        annual: true
+      }
     };
   }
 };
@@ -72,17 +173,19 @@ $c: ".c-section-pricing-main";
 $wrapper-padding: 7px;
 $wrapper-border-radius: 50px;
 
+$plan-section-separated-margin-sides: 44px;
+
 #{$c} {
   #{$c}__wrapper {
     border: 1px solid rgba($color-base-blue-dark, 0.09);
     padding: $wrapper-padding;
+    position: relative;
     border-radius: $wrapper-border-radius;
   }
 
   #{$c}__box {
-    background-color: rgba(#f0f1f8, 0.25);
-    padding-top: 110px;
-    padding-bottom: 160px;
+    background-color: $color-background-quaternary;
+    padding: 94px 0;
     position: relative;
     overflow: hidden;
     border-radius: ($wrapper-border-radius - $wrapper-padding);
@@ -134,6 +237,165 @@ $wrapper-border-radius: 50px;
   #{$c}__inner {
     position: relative;
     z-index: 1;
+  }
+
+  #{$c}__panel {
+    background-color: rgba($color-white, 0.9);
+    border: 1px solid $color-border-primary;
+    border-radius: 18px;
+    box-shadow: 0 0 0 -1px rgba($color-black, 0.09),
+      0 2px 2px -2px rgba($color-black, 0.08),
+      0 10px 10px -3px rgba($color-black, 0.03);
+  }
+
+  #{$c}__plans {
+    margin-top: 54px;
+    padding: 0 76px;
+    column-gap: 60px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+
+    #{$c}__plan {
+      padding: 20px 32px;
+      display: flex;
+
+      #{$c}__plan-section {
+        flex: 1;
+
+        &--separated {
+          border-right: 1.5px solid darken($color-base-grey-light, 2%);
+          margin-right: $plan-section-separated-margin-sides;
+          padding-right: $plan-section-separated-margin-sides;
+        }
+      }
+
+      #{$c}__plan-title {
+        color: $color-base-blue-dark;
+        font-size: 20px;
+        line-height: 26px;
+        letter-spacing: 0.2px;
+        display: flex;
+        align-items: center;
+
+        #{$c}__plan-badge {
+          margin-left: 15px;
+          flex: 0 1 auto;
+        }
+      }
+
+      #{$c}__plan-price {
+        line-height: 34px;
+        margin-top: 16px;
+
+        &--primary {
+          color: $color-base-blue-dark;
+          font-size: 32px;
+          letter-spacing: 0.33px;
+        }
+
+        &--secondary {
+          color: $color-base-grey-dark;
+          font-size: 22px;
+          letter-spacing: 0.23px;
+        }
+
+        #{$c}__plan-price-label {
+          color: $color-base-grey-dark;
+          font-size: 16px;
+          letter-spacing: 0.17px;
+        }
+      }
+
+      #{$c}__plan-description {
+        color: $color-base-grey-dark;
+        font-size: 16px;
+        letter-spacing: 0.17px;
+        line-height: 26px;
+        margin-top: 15px;
+      }
+
+      #{$c}__plan-action {
+        margin-top: 44px;
+        display: flex;
+        justify-content: center;
+      }
+
+      #{$c}__plan-notice {
+        color: $color-base-grey-dark;
+        font-size: 12.5px;
+        line-height: 15px;
+        letter-spacing: -0.05px;
+        text-align: center;
+        margin-top: 14px;
+      }
+    }
+  }
+
+  #{$c}__actions {
+    margin-top: 38px;
+    display: flex;
+    justify-content: center;
+    column-gap: 20px;
+
+    #{$c}__action {
+      color: $color-base-black-mid;
+      font-size: 16px;
+      line-height: 20px;
+      letter-spacing: 0.1px;
+      display: flex;
+      align-items: center;
+
+      svg {
+        fill: $color-base-grey-dark;
+        width: 10px;
+        margin-left: 8px;
+        margin-bottom: -2px;
+        opacity: 0.8;
+        flex: 0 0 auto;
+      }
+    }
+  }
+
+  #{$c}__options {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -18px;
+
+    #{$c}__option {
+      width: fit-content;
+      min-width: 200px;
+      padding: 11px 25px;
+      display: flex;
+      align-items: center;
+
+      #{$c}__option-text {
+        flex: 1;
+
+        p {
+          line-height: 18px;
+
+          &:nth-child(1) {
+            color: $color-base-black-mid;
+            font-size: 16px;
+            letter-spacing: 0.1px;
+          }
+
+          &:nth-child(2) {
+            color: $color-base-grey-dark;
+            font-size: 15px;
+            letter-spacing: 0.09px;
+            margin-top: 5px;
+          }
+        }
+      }
+
+      #{$c}__option-form {
+        flex: 0 0 auto;
+      }
+    }
   }
 }
 </style>
