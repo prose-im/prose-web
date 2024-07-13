@@ -87,7 +87,7 @@ $c: ".c-section-blog-articles";
       height: 100%;
 
       &:hover {
-        box-shadow: 0px 28px 36px 0px #2b255d15;
+        box-shadow: 0px 28px 36px 0px rgba($color-base-blue-dark, 0.08);
         transform: translateY(-5px);
       }
     }
