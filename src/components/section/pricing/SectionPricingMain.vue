@@ -54,15 +54,21 @@
                 p.c-section-pricing-main__plan-description
                   | On your premises
 
+                base-checklist(
+                  :items="planFeatures.community"
+                  class="c-section-pricing-main__plan-features"
+                )
+
                 a.c-section-pricing-main__plan-action
                   base-button(
                     tint="dark"
+                    size="small"
                     reverse
                   )
                     | Self-Host Prose
 
             .c-section-pricing-main__plan.c-section-pricing-main__panel
-              .c-section-pricing-main__plan-section.c-section-pricing-main__plan-section--separated
+              .c-section-pricing-main__plan-section.c-section-pricing-main__plan-section--fit.c-section-pricing-main__plan-section--separated
                 p.c-section-pricing-main__plan-title.u-semibold
                   | Business
 
@@ -82,7 +88,7 @@
                     | /user/month
 
                 p.c-section-pricing-main__plan-description
-                  | Cloud hosting, billed annually.
+                  | Cloud hosting, billed annually
 
                 .c-section-pricing-main__plan-action
                   a
@@ -110,6 +116,13 @@
                   | Cancel anytime
 
               .c-section-pricing-main__plan-section
+                p.c-section-pricing-main__plan-subtitle.u-medium
+                  | Features
+
+                base-checklist(
+                  :items="planFeatures.business"
+                  class="c-section-pricing-main__plan-features"
+                )
 
           .c-section-pricing-main__actions
             a.c-section-pricing-main__action.u-medium
@@ -118,7 +131,7 @@
               image-action-arrow
 
       .c-section-pricing-main__options
-        .c-section-pricing-main__option.c-section-pricing-main__panel
+        .c-section-pricing-main__option.c-section-pricing-main__panel.c-section-pricing-main__panel--opaque
           .c-section-pricing-main__option-text
             p.u-medium
               | Annual billing
@@ -152,6 +165,52 @@ export default {
 
       decorationBubbles: ["blue", "pink"],
 
+      planFeatures: {
+        community: [
+          {
+            status: "information",
+            label: "Limited to 100 users"
+          },
+
+          {
+            status: "information",
+            label: "No support, no updates"
+          }
+        ],
+
+        business: [
+          {
+            status: "included",
+            label: "Fully managed (uptime & updates)"
+          },
+
+          {
+            status: "included",
+            label: "All Prose features"
+          },
+
+          {
+            status: "included",
+            label: "End-to-end encryption"
+          },
+
+          {
+            status: "included",
+            label: "Add unlimited users as you grow"
+          },
+
+          {
+            status: "included",
+            label: "Custom DNS domain name"
+          },
+
+          {
+            status: "included",
+            label: "Full access to your Admin Dashboard"
+          }
+        ]
+      },
+
       // --> STATE <--
 
       planOptions: {
@@ -173,11 +232,12 @@ $c: ".c-section-pricing-main";
 $wrapper-padding: 7px;
 $wrapper-border-radius: 50px;
 
-$plan-section-separated-margin-sides: 44px;
+$plan-section-separated-margin-sides: 42px;
 
 #{$c} {
   #{$c}__wrapper {
-    border: 1px solid rgba($color-base-blue-dark, 0.09);
+    border: 1px solid $color-border-tertiary;
+    margin: 0 -46px;
     padding: $wrapper-padding;
     position: relative;
     border-radius: $wrapper-border-radius;
@@ -246,6 +306,10 @@ $plan-section-separated-margin-sides: 44px;
     box-shadow: 0 0 0 -1px rgba($color-black, 0.09),
       0 2px 2px -2px rgba($color-black, 0.08),
       0 10px 10px -3px rgba($color-black, 0.03);
+
+    &--opaque {
+      background-color: $color-white;
+    }
   }
 
   #{$c}__plans {
@@ -253,14 +317,20 @@ $plan-section-separated-margin-sides: 44px;
     padding: 0 76px;
     column-gap: 60px;
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 2.25fr;
 
     #{$c}__plan {
-      padding: 20px 32px;
+      padding: 20px 30px;
       display: flex;
 
       #{$c}__plan-section {
+        padding-top: 5px;
+        padding-bottom: 8px;
         flex: 1;
+
+        &--fit {
+          flex: 0 1 auto;
+        }
 
         &--separated {
           border-right: 1.5px solid darken($color-base-grey-light, 2%);
@@ -283,9 +353,15 @@ $plan-section-separated-margin-sides: 44px;
         }
       }
 
+      #{$c}__plan-subtitle {
+        color: $color-black;
+        font-size: 15px;
+        letter-spacing: 0.16px;
+      }
+
       #{$c}__plan-price {
         line-height: 34px;
-        margin-top: 16px;
+        margin-top: 10px;
 
         &--primary {
           color: $color-base-blue-dark;
@@ -302,6 +378,7 @@ $plan-section-separated-margin-sides: 44px;
         #{$c}__plan-price-label {
           color: $color-base-grey-dark;
           font-size: 16px;
+          line-height: 18px;
           letter-spacing: 0.17px;
         }
       }
@@ -311,7 +388,7 @@ $plan-section-separated-margin-sides: 44px;
         font-size: 16px;
         letter-spacing: 0.17px;
         line-height: 26px;
-        margin-top: 15px;
+        margin-top: 14px;
       }
 
       #{$c}__plan-action {
@@ -324,9 +401,13 @@ $plan-section-separated-margin-sides: 44px;
         color: $color-base-grey-dark;
         font-size: 12.5px;
         line-height: 15px;
-        letter-spacing: -0.05px;
+        letter-spacing: -0.01px;
         text-align: center;
         margin-top: 14px;
+      }
+
+      #{$c}__plan-features {
+        margin-top: 24px;
       }
     }
   }
@@ -366,7 +447,7 @@ $plan-section-separated-margin-sides: 44px;
 
     #{$c}__option {
       width: fit-content;
-      min-width: 200px;
+      min-width: 180px;
       padding: 11px 25px;
       display: flex;
       align-items: center;
@@ -379,13 +460,13 @@ $plan-section-separated-margin-sides: 44px;
 
           &:nth-child(1) {
             color: $color-base-black-mid;
-            font-size: 16px;
+            font-size: 15.5px;
             letter-spacing: 0.1px;
           }
 
           &:nth-child(2) {
             color: $color-base-grey-dark;
-            font-size: 15px;
+            font-size: 14.5px;
             letter-spacing: 0.09px;
             margin-top: 5px;
           }
