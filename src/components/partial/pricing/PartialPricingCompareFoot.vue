@@ -28,7 +28,7 @@
       span.c-partial-pricing-compare-foot__title-label
         | /user/month
 
-  p.c-partial-pricing-compare-foot__action
+  .c-partial-pricing-compare-foot__action
     a
       template(
         v-if="isSelfHosted"
