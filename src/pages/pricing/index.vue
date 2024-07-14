@@ -62,10 +62,7 @@ $c: ".p-pricing-index";
     margin-top: 150px;
   }
 
-  #{$c}__questions {
-    margin-top: 170px;
-  }
-
+  #{$c}__questions,
   #{$c}__simulate {
     margin-top: 160px;
   }
