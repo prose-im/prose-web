@@ -284,9 +284,9 @@ $section-inner-padding-side: 32px;
 
       #{$c}__calculator-amount-label {
         color: $color-base-grey-dark;
-        font-size: 16px;
-        line-height: 18px;
-        letter-spacing: 0.17px;
+        font-size: 15px;
+        line-height: 17px;
+        letter-spacing: 0.15px;
         margin-bottom: -1px;
       }
 
