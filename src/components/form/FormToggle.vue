@@ -132,7 +132,7 @@ $toggle-field-height: ($toggle-height - (2 * $toggle-handle-offset));
     &:checked + #{$c}__field {
       background-color: $color-base-blue-link;
 
-      &:after {
+      &::after {
         margin-inline-start: ($toggle-field-width - $toggle-handle-size);
       }
 
@@ -156,7 +156,7 @@ $toggle-field-height: ($toggle-height - (2 * $toggle-handle-offset));
     border-radius: $toggle-height;
     transition: background-color 100ms linear;
 
-    &:after {
+    &::after {
       content: "";
       background-color: $color-white;
       width: $toggle-handle-size;
@@ -171,7 +171,7 @@ $toggle-field-height: ($toggle-height - (2 * $toggle-handle-offset));
     &:hover {
       background-color: rgba($color-base-grey-dark, 0.27);
 
-      &:after {
+      &::after {
         box-shadow: 0 1px 2px 0 rgba($color-black, 0.12);
       }
     }
@@ -179,7 +179,7 @@ $toggle-field-height: ($toggle-height - (2 * $toggle-handle-offset));
     &:active {
       background-color: rgba($color-base-grey-dark, 0.34);
 
-      &:after {
+      &::after {
         box-shadow: 0 1px 2px 0 rgba($color-black, 0.1);
       }
     }
