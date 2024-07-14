@@ -16,7 +16,9 @@ ul.c-base-expandable
     :class=`[
       "c-base-expandable__entry",
       {
-        "c-base-expandable__entry--expanded": (expandedIndex === index)
+        "c-base-expandable__entry--before-expanded": (expandedIndex > -1 && (expandedIndex - 1) === index),
+        "c-base-expandable__entry--expanded": (expandedIndex > -1 && expandedIndex === index),
+        "c-base-expandable__entry--after-expanded": (expandedIndex > -1 && (expandedIndex + 1) === index)
       }
     ]`
   )
@@ -93,6 +95,7 @@ export default {
 $c: ".c-base-expandable";
 
 // VARIABLES
+$entry-expanded-margin-top-bottom: 10px;
 $entry-padding-left: 38px;
 $entry-padding-right: 28px;
 $entry-border-radius: 8px;
@@ -104,24 +107,49 @@ $title-icon-size: 32px;
     background-color: rgba($color-white, 0.9);
     border-width: 1px 1px 0 1px;
     border-style: solid;
+    position: relative;
     border-color: $color-border-primary;
     box-shadow: 0 10px 10px -3px rgba($color-black, 0.02);
 
-    &:first-child {
+    &--expanded {
+      border-width: 1px;
+      margin-top: $entry-expanded-margin-top-bottom;
+      margin-bottom: $entry-expanded-margin-top-bottom;
+      z-index: 1;
+      border-radius: $entry-border-radius;
+
+      #{$c}__title {
+        #{$c}__title-icon {
+          svg {
+            transform: rotate(45deg);
+          }
+        }
+      }
+
+      #{$c}__content {
+        display: block;
+      }
+    }
+
+    &:last-child,
+    &--before-expanded {
+      border-bottom-left-radius: $entry-border-radius;
+      border-bottom-right-radius: $entry-border-radius;
+      border-bottom-width: 1px;
+    }
+
+    &:first-child,
+    &--after-expanded {
       border-top-left-radius: $entry-border-radius;
       border-top-right-radius: $entry-border-radius;
     }
 
-    &:last-child {
-      border-bottom-width: 1px;
-      border-bottom-left-radius: $entry-border-radius;
-      border-bottom-right-radius: $entry-border-radius;
+    &:first-child {
+      margin-top: 0;
     }
 
-    &--expanded {
-      #{$c}__content {
-        display: block;
-      }
+    &:last-child {
+      margin-bottom: 0;
     }
   }
 
@@ -155,6 +183,7 @@ $title-icon-size: 32px;
       svg {
         fill: $color-base-grey-dark;
         width: 12px;
+        transition: transform linear 150ms;
       }
     }
 
