@@ -17,12 +17,18 @@ div(
     "c-base-button--" + tint,
     {
       "c-base-button--darker": darker,
+      "c-base-button--squared": squared,
       "c-base-button--reverse": reverse,
+      "c-base-button--flat": flat,
       ["c-base-button--" + rightIcon]: rightIcon
     }
   ]`
 )
-  .c-base-button__inner
+  .c-base-button__inner(
+    :style=`{
+      height
+    }`
+  )
     div(
       :class=`[
         "c-base-button__label",
@@ -82,9 +88,24 @@ export default {
       default: false
     },
 
+    squared: {
+      type: Boolean,
+      default: false
+    },
+
     reverse: {
       type: Boolean,
       default: false
+    },
+
+    flat: {
+      type: Boolean,
+      default: false
+    },
+
+    height: {
+      type: String,
+      default: null
     },
 
     rightIcon: {
@@ -440,6 +461,20 @@ $size-huge-padding-sides: 38px;
     }
   }
 
+  &--squared {
+    #{$c}__inner {
+      aspect-ratio: 1;
+      padding: 0;
+      border-radius: 12px;
+
+      #{$c}__label {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+
   &--reverse {
     &#{$c}--dark {
       #{$c}__inner {
@@ -480,6 +515,12 @@ $size-huge-padding-sides: 38px;
           background-color: rgba($color-black, 0.15);
         }
       }
+    }
+  }
+
+  &--flat {
+    #{$c}__inner {
+      box-shadow: none;
     }
   }
 }
