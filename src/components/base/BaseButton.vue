@@ -352,18 +352,18 @@ $size-huge-padding-sides: 38px;
 
   // --> SIZES <--
 
+  &--simple,
   &--small,
-  &--normal,
-  &--large,
-  &--huge {
+  &--normal {
     #{$c}__inner {
-      line-height: 18px;
+      line-height: 22px;
     }
   }
 
   &--large,
   &--huge {
     #{$c}__inner {
+      line-height: 18px;
       padding-top: 13px;
       padding-bottom: 15px;
     }
@@ -372,7 +372,6 @@ $size-huge-padding-sides: 38px;
   &--simple {
     #{$c}__inner {
       font-size: 14px;
-      line-height: 22px;
       padding: 0;
     }
   }
@@ -380,7 +379,6 @@ $size-huge-padding-sides: 38px;
   &--small {
     #{$c}__inner {
       font-size: 14px;
-      line-height: 20px;
       padding-top: 6px;
       padding-bottom: 8px;
       padding-left: $size-small-padding-sides;
@@ -391,7 +389,6 @@ $size-huge-padding-sides: 38px;
   &--normal {
     #{$c}__inner {
       font-size: 14px;
-      line-height: 22px;
       padding-top: 9px;
       padding-bottom: 11px;
       padding-left: $size-normal-padding-sides;
@@ -479,7 +476,8 @@ $size-huge-padding-sides: 38px;
     &#{$c}--dark {
       #{$c}__inner {
         background-color: $color-button-dark-reverse;
-        border: 1.5px solid $color-base-blue-dark;
+        outline: 1.5px solid $color-base-blue-dark;
+        outline-offset: -1.5px;
 
         #{$c}__label {
           color: $color-base-blue-dark;
