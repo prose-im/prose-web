@@ -107,7 +107,7 @@ export default {
 $c: ".c-base-table";
 
 // VARIABLES
-$table-spacing: 18px;
+$table-spacing: 15px;
 $table-content-border-width: 1px;
 
 $column-title-width: 40%;
