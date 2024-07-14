@@ -10,7 +10,9 @@
 
 <template lang="pug">
 .c-section-pricing-suite
-  page-wrapper
+  page-wrapper(
+    class="c-section-pricing-suite__wrapper"
+  )
     base-descripted-title(
       level="medium"
       align="center"
@@ -99,6 +101,10 @@ $part-overlap-horizontal: 160px;
 
 #{$c} {
   position: relative;
+
+  #{$c}__wrapper {
+    position: relative;
+  }
 
   #{$c}__title,
   #{$c}__parts {
