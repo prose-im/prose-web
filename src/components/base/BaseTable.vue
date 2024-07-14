@@ -68,7 +68,16 @@
       .c-base-table__column(
         v-for="entry in table.foot"
       )
-        | {{ entry.text }}
+        component(
+          v-if="entry.component"
+          v-bind="entry.properties"
+          :is="entry.component"
+        )
+
+        template(
+          v-else-if="entry.text"
+        )
+          | {{ entry.text }}
 </template>
 
 <!-- **********************************************************************
@@ -162,7 +171,7 @@ $column-padding-sides: 24px;
 
     #{$c}__column {
       min-height: 60px;
-      padding: 26px $column-padding-sides;
+      padding: 22px $column-padding-sides;
     }
   }
 
