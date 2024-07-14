@@ -37,6 +37,12 @@
      ********************************************************************** -->
 
 <script>
+// NPM
+import { shallowRef } from "vue";
+
+// PROJECT: COMPONENTS
+import PartialPricingCompareFoot from "@/components/partial/pricing/PartialPricingCompareFoot.vue";
+
 export default {
   name: "SectionPricingCompare",
 
@@ -186,7 +192,16 @@ export default {
           }
         ],
 
-        foot: [{ text: "Self-hosted" }, { text: "$5 /user/month" }]
+        foot: [
+          {
+            component: shallowRef(PartialPricingCompareFoot),
+            properties: { mode: "community" }
+          },
+          {
+            component: shallowRef(PartialPricingCompareFoot),
+            properties: { mode: "business" }
+          }
+        ]
       }
     };
   }
