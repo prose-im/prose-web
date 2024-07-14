@@ -48,3 +48,10 @@
   -webkit-mask-position: $value;
   mask-position: $value;
 }
+
+@mixin input-number-buttons {
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    @content;
+  }
+}
