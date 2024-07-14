@@ -83,6 +83,14 @@ export default {
   },
 
   methods: {
+    // --> HELPERS <--
+
+    /**
+     * Updates value
+     * @public
+     * @param  {boolean} enabled
+     * @return {undefined}
+     */
     updateValue(enabled) {
       this.$emit("update:modelValue", enabled);
       this.$emit("change", enabled);
@@ -90,6 +98,12 @@ export default {
 
     // --> EVENT LISTENERS <--
 
+    /**
+     * Handles input change
+     * @public
+     * @param  {object} event
+     * @return {undefined}
+     */
     onInputChange(event) {
       // Update model value?
       if (event.target) {
@@ -97,6 +111,11 @@ export default {
       }
     },
 
+    /**
+     * Handles field click
+     * @public
+     * @return {undefined}
+     */
     onFieldClick() {
       // Toggle hidden input value
       this.$refs.input.click();
