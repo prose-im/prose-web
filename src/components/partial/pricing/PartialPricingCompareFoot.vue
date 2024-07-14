@@ -21,7 +21,7 @@
       v-else
     )
       span.c-partial-pricing-compare-foot__title-price.u-semibold
-        | $5
+        | 5€
 
       base-space
 

@@ -80,7 +80,7 @@
 
                 p.c-section-pricing-main__plan-price.c-section-pricing-main__plan-price--primary
                   span.u-semibold
-                    | $5
+                    | 5€
 
                   base-space
 
