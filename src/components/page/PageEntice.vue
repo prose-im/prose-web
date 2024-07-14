@@ -217,6 +217,7 @@ $animate-shake-base-depth: 2px;
   background-color: $color-background-primary;
   padding-top: 20px;
   position: relative;
+  z-index: 0;
 
   #{$c}__wrapper {
     padding-bottom: 120px;
