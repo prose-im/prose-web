@@ -35,6 +35,13 @@
           label.c-section-pricing-simulate__calculator-label.c-section-pricing-simulate__calculator-label--primary.u-medium
             | How many people are there in your team?
 
+          form-increment(
+            v-model="calculatorOptions.users"
+            :minimum="1"
+            name="simulate_users"
+            class="c-section-pricing-simulate__calculator-field-part"
+          )
+
         .c-section-pricing-simulate__calculator-field
           label.c-section-pricing-simulate__calculator-label.c-section-pricing-simulate__calculator-label--secondary
             | I want to pay yearly (20% discount)
@@ -58,7 +65,7 @@
             .c-section-pricing-simulate__calculator-section-result
               p.c-section-pricing-simulate__calculator-amount.c-section-pricing-simulate__calculator-amount--primary
                 span.u-semibold
-                  | $5
+                  | 5€
 
                 base-space
 
@@ -103,7 +110,7 @@
             .c-section-pricing-simulate__calculator-section-result
               p.c-section-pricing-simulate__calculator-amount.c-section-pricing-simulate__calculator-amount--primary
                 span.c-section-pricing-simulate__calculator-amount-total.u-semibold
-                  | $400
+                  | 400€
 
                 base-space
 
@@ -117,20 +124,19 @@
 
 <script>
 // PROJECT: IMAGES
-import ImageFormActionMinus from "@/assets/images/components/section/pricing/SectionPricingSimulate/form-action-minus.svg?component";
-import ImageFormActionPlus from "@/assets/images/components/section/pricing/SectionPricingSimulate/form-action-plus.svg?component";
 import ImageResultCross from "@/assets/images/components/section/pricing/SectionPricingSimulate/result-cross.svg?component";
 
 export default {
   name: "SectionPricingSimulate",
 
-  components: { ImageFormActionMinus, ImageFormActionPlus, ImageResultCross },
+  components: { ImageResultCross },
 
   data() {
     return {
       // --> STATE <--
 
       calculatorOptions: {
+        users: 1,
         annual: true
       }
     };
@@ -159,7 +165,7 @@ $section-inner-padding-side: 32px;
     margin: 46px auto 0;
     padding: 30px 46px 30px 66px;
     width: 100%;
-    max-width: 760px;
+    max-width: 740px;
     box-sizing: border-box;
     position: relative;
     z-index: 1;
@@ -172,7 +178,7 @@ $section-inner-padding-side: 32px;
     #{$c}__calculator-field {
       display: flex;
       align-items: center;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
 
       &:last-child {
         margin-bottom: 0;
@@ -253,7 +259,7 @@ $section-inner-padding-side: 32px;
       #{$c}__calculator-section-labels {
         border-right-width: $section-border-width;
         border-right-style: solid;
-        width: 30%;
+        width: 28%;
       }
     }
 
