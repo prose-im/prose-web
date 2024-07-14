@@ -163,7 +163,7 @@ $section-inner-padding-side: 32px;
     border: 1px solid rgba($color-base-grey-dark, 0.2);
     backdrop-filter: blur(20px);
     margin: 46px auto 0;
-    padding: 30px 46px 30px 66px;
+    padding: 24px 46px 30px 66px;
     width: 100%;
     max-width: 740px;
     box-sizing: border-box;
