@@ -152,7 +152,7 @@ $control-icon-size: 18px;
 #{$c} {
   background: $color-background-primary;
   border: 1px solid rgba($color-base-grey-dark, 0.2);
-  padding: 6px 7px;
+  padding: 5px 6px;
   border-radius: 14px;
 
   display: flex;
