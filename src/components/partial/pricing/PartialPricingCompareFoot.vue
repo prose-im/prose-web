@@ -29,26 +29,37 @@
         | /user/month
 
   .c-partial-pricing-compare-foot__action
-    a
+    base-tooltip
       template(
-        v-if="isSelfHosted"
+        v-slot:tooltip
       )
-        base-button(
-          tint="dark"
-          size="small"
-          reverse
-        )
-          | Self-Host Prose
+        | Coming soon!
 
       template(
-        v-else
+        v-slot:default
       )
-        base-button(
-          right-icon="arrow-right"
-          tint="dark"
-          size="small"
-        )
-          | Try for free
+        a
+          template(
+            v-if="isSelfHosted"
+          )
+            base-button(
+              tint="dark"
+              size="small"
+              reverse
+              disabled
+            )
+              | Self-Host Prose
+
+          template(
+            v-else
+          )
+            base-button(
+              right-icon="arrow-right"
+              tint="dark"
+              size="small"
+              disabled
+            )
+              | Try for free
 </template>
 
 <!-- **********************************************************************

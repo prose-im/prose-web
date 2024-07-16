@@ -59,13 +59,24 @@
                   class="c-section-pricing-main__plan-features"
                 )
 
-                a.c-section-pricing-main__plan-action
-                  base-button(
-                    tint="dark"
-                    size="small"
-                    reverse
-                  )
-                    | Self-Host Prose
+                .c-section-pricing-main__plan-action
+                  base-tooltip
+                    template(
+                      v-slot:tooltip
+                    )
+                      | Self-hosting is coming soon!
+
+                    template(
+                      v-slot:default
+                    )
+                      a
+                        base-button(
+                          tint="dark"
+                          size="small"
+                          reverse
+                          disabled
+                        )
+                          | Self-Host Prose
 
             .c-section-pricing-main__plan.c-section-pricing-main__panel
               .c-section-pricing-main__plan-section.c-section-pricing-main__plan-section--fit.c-section-pricing-main__plan-section--separated
@@ -91,13 +102,23 @@
                   | Cloud hosting, billed annually
 
                 .c-section-pricing-main__plan-action
-                  a
-                    base-button(
-                      right-icon="arrow-right"
-                      tint="dark"
-                      size="huge"
+                  base-tooltip
+                    template(
+                      v-slot:tooltip
                     )
-                      | Create your Prose Server
+                      | Our cloud offering is coming soon!
+
+                    template(
+                      v-slot:default
+                    )
+                      a
+                        base-button(
+                          right-icon="arrow-right"
+                          tint="dark"
+                          size="huge"
+                          disabled
+                        )
+                          | Create your Prose Server
 
                 p.c-section-pricing-main__plan-notice
                   | 7 days free trial
