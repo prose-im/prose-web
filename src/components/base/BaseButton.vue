@@ -19,6 +19,7 @@ div(
       "c-base-button--darker": darker,
       "c-base-button--squared": squared,
       "c-base-button--reverse": reverse,
+      "c-base-button--disabled": disabled,
       "c-base-button--flat": flat,
       ["c-base-button--" + rightIcon]: rightIcon
     }
@@ -98,6 +99,11 @@ export default {
       default: false
     },
 
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+
     flat: {
       type: Boolean,
       default: false
@@ -152,8 +158,10 @@ export default {
      * @return {undefined}
      */
     onClick(event) {
-      // Re-emit click event
-      this.$emit("click", event);
+      // Re-emit click event? (if not disabled)
+      if (this.disabled !== true) {
+        this.$emit("click", event);
+      }
     }
   }
 };
@@ -173,6 +181,7 @@ $size-large-padding-sides: 28px;
 $size-huge-padding-sides: 38px;
 
 #{$c} {
+  user-select: none;
   display: inline-block;
 
   &:active {
@@ -184,7 +193,6 @@ $size-huge-padding-sides: 38px;
   #{$c}__inner {
     text-align: center;
     padding-bottom: 2px;
-    user-select: none;
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -519,6 +527,15 @@ $size-huge-padding-sides: 38px;
   &--flat {
     #{$c}__inner {
       box-shadow: none;
+    }
+  }
+
+  &--disabled {
+    cursor: not-allowed;
+
+    #{$c}__inner {
+      pointer-events: none;
+      opacity: 0.6;
     }
   }
 }
