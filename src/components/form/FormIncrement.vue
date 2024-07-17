@@ -28,6 +28,7 @@ div(
     image-control-decrease
 
   input(
+    @change="onInputChange"
     :name="name"
     :value="count"
     :min="minimum"
@@ -134,6 +135,29 @@ export default {
      */
     onControlClick(increment = 1) {
       this.updateValue(this.count + increment);
+    },
+
+    /**
+     * Handles input change
+     * @public
+     * @param  {object} event
+     * @return {undefined}
+     */
+    onInputChange(event) {
+      // Update model value?
+      if (event.target) {
+        const _value = parseInt(event.target.value || "");
+
+        // Apply new value (or restore previous value, if invalid)
+        const _updatedCount = isNaN(_value) === false ? _value : this.count;
+
+        this.updateValue(_updatedCount);
+
+        // Update internal states
+        this.count = _updatedCount;
+
+        event.target.value = `${_updatedCount}`;
+      }
     }
   }
 };
