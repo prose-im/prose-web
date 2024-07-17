@@ -304,7 +304,7 @@ $plan-section-separated-margin-sides-medium: 28px;
 #{$c} {
   #{$c}__wrapper {
     border: 1px solid $color-border-tertiary;
-    margin: 0 (-1 * (($page-wrapper-default-padding-sides / 2) + 12px));
+    margin: 0 (-1 * (calc($page-wrapper-default-padding-sides / 2) + 12px));
     padding: $wrapper-padding;
     position: relative;
     border-radius: $wrapper-border-radius-default;
@@ -561,7 +561,7 @@ $plan-section-separated-margin-sides-medium: 28px;
 @media (max-width: $screen-medium-width-breakpoint) {
   #{$c} {
     #{$c}__wrapper {
-      margin: 0 (-1 * (($page-wrapper-medium-padding-sides / 2) + 10px));
+      margin: 0 (-1 * (calc($page-wrapper-medium-padding-sides / 2) + 10px));
     }
 
     #{$c}__plans {
@@ -585,7 +585,7 @@ $plan-section-separated-margin-sides-medium: 28px;
 @media (max-width: $screen-small-width-breakpoint) {
   #{$c} {
     #{$c}__wrapper {
-      margin: 0 (-1 * (($page-wrapper-small-padding-sides / 2) + 4px));
+      margin: 0 (-1 * (calc($page-wrapper-small-padding-sides / 2) + 4px));
       border-radius: $wrapper-border-radius-small;
     }
 
@@ -626,7 +626,7 @@ $plan-section-separated-margin-sides-medium: 28px;
 @media (max-width: $screen-tiny-width-breakpoint) {
   #{$c} {
     #{$c}__wrapper {
-      margin: 0 (-1 * ($page-wrapper-tiny-padding-sides / 2));
+      margin: 0 (-1 * calc($page-wrapper-tiny-padding-sides / 2));
     }
 
     #{$c}__plans {

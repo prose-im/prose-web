@@ -143,7 +143,9 @@ $part-overlap-horizontal: 160px;
         cursor: crosshair;
         pointer-events: initial;
         width: $part-preview-width-base;
-        aspect-ratio: ($part-preview-width-base / $part-preview-height-base);
+        aspect-ratio: calc(
+          $part-preview-width-base / $part-preview-height-base
+        );
         border-radius: 6px;
         box-shadow: 0 2px 10px 0 rgba($color-black, 0.02);
       }
