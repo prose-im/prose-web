@@ -171,9 +171,6 @@ div(
 // PROJECT: IMAGES
 import ImageMenuDropdownLinkArrow from "@/assets/images/components/page/PageHeader/menu-dropdown-link-arrow.svg?component";
 
-import ImageMenuDropdownCompanyIconAbout from "@/assets/images/components/page/PageHeader/menu-dropdown-company-icon-about.svg?raw";
-import ImageMenuDropdownCompanyIconBlog from "@/assets/images/components/page/PageHeader/menu-dropdown-company-icon-blog.svg?raw";
-
 import ImageMenuDropdownHelpIconHelp from "@/assets/images/components/page/PageHeader/menu-dropdown-help-icon-help.svg?raw";
 import ImageMenuDropdownHelpIconDocs from "@/assets/images/components/page/PageHeader/menu-dropdown-help-icon-docs.svg?raw";
 import ImageMenuDropdownHelpIconContact from "@/assets/images/components/page/PageHeader/menu-dropdown-help-icon-contact.svg?raw";
@@ -216,6 +213,12 @@ export default {
         },
 
         {
+          id: "pricing",
+          label: "Pricing",
+          target: "/pricing/"
+        },
+
+        {
           id: "usecases",
           label: "Use Cases",
 
@@ -250,29 +253,6 @@ export default {
               label: "Enhance remote team collaboration",
               target: "/usecases/remote-teams/",
               icon: ImageMenuDropdownUseCaseRemoteTeams
-            }
-          ]
-        },
-
-        {
-          id: "company",
-          label: "Company",
-
-          dropdown: [
-            {
-              id: "about",
-              title: "About Prose",
-              label: "Discover who is building Prose",
-              target: "/about/",
-              icon: ImageMenuDropdownCompanyIconAbout
-            },
-
-            {
-              id: "blog",
-              title: "Blog",
-              label: "Find out more about Prose",
-              target: "/blog/",
-              icon: ImageMenuDropdownCompanyIconBlog
             }
           ]
         },
@@ -418,14 +398,14 @@ $hover-transition-duration: 150ms;
     background-color: rgba($color-background-primary, 0.9);
     backdrop-filter: blur(6px) saturate(160%) contrast(45%) brightness(140%);
     border: 1px solid $color-border-tertiary;
-    min-height: 60px;
+    min-height: $page-header-bar-height;
     max-width: $inner-width-maximum;
     margin: 0 auto;
     padding: 8px;
     box-sizing: border-box;
     display: flex;
     align-items: center;
-    border-radius: 60px;
+    border-radius: $page-header-bar-height;
     box-shadow: rgba($color-black, 0.086) 0 0.6px 0.6px -1.25px,
       rgba($color-black, 0.076) 0 2.25px 2.25px -2.5px,
       rgba($color-black, 0.03) 0 10px 10px -3.75px;

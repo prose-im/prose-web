@@ -49,7 +49,7 @@ export default {
       default: "large",
 
       validator(x) {
-        return ["normal", "large"].includes(x);
+        return ["medium", "normal", "large"].includes(x);
       }
     },
 

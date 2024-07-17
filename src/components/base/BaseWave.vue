@@ -27,6 +27,7 @@ import ImageVariant4 from "@/assets/images/components/base/BaseWave/variant-4.sv
 import ImageVariant5 from "@/assets/images/components/base/BaseWave/variant-5.svg?raw";
 import ImageVariant6 from "@/assets/images/components/base/BaseWave/variant-6.svg?raw";
 import ImageVariant7 from "@/assets/images/components/base/BaseWave/variant-7.svg?raw";
+import ImageVariant8 from "@/assets/images/components/base/BaseWave/variant-8.svg?raw";
 
 // CONSTANTS
 const VARIANTS = [
@@ -36,7 +37,8 @@ const VARIANTS = [
   ImageVariant4,
   ImageVariant5,
   ImageVariant6,
-  ImageVariant7
+  ImageVariant7,
+  ImageVariant8
 ];
 
 export default {

@@ -26,7 +26,7 @@
             span.c-section-changelog-versions__version-label
               | Version
 
-            span.c-section-changelog-versions__version-number.u-title.u-bold
+            span.c-section-changelog-versions__version-number.u-title.u-semibold
               | {{ version.version }}
 
           .c-section-changelog-versions__version-downloads(
@@ -60,7 +60,7 @@
           h4.c-section-changelog-versions__version-date.u-title.u-medium
             | {{ $filters.formatDate(version.date) }}
 
-          a.c-section-changelog-versions__version-target.u-bold(
+          a.c-section-changelog-versions__version-target.u-semibold(
             v-if="versionsFullChangesUrls[version.version]"
             :href="versionsFullChangesUrls[version.version]"
             target="_blank"
@@ -75,7 +75,7 @@
           v-for="changes, changesGroup in version.changelog"
           :key="'changelog_' + version.version + '_' + changesGroup"
         )
-          h6.c-section-changelog-versions__changelog-group.u-title.u-bold
+          h6.c-section-changelog-versions__changelog-group.u-title.u-semibold
             | {{ (groupNames[changesGroup] || changesGroup) }}
 
           .c-section-changelog-versions__changelog-changes

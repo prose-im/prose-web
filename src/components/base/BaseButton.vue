@@ -17,18 +17,25 @@ div(
     "c-base-button--" + tint,
     {
       "c-base-button--darker": darker,
+      "c-base-button--squared": squared,
       "c-base-button--reverse": reverse,
+      "c-base-button--disabled": disabled,
+      "c-base-button--flat": flat,
       ["c-base-button--" + rightIcon]: rightIcon
     }
   ]`
 )
-  .c-base-button__inner
+  .c-base-button__inner(
+    :style=`{
+      height
+    }`
+  )
     div(
       :class=`[
         "c-base-button__label",
         {
           "u-medium": !bolder,
-          "u-bold": bolder
+          "u-semibold": bolder
         }
       ]`
     )
@@ -68,7 +75,7 @@ export default {
       default: "normal",
 
       validator(x) {
-        return ["simple", "normal", "large", "huge"].includes(x);
+        return ["simple", "small", "normal", "large", "huge"].includes(x);
       }
     },
 
@@ -82,9 +89,29 @@ export default {
       default: false
     },
 
+    squared: {
+      type: Boolean,
+      default: false
+    },
+
     reverse: {
       type: Boolean,
       default: false
+    },
+
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+
+    flat: {
+      type: Boolean,
+      default: false
+    },
+
+    height: {
+      type: String,
+      default: null
     },
 
     rightIcon: {
@@ -131,8 +158,10 @@ export default {
      * @return {undefined}
      */
     onClick(event) {
-      // Re-emit click event
-      this.$emit("click", event);
+      // Re-emit click event? (if not disabled)
+      if (this.disabled !== true) {
+        this.$emit("click", event);
+      }
     }
   }
 };
@@ -146,11 +175,13 @@ export default {
 $c: ".c-base-button";
 
 // VARIABLES
+$size-small-padding-sides: 26px;
 $size-normal-padding-sides: 22px;
 $size-large-padding-sides: 28px;
 $size-huge-padding-sides: 38px;
 
 #{$c} {
+  user-select: none;
   display: inline-block;
 
   &:active {
@@ -162,7 +193,6 @@ $size-huge-padding-sides: 38px;
   #{$c}__inner {
     text-align: center;
     padding-bottom: 2px;
-    user-select: none;
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -330,17 +360,18 @@ $size-huge-padding-sides: 38px;
 
   // --> SIZES <--
 
-  &--normal,
-  &--large,
-  &--huge {
+  &--simple,
+  &--small,
+  &--normal {
     #{$c}__inner {
-      line-height: 18px;
+      line-height: 22px;
     }
   }
 
   &--large,
   &--huge {
     #{$c}__inner {
+      line-height: 18px;
       padding-top: 13px;
       padding-bottom: 15px;
     }
@@ -349,15 +380,23 @@ $size-huge-padding-sides: 38px;
   &--simple {
     #{$c}__inner {
       font-size: 14px;
-      line-height: 22px;
       padding: 0;
+    }
+  }
+
+  &--small {
+    #{$c}__inner {
+      font-size: 14px;
+      padding-top: 6px;
+      padding-bottom: 8px;
+      padding-left: $size-small-padding-sides;
+      padding-right: $size-small-padding-sides;
     }
   }
 
   &--normal {
     #{$c}__inner {
       font-size: 14px;
-      line-height: 22px;
       padding-top: 9px;
       padding-bottom: 11px;
       padding-left: $size-normal-padding-sides;
@@ -427,11 +466,26 @@ $size-huge-padding-sides: 38px;
     }
   }
 
+  &--squared {
+    #{$c}__inner {
+      aspect-ratio: 1;
+      padding: 0;
+      border-radius: 12px;
+
+      #{$c}__label {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+
   &--reverse {
     &#{$c}--dark {
       #{$c}__inner {
         background-color: $color-button-dark-reverse;
-        border: 1.5px solid $color-base-blue-dark;
+        outline: 1.5px solid $color-base-blue-dark;
+        outline-offset: -1.5px;
 
         #{$c}__label {
           color: $color-base-blue-dark;
@@ -467,6 +521,21 @@ $size-huge-padding-sides: 38px;
           background-color: rgba($color-black, 0.15);
         }
       }
+    }
+  }
+
+  &--flat {
+    #{$c}__inner {
+      box-shadow: none;
+    }
+  }
+
+  &--disabled {
+    cursor: not-allowed;
+
+    #{$c}__inner {
+      pointer-events: none;
+      opacity: 0.6;
     }
   }
 }

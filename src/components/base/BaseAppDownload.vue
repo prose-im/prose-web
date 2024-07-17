@@ -24,12 +24,12 @@ div(
       )
 
     .c-app-download__text
-      .c-app-download__comingsoon.u-bold(
+      .c-app-download__comingsoon.u-semibold(
         v-if="hasNoTarget && ready"
       )
         | coming soon
 
-      h6.c-app-download__name.u-title.u-bold(
+      h6.c-app-download__name.u-title.u-semibold(
         v-if="platformName"
       )
         | {{ platformName }}
