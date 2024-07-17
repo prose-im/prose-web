@@ -35,7 +35,7 @@
   "devDependencies": {
     "@nuxt/eslint-config": "0.3.13",
     "@nuxt/image": "1.7.0",
-    "@nuxt/content": "2.13.1",
+    "@nuxt/content": "2.13.0",
     "@nuxtjs/robots": "4.0.1",
     "@nuxtjs/sitemap": "5.3.5",
     "pug": "3.0.3",
