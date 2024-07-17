@@ -96,7 +96,7 @@ $c: ".c-base-expandable";
 
 // VARIABLES
 $entry-expanded-margin-top-bottom: 10px;
-$entry-padding-left: 38px;
+$entry-padding-left: 32px;
 $entry-padding-right: 28px;
 $entry-border-radius: 8px;
 
@@ -163,7 +163,7 @@ $title-icon-size: 32px;
     #{$c}__title-text {
       color: $color-base-black-mid;
       font-size: 16px;
-      line-height: 18px;
+      line-height: 21px;
       letter-spacing: 0.15px;
       flex: 1;
     }
