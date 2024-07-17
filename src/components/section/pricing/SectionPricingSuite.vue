@@ -37,7 +37,11 @@
         v-for="(part, index) in parts"
         :key="'part_' + index"
       )
-        .c-section-pricing-suite__part-app
+        .c-section-pricing-suite__part-preview(
+          :style=`{
+            backgroundImage: ("url(" + part.preview + ")")
+          }`
+        )
 
         base-plate(
           :title="part.title"
@@ -61,6 +65,9 @@
 import ImagePlateAppIcon from "@/assets/images/components/section/pricing/SectionPricingSuite/plate-app-icon.svg?raw";
 import ImagePlateAdminIcon from "@/assets/images/components/section/pricing/SectionPricingSuite/plate-admin-icon.svg?raw";
 
+import ImagePreviewApp from "@/assets/images/components/section/pricing/SectionPricingSuite/preview-app.webp";
+import ImagePreviewAdmin from "@/assets/images/components/section/pricing/SectionPricingSuite/preview-admin.webp";
+
 export default {
   name: "SectionPricingSuite",
 
@@ -73,14 +80,16 @@ export default {
           title: "Prose App",
           description:
             "Let your team download Prose apps for macOS or Windows, or their phone.",
-          icon: ImagePlateAppIcon
+          icon: ImagePlateAppIcon,
+          preview: ImagePreviewApp
         },
 
         {
           title: "Prose Admin Dashboard",
           description:
             "Manage your server, invite members, customize it and monitor things. Available on the Web.",
-          icon: ImagePlateAdminIcon
+          icon: ImagePlateAdminIcon,
+          preview: ImagePreviewAdmin
         }
       ]
     };
@@ -117,12 +126,20 @@ $part-overlap-horizontal: 160px;
     display: flex;
 
     #{$c}__part {
-      #{$c}__part-app {
+      pointer-events: none;
+      position: relative;
+
+      #{$c}__part-preview {
         border: 0.5px solid rgba($color-base-blue-dark, 0.18);
         outline: 3px solid rgba($color-base-blue-dark, 0.02);
         background-color: $color-background-secondary;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        cursor: crosshair;
+        pointer-events: initial;
         width: 640px;
-        height: 420px;
+        height: 416px;
         border-radius: 6px;
         box-shadow: 0 2px 10px 0 rgba($color-black, 0.02);
       }
@@ -140,6 +157,10 @@ $part-overlap-horizontal: 160px;
       &:nth-child(2) {
         margin-top: $part-overlap-vertical;
         margin-left: -$part-overlap-horizontal;
+      }
+
+      &:hover {
+        z-index: 1;
       }
     }
   }
