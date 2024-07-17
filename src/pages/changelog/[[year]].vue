@@ -58,7 +58,7 @@ definePageMeta({
 const _route = useRoute();
 
 // Acquire all available content years
-const { data: years } = await useAsyncData(async () => {
+const { data: years } = await useAsyncData("changelog:years", async () => {
   return (await queryContent("changelog").only(["title"]).find())
     .map(yearData => {
       return yearData.title;
@@ -73,9 +73,13 @@ const { data: years } = await useAsyncData(async () => {
 const year = _route.params.year || years.value[0] || "0000";
 
 // Fetch changes for selected year
-const { data: changes } = await useAsyncData(async () => {
-  return await queryContent("changelog", year).findOne();
-});
+const { data: changes } = await useAsyncData(
+  `changelog:year:${year}`,
+
+  async () => {
+    return await queryContent("changelog", year).findOne();
+  }
+);
 
 // Year does not exist?
 if (changes.value === null) {

@@ -57,9 +57,13 @@ definePageMeta({
 const _route = useRoute();
 
 // Acquire article page
-const { data: page } = await useAsyncData(async () => {
-  return await queryContent("blog", _route.params.article).findOne();
-});
+const { data: page } = await useAsyncData(
+  `blog:article:${_route.params.article}`,
+
+  async () => {
+    return await queryContent("blog", _route.params.article).findOne();
+  }
+);
 
 // Article does not exist?
 if (page.value === null) {

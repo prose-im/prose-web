@@ -43,7 +43,7 @@ definePageMeta({
 });
 
 // Fetch articles
-const { data: articles } = await useAsyncData(async () => {
+const { data: articles } = await useAsyncData("blog:articles", async () => {
   return (
     await queryContent("blog")
       .only(CONTENT_ARTICLE_KEYS)
@@ -54,7 +54,7 @@ const { data: articles } = await useAsyncData(async () => {
 });
 
 // Fetch featured article
-const { data: featured } = await useAsyncData(async () => {
+const { data: featured } = await useAsyncData("blog:featured", async () => {
   const featured = (
     await queryContent("blog")
       .only(CONTENT_ARTICLE_KEYS)
