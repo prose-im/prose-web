@@ -11,6 +11,7 @@
 <template lang="pug">
 .p-pricing-index
   section-pricing-main(
+    @scroll="onMainScroll"
     class="p-pricing-index__main"
   )
 
@@ -19,6 +20,7 @@
   )
 
   section-pricing-compare(
+    ref="compare"
     class="p-pricing-index__compare"
   )
 
@@ -44,6 +46,35 @@ definePageMeta({
 useHead({
   title: "Create your Prose server"
 });
+</script>
+
+<script>
+export default {
+  name: "PricingIndexPage",
+
+  methods: {
+    // --> EVENT LISTENERS <--
+
+    /**
+     * Triggers on main scroll request
+     * @public
+     * @param  {string} section
+     * @return {undefined}
+     */
+    onMainScroll(section) {
+      switch (section) {
+        case "compare": {
+          this.$refs.compare?.$el?.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest"
+          });
+
+          break;
+        }
+      }
+    }
+  }
+};
 </script>
 
 <!-- **********************************************************************

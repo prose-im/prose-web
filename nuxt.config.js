@@ -263,6 +263,7 @@ export default defineNuxtConfig({
       social: CONFIG.social,
       email: CONFIG.email,
       downloads: CONFIG.downloads,
+      pricing: CONFIG.pricing,
       features: CONFIG.features,
       modifiers: CONFIG.modifiers,
       tokens: CONFIG.tokens.public,

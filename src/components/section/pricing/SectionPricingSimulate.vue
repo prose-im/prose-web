@@ -44,7 +44,7 @@
 
         .c-section-pricing-simulate__calculator-field
           label.c-section-pricing-simulate__calculator-label.c-section-pricing-simulate__calculator-label--secondary
-            | I want to pay yearly (20% discount)
+            | I want to pay yearly ({{ yearlyDiscountPercent }}% discount)
 
           form-toggle(
             v-model="calculatorOptions.annual"
@@ -65,7 +65,7 @@
             .c-section-pricing-simulate__calculator-section-result
               p.c-section-pricing-simulate__calculator-amount.c-section-pricing-simulate__calculator-amount--primary
                 span.u-semibold
-                  | 5€
+                  | {{ planPricePerMonth }}€
 
                 base-space
 
@@ -78,28 +78,51 @@
 
               p.c-section-pricing-simulate__calculator-amount.c-section-pricing-simulate__calculator-amount--primary
                 span.u-semibold
-                  | 100
+                  | {{ calculatorOptions.users }}
 
                 base-space
 
                 span.c-section-pricing-simulate__calculator-amount-label
-                  | team members
+                  | team member
+
+                  template(
+                    v-if="calculatorOptions.users > 1"
+                  )
+                    | s
 
             .c-section-pricing-simulate__calculator-section-result
-              p.c-section-pricing-simulate__calculator-amount.c-section-pricing-simulate__calculator-amount--secondary.c-section-pricing-simulate__calculator-amount--green
-                span.u-semibold
-                  | -20%
+              template(
+                v-if="volumeDiscount.penalty < 1.0"
+              )
+                p.c-section-pricing-simulate__calculator-amount.c-section-pricing-simulate__calculator-amount--secondary.c-section-pricing-simulate__calculator-amount--green
+                  span.u-semibold
+                    | -{{ volumeDiscountPercent }}%
 
-                base-space
+                  base-space
 
-                span.c-section-pricing-simulate__calculator-amount-label
-                  | off of total
+                  span.c-section-pricing-simulate__calculator-amount-label
+                    | off of total
 
-                  base-space(
-                    :repeat="2"
-                  )
+                    template(
+                      v-if="volumeDiscount.users > 0"
+                    )
+                      base-space(
+                        :repeat="2"
+                      )
 
-                  | (100+)
+                      | ({{ volumeDiscount.users }}+ users)
+
+              template(
+                v-else
+              )
+                p.c-section-pricing-simulate__calculator-amount.c-section-pricing-simulate__calculator-amount--secondary
+                  span.u-semibold
+                    | 0%
+
+                  base-space
+
+                  span.c-section-pricing-simulate__calculator-amount-label
+                    | off (discount applies on more users!)
 
         .c-section-pricing-simulate__calculator-section
           .c-section-pricing-simulate__calculator-section-labels
@@ -110,7 +133,7 @@
             .c-section-pricing-simulate__calculator-section-result
               p.c-section-pricing-simulate__calculator-amount.c-section-pricing-simulate__calculator-amount--primary
                 span.c-section-pricing-simulate__calculator-amount-total.u-semibold
-                  | 400€
+                  | {{ grandTotal }}€
 
                 base-space
 
@@ -126,6 +149,10 @@
 // PROJECT: IMAGES
 import ImageResultCross from "@/assets/images/components/section/pricing/SectionPricingSimulate/result-cross.svg?component";
 
+// CONSTANTS
+const PERCENTAGE_MAXIMUM = 100;
+const PERCENTAGE_ENCODED_MAXIMUM = 1.0;
+
 export default {
   name: "SectionPricingSimulate",
 
@@ -140,6 +167,71 @@ export default {
         annual: true
       }
     };
+  },
+
+  computed: {
+    planPricePerMonth() {
+      return (
+        this.$config.public.pricing.plans.business.price *
+        this.monthlyTermPenalty
+      );
+    },
+
+    volumeDiscount() {
+      const _users = this.calculatorOptions.users,
+        _volumeDiscounts = this.$config.public.pricing.volume || [];
+
+      // Find largest match for volume discount?
+      if (_users > 0 && _volumeDiscounts.length > 0) {
+        for (let _i = _volumeDiscounts.length - 1; _i >= 0; _i--) {
+          const _volumeDiscount = _volumeDiscounts[_i];
+
+          // Volume discount found? Return it straight away (stop there)
+          if (_users >= _volumeDiscount.users) {
+            return _volumeDiscount;
+          }
+        }
+      }
+
+      // Fallback on default (no discount)
+      return {
+        users: 0,
+        penalty: PERCENTAGE_ENCODED_MAXIMUM
+      };
+    },
+
+    volumeDiscountPercent() {
+      return Math.round(
+        (PERCENTAGE_ENCODED_MAXIMUM - this.volumeDiscount.penalty) *
+          PERCENTAGE_MAXIMUM
+      );
+    },
+
+    yearlyDiscountPercent() {
+      return Math.round(
+        (this.$config.public.pricing.terms.monthly.penalty -
+          PERCENTAGE_ENCODED_MAXIMUM) *
+          PERCENTAGE_MAXIMUM
+      );
+    },
+
+    monthlyTermPenalty() {
+      // Apply non-annual penalty?
+      if (this.calculatorOptions.annual !== true) {
+        return this.$config.public.pricing.terms.monthly.penalty;
+      }
+
+      // No penalty (default)
+      return 1.0;
+    },
+
+    grandTotal() {
+      return (
+        this.planPricePerMonth *
+        this.calculatorOptions.users *
+        this.volumeDiscount.penalty
+      );
+    }
   }
 };
 </script>

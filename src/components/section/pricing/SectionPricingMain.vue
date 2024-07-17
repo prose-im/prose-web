@@ -91,7 +91,7 @@
 
                 p.c-section-pricing-main__plan-price.c-section-pricing-main__plan-price--primary
                   span.u-semibold
-                    | 5€
+                    | {{ planPrices.business }}€
 
                   base-space
 
@@ -146,7 +146,9 @@
                 )
 
           .c-section-pricing-main__actions
-            a.c-section-pricing-main__action.u-medium
+            a.c-section-pricing-main__action.u-medium(
+              @click="onActionDetailsClick"
+            )
               | See all plan details
 
               image-action-arrow
@@ -158,7 +160,7 @@
               | Annual billing
 
             p
-              | Save 20%
+              | Save {{ yearlyDiscountPercent }}%
 
           .c-section-pricing-main__option-form
             form-toggle(
@@ -175,10 +177,16 @@
 // PROJECT: IMAGES
 import ImageActionArrow from "@/assets/images/components/section/pricing/SectionPricingMain/action-arrow.svg?component";
 
+// CONSTANTS
+const PERCENTAGE_MAXIMUM = 100;
+const PERCENTAGE_ENCODED_MAXIMUM = 1.0;
+
 export default {
   name: "SectionPricingMain",
 
   components: { ImageActionArrow },
+
+  emits: ["scroll"],
 
   data() {
     return {
@@ -238,6 +246,42 @@ export default {
         annual: true
       }
     };
+  },
+
+  computed: {
+    planPrices() {
+      // Acquire penalty (none if annual)
+      const _penalty =
+        this.planOptions.annual !== true
+          ? this.$config.public.pricing.terms.monthly.penalty
+          : 1.0;
+
+      return {
+        business: this.$config.public.pricing.plans.business.price * _penalty
+      };
+    },
+
+    yearlyDiscountPercent() {
+      return Math.round(
+        (this.$config.public.pricing.terms.monthly.penalty -
+          PERCENTAGE_ENCODED_MAXIMUM) *
+          PERCENTAGE_MAXIMUM
+      );
+    }
+  },
+
+  methods: {
+    // --> EVENT LISTENERS <--
+
+    /**
+     * Triggers on action details click
+     * @public
+     * @return {undefined}
+     */
+    onActionDetailsClick() {
+      // Request to scroll to compare section
+      this.$emit("scroll", "compare");
+    }
   }
 };
 </script>

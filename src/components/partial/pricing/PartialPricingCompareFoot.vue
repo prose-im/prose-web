@@ -21,7 +21,7 @@
       v-else
     )
       span.c-partial-pricing-compare-foot__title-price.u-semibold
-        | 5€
+        | {{ planPrices.business }}€
 
       base-space
 
@@ -79,6 +79,16 @@ export default {
         return ["community", "business"].includes(x);
       }
     }
+  },
+
+  data() {
+    return {
+      // --> DATA <--
+
+      planPrices: {
+        business: this.$config.public.pricing.plans.business.price
+      }
+    };
   },
 
   computed: {

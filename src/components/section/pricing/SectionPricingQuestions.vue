@@ -59,7 +59,7 @@ export default {
         {
           title: "Can I pay on a monthly basis?",
           content:
-            "Yes! It's possible, although you will not benefit from the 20% annual billing discount."
+            "Yes! It's possible, although you will not benefit from the discount on annual billing."
         },
 
         {
