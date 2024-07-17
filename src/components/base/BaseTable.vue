@@ -60,10 +60,20 @@
               class="c-base-table__image c-base-table__image--included"
             )
 
-            image-entry-line-title-information(
-              v-if="entryIndex === 0"
-              class="c-base-table__image c-base-table__image--information"
+            base-tooltip(
+              v-if="entryIndex === 0 && entryLine.details"
             )
+              template(
+                v-slot:tooltip
+              )
+                | {{ entryLine.details }}
+
+              template(
+                v-slot:default
+              )
+                image-entry-line-title-information(
+                  class="c-base-table__image c-base-table__image--information"
+                )
 
     .c-base-table__foot
       .c-base-table__row

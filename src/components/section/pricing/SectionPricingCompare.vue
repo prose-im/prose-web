@@ -62,13 +62,21 @@ export default {
 
             items: [
               [
-                { text: "Workspace members" },
+                {
+                  text: "Workspace members",
+                  details: "Each coworker in your organization gets an account"
+                },
+
                 { text: "100 users maximum" },
                 { text: "Unlimited users", emphasis: true }
               ],
 
               [
-                { text: "Server hosting" },
+                {
+                  text: "Server hosting",
+                  details: "You can host Prose on your premises, or our Cloud"
+                },
+
                 { text: "You host everything yourself" },
                 { text: "We host Prose for you", emphasis: true }
               ]
@@ -92,12 +100,28 @@ export default {
               ],
 
               [
-                { text: "End-to-end encryption" },
+                {
+                  text: "End-to-end encryption",
+
+                  details:
+                    "Encrypted from app to app (the server cannot read messages)"
+                },
+
                 { included: true },
                 { included: true }
               ],
 
-              [{ text: "Threads" }, { included: true }, { included: true }],
+              [
+                {
+                  text: "Threads",
+
+                  details:
+                    "Organize message replies in threads, reducing the clutter"
+                },
+
+                { included: true },
+                { included: true }
+              ],
 
               [
                 { text: "Voice messages" },
@@ -112,7 +136,13 @@ export default {
               ],
 
               [
-                { text: "Connect with other teams" },
+                {
+                  text: "Connect with other teams",
+
+                  details:
+                    "Workspace members can message other workspaces (if enabled)"
+                },
+
                 { included: true },
                 { included: true }
               ]
@@ -136,13 +166,23 @@ export default {
               ],
 
               [
-                { text: "Server migration (data export)" },
+                {
+                  text: "Server migration (data export)",
+
+                  details:
+                    "Your data belongs to you, you may request an export anytime"
+                },
+
                 { included: true },
                 { included: true }
               ],
 
               [
-                { text: "Data residency" },
+                {
+                  text: "Data residency",
+                  details: "Choose the jurisdiction where your data is hosted"
+                },
+
                 { text: "Your server location" },
                 { text: "Your choice (EU or US)", emphasis: true }
               ]
@@ -160,19 +200,33 @@ export default {
               ],
 
               [
-                { text: "Retention policies" },
+                {
+                  text: "Retention policies",
+                  details: "Define your own data auto-removal policies"
+                },
+
                 { text: "Not configurable" },
                 { text: "Data can be auto-removed", emphasis: true }
               ],
 
               [
-                { text: "Auditing & Reporting" },
+                {
+                  text: "Auditing & Reporting",
+                  details: "See what's happening on your Prose server"
+                },
+
                 { text: "No audit log" },
                 { included: true }
               ],
 
               [
-                { text: "Single Sign-On" },
+                {
+                  text: "Single Sign-On",
+
+                  details:
+                    "Let server members sign-in using your own corporate SSO"
+                },
+
                 { text: "Password login only" },
                 { included: true }
               ],
@@ -184,7 +238,11 @@ export default {
               ],
 
               [
-                { text: "Custom DNS domain" },
+                {
+                  text: "Custom DNS domain",
+                  details: "Use your own domain name for your Prose server"
+                },
+
                 { included: true },
                 { included: true }
               ]
