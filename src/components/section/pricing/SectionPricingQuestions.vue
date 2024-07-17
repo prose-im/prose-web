@@ -128,4 +128,36 @@ $c: ".c-section-pricing-questions";
     flex: 1;
   }
 }
+
+// --> MEDIA-QUERIES <--
+
+@media (max-width: $screen-large-width-breakpoint) {
+  #{$c} {
+    #{$c}__title {
+      padding-right: 40px;
+    }
+  }
+}
+
+@media (max-width: $screen-small-width-breakpoint) {
+  #{$c} {
+    #{$c}__inner {
+      display: block;
+    }
+
+    #{$c}__title {
+      max-width: 100%;
+      margin-top: 0;
+      padding-right: 0;
+
+      > * {
+        text-align: center;
+      }
+    }
+
+    #{$c}__expandable {
+      margin-top: 32px;
+    }
+  }
+}
 </style>
