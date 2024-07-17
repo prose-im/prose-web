@@ -190,6 +190,11 @@ export default {
 
           items: [
             {
+              label: "Pricing",
+              target: "/pricing/"
+            },
+
+            {
               label: "Downloads",
               target: "/downloads/"
             },

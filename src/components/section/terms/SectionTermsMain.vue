@@ -36,7 +36,7 @@
         raster="stickies"
         class="c-section-terms-main__disclaimer"
       )
-        p.c-section-terms-main__disclaimer-line.u-bold
+        p.c-section-terms-main__disclaimer-line.u-semibold
           | The Prose Foundation may revise these terms at any time without notice.
 
         p.c-section-terms-main__disclaimer-line

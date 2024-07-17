@@ -45,6 +45,32 @@
     }
   },
 
+  "pricing": {
+    "plans": {
+      "business": {
+        "price": 5
+      }
+    },
+
+    "terms": {
+      "monthly": {
+        "penalty": 1.2
+      }
+    },
+
+    "volume": [
+      {
+        "users": 100,
+        "penalty": 0.9
+      },
+
+      {
+        "users": 1000,
+        "penalty": 0.8
+      }
+    ]
+  },
+
   "tokens": {
     "public": {
       "crisp_website_id": "84a1e461-9755-47fb-bdc9-bf368a5d79db"

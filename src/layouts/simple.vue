@@ -9,7 +9,9 @@
      ********************************************************************** -->
 
 <template lang="pug">
-page-container
+page-container(
+  class="l-simple"
+)
   page-header
 
   page-content

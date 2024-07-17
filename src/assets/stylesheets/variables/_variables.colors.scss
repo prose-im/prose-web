@@ -28,8 +28,8 @@ $color-base-grey-light: #f5f6fa;
 $color-base-black-mid: #1d1d28;
 $color-base-green-mid: #00ab7e;
 $color-base-pink-light: #f67086;
-$color-base-purple-light: #a19db6;
 $color-base-purple-mid: #644eb4;
+$color-base-purple-light: #a19db6;
 $color-base-purple-alt: #9f6dbd;
 
 // Backgrounds
@@ -37,9 +37,11 @@ $color-base-purple-alt: #9f6dbd;
 $color-background-primary: $color-white;
 $color-background-secondary: #fbfbfc;
 $color-background-tertiary: rgba(#f6f7fb, 0.9);
+$color-background-quaternary: rgba(#f0f1f8, 0.25);
 
 // Borders
 
+$color-border-primary: rgba(#2b255d, 0.15);
 $color-border-secondary: rgba(#2b255d, 0.12);
 $color-border-tertiary: rgba(#2b255d, 0.09);
 

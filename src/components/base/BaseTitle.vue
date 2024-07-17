@@ -39,7 +39,7 @@ export default {
       default: "normal",
 
       validator(x) {
-        return ["mini", "small", "normal", "large"].includes(x);
+        return ["mini", "small", "medium", "normal", "large"].includes(x);
       }
     },
 
@@ -48,7 +48,7 @@ export default {
       default: "medium",
 
       validator(x) {
-        return ["regular", "medium", "bold"].includes(x);
+        return ["regular", "medium", "semibold"].includes(x);
       }
     },
 
@@ -104,9 +104,15 @@ $stroke-color: $color-background-secondary;
     letter-spacing: -0.03em;
   }
 
+  &--medium {
+    font-size: 50px;
+    line-height: 50px;
+    letter-spacing: -0.03em;
+  }
+
   &--normal {
-    font-size: 54px;
-    line-height: 54px;
+    font-size: 56px;
+    line-height: 56px;
     letter-spacing: -0.03em;
   }
 
