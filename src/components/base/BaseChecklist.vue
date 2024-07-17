@@ -96,6 +96,8 @@ $c: ".c-base-checklist";
 $item-icon-size: 18px;
 
 #{$c} {
+  text-align: left;
+
   #{$c}__item {
     color: $color-black;
     font-size: 14px;
