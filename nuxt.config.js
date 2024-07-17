@@ -53,6 +53,9 @@ const CONFIG = (function () {
  * ************************************************************************* */
 
 export default defineNuxtConfig({
+  // Compatibility Date
+  compatibilityDate: "2024-07-17",
+
   // Server-Side Rendering (SSG)
   ssr: true,
   target: "static",
@@ -290,11 +293,12 @@ export default defineNuxtConfig({
 
   // Robots Configuration
   robots: {
-    rules: {
-      UserAgent: "*",
-      Allow: "/",
-      Sitemap: `${CONFIG.url.prose_web}/sitemap.xml`
-    }
+    groups: [
+      {
+        userAgent: "*",
+        allow: ["/"]
+      }
+    ]
   },
 
   // Dev Tools Configuration
