@@ -55,10 +55,10 @@
       .c-section-pricing-simulate__calculator-result
         .c-section-pricing-simulate__calculator-section
           .c-section-pricing-simulate__calculator-section-labels
-            p.c-section-pricing-simulate__calculator-section-label.u-medium
+            p.c-section-pricing-simulate__calculator-section-label.u-medium.u-ellipsis
               | Price per user
 
-            p.c-section-pricing-simulate__calculator-section-label.u-medium
+            p.c-section-pricing-simulate__calculator-section-label.u-medium.u-ellipsis
               | Volume discount
 
           .c-section-pricing-simulate__calculator-section-results
@@ -72,23 +72,24 @@
                 span.c-section-pricing-simulate__calculator-amount-label
                   | /user/month
 
-              image-result-cross(
-                class="c-section-pricing-simulate__calculator-cross"
-              )
+              .c-section-pricing-simulate__calculator-additional
+                image-result-cross(
+                  class="c-section-pricing-simulate__calculator-cross"
+                )
 
-              p.c-section-pricing-simulate__calculator-amount.c-section-pricing-simulate__calculator-amount--primary
-                span.u-semibold
-                  | {{ calculatorOptions.users }}
+                p.c-section-pricing-simulate__calculator-amount.c-section-pricing-simulate__calculator-amount--primary
+                  span.u-semibold
+                    | {{ calculatorOptions.users }}
 
-                base-space
+                  base-space
 
-                span.c-section-pricing-simulate__calculator-amount-label
-                  | team member
+                  span.c-section-pricing-simulate__calculator-amount-label
+                    | team member
 
-                  template(
-                    v-if="calculatorOptions.users > 1"
-                  )
-                    | s
+                    template(
+                      v-if="calculatorOptions.users > 1"
+                    )
+                      | s
 
             .c-section-pricing-simulate__calculator-section-result
               template(
@@ -126,7 +127,7 @@
 
         .c-section-pricing-simulate__calculator-section
           .c-section-pricing-simulate__calculator-section-labels
-            p.c-section-pricing-simulate__calculator-section-label.u-medium
+            p.c-section-pricing-simulate__calculator-section-label.u-medium.u-ellipsis
               | Grand total
 
           .c-section-pricing-simulate__calculator-section-results
@@ -259,18 +260,19 @@ $section-inner-padding-side: 32px;
     width: 100%;
     max-width: 740px;
     box-sizing: border-box;
+    overflow: hidden;
     position: relative;
     z-index: 1;
     border-radius: 20px;
 
     #{$c}__calculator-result {
-      margin-top: 36px;
+      margin-top: 41px;
     }
 
     #{$c}__calculator-field {
       display: flex;
       align-items: center;
-      margin-bottom: 14px;
+      margin-bottom: 19px;
 
       &:last-child {
         margin-bottom: 0;
@@ -289,18 +291,17 @@ $section-inner-padding-side: 32px;
     }
 
     #{$c}__calculator-label {
+      letter-spacing: 0.11px;
+      line-height: 22px;
+
       &--primary {
         color: $color-base-black-mid;
         font-size: 17px;
-        letter-spacing: 0.11px;
-        line-height: 32px;
       }
 
       &--secondary {
         color: $color-base-grey-dark;
         font-size: 16px;
-        letter-spacing: 0.11px;
-        line-height: 32px;
       }
     }
 
@@ -327,6 +328,7 @@ $section-inner-padding-side: 32px;
       #{$c}__calculator-section-labels,
       #{$c}__calculator-section-results {
         padding: 36px 0;
+        overflow: hidden;
       }
 
       #{$c}__calculator-section-label {
@@ -339,8 +341,6 @@ $section-inner-padding-side: 32px;
 
       #{$c}__calculator-section-result {
         padding-left: $section-inner-padding-side;
-        display: flex;
-        align-items: center;
 
         #{$c}__calculator-cross {
           margin: 0 21px;
@@ -348,10 +348,21 @@ $section-inner-padding-side: 32px;
         }
       }
 
+      #{$c}__calculator-section-result,
+      #{$c}__calculator-additional {
+        display: flex;
+        align-items: center;
+      }
+
       #{$c}__calculator-section-labels {
         border-right-width: $section-border-width;
         border-right-style: solid;
         width: 28%;
+        flex: 0 1 auto;
+      }
+
+      #{$c}__calculator-section-results {
+        flex: 1;
       }
     }
 
@@ -403,6 +414,40 @@ $section-inner-padding-side: 32px;
 
     #{$c}__calculator-cross {
       width: 12px;
+    }
+  }
+}
+
+// --> MEDIA-QUERIES <--
+
+@media (max-width: $screen-tiny-width-breakpoint) {
+  #{$c} {
+    #{$c}__calculator {
+      padding-left: 34px;
+      padding-right: 30px;
+    }
+  }
+}
+
+@media (max-width: $screen-lilliput-width-breakpoint) {
+  #{$c} {
+    #{$c}__calculator {
+      padding-left: 24px;
+      padding-right: 18px;
+
+      #{$c}__calculator-section {
+        #{$c}__calculator-section-label {
+          padding-right: 12px;
+        }
+
+        #{$c}__calculator-section-result {
+          padding-left: 20px;
+        }
+
+        #{$c}__calculator-additional {
+          display: none;
+        }
+      }
     }
   }
 }

@@ -10,74 +10,76 @@
 
 <template lang="pug">
 .c-base-table
-  .c-base-table__head
-    .c-base-table__row
-      .c-base-table__column.u-semibold(
-        v-for="entry in table.head"
-      )
-        | {{ entry.text }}
-
-        base-badge(
-          v-if="entry.badge"
-          :color="entry.badge.color"
-        )
-          | {{ entry.badge.text }}
-
-  .c-base-table__body
-    template(
-      v-for="section in table.body"
-    )
-      .c-base-table__row.c-base-table__row--title(
-        v-if="section.section"
-      )
-        .c-base-table__column.u-medium
-          | {{ section.section }}
-
-      .c-base-table__row(
-        v-for="entry in section.items"
-      )
-        div(
-          v-for="(entryLine, entryIndex) in entry"
-          :class=`[
-            "c-base-table__column",
-            {
-              "c-base-table__column--title": (entryIndex === 0),
-              "c-base-table__column--value": (entryIndex > 0),
-              "c-base-table__column--emphasis": entryLine.emphasis,
-              "u-medium": entryLine.emphasis
-            }
-          ]`
-        )
-          span.c-base-table__text(
-            v-if="entryLine.text"
-          )
-            | {{ entryLine.text }}
-
-          image-entry-line-value-included(
-            v-if="entryLine.included"
-            class="c-base-table__image c-base-table__image--included"
-          )
-
-          image-entry-line-title-information(
-            v-if="entryIndex === 0"
-            class="c-base-table__image c-base-table__image--information"
-          )
-
-  .c-base-table__foot
-    .c-base-table__row
-      .c-base-table__column(
-        v-for="entry in table.foot"
-      )
-        component(
-          v-if="entry.component"
-          v-bind="entry.properties"
-          :is="entry.component"
-        )
-
-        template(
-          v-else-if="entry.text"
+  .c-base-table__wrapper
+    .c-base-table__head
+      .c-base-table__row
+        .c-base-table__column.u-semibold(
+          v-for="entry in table.head"
         )
           | {{ entry.text }}
+
+          base-badge(
+            v-if="entry.badge"
+            :color="entry.badge.color"
+            class="c-base-table__badge"
+          )
+            | {{ entry.badge.text }}
+
+    .c-base-table__body
+      template(
+        v-for="section in table.body"
+      )
+        .c-base-table__row.c-base-table__row--title(
+          v-if="section.section"
+        )
+          .c-base-table__column.u-medium
+            | {{ section.section }}
+
+        .c-base-table__row(
+          v-for="entry in section.items"
+        )
+          div(
+            v-for="(entryLine, entryIndex) in entry"
+            :class=`[
+              "c-base-table__column",
+              {
+                "c-base-table__column--title": (entryIndex === 0),
+                "c-base-table__column--value": (entryIndex > 0),
+                "c-base-table__column--emphasis": entryLine.emphasis,
+                "u-medium": entryLine.emphasis
+              }
+            ]`
+          )
+            span.c-base-table__text(
+              v-if="entryLine.text"
+            )
+              | {{ entryLine.text }}
+
+            image-entry-line-value-included(
+              v-if="entryLine.included"
+              class="c-base-table__image c-base-table__image--included"
+            )
+
+            image-entry-line-title-information(
+              v-if="entryIndex === 0"
+              class="c-base-table__image c-base-table__image--information"
+            )
+
+    .c-base-table__foot
+      .c-base-table__row
+        .c-base-table__column(
+          v-for="entry in table.foot"
+        )
+          component(
+            v-if="entry.component"
+            v-bind="entry.properties"
+            :is="entry.component"
+          )
+
+          template(
+            v-else-if="entry.text"
+          )
+            | {{ entry.text }}
 </template>
 
 <!-- **********************************************************************
@@ -133,6 +135,7 @@ $column-padding-sides: 24px;
   #{$c}__head #{$c}__column,
   #{$c}__body #{$c}__column:nth-child(n + 2),
   #{$c}__foot #{$c}__column {
+    text-align: center;
     justify-content: center;
   }
 
@@ -233,6 +236,29 @@ $column-padding-sides: 24px;
     &--information {
       width: 14px;
       aspect-ratio: 1;
+    }
+  }
+}
+
+// --> MEDIA-QUERIES <--
+
+@media (max-width: $screen-small-width-breakpoint) {
+  #{$c} {
+    #{$c}__head {
+      #{$c}__badge {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-tiny-width-breakpoint) {
+  #{$c} {
+    overflow-y: auto;
+
+    #{$c}__wrapper {
+      min-width: $screen-tiny-width-breakpoint;
+      overflow: hidden;
     }
   }
 }
