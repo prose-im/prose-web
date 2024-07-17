@@ -80,9 +80,13 @@ definePageMeta({
 const _route = useRoute();
 
 // Acquire use case page
-const { data: useCase } = await useAsyncData(async () => {
-  return await queryContent("usecases", _route.params.case).findOne();
-});
+const { data: useCase } = await useAsyncData(
+  `usecases:case:${_route.params.case}`,
+
+  async () => {
+    return await queryContent("usecases", _route.params.case).findOne();
+  }
+);
 
 // Article does not exist?
 if (useCase.value === null) {
