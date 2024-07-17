@@ -105,6 +105,9 @@ export default {
 $c: ".c-section-pricing-suite";
 
 // VARIABLES
+$part-preview-width-base: 640px;
+$part-preview-height-base: 416px;
+
 $part-overlap-vertical: 64px;
 $part-overlap-horizontal: 160px;
 
@@ -124,6 +127,7 @@ $part-overlap-horizontal: 160px;
   #{$c}__parts {
     margin-top: 54px;
     display: flex;
+    justify-content: center;
 
     #{$c}__part {
       pointer-events: none;
@@ -138,8 +142,8 @@ $part-overlap-horizontal: 160px;
         background-repeat: no-repeat;
         cursor: crosshair;
         pointer-events: initial;
-        width: 640px;
-        height: 416px;
+        width: $part-preview-width-base;
+        aspect-ratio: ($part-preview-width-base / $part-preview-height-base);
         border-radius: 6px;
         box-shadow: 0 2px 10px 0 rgba($color-black, 0.02);
       }
@@ -171,6 +175,38 @@ $part-overlap-horizontal: 160px;
     top: 0;
     left: 0;
     z-index: 0;
+  }
+}
+
+// --> MEDIA-QUERIES <--
+
+@media (max-width: $screen-medium-width-breakpoint) {
+  #{$c} {
+    #{$c}__parts {
+      display: block;
+
+      #{$c}__part {
+        width: 100%;
+
+        #{$c}__part-preview {
+          width: auto;
+          max-width: $part-preview-width-base;
+          margin: 0 auto;
+        }
+
+        &:nth-child(n) {
+          margin: 54px auto 0;
+
+          #{$c}__part-plate {
+            transform: none;
+          }
+        }
+
+        &:nth-child(1) {
+          margin-top: 0;
+        }
+      }
+    }
   }
 }
 </style>
