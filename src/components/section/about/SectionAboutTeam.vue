@@ -73,7 +73,8 @@ import RemiAvatar from "@/assets/images/components/section/about/SectionAboutTea
 const SOCIAL_BASE_URLS = {
   github: "https://github.com/[handle]",
   x: "https://x.com/[handle]",
-  mastodon: "https://[instance]/@[handle]"
+  mastodon: "https://[instance]/@[handle]",
+  xmpp: "xmpp:[handle]@[instance]"
 };
 
 export default {
@@ -102,6 +103,12 @@ export default {
             {
               platform: "github",
               handle: "valeriansaliou"
+            },
+
+            {
+              platform: "xmpp",
+              handle: "valerian",
+              instance: "prose.org"
             }
           ]
         },
@@ -126,6 +133,12 @@ export default {
             {
               platform: "github",
               handle: "nesium"
+            },
+
+            {
+              platform: "xmpp",
+              handle: "marc",
+              instance: "prose.org"
             }
           ]
         },
@@ -144,6 +157,12 @@ export default {
             {
               platform: "github",
               handle: "sahkyo"
+            },
+
+            {
+              platform: "xmpp",
+              handle: "guillaume",
+              instance: "prose.org"
             }
           ]
         },
@@ -162,6 +181,12 @@ export default {
             {
               platform: "github",
               handle: "sahkyo"
+            },
+
+            {
+              platform: "xmpp",
+              handle: "saif",
+              instance: "prose.org"
             }
           ]
         },
@@ -180,6 +205,12 @@ export default {
             {
               platform: "github",
               handle: "RemiBardon"
+            },
+
+            {
+              platform: "xmpp",
+              handle: "remi",
+              instance: "prose.org"
             }
           ]
         }
