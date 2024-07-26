@@ -24,6 +24,7 @@ import ImageX from "@/assets/images/components/base/BaseSocialIcon/x.svg?raw";
 import ImageMastodon from "@/assets/images/components/base/BaseSocialIcon/mastodon.svg?raw";
 import ImageGitHub from "@/assets/images/components/base/BaseSocialIcon/github.svg?raw";
 import ImageYouTube from "@/assets/images/components/base/BaseSocialIcon/youtube.svg?raw";
+import ImageXMPP from "@/assets/images/components/base/BaseSocialIcon/xmpp.svg?raw";
 
 export default {
   name: "BaseSocialIcon",
@@ -34,7 +35,7 @@ export default {
       default: null,
 
       validator(x) {
-        return ["x", "mastodon", "github", "youtube"].includes(x);
+        return ["x", "mastodon", "github", "youtube", "xmpp"].includes(x);
       }
     }
   },
@@ -56,6 +57,10 @@ export default {
 
         case "youtube": {
           return ImageYouTube;
+        }
+
+        case "xmpp": {
+          return ImageXMPP;
         }
 
         default: {
