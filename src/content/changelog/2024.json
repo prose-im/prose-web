@@ -1,6 +1,29 @@
 {
   "versions": [
     {
+      "version": "0.5.0",
+      "date": "2024-08-03",
+
+      "platforms": {
+        "macos": ["apple", "intel"]
+      },
+
+      "changelog": {
+        "features": [
+          ["Messaging", "Make date separators sticky"],
+          ["Messaging", "Add code syntax highlighting"]
+        ],
+
+        "changes": [["Interface", "Rework loading of avatars"]],
+
+        "fixes": [
+          ["Messaging", "Improve Markdown formatting"],
+          ["Networking", "Fix reconnection issues"]
+        ]
+      }
+    },
+
+    {
       "version": "0.4.5",
       "date": "2024-07-11",
 
