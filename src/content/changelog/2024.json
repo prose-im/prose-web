@@ -1,6 +1,25 @@
 {
   "versions": [
     {
+      "version": "0.5.2",
+      "date": "2024-08-17",
+
+      "platforms": {
+        "macos": ["apple", "intel"]
+      },
+
+      "changelog": {
+        "features": [
+          ["Interface", "Add unread messages alert in sidebar"],
+          ["Messaging", "Load avatars and names in channels"]
+        ],
+
+        "changes": [["Interface", "Improve message editor"]],
+        "fixes": [["Application", "Fix opening of email and phone links"]]
+      }
+    },
+
+    {
       "version": "0.5.1",
       "date": "2024-08-06",
 
