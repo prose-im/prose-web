@@ -9,9 +9,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    permissions:
-      packages: write
-
     outputs:
       revision: ${{ steps.current_revision.outputs.short }}
 
@@ -65,6 +62,12 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
 
+    permissions:
+      packages: write
+
+    env:
+      REGISTRY: ghcr.io
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -76,7 +79,7 @@ jobs:
       - name: Log in to the container registry
         uses: docker/login-action@v3
         with:
-          registry: ghcr.io
+          registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
@@ -93,7 +96,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ github.repository }}:${{ needs.build.outputs.revision }}
+          tags: ${{ env.REGISTRY }}/${{ github.repository }}:${{ needs.build.outputs.revision }}
 
   deploy:
     needs: build
