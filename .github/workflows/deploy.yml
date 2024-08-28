@@ -67,6 +67,7 @@ jobs:
 
     env:
       REGISTRY: ghcr.io
+      IMAGE_NAME: ${{ github.repository }}
 
     steps:
       - name: Checkout code
@@ -96,7 +97,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ env.REGISTRY }}/${{ github.repository }}:${{ needs.build.outputs.revision }}
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ needs.build.outputs.revision }}
 
   deploy:
     needs: build
