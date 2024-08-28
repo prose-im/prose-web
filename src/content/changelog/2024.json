@@ -1,6 +1,23 @@
 {
   "versions": [
     {
+      "version": "0.5.3",
+      "date": "2024-08-28",
+
+      "platforms": {
+        "macos": ["apple", "intel"]
+      },
+
+      "changelog": {
+        "features": [
+          ["Messaging", "Load avatars of non-participants in channels"]
+        ],
+
+        "fixes": [["Messaging", "Fix incorrect initials in certain avatars"]]
+      }
+    },
+
+    {
       "version": "0.5.2",
       "date": "2024-08-17",
 
