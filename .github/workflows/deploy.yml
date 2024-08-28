@@ -9,6 +9,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    permissions:
+      packages: write
+
     outputs:
       revision: ${{ steps.current_revision.outputs.short }}
 
@@ -57,6 +60,26 @@ jobs:
           name: ${{ steps.current_revision.outputs.short }} Build
           path: ./build-${{ steps.current_revision.outputs.short }}.tar.gz
           retention-days: 7
+
+  ship:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ needs.build.outputs.revision }} Build
+
+      - name: Extract build artifacts
+        run: tar -xzvf ./build-${{ needs.build.outputs.revision }}.tar.gz
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: ${{ github.repository }}:${{ needs.build.outputs.revision }}
 
   deploy:
     needs: build
