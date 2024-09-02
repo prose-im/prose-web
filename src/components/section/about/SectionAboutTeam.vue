@@ -63,7 +63,7 @@
 
 <script>
 // PROJECT: IMAGES
-import ValerianAvatar from "@/assets/images/components/section/about/SectionAboutTeam/avatar-valerian.webp";
+import ValerianAvatar from "@/assets/images/components/section/about/SectionAboutTeam/avatar-valerian.jpg";
 import SaifAvatar from "@/assets/images/components/section/about/SectionAboutTeam/avatar-saif.webp";
 import GuillaumeAvatar from "@/assets/images/components/section/about/SectionAboutTeam/avatar-guillaume.webp";
 import MarcAvatar from "@/assets/images/components/section/about/SectionAboutTeam/avatar-marc.webp";
