@@ -202,7 +202,7 @@ export default {
 
       announcement: {
         title: "Heads up: Prose is almost ready",
-        description: "We expect the Prose server to be released late 2024."
+        description: "We expect the Prose server to be released end 2024."
       },
 
       menuItems: [
