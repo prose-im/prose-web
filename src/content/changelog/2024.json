@@ -13,7 +13,9 @@
           ["Messaging", "Load avatars of non-participants in channels"]
         ],
 
-        "fixes": [["Messaging", "Fix incorrect initials in certain avatars"]]
+        "fixes": [
+          ["Messaging", "Fix incorrect initials in some default avatars"]
+        ]
       }
     },
 
