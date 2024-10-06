@@ -95,23 +95,15 @@
                   | Cloud hosting, billed annually
 
                 .c-section-pricing-main__plan-action
-                  base-tooltip
-                    template(
-                      v-slot:tooltip
+                  nuxt-link(
+                    to="/signup/"
+                  )
+                    base-button(
+                      right-icon="arrow-right"
+                      tint="dark"
+                      size="huge"
                     )
-                      | Our cloud offering is coming soon!
-
-                    template(
-                      v-slot:default
-                    )
-                      a
-                        base-button(
-                          right-icon="arrow-right"
-                          tint="dark"
-                          size="huge"
-                          disabled
-                        )
-                          | Create your Prose Server
+                      | Create your Prose Server
 
                 p.c-section-pricing-main__plan-notice
                   | 7 days free trial

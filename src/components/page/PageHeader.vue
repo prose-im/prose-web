@@ -80,16 +80,16 @@ div(
                   )
 
           .c-page-header__right
-            a(
-              :href="$config.public.url.prose_app"
+            nuxt-link(
               class="c-page-header__action"
+              to="/signup/"
             )
               base-button(
                 class="c-page-header__action-button"
                 right-icon="arrow-right"
                 tint="fancy"
               )
-                | Go to App
+                | Create your Server
 
             .c-page-header__mobile-toggle
               page-header-menu-toggle(
@@ -147,16 +147,16 @@ div(
                       span.c-page-header__disclosure-panel-title.u-medium
                         | {{ dropdownItem.title }}
 
-        a(
-          :href="$config.public.url.prose_app"
+        nuxt-link(
           class="c-page-header__action"
+          to="/signup/"
         )
           base-button(
             class="c-page-header__action-button"
             right-icon="arrow-right"
             tint="fancy"
           )
-            | Go to App
+            | Create your Server
 
   .c-page-header__ghost(
     v-if="!embedded"
