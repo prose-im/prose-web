@@ -51,7 +51,7 @@
 
     nuxt-link(
       v-else
-      to="/signup/"
+      to="/cloud/signup/"
     )
       base-button(
         right-icon="arrow-right"

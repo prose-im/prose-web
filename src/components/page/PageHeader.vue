@@ -82,7 +82,7 @@ div(
           .c-page-header__right
             nuxt-link(
               class="c-page-header__action"
-              to="/signup/"
+              to="/cloud/signup/"
             )
               base-button(
                 class="c-page-header__action-button"
@@ -149,7 +149,7 @@ div(
 
         nuxt-link(
           class="c-page-header__action"
-          to="/signup/"
+          to="/cloud/signup/"
         )
           base-button(
             class="c-page-header__action-button"
