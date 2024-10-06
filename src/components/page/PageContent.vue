@@ -13,7 +13,8 @@ div(
   :class=`[
     "c-page-content",
     {
-      "c-page-content--showcase": showcase
+      "c-page-content--showcase": showcase,
+      "c-page-content--embedded": embedded
     }
   ]`
 )
@@ -30,6 +31,11 @@ export default {
 
   props: {
     showcase: {
+      type: Boolean,
+      default: false
+    },
+
+    embedded: {
       type: Boolean,
       default: false
     }
@@ -54,6 +60,10 @@ $c: ".c-page-content";
 
   &--showcase {
     padding-top: 0;
+  }
+
+  &--embedded {
+    padding-bottom: 0;
   }
 }
 
