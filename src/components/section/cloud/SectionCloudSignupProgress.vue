@@ -10,6 +10,9 @@
 
 <template lang="pug">
 .c-section-cloud-signup-progress
+  base-progress(
+    :items="progressItems"
+  )
 </template>
 
 <!-- **********************************************************************
@@ -18,6 +21,51 @@
 
 <script>
 export default {
-  name: "SectionCloudSignupProgress"
+  name: "SectionCloudSignupProgress",
+
+  data() {
+    return {
+      // --> DATA <--
+
+      progressItems: [
+        {
+          id: "progress",
+          label: "Workspace identity",
+          icon: "progress",
+          ongoing: true
+        },
+
+        {
+          id: "account",
+          label: "Account",
+          icon: "account"
+        },
+
+        {
+          id: "activate",
+          label: "Activate",
+          icon: "activate"
+        },
+
+        {
+          id: "done",
+          icon: "finished",
+          finished: true
+        }
+      ]
+    };
+  }
 };
 </script>
+
+<!-- **********************************************************************
+     STYLE
+     ********************************************************************** -->
+
+<style lang="scss">
+$c: ".c-section-cloud-signup-progress";
+
+#{$c} {
+  padding: 0 8px;
+}
+</style>
