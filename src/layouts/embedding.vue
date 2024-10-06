@@ -18,6 +18,7 @@ page-container(
 
   page-content(
     class="l-embedding__content"
+    embedded
   )
     slot
 </template>
@@ -40,8 +41,13 @@ $c: ".l-embedding";
   }
 
   #{$c}__content {
-    flex: 1;
+    display: flex;
     overflow: hidden;
+
+    &,
+    > * {
+      flex: 1;
+    }
   }
 }
 </style>
