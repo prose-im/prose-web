@@ -63,6 +63,7 @@ $c: ".c-page-content";
   }
 
   &--embedded {
+    padding-top: 64px;
     padding-bottom: 0;
   }
 }
@@ -71,7 +72,7 @@ $c: ".c-page-content";
 
 @media (max-width: $screen-tiny-width-breakpoint) {
   #{$c} {
-    &:not(#{$c}--showcase) {
+    &:not(#{$c}--showcase):not(#{$c}--embedded) {
       padding-top: 52px;
       padding-bottom: 90px;
     }
