@@ -14,13 +14,6 @@
     .c-section-pricing-main__wrapper
       .c-section-pricing-main__box
         .c-section-pricing-main__decorations
-          span(
-            v-for="bubble in decorationBubbles"
-            :class=`[
-              "c-section-pricing-main__decorations-bubble",
-              "c-section-pricing-main__decorations-bubble--" + bubble
-            ]`
-          )
 
         .c-section-pricing-main__inner
           base-descripted-title(
@@ -192,8 +185,6 @@ export default {
     return {
       // --> DATA <--
 
-      decorationBubbles: ["blue", "pink"],
-
       planFeatures: {
         community: [
           {
@@ -330,34 +321,7 @@ $plan-section-separated-margin-sides-medium: 28px;
     &::before {
       content: "";
       background-color: rgba($color-background-primary, 0.5);
-      backdrop-filter: blur(50px);
       z-index: 1;
-    }
-
-    #{$c}__decorations-bubble {
-      position: absolute;
-      z-index: 0;
-      border-radius: 100%;
-
-      &--blue {
-        background-color: $color-base-blue-light;
-        aspect-ratio: 1.2;
-        width: 50%;
-        left: 0;
-        bottom: 0;
-        opacity: 0.3;
-        transform: translate(-33%, 40%);
-      }
-
-      &--pink {
-        background-color: $color-base-pink-light;
-        aspect-ratio: 1.15;
-        width: 100%;
-        right: 0;
-        bottom: 0;
-        opacity: 0.25;
-        transform: translate(72%, 75%);
-      }
     }
   }
 
@@ -370,7 +334,8 @@ $plan-section-separated-margin-sides-medium: 28px;
     background-color: rgba($color-white, 0.9);
     border: 1px solid $color-border-primary;
     border-radius: 18px;
-    box-shadow: 0 0 0 -1px rgba($color-black, 0.09),
+    box-shadow:
+      0 0 0 -1px rgba($color-black, 0.09),
       0 2px 2px -2px rgba($color-black, 0.08),
       0 10px 10px -3px rgba($color-black, 0.03);
 

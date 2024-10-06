@@ -97,7 +97,8 @@ $c: ".c-page-header-menu-toggle";
 
     :nth-child(1),
     :nth-child(2) {
-      transition: opacity 0s calc(var(--transition-duration) / 2),
+      transition:
+        opacity 0s calc(var(--transition-duration) / 2),
         transform calc(var(--transition-duration) / 2)
           calc(var(--transition-duration) / 2) cubic-bezier(0.86, 0, 0.07, 1);
     }
@@ -114,7 +115,8 @@ $c: ".c-page-header-menu-toggle";
     :nth-child(4) {
       opacity: 0;
       transform-origin: 50% 50%;
-      transition: transform calc(var(--transition-duration) / 2)
+      transition:
+        transform calc(var(--transition-duration) / 2)
           cubic-bezier(0.86, 0, 0.07, 1),
         opacity 0s calc(var(--transition-duration) / 2);
     }
@@ -122,7 +124,8 @@ $c: ".c-page-header-menu-toggle";
     &--open {
       :nth-child(1),
       :nth-child(2) {
-        transition: transform calc(var(--transition-duration) / 2)
+        transition:
+          transform calc(var(--transition-duration) / 2)
             cubic-bezier(0.86, 0, 0.07, 1),
           opacity 0s calc(var(--transition-duration) / 2);
         opacity: 0;
@@ -139,7 +142,8 @@ $c: ".c-page-header-menu-toggle";
       :nth-child(3),
       :nth-child(4) {
         opacity: 1;
-        transition: opacity 0s calc(var(--transition-duration) / 2),
+        transition:
+          opacity 0s calc(var(--transition-duration) / 2),
           transform calc(var(--transition-duration) / 2)
             calc(var(--transition-duration) / 2) cubic-bezier(0.86, 0, 0.07, 1);
       }

@@ -29,23 +29,23 @@
     "lint": "npm run lint:js && npm run lint:prettier"
   },
   "dependencies": {
-    "vue": "3.4.32",
+    "vue": "3.5.11",
     "crisp-sdk-web": "1.0.25"
   },
   "devDependencies": {
-    "@nuxt/eslint-config": "0.3.13",
-    "@nuxt/image": "1.7.0",
-    "@nuxt/content": "2.13.0",
-    "@nuxtjs/robots": "4.0.1",
-    "@nuxtjs/sitemap": "5.3.5",
+    "@nuxt/eslint-config": "0.5.7",
+    "@nuxt/image": "1.8.1",
+    "@nuxt/content": "2.13.2",
+    "@nuxtjs/robots": "4.1.7",
+    "@nuxtjs/sitemap": "6.1.1",
     "pug": "3.0.3",
-    "sass": "1.77.6",
+    "sass": "1.78.0",
     "pug-plain-loader": "1.1.0",
-    "sass-loader": "14.2.1",
-    "eslint": "9.6.0",
-    "nuxt": "3.12.3",
-    "nuxt-svgo": "4.0.2",
-    "prettier": "2.5.1",
+    "sass-loader": "16.0.2",
+    "eslint": "9.12.0",
+    "nuxt": "3.13.2",
+    "nuxt-svgo": "4.0.6",
+    "prettier": "3.3.3",
     "lodash.merge": "4.6.2"
   }
 }

@@ -233,7 +233,8 @@ $size-huge-padding-sides: 38px;
   &--dark {
     #{$c}__inner {
       background-color: $color-button-dark-normal;
-      box-shadow: 0 2px 1px 0 rgba($color-button-dark-normal, 0.12),
+      box-shadow:
+        0 2px 1px 0 rgba($color-button-dark-normal, 0.12),
         inset 0 1px 0 0 rgba($color-white, 0.22);
 
       #{$c}__label {
@@ -298,7 +299,8 @@ $size-huge-padding-sides: 38px;
         #c97ebd 111.91%,
         #f67086 160.76%
       );
-      box-shadow: 0px 3px 20px -6px rgba(100, 78, 180, 0.61),
+      box-shadow:
+        0px 3px 20px -6px rgba(100, 78, 180, 0.61),
         inset 0px 1px 2px rgba(255, 255, 255, 0.33),
         inset 0px -2px 2px rgba(102, 79, 187, 0.55);
 
@@ -332,7 +334,8 @@ $size-huge-padding-sides: 38px;
         #141a75 110.18%,
         #141a75 110.19%
       );
-      box-shadow: inset 0px -2.23809px 2.23809px #3975cf,
+      box-shadow:
+        inset 0px -2.23809px 2.23809px #3975cf,
         inset 0px 1px 2px rgba(255, 255, 255, 0.33),
         inset 0px -2px 2px rgba(18, 31, 62, 0.54);
 

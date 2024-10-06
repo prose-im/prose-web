@@ -230,22 +230,28 @@ $c: ".c-base-icon";
 
   &--blue {
     background: linear-gradient(180deg, #518eea 0%, #3458ad 100%);
-    box-shadow: 0px 17px 20px -6px rgba(81, 142, 234, 0.61),
-      inset 0px -2px 2px #234596, inset 0px 2px 2px rgba(255, 255, 255, 0.25);
+    box-shadow:
+      0px 17px 20px -6px rgba(81, 142, 234, 0.61),
+      inset 0px -2px 2px #234596,
+      inset 0px 2px 2px rgba(255, 255, 255, 0.25);
     border-radius: 64px;
   }
 
   &--pink {
     background: linear-gradient(180deg, #f67086 0%, #f86079 100%);
-    box-shadow: 0px 17px 20px -6px rgba(246, 112, 134, 0.61),
-      inset 0px -2px 2px #e84f68, inset 0px 2px 2px rgba(255, 255, 255, 0.25);
+    box-shadow:
+      0px 17px 20px -6px rgba(246, 112, 134, 0.61),
+      inset 0px -2px 2px #e84f68,
+      inset 0px 2px 2px rgba(255, 255, 255, 0.25);
     border-radius: 64px;
   }
 
   &--purple {
     background: linear-gradient(180deg, #7e67d1 0%, #644eb4 100%);
-    box-shadow: 0px 17px 20px -6px rgba(100, 78, 180, 0.61),
-      inset 0px -2px 2px #4930a2, inset 0px 2px 2px rgba(255, 255, 255, 0.25);
+    box-shadow:
+      0px 17px 20px -6px rgba(100, 78, 180, 0.61),
+      inset 0px -2px 2px #4930a2,
+      inset 0px 2px 2px rgba(255, 255, 255, 0.25);
     border-radius: 64px;
   }
 }
