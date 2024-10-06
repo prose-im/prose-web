@@ -170,7 +170,9 @@ $c: ".c-base-icon-card";
   border: 1px solid #81899b33;
   backdrop-filter: blur(16px);
   overflow: hidden;
-  transition: background 0.2s ease-in-out, border 0.2s ease-in-out;
+  transition:
+    background 0.2s ease-in-out,
+    border 0.2s ease-in-out;
   height: 100%;
 
   #{$c}__content {

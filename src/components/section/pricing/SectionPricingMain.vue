@@ -334,7 +334,8 @@ $plan-section-separated-margin-sides-medium: 28px;
     background-color: rgba($color-white, 0.9);
     border: 1px solid $color-border-primary;
     border-radius: 18px;
-    box-shadow: 0 0 0 -1px rgba($color-black, 0.09),
+    box-shadow:
+      0 0 0 -1px rgba($color-black, 0.09),
       0 2px 2px -2px rgba($color-black, 0.08),
       0 10px 10px -3px rgba($color-black, 0.03);
 

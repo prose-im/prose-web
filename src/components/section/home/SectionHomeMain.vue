@@ -190,7 +190,8 @@ $inner-padding-top-base: 74px;
     overflow: hidden;
     border-radius: 12px;
     backdrop-filter: blur(40px);
-    box-shadow: 0 4px 12px rgba($color-black, 0.035),
+    box-shadow:
+      0 4px 12px rgba($color-black, 0.035),
       inset 0px 0.5px 1px #ffffff;
 
     #{$c}__application-contents {

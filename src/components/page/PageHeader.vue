@@ -406,7 +406,8 @@ $hover-transition-duration: 150ms;
     display: flex;
     align-items: center;
     border-radius: $page-header-bar-height;
-    box-shadow: rgba($color-black, 0.086) 0 0.6px 0.6px -1.25px,
+    box-shadow:
+      rgba($color-black, 0.086) 0 0.6px 0.6px -1.25px,
       rgba($color-black, 0.076) 0 2.25px 2.25px -2.5px,
       rgba($color-black, 0.03) 0 10px 10px -3.75px;
   }

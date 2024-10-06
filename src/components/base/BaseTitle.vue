@@ -170,16 +170,27 @@ $stroke-color: $color-background-secondary;
     // Equivalent of:
     //   - paint-order: stroke;
     //   - @include text-stroke($stroke-size rgba($stroke-color, 0.75));
-    text-shadow: 0 0 $stroke-size $stroke-color, 0 0 $stroke-size $stroke-color,
-      0 0 $stroke-size $stroke-color, 0 0 $stroke-size $stroke-color,
-      0 0 $stroke-size $stroke-color, 0 0 $stroke-size $stroke-color,
-      0 0 $stroke-size $stroke-color, 0 0 $stroke-size $stroke-color,
-      0 0 $stroke-size $stroke-color, 0 0 $stroke-size $stroke-color,
-      0 0 $stroke-size $stroke-color, 0 0 $stroke-size $stroke-color,
-      0 0 $stroke-size $stroke-color, 0 0 $stroke-size $stroke-color,
-      0 0 $stroke-size $stroke-color, 0 0 $stroke-size $stroke-color,
-      0 0 $stroke-size $stroke-color, 0 0 $stroke-size $stroke-color,
-      0 0 $stroke-size $stroke-color, 0 0 $stroke-size $stroke-color;
+    text-shadow:
+      0 0 $stroke-size $stroke-color,
+      0 0 $stroke-size $stroke-color,
+      0 0 $stroke-size $stroke-color,
+      0 0 $stroke-size $stroke-color,
+      0 0 $stroke-size $stroke-color,
+      0 0 $stroke-size $stroke-color,
+      0 0 $stroke-size $stroke-color,
+      0 0 $stroke-size $stroke-color,
+      0 0 $stroke-size $stroke-color,
+      0 0 $stroke-size $stroke-color,
+      0 0 $stroke-size $stroke-color,
+      0 0 $stroke-size $stroke-color,
+      0 0 $stroke-size $stroke-color,
+      0 0 $stroke-size $stroke-color,
+      0 0 $stroke-size $stroke-color,
+      0 0 $stroke-size $stroke-color,
+      0 0 $stroke-size $stroke-color,
+      0 0 $stroke-size $stroke-color,
+      0 0 $stroke-size $stroke-color,
+      0 0 $stroke-size $stroke-color;
   }
 }
 
