@@ -76,7 +76,7 @@ $c: ".p-cloud-signup";
   }
 
   #{$c}__form {
-    margin-top: 68px;
+    margin-top: 60px;
     flex: 1;
   }
 
