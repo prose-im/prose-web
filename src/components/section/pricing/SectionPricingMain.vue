@@ -96,7 +96,7 @@
 
                 .c-section-pricing-main__plan-action
                   nuxt-link(
-                    to="/signup/"
+                    to="/cloud/signup/"
                   )
                     base-button(
                       right-icon="arrow-right"
