@@ -66,7 +66,9 @@ export default {
       default: "dark",
 
       validator(x) {
-        return ["light", "dark", "gradient", "fancy", "none"].includes(x);
+        return ["light", "dark", "gradient", "fancy", "link", "none"].includes(
+          x
+        );
       }
     },
 
@@ -75,7 +77,14 @@ export default {
       default: "normal",
 
       validator(x) {
-        return ["simple", "small", "normal", "large", "huge"].includes(x);
+        return [
+          "simple",
+          "small",
+          "normal",
+          "large",
+          "huge",
+          "enormous"
+        ].includes(x);
       }
     },
 
@@ -179,6 +188,7 @@ $size-small-padding-sides: 26px;
 $size-normal-padding-sides: 22px;
 $size-large-padding-sides: 28px;
 $size-huge-padding-sides: 38px;
+$size-enormous-padding-sides: 32px;
 
 #{$c} {
   user-select: none;
@@ -196,7 +206,7 @@ $size-huge-padding-sides: 38px;
     display: flex;
     align-items: center;
     cursor: pointer;
-    border-radius: 24px;
+    border-radius: 100px;
     transition: all 100ms linear;
     transition-property: transform, box-shadow, background-color;
 
@@ -361,6 +371,37 @@ $size-huge-padding-sides: 38px;
     }
   }
 
+  &--link {
+    #{$c}__inner {
+      background-color: darken($color-base-blue-link, 6%);
+      border: 1px solid $color-border-primary;
+      box-shadow:
+        0 2px 3px 0 rgba($color-base-blue-link, 0.04),
+        inset 0 1px 0 0 rgba($color-white, 0.15);
+
+      #{$c}__label {
+        color: $color-white;
+      }
+
+      #{$c}__icon {
+        fill: $color-white;
+      }
+    }
+
+    &:hover {
+      #{$c}__inner {
+        background-color: darken($color-base-blue-link, 1%);
+      }
+    }
+
+    &:active {
+      #{$c}__inner {
+        background-color: darken($color-base-blue-link, 4%);
+        box-shadow: 0 1px 1px 0 rgba($color-base-blue-link, 0.1);
+      }
+    }
+  }
+
   // --> SIZES <--
 
   &--simple,
@@ -377,6 +418,14 @@ $size-huge-padding-sides: 38px;
       line-height: 18px;
       padding-top: 13px;
       padding-bottom: 15px;
+    }
+  }
+
+  &--enormous {
+    #{$c}__inner {
+      line-height: 19px;
+      padding-top: 15px;
+      padding-bottom: 17px;
     }
   }
 
@@ -422,6 +471,18 @@ $size-huge-padding-sides: 38px;
 
       #{$c}__icon {
         margin-left: 18px;
+      }
+    }
+  }
+
+  &--enormous {
+    #{$c}__inner {
+      font-size: 15px;
+      padding-left: $size-enormous-padding-sides;
+      padding-right: $size-enormous-padding-sides;
+
+      #{$c}__icon {
+        margin-left: 28px;
       }
     }
   }
