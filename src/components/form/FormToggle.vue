@@ -21,6 +21,7 @@ div(
   input(
     @change="onInputChange"
     :name="name"
+    :id="name"
     :checked="checked"
     class="c-form-toggle__input"
     type="checkbox"
