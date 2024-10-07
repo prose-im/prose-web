@@ -371,12 +371,11 @@ $field-mid-large-input-line-height: 48px;
     }
 
     #{$c}__inner {
-      background-color: rgba($color-base-grey-light, 0.6);
-      color: $color-base-grey-dark;
+      color: $color-base-grey-mid;
       pointer-events: none;
 
       &::placeholder {
-        color: $color-base-grey-mid;
+        color: rgba($color-base-grey-mid, 0.5);
       }
     }
   }
