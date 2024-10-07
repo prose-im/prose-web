@@ -39,7 +39,7 @@ export default {
   props: {
     stage: {
       type: Number,
-      default: 1
+      required: true
     }
   },
 

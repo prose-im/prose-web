@@ -16,6 +16,7 @@
   )
 
   section-cloud-signup-form(
+    @continue="onFormContinue"
     :stage="stage"
     class="p-cloud-signup__form"
   )
@@ -51,6 +52,20 @@ export default {
 
       stage: 1
     };
+  },
+
+  methods: {
+    // --> EVENT LISTENERS <--
+
+    /**
+     * Handles form continue
+     * @public
+     * @return {undefined}
+     */
+    onFormContinue() {
+      // Go to next stage
+      this.stage++;
+    }
   }
 };
 </script>

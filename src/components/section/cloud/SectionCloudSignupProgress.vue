@@ -23,6 +23,13 @@
 export default {
   name: "SectionCloudSignupProgress",
 
+  props: {
+    stage: {
+      type: Number,
+      required: true
+    }
+  },
+
   data() {
     return {
       // --> DATA <--
