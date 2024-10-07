@@ -21,6 +21,7 @@
             | What’s your company name?
 
           form-field(
+            v-model="form.workspace.name"
             name="workspace_name"
             type="text"
             align="left"
@@ -37,6 +38,8 @@
             | Do you have a website?
 
           form-field(
+            v-model="form.workspace.website"
+            :disabled="form.workspace.noWebsite"
             name="workspace_website"
             type="url"
             align="left"
@@ -46,6 +49,7 @@
 
           .c-section-cloud-signup-form__fieldset-control
             form-toggle(
+              v-model="form.workspace.noWebsite"
               name="no_workspace_website"
               class="c-section-cloud-signup-form__fieldset-control-toggle"
             )
@@ -69,7 +73,21 @@
 
 <script>
 export default {
-  name: "SectionCloudSignupForm"
+  name: "SectionCloudSignupForm",
+
+  data() {
+    return {
+      // --> STATE <--
+
+      form: {
+        workspace: {
+          name: "",
+          website: "",
+          noWebsite: false
+        }
+      }
+    };
+  }
 };
 </script>
 
