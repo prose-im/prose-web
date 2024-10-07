@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "vue": "3.5.11",
+    "keycode": "2.2.1",
     "crisp-sdk-web": "1.0.25"
   },
   "devDependencies": {
