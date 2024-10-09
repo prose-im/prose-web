@@ -30,11 +30,9 @@ export default {
     }
   },
 
-  data() {
-    return {
-      // --> DATA <--
-
-      progressItems: [
+  computed: {
+    progressItems() {
+      const _progressItems = [
         {
           id: "progress",
           label: "Workspace identity",
@@ -59,8 +57,17 @@ export default {
           icon: "finished",
           finished: true
         }
-      ]
-    };
+      ];
+
+      _progressItems.forEach((item, index) => {
+        const _itemStage = index + 1;
+
+        item.elapsed = this.stage > _itemStage ? true : false;
+        item.ongoing = this.stage === _itemStage ? true : false;
+      });
+
+      return _progressItems;
+    }
   }
 };
 </script>

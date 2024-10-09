@@ -147,8 +147,10 @@ $icon-size: 20px;
 
   &--elapsed,
   &--finished {
-    #{$c}__icon {
-      fill: $color-base-green-mid;
+    &:not(&#{$c}--ongoing) {
+      #{$c}__icon {
+        fill: $color-base-green-mid;
+      }
     }
   }
 }
