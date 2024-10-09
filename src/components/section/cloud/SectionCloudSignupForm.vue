@@ -12,7 +12,14 @@
 .c-section-cloud-signup-form
   .c-section-cloud-signup-form__inner
     .c-section-cloud-signup-form__wrapper
-      .c-section-cloud-signup-form__fieldset
+      div(
+        :class=`[
+          "c-section-cloud-signup-form__fieldset",
+          {
+            "c-section-cloud-signup-form__fieldset--wide": isFieldsetWide
+          }
+        ]`
+      )
         template(
           v-for="(partial, index) in fieldsetPartials"
         )
@@ -72,6 +79,12 @@ export default {
         }
       ]
     };
+  },
+
+  computed: {
+    isFieldsetWide() {
+      return this.stage === 3;
+    }
   },
 
   methods: {
@@ -165,6 +178,10 @@ $c: ".c-section-cloud-signup-form";
     max-width: 460px;
     margin: 0 auto;
     box-sizing: border-box;
+
+    &--wide {
+      max-width: 520px;
+    }
 
     #{$c}__fieldset-part {
       margin-bottom: 48px;

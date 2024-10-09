@@ -10,7 +10,121 @@
 
 <template lang="pug">
 .c-partial-cloud-signup-form-fieldset-activate
-  | TODO: form
+  base-notice(
+    class="c-partial-cloud-signup-form-fieldset-activate__notice"
+  )
+    | Your server is almost activated! Please
+
+    base-space
+
+    span.u-semibold
+      | provide a valid credit card to verify your account
+
+    | . We need this in order to prevent abuse.
+
+  div(
+    :class=`[
+      "c-partial-cloud-signup-form-fieldset-activate__part",
+      partClass
+    ]`
+  )
+    base-title(
+      level="lilliput"
+      tint="black"
+      class="c-partial-cloud-signup-form-fieldset-activate__title"
+    )
+      | Credit card details
+
+    .c-partial-cloud-signup-form-fieldset-activate__nest.c-partial-cloud-signup-form-fieldset-activate__nest--number
+      form-labelled-field(
+        name="activate_number"
+        label="Card number"
+      )
+        form-field(
+          v-model="form.number"
+          name="activate_number"
+          type="text"
+          align="left"
+          size="mid-large"
+          placeholder="XXXX XXXX XXXX XXXX"
+          inner-class="c-partial-cloud-signup-form-fieldset-activate__input-inner"
+          class="c-partial-cloud-signup-form-fieldset-activate__input c-partial-cloud-signup-form-fieldset-activate__input--card"
+          autofocus
+        )
+          span.c-partial-cloud-signup-form-fieldset-activate__input-preview.c-partial-cloud-signup-form-fieldset-activate__input-preview--mastercard
+            span.c-partial-cloud-signup-form-fieldset-activate__input-preview-brand(
+              v-if="cardBrandImageHtml"
+              v-html="cardBrandImageHtml"
+            )
+
+    .c-partial-cloud-signup-form-fieldset-activate__nest.c-partial-cloud-signup-form-fieldset-activate__nest--name-and-cvv
+      form-labelled-field(
+        name="activate_name"
+        label="Name on card"
+      )
+        form-field(
+          v-model="form.name"
+          name="activate_name"
+          type="text"
+          align="left"
+          size="mid-large"
+          placeholder="Enter your name…"
+        )
+
+      form-labelled-field(
+        name="activate_cvv"
+        label="Security code"
+      )
+        form-field(
+          v-model="form.cvv"
+          name="activate_cvv"
+          type="text"
+          align="left"
+          size="mid-large"
+          placeholder="CVV"
+        )
+
+    .c-partial-cloud-signup-form-fieldset-activate__nest.c-partial-cloud-signup-form-fieldset-activate__nest--zip-and-expire
+      form-labelled-field(
+        name="activate_zip"
+        label="Postal code"
+      )
+        form-field(
+          v-model="form.zip"
+          name="activate_zip"
+          type="text"
+          align="left"
+          size="mid-large"
+          placeholder="ZIP / Postcode"
+        )
+
+      form-labelled-field(
+        name="activate_expire"
+        label="Expiration date"
+      )
+        form-field(
+          v-model="form.expire"
+          name="activate_expire"
+          type="text"
+          align="left"
+          size="mid-large"
+          placeholder="MM/YY"
+        )
+
+  div(
+    :class=`[
+      "c-partial-cloud-signup-form-fieldset-activate__part",
+      "c-partial-cloud-signup-form-fieldset-activate__part--information",
+      partClass
+    ]`
+  )
+    .c-partial-cloud-signup-form-fieldset-activate__information
+      .c-partial-cloud-signup-form-fieldset-activate__information-lines
+        p.u-medium
+          | We will only perform a check. Your card will not be charged.
+
+        p
+          | This will activate your 30 days free trial, which you can cancel anytime.
 
   div(
     :class=`[
@@ -33,6 +147,14 @@
      ********************************************************************** -->
 
 <script>
+// PROJECT: IMAGES
+import ImageCardBrandMastercard from "@/assets/images/components/partial/cloud/PartialCloudSignupFormFieldsetActivate/card-brand-mastercard.svg?raw";
+
+// CONSTANTS
+const CARD_BRAND_IMAGES = {
+  mastercard: ImageCardBrandMastercard
+};
+
 export default {
   name: "PartialCloudSignupFormFieldsetActivate",
 
@@ -49,10 +171,22 @@ export default {
     return {
       // --> STATE <--
 
+      cardBrand: "mastercard",
+
       form: {
-        /* TODO */
+        number: "",
+        name: "",
+        cvv: "",
+        zip: "",
+        expire: ""
       }
     };
+  },
+
+  computed: {
+    cardBrandImageHtml() {
+      return CARD_BRAND_IMAGES[this.cardBrand] || null;
+    }
   },
 
   methods: {
@@ -78,7 +212,98 @@ export default {
 $c: ".c-partial-cloud-signup-form-fieldset-activate";
 
 #{$c} {
+  #{$c}__notice {
+    margin-bottom: 42px;
+  }
+
   #{$c}__part {
+    #{$c}__title {
+      padding-bottom: 10px;
+    }
+
+    #{$c}__nest {
+      column-gap: 25px;
+      display: flex;
+
+      &--number {
+        > * {
+          &:nth-child(1) {
+            flex: 1;
+          }
+        }
+      }
+
+      &--name-and-cvv {
+        > * {
+          &:nth-child(1) {
+            flex: 0.7;
+          }
+
+          &:nth-child(2) {
+            flex: 0.3;
+          }
+        }
+      }
+
+      &--zip-and-expire {
+        > * {
+          &:nth-child(1) {
+            flex: 0.55;
+          }
+
+          &:nth-child(2) {
+            flex: 0.45;
+          }
+        }
+      }
+    }
+
+    #{$c}__input {
+      &--card {
+        position: relative;
+
+        #{$c}__input-inner {
+          padding-left: 68px;
+        }
+
+        #{$c}__input-preview {
+          background: $color-white;
+          border: 1px solid $color-border-secondary;
+          width: 40px;
+          height: 30px;
+          pointer-events: none;
+          position: absolute;
+          top: 50%;
+          left: 14px;
+          transform: translateY(-50%);
+          border-radius: 7px;
+
+          #{$c}__input-preview-brand {
+            background-color: $color-black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            inset-inline: 3px;
+            inset-block: 4px;
+            border-radius: 3px;
+          }
+        }
+      }
+    }
+
+    #{$c}__information {
+      color: $color-base-black-mid;
+      font-size: 13.5px;
+      line-height: 23px;
+      letter-spacing: 0.1px;
+
+      #{$c}__information-lines {
+        margin: -10px 0;
+      }
+    }
+
+    &--information,
     &--action {
       text-align: center;
     }
