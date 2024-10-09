@@ -22,6 +22,8 @@ div(
     }
   ]`
 )
+  slot
+
   input(
     @keypress.stop
     @keydown.stop="onFieldKeyDown"
@@ -31,11 +33,17 @@ div(
     @blur="onFieldBlur"
     :type="type"
     :name="name"
+    :id="name"
     :value="value"
     :placeholder="placeholder"
     :disabled="disabled"
     :autocomplete="autocomplete"
-    class="c-form-field__inner"
+    :class=`[
+      "c-form-field__inner",
+      {
+        [innerClass]: innerClass
+      }
+    ]`
     ref="field"
   )
 </template>
@@ -118,6 +126,11 @@ export default {
     loading: {
       type: Boolean,
       default: false
+    },
+
+    innerClass: {
+      type: String,
+      default: null
     }
   },
 
