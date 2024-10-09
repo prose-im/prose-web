@@ -181,6 +181,7 @@ $c: ".c-section-cloud-signup-form";
 
     &--wide {
       max-width: 520px;
+      padding-top: 50px;
     }
 
     #{$c}__fieldset-part {
