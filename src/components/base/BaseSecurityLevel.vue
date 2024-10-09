@@ -77,18 +77,18 @@ export default {
     }
   },
 
-  computed: {
-    security() {
-      return LEVEL_SECURITIES[this.level] || "none";
-    }
-  },
-
   data() {
     return {
       // --> DATA <--
 
       steps: LEVEL_STEPS
     };
+  },
+
+  computed: {
+    security() {
+      return LEVEL_SECURITIES[this.level] || "none";
+    }
   }
 };
 </script>

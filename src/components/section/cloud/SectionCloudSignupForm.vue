@@ -94,7 +94,7 @@ export default {
      * @param  {object} form
      * @return {undefined}
      */
-    onWorkspaceSubmit(form) {
+    onWorkspaceSubmit(_form) {
       // TODO: submit form data
 
       this.continue();
@@ -106,7 +106,7 @@ export default {
      * @param  {object} form
      * @return {undefined}
      */
-    onAccountSubmit(form) {
+    onAccountSubmit(_form) {
       // TODO: submit form data
 
       this.continue();
@@ -118,7 +118,7 @@ export default {
      * @param  {object} form
      * @return {undefined}
      */
-    onActivateSubmit(form) {
+    onActivateSubmit(_form) {
       // TODO: submit form data
 
       this.continue();
