@@ -69,8 +69,8 @@ export default {
   emits: ["finish"],
 
   mounted() {
-    // Start confettis
-    this.$confetti.start({
+    // Start confettis (if available)
+    this.$confetti?.start({
       defaultType: "circle",
       defaultSize: 7,
       defaultDropRate: 3,
@@ -80,8 +80,8 @@ export default {
   },
 
   beforeUnmount() {
-    // Stop confettis
-    this.$confetti.stop();
+    // Stop confettis (if available)
+    this.$confetti?.stop();
   },
 
   methods: {
