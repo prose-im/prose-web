@@ -94,6 +94,7 @@ export default {
      */
     onFormFinish() {
       // Navigate to created Prose Pod dashboard
+      // TODO: change URL to created Prose Pod dashboard URL
       navigateTo(this.$config.public.url.prose_app, { external: true });
     }
   }
