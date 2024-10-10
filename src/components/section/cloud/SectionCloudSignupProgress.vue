@@ -80,6 +80,8 @@ export default {
 $c: ".c-section-cloud-signup-progress";
 
 #{$c} {
+  background-color: rgba($color-white, 0.75);
+  backdrop-filter: blur(10px);
   padding: 0 8px;
 }
 </style>

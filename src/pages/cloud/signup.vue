@@ -136,6 +136,8 @@ $c: ".p-cloud-signup";
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    z-index: 1;
   }
 }
 </style>
