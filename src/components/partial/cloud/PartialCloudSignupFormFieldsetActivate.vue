@@ -82,6 +82,7 @@
           align="left"
           size="mid-large"
           placeholder="CVV"
+          pattern="[0-9]{3,4}"
         )
 
     .c-partial-cloud-signup-form-fieldset-activate__nest.c-partial-cloud-signup-form-fieldset-activate__nest--zip-and-expire
@@ -109,6 +110,7 @@
           align="left"
           size="mid-large"
           placeholder="MM/YY"
+          pattern="((0[1-9])|(1[0-2]))\/([0-9]{2})"
         )
 
   div(
