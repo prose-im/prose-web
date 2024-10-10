@@ -31,6 +31,13 @@
           )
 
   .c-section-cloud-signup-form__aside
+    partial-common-feature(
+      v-if="feature"
+      v-memo="[feature]"
+      :key="'feature_' + feature"
+      :feature="feature"
+      class="c-section-cloud-signup-form__feature"
+    )
 </template>
 
 <!-- **********************************************************************
@@ -45,6 +52,9 @@ import { shallowRef } from "vue";
 import PartialCloudSignupFormFieldsetWorkspace from "@/components/partial/cloud/PartialCloudSignupFormFieldsetWorkspace.vue";
 import PartialCloudSignupFormFieldsetAccount from "@/components/partial/cloud/PartialCloudSignupFormFieldsetAccount.vue";
 import PartialCloudSignupFormFieldsetActivate from "@/components/partial/cloud/PartialCloudSignupFormFieldsetActivate.vue";
+
+// CONSTANTS
+const STEP_FEATURES = ["history", "integration", "share"];
 
 export default {
   name: "SectionCloudSignupForm",
@@ -84,6 +94,10 @@ export default {
   computed: {
     isFieldsetWide() {
       return this.stage === 3;
+    },
+
+    feature() {
+      return STEP_FEATURES[this.stage - 1] || null;
     }
   },
 
@@ -152,6 +166,12 @@ $c: ".c-section-cloud-signup-form";
   flex-direction: row;
   overflow: hidden;
 
+  #{$c}__aside,
+  #{$c}__fieldset {
+    padding-top: 70px;
+    padding-bottom: 40px;
+  }
+
   #{$c}__inner {
     flex: 1;
     display: flex;
@@ -164,7 +184,16 @@ $c: ".c-section-cloud-signup-form";
     border-left: 1px solid $color-border-tertiary;
     min-width: 320px;
     width: 40%;
+    padding-inline: 18px;
+    overflow-x: hidden;
+    overflow-y: auto;
     flex: 0 1 auto;
+
+    > #{$c}__feature {
+      max-width: 360px;
+      width: 100%;
+      margin: 0 auto;
+    }
   }
 
   #{$c}__wrapper {
@@ -173,7 +202,7 @@ $c: ".c-section-cloud-signup-form";
   }
 
   #{$c}__fieldset {
-    padding: 70px 12px 40px;
+    padding-inline: 12px;
     width: 100%;
     max-width: 460px;
     margin: 0 auto;
@@ -199,6 +228,24 @@ $c: ".c-section-cloud-signup-form";
         margin-bottom: 0;
       }
     }
+  }
+
+  #{$c}__feature {
+    animation: 0.3s c-section-cloud-signup-form-feature-reveal 0.1s linear both;
+  }
+}
+
+// --> KEYFRAMES <--
+
+@keyframes c-section-cloud-signup-form-feature-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
 }
 </style>
