@@ -14,18 +14,9 @@
     base-title(
       level="medium"
       align="center"
-      tint="dark"
+      tint="gradient"
     )
       | {{ titleText }}
-
-      template(
-        v-if="titleEmoji"
-      )
-        base-space(
-          :repeat="2"
-        )
-
-        | {{ titleEmoji }}
 </template>
 
 <!-- **********************************************************************
@@ -58,24 +49,8 @@ export default {
           return "Activate your 30 days free trial";
         }
 
-        case 4: {
-          return "Your server is live!";
-        }
-
         default: {
           return "Sign up to Prose Cloud";
-        }
-      }
-    },
-
-    titleEmoji() {
-      switch (this.stage) {
-        case 4: {
-          return "🎉";
-        }
-
-        default: {
-          return null;
         }
       }
     }

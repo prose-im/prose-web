@@ -10,16 +10,27 @@
 
 <template lang="pug">
 .p-cloud-signup
-  section-cloud-signup-title(
-    :stage="stage"
-    class="p-cloud-signup__title"
+  template(
+    v-if="isFinal"
   )
+    section-cloud-signup-final(
+      @finish="onFormFinish"
+      class="p-cloud-signup__final"
+    )
 
-  section-cloud-signup-form(
-    @continue="onFormContinue"
-    :stage="stage"
-    class="p-cloud-signup__form"
+  template(
+    v-else
   )
+    section-cloud-signup-title(
+      :stage="stage"
+      class="p-cloud-signup__title"
+    )
+
+    section-cloud-signup-form(
+      @continue="onFormContinue"
+      :stage="stage"
+      class="p-cloud-signup__form"
+    )
 
   section-cloud-signup-progress(
     :stage="stage"
@@ -43,6 +54,9 @@ useHead({
 </script>
 
 <script>
+// CONSTANTS
+const FINAL_STAGE = 4;
+
 export default {
   name: "CloudSignupPage",
 
@@ -52,6 +66,12 @@ export default {
 
       stage: 1
     };
+  },
+
+  computed: {
+    isFinal() {
+      return this.stage === FINAL_STAGE;
+    }
   },
 
   methods: {
@@ -65,6 +85,16 @@ export default {
     onFormContinue() {
       // Go to next stage
       this.stage++;
+    },
+
+    /**
+     * Handles form finish
+     * @public
+     * @return {undefined}
+     */
+    onFormFinish() {
+      // Navigate to created Prose Pod dashboard
+      navigateTo(this.$config.public.url.prose_app, { external: true });
     }
   }
 };
@@ -92,6 +122,10 @@ $c: ".p-cloud-signup";
 
   #{$c}__form {
     margin-top: 60px;
+    flex: 1;
+  }
+
+  #{$c}__final {
     flex: 1;
   }
 
