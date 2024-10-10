@@ -68,19 +68,6 @@ export default {
 
   emits: ["finish"],
 
-  methods: {
-    // --> EVENT LISTENERS <--
-
-    /**
-     * Handles finish click
-     * @public
-     * @return {undefined}
-     */
-    onFinishClick() {
-      this.$emit("finish");
-    }
-  },
-
   mounted() {
     // Start confettis
     this.$confetti.start({
@@ -95,6 +82,19 @@ export default {
   beforeUnmount() {
     // Stop confettis
     this.$confetti.stop();
+  },
+
+  methods: {
+    // --> EVENT LISTENERS <--
+
+    /**
+     * Handles finish click
+     * @public
+     * @return {undefined}
+     */
+    onFinishClick() {
+      this.$emit("finish");
+    }
   }
 };
 </script>

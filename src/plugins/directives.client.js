@@ -10,6 +10,7 @@
 
 // NPM
 import VueConfetti from "vue-confetti";
+import { defineNuxtPlugin } from "#imports";
 
 /**************************************************************************
  * EXPORTS
