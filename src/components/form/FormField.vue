@@ -36,6 +36,7 @@ div(
     :id="name"
     :value="value"
     :placeholder="placeholder"
+    :pattern="pattern"
     :disabled="disabled"
     :autocomplete="autocomplete"
     :class=`[
@@ -99,6 +100,11 @@ export default {
     },
 
     placeholder: {
+      type: String,
+      default: null
+    },
+
+    pattern: {
       type: String,
       default: null
     },
