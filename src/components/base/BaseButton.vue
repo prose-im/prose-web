@@ -652,6 +652,10 @@ $size-enormous-padding-sides: 32px;
 
   &--loading {
     cursor: wait;
+
+    #{$c}__inner {
+      opacity: 0.9;
+    }
   }
 }
 </style>
