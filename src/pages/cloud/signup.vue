@@ -47,6 +47,11 @@ definePageMeta({
   layout: "embedding"
 });
 
+// Disable indexing of page
+defineRouteRules({
+  robots: false
+});
+
 // Set page title
 useHead({
   title: "Sign up to Prose Cloud"
