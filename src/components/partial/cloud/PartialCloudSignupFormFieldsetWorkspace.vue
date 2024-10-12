@@ -10,6 +10,22 @@
 
 <template lang="pug">
 .c-partial-cloud-signup-form-fieldset-workspace
+  base-notice(
+    v-if="error"
+    :class="noticeClass"
+    color="red"
+    emphasis
+  )
+    template(
+      v-if="error === 'incomplete_form'"
+    )
+      | We are missing some information, could you check?
+
+    template(
+      v-else
+    )
+      | We could not continue with your information. Try again.
+
   div(
     :class=`[
       "c-partial-cloud-signup-form-fieldset-workspace__part",
@@ -94,6 +110,11 @@ export default {
     partClass: {
       type: String,
       required: true
+    },
+
+    noticeClass: {
+      type: String,
+      required: true
     }
   },
 
@@ -102,6 +123,8 @@ export default {
   data() {
     return {
       // --> STATE <--
+
+      error: null,
 
       form: {
         name: "",
@@ -112,6 +135,22 @@ export default {
   },
 
   methods: {
+    // --> HELPERS <--
+
+    /**
+     * Asserts that form is valid
+     * @public
+     * @return {boolean} Form validity status
+     */
+    assertFormValidity() {
+      this.error =
+        !this.form.name || (!this.form.website && this.form.noWebsite !== true)
+          ? "incomplete_form"
+          : null;
+
+      return this.error === null;
+    },
+
     // --> EVENT LISTENERS <--
 
     /**
@@ -120,7 +159,9 @@ export default {
      * @return {undefined}
      */
     onContinueClick() {
-      this.$emit("submit", this.form);
+      if (this.assertFormValidity() === true) {
+        this.$emit("submit", this.form);
+      }
     }
   }
 };

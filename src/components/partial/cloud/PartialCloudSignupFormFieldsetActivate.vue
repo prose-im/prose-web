@@ -11,7 +11,44 @@
 <template lang="pug">
 .c-partial-cloud-signup-form-fieldset-activate
   base-notice(
-    class="c-partial-cloud-signup-form-fieldset-activate__notice"
+    v-if="error"
+    :class="noticeClass"
+    color="red"
+    emphasis
+  )
+    template(
+      v-if="error === 'incomplete_form'"
+    )
+      | Please fill all fields with your payment method details.
+
+    template(
+      v-else-if="error === 'invalid_card_number'"
+    )
+      | Oops, your card number is invalid. Check for typos.
+
+    template(
+      v-else-if="error === 'invalid_card_cvv'"
+    )
+      | Oops, your card security code is invalid. Enter it again.
+
+    template(
+      v-else-if="error === 'invalid_card_zip'"
+    )
+      | The postal code do not match your card's. It could be a different ZIP.
+
+    template(
+      v-else-if="error === 'invalid_card_expire'"
+    )
+      | The expire date is wrong. Make sure you entered it as MM/YY.
+
+    template(
+      v-else
+    )
+      | We could not validate your card. Try submitting again.
+
+  base-notice(
+    v-else
+    :class="noticeClass"
   )
     | Your server is almost activated! Please
 
@@ -164,6 +201,11 @@ export default {
     partClass: {
       type: String,
       required: true
+    },
+
+    noticeClass: {
+      type: String,
+      required: true
     }
   },
 
@@ -174,6 +216,8 @@ export default {
       // --> STATE <--
 
       cardBrand: "",
+
+      error: null,
 
       form: {
         number: "",
@@ -186,6 +230,26 @@ export default {
   },
 
   methods: {
+    // --> HELPERS <--
+
+    /**
+     * Asserts that form is valid
+     * @public
+     * @return {boolean} Form validity status
+     */
+    assertFormValidity() {
+      this.error =
+        !this.form.number ||
+        !this.form.name ||
+        !this.form.cvv ||
+        !this.form.zip ||
+        !this.form.expire
+          ? "incomplete_form"
+          : null;
+
+      return this.error === null;
+    },
+
     // --> EVENT LISTENERS <--
 
     /**
@@ -210,7 +274,9 @@ export default {
      * @return {undefined}
      */
     onContinueClick() {
-      this.$emit("submit", this.form);
+      if (this.assertFormValidity() === true) {
+        this.$emit("submit", this.form);
+      }
     }
   }
 };
@@ -224,10 +290,6 @@ export default {
 $c: ".c-partial-cloud-signup-form-fieldset-activate";
 
 #{$c} {
-  #{$c}__notice {
-    margin-bottom: 42px;
-  }
-
   #{$c}__part {
     #{$c}__title {
       padding-bottom: 10px;

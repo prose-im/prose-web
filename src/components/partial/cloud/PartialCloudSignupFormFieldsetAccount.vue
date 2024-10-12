@@ -10,6 +10,37 @@
 
 <template lang="pug">
 .c-partial-cloud-signup-form-fieldset-account
+  base-notice(
+    v-if="error"
+    :class="noticeClass"
+    color="red"
+    emphasis
+  )
+    template(
+      v-if="error === 'incomplete_form'"
+    )
+      | Please provide an email and a password to continue.
+
+    template(
+      v-else-if="error === 'account_exists'"
+    )
+      | An account already exists with this email.
+
+    template(
+      v-else-if="error === 'invalid_email'"
+    )
+      | Your email address looks invalid. Check for typos.
+
+    template(
+      v-else-if="error === 'invalid_password'"
+    )
+      | Your provided password could not be accepted. Try another one.
+
+    template(
+      v-else
+    )
+      | We could not create your account. Try again.
+
   div(
     :class=`[
       "c-partial-cloud-signup-form-fieldset-account__part",
@@ -120,6 +151,11 @@ export default {
     partClass: {
       type: String,
       required: true
+    },
+
+    noticeClass: {
+      type: String,
+      required: true
     }
   },
 
@@ -129,16 +165,32 @@ export default {
     return {
       // --> STATE <--
 
+      passwordLevel: 0,
+
+      error: null,
+
       form: {
         email: "",
         password: ""
-      },
-
-      passwordLevel: 0
+      }
     };
   },
 
   methods: {
+    // --> HELPERS <--
+
+    /**
+     * Asserts that form is valid
+     * @public
+     * @return {boolean} Form validity status
+     */
+    assertFormValidity() {
+      this.error =
+        !this.form.email || !this.form.password ? "incomplete_form" : null;
+
+      return this.error === null;
+    },
+
     // --> EVENT LISTENERS <--
 
     /**
@@ -166,7 +218,9 @@ export default {
      * @return {undefined}
      */
     onContinueClick() {
-      this.$emit("submit", this.form);
+      if (this.assertFormValidity() === true) {
+        this.$emit("submit", this.form);
+      }
     }
   }
 };

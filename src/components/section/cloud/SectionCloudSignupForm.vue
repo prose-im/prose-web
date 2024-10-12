@@ -28,6 +28,7 @@
             @submit="partial.submit"
             :is="partial.component"
             part-class="c-section-cloud-signup-form__fieldset-part"
+            notice-class="c-section-cloud-signup-form__fieldset-notice"
           )
 
   .c-section-cloud-signup-form__aside
@@ -211,6 +212,10 @@ $c: ".c-section-cloud-signup-form";
     &--wide {
       max-width: 520px;
       padding-top: 50px;
+    }
+
+    #{$c}__fieldset-notice {
+      margin-bottom: 42px;
     }
 
     #{$c}__fieldset-part {
