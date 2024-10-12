@@ -14,9 +14,11 @@ div(
     "c-base-notice",
     "c-base-notice--" + color,
     {
+      "c-base-notice--shaky": shaky,
       "u-medium": emphasis
     }
   ]`
+  :key="'notice_' + updateTime"
 )
   slot
 </template>
@@ -42,6 +44,16 @@ export default {
     emphasis: {
       type: Boolean,
       default: false
+    },
+
+    shaky: {
+      type: Boolean,
+      default: false
+    },
+
+    updateTime: {
+      type: Number,
+      default: 0
     }
   }
 };
@@ -53,6 +65,9 @@ export default {
 
 <style lang="scss">
 $c: ".c-base-notice";
+
+// VARIABLES
+$animate-shake-base-depth: 4px;
 
 #{$c} {
   background-color: transparent;
@@ -74,6 +89,39 @@ $c: ".c-base-notice";
   &--red {
     background-color: $color-base-red-light;
     border-color: rgba($color-base-red-mid, 0.4);
+  }
+
+  // --> BOOLEANS <--
+
+  &--shaky {
+    animation-name: c-page-entice-actions-shake;
+    animation-duration: 900ms;
+    animation-iteration-count: 1;
+  }
+}
+
+// --> KEYFRAMES <--
+
+@keyframes c-base-notice-shake {
+  10%,
+  90% {
+    transform: translate3d((-1 * $animate-shake-base-depth), 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d((2 * $animate-shake-base-depth), 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d((-4 * $animate-shake-base-depth), 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d((4 * $animate-shake-base-depth), 0, 0);
   }
 }
 </style>
