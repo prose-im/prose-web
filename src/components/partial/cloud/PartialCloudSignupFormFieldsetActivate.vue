@@ -42,6 +42,7 @@
       )
         form-field(
           v-model="form.number"
+          @keystroke="onFieldNumberKeystroke"
           name="activate_number"
           type="text"
           align="left"
@@ -51,7 +52,7 @@
           class="c-partial-cloud-signup-form-fieldset-activate__input c-partial-cloud-signup-form-fieldset-activate__input--card"
           autofocus
         )
-          span.c-partial-cloud-signup-form-fieldset-activate__input-preview.c-partial-cloud-signup-form-fieldset-activate__input-preview--mastercard
+          span.c-partial-cloud-signup-form-fieldset-activate__input-preview
             span.c-partial-cloud-signup-form-fieldset-activate__input-preview-brand(
               v-if="cardBrandImageHtml"
               v-html="cardBrandImageHtml"
@@ -149,6 +150,9 @@
      ********************************************************************** -->
 
 <script>
+// NPM
+import creditCardType from "credit-card-type";
+
 // PROJECT: IMAGES
 import ImageCardBrandMastercard from "@/assets/images/components/partial/cloud/PartialCloudSignupFormFieldsetActivate/card-brand-mastercard.svg?raw";
 
@@ -173,7 +177,7 @@ export default {
     return {
       // --> STATE <--
 
-      cardBrand: "mastercard",
+      cardBrand: "",
 
       form: {
         number: "",
@@ -193,6 +197,18 @@ export default {
 
   methods: {
     // --> EVENT LISTENERS <--
+
+    /**
+     * Handles number field keystroke
+     * @public
+     * @param  {string} value
+     * @return {undefined}
+     */
+    onFieldNumberKeystroke(value) {
+      const _cards = creditCardType(value);
+
+      this.cardBrand = _cards[0]?.type || "";
+    },
 
     /**
      * Handles continue click
