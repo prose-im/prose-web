@@ -20,6 +20,7 @@ div(
       "c-base-button--squared": squared,
       "c-base-button--reverse": reverse,
       "c-base-button--disabled": disabled,
+      "c-base-button--loading": loading,
       "c-base-button--flat": flat,
       ["c-base-button--" + rightIcon]: rightIcon
     }
@@ -41,8 +42,17 @@ div(
     )
       slot
 
-    .c-base-button__icon(
-      v-if="rightIconHtml"
+    base-spinner(
+      v-if="loading"
+      :color="iconSpinnerColor"
+      speed="slow"
+      size="11px"
+      border-width="1px"
+      class="c-base-button__icon c-base-button__icon--spinner"
+    )
+
+    .c-base-button__icon.c-base-button__icon--icon(
+      v-else-if="rightIconHtml"
       v-html="rightIconHtml"
     )
 </template>
@@ -113,6 +123,11 @@ export default {
       default: false
     },
 
+    loading: {
+      type: Boolean,
+      default: false
+    },
+
     flat: {
       type: Boolean,
       default: false
@@ -154,6 +169,22 @@ export default {
           return null;
         }
       }
+    },
+
+    iconSpinnerColor() {
+      const _prefix = this.reverse ? "reverse" : "normal";
+
+      switch (`${_prefix}/${this.tint}`) {
+        case "normal/none":
+        case "normal/light":
+        case "reverse/dark": {
+          return "blue";
+        }
+
+        default: {
+          return "white";
+        }
+      }
     }
   },
 
@@ -167,8 +198,8 @@ export default {
      * @return {undefined}
      */
     onClick(event) {
-      // Re-emit click event? (if not disabled)
-      if (this.disabled !== true) {
+      // Re-emit click event? (if not disabled or loading)
+      if (this.disabled !== true && this.loading !== true) {
         this.$emit("click", event);
       }
     }
@@ -219,9 +250,15 @@ $size-enormous-padding-sides: 32px;
       margin-right: -2px;
       flex: 0 1 auto;
 
-      svg {
-        width: auto;
-        height: 12px;
+      &--icon {
+        svg {
+          width: auto;
+          height: 12px;
+        }
+      }
+
+      &--spinner {
+        margin-bottom: -1px;
       }
     }
   }
@@ -493,7 +530,9 @@ $size-enormous-padding-sides: 32px;
   &--chevron-down {
     #{$c}__inner {
       #{$c}__icon {
-        margin-bottom: -4px;
+        &--icon {
+          margin-bottom: -4px;
+        }
       }
     }
   }
@@ -501,7 +540,9 @@ $size-enormous-padding-sides: 32px;
   &--arrow-down {
     #{$c}__inner {
       #{$c}__icon {
-        margin-bottom: -3px;
+        &--icon {
+          margin-bottom: -3px;
+        }
       }
     }
   }
@@ -594,13 +635,23 @@ $size-enormous-padding-sides: 32px;
     }
   }
 
+  &--disabled,
+  &--loading {
+    #{$c}__inner {
+      pointer-events: none;
+    }
+  }
+
   &--disabled {
     cursor: not-allowed;
 
     #{$c}__inner {
-      pointer-events: none;
       opacity: 0.6;
     }
+  }
+
+  &--loading {
+    cursor: wait;
   }
 }
 </style>
