@@ -53,9 +53,10 @@
           autofocus
         )
           span.c-partial-cloud-signup-form-fieldset-activate__input-preview
-            span.c-partial-cloud-signup-form-fieldset-activate__input-preview-brand(
-              v-if="cardBrandImageHtml"
-              v-html="cardBrandImageHtml"
+            base-payment-icon(
+              :provider="cardBrand"
+              height="21px"
+              class="c-partial-cloud-signup-form-fieldset-activate__input-preview-brand"
             )
 
     .c-partial-cloud-signup-form-fieldset-activate__nest.c-partial-cloud-signup-form-fieldset-activate__nest--name-and-cvv
@@ -153,13 +154,8 @@
 // NPM
 import creditCardType from "credit-card-type";
 
-// PROJECT: IMAGES
-import ImageCardBrandMastercard from "@/assets/images/components/partial/cloud/PartialCloudSignupFormFieldsetActivate/card-brand-mastercard.svg?raw";
-
 // CONSTANTS
-const CARD_BRAND_IMAGES = {
-  mastercard: ImageCardBrandMastercard
-};
+const CARD_NUMBER_TO_BRAND_LENGTH_MINIMUM = 4;
 
 export default {
   name: "PartialCloudSignupFormFieldsetActivate",
@@ -189,25 +185,23 @@ export default {
     };
   },
 
-  computed: {
-    cardBrandImageHtml() {
-      return CARD_BRAND_IMAGES[this.cardBrand] || null;
-    }
-  },
-
   methods: {
     // --> EVENT LISTENERS <--
 
     /**
      * Handles number field keystroke
      * @public
-     * @param  {string} value
+     * @param  {string} [value]
      * @return {undefined}
      */
-    onFieldNumberKeystroke(value) {
-      const _cards = creditCardType(value);
+    onFieldNumberKeystroke(value = "") {
+      if (value.length >= CARD_NUMBER_TO_BRAND_LENGTH_MINIMUM) {
+        const _cards = creditCardType(value);
 
-      this.cardBrand = _cards[0]?.type || "";
+        this.cardBrand = _cards[0]?.type || "";
+      } else {
+        this.cardBrand = "";
+      }
     },
 
     /**
@@ -290,6 +284,9 @@ $c: ".c-partial-cloud-signup-form-fieldset-activate";
           width: 40px;
           height: 30px;
           pointer-events: none;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           position: absolute;
           top: 50%;
           left: 14px;
@@ -297,14 +294,7 @@ $c: ".c-partial-cloud-signup-form-fieldset-activate";
           border-radius: 7px;
 
           #{$c}__input-preview-brand {
-            background-color: $color-black;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: absolute;
-            inset-inline: 3px;
-            inset-block: 4px;
-            border-radius: 3px;
+            flex: 0 0 auto;
           }
         }
       }
