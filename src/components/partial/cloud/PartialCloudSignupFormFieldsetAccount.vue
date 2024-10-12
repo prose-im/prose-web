@@ -58,6 +58,7 @@
     form-field(
       v-model="form.email"
       @submit="onFieldSubmit"
+      :loading="pending"
       name="account_email"
       type="email"
       align="left"
@@ -83,6 +84,7 @@
       v-model="form.password"
       @submit="onFieldSubmit"
       @keystroke="onFieldPasswordKeystroke"
+      :loading="pending"
       name="account_password"
       type="password"
       align="left"
@@ -131,6 +133,7 @@
   )
     base-button(
       @click="onContinueClick"
+      :loading="pending"
       size="enormous"
       tint="link"
       right-icon="arrow-right"
@@ -154,6 +157,11 @@ export default {
   name: "PartialCloudSignupFormFieldsetAccount",
 
   props: {
+    pending: {
+      type: Boolean,
+      required: true
+    },
+
     partClass: {
       type: String,
       required: true

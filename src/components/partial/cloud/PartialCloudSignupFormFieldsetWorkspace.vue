@@ -43,6 +43,7 @@
     form-field(
       v-model="form.name"
       @submit="onFieldSubmit"
+      :loading="pending"
       name="workspace_name"
       type="text"
       align="left"
@@ -68,6 +69,7 @@
       v-model="form.website"
       @submit="onFieldSubmit"
       :disabled="form.noWebsite"
+      :loading="pending"
       name="workspace_website"
       type="url"
       align="left"
@@ -85,6 +87,7 @@
       )
         form-toggle(
           v-model="form.noWebsite"
+          :loading="pending"
           name="no_workspace_website"
         )
 
@@ -97,6 +100,7 @@
   )
     base-button(
       @click="onContinueClick"
+      :loading="pending"
       size="enormous"
       tint="link"
       right-icon="arrow-right"
@@ -113,6 +117,11 @@ export default {
   name: "PartialCloudSignupFormFieldsetWorkspace",
 
   props: {
+    pending: {
+      type: Boolean,
+      required: true
+    },
+
     partClass: {
       type: String,
       required: true

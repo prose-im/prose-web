@@ -27,6 +27,7 @@
             v-if="stage === (index + 1)"
             @submit="partial.submit"
             :is="partial.component"
+            :pending="pending"
             part-class="c-section-cloud-signup-form__fieldset-part"
             notice-class="c-section-cloud-signup-form__fieldset-notice"
           )
@@ -57,6 +58,8 @@ import PartialCloudSignupFormFieldsetActivate from "@/components/partial/cloud/P
 // CONSTANTS
 const STEP_FEATURES = ["history", "integration", "share"];
 
+const SUBMIT_DELAY = 1000; // TODO: this is a mock
+
 export default {
   name: "SectionCloudSignupForm",
 
@@ -71,6 +74,10 @@ export default {
 
   data() {
     return {
+      // --> STATE <--
+
+      pending: false,
+
       // --> DATA <--
 
       fieldsetPartials: [
@@ -106,6 +113,26 @@ export default {
     // --> HELPERS <--
 
     /**
+     * Submits form
+     * @public
+     * @param  {function} fnProceed
+     * @return {undefined}
+     */
+    async submit(fnProceed) {
+      if (this.pending !== true) {
+        this.pending = true;
+
+        // Submit form data
+        await fnProceed();
+
+        // Continue to next step
+        this.continue();
+
+        this.pending = false;
+      }
+    },
+
+    /**
      * Continues to next stage
      * @public
      * @return {undefined}
@@ -123,9 +150,12 @@ export default {
      * @return {undefined}
      */
     onWorkspaceSubmit(_form) {
-      // TODO: submit form data
-
-      this.continue();
+      this.submit(() => {
+        // TODO: remove this mock and populate
+        return new Promise(resolve => {
+          setTimeout(resolve, SUBMIT_DELAY);
+        });
+      });
     },
 
     /**
@@ -135,9 +165,12 @@ export default {
      * @return {undefined}
      */
     onAccountSubmit(_form) {
-      // TODO: submit form data
-
-      this.continue();
+      this.submit(() => {
+        // TODO: remove this mock and populate
+        return new Promise(resolve => {
+          setTimeout(resolve, SUBMIT_DELAY);
+        });
+      });
     },
 
     /**
@@ -147,9 +180,12 @@ export default {
      * @return {undefined}
      */
     onActivateSubmit(_form) {
-      // TODO: submit form data
-
-      this.continue();
+      this.submit(() => {
+        // TODO: remove this mock and populate
+        return new Promise(resolve => {
+          setTimeout(resolve, SUBMIT_DELAY);
+        });
+      });
     }
   }
 };

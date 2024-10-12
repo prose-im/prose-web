@@ -83,6 +83,7 @@
           v-model="form.number"
           @submit="onFieldSubmit"
           @keystroke="onFieldNumberKeystroke"
+          :loading="pending"
           name="activate_number"
           type="text"
           align="left"
@@ -108,6 +109,7 @@
         form-field(
           v-model="form.name"
           @submit="onFieldSubmit"
+          :loading="pending"
           name="activate_name"
           type="text"
           align="left"
@@ -123,6 +125,7 @@
         form-field(
           v-model="form.cvv"
           @submit="onFieldSubmit"
+          :loading="pending"
           name="activate_cvv"
           type="text"
           align="left"
@@ -140,6 +143,7 @@
         form-field(
           v-model="form.zip"
           @submit="onFieldSubmit"
+          :loading="pending"
           name="activate_zip"
           type="text"
           align="left"
@@ -155,6 +159,7 @@
         form-field(
           v-model="form.expire"
           @submit="onFieldSubmit"
+          :loading="pending"
           name="activate_expire"
           type="text"
           align="left"
@@ -188,6 +193,7 @@
   )
     base-button(
       @click="onContinueClick"
+      :loading="pending"
       size="enormous"
       tint="link"
       right-icon="arrow-right"
@@ -210,6 +216,11 @@ export default {
   name: "PartialCloudSignupFormFieldsetActivate",
 
   props: {
+    pending: {
+      type: Boolean,
+      required: true
+    },
+
     partClass: {
       type: String,
       required: true
