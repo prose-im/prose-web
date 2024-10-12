@@ -11,9 +11,10 @@
 <template lang="pug">
 span(
   :style="iconStyle"
+  :key="'card_' + providerName"
   :class=`[
     "c-base-payment-icon",
-    "c-base-payment-icon--" + provider
+    "c-base-payment-icon--" + providerName
   ]`
 )
 </template>
@@ -47,6 +48,10 @@ export default {
   },
 
   computed: {
+    providerName() {
+      return this.provider || "generic";
+    },
+
     heightNumber() {
       return parseInt(this.height.replace("px", ""));
     },
@@ -114,7 +119,20 @@ $providers: (
   @each $provider in $providers {
     &--#{$provider} {
       background-image: url("@/assets/images/components/base/BasePaymentIcon/#{$provider}.svg");
+      animation: 0.5s c-base-payment-icon-flip linear both;
     }
+  }
+}
+
+// --> KEYFRAMES <--
+
+@keyframes c-base-payment-icon-flip {
+  from {
+    transform: rotateY(180deg);
+  }
+
+  to {
+    transform: rotateY(0deg);
   }
 }
 </style>
