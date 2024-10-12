@@ -9,7 +9,15 @@
      ********************************************************************** -->
 
 <template lang="pug">
-.c-base-notice
+div(
+  :class=`[
+    "c-base-notice",
+    "c-base-notice--" + color,
+    {
+      "u-medium": emphasis
+    }
+  ]`
+)
   slot
 </template>
 
@@ -19,7 +27,23 @@
 
 <script>
 export default {
-  name: "BaseNotice"
+  name: "BaseNotice",
+
+  props: {
+    color: {
+      type: String,
+      default: "yellow",
+
+      validator(x) {
+        return ["yellow", "red"].includes(x);
+      }
+    },
+
+    emphasis: {
+      type: Boolean,
+      default: false
+    }
+  }
 };
 </script>
 
@@ -31,13 +55,25 @@ export default {
 $c: ".c-base-notice";
 
 #{$c} {
-  background-color: $color-base-yellow-light;
-  border: 1px solid $color-base-yellow-mid;
+  background-color: transparent;
+  border: 1px solid $color-base-grey-light;
   color: $color-base-black-mid;
   font-size: 13.5px;
   line-height: 21px;
   letter-spacing: 0.1px;
   padding: 9px 22px;
   border-radius: 8px;
+
+  // --> COLORS <--
+
+  &--yellow {
+    background-color: $color-base-yellow-light;
+    border-color: $color-base-yellow-mid;
+  }
+
+  &--red {
+    background-color: $color-base-red-light;
+    border-color: rgba($color-base-red-mid, 0.4);
+  }
 }
 </style>
