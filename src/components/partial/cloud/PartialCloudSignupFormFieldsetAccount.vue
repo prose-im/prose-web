@@ -46,6 +46,7 @@
 
     form-field(
       v-model="form.password"
+      @keystroke="onFieldPasswordKeystroke"
       name="account_password"
       type="password"
       align="left"
@@ -54,7 +55,7 @@
     )
 
     base-security-level(
-      :level="0"
+      :level="passwordLevel"
     )
       template(
         v-slot:bad
@@ -74,7 +75,15 @@
       template(
         v-slot:default
       )
-        | Please enter a password.
+        template(
+          v-if="form.password"
+        )
+          | Your password is not long enough.
+
+        template(
+          v-else
+        )
+          | Please enter a password.
 
   div(
     :class=`[
@@ -97,6 +106,13 @@
      ********************************************************************** -->
 
 <script>
+// NPM
+import { passwordStrength } from "check-password-strength";
+
+// CONSTANTS
+const PASSWORD_LENGTH_MINIMUM = 6;
+const PASSWORD_STRENGTH_MAXIMUM = 4;
+
 export default {
   name: "PartialCloudSignupFormFieldsetAccount",
 
@@ -116,12 +132,33 @@ export default {
       form: {
         email: "",
         password: ""
-      }
+      },
+
+      passwordLevel: 0
     };
   },
 
   methods: {
     // --> EVENT LISTENERS <--
+
+    /**
+     * Handles password field keystroke
+     * @public
+     * @param  {string} value
+     * @return {undefined}
+     */
+    onFieldPasswordKeystroke(value) {
+      if (value.length >= PASSWORD_LENGTH_MINIMUM) {
+        const _strength = passwordStrength(value);
+
+        this.passwordLevel = Math.min(
+          _strength.contains.length,
+          PASSWORD_STRENGTH_MAXIMUM
+        );
+      } else {
+        this.passwordLevel = 0;
+      }
+    },
 
     /**
      * Handles continue click
