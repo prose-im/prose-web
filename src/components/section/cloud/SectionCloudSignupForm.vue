@@ -235,6 +235,24 @@ $c: ".c-section-cloud-signup-form";
   }
 }
 
+// --> MEDIA-QUERIES <--
+
+@media (max-width: $screen-small-width-breakpoint) {
+  #{$c} {
+    #{$c}__inner {
+      justify-content: center;
+    }
+
+    #{$c}__wrapper {
+      max-width: 100%;
+    }
+
+    #{$c}__aside {
+      display: none;
+    }
+  }
+}
+
 // --> KEYFRAMES <--
 
 @keyframes c-section-cloud-signup-form-feature-reveal {
