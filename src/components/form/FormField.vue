@@ -382,21 +382,27 @@ $field-mid-large-input-line-height: 48px;
 
   // --> BOOLEANS <--
 
+  &--disabled,
+  &--loading {
+    #{$c}__inner {
+      pointer-events: none;
+    }
+  }
+
   &--disabled {
     cursor: not-allowed;
 
-    &#{$c}--loading {
-      cursor: wait;
-    }
-
     #{$c}__inner {
       color: $color-base-grey-mid;
-      pointer-events: none;
 
       &::placeholder {
         color: rgba($color-base-grey-mid, 0.5);
       }
     }
+  }
+
+  &--loading {
+    cursor: wait;
   }
 
   &--focused {

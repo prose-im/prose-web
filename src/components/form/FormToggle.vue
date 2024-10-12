@@ -23,6 +23,7 @@ div(
     :name="name"
     :id="name"
     :checked="checked"
+    :disabled="disabled || loading"
     class="c-form-toggle__input"
     type="checkbox"
     ref="input"
@@ -207,16 +208,19 @@ $toggle-field-height: ($toggle-height - (2 * $toggle-handle-offset));
 
   // --> BOOLEANS <--
 
-  &--disabled {
-    cursor: not-allowed;
-
-    &#{$c}--loading {
-      cursor: wait;
-    }
-
+  &--disabled,
+  &--loading {
     #{$c}__field {
       pointer-events: none;
     }
+  }
+
+  &--disabled {
+    cursor: not-allowed;
+  }
+
+  &--loading {
+    cursor: wait;
   }
 }
 </style>
