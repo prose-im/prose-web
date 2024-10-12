@@ -11,13 +11,15 @@
 <template lang="pug">
 .c-partial-cloud-signup-form-fieldset-workspace
   base-notice(
-    v-if="error"
+    v-if="error.code"
     :class="noticeClass"
+    :update-time="error.time"
     color="red"
     emphasis
+    shaky
   )
     template(
-      v-if="error === 'incomplete_form'"
+      v-if="error.code === 'incomplete_form'"
     )
       | We are missing some information, could you check?
 
@@ -40,12 +42,14 @@
 
     form-field(
       v-model="form.name"
+      @submit="onFieldSubmit"
       name="workspace_name"
       type="text"
       align="left"
       size="mid-large"
       placeholder="Enter name for your workspace…  (eg. Tesla)"
       autofocus
+      submittable
     )
 
   div(
@@ -62,12 +66,14 @@
 
     form-field(
       v-model="form.website"
+      @submit="onFieldSubmit"
       :disabled="form.noWebsite"
       name="workspace_website"
       type="url"
       align="left"
       size="mid-large"
       placeholder="Enter your website URL…  (eg. www.tesla.com)"
+      submittable
     )
 
     form-fieldset-field(
@@ -124,7 +130,10 @@ export default {
     return {
       // --> STATE <--
 
-      error: null,
+      error: {
+        code: null,
+        time: 0
+      },
 
       form: {
         name: "",
@@ -143,15 +152,27 @@ export default {
      * @return {boolean} Form validity status
      */
     assertFormValidity() {
-      this.error =
+      this.error.code =
         !this.form.name || (!this.form.website && this.form.noWebsite !== true)
           ? "incomplete_form"
           : null;
 
-      return this.error === null;
+      this.error.time = this.error.code ? Date.now() : 0;
+
+      return this.error.code === null;
     },
 
     // --> EVENT LISTENERS <--
+
+    /**
+     * Handles field submit
+     * @public
+     * @return {undefined}
+     */
+    onFieldSubmit() {
+      // Trigger a continue event
+      this.onContinueClick();
+    },
 
     /**
      * Handles continue click

@@ -11,33 +11,35 @@
 <template lang="pug">
 .c-partial-cloud-signup-form-fieldset-activate
   base-notice(
-    v-if="error"
+    v-if="error.code"
     :class="noticeClass"
+    :update-time="error.time"
     color="red"
     emphasis
+    shaky
   )
     template(
-      v-if="error === 'incomplete_form'"
+      v-if="error.code === 'incomplete_form'"
     )
       | Please fill all fields with your payment method details.
 
     template(
-      v-else-if="error === 'invalid_card_number'"
+      v-else-if="error.code === 'invalid_card_number'"
     )
       | Oops, your card number is invalid. Check for typos.
 
     template(
-      v-else-if="error === 'invalid_card_cvv'"
+      v-else-if="error.code === 'invalid_card_cvv'"
     )
       | Oops, your card security code is invalid. Enter it again.
 
     template(
-      v-else-if="error === 'invalid_card_zip'"
+      v-else-if="error.code === 'invalid_card_zip'"
     )
       | The postal code do not match your card's. It could be a different ZIP.
 
     template(
-      v-else-if="error === 'invalid_card_expire'"
+      v-else-if="error.code === 'invalid_card_expire'"
     )
       | The expire date is wrong. Make sure you entered it as MM/YY.
 
@@ -79,6 +81,7 @@
       )
         form-field(
           v-model="form.number"
+          @submit="onFieldSubmit"
           @keystroke="onFieldNumberKeystroke"
           name="activate_number"
           type="text"
@@ -88,6 +91,7 @@
           inner-class="c-partial-cloud-signup-form-fieldset-activate__input-inner"
           class="c-partial-cloud-signup-form-fieldset-activate__input c-partial-cloud-signup-form-fieldset-activate__input--card"
           autofocus
+          submittable
         )
           span.c-partial-cloud-signup-form-fieldset-activate__input-preview
             base-payment-icon(
@@ -103,11 +107,13 @@
       )
         form-field(
           v-model="form.name"
+          @submit="onFieldSubmit"
           name="activate_name"
           type="text"
           align="left"
           size="mid-large"
           placeholder="Enter your name…"
+          submittable
         )
 
       form-labelled-field(
@@ -116,12 +122,14 @@
       )
         form-field(
           v-model="form.cvv"
+          @submit="onFieldSubmit"
           name="activate_cvv"
           type="text"
           align="left"
           size="mid-large"
           placeholder="CVV"
           pattern="[0-9]{3,4}"
+          submittable
         )
 
     .c-partial-cloud-signup-form-fieldset-activate__nest.c-partial-cloud-signup-form-fieldset-activate__nest--zip-and-expire
@@ -131,11 +139,13 @@
       )
         form-field(
           v-model="form.zip"
+          @submit="onFieldSubmit"
           name="activate_zip"
           type="text"
           align="left"
           size="mid-large"
           placeholder="ZIP / Postcode"
+          submittable
         )
 
       form-labelled-field(
@@ -144,12 +154,14 @@
       )
         form-field(
           v-model="form.expire"
+          @submit="onFieldSubmit"
           name="activate_expire"
           type="text"
           align="left"
           size="mid-large"
           placeholder="MM/YY"
           pattern="((0[1-9])|(1[0-2]))\/([0-9]{2})"
+          submittable
         )
 
   div(
@@ -217,7 +229,10 @@ export default {
 
       cardBrand: "",
 
-      error: null,
+      error: {
+        code: null,
+        time: 0
+      },
 
       form: {
         number: "",
@@ -238,7 +253,7 @@ export default {
      * @return {boolean} Form validity status
      */
     assertFormValidity() {
-      this.error =
+      this.error.code =
         !this.form.number ||
         !this.form.name ||
         !this.form.cvv ||
@@ -247,7 +262,9 @@ export default {
           ? "incomplete_form"
           : null;
 
-      return this.error === null;
+      this.error.time = this.error.code ? Date.now() : 0;
+
+      return this.error.code === null;
     },
 
     // --> EVENT LISTENERS <--
@@ -266,6 +283,16 @@ export default {
       } else {
         this.cardBrand = "";
       }
+    },
+
+    /**
+     * Handles field submit
+     * @public
+     * @return {undefined}
+     */
+    onFieldSubmit() {
+      // Trigger a continue event
+      this.onContinueClick();
     },
 
     /**

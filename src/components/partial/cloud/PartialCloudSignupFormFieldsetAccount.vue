@@ -11,28 +11,30 @@
 <template lang="pug">
 .c-partial-cloud-signup-form-fieldset-account
   base-notice(
-    v-if="error"
+    v-if="error.code"
     :class="noticeClass"
+    :update-time="error.time"
     color="red"
     emphasis
+    shaky
   )
     template(
-      v-if="error === 'incomplete_form'"
+      v-if="error.code === 'incomplete_form'"
     )
       | Please provide an email and a password to continue.
 
     template(
-      v-else-if="error === 'account_exists'"
+      v-else-if="error.code === 'account_exists'"
     )
       | An account already exists with this email.
 
     template(
-      v-else-if="error === 'invalid_email'"
+      v-else-if="error.code === 'invalid_email'"
     )
       | Your email address looks invalid. Check for typos.
 
     template(
-      v-else-if="error === 'invalid_password'"
+      v-else-if="error.code === 'invalid_password'"
     )
       | Your provided password could not be accepted. Try another one.
 
@@ -55,12 +57,14 @@
 
     form-field(
       v-model="form.email"
+      @submit="onFieldSubmit"
       name="account_email"
       type="email"
       align="left"
       size="mid-large"
       placeholder="Enter your work email…  (eg. elon@tesla.com)"
       autofocus
+      submittable
     )
 
   div(
@@ -77,12 +81,14 @@
 
     form-field(
       v-model="form.password"
+      @submit="onFieldSubmit"
       @keystroke="onFieldPasswordKeystroke"
       name="account_password"
       type="password"
       align="left"
       size="mid-large"
       placeholder="Enter a password…"
+      submittable
     )
 
     base-security-level(
@@ -167,7 +173,10 @@ export default {
 
       passwordLevel: 0,
 
-      error: null,
+      error: {
+        code: null,
+        time: 0
+      },
 
       form: {
         email: "",
@@ -185,10 +194,12 @@ export default {
      * @return {boolean} Form validity status
      */
     assertFormValidity() {
-      this.error =
+      this.error.code =
         !this.form.email || !this.form.password ? "incomplete_form" : null;
 
-      return this.error === null;
+      this.error.time = this.error.code ? Date.now() : 0;
+
+      return this.error.code === null;
     },
 
     // --> EVENT LISTENERS <--
@@ -210,6 +221,16 @@ export default {
       } else {
         this.passwordLevel = 0;
       }
+    },
+
+    /**
+     * Handles field submit
+     * @public
+     * @return {undefined}
+     */
+    onFieldSubmit() {
+      // Trigger a continue event
+      this.onContinueClick();
     },
 
     /**
