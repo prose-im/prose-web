@@ -80,16 +80,28 @@ div(
                   )
 
           .c-page-header__right
-            nuxt-link(
-              class="c-page-header__action"
-              to="/cloud/signup/"
-            )
-              base-button(
-                class="c-page-header__action-button"
-                right-icon="arrow-right"
-                tint="fancy"
+            .c-page-header__actions
+              nuxt-link(
+                class="c-page-header__action"
+                to="/cloud/signin/"
               )
-                | Create your Server
+                base-button(
+                  class="c-page-header__action-button"
+                  size="simple"
+                  tint="none"
+                )
+                  | Log In
+
+              nuxt-link(
+                class="c-page-header__action"
+                to="/cloud/signup/"
+              )
+                base-button(
+                  class="c-page-header__action-button"
+                  right-icon="arrow-right"
+                  tint="fancy"
+                )
+                  | Create your Server
 
             .c-page-header__mobile-toggle
               page-header-menu-toggle(
@@ -147,16 +159,28 @@ div(
                       span.c-page-header__disclosure-panel-title.u-medium
                         | {{ dropdownItem.title }}
 
-        nuxt-link(
-          class="c-page-header__action"
-          to="/cloud/signup/"
-        )
-          base-button(
-            class="c-page-header__action-button"
-            right-icon="arrow-right"
-            tint="fancy"
+        .c-page-header__actions
+          nuxt-link(
+            class="c-page-header__action"
+            to="/cloud/signin/"
           )
-            | Create your Server
+            base-button(
+              class="c-page-header__action-button"
+              size="simple"
+              tint="none"
+            )
+              | Log In
+
+          nuxt-link(
+            class="c-page-header__action"
+            to="/cloud/signup/"
+          )
+            base-button(
+              class="c-page-header__action-button"
+              right-icon="arrow-right"
+              tint="fancy"
+            )
+              | Create your Server
 
   .c-page-header__ghost(
     v-if="!embedded"
@@ -327,7 +351,7 @@ $c: ".c-page-header";
 // VARIABLES
 $icon-width: 18px;
 
-$inner-width-maximum: 740px;
+$inner-width-maximum: 800px;
 
 $hover-transition-duration: 150ms;
 
@@ -451,6 +475,12 @@ $hover-transition-duration: 150ms;
 
   #{$c}__logo {
     margin-top: 3px;
+  }
+
+  #{$c}__actions {
+    display: flex;
+    align-items: center;
+    column-gap: 16px;
   }
 
   #{$c}__menu {
@@ -586,10 +616,6 @@ $hover-transition-duration: 150ms;
         }
       }
     }
-
-    #{$c}__action {
-      display: inline-block;
-    }
   }
 
   #{$c}__disclosure-panel-icon {
@@ -648,7 +674,7 @@ $hover-transition-duration: 150ms;
     }
 
     #{$c}__right {
-      #{$c}__action {
+      #{$c}__actions {
         display: none;
       }
 
