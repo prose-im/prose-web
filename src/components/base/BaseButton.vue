@@ -66,6 +66,7 @@ div(
 import ImageIconArrowRight from "@/assets/images/components/base/BaseButton/icon-arrow-right.svg?raw";
 import ImageIconArrowDown from "@/assets/images/components/base/BaseButton/icon-arrow-down.svg?raw";
 import ImageIconChevronDown from "@/assets/images/components/base/BaseButton/icon-chevron-down.svg?raw";
+import ImageIconOpenExternal from "@/assets/images/components/base/BaseButton/icon-open-external.svg?raw";
 
 export default {
   name: "BaseButton",
@@ -143,7 +144,12 @@ export default {
       default: null,
 
       validator(x) {
-        return ["arrow-right", "arrow-down", "chevron-down"].includes(x);
+        return [
+          "arrow-right",
+          "arrow-down",
+          "chevron-down",
+          "open-external"
+        ].includes(x);
       }
     }
   },
@@ -163,6 +169,10 @@ export default {
 
         case "chevron-down": {
           return ImageIconChevronDown;
+        }
+
+        case "open-external": {
+          return ImageIconOpenExternal;
         }
 
         default: {
@@ -537,7 +547,8 @@ $size-enormous-padding-sides: 32px;
     }
   }
 
-  &--arrow-down {
+  &--arrow-down,
+  &--open-external {
     #{$c}__inner {
       #{$c}__icon {
         &--icon {
