@@ -28,18 +28,13 @@
     )
       | We could not continue with your information. Try again.
 
-  div(
+  form-titled-field(
     :class=`[
       "c-partial-cloud-signup-form-fieldset-workspace__part",
       partClass
     ]`
+    title="What’s your company name?"
   )
-    base-title(
-      level="lilliput"
-      tint="black"
-    )
-      | What’s your company name?
-
     form-field(
       v-model="form.name"
       @submit="onFieldSubmit"
@@ -53,18 +48,13 @@
       submittable
     )
 
-  div(
+  form-titled-field(
     :class=`[
       "c-partial-cloud-signup-form-fieldset-workspace__part",
       partClass
     ]`
+    title="Do you have a website?"
   )
-    base-title(
-      level="lilliput"
-      tint="black"
-    )
-      | Do you have a website?
-
     form-field(
       v-model="form.website"
       @submit="onFieldSubmit"

@@ -43,18 +43,13 @@
     )
       | We could not create your account. Try again.
 
-  div(
+  form-titled-field(
     :class=`[
       "c-partial-cloud-signup-form-fieldset-account__part",
       partClass
     ]`
+    title="What’s your work email?"
   )
-    base-title(
-      level="lilliput"
-      tint="black"
-    )
-      | What’s your work email?
-
     form-field(
       v-model="form.email"
       @submit="onFieldSubmit"
@@ -68,18 +63,13 @@
       submittable
     )
 
-  div(
+  form-titled-field(
     :class=`[
       "c-partial-cloud-signup-form-fieldset-account__part",
       partClass
     ]`
+    title="Choose a strong password!"
   )
-    base-title(
-      level="lilliput"
-      tint="black"
-    )
-      | Choose a strong password!
-
     form-field(
       v-model="form.password"
       @submit="onFieldSubmit"

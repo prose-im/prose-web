@@ -257,14 +257,6 @@ $c: ".c-section-cloud-signup-form";
     #{$c}__fieldset-part {
       margin-bottom: 48px;
 
-      > * {
-        margin-bottom: 18px;
-
-        &:last-child {
-          margin-bottom: 0;
-        }
-      }
-
       &:last-child {
         margin-bottom: 0;
       }

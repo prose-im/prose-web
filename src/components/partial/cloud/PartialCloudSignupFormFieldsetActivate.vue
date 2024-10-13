@@ -61,19 +61,13 @@
 
     | . We need this in order to prevent abuse.
 
-  div(
+  form-titled-field(
     :class=`[
       "c-partial-cloud-signup-form-fieldset-activate__part",
       partClass
     ]`
+    title="Credit card details"
   )
-    base-title(
-      level="lilliput"
-      tint="black"
-      class="c-partial-cloud-signup-form-fieldset-activate__title"
-    )
-      | Credit card details
-
     .c-partial-cloud-signup-form-fieldset-activate__nest.c-partial-cloud-signup-form-fieldset-activate__nest--number
       form-labelled-field(
         name="activate_number"
