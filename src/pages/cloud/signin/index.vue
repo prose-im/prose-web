@@ -9,7 +9,7 @@
      ********************************************************************** -->
 
 <template lang="pug">
-.p-cloud-signin
+.p-cloud-signin-index
   section-cloud-signin-authenticate
 </template>
 
@@ -35,6 +35,6 @@ useHead({
 
 <script>
 export default {
-  name: "CloudSigninPage"
+  name: "CloudSigninIndexPage"
 };
 </script>
