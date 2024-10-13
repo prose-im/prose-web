@@ -9,39 +9,18 @@
      ********************************************************************** -->
 
 <template lang="pug">
-.p-cloud-account-settings
-  section-cloud-account-content(
-    title="Your account settings"
-    class="p-cloud-account-settings__content"
-  )
-    section-cloud-account-settings-form(
-      class="p-cloud-account-settings__form"
-    )
+.c-section-cloud-account-settings-form
+  page-wrapper
+    | TODO: settings form
 </template>
 
 <!-- **********************************************************************
      SCRIPT
      ********************************************************************** -->
 
-<script setup>
-definePageMeta({
-  layout: "embedding"
-});
-
-// Disable indexing of page
-defineRouteRules({
-  robots: false
-});
-
-// Set page title
-useHead({
-  title: "Your Prose account settings"
-});
-</script>
-
 <script>
 export default {
-  name: "CloudAccountSettingsPage"
+  name: "SectionCloudAccountSettingsForm"
 };
 </script>
 
@@ -50,14 +29,9 @@ export default {
      ********************************************************************** -->
 
 <style lang="scss">
-$c: ".p-cloud-account-settings";
+$c: ".c-section-cloud-account-settings-form";
 
 #{$c} {
-  display: flex;
-  flex-direction: column;
-
-  #{$c}__content {
-    flex: 1;
-  }
+  /* TODO */
 }
 </style>

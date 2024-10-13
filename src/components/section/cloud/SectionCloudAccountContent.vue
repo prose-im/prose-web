@@ -29,8 +29,11 @@
           | {{ titleEmoji }}
 
   .c-section-cloud-account-content__form
-    page-wrapper
-      slot
+    slot
+
+  slot(
+    name="outer"
+  )
 </template>
 
 <!-- **********************************************************************
@@ -65,6 +68,7 @@ $c: ".c-section-cloud-account-content";
 #{$c} {
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 
   #{$c}__title {
     flex: 0 0 auto;
@@ -81,6 +85,9 @@ $c: ".c-section-cloud-account-content";
     background-color: rgba($color-background-secondary, 0.5);
     border-top: 1px solid $color-border-tertiary;
     margin-top: $section-form-margin-top;
+    padding-top: 52px;
+    padding-bottom: 80px;
+    overflow: auto;
     flex: 1;
   }
 }
