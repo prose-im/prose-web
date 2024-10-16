@@ -71,10 +71,6 @@ $c: ".p-cloud-account-workspaces";
     flex: 1;
   }
 
-  #{$c}__picker {
-    /* TODO */
-  }
-
   #{$c}__navigator {
     position: absolute;
     left: 0;

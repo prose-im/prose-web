@@ -88,12 +88,11 @@
           autofocus
           submittable
         )
-          span.c-partial-cloud-signup-form-fieldset-activate__input-preview
-            base-payment-icon(
-              :provider="cardBrand"
-              height="21px"
-              class="c-partial-cloud-signup-form-fieldset-activate__input-preview-brand"
-            )
+          base-payment-preview(
+            :provider="cardBrand"
+            class="c-partial-cloud-signup-form-fieldset-activate__input-preview"
+            animated
+          )
 
     .c-partial-cloud-signup-form-fieldset-activate__nest.c-partial-cloud-signup-form-fieldset-activate__nest--name-and-cvv
       form-labelled-field(
@@ -373,23 +372,10 @@ $c: ".c-partial-cloud-signup-form-fieldset-activate";
         }
 
         #{$c}__input-preview {
-          background: $color-white;
-          border: 1px solid $color-border-secondary;
-          width: 40px;
-          height: 30px;
-          pointer-events: none;
-          display: flex;
-          align-items: center;
-          justify-content: center;
           position: absolute;
           top: 50%;
           left: 14px;
           transform: translateY(-50%);
-          border-radius: 7px;
-
-          #{$c}__input-preview-brand {
-            flex: 0 0 auto;
-          }
         }
       }
     }
