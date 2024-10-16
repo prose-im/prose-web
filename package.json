@@ -30,6 +30,10 @@
   },
   "dependencies": {
     "vue": "3.5.11",
+    "vue-confetti": "2.3.0",
+    "keycode": "2.2.1",
+    "check-password-strength": "2.0.10",
+    "credit-card-type": "10.0.1",
     "crisp-sdk-web": "1.0.25"
   },
   "devDependencies": {

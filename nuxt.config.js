@@ -304,5 +304,10 @@ export default defineNuxtConfig({
   // Dev Tools Configuration
   devtools: {
     enabled: true
+  },
+
+  // Experimental Configuration
+  experimental: {
+    inlineRouteRules: true
   }
 });

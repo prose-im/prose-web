@@ -227,7 +227,8 @@ $inner-padding-top-base: 74px;
 
       #{$c}__illustration-inner {
         background-image: url("@/assets/images/components/section/home/SectionHomeMain/illustration-identity.svg");
-        animation: 1s scale 0.7s ease-in-out forwards;
+        animation: 1s c-section-home-main-illustration-scale 0.7s ease-in-out
+          forwards;
         transform: scale(0);
       }
     }
@@ -242,7 +243,8 @@ $inner-padding-top-base: 74px;
 
       #{$c}__illustration-inner {
         background-image: url("@/assets/images/components/section/home/SectionHomeMain/illustration-attachment-blue.svg");
-        animation: 1s scale 0.6s ease-in-out forwards;
+        animation: 1s c-section-home-main-illustration-scale 0.6s ease-in-out
+          forwards;
         transform: scale(0);
       }
     }
@@ -259,7 +261,8 @@ $inner-padding-top-base: 74px;
         width: 100%;
         height: 100%;
         background-image: url("@/assets/images/components/section/home/SectionHomeMain/illustration-attachment-purple.svg");
-        animation: 1s scale ease-in-out forwards;
+        animation: 1s c-section-home-main-illustration-scale ease-in-out
+          forwards;
         transform: scale(0);
       }
     }
@@ -274,7 +277,8 @@ $inner-padding-top-base: 74px;
 
       #{$c}__illustration-inner {
         background-image: url("@/assets/images/components/section/home/SectionHomeMain/illustration-lewis.svg");
-        animation: 1s scale 0.9s ease-in-out forwards;
+        animation: 1s c-section-home-main-illustration-scale 0.9s ease-in-out
+          forwards;
         transform: scale(0);
       }
     }
@@ -290,7 +294,8 @@ $inner-padding-top-base: 74px;
 
       #{$c}__illustration-inner {
         background-image: url("@/assets/images/components/section/home/SectionHomeMain/illustration-julia.webp");
-        animation: 1s scale 0.3s ease-in-out forwards;
+        animation: 1s c-section-home-main-illustration-scale 0.3s ease-in-out
+          forwards;
         transform: scale(0);
       }
     }
@@ -305,7 +310,8 @@ $inner-padding-top-base: 74px;
 
       #{$c}__illustration-inner {
         background-image: url("@/assets/images/components/section/home/SectionHomeMain/illustration-liz.webp");
-        animation: 1s scale 0.1s ease-in-out forwards;
+        animation: 1s c-section-home-main-illustration-scale 0.1s ease-in-out
+          forwards;
         transform: scale(0);
       }
     }
@@ -322,7 +328,8 @@ $inner-padding-top-base: 74px;
 
       #{$c}__illustration-inner {
         background-image: url("@/assets/images/components/section/home/SectionHomeMain/illustration-message.svg");
-        animation: 1s scale 0.5s ease-in-out forwards;
+        animation: 1s c-section-home-main-illustration-scale 0.5s ease-in-out
+          forwards;
         transform: scale(0);
       }
     }
@@ -379,7 +386,7 @@ $inner-padding-top-base: 74px;
 
 // --> KEYFRAMES <--
 
-@keyframes scale {
+@keyframes c-section-home-main-illustration-scale {
   0% {
     transform: scale(0);
   }

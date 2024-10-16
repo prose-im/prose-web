@@ -102,7 +102,7 @@ $c: ".c-base-sine";
         stroke-dasharray: 2400;
         stroke-dashoffset: 2400;
         pointer-events: none;
-        animation: revealSine 1.5s ease-out forwards;
+        animation: c-base-sine-path-reveal 1.5s ease-out forwards;
       }
     }
   }
@@ -155,7 +155,7 @@ $c: ".c-base-sine";
 
 // --> KEYFRAMES <--
 
-@keyframes revealSine {
+@keyframes c-base-sine-path-reveal {
   to {
     stroke-dashoffset: 0;
   }
