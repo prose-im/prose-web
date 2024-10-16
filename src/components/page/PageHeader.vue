@@ -480,7 +480,7 @@ $hover-transition-duration: 150ms;
   #{$c}__actions {
     display: flex;
     align-items: center;
-    column-gap: 16px;
+    column-gap: 17px;
   }
 
   #{$c}__menu {
