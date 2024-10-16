@@ -14,7 +14,10 @@ span(
   :key="'card_' + providerName"
   :class=`[
     "c-base-payment-icon",
-    "c-base-payment-icon--" + providerName
+    "c-base-payment-icon--" + providerName,
+    {
+      "c-base-payment-icon--animated": animated
+    }
   ]`
 )
 </template>
@@ -44,6 +47,11 @@ export default {
       validator(x) {
         return x.endsWith("px");
       }
+    },
+
+    animated: {
+      type: Boolean,
+      default: false
     }
   },
 
@@ -119,7 +127,10 @@ $providers: (
   @each $provider in $providers {
     &--#{$provider} {
       background-image: url("@/assets/images/components/base/BasePaymentIcon/#{$provider}.svg");
-      animation: 0.5s c-base-payment-icon-flip linear both;
+
+      &#{$c}--animated {
+        animation: 0.5s c-base-payment-icon-flip linear both;
+      }
     }
   }
 }
