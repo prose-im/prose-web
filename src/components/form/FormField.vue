@@ -15,6 +15,7 @@ div(
     "c-form-field--" + type,
     "c-form-field--" + size,
     "c-form-field--" + align,
+    "c-form-field--" + tint,
     {
       "c-form-field--focused": isFocused,
       "c-form-field--disabled": disabled,
@@ -91,6 +92,15 @@ export default {
 
       validator(x) {
         return ["left", "center", "right"].includes(x);
+      }
+    },
+
+    tint: {
+      type: String,
+      default: "dark",
+
+      validator(x) {
+        return ["dark", "light"].includes(x);
       }
     },
 
@@ -285,7 +295,7 @@ $c: ".c-form-field";
 // VARIABLES
 $field-padding-block: 1px;
 $field-outline-width: 2px;
-$field-border-radius: 10px;
+$field-border-radius: $form-field-border-radius;
 $field-suggest-block-origin-offset: 5px;
 
 $field-medium-padding-sides: 10px;
@@ -300,7 +310,6 @@ $field-mid-large-input-line-height: 48px;
   position: relative;
 
   #{$c}__inner {
-    background-color: $color-background-secondary;
     border: 1px solid $color-border-secondary;
     outline: 0 solid rgba($color-base-purple-mid, 0);
     color: $color-base-black-mid;
@@ -377,6 +386,20 @@ $field-mid-large-input-line-height: 48px;
   &--right {
     #{$c}__inner {
       text-align: right;
+    }
+  }
+
+  // --> ALIGNS <--
+
+  &--dark {
+    #{$c}__inner {
+      background-color: $color-background-secondary;
+    }
+  }
+
+  &--light {
+    #{$c}__inner {
+      background-color: $color-background-primary;
     }
   }
 
