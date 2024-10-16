@@ -94,6 +94,17 @@
                 tint="link"
               )
                 | Edit Card
+
+          .c-section-cloud-account-settings-form__field-navigate
+            nuxt-link(
+              to="/cloud/account/settings/"
+              class="c-section-cloud-account-settings-form__field-navigate-link"
+            )
+              | View my invoices
+
+              image-navigate-arrow(
+                class="c-section-cloud-account-settings-form__field-navigate-icon"
+              )
 </template>
 
 <!-- **********************************************************************
@@ -155,6 +166,7 @@ $c: ".c-section-cloud-account-settings-form";
       align-items: center;
 
       #{$c}__navigate-icon {
+        fill: currentcolor;
         height: 11px;
         margin-right: 7px;
         margin-bottom: -1px;
@@ -209,9 +221,14 @@ $c: ".c-section-cloud-account-settings-form";
         }
       }
 
+      #{$c}__field-card,
+      #{$c}__field-navigate {
+        padding-inline: 16px;
+      }
+
       #{$c}__field-card {
         border: 1px solid $color-border-secondary;
-        padding: 18px 16px;
+        padding-block: 18px;
         border-radius: $form-field-border-radius;
 
         #{$c}__field-card-badge {
@@ -241,6 +258,32 @@ $c: ".c-section-cloud-account-settings-form";
         #{$c}__field-card-action {
           margin-left: 14px;
           flex: 0 1 auto;
+        }
+      }
+
+      #{$c}__field-navigate {
+        text-align: right;
+        margin-top: 12px;
+
+        #{$c}__field-navigate-link {
+          color: $color-base-blue-link;
+          font-size: 13.5px;
+          letter-spacing: 0.1px;
+          line-height: 18px;
+          display: inline-flex;
+          align-items: center;
+
+          &:hover {
+            text-decoration: underline;
+          }
+
+          #{$c}__field-navigate-icon {
+            fill: currentcolor;
+            height: 8px;
+            margin-left: 5px;
+            margin-bottom: -2px;
+            transform: scaleX(-1);
+          }
         }
       }
     }
