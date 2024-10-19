@@ -43,7 +43,9 @@
           )
 
         .c-section-pricing-simulate__calculator-field
-          label.c-section-pricing-simulate__calculator-label.c-section-pricing-simulate__calculator-label--secondary
+          label.c-section-pricing-simulate__calculator-label.c-section-pricing-simulate__calculator-label--secondary(
+            for="simulate_annual"
+          )
             | I want to pay yearly ({{ yearlyDiscountPercent }}% discount)
 
           form-toggle(

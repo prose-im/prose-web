@@ -29,7 +29,9 @@
         | /user/month
 
   .c-partial-pricing-compare-foot__action
-    base-tooltip
+    base-tooltip(
+      v-if="isSelfHosted"
+    )
       template(
         v-slot:tooltip
       )
@@ -39,27 +41,24 @@
         v-slot:default
       )
         a
-          template(
-            v-if="isSelfHosted"
+          base-button(
+            tint="dark"
+            size="small"
+            reverse
+            disabled
           )
-            base-button(
-              tint="dark"
-              size="small"
-              reverse
-              disabled
-            )
-              | Self-Host Prose
+            | Self-Host Prose
 
-          template(
-            v-else
-          )
-            base-button(
-              right-icon="arrow-right"
-              tint="dark"
-              size="small"
-              disabled
-            )
-              | Try for free
+    nuxt-link(
+      v-else
+      to="/cloud/signup/"
+    )
+      base-button(
+        right-icon="arrow-right"
+        tint="dark"
+        size="small"
+      )
+        | Try for free
 </template>
 
 <!-- **********************************************************************
