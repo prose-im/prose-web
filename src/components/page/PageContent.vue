@@ -13,7 +13,8 @@ div(
   :class=`[
     "c-page-content",
     {
-      "c-page-content--showcase": showcase
+      "c-page-content--showcase": showcase,
+      "c-page-content--embedded": embedded
     }
   ]`
 )
@@ -30,6 +31,11 @@ export default {
 
   props: {
     showcase: {
+      type: Boolean,
+      default: false
+    },
+
+    embedded: {
       type: Boolean,
       default: false
     }
@@ -55,13 +61,18 @@ $c: ".c-page-content";
   &--showcase {
     padding-top: 0;
   }
+
+  &--embedded {
+    padding-top: 64px;
+    padding-bottom: 0;
+  }
 }
 
 // --> MEDIA-QUERIES <--
 
 @media (max-width: $screen-tiny-width-breakpoint) {
   #{$c} {
-    &:not(#{$c}--showcase) {
+    &:not(#{$c}--showcase):not(#{$c}--embedded) {
       padding-top: 52px;
       padding-bottom: 90px;
     }
