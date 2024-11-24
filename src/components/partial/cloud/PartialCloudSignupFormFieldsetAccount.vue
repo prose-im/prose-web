@@ -58,7 +58,7 @@
       type="email"
       align="left"
       size="mid-large"
-      placeholder="Enter your work email…  (eg. elon@tesla.com)"
+      placeholder="Enter your work email…  (eg. john@acme.com)"
       autofocus
       submittable
     )

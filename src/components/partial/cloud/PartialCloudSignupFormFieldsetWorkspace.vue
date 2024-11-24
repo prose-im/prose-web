@@ -11,6 +11,11 @@
 <template lang="pug">
 .c-partial-cloud-signup-form-fieldset-workspace
   base-notice(
+    :class="noticeClass"
+  )
+    | This section is coming soon! Please check back later.
+
+  base-notice(
     v-if="error.code"
     :class="noticeClass"
     :update-time="error.time"
@@ -43,9 +48,10 @@
       type="text"
       align="left"
       size="mid-large"
-      placeholder="Enter name for your workspace…  (eg. Tesla)"
+      placeholder="Enter name for your workspace…  (eg. Acme)"
       autofocus
       submittable
+      disabled
     )
 
   form-titled-field(
@@ -64,7 +70,7 @@
       type="url"
       align="left"
       size="mid-large"
-      placeholder="Enter your website URL…  (eg. www.tesla.com)"
+      placeholder="Enter your website URL…  (eg. www.acme.com)"
       submittable
     )
 
@@ -79,6 +85,7 @@
           v-model="form.noWebsite"
           :loading="pending"
           name="no_workspace_website"
+          disabled
         )
 
   div(
@@ -94,6 +101,7 @@
       size="enormous"
       tint="link"
       right-icon="arrow-right"
+      disabled
     )
       | Continue to Account Creation
 </template>
@@ -137,7 +145,7 @@ export default {
       form: {
         name: "",
         website: "",
-        noWebsite: false
+        noWebsite: true
       }
     };
   },
