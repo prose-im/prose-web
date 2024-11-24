@@ -20,6 +20,7 @@ div(
       "c-base-button--squared": squared,
       "c-base-button--reverse": reverse,
       "c-base-button--disabled": disabled,
+      "c-base-button--loading": loading,
       "c-base-button--flat": flat,
       ["c-base-button--" + rightIcon]: rightIcon
     }
@@ -41,8 +42,17 @@ div(
     )
       slot
 
-    .c-base-button__icon(
-      v-if="rightIconHtml"
+    base-spinner(
+      v-if="loading"
+      :color="iconSpinnerColor"
+      speed="slow"
+      size="11px"
+      border-width="1px"
+      class="c-base-button__icon c-base-button__icon--spinner"
+    )
+
+    .c-base-button__icon.c-base-button__icon--icon(
+      v-else-if="rightIconHtml"
       v-html="rightIconHtml"
     )
 </template>
@@ -56,6 +66,7 @@ div(
 import ImageIconArrowRight from "@/assets/images/components/base/BaseButton/icon-arrow-right.svg?raw";
 import ImageIconArrowDown from "@/assets/images/components/base/BaseButton/icon-arrow-down.svg?raw";
 import ImageIconChevronDown from "@/assets/images/components/base/BaseButton/icon-chevron-down.svg?raw";
+import ImageIconOpenExternal from "@/assets/images/components/base/BaseButton/icon-open-external.svg?raw";
 
 export default {
   name: "BaseButton",
@@ -66,7 +77,9 @@ export default {
       default: "dark",
 
       validator(x) {
-        return ["light", "dark", "gradient", "fancy", "none"].includes(x);
+        return ["light", "dark", "gradient", "fancy", "link", "none"].includes(
+          x
+        );
       }
     },
 
@@ -75,7 +88,14 @@ export default {
       default: "normal",
 
       validator(x) {
-        return ["simple", "small", "normal", "large", "huge"].includes(x);
+        return [
+          "simple",
+          "small",
+          "normal",
+          "large",
+          "huge",
+          "enormous"
+        ].includes(x);
       }
     },
 
@@ -104,6 +124,11 @@ export default {
       default: false
     },
 
+    loading: {
+      type: Boolean,
+      default: false
+    },
+
     flat: {
       type: Boolean,
       default: false
@@ -119,7 +144,12 @@ export default {
       default: null,
 
       validator(x) {
-        return ["arrow-right", "arrow-down", "chevron-down"].includes(x);
+        return [
+          "arrow-right",
+          "arrow-down",
+          "chevron-down",
+          "open-external"
+        ].includes(x);
       }
     }
   },
@@ -141,8 +171,28 @@ export default {
           return ImageIconChevronDown;
         }
 
+        case "open-external": {
+          return ImageIconOpenExternal;
+        }
+
         default: {
           return null;
+        }
+      }
+    },
+
+    iconSpinnerColor() {
+      const _prefix = this.reverse ? "reverse" : "normal";
+
+      switch (`${_prefix}/${this.tint}`) {
+        case "normal/none":
+        case "normal/light":
+        case "reverse/dark": {
+          return "blue";
+        }
+
+        default: {
+          return "white";
         }
       }
     }
@@ -158,8 +208,8 @@ export default {
      * @return {undefined}
      */
     onClick(event) {
-      // Re-emit click event? (if not disabled)
-      if (this.disabled !== true) {
+      // Re-emit click event? (if not disabled or loading)
+      if (this.disabled !== true && this.loading !== true) {
         this.$emit("click", event);
       }
     }
@@ -179,6 +229,7 @@ $size-small-padding-sides: 26px;
 $size-normal-padding-sides: 22px;
 $size-large-padding-sides: 28px;
 $size-huge-padding-sides: 38px;
+$size-enormous-padding-sides: 32px;
 
 #{$c} {
   user-select: none;
@@ -196,7 +247,7 @@ $size-huge-padding-sides: 38px;
     display: flex;
     align-items: center;
     cursor: pointer;
-    border-radius: 24px;
+    border-radius: 100px;
     transition: all 100ms linear;
     transition-property: transform, box-shadow, background-color;
 
@@ -209,9 +260,15 @@ $size-huge-padding-sides: 38px;
       margin-right: -2px;
       flex: 0 1 auto;
 
-      svg {
-        width: auto;
-        height: 12px;
+      &--icon {
+        svg {
+          width: auto;
+          height: 12px;
+        }
+      }
+
+      &--spinner {
+        margin-bottom: -1px;
       }
     }
   }
@@ -361,6 +418,37 @@ $size-huge-padding-sides: 38px;
     }
   }
 
+  &--link {
+    #{$c}__inner {
+      background-color: darken($color-base-blue-link, 6%);
+      border: 1px solid $color-border-primary;
+      box-shadow:
+        0 2px 3px 0 rgba($color-base-blue-link, 0.04),
+        inset 0 1px 0 0 rgba($color-white, 0.15);
+
+      #{$c}__label {
+        color: $color-white;
+      }
+
+      #{$c}__icon {
+        fill: $color-white;
+      }
+    }
+
+    &:hover {
+      #{$c}__inner {
+        background-color: darken($color-base-blue-link, 1%);
+      }
+    }
+
+    &:active {
+      #{$c}__inner {
+        background-color: darken($color-base-blue-link, 4%);
+        box-shadow: 0 1px 1px 0 rgba($color-base-blue-link, 0.1);
+      }
+    }
+  }
+
   // --> SIZES <--
 
   &--simple,
@@ -377,6 +465,14 @@ $size-huge-padding-sides: 38px;
       line-height: 18px;
       padding-top: 13px;
       padding-bottom: 15px;
+    }
+  }
+
+  &--enormous {
+    #{$c}__inner {
+      line-height: 19px;
+      padding-top: 15px;
+      padding-bottom: 17px;
     }
   }
 
@@ -426,21 +522,38 @@ $size-huge-padding-sides: 38px;
     }
   }
 
+  &--enormous {
+    #{$c}__inner {
+      font-size: 15px;
+      padding-left: $size-enormous-padding-sides;
+      padding-right: $size-enormous-padding-sides;
+
+      #{$c}__icon {
+        margin-left: 28px;
+      }
+    }
+  }
+
   // --> RIGHT ICONS <--
 
   &--arrow-right,
   &--chevron-down {
     #{$c}__inner {
       #{$c}__icon {
-        margin-bottom: -4px;
+        &--icon {
+          margin-bottom: -4px;
+        }
       }
     }
   }
 
-  &--arrow-down {
+  &--arrow-down,
+  &--open-external {
     #{$c}__inner {
       #{$c}__icon {
-        margin-bottom: -3px;
+        &--icon {
+          margin-bottom: -3px;
+        }
       }
     }
   }
@@ -533,12 +646,26 @@ $size-huge-padding-sides: 38px;
     }
   }
 
+  &--disabled,
+  &--loading {
+    #{$c}__inner {
+      pointer-events: none;
+    }
+  }
+
   &--disabled {
     cursor: not-allowed;
 
     #{$c}__inner {
-      pointer-events: none;
       opacity: 0.6;
+    }
+  }
+
+  &--loading {
+    cursor: wait;
+
+    #{$c}__inner {
+      opacity: 0.9;
     }
   }
 }

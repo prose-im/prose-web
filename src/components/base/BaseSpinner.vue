@@ -101,7 +101,7 @@ $speeds: (
     border-style: solid;
     display: inline-block;
     border-radius: 100%;
-    animation: spin 0s 0s infinite linear;
+    animation: c-base-spinner-icon-spin 0s 0s infinite linear;
     animation-fill-mode: both;
   }
 
@@ -128,7 +128,7 @@ $speeds: (
 
 // --> KEYFRAMES <--
 
-@keyframes spin {
+@keyframes c-base-spinner-icon-spin {
   from {
     transform: rotate(0deg);
   }

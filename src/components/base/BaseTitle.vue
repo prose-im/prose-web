@@ -39,7 +39,14 @@ export default {
       default: "normal",
 
       validator(x) {
-        return ["mini", "small", "medium", "normal", "large"].includes(x);
+        return [
+          "lilliput",
+          "mini",
+          "small",
+          "medium",
+          "normal",
+          "large"
+        ].includes(x);
       }
     },
 
@@ -57,7 +64,7 @@ export default {
       default: "dark",
 
       validator(x) {
-        return ["light", "dark", "gradient"].includes(x);
+        return ["light", "dark", "black", "gradient"].includes(x);
       }
     },
 
@@ -91,6 +98,12 @@ $stroke-color: $color-background-secondary;
 
 #{$c} {
   // --> LEVELS <--
+
+  &--lilliput {
+    font-size: 22px;
+    line-height: 22px;
+    letter-spacing: -0.005em;
+  }
 
   &--mini {
     font-size: 26px;
@@ -130,6 +143,10 @@ $stroke-color: $color-background-secondary;
 
   &--light {
     color: $color-white;
+  }
+
+  &--black {
+    color: $color-black;
   }
 
   &--gradient {

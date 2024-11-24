@@ -348,7 +348,7 @@ $animate-shake-base-depth: 2px;
       min-width: 400px;
 
       &--invalid {
-        animation-name: shake;
+        animation-name: c-page-entice-actions-shake;
         animation-duration: 800ms;
         animation-iteration-count: 1;
       }
@@ -504,7 +504,7 @@ $animate-shake-base-depth: 2px;
 
 // --> KEYFRAMES <--
 
-@keyframes shake {
+@keyframes c-page-entice-actions-shake {
   10%,
   90% {
     transform: translate3d((-1 * $animate-shake-base-depth), 0, 0);

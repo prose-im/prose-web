@@ -69,7 +69,7 @@ $c: ".c-section-downloads-archives";
     height: 600px;
 
     #{$c}__illustration {
-      background-image: url("@/assets/images/components/section/download/illustration-version-archive.svg");
+      background-image: url("@/assets/images/components/section/download/SectionDownloadsArchives/illustration-version-archive.svg");
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
