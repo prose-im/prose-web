@@ -126,6 +126,7 @@ div(
           )
             nuxt-link(
               v-if="item.target"
+              @click="onMobileMenuLinkClick"
               class="c-page-header__menu-link"
               :to="item.target"
             )
@@ -146,9 +147,9 @@ div(
                 ul.c-page-header__mobile-submenu
                   li(
                     v-for="dropdownItem in item.dropdown"
-                    @click="isMobileMenuOpen = false"
                   )
                     nuxt-link(
+                      @click="onMobileMenuLinkClick"
                       :to="dropdownItem.target"
                       class="c-page-header__menu-item"
                     )
@@ -161,6 +162,7 @@ div(
 
         .c-page-header__actions
           nuxt-link(
+            @click="onMobileMenuLinkClick"
             class="c-page-header__action"
             to="/cloud/signin/"
           )
@@ -172,6 +174,7 @@ div(
               | Log In
 
           nuxt-link(
+            @click="onMobileMenuLinkClick"
             class="c-page-header__action"
             to="/cloud/signup/"
           )
@@ -328,6 +331,15 @@ export default {
 
   methods: {
     // --> EVENT LISTENERS <--
+
+    /**
+     * Triggers when mobile menu link is clicked
+     * @public
+     * @return {undefined}
+     */
+    onMobileMenuLinkClick() {
+      this.isMobileMenuOpen = false;
+    },
 
     /**
      * Triggers when mobile toggle is clicked
