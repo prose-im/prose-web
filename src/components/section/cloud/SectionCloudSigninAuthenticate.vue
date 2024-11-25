@@ -316,7 +316,7 @@ $c: ".c-section-cloud-signin-authenticate";
 #{$c} {
   #{$c}__form {
     max-width: 460px;
-    margin: 100px auto 0;
+    margin: 100px auto 54px;
   }
 
   #{$c}__notice,
