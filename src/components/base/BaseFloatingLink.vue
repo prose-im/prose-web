@@ -13,7 +13,7 @@ nuxt-link(
   :to="to"
   class="c-base-floating-link"
 )
-  span.c-base-floating-link__text
+  span.c-base-floating-link__text.u-ellipsis
     slot
 
   span.c-base-floating-link__icon(
@@ -60,6 +60,7 @@ $padding-top-bottom: 8px;
   user-select: none;
   cursor: pointer;
   padding: $padding-top-bottom 18px ($padding-top-bottom + 2px);
+  overflow: hidden;
   display: flex;
   align-items: center;
   transition: all 150ms linear;

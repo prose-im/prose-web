@@ -206,7 +206,7 @@ $c: ".c-section-cloud-signup-form";
   #{$c}__aside,
   #{$c}__fieldset {
     padding-top: 70px;
-    padding-bottom: 40px;
+    padding-bottom: 60px;
   }
 
   #{$c}__inner {

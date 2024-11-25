@@ -145,4 +145,14 @@ $c: ".p-cloud-signup";
     z-index: 1;
   }
 }
+
+// --> MEDIA-QUERIES <--
+
+@media (max-width: $screen-tiny-width-breakpoint) {
+  #{$c} {
+    #{$c}__progress {
+      display: none;
+    }
+  }
+}
 </style>

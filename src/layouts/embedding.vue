@@ -42,7 +42,7 @@ $c: ".l-embedding";
 
   #{$c}__content {
     display: flex;
-    overflow: hidden;
+    overflow: auto;
 
     &,
     > * {
