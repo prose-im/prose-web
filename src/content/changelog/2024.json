@@ -1,6 +1,30 @@
 {
   "versions": [
     {
+      "version": "0.5.4",
+      "date": "2024-12-09",
+
+      "platforms": {
+        "macos": ["apple", "intel"]
+      },
+
+      "changelog": {
+        "features": [
+          [
+            "Messaging",
+            "Add ability to see preview of formatted message before sending it"
+          ]
+        ],
+
+        "fixes": [
+          ["Messaging", "Fix issues with on-screen dates not refreshing"],
+          ["Messaging", "Fix message compose issues with new lines"],
+          ["Messaging", "Fix muted alerts when availability was set to busy"]
+        ]
+      }
+    },
+
+    {
       "version": "0.5.3",
       "date": "2024-08-28",
 
