@@ -1,0 +1,50 @@
+{
+  "versions": [
+    {
+      "version": "0.6.2",
+      "date": "2025-03-10",
+
+      "platforms": {
+        "macos": ["apple", "intel"]
+      },
+
+      "changelog": {
+        "changes": [["Networking", "Improve reconnection flow"]]
+      }
+    },
+
+    {
+      "version": "0.6.1",
+      "date": "2025-02-28",
+
+      "platforms": {
+        "macos": ["apple", "intel"]
+      },
+
+      "changelog": {
+        "fixes": [["Application", "Fix application publication"]]
+      }
+    },
+
+    {
+      "version": "0.6.0",
+      "date": "2025-02-28",
+
+      "platforms": {
+        "macos": ["apple", "intel"]
+      },
+
+      "changelog": {
+        "features": [
+          ["Interface", "Add ability to resize left sidebar"],
+          ["Account", "Add ability to change account password"],
+          ["Messaging", "Add files in shared files viewer"]
+        ],
+
+        "changes": [["Networking", "Improve reconnection flow"]],
+
+        "fixes": [["Messaging", "Fix issue with backticks being replaced"]]
+      }
+    }
+  ]
+}
