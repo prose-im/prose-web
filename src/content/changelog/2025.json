@@ -1,6 +1,22 @@
 {
   "versions": [
     {
+      "version": "0.7.0",
+      "date": "2025-03-16",
+
+      "platforms": {
+        "macos": ["apple", "intel"]
+      },
+
+      "changelog": {
+        "features": [
+          ["Interface", "Add all notification account settings"],
+          ["Account", "Add location automatic detection in profile settings"]
+        ]
+      }
+    },
+
+    {
       "version": "0.6.2",
       "date": "2025-03-10",
 
