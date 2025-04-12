@@ -1,6 +1,22 @@
 {
   "versions": [
     {
+      "version": "0.8.0",
+      "date": "2025-04-12",
+
+      "platforms": {
+        "macos": ["apple", "intel"]
+      },
+
+      "changelog": {
+        "features": [
+          ["Application", "Add support for server name, logo and accent color"],
+          ["Messaging", "Fix issues with HTML encoding"]
+        ]
+      }
+    },
+
+    {
       "version": "0.7.0",
       "date": "2025-03-16",
 
