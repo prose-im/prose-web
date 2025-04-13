@@ -1,6 +1,32 @@
 {
   "versions": [
     {
+      "version": "0.8.2",
+      "date": "2025-04-13",
+
+      "platforms": {
+        "macos": ["apple", "intel"]
+      },
+
+      "changelog": {
+        "features": [["Application", "Update native application runtime"]]
+      }
+    },
+
+    {
+      "version": "0.8.1",
+      "date": "2025-04-13",
+
+      "platforms": {
+        "macos": ["apple", "intel"]
+      },
+
+      "changelog": {
+        "features": [["Application", "Update native application runtime"]]
+      }
+    },
+
+    {
       "version": "0.8.0",
       "date": "2025-04-12",
 
