@@ -1,6 +1,19 @@
 {
   "versions": [
     {
+      "version": "0.8.3",
+      "date": "2025-04-14",
+
+      "platforms": {
+        "macos": ["apple", "intel"]
+      },
+
+      "changelog": {
+        "features": [["Application", "Fix background suspension on macOS"]]
+      }
+    },
+
+    {
       "version": "0.8.2",
       "date": "2025-04-13",
 
