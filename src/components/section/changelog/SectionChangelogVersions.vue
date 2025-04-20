@@ -212,6 +212,12 @@ export default {
           break;
         }
 
+        case "windows": {
+          _extension = "msi";
+
+          break;
+        }
+
         default: {
           _extension = "zip";
         }

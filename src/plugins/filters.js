@@ -23,6 +23,10 @@ const FORMAT_DATE_OPTIONS = {
   day: "numeric"
 };
 
+const FORMAT_DOWNLOAD_URL_FILE_SUFFIXES = {
+  windows: ["en-US"]
+};
+
 /**************************************************************************
  * EXPORTS
  * ************************************************************************* */
@@ -47,12 +51,14 @@ export default defineNuxtPlugin(nuxtApp => {
 
     formatDownloadUrl: (version, platform, extension, architecture) => {
       // Generate package file name
+      // Notice: also concatenate with platform file name suffixes (if any)
       const _packageFileName = [
-        [
-          _config.public.downloads.app.package,
-          version,
-          architecture.short
-        ].join("_"),
+        []
+          .concat(
+            [_config.public.downloads.app.package, version, architecture.short],
+            FORMAT_DOWNLOAD_URL_FILE_SUFFIXES[platform] || []
+          )
+          .join("_"),
         extension
       ].join(".");
 
