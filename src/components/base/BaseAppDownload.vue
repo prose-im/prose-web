@@ -24,10 +24,10 @@ div(
       )
 
     .c-app-download__text
-      .c-app-download__comingsoon.u-semibold(
+      .c-app-download__badge.u-semibold(
         v-if="hasNoTarget && ready"
       )
-        | coming soon
+        | planned
 
       h6.c-app-download__name.u-title.u-semibold(
         v-if="platformName"
@@ -252,7 +252,7 @@ $platforms: (
     align-items: flex-start;
   }
 
-  #{$c}__comingsoon {
+  #{$c}__badge {
     display: flex;
     flex-direction: row;
     justify-content: center;
