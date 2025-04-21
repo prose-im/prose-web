@@ -1,6 +1,22 @@
 {
   "versions": [
     {
+      "version": "0.10.0",
+      "date": "2025-04-21",
+
+      "platforms": {
+        "macos": ["apple", "intel"],
+        "windows": ["intel"]
+      },
+
+      "changelog": {
+        "features": [
+          ["Application", "Add loading of server name, logo and accent color"]
+        ]
+      }
+    },
+
+    {
       "version": "0.9.1",
       "date": "2025-04-20",
 
