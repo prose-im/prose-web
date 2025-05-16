@@ -64,10 +64,11 @@
 <script>
 // PROJECT: IMAGES
 import ValerianAvatar from "@/assets/images/components/section/about/SectionAboutTeam/avatar-valerian.jpg";
-import SaifAvatar from "@/assets/images/components/section/about/SectionAboutTeam/avatar-saif.webp";
-import GuillaumeAvatar from "@/assets/images/components/section/about/SectionAboutTeam/avatar-guillaume.webp";
 import MarcAvatar from "@/assets/images/components/section/about/SectionAboutTeam/avatar-marc.webp";
 import RemiAvatar from "@/assets/images/components/section/about/SectionAboutTeam/avatar-remi.webp";
+import PalomaAvatar from "@/assets/images/components/section/about/SectionAboutTeam/avatar-paloma.webp";
+import SaifAvatar from "@/assets/images/components/section/about/SectionAboutTeam/avatar-saif.webp";
+import GuillaumeAvatar from "@/assets/images/components/section/about/SectionAboutTeam/avatar-guillaume.webp";
 
 // CONSTANTS
 const SOCIAL_BASE_URLS = {
@@ -144,6 +145,49 @@ export default {
         },
 
         {
+          imageUrl: RemiAvatar,
+          name: "Rémi Bardon",
+          position: "Pod Server Developer",
+
+          socials: [
+            {
+              platform: "x",
+              handle: "remibardon"
+            },
+
+            {
+              platform: "github",
+              handle: "RemiBardon"
+            },
+
+            {
+              platform: "xmpp",
+              handle: "remi",
+              instance: "prose.org"
+            }
+          ]
+        },
+
+        {
+          imageUrl: PalomaAvatar,
+          name: "Paloma Sanchez",
+          position: "Pod Dashboard Developer",
+
+          socials: [
+            {
+              platform: "github",
+              handle: "Paloma-Sanchez"
+            },
+
+            {
+              platform: "xmpp",
+              handle: "paloma",
+              instance: "prose.org"
+            }
+          ]
+        },
+
+        {
           imageUrl: GuillaumeAvatar,
           name: "Guillaume Robert",
           position: "Website Developer",
@@ -186,30 +230,6 @@ export default {
             {
               platform: "xmpp",
               handle: "saif",
-              instance: "prose.org"
-            }
-          ]
-        },
-
-        {
-          imageUrl: RemiAvatar,
-          name: "Rémi Bardon",
-          position: "Pod Server Developer",
-
-          socials: [
-            {
-              platform: "x",
-              handle: "remibardon"
-            },
-
-            {
-              platform: "github",
-              handle: "RemiBardon"
-            },
-
-            {
-              platform: "xmpp",
-              handle: "remi",
               instance: "prose.org"
             }
           ]
