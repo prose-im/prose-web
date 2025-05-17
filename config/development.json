@@ -4,6 +4,7 @@
   },
 
   "features": {
-    "chatbox": false
+    "chatbox": false,
+    "analytics": false
   }
 }
